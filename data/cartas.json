@@ -1,0 +1,20 @@
+[
+  {
+    "id": "moneda_de_cobre",
+    "nombre": "Moneda de Cobre",
+    "coste_compra": 2,
+    "generacion_recurso": 1,
+    "poder_ataque": 0,
+    "efecto": "Genera 1 de recurso por turno.",
+    "ruta_imagen": "res://assets/cartas/moneda_de_cobre.png"
+  },
+  {
+    "id": "kelsier",
+    "nombre": "Kelsier",
+    "coste_compra": 5,
+    "generacion_recurso": 0,
+    "poder_ataque": 3,
+    "efecto": "Al jugar esta carta, destruye una carta objetivo del oponente.",
+    "ruta_imagen": "res://assets/cartas/kelsier.png"
+  }
+]
