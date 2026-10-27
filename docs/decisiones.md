@@ -117,6 +117,15 @@ Usar IDs estables. Para cada decisión indicar fecha, estado, contexto, elecció
 - Propuesta: azul noche/grafito, marfil/plata y acentos de metales; serif para títulos y sans para interfaz, zonas separadas y carta ampliada con foco modal. [Dirección visual](diseno-visual.md) conserva valores y límites.
 - Consecuencias: escena autónoma de muestra, sin motor/red/catálogo oficial; ilustraciones provisionales generadas mediante herramienta integrada, atlas/prompt dentro del repositorio. 1280×800 como referencia; 1024×640 con desplazamiento y 1920×1080 adaptado. Cierra P05 en alcance de maqueta, sin fijar requisitos finales de hardware ni acreditar traducción/contenido o arte definitivo.
 
+## DEC-016 — Contrato inicial y flujo de incorporación de cartas
+
+- Fecha: 2026-10-27.
+- Estado: implementada y verificada en alcance P06, por encargo de continuar con la fase siguiente.
+- Decisión: sobre JSON v1 con fuentes, revisión y definiciones; texto separado de gramática. Rechazo atómico para errores, avisos/sustituto para arte pendiente, copias profundas y selección verificada separada. Los dos ejemplos conservan identidad/texto/números como muestras y cambian rutas inexistentes por null.
+- Gramática inicial extensible; op pendiente bloquea verificación. No se ejecutan efectos ni se acredita equivalencia de texto/foto con la validación de estructura. Cantidad desconocida puede ser null en trabajo; no se supone una copia.
+- El usuario tiene Android: se documentan Google Drive para lotes y Lens para texto puntual, contrastados con ayuda oficial. El proyecto recibe fotos/PDF y realiza transcripción/revisión asistida; no exige copiar a mano todas las cartas ni integra OCR en esta fase.
+- Consecuencias: P06 cerrada como contrato inicial, catálogo oficial y DUD-002/003 pendientes. P07 debe separar instancias de definiciones. Ver [contrato](contrato-catalogo-v1.md) y [captura](captura-de-cartas.md).
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.

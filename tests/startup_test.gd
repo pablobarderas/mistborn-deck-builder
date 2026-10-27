@@ -40,15 +40,20 @@ func _run() -> void:
 
 	var fixture_dir: String = "res://tmp/test-fixtures"
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(fixture_dir))
+	var original: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/cartas.json"))
 	var cases: Array[Dictionary] = [
 		{"name": "invalid_json", "text": "[{"},
-		{"name": "wrong_root", "text": "{}"},
-		{"name": "not_object", "text": "[42]"},
-		{"name": "missing_id", "text": "[{}]"},
-		{"name": "invalid_id", "text": "[{\"id\": 3}]"},
-		{"name": "empty_id", "text": "[{\"id\": \"  \"}]"},
-		{"name": "duplicate_id", "text": "[{\"id\":\"x\"},{\"id\":\"x\"}]"}
+		{"name": "wrong_root", "text": "[]"}
 	]
+	for case_name: String in ["not_object", "missing_id", "invalid_id", "empty_id", "duplicate_id"]:
+		var document: Dictionary = original.duplicate(true)
+		match case_name:
+			"not_object": document["cartas"][0] = 42
+			"missing_id": document["cartas"][0].erase("id")
+			"invalid_id": document["cartas"][0]["id"] = 3
+			"empty_id": document["cartas"][0]["id"] = "  "
+			"duplicate_id": document["cartas"][1]["id"] = document["cartas"][0]["id"]
+		cases.append({"name": case_name, "text": JSON.stringify(document)})
 	var failed_signals: Array[String] = []
 	database.catalog_failed.connect(func(message: String) -> void: failed_signals.append(message))
 	for test_case: Dictionary in cases:

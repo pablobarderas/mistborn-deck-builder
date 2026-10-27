@@ -49,8 +49,8 @@ Estos son candidatos a issues, no especificaciones listas para implementar. La a
 | T04.2 | P04 | Probar la vía de acceso desde dos redes distintas; comparar anfitrión y servicio si hace falta, con requisitos y costes. | T04.1 | Parcial; guía/comparación listas, falta segundo equipo y evidencia externa | Sin publicar |
 | T05.1 | P05 | Preparar una pantalla representativa con tablero, mano, carta ampliada y recursos de muestra. | P02, P03 | Completada técnicamente; SPEC-005, 39 comprobaciones | Sin publicar |
 | T05.2 | P05 | Definir tipografías, colores, estados de interacción y resoluciones objetivo; revisar con el usuario. | T05.1 | Completada como dirección visual inicial; usuario confirma presentación de cartas | Sin publicar |
-| T06.1 | P06 | Definir campos y efectos estructurados a partir del reglamento, separando definiciones e instancias. | P01, P03 | Por refinar | Sin publicar |
-| T06.2 | P06 | Validar tipos, IDs, referencias y recursos ausentes; decidir carga ante errores y migrar ejemplos. | T06.1 | Por refinar | Sin publicar |
+| T06.1 | P06 | Definir campos y efectos estructurados a partir del reglamento, separando definiciones e instancias. | P01, P03 | Completada en contrato inicial; SPEC-006 | Sin publicar |
+| T06.2 | P06 | Validar tipos, IDs, referencias y recursos ausentes; decidir carga ante errores y migrar ejemplos. | T06.1 | Completada; 220 comprobaciones, migración y avisos | Sin publicar |
 | T07.1 | P07 | Modelar jugadores, zonas, instancias, recursos, aleatoriedad y acciones identificables. | P02, P04, P06 | Por refinar | Sin publicar |
 | T07.2 | P07 | Definir validación y cambios atómicos, versión de estado y proyección visible para cada jugador. | T07.1 | Por refinar | Sin publicar |
 | T08.1 | P08 | Implementar preparación, reparto, orden de jugadores y fases del turno según REG. | P01, P07 | Por refinar | Sin publicar |

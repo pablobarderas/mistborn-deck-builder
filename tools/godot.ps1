@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board')]
+    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog')]
     [string]$Action = 'run',
     [string]$GodotPath = $env:GODOT_BIN
 )
@@ -54,6 +54,9 @@ function Invoke-ProjectGodot {
     if ($engineCode -ne 0) {
         throw "Godot fallo en '$LogName' con codigo $engineCode."
     }
+    if (($engineOutput | Out-String) -match '(?m)^SCRIPT ERROR:') {
+        throw "Godot contiene errores de script en '$LogName', aunque su proceso haya devuelto codigo 0."
+    }
     if ($LogName -eq 'import' -and (($engineOutput | Out-String) -match '(?m)^(SCRIPT ERROR|ERROR):')) {
         throw 'La importacion contiene errores. Revisa tmp/godot/import.log.'
     }
@@ -72,9 +75,12 @@ function Invoke-ProjectGodot {
     if ($LogName -eq 'preview-board' -and ($engineOutput | Out-String) -notmatch 'P05_BOARD_OK') {
         throw 'No se completo la verificacion y captura del tablero.'
     }
+    if ($LogName -eq 'test-catalog' -and ($engineOutput | Out-String) -notmatch 'P06_CATALOG_OK') {
+        throw 'No se completo la verificacion del contrato de catalogo.'
+    }
 }
 
-if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board')) {
+if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog')) {
     Invoke-ProjectGodot -EngineArguments @('--headless', '--editor', '--import') -LogName 'import'
 }
 switch ($Action) {
@@ -87,4 +93,5 @@ switch ($Action) {
     'preview-network' { Invoke-ProjectGodot -EngineArguments @('--audio-driver', 'Dummy', '--script', 'res://tests/capture_connection.gd') -LogName 'preview-network' }
     'board' { Invoke-ProjectGodot -EngineArguments @('res://scenes/BoardPreview.tscn') -LogName 'board' }
     'preview-board' { Invoke-ProjectGodot -EngineArguments @('--audio-driver', 'Dummy', '--script', 'res://tests/board_preview_test.gd') -LogName 'preview-board' }
+    'test-catalog' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/catalog_test.gd') -LogName 'test-catalog' }
 }

@@ -1,20 +1,48 @@
-[
-  {
-    "id": "moneda_de_cobre",
-    "nombre": "Moneda de Cobre",
-    "coste_compra": 2,
-    "generacion_recurso": 1,
-    "poder_ataque": 0,
-    "efecto": "Genera 1 de recurso por turno.",
-    "ruta_imagen": "res://assets/cartas/moneda_de_cobre.png"
-  },
-  {
-    "id": "kelsier",
-    "nombre": "Kelsier",
-    "coste_compra": 5,
-    "generacion_recurso": 0,
-    "poder_ataque": 3,
-    "efecto": "Al jugar esta carta, destruye una carta objetivo del oponente.",
-    "ruta_imagen": "res://assets/cartas/kelsier.png"
-  }
-]
+{
+  "version_esquema": 1,
+  "id_catalogo": "mistborn_muestras_es",
+  "idioma": "es",
+  "fuentes": [
+    {"id": "DEMO-001", "tipo": "muestra", "descripcion": "Ejemplos heredados del proyecto; contenido sin validar con el juego físico.", "ruta": "res://data/README.md", "url": null}
+  ],
+  "cartas": [
+    {
+      "id": "moneda_de_cobre",
+      "nombre": "Moneda de Cobre",
+      "tipo": "muestra",
+      "cantidad": 1,
+      "coste_compra": 2,
+      "texto_original": "Genera 1 de recurso por turno.",
+      "resumen": {"recurso": 1, "ataque": 0},
+      "metales": [],
+      "ruta_imagen": null,
+      "fuentes": [{"id": "DEMO-001", "localizador": "Ejemplo original moneda_de_cobre"}],
+      "revision": {"estado": "muestra", "idioma_verificado": false, "dudas": ["Texto y valores originales de prueba, sin equivalencia oficial confirmada."]},
+      "vinculos": [],
+      "rasgos": {},
+      "habilidades": [
+        {"id": "principal", "momento": "pendiente", "condicion": {"op": "siempre"}, "limite_por_turno": null,
+         "efectos": [{"op": "pendiente", "nota": "El texto heredado no basta para fijar momento ni efecto oficial."}]}
+      ]
+    },
+    {
+      "id": "kelsier",
+      "nombre": "Kelsier",
+      "tipo": "muestra",
+      "cantidad": 1,
+      "coste_compra": 5,
+      "texto_original": "Al jugar esta carta, destruye una carta objetivo del oponente.",
+      "resumen": {"recurso": 0, "ataque": 3},
+      "metales": [],
+      "ruta_imagen": null,
+      "fuentes": [{"id": "DEMO-001", "localizador": "Ejemplo original kelsier"}],
+      "revision": {"estado": "muestra", "idioma_verificado": false, "dudas": ["Nombre compartido con el universo; no acredita que esta muestra represente una carta oficial."]},
+      "vinculos": [],
+      "rasgos": {},
+      "habilidades": [
+        {"id": "principal", "momento": "pendiente", "condicion": {"op": "siempre"}, "limite_por_turno": null,
+         "efectos": [{"op": "pendiente", "nota": "No automatizar la eliminación ni inferir una carta oficial a partir de este ejemplo."}]}
+      ]
+    }
+  ]
+}

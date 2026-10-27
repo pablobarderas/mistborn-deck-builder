@@ -1,6 +1,18 @@
 # Datos de cartas
 
-Fuente actual: [`data/cartas.json`](../data/cartas.json). Consumidor: [`scripts/Database.gd`](../scripts/Database.gd).
+## Estado actual tras P06
+
+Formato canónico: [contrato v1](contrato-catalogo-v1.md). data/cartas.json ya es un objeto versionado con fuentes, definiciones, revisión, rasgos y efectos estructurados; los dos ejemplos conservan IDs/texto/números pero están identificados como muestras, sin equivalencia oficial.
+
+Validador en scripts/catalog/catalog_validator.gd; Database expone copias profundas y separa definiciones verificadas. Los errores estructurales rechazan toda la carga; las imágenes pendientes generan avisos y sustitutos. La UI distingue muestra/borrador/verificada y ofrece resumen de avisos.
+
+Comando: powershell -NoProfile -ExecutionPolicy Bypass -File tools/godot.ps1 -Action test-catalog. No ejecuta efectos ni valida fidelidad por sí solo. Fotos y extracción por lotes: [guía Android](captura-de-cartas.md). Estado y evidencia en [SPEC-006](specs/006-contrato-catalogo/verification.md).
+
+## Registro histórico anterior a P06
+
+El inventario siguiente describe el contrato legado observado en P03, sustituido por el contrato v1 enlazado arriba. Sus referencias a trabajo pendiente conservan contexto histórico y no son las instrucciones actuales.
+
+Fuente analizada entonces: data/cartas.json antes de la migración. Consumidor: scripts/Database.gd.
 
 ## Formato observado
 

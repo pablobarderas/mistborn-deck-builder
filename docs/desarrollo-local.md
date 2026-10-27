@@ -57,3 +57,7 @@ Pasos para dos ventanas y futura prueba entre redes: [guía de conexión](prueba
 ## Maqueta del tablero de P05
 
 **Ver tablero** desde el inicio o `-Action board` en el lanzador. `-Action preview-board` ejecuta la verificación visual con Godot, guarda seis capturas y debe terminar con `P05_BOARD_OK`. Requiere sesión gráfica; no usa red. [Diseño, controles y resoluciones](diseno-visual.md).
+
+## Contrato del catálogo de P06
+
+`-Action test-catalog` ejecuta 220 comprobaciones de estructura, referencias, revisión, recursos y recuperación, con marca P06_CATALOG_OK. Dos fallos de carga se anuncian como esperados; un SCRIPT ERROR siempre hace fallar el lanzador, aunque Godot devuelva código cero. Logs en tmp/godot/test-catalog.log. [Contrato](contrato-catalogo-v1.md) y [captura por lotes](captura-de-cartas.md).

@@ -55,6 +55,8 @@ P04 añade `-Action network` (ensayo visible), `-Action test-network` (procesos 
 
 P05 añade `-Action board` (maqueta) y `-Action preview-board` (interacción/capturas reales). Su contenido es de muestra y no valida reglas; paleta, estados, arte provisional y aceptación en `docs/diseno-visual.md` y SPEC-005.
 
+P06: contrato v1 en `docs/contrato-catalogo-v1.md`; `-Action test-catalog` valida estructura/revisión sin ejecutar efectos. El array legado se ha migrado explícitamente; muestras y borradores no son cartas verificadas. El usuario tiene Android y puede aportar lotes según `docs/captura-de-cartas.md`.
+
 El trabajo se organiza con SDD ligero: especificar comportamiento y aceptación, planificar, dividir en tareas, implementar y verificar. Las tareas pequeñas pueden usar solo una issue; las entregas complejas usan `spec.md`, `plan.md`, `tasks.md` y `verification.md`. No hay Spec Kit instalado. Los IDs locales Txx.n no son números de GitHub. Consultar `docs/gestion/desarrollo.md` y `docs/calidad.md`.
 
 - Ejecutar comprobaciones proporcionales al cambio y describir el resultado real.

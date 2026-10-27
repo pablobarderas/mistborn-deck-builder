@@ -28,8 +28,14 @@ func _render_catalog() -> void:
 		status_label.add_theme_color_override("font_color", ERROR_COLOR)
 		error_label.text = Database.last_error
 		return
-	card_count.text = "%d cartas de prueba" % Database.cartas.size()
-	status_label.text = "Catálogo comprobado · %d cartas cargadas." % Database.cartas.size()
+	var sample_count: int = int(Database.counts.get("muestra", 0))
+	card_count.text = "%d cartas de prueba" % sample_count if sample_count == Database.cartas.size() else "%d definiciones" % Database.cartas.size()
+	status_label.text = "Catálogo comprobado · %d muestras · %d borradores · %d verificadas." % [
+		Database.counts.get("muestra", 0), Database.counts.get("borrador", 0), Database.counts.get("verificada", 0)
+	]
+	if not Database.catalog_warnings.is_empty():
+		status_label.text += "\n%d avisos de contenido o ilustración pendiente." % Database.catalog_warnings.size()
+	status_label.tooltip_text = "\n".join(Database.catalog_warnings)
 	status_label.add_theme_color_override("font_color", SUCCESS_COLOR)
 	for card: Dictionary in Database.cartas.values():
 		var preview: CardView = CARD_SCENE.instantiate() as CardView

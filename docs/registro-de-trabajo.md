@@ -1,5 +1,19 @@
 # Registro de trabajo
 
+## 2026-10-27 — Publicación de P06
+
+- El usuario autoriza commit y push de los cambios. Se reúnen contrato/cargador, migración de muestras, pruebas, captura Android y documentación de continuidad.
+- Se conservan las verificaciones de la implementación final: 220 comprobaciones de contrato, 58 de arranque y 39 de maqueta. En esta tarea solo cambia documentación de publicación; no se modifica la lógica ni hace falta repetir pruebas.
+- El commit de esta entrada identifica la entrega en main. Comprobar revisión remota y árbol limpio tras el push. P04 externa y catálogo oficial siguen pendientes; próximo trabajo P07. Sin issues ni PR nuevas.
+
+## 2026-10-27 — P06: contrato del catálogo y captura Android
+
+- El usuario pide la fase siguiente antes de recopilar cartas y consulta cómo ahorrar transcripción en móvil; confirma Android. Ayuda oficial contrastada: Drive para escaneos por lotes, Lens para texto puntual. Guía incorporada sin instalar/integrar OCR.
+- SPEC-006 y sobre JSON v1 con fuentes/revisión, definición separada de instancia futura, efectos/condiciones/recorridos y operación pendiente. Dos ejemplos migrados explícitamente: IDs, texto/números conservados como muestras; rutas ficticias sustituidas por null. Cero cartas oficiales verificadas.
+- Validador separado, rechazo atómico, referencias, tipos/números/enums, rutas, avisos de arte, estados/revisión y selección verificada. API devuelve copias profundas; presentación actualizada. No se ejecuta texto ni se implementan efectos.
+- Verificación final: 220 comprobaciones de contrato, 58 de arranque y 39 de maqueta, código 0; captura del inicio con conteos/avisos revisada. Casos de tipos inesperados revelaron errores de comparación corregidos; el lanzador ahora rechaza SCRIPT ERROR aunque el proceso devuelva 0. Dos errores de carga del test de catálogo y ocho de arranque son negativos esperados.
+- T06.1/2 y P06 completadas en alcance inicial. DUD-002/003 y catálogo real siguen pendientes; P07 se puede especificar/localmente preparar sin dar por cumplida la dependencia externa P04. Datos y arte de P05 siguen separados. Sin nuevo commit/push ni issues.
+
 ## 2026-10-27 — Aceptación visual y publicación de P04/P05
 
 - El usuario pide «haz commit y push, se ven bien las cartas si». Se registra aceptación de la dirección visual inicial, especialmente presentación de cartas; T05.2 y P05 cerradas en alcance de maqueta. Arte/catálogo/reglas finales siguen pendientes.

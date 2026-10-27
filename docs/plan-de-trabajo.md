@@ -1,6 +1,6 @@
 # Plan de trabajo por fases
 
-Última revisión: 2026-10-27. P00, el inventario inicial de P01, P03 y la maqueta de P05 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba; las reglas y partidas siguen sin implementar.
+Última revisión: 2026-10-27. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba; las reglas y partidas siguen sin implementar.
 
 ## Objetivo y situación
 
@@ -31,7 +31,7 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 | P03 | Proyecto Godot ejecutable | P02 | Completada y verificada |
 | P04 | Prueba temprana de conexión | P03 | Prototipo local verificado; prueba externa pendiente |
 | P05 | Dirección visual y maqueta | P02, P03 | Completada como maqueta y dirección visual inicial |
-| P06 | Contrato del catálogo y carga | P01, P03 | Pendiente |
+| P06 | Contrato del catálogo y carga | P01, P03 | Completada: contrato inicial, migración y validación |
 | P07 | Estado y acciones de partida | P02, P04, P06 | Pendiente |
 | P08 | Preparación y turnos | P01, P07 | Pendiente |
 | P09 | Efectos y elecciones | P08 | Pendiente |
@@ -144,6 +144,8 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 - Validar tipos, IDs, referencias y recursos ausentes; decidir carga ante errores y migrar ejemplos.
 
 **Cierre:** Los casos válidos e inválidos tienen resultados comprobados; el catálogo indica procedencia y los ejemplos no se confunden con cartas oficiales.
+
+**Cierre 2026-10-27:** [SPEC-006](specs/006-contrato-catalogo/spec.md), contrato v1 y flujo Android por lotes. 220 comprobaciones de contrato, 58 de arranque y 39 de maqueta. Dos muestras, cero cartas oficiales verificadas. La gramática inicial admite pendientes y se ampliará con contenido real; no se ha implementado el motor.
 
 ### P07 — Estado y acciones de partida
 
@@ -290,7 +292,7 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 ## Punto de reanudación
 
 1. T01.1 y el inventario inicial T01.2 están documentados a partir del PDF recibido. Consultar [fuentes](referencias/README.md), [matriz](referencias/matriz-reglas.md) y [dudas](referencias/dudas.md).
-2. P03 y la maqueta de P05 están completadas. Próximo trabajo independiente: P06, contrato del catálogo. P04 mantiene T04.2 pendiente de segundo equipo y evidencia externa. Mantener T02.1 parcial por catálogo y detalles de fases posteriores.
+2. P03, maqueta P05 y contrato inicial P06 completados. Próximo trabajo: especificar P07 y preparar partes locales independientes; su cierre conserva dependencia de P04. T04.2 sigue pendiente de segundo equipo y evidencia externa. Mantener T02.1 parcial por catálogo y detalles de fases posteriores.
 3. Completar [SPEC-001](specs/001-alcance-y-reglamento/spec.md) y refinar [SPEC-002](specs/002-modos-y-cooperativo/spec.md) antes de la implementación dependiente.
 
 Seguir el [flujo SDD e issues](gestion/desarrollo.md) y los [criterios de calidad](calidad.md). La entrega inicial versiona estas bases por encargo del usuario; las tareas aún no se han publicado como issues.

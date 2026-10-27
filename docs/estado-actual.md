@@ -4,24 +4,24 @@
 
 ## Resumen
 
-**P05 completada en su alcance de maqueta, verificada técnicamente y aceptada como dirección visual inicial por el usuario.** P03 completada y T04.1 verificada localmente; P04 sigue abierta por la prueba entre redes. Existe tablero interactivo de muestra, sin partida jugable ni reglas ejecutables.
+**P06 completada en su alcance de contrato inicial y validación.** P05 aceptada como maqueta visual; P03 y T04.1 completadas en su alcance. P04 sigue abierta por la prueba entre redes. Existe tablero interactivo de muestra, sin partida jugable ni reglas ejecutables.
 
 ## Implementado y verificado
 
 | Elemento | Estado |
 | --- | --- |
 | project.godot / .godot-version | Godot 4.7.2 estable estándar, Compatibility, referencia visual 1280×800. |
-| scripts/Database.gd | Autoload; carga al iniciar, recarga, señales, estado y diagnóstico. Rechaza raíz/entradas/IDs inválidos y no conserva un catálogo obsoleto. |
+| scripts/Database.gd / scripts/catalog/ | Autoload y validador v1; rechazo atómico, revisión/fuentes/efectos/referencias, avisos, conteos y copias profundas. Cero definiciones verificadas actuales. |
 | scenes/MainScreen.tscn | Pantalla inicial en español; muestra catálogo, recarga y salida funcionales. |
 | scenes/CardPreview.tscn | Nombre, cifras y descripción de cada ejemplo; sustituto de ilustración. |
 | scenes/ConnectionScreen.tscn / scripts/network/connection_probe.gd | Ensayo ENet/UDP, anfitrión como autoridad, clave temporal, lista y contador. Se abre desde Probar conexión. |
 | scenes/BoardPreview.tscn / scripts/board/ | Maqueta de mercado, participantes, misiones, mano, metales y recursos. Cartas ampliables y colocación visual reversible. Se abre desde Ver tablero. |
 | assets/images/board/ | Atlas de cuatro ilustraciones provisionales generadas; procedencia y prompt conservados. |
 | scenes/theme.tres / assets/images/ | Tema y fondo vectorial propios provisionales. |
-| data/cartas.json | Dos ejemplos originales sin cambios de contenido; no son un catálogo oficial validado. |
+| data/cartas.json | Sobre v1 con dos muestras migradas explícitamente; conserva IDs/texto/números y elimina rutas ficticias. No es catálogo oficial. |
 | tools/godot.ps1 | Importar, ejecutar, editor, pruebas y capturas; acciones network, test-network y preview-network para el ensayo. |
 | tests/ | Carga/recuperación, red con procesos independientes y capturas gráficas. |
-| docs/specs/ | SPEC-001/002 parciales; SPEC-003 completada; SPEC-004 local verificada, externa pendiente; SPEC-005 completada como maqueta inicial. |
+| docs/specs/ | SPEC-001/002 parciales; SPEC-003/005/006 completadas en su alcance; SPEC-004 local verificada, externa pendiente. |
 | .github/ | Plantillas de issues y PR de la entrega inicial publicada. |
 
 Motor portátil en .tools/godot/, ignorado por Git. Datos y cachés generados en .godot/ y tmp/ también ignorados. Los UID de scripts y ajustes de importación de recursos son metadatos de fuente.
@@ -56,11 +56,19 @@ Instrucciones para dos ventanas en [prueba de conexión](prueba-de-conexion.md);
 
 Abrir con Ver tablero o `-Action board`; reproducir comprobaciones con `-Action preview-board`. Evidencia en [SPEC-005](specs/005-maqueta-tablero/verification.md).
 
+## Contrato y validación P06
+
+- Contrato v1 en [datos de cartas](datos-de-cartas.md) y [detalle normativo](contrato-catalogo-v1.md). Definiciones, procedencia y estados muestra/borrador/verificada; cantidades desconocidas como null, texto separado de gramática y operación pendiente para lo no modelado.
+- Errores estructurales rechazan toda la carga. Imágenes nulas/ausentes generan avisos y sustituto. Las fuentes físicas necesitan archivo; referencias resueltas. Definiciones verificadas exigen revisión declarada sin dudas ni dependencias sin verificar. El validador no certifica el contenido de una imagen ni ejecuta efectos.
+- 220 comprobaciones de contrato, 58 de arranque y 39 de maqueta, código 0. Inicio con conteos/avisos revisado en captura real. El lanzador rechaza SCRIPT ERROR incluso con código 0.
+- El usuario confirma Android; [captura por lotes](captura-de-cartas.md) explica Drive para escanear y Lens para texto puntual. No hay OCR integrado ni fotos de cartas recibidas todavía.
+- T06.1/2 completadas. Continúan abiertas DUD-002/003 y la incorporación de contenido oficial; no convertir las muestras actuales en cartas verificadas.
+
 ## Pendiente de implementación
 
 Motor de reglas y estado de partida, todos los modos, catálogo completo, interfaz jugable, salas privadas del producto, sincronización de partidas, recuperación de plaza y distribución. La red actual solo transporta el ensayo de contador.
 
-La validación de datos es mínima: campos de efectos, tipos restantes, restricciones numéricas y referencias necesitan P06. Las rutas de imágenes originales apuntan a assets/cartas/, no a la convención assets/images/; la vista actual usa sustitutos y no modifica esas rutas.
+La gramática de P06 es inicial y extensible: no cubre por sí sola todos los efectos reales todavía no recibidos. Nuevas familias requieren fuente, especificación y pruebas. Las rutas visuales del contrato se restringen a assets/images/; los dos ejemplos usan null y sustituto.
 
 ## Producto y fuentes
 
@@ -74,4 +82,4 @@ SRC-003 identifica la publicación española de Devir. El usuario aporta «Edici
 
 La raíz Git es la carpeta que contiene project.godot y AGENTS.md; en el equipo original es mistborn-deck-builder/, dentro de la carpeta contenedora. La entrega documental inicial fue f2a5744. Esta entrega reúne las revisiones posteriores, P03 y el PDF para su publicación en main a petición del usuario. No se han creado issues. Consulta [continuar en otro PC](continuar-en-otro-pc.md); el historial de Git identifica el commit de esta entrega.
 
-P04: T04.1 completada; T04.2 pendiente de segundo equipo y prueba entre redes. P05 cerrada como dirección visual inicial. **Siguiente fase independiente: P06, contrato del catálogo**. SPEC-001 mantiene detalles de contenido y producto pendientes sin bloquear tareas independientes. Consultar [plan](plan-de-trabajo.md) y [backlog](gestion/backlog.md). La entrega de P04/P05 se reúne en un commit para main por petición del usuario; el historial de Git identifica la revisión publicada. No se han creado issues.
+P04: T04.1 completada; T04.2 pendiente de segundo equipo y prueba entre redes. P05/P06 cerradas en su alcance. **Próximo trabajo: especificar P07, estado/acciones de partida**, pudiendo preparar lo local; no dar por cumplida su dependencia P04 para el cierre mientras falte evidencia externa. Los lotes de cartas pueden incorporarse en paralelo cuando estén disponibles. P04/P05 están publicadas en e5cd684; la entrega de P06 se publica en main por petición del usuario el 2026-10-27. Su revisión se identifica en el historial de Git. No se han creado issues.

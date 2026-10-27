@@ -8,6 +8,10 @@ Flujo implementado en P03:
 
 Godot 4.7.2, Compatibility. Database carga antes de la escena. MainScreen conecta señales y consulta el estado inicial; el botón de recarga usa el mismo cargador. Una carga fallida retira las vistas anteriores y muestra el diagnóstico. No se ejecutan efectos ni reglas.
 
+P06 amplía el flujo: sobre v1 en cartas.json → catalog_validator.gd → definiciones, conteos/avisos y selección verificada → Database mediante copias profundas → vista inicial con texto_original/resumen y etiqueta de revisión. Definiciones e instancias se separan; el JSON no almacena propietario, zona o decisiones de partida. Contrato en [datos de cartas](datos-de-cartas.md).
+
+Errores de forma/referencias/revisión rechazan todo; imagen pendiente permite sustituto con aviso. Una carta verificada no puede depender de un borrador. El motor futuro consumirá get_verified_definitions(), aplicando además sus propias reglas/pruebas: el estado verificada es declaración de revisión de contenido, no implementación de efectos. El catálogo actual devuelve cero definiciones verificadas.
+
 ## Organización prevista
 
 Las carpetas `data/`, `scripts/`, `scenes/` y `assets/images/` ya tienen contenido. `tests/` contiene comprobaciones de arranque, conexión y capturas; `tools/` contiene el lanzador PowerShell. `.tools/` guarda solo el motor local ignorado. El experimento de red vive en `scripts/network/`; las clases del motor de reglas se crearán cuando se implemente.

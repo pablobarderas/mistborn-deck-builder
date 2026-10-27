@@ -8,7 +8,9 @@ Alcance: competitivo de 2–4, cooperativo de 2–4 y cooperativo en solitario. 
 
 P03 completada: proyecto Godot ejecutable, pantalla inicial con dos cartas de prueba, recarga del catálogo y manejo de errores. P04 añade un ensayo de conexión con anfitrión, hasta cuatro participantes y contador compartido, verificado entre procesos en este PC; falta prueba entre redes. Todavía no hay partida jugable. El contenido de ejemplo no es un catálogo oficial.
 
-P05 incorpora una maqueta interactiva aceptada como base visual: **Ver tablero** desde el inicio, o `-Action board` en el lanzador. Cartas ampliables, mercado, mano, misiones y estados de muestra. [Diseño y controles](docs/diseno-visual.md). Siguiente fase independiente: P06, contrato del catálogo.
+P05 incorpora una maqueta interactiva aceptada como base visual: **Ver tablero** desde el inicio, o `-Action board` en el lanzador. Cartas ampliables, mercado, mano, misiones y estados de muestra. [Diseño y controles](docs/diseno-visual.md).
+
+P06 incorpora [contrato v1 y validación](docs/datos-de-cartas.md); dos muestras migradas y cero cartas oficiales verificadas. `-Action test-catalog` comprueba el contrato. [Capturar cartas por lotes desde Android](docs/captura-de-cartas.md). Próximo trabajo: especificar P07, estado y acciones de partida.
 
 ## Probar en este equipo
 
