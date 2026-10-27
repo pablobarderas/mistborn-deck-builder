@@ -7,3 +7,6 @@ export_presets.cfg
 # OS generated files
 .DS_Store
 Thumbs.db
+
+# Archivos intermedios de lectura y verificación documental
+/tmp/
