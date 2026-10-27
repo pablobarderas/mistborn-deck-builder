@@ -1,5 +1,34 @@
 # Registro de trabajo
 
+## 2026-10-27 — Aceptación visual y publicación de P04/P05
+
+- El usuario pide «haz commit y push, se ven bien las cartas si». Se registra aceptación de la dirección visual inicial, especialmente presentación de cartas; T05.2 y P05 cerradas en alcance de maqueta. Arte/catálogo/reglas finales siguen pendientes.
+- Estado, plan, backlog, especificación, decisiones y guía de reanudación actualizados. Próximo trabajo independiente: P06; T04.2 sigue pendiente de prueba entre redes con segundo equipo.
+- El commit de esta entrada reúne código/escenas, herramientas, pruebas, ilustraciones con procedencia y documentación de P04/P05. Se conservan las verificaciones ya ejecutadas: P04 73 comprobaciones locales, P05 39 y regresión de arranque 58. Solo se ajusta el mensaje final del test visual para no indicar aceptación pendiente; la lógica verificada permanece igual y la anotación documental no requiere repetir pruebas.
+- Publicación autorizada en main; comprobar al terminar que la revisión remota coincide y el árbol queda limpio. No se crean issues ni PR.
+
+## 2026-10-27 — P05: propuesta visual del tablero
+
+- El usuario encarga diseño limpio, moderno y bonito, con colores del PDF. Se revisan renders de portada y páginas 4/12/18 de SRC-001 mediante la habilidad PDF. SPEC-005 escrita antes de construir la propuesta.
+- Paleta azul noche/grafito, plata/marfil y acentos de metales; tipografía, espacio y estados documentados. Atlas de cuatro ilustraciones provisionales generado con herramienta integrada y copiado dentro del proyecto, con prompt y hash; no se extrae ni altera arte oficial.
+- Escena y componentes separados de catálogo/red: mercado, mano, cuatro participantes, misiones, metales y recursos de muestra. Modal con foco/Escape, acción visual de mano a mesa, reinicio, mano de diez cartas y desplazamiento. Acceso desde Ver tablero y acciones board/preview-board.
+- Verificación final: 39 comprobaciones con render real, seis capturas en 1280×800/1920×1080/1024×640, mano saturada/vacía y navegación. Se corrigen ancho al redimensionar y redondeo que generaba barras innecesarias; se aclara rojo para contraste. Regresión P03: 58 comprobaciones, código 0, y captura del inicio revisada.
+- T05.1 completada técnicamente. T05.2/P05 quedan en revisión del usuario; la propuesta concreta no se considera aceptada aún. P04 externa sigue pendiente. No se implementan reglas ni se valida catálogo con estos datos. Sin commit/push ni issues nuevas; se conserva el trabajo local de P04.
+
+## 2026-10-27 — Confirmación del prototipo por el usuario
+
+- Tras entregar el ensayo de conexión, el usuario indica «Funciona perfecto». Registrado en estado y verificación de SPEC-004 sin inferir pasos concretos ni prueba externa.
+- T04.2 sigue pendiente; el siguiente trabajo independiente disponible es P05. Sin cambios de código ni nuevas pruebas necesarias para esta anotación documental.
+
+## 2026-10-27 — P04: prototipo de conexión local
+
+- El usuario pide el siguiente paso tras revisar favorablemente la pantalla inicial. Se inicia P04 conforme al plan; confirma que ahora solo dispone de un PC.
+- SPEC-004 escrita antes de implementar. Sesión experimental separada de UI y catálogo: ENet/UDP fiable, anfitrión como autoridad, hasta tres invitados, clave aleatoria y admisión por protocolo/nombre. Lista y contador con secuencias por conexión; validación de solicitudes, límites y timeout. No representa partida ni recuperación de plaza.
+- Nueva pantalla con crear/unirse/señal/desconectar/volver; acceso desde inicio. Lanzador con network, test-network y preview-network. No se añade infraestructura ni dependencias ni se cambia cortafuegos/router.
+- Verificación: 47 comprobaciones del coordinador y 26 en siete procesos hijo, código 0, solo localhost; incluye cuatro personas simultáneas, quinto rechazado, errores y duplicados, fin del anfitrión, liberación y reintento. Regresión P03: 58 comprobaciones, código 0. Captura/navegación: 12 comprobaciones, tres imágenes reales a 1280×800/1024×640; contraste ajustado tras inspección.
+- T04.1 completada localmente; T04.2 parcial con guía y comparación de alternativas, pendiente segundo equipo y evidencia externa. P04 queda abierta; P05 puede avanzar por separado. DEC-014 describe elección del experimento, no alojamiento definitivo.
+- Documentos de estado, plan, backlog, arquitectura, calidad e instrucciones actualizados. Cambios locales sin commit/push ni issues nuevas.
+
 ## 2026-10-27 — Entrega para continuar en otro PC
 
 - El usuario autoriza subir a GitHub todo lo necesario. Se reúne P03 y las revisiones documentales previas; se añade guía de reanudación enlazada desde README e índice.

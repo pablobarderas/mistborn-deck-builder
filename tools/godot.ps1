@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('run', 'editor', 'import', 'test', 'preview')]
+    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board')]
     [string]$Action = 'run',
     [string]$GodotPath = $env:GODOT_BIN
 )
@@ -63,9 +63,18 @@ function Invoke-ProjectGodot {
     if ($LogName -eq 'preview' -and ($engineOutput | Out-String) -notmatch 'P03_PREVIEW_OK') {
         throw 'No se genero la previsualizacion.'
     }
+    if ($LogName -eq 'test-network' -and ($engineOutput | Out-String) -notmatch 'P04_NETWORK_OK') {
+        throw 'La prueba de red no alcanzo su marca de finalizacion.'
+    }
+    if ($LogName -eq 'preview-network' -and ($engineOutput | Out-String) -notmatch 'P04_PREVIEW_OK') {
+        throw 'No se completo la captura de conexion.'
+    }
+    if ($LogName -eq 'preview-board' -and ($engineOutput | Out-String) -notmatch 'P05_BOARD_OK') {
+        throw 'No se completo la verificacion y captura del tablero.'
+    }
 }
 
-if ($Action -in @('run', 'import', 'test', 'preview')) {
+if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board')) {
     Invoke-ProjectGodot -EngineArguments @('--headless', '--editor', '--import') -LogName 'import'
 }
 switch ($Action) {
@@ -73,4 +82,9 @@ switch ($Action) {
     'editor' { Invoke-ProjectGodot -EngineArguments @('--editor') -LogName 'editor' }
     'test' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/startup_test.gd') -LogName 'test' }
     'preview' { Invoke-ProjectGodot -EngineArguments @('--audio-driver', 'Dummy', '--script', 'res://tests/capture_startup.gd') -LogName 'preview' }
+    'network' { Invoke-ProjectGodot -EngineArguments @('res://scenes/ConnectionScreen.tscn') -LogName 'network' }
+    'test-network' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/network_test.gd') -LogName 'test-network' }
+    'preview-network' { Invoke-ProjectGodot -EngineArguments @('--audio-driver', 'Dummy', '--script', 'res://tests/capture_connection.gd') -LogName 'preview-network' }
+    'board' { Invoke-ProjectGodot -EngineArguments @('res://scenes/BoardPreview.tscn') -LogName 'board' }
+    'preview-board' { Invoke-ProjectGodot -EngineArguments @('--audio-driver', 'Dummy', '--script', 'res://tests/board_preview_test.gd') -LogName 'preview-board' }
 }

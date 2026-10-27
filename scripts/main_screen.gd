@@ -54,3 +54,11 @@ func _on_reload_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_connection_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/ConnectionScreen.tscn")
+
+
+func _on_board_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/BoardPreview.tscn")

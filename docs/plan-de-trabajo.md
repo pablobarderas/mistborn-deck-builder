@@ -1,6 +1,6 @@
 # Plan de trabajo por fases
 
-Última revisión: 2026-10-27. P00, el inventario inicial de P01 y P03 están completados en su alcance. Hay base ejecutable con datos de prueba; las reglas y partidas siguen sin implementar.
+Última revisión: 2026-10-27. P00, el inventario inicial de P01, P03 y la maqueta de P05 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba; las reglas y partidas siguen sin implementar.
 
 ## Objetivo y situación
 
@@ -8,7 +8,7 @@ Crear una aplicación para Windows en español, visualmente cuidada y fiel al ju
 
 Acceso confirmado: salas privadas sin cuentas y capacidad de reconectarse a la misma plaza/partida. Pausa, reserva de plaza y pérdida del anfitrión se concretarán en P15; no se presuponen acordadas.
 
-SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edición/1.ª impresión. El usuario tiene la caja española; falta contrastar localización y completar cartas/pistas. Windows es la plataforma inicial confirmada; el tablero 2D sigue como propuesta visual a revisar en P05.
+SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edición/1.ª impresión. El usuario tiene la caja española; falta contrastar localización y completar cartas/pistas. Windows es la plataforma inicial confirmada; la maqueta 2D de P05 se acepta como dirección visual inicial.
 
 ## Cómo avanzar
 
@@ -29,8 +29,8 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 | P01 | Reglamento y referencias | P00 | Inventario inicial completado; dudas registradas |
 | P02 | Alcance y plataformas | P01 | Núcleo funcional acordado; detalles pendientes |
 | P03 | Proyecto Godot ejecutable | P02 | Completada y verificada |
-| P04 | Prueba temprana de conexión | P03 | Pendiente |
-| P05 | Dirección visual y maqueta | P02, P03 | Pendiente |
+| P04 | Prueba temprana de conexión | P03 | Prototipo local verificado; prueba externa pendiente |
+| P05 | Dirección visual y maqueta | P02, P03 | Completada como maqueta y dirección visual inicial |
 | P06 | Contrato del catálogo y carga | P01, P03 | Pendiente |
 | P07 | Estado y acciones de partida | P02, P04, P06 | Pendiente |
 | P08 | Preparación y turnos | P01, P07 | Pendiente |
@@ -119,6 +119,8 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 
 **Cierre:** Existe evidencia de comunicación externa y una decisión de transporte/alojamiento; una prueba solo en localhost no cierra esta fase.
 
+**Avance 2026-10-27:** T04.1 completada en [SPEC-004](specs/004-conexion-temprana/spec.md): anfitrión/ENet, tres procesos cliente y contador, errores/duplicados/límite. T04.2 parcial: guía y comparación preparadas, falta ensayo entre redes. El usuario solo dispone de un PC; P05 puede avanzar por separado.
+
 ### P05 — Dirección visual y maqueta
 
 **Objetivo:** Decidir pronto cómo se verá y usará el juego.
@@ -129,6 +131,8 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 - Definir tipografías, colores, estados de interacción y resoluciones objetivo; revisar con el usuario.
 
 **Cierre:** La propuesta visual ha sido revisada y hay capturas y criterios de legibilidad; los datos de muestra están identificados como tales.
+
+**Cierre 2026-10-27:** [SPEC-005](specs/005-maqueta-tablero/spec.md) y [dirección visual](diseno-visual.md). T05.1/2 completadas como maqueta: seis capturas en tres resoluciones, 39 comprobaciones y confirmación del usuario de que las cartas se ven bien. Aceptada como base visual; no acredita contenido ni arte definitivo.
 
 ### P06 — Contrato del catálogo y carga
 
@@ -286,7 +290,7 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 ## Punto de reanudación
 
 1. T01.1 y el inventario inicial T01.2 están documentados a partir del PDF recibido. Consultar [fuentes](referencias/README.md), [matriz](referencias/matriz-reglas.md) y [dudas](referencias/dudas.md).
-2. P03 está completada. Próximo trabajo: P04, especificar y probar conexión externa, o P05, revisar la maqueta visual; son líneas independientes según el orden acordado. Mantener T02.1 parcial por catálogo y detalles de fases posteriores.
+2. P03 y la maqueta de P05 están completadas. Próximo trabajo independiente: P06, contrato del catálogo. P04 mantiene T04.2 pendiente de segundo equipo y evidencia externa. Mantener T02.1 parcial por catálogo y detalles de fases posteriores.
 3. Completar [SPEC-001](specs/001-alcance-y-reglamento/spec.md) y refinar [SPEC-002](specs/002-modos-y-cooperativo/spec.md) antes de la implementación dependiente.
 
 Seguir el [flujo SDD e issues](gestion/desarrollo.md) y los [criterios de calidad](calidad.md). La entrega inicial versiona estas bases por encargo del usuario; las tareas aún no se han publicado como issues.

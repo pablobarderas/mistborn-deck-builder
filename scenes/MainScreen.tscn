@@ -115,6 +115,18 @@ theme_override_font_sizes/font_size = 15
 text = "Comprobando contenido…"
 autowrap_mode = 3
 
+[node name="BoardButton" type="Button" parent="Margin/Page/Body/Intro"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ver tablero"
+mouse_default_cursor_shape = 2
+
+[node name="ConnectionButton" type="Button" parent="Margin/Page/Body/Intro"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Probar conexión"
+mouse_default_cursor_shape = 2
+
 [node name="Catalogue" type="VBoxContainer" parent="Margin/Page/Body"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -183,4 +195,6 @@ theme_override_colors/font_color = Color(0.78, 0.81, 0.81, 1)
 mouse_default_cursor_shape = 2
 
 [connection signal="pressed" from="Margin/Page/Body/Intro/ReloadButton" to="." method="_on_reload_pressed"]
+[connection signal="pressed" from="Margin/Page/Body/Intro/ConnectionButton" to="." method="_on_connection_pressed"]
+[connection signal="pressed" from="Margin/Page/Body/Intro/BoardButton" to="." method="_on_board_pressed"]
 [connection signal="pressed" from="Margin/Page/Footer/ExitButton" to="." method="_on_exit_pressed"]

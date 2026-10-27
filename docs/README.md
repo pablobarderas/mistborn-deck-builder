@@ -23,8 +23,9 @@ El [registro de trabajo](registro-de-trabajo.md) conserva cambios y verificacion
 - [Reglas documentadas](referencias/matriz-reglas.md), [componentes](referencias/componentes.md) y [dudas](referencias/dudas.md): SRC-001 y las erratas/FAQ de SRC-002, consultadas el 2026-10-27; ambas en inglés.
 - [Modos y cooperativo](specs/002-modos-y-cooperativo/spec.md): comportamiento y aceptación para competitivo 2–4, cooperativo 2–4 y solitario.
 - [Calidad](calidad.md): evidencia necesaria de reglas, red, presentación y distribución.
+- [Dirección visual y tablero](diseno-visual.md): P05 aceptada como base visual; paleta, interacciones y resoluciones de la maqueta.
 
-P03 ya tiene una base ejecutable: [desarrollo local](desarrollo-local.md) y [verificación de SPEC-003](specs/003-arranque-godot/verification.md). Todavía no se implementan partidas ni salas. Las plantillas de `.github/` forman parte de la entrega documental inicial publicada.
+P03 ya tiene una base ejecutable: [desarrollo local](desarrollo-local.md) y [verificación de SPEC-003](specs/003-arranque-godot/verification.md). P04 añade [prueba de conexión](prueba-de-conexion.md) con lista y contador, verificada localmente; falta prueba externa. Todavía no se implementan partidas ni salas del producto. Las plantillas de `.github/` forman parte de la entrega documental inicial publicada.
 
 ## Cómo mantener el contexto
 

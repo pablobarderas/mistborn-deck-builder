@@ -47,3 +47,13 @@ Godot crea sus datos normales de aplicación en el perfil de Windows. En un ento
 Para revisar una copia limpia, copiar solo `.godot-version`, project.godot y las carpetas scripts, scenes, assets, data, tests y tools a una carpeta nueva sin `.godot/`; ejecutar `test` allí indicando la ruta absoluta del motor con `-GodotPath`.
 
 La evidencia concreta de esta fase está en [SPEC-003](specs/003-arranque-godot/verification.md). La distribución de un ejecutable a los amigos corresponde a P18.
+
+## Ensayo de conexión de P04
+
+Desde el inicio, pulsar **Probar conexión**. También se puede abrir directamente con `-Action network`; `-Action test-network` ejecuta el ensayo con procesos independientes y `-Action preview-network` captura la interfaz. Usan el mismo lanzador y versión de motor.
+
+Pasos para dos ventanas y futura prueba entre redes: [guía de conexión](prueba-de-conexion.md). La prueba local no acredita conectividad externa ni recuperación de partida.
+
+## Maqueta del tablero de P05
+
+**Ver tablero** desde el inicio o `-Action board` en el lanzador. `-Action preview-board` ejecuta la verificación visual con Godot, guarda seis capturas y debe terminar con `P05_BOARD_OK`. Requiere sesión gráfica; no usa red. [Diseño, controles y resoluciones](diseno-visual.md).

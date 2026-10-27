@@ -51,6 +51,10 @@ Crear carpetas cuando tengan contenido. No añadir dependencias, cambiar de moto
 
 Comandos de desarrollo desde la raíz: `powershell -NoProfile -ExecutionPolicy Bypass -File tools/godot.ps1 -Action test` (importación y pruebas), `-Action run` (pantalla), `-Action editor` (editor) y `-Action preview` (captura real y salida). El motor local vive en `.tools/godot/`, excluido de Git; otra ruta se indica mediante `-GodotPath` o `GODOT_BIN`. Consulta `docs/desarrollo-local.md`.
 
+P04 añade `-Action network` (ensayo visible), `-Action test-network` (procesos independientes en localhost) y `-Action preview-network` (captura y navegación). El usuario solo dispone de un PC por ahora; P04 no se cierra sin evidencia entre redes. Procedimiento en `docs/prueba-de-conexion.md`.
+
+P05 añade `-Action board` (maqueta) y `-Action preview-board` (interacción/capturas reales). Su contenido es de muestra y no valida reglas; paleta, estados, arte provisional y aceptación en `docs/diseno-visual.md` y SPEC-005.
+
 El trabajo se organiza con SDD ligero: especificar comportamiento y aceptación, planificar, dividir en tareas, implementar y verificar. Las tareas pequeñas pueden usar solo una issue; las entregas complejas usan `spec.md`, `plan.md`, `tasks.md` y `verification.md`. No hay Spec Kit instalado. Los IDs locales Txx.n no son números de GitHub. Consultar `docs/gestion/desarrollo.md` y `docs/calidad.md`.
 
 - Ejecutar comprobaciones proporcionales al cambio y describir el resultado real.

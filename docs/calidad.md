@@ -24,6 +24,8 @@ Esta lista define qué evidencia recoger. No acredita pruebas ya realizadas. Los
 ## Estrategia progresiva
 
 - P03: arranque comprobado y un mecanismo reproducible para ejecutar comprobaciones.
+- P04: paquetes reales entre procesos, autoridad, acceso inválido, duplicados, aforo, cierre y UI. Una prueba local solo cubre T04.1; se exige evidencia entre redes para T04.2.
+- P05: capturas de mesa/detalle en tres resoluciones, mano saturada, foco/Escape, selección, reinicio y accesibilidad por desplazamiento. El usuario debe revisar la propuesta concreta antes de cerrar la fase; los datos de maqueta no acreditan reglas.
 - P06–P09: pruebas pequeñas del catálogo y del motor, sin depender de la interfaz para comprobar reglas.
 - P10: recorridos competitivos y solo/cooperativos con subconjunto, datos y semilla de prueba identificados.
 - P11: matriz de cobertura e interacciones de cartas; incluir comportamientos de borde, no solo ejemplos felices.

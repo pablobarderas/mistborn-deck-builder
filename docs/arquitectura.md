@@ -10,7 +10,15 @@ Godot 4.7.2, Compatibility. Database carga antes de la escena. MainScreen conect
 
 ## Organización prevista
 
-Las carpetas `data/`, `scripts/`, `scenes/` y `assets/images/` ya tienen contenido. `tests/` contiene comprobación de arranque y captura gráfica; `tools/` contiene el lanzador PowerShell. `.tools/` guarda solo el motor local ignorado. No se crean aún clases para sistemas de reglas o red inexistentes.
+Las carpetas `data/`, `scripts/`, `scenes/` y `assets/images/` ya tienen contenido. `tests/` contiene comprobaciones de arranque, conexión y capturas; `tools/` contiene el lanzador PowerShell. `.tools/` guarda solo el motor local ignorado. El experimento de red vive en `scripts/network/`; las clases del motor de reglas se crearán cuando se implemente.
+
+## Experimento de red de P04
+
+`MainScreen` → botón Probar conexión → `ConnectionScreen` → Node `connection_probe.gd` → ENetMultiplayerPeer y paquetes JSON UTF-8 fiables. La sesión es dueña del peer y lo cierra al salir. La interfaz observa señales; no valida ni aplica el contador por su cuenta.
+
+El anfitrión valida versión/clave/nombre y admite hasta tres invitados. Solo él incrementa el contador, controla secuencias por conexión y publica snapshots de nombres/IDs, contador y revisión. No se envían cartas privadas ni la clave en snapshots. Ningún cliente puede imponer un snapshot al anfitrión. Paquetes de máximo 2048 bytes, hasta 64 por frame; admisión con timeout de 10 segundos. No hay RPC ni deserialización de objetos de red.
+
+Esta sesión no modela reglas ni plazas persistentes. Desconectar retira el participante y volver a entrar crea otra conexión; no satisface P15. ENet/anfitrión está elegido para el experimento (DEC-014), con prueba local y decisión final de acceso pendiente. [SPEC-004](specs/004-conexion-temprana/plan.md) conserva alternativas y [guía](prueba-de-conexion.md) los pasos de ensayo.
 
 Separar responsabilidades a medida que se implementen:
 
@@ -26,6 +34,8 @@ La estructura anterior es una guía de separación de responsabilidades; no desc
 
 ## Modos y rival del juego
 
+La [maqueta de P05](diseno-visual.md) vive en `scenes/BoardPreview.tscn` y `scripts/board/`: board_preview compone la vista, board_card representa cartas, board_style conserva estilos/atlas y board_samples el contenido ficticio. No se conecta a Database ni al prototipo de red. Las cartas se identifican por IDs de muestra y el movimiento a mesa es visual/reversible, sin ejecutar efectos. Se recupera el escalado de ventana al salir.
+
 Alcance confirmado el 2026-10-27: competitivo 2–4, cooperativo 2–4 y solitario cooperativo 1. El diseño debe compartir motor y diferenciar preparación, objetivos legales, Target, paso rival y finales. El solitario usa el mismo motor en una instancia local; las sesiones de grupo añaden transporte.
 
 El rival cooperativo necesita mazo/descarte, salud, casilla/cara de Dominación y adversarios con escudos persistentes. No requiere una IA estratégica que simule a un participante. Habrá secuencias pausables para elecciones y reacciones fuera del turno activo, incluidas Cloud y asignaciones colectivas. Estas son necesidades derivadas del reglamento; sus contratos técnicos aún se diseñarán en P06/P07.
@@ -36,7 +46,7 @@ Ver [SPEC-002](specs/002-modos-y-cooperativo/spec.md) para aceptación, tareas y
 
 - Plataforma acordada: aplicación para Windows; concretar compatibilidad y distribución.
 - Godot 4.7.2 y ejecución local resueltos; distribución a los amigos pendiente de P18.
-- Quién valida la partida: anfitrión u otro servicio.
+- Quién valida la partida final: anfitrión u otro servicio; el experimento P04 usa anfitrión como autoridad.
 - Salas privadas sin cuentas acordadas; concretar invitación/código, conectividad y alojamiento.
 - Visibilidad de manos, mazos y otra información privada según el reglamento.
 - Reconexión a la misma plaza obligatoria; concretar pausa, reserva de plaza, abandono y pérdida del anfitrión.
@@ -46,7 +56,7 @@ Antes de elegir transporte o infraestructura, registrar estas necesidades y una 
 
 El [plan por fases](plan-de-trabajo.md) incorpora una prueba temprana de acceso entre redes en P04, antes de construir todo el motor. La partida local completa llega en P10 y la sincronización del juego real en P14. La prueba técnica de P04 no equivale a implementar el multijugador definitivo.
 
-La plataforma inicial es Windows. Tablero 2D sigue como propuesta visual de P05. Se ha fijado Godot 4.7.2; las pruebas de P03 se ejecutan en GDScript sin framework externo. Transporte y servicio siguen pendientes de P04; la escena actual es una base de desarrollo, no una sala funcional.
+La plataforma inicial es Windows. La maqueta de tablero 2D de P05 está aceptada como dirección visual inicial. Se ha fijado Godot 4.7.2; las pruebas usan GDScript sin framework externo. Transporte y servicio del producto siguen pendientes de P04; existe una sesión de ensayo funcional, sin partida.
 
 ## Criterios propuestos para la futura red
 

@@ -6,7 +6,9 @@ Alcance: competitivo de 2–4, cooperativo de 2–4 y cooperativo en solitario. 
 
 ## Estado
 
-P03 completada: proyecto Godot ejecutable, pantalla inicial con dos cartas de prueba, recarga del catálogo y manejo de errores. Todavía no hay partida jugable ni salas. El contenido de ejemplo no es un catálogo oficial.
+P03 completada: proyecto Godot ejecutable, pantalla inicial con dos cartas de prueba, recarga del catálogo y manejo de errores. P04 añade un ensayo de conexión con anfitrión, hasta cuatro participantes y contador compartido, verificado entre procesos en este PC; falta prueba entre redes. Todavía no hay partida jugable. El contenido de ejemplo no es un catálogo oficial.
+
+P05 incorpora una maqueta interactiva aceptada como base visual: **Ver tablero** desde el inicio, o `-Action board` en el lanzador. Cartas ampliables, mercado, mano, misiones y estados de muestra. [Diseño y controles](docs/diseno-visual.md). Siguiente fase independiente: P06, contrato del catálogo.
 
 ## Probar en este equipo
 
@@ -28,5 +30,6 @@ Godot 4.7.2 estable se ha preparado localmente en .tools/godot/; el motor no se 
 - [Backlog](docs/gestion/backlog.md) y [flujo SDD](docs/gestion/desarrollo.md)
 - [Reglas y fuentes](docs/reglas-del-juego.md)
 - [Verificación de P03](docs/specs/003-arranque-godot/verification.md)
+- [Probar la conexión con dos ventanas](docs/prueba-de-conexion.md)
 
 La raíz Git es esta carpeta, mistborn-deck-builder/, dentro del espacio mistborn-deckbuilder/. La documentación acompaña al código para recuperar el contexto en futuras sesiones.

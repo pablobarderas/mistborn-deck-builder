@@ -101,6 +101,22 @@ Usar IDs estables. Para cada decisión indicar fecha, estado, contexto, elecció
 - Decisión: versionar P03, el contexto documental y una copia íntegra de SRC-001 en docs/referencias/fuentes/. Añadir instrucciones de clonación, preparación y reanudación en Codex.
 - Consecuencias: sustituye la ubicación fuera de Git indicada en DEC-008 para el PDF; el hash se conserva. Motor, cachés y temporales siguen excluidos y se regeneran. El repositorio conserva los acuerdos, no el historial completo del chat.
 
+## DEC-014 — Autoridad y transporte del experimento P04
+
+- Fecha: 2026-10-27.
+- Estado: implementada y verificada localmente; no fija el alojamiento final del producto.
+- Decisión técnica: ENet/UDP fiable integrado en Godot, anfitrión como autoridad de contador/lista y hasta tres invitados. Clave temporal, IP/puerto y validación JSON; sin cuentas, RPC ni dependencias de servidor. Motivo y alternativas en [SPEC-004](specs/004-conexion-temprana/plan.md).
+- Consecuencias: el cliente solicita y el anfitrión valida/aplica; secuencias por conexión evitan duplicados del ensayo. La autoridad final y proyecciones privadas del juego se concretarán antes de implementar sus reglas remotas. El prototipo no implementa reconexión a plaza ni cifrado.
+- El usuario indica que ahora solo tiene un PC: T04.2 y el cierre de P04 requieren una futura prueba externa. No atribuir a localhost evidencia de NAT, dos redes o facilidad de acceso del grupo. No se contrata infraestructura ni se modifica la red del usuario.
+
+## DEC-015 — Propuesta visual del tablero P05
+
+- Fecha: 2026-10-27.
+- Estado: dirección visual inicial implementada/verificada y aceptada el 2026-10-27; el usuario confirma presentación de las cartas y encarga commit/push.
+- Petición confirmada: diseño limpio, moderno y bonito, colores concordantes con el reglamento. Se revisan visualmente portada y páginas 4/12/18 de SRC-001.
+- Propuesta: azul noche/grafito, marfil/plata y acentos de metales; serif para títulos y sans para interfaz, zonas separadas y carta ampliada con foco modal. [Dirección visual](diseno-visual.md) conserva valores y límites.
+- Consecuencias: escena autónoma de muestra, sin motor/red/catálogo oficial; ilustraciones provisionales generadas mediante herramienta integrada, atlas/prompt dentro del repositorio. 1280×800 como referencia; 1024×640 con desplazamiento y 1920×1080 adaptado. Cierra P05 en alcance de maqueta, sin fijar requisitos finales de hardware ni acreditar traducción/contenido o arte definitivo.
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.
