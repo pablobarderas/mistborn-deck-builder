@@ -71,13 +71,43 @@ Usar IDs estables. Para cada decisión indicar fecha, estado, contexto, elecció
 - Decisión: desarrollar y distribuir inicialmente una aplicación para Windows. Esta entrada resuelve la parte de plataforma de DEC-006 y Q-002.
 - Consecuencias: orientar entorno y exportación a Windows; concretar versión mínima, hardware y resoluciones en P03/P05. Navegador queda como posible ampliación. El transporte y alojamiento siguen pendientes, y no se da por aprobado todavía el diseño visual.
 
+## DEC-010 — Incorporar FAQ y erratas oficiales
+
+- Fecha: 2026-10-27.
+- Estado: aplicada a la documentación, dentro del objetivo de fidelidad oficial.
+- Decisión: registrar SRC-002 y aplicar las correcciones expresas del editor sobre SRC-001, manteniendo identificadores, fuentes y estados de dudas.
+- Consecuencias: actualizar matriz y especificaciones; no atribuir al PDF aclaraciones posteriores ni declarar resueltos casos sin respuesta. Los cambios de revisión siguen locales; no se publica otro commit sin encargo.
+
+## DEC-011 — Salas privadas, sin cuentas y con reconexión
+
+- Fecha: 2026-10-27.
+- Estado: aceptada; confirmación expresa del usuario.
+- Decisión: partidas en salas privadas para amigos, sin cuentas permanentes y con posibilidad de reconectarse a la misma partida/plaza.
+- Consecuencias: identidad temporal recuperable, restaurar la vista propia y evitar acciones duplicadas. Reentrada deja de ser opcional en P15. Transporte, alojamiento e invitación se diseñarán en P04/P13; pausa, reserva de plaza y caída de autoridad se concretarán en P15. No se infieren guardado persistente ni migración de anfitrión.
+- El núcleo funcional permite preparar P03; no exige cerrar ahora el catálogo ni todos los detalles de red. SPEC-001 mantiene sus criterios pendientes explícitos.
+
+## DEC-012 — Base ejecutable de P03
+
+- Fecha: 2026-10-27.
+- Estado: implementada y verificada en el entorno Windows actual.
+- Decisión: Godot 4.7.2 estable estándar y Compatibility; motor portátil local excluido de Git, versión fijada en .godot-version y lanzador PowerShell. Database como Autoload con señales y recarga observable. Pruebas de arranque en GDScript sin dependencia adicional.
+- Motivo: no se encontró una instalación local; se preparó el motor desde su enlace oficial. La versión, importación, pantalla y copia limpia se comprobaron realmente.
+- Consecuencias: preservar versión exacta y comandos reproducibles. El cargador rechaza por completo las entradas inválidas necesarias para indexar, sin conservar datos anteriores; el esquema completo sigue en P06. No hay implementación de reglas o red.
+
+## DEC-013 — Continuidad entre equipos
+
+- Fecha: 2026-10-27.
+- Estado: aceptada por petición del usuario de subir todo lo necesario a GitHub.
+- Decisión: versionar P03, el contexto documental y una copia íntegra de SRC-001 en docs/referencias/fuentes/. Añadir instrucciones de clonación, preparación y reanudación en Codex.
+- Consecuencias: sustituye la ubicación fuera de Git indicada en DEC-008 para el PDF; el hash se conserva. Motor, cachés y temporales siguen excluidos y se regeneran. El repositorio conserva los acuerdos, no el historial completo del chat.
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.
 - Alcance mínimo de una partida jugable.
-- Versión exacta de Godot, compatibilidad mínima de Windows y requisitos de hardware/resolución.
+- Compatibilidad mínima de Windows y objetivos finales de hardware/resolución; Godot 4.7.2 ya está fijado.
 - Carga del catálogo, validación y política ante errores.
 - Modelo estructurado de efectos.
-- Arquitectura de red, acceso y desconexiones.
+- Transporte/alojamiento, formato de invitación, pausa/reserva y pérdida de autoridad; salas privadas sin cuentas y reconexión ya están acordadas.
 
 Registrar una nueva entrada cuando haya evidencia suficiente o un acuerdo; mientras tanto, mantener la incertidumbre explícita.

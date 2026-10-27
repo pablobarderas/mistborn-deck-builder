@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/card_preview.gd" id="1_card"]
+
+[sub_resource type="StyleBoxFlat" id="Card_style"]
+bg_color = Color(0.085, 0.13, 0.17, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.28, 0.34, 0.36, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_left = 12
+corner_radius_bottom_right = 12
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+
+[sub_resource type="SystemFont" id="Card_font"]
+font_names = PackedStringArray("Georgia", "Cambria")
+
+[node name="CardPreview" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 350)
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("Card_style")
+script = ExtResource("1_card")
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Kind" type="Label" parent="Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.69, 0.58, 0.41, 1)
+theme_override_font_sizes/font_size = 11
+text = "CONTENIDO DE PRUEBA"
+
+[node name="Mark" type="Label" parent="Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.76, 0.77, 1)
+theme_override_fonts/font = SubResource("Card_font")
+theme_override_font_sizes/font_size = 58
+text = "M"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+theme_override_fonts/font = SubResource("Card_font")
+theme_override_font_sizes/font_size = 24
+text = "Carta"
+autowrap_mode = 3
+vertical_alignment = 1
+
+[node name="Divider" type="HSeparator" parent="Content"]
+layout_mode = 2
+modulate = Color(0.6, 0.6, 0.5, 0.3)
+
+[node name="Stats" type="Label" parent="Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.77, 0.7, 0.57, 1)
+theme_override_font_sizes/font_size = 13
+text = "Coste 0 · Recurso 0 · Ataque 0"
+autowrap_mode = 3
+
+[node name="Effect" type="Label" parent="Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 92)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.7, 0.76, 0.78, 1)
+theme_override_font_sizes/font_size = 15
+text = "Descripción del ejemplo."
+autowrap_mode = 3
+
+[node name="ImageNote" type="Label" parent="Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.43, 0.53, 0.59, 1)
+theme_override_font_sizes/font_size = 11
+text = "Ilustración pendiente"

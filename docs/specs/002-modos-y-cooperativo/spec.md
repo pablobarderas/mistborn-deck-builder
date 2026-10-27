@@ -3,7 +3,7 @@
 - Estado: borrador de comportamiento; no lista para implementación completa.
 - Fecha: 2026-10-27.
 - Fases: P06–P16 según tareas.
-- Fuente: SRC-001 pp.5–20 y alcance confirmado por el usuario.
+- Fuentes: SRC-001 pp.5–20, SRC-002 (FAQ/erratas oficiales) y alcance confirmado por el usuario.
 - Objetivo: compartir reglas comunes sin mezclar victorias, preparación y objetivos entre modos.
 
 ## Alcance
@@ -18,7 +18,7 @@ No incluye oponentes humanos simulados para competitivo, cambios de reglas ni ex
 - **AC-02:** El competitivo aplica bonificaciones por orden y Target solo con 3–4; cooperativo/solo no usa ninguno de los dos (REG-001 a REG-006, REG-052).
 - **AC-03:** El rival comienza con salud 48, Dominación 1 y mazo de 36; X usa el nivel visible actual hasta 6 (REG-052/053).
 - **AC-04:** Se roba carta rival después del turno y nueva mano de cada superviviente; no hay ataques entre compañeros o a sus aliados (REG-054/055/063).
-- **AC-05:** Los adversarios se pueden atacar entre jugadores, mantienen escudos destruidos y los pierden de izquierda a derecha con coste completo por escudo; matar aliado quita solo un escudo (REG-056 a REG-058).
+- **AC-05:** Los adversarios se pueden atacar entre jugadores, mantienen escudos destruidos y los pierden de izquierda a derecha con coste completo por escudo; matar aliado quita un escudo según REG-058, salvo excepciones documentadas como REG-073.
 - **AC-06:** Los edictos resuelven orden, pasos de Dominación, efecto extra, curación por misión y posiciones de limpieza; completan sus efectos si eliminan a un jugador (REG-059 a REG-062).
 - **AC-07:** Las elecciones colectivas se resuelven mediante una asignación legal confirmada antes de continuar; en solitario todo recae en el único jugador (REG-066). El mecanismo de coordinación de interfaz es diseño pendiente.
 - **AC-08:** Eliminados dejan de tener turno y de provocar robo rival; las condiciones por número de jugadores usan supervivientes (REG-063).
@@ -29,6 +29,6 @@ No incluye oponentes humanos simulados para competitivo, cambios de reglas ni ex
 
 ## Dependencias y bloqueos
 
-DUD-001/004/005/006/007 afectan a partes de reglas compartidas o terminales. DUD-002 impide cubrir el catálogo completo; DUD-003 la nomenclatura española exacta. Se pueden especificar e implementar por separado las partes que no dependan de cada duda cuando exista proyecto ejecutable.
+DUD-001/007 están resueltas por SRC-002. Sigue abierta parte de DUD-004 (personajes), DUD-005/006 (casos límite); DUD-002/003 cubren catálogo y localización pendientes. Implementar las partes independientes cuando exista proyecto ejecutable, aplicando las erratas; no considerar resuelto lo que la FAQ no responde.
 
 La privacidad debe derivarse de las zonas del reglamento; que el modo sea cooperativo no autoriza a enviar automáticamente todas las manos a todos los clientes.

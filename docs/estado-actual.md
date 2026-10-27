@@ -4,57 +4,52 @@
 
 ## Resumen
 
-El proyecto está en fase inicial de datos y carga. No hay una aplicación ejecutable ni una implementación de las reglas del juego.
+**P03 completada:** existe un proyecto Godot ejecutable con pantalla en español, dos cartas de ejemplo, comprobación de catálogo y salida. No hay todavía partida jugable, reglas ejecutables ni salas.
 
-## Inventario verificado
+## Implementado y verificado
 
-| Elemento | Estado observado |
+| Elemento | Estado |
 | --- | --- |
-| `scripts/Database.gd` | Nodo que lee `res://data/cartas.json` en `_ready()` e indexa las entradas por `id` en un `Dictionary`. |
-| `data/cartas.json` | Array con dos cartas de prueba: `moneda_de_cobre` y `kelsier`. |
-| `data/instrucciones.md` | Ubicación original de las pautas; ahora remite al `AGENTS.md` principal. |
-| `.gitignore` | Excluye caché de Godot, compilación Android, configuración de exportación, traducciones generadas y algunos archivos del sistema. |
-| `AGENTS.md`, `README.md`, `docs/` | Instrucciones, orientación y memoria documental incorporadas en esta revisión. |
-| `docs/gestion/`, `docs/specs/`, `docs/referencias/` | Flujo SDD, backlog, dos especificaciones en borrador, fuente SRC-001, 67 reglas documentadas, componentes y dudas; sin implementación de reglas. |
-| `.github/ISSUE_TEMPLATE/`, `.github/pull_request_template.md` | Plantillas de tarea, error, investigación y PR incluidas en la entrega documental; GitHub las toma de la rama principal publicada. |
+| project.godot / .godot-version | Godot 4.7.2 estable estándar, Compatibility, referencia visual 1280×800. |
+| scripts/Database.gd | Autoload; carga al iniciar, recarga, señales, estado y diagnóstico. Rechaza raíz/entradas/IDs inválidos y no conserva un catálogo obsoleto. |
+| scenes/MainScreen.tscn | Pantalla inicial en español; muestra catálogo, recarga y salida funcionales. |
+| scenes/CardPreview.tscn | Nombre, cifras y descripción de cada ejemplo; sustituto de ilustración. |
+| scenes/theme.tres / assets/images/ | Tema y fondo vectorial propios provisionales. |
+| data/cartas.json | Dos ejemplos originales sin cambios de contenido; no son un catálogo oficial validado. |
+| tools/godot.ps1 | Importar, ejecutar, editor, pruebas y captura; comprueba versión y resultados. |
+| tests/ | Pruebas de carga/recuperación y captura gráfica. |
+| docs/specs/ | SPEC-001/002 parciales; SPEC-003 completada en su alcance. |
+| .github/ | Plantillas de issues y PR de la entrega inicial publicada. |
 
-El repositorio Git está en `mistborn-deck-builder/`, no en su carpeta contenedora. Al iniciar la revisión estaba limpio, en la rama `main`, con dos commits; el último era `3806537` (ficheros de prueba de base de datos y cartas).
+Motor portátil en .tools/godot/, ignorado por Git. Datos y cachés generados en .godot/ y tmp/ también ignorados. Los UID de scripts y ajustes de importación de recursos son metadatos de fuente.
 
-## Lo que falta
+## Verificación real de P03
 
-- `project.godot`, escena principal y configuración de inicio.
-- Escenas, imágenes y demás recursos visuales.
-- Conexión del cargador a una escena o configuración como Autoload.
-- Motor de reglas, estado de partida, turnos, zonas de cartas y victoria.
-- Interfaz de partida, salas y comunicaciones entre jugadores.
-- Pruebas automatizadas, integración continua e instrucciones de ejecución comprobadas.
+- Godot devuelve 4.7.2.stable.official.ed1daf0bf.
+- Importación y pruebas reales, código 0. Versión final desde tmp/clean-p03-final-a7f5c922 sin caché previa: 58 comprobaciones superadas.
+- Ocho fallos de carga son entradas negativas esperadas; se verifica error visible, retirada del contenido anterior y recuperación con datos válidos.
+- Captura gráfica 1280×800 revisada en Compatibility/OpenGL 3.3 sobre NVIDIA GeForce RTX 5060 Ti. El script sale mediante la señal del botón Salir.
+- La resolución y GPU anteriores describen este entorno; los objetivos finales para los equipos del grupo siguen pendientes.
+- No se han probado partidas, red ni exportación distribuible.
 
-## Hallazgos del código y los datos
+Comandos en [desarrollo local](desarrollo-local.md); evidencia por criterio en [SPEC-003](specs/003-arranque-godot/verification.md).
 
-1. El cargador maneja errores de apertura, parseo y raíz distinta de array, pero no valida que cada entrada sea un objeto con campos y tipos válidos.
-2. No detecta IDs duplicados: una entrada posterior puede sobrescribir una anterior en el diccionario.
-3. No limpia el diccionario antes de cargar. No existe todavía una API de recarga; habrá que definir ese comportamiento si se añade.
-4. El tipado estático es parcial; la pauta existente pide ampliarlo donde sea posible.
-5. Las rutas de imagen apuntan a `res://assets/cartas/`, mientras la convención original proponía `assets/images/`. Ninguna de esas imágenes existe.
-6. `efecto` es texto descriptivo. El cargador no ejecuta efectos ni implementa reglas.
-7. El contenido de las dos cartas no se ha contrastado con cartas oficiales; SRC-001 confirma que el contrato de datos es insuficiente para los tipos y efectos reales.
+## Pendiente de implementación
 
-## Verificación y límites
+Motor de reglas y estado de partida, todos los modos, catálogo completo, interfaz jugable, salas privadas, sincronización, reconexión y distribución.
 
-Se inspeccionaron todos los archivos de contenido originales, el historial breve y el estado de Git. Se comprobó la estructura básica del JSON y los enlaces locales de la documentación al cerrar la tarea.
+La validación de datos es mínima: campos de efectos, tipos restantes, restricciones numéricas y referencias necesitan P06. Las rutas de imágenes originales apuntan a assets/cartas/, no a la convención assets/images/; la vista actual usa sustitutos y no modifica esas rutas.
 
-No se ejecutó Godot. No se encontró `godot` ni `godot4` en el `PATH` de esta sesión; esto no demuestra que no estén instalados en otra ubicación. Además, falta `project.godot`.
+## Producto y fuentes
 
-## Planificación y producto
+Confirmado: Windows, español, máximo cuatro humanos; competitivo 2–4, cooperativo 2–4 y solitario cooperativo 1. Salas privadas sin cuentas y reconexión obligatoria. El diseño visual actual es provisional; pausa/reserva de plaza y pérdida de autoridad se concretarán en P15.
 
-El plan tiene P00–P18 con dependencias y cierre. P00 y el inventario inicial de P01 están completados documentalmente. No está resuelto todo el catálogo ni toda duda de reglas. El usuario confirma idioma español, máximo cuatro humanos y modos competitivo 2–4, cooperativo 2–4 y cooperativo en solitario. Busca fidelidad y un resultado visual cuidado.
+SRC-001: PDF inglés de 2024, 1.ª edición/1.ª impresión, 20 páginas; leído y revisado visualmente. Copia original incluida en Git, ruta/hash en [fuentes](referencias/README.md). SRC-002 añade FAQ/erratas oficiales; 75 reglas documentadas, ninguna implementada. Siete registros DUD: dos resueltos, uno parcial y cuatro abiertos.
 
-El PDF recibido es inglés: Mistborn: The Deckbuilding Game, Brotherwise Games, 1.ª edición/1.ª impresión, 2024, 20 páginas. Se extrajo texto y se revisaron visualmente todas las páginas; pypdf omitía bloques que pdfplumber sí recuperó. Ruta, tamaño y SHA-256 están en [fuentes](referencias/README.md). El original sigue fuera de la raíz Git, sin modificar ni subir.
+SRC-003 identifica la publicación española de Devir. El usuario aporta «Edición: David Pérez»; falta contrastar textos/tirada y completar cartas y pistas. No repetir la pregunta de editorial ni los acuerdos de acceso/jugadores.
 
-Se documentaron REG-001 a REG-067, componentes y siete dudas. El PDF no incluye el catálogo completo de cartas/pistas y falta contraste con la localización española. [SPEC-002](specs/002-modos-y-cooperativo/spec.md) añade rival, Dominación, escudos, edictos y siete configuraciones de prueba. Backlog ampliado a 43 tareas; T01.1 y T01.2 son avance documental, no implementación.
+## Repositorio y reanudación
 
-Windows es la plataforma inicial confirmada: el usuario indica que todos tienen Windows. El tablero 2D sigue como propuesta visual. Versión mínima, hardware y resoluciones se concretarán en P03/P05; acceso/desconexión y catálogo detallado siguen pendientes. El solitario comparte reglas con el cooperativo.
+La raíz Git es la carpeta que contiene project.godot y AGENTS.md; en el equipo original es mistborn-deck-builder/, dentro de la carpeta contenedora. La entrega documental inicial fue f2a5744. Esta entrega reúne las revisiones posteriores, P03 y el PDF para su publicación en main a petición del usuario. No se han creado issues. Consulta [continuar en otro PC](continuar-en-otro-pc.md); el historial de Git identifica el commit de esta entrega.
 
-Remoto: `pablobarderas/mistborn-deck-builder`, público, rama principal `main`. La consulta de issues del 2026-10-26 no devolvió ninguna. El 2026-10-27 el usuario autoriza commit y push de las bases documentales a `origin/main`; la sincronización se comprueba comparando `HEAD` y la revisión remota tras publicar. Esta entrega no crea issues, etiquetas, hitos ni PR.
-
-Siguiente trabajo: T02.1 del [backlog](gestion/backlog.md), concretar acceso y desconexión; incorporar cartas/pistas españolas por lotes para completar el catálogo y resolver dudas. No volver a preguntar sistema operativo, participantes ni inclusión de cooperativo: ya están confirmados.
+Próxima fase de ejecución: **P04, especificar y probar una conexión entre redes**. P05 puede revisar la propuesta visual por separado. SPEC-001 mantiene detalles de catálogo y producto pendientes sin bloquear las tareas técnicas independientes. Consultar [plan](plan-de-trabajo.md) y [backlog](gestion/backlog.md).

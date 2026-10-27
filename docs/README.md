@@ -14,16 +14,17 @@ El [registro de trabajo](registro-de-trabajo.md) conserva cambios y verificacion
 
 ## Producto, ejecución y calidad
 
+- [Continuar en otro PC con Codex](continuar-en-otro-pc.md): clon, motor y mensaje de reanudación.
 - [Alcance](alcance.md): objetivos confirmados, Windows como plataforma inicial y preguntas pendientes.
 - [Flujo SDD e issues](gestion/desarrollo.md): método, estados y uso de GitHub.
 - [Backlog](gestion/backlog.md): primer lote detallado y paquetes de fases posteriores.
 - [Especificaciones](specs/README.md): formato y primera entrega en borrador.
 - [Referencias y trazabilidad](referencias/README.md): recepción del reglamento y matriz de cobertura.
-- [Reglas documentadas](referencias/matriz-reglas.md), [componentes](referencias/componentes.md) y [dudas](referencias/dudas.md): derivados de SRC-001, leído el 2026-10-27; su idioma es inglés.
+- [Reglas documentadas](referencias/matriz-reglas.md), [componentes](referencias/componentes.md) y [dudas](referencias/dudas.md): SRC-001 y las erratas/FAQ de SRC-002, consultadas el 2026-10-27; ambas en inglés.
 - [Modos y cooperativo](specs/002-modos-y-cooperativo/spec.md): comportamiento y aceptación para competitivo 2–4, cooperativo 2–4 y solitario.
 - [Calidad](calidad.md): evidencia necesaria de reglas, red, presentación y distribución.
 
-La implementación sigue sin empezar. Las plantillas de `.github/` forman parte de esta entrega documental; GitHub las carga desde la rama principal publicada.
+P03 ya tiene una base ejecutable: [desarrollo local](desarrollo-local.md) y [verificación de SPEC-003](specs/003-arranque-godot/verification.md). Todavía no se implementan partidas ni salas. Las plantillas de `.github/` forman parte de la entrega documental inicial publicada.
 
 ## Cómo mantener el contexto
 

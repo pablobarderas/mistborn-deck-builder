@@ -9,7 +9,7 @@ La raíz es un array de objetos. Ambas entradas actuales contienen:
 | Campo | Tipo observado | Uso actual |
 | --- | --- | --- |
 | `id` | String | Clave del diccionario del cargador. |
-| `nombre` | String | Nombre para presentación; todavía no hay interfaz. |
+| `nombre` | String | Nombre mostrado en la previsualización de P03. |
 | `coste_compra` | Entero | Dato de ejemplo; sin lógica de compra. |
 | `generacion_recurso` | Entero | Dato de ejemplo; sin lógica de recursos. |
 | `poder_ataque` | Entero | Dato de ejemplo; sin lógica de combate. |
@@ -24,7 +24,9 @@ El reglamento recibido el 2026-10-27 distingue Funding, acciones, aliados, perso
 
 P06 debe diseñar un contrato por tipos y familias antes de incorporar contenido oficial. No es suficiente ampliar el texto de `efecto` ni añadir un único número de ataque. Ver [componentes](referencias/componentes.md) y [SPEC-002](specs/002-modos-y-cooperativo/spec.md). Todavía faltan los textos y cantidades por diseño del catálogo español.
 
-## Validaciones pendientes de implementar
+## Requisitos de validación del contrato
+
+La cobertura actual es parcial y se detalla debajo; esta lista describe el contrato que deberá completarse en P06.
 
 - Raíz de tipo array y cada entrada de tipo objeto.
 - Presencia y tipo de los campos requeridos por el contrato que se adopte.
@@ -34,7 +36,9 @@ P06 debe diseñar un contrato por tipos y familias antes de incorporar contenido
 - Diagnósticos que identifiquen entrada, campo y motivo del fallo.
 - Política de carga ante errores: rechazar el catálogo o aceptar solo entradas válidas; pendiente de decisión.
 
-El cargador actual solo verifica apertura, parseo y raíz de tipo array. Las validaciones anteriores aún no están implementadas.
+P03 ya verifica apertura, parseo, raíz array, entradas objeto e IDs textuales no vacíos y únicos. Un fallo rechaza toda la carga y vacía el catálogo, emitiendo diagnóstico; una recarga válida limpia el error. La política está elegida para esta base y deberá revisarse con el contrato completo de P06.
+
+Siguen pendientes validación del resto de campos/tipos, límites numéricos, referencias y catálogo oficial. La pantalla usa sustitutos visuales y no carga las rutas de ilustración ausentes. Godot interpreta números JSON como float; la vista muestra las cifras enteras de estos ejemplos sin decimales artificiales.
 
 ## Evolución
 

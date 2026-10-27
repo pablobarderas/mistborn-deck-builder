@@ -1,10 +1,12 @@
 # Plan de trabajo por fases
 
-Última revisión: 2026-10-27. Esta hoja de ruta sustituye las cinco fases generales iniciales. P00 y el inventario inicial de P01 están completados en documentación; las reglas no están implementadas.
+Última revisión: 2026-10-27. P00, el inventario inicial de P01 y P03 están completados en su alcance. Hay base ejecutable con datos de prueba; las reglas y partidas siguen sin implementar.
 
 ## Objetivo y situación
 
-Crear una aplicación para Windows en español, visualmente cuidada y fiel al juego de mesa, con competitivo 2–4, cooperativo 2–4 y cooperativo en solitario. Máximo cuatro personas. Todos tienen Windows; solo existen un cargador y dos cartas de prueba.
+Crear una aplicación para Windows en español, visualmente cuidada y fiel al juego de mesa, con competitivo 2–4, cooperativo 2–4 y cooperativo en solitario. Máximo cuatro personas. Ya existe una pantalla inicial ejecutable que carga y muestra las dos cartas de prueba.
+
+Acceso confirmado: salas privadas sin cuentas y capacidad de reconectarse a la misma plaza/partida. Pausa, reserva de plaza y pérdida del anfitrión se concretarán en P15; no se presuponen acordadas.
 
 SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edición/1.ª impresión. El usuario tiene la caja española; falta contrastar localización y completar cartas/pistas. Windows es la plataforma inicial confirmada; el tablero 2D sigue como propuesta visual a revisar en P05.
 
@@ -15,6 +17,7 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 - P04 y P05 pueden avanzar por separado tras P03. P11, P12 y P13 pueden avanzar por separado tras P10, respetando sus dependencias.
 - Mantener una tarea de implementación activa por defecto y dividir tareas con varios comportamientos independientes.
 - Las reglas no confirmadas bloquean solo las tareas que dependan de ellas.
+- El núcleo de P02 ya permite preparar P03: no se necesita completar el catálogo ni decidir toda la red para crear el proyecto ejecutable. La especificación general puede seguir parcial mientras se cierran detalles en sus fases.
 - Revisar los prototipos antes de reutilizarlos en el producto.
 - Estimar la fase siguiente cuando estén claras sus entradas; no fijar fechas globales sin conocer reglamento, catálogo y conectividad.
 
@@ -24,8 +27,8 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 | --- | --- | --- | --- |
 | P00 | Organización y memoria | — | Cerrada en documentación |
 | P01 | Reglamento y referencias | P00 | Inventario inicial completado; dudas registradas |
-| P02 | Alcance y plataformas | P01 | Pendiente de decisiones |
-| P03 | Proyecto Godot ejecutable | P02 | Pendiente |
+| P02 | Alcance y plataformas | P01 | Núcleo funcional acordado; detalles pendientes |
+| P03 | Proyecto Godot ejecutable | P02 | Completada y verificada |
 | P04 | Prueba temprana de conexión | P03 | Pendiente |
 | P05 | Dirección visual y maqueta | P02, P03 | Pendiente |
 | P06 | Contrato del catálogo y carga | P01, P03 | Pendiente |
@@ -78,7 +81,7 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 
 **Cierre:** Cada regla relevante tiene fuente y página/sección, o una duda explícita; no se usan cartas ficticias como referencia.
 
-**Evidencia inicial:** SRC-001 leído en sus 20 páginas, REG-001 a REG-067, inventario de componentes y DUD-001 a DUD-007. Esto cierra el inventario del material disponible, no la fidelidad del catálogo completo ni el contraste con español.
+**Evidencia:** SRC-001 leído en sus 20 páginas y SRC-002 consultada; REG-001 a REG-075, componentes y DUD-001 a DUD-007 con sus estados. El inventario no acredita fidelidad ni interpretación completa. Consultar las erratas antes de implementar.
 
 ### P02 — Alcance y plataformas
 
@@ -87,6 +90,7 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 **Trabajo:**
 
 - Registrar acuerdos ya confirmados: aplicación Windows, competitivo 2–4, cooperativo 2–4 y solitario 1. Concretar compatibilidad y resoluciones durante P03/P05.
+- Registrar salas privadas, ausencia de cuentas y reconexión como requisitos obligatorios. Concretar la política detallada al preparar P15.
 - Delimitar catálogo, acceso a salas, desconexiones y objetivos visuales; resolver preguntas Q-001 a Q-006.
 
 **Cierre:** Se registra una ficha de alcance acordada con inclusiones y exclusiones, catálogo, acceso y desconexión. Windows y los modos ya están confirmados.
@@ -101,6 +105,8 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 - Definir comandos reales de arranque y comprobación; integrar el cargador sin cambiar aún las reglas.
 
 **Cierre:** El arranque funciona en el entorno elegido y los pasos se han reproducido; no basta con crear archivos.
+
+**Evidencia:** Godot 4.7.2 fijado, Database como Autoload, pantalla en español y 58 comprobaciones superadas en copia sin caché. Captura real 1280×800 revisada. Ver [SPEC-003](specs/003-arranque-godot/verification.md) y [comandos](desarrollo-local.md).
 
 ### P04 — Prueba temprana de conexión
 
@@ -214,6 +220,7 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 **Trabajo:**
 
 - Implementar crear/unirse, identidad de sesión, plazas y preparación de sala según el alcance.
+- Usar salas privadas sin cuentas; vincular cada plaza a una identidad temporal recuperable que no dependa solo del nombre visible.
 - Gestionar sala inexistente/llena, incompatibilidad de versiones y salida antes de empezar.
 - Seleccionar competitivo/cooperativo, limitar a cuatro humanos y ofrecer una ruta local de solitario sin exigir otro cliente (T13.3).
 
@@ -238,9 +245,9 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 **Trabajo:**
 
 - Implementar la política acordada para desconexión, abandono y pérdida de autoridad.
-- Si el alcance incluye reentrada, recuperar sesión y estado con autenticación y versiones coherentes; si no, finalizar de forma clara.
+- Implementar la reconexión obligatoria: recuperar plaza, estado autorizado y elecciones pendientes, demostrando posesión de sesión y sin repetir acciones ya aplicadas.
 
-**Cierre:** Se comprueban corte, reintento y salida del anfitrión sin corrupción de estado ni bloqueos permanentes; guardado y migración de anfitrión no se presuponen.
+**Cierre:** La política de pausa/reserva y caída de autoridad está definida; se prueban corte, reconexión propia, intento de ocupar plaza ajena y reenvío de acciones. Guardado entre días y migración de anfitrión siguen sujetos a alcance específico.
 
 ### P16 — Pruebas con amigos a distancia
 
@@ -279,7 +286,7 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 ## Punto de reanudación
 
 1. T01.1 y el inventario inicial T01.2 están documentados a partir del PDF recibido. Consultar [fuentes](referencias/README.md), [matriz](referencias/matriz-reglas.md) y [dudas](referencias/dudas.md).
-2. Resolver lo pendiente de T02.1: acceso, desconexión y alcance exacto del catálogo. Plataforma Windows, jugadores y modos ya están confirmados.
+2. P03 está completada. Próximo trabajo: P04, especificar y probar conexión externa, o P05, revisar la maqueta visual; son líneas independientes según el orden acordado. Mantener T02.1 parcial por catálogo y detalles de fases posteriores.
 3. Completar [SPEC-001](specs/001-alcance-y-reglamento/spec.md) y refinar [SPEC-002](specs/002-modos-y-cooperativo/spec.md) antes de la implementación dependiente.
 
 Seguir el [flujo SDD e issues](gestion/desarrollo.md) y los [criterios de calidad](calidad.md). La entrega inicial versiona estas bases por encargo del usuario; las tareas aún no se han publicado como issues.

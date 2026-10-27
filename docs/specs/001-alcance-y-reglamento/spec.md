@@ -3,7 +3,7 @@
 - Estado: borrador; fuente e inventario inicial completados, decisiones de producto pendientes.
 - Fecha de actualización: 2026-10-27.
 - Fases: P01 y P02.
-- Objetivos: PROD-001 a PROD-007 en [alcance](../../alcance.md).
+- Objetivos: PROD-001 a PROD-009 en [alcance](../../alcance.md).
 - Issues GitHub: sin publicar.
 
 ## Problema
@@ -35,8 +35,10 @@ Implementar una partida, crear imágenes finales, elegir un proveedor de alojami
 
 ## Avance y bloqueos actuales
 
-SRC-001 recibido y revisado: reglamento inglés de 2024, 1.ª edición/1.ª impresión, 20 páginas. Hay matriz de 67 reglas, inventario preliminar y siete dudas registradas. El producto sigue siendo español; la equivalencia de localización necesita contraste.
+SRC-001 recibido y revisado: reglamento inglés de 2024, 1.ª edición/1.ª impresión, 20 páginas. Complementado con SRC-002 (FAQ y erratas oficiales): 75 reglas y siete registros DUD, de los que dos están resueltos y uno parcialmente. El producto sigue siendo español; falta contraste de localización y resolver lo abierto.
 
 Jugadores y modos confirmados: competitivo 2–4, cooperativo 2–4 y solitario cooperativo 1; máximo cuatro humanos. [SPEC-002](../002-modos-y-cooperativo/spec.md) detalla sus comportamientos y pruebas.
 
-Plataforma confirmada: aplicación Windows; todos los participantes disponen de Windows. Pendientes: catálogo completo y variantes, acceso y desconexiones, compatibilidad mínima, resolución y presentación. El tablero 2D sigue como propuesta visual. No volver a preguntar sistema operativo, número de jugadores ni inclusión de cooperativo.
+Plataforma confirmada: aplicación Windows. Acceso confirmado: salas privadas sin cuentas y reconexión obligatoria a la plaza propia. Pendientes: catálogo/variantes, compatibilidad mínima, resolución/presentación y detalles de pausa/reserva/caída del anfitrión. El tablero 2D sigue como propuesta visual. No repetir preguntas resueltas.
+
+El alcance funcional permite preparar P03; esta especificación sigue parcial hasta cerrar sus demás criterios. El detalle técnico de acceso se concreta en P04/P13 y la reconexión en P15, sin exigirlos para el arranque de Godot.

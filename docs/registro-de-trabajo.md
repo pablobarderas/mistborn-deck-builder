@@ -1,5 +1,12 @@
 # Registro de trabajo
 
+## 2026-10-27 — Entrega para continuar en otro PC
+
+- El usuario autoriza subir a GitHub todo lo necesario. Se reúne P03 y las revisiones documentales previas; se añade guía de reanudación enlazada desde README e índice.
+- SRC-001 se copia al repositorio sin modificar; SHA-256 idéntico al registrado. Se actualizan fuente, estado y DEC-013 para eliminar la dependencia de una ruta externa.
+- Pruebas repetidas antes de publicar: 58 comprobaciones, código 0, ocho errores negativos esperados. Motor, cachés y temporales quedan ignorados. No se crean issues ni se avanza P04 en esta tarea.
+- El commit de esta entrada identifica la entrega; comprobar sincronización de main con origin tras el push.
+
 Entradas breves en orden cronológico. Conservar cambios, motivos y verificaciones útiles; el estado vigente se consulta en [estado actual](estado-actual.md).
 
 ## 2026-10-26 — Análisis inicial y documentación
@@ -48,3 +55,37 @@ Entradas breves en orden cronológico. Conservar cambios, motivos y verificacion
 - El PDF original y el AGENTS de orientación de la carpeta contenedora están fuera de la raíz Git y no forman parte de este commit. El código y las dos cartas de prueba permanecen sin cambios.
 - Verificación: enlaces y contenido documental, JSON existente, `git diff --check` y revisión de los archivos preparados. El push debe verificarse al cierre contra la revisión de `refs/heads/main` en el remoto; el resultado verificable queda en el historial Git y en el resumen de entrega.
 - Las issues del backlog no se crean por este encargo. Próximo trabajo: acceso/desconexión y catálogo de contenido oficial.
+
+## 2026-10-27 — Auditoría de interpretación y aclaraciones oficiales
+
+- El usuario pregunta si todo el PDF está interpretado correctamente y ofrece resolver dudas. No se afirma validación completa: lectura, inventario, interpretación y pruebas son estados distintos.
+- Se localiza y lee SRC-002, FAQ del editor con actualización declarada de enero de 2025. Registro, matriz y especificaciones actualizados; no se copia la página completa.
+- Inventario ampliado de 67 a 75 reglas, con fuentes por fila. DUD-001/007 resueltas; DUD-004 parcial; cuatro abiertas. Se conserva el historial de IDs.
+- Se pregunta la editorial de la caja española para contrastar localización. Faltan catálogo y aclaraciones de casos límite; no se inventan respuestas.
+- Verificación: enlaces, coherencia de IDs y estados y diff revisados. No se ejecutan pruebas del juego ni se modifica código. Cambios locales posteriores a `f2a5744`, sin nuevo commit/push en esta revisión.
+
+## 2026-10-27 — Crédito de la copia española
+
+- El usuario indica que únicamente encuentra «Edición: David Pérez». Se registra como crédito personal observado, sin inferir tirada ni atribuir empresa a esa persona.
+- Se consultan el anuncio y la ficha oficiales de Devir, registrados en SRC-003. Permiten identificar la publicación española, pero no acreditar equivalencia de todos los textos de la copia del usuario.
+- No se encuentra enlace accesible al reglamento español en las páginas consultadas; la página de Devir España devuelve 403 a la consulta. No se usan traducciones comunitarias como reglas oficiales.
+- DUD-003 sigue abierta para contraste de localización. No repetir la pregunta de editorial; seguir con SRC-001/002 y pedir material español concreto cuando una tarea lo necesite.
+- Verificación: enlaces locales y diff documental. Sin cambios de reglas, código, commit ni push.
+
+## 2026-10-27 — Acceso privado y reconexión confirmados
+
+- El usuario confirma salas privadas sin cuentas y posibilidad de reconectar. Registrado en PROD-008/009 y DEC-011; reentrada pasa a ser obligatoria en P15.
+- Alcance, arquitectura, plan, backlog, calidad, estado y SPEC-001 actualizados. Criterios: recuperar plaza propia y estado visible, conservar elecciones pendientes y no repetir acciones, usando identidad temporal compatible con no tener cuentas.
+- Pausa durante el corte, tiempo de reserva y pérdida del anfitrión siguen sin concretar; no se registran como acuerdos del usuario. Transporte/proveedor y guardado persistente tampoco se eligen en esta tarea.
+- El núcleo de alcance permite preparar P03; la especificación general continúa parcial por detalles asignados a fases posteriores y material de catálogo pendiente.
+- Verificación: enlaces, referencias y diff documental comprobados. No se implementó red ni se ejecutaron pruebas del juego. Sin commit/push nuevos.
+
+## 2026-10-27 — P03: proyecto Godot ejecutable
+
+- Autorización del usuario: «Vamos a por ello», sobre P03. SPEC-003 creada antes de implementar; conserva criterios y evidencia.
+- No se encontró Godot en las ubicaciones habituales. Preparado motor portátil 4.7.2 estable desde el enlace oficial; ejecutable devuelve 4.7.2.stable.official.ed1daf0bf. .godot-version fija la versión y .tools/ queda ignorado. SHA-256 del ZIP local: 731980f9608d61333e5baf54a2ef17210acc7a538446c0cb9969f002aca1e953 (huella calculada para identificar esta descarga, no contraste con un manifiesto externo).
+- Implementado project.godot, Autoload Database, pantalla y tarjetas de prueba, tema y fondo SVG propios. El JSON original no cambia. Carga/recarga y señales de error; validación mínima de estructura e IDs, sin implementar el esquema completo de P06.
+- Herramientas: lanzador PowerShell para importar, ejecutar, editor, pruebas y captura. Casos negativos y recuperación en GDScript sin framework. Los archivos temporales se excluyen de Git y del escaneo de Godot.
+- Verificación final: 58 comprobaciones en copia de fuentes sin .godot previa; código 0. Ocho errores de carga esperados y recuperación comprobada. Captura real 1280×800 en OpenGL/Compatibility revisada, salida mediante la señal del botón. Arranque normal de la escena configurada sin errores; ruta de motor ausente rechazada con código 1. La primera ejecución requirió permiso para los datos normales de Godot en el perfil Windows. Documentación: 38 archivos y 102 enlaces locales comprobados; `git diff --check` correcto.
+- P03 y T03.1/2 completadas en su alcance. Estado, plan, decisiones, arquitectura, datos, README y guía local actualizados. Detalles y rutas de evidencia en SPEC-003.
+- Sigue pendiente P04 para probar conexión externa; P05 puede revisar la propuesta visual. No se han implementado reglas, salas o reconexión ni exportado una versión distribuible. Sin nuevo commit/push; se conserva el trabajo documental previo.

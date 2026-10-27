@@ -1,0 +1,186 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/main_screen.gd" id="1_main"]
+[ext_resource type="Texture2D" path="res://assets/images/mist_background.svg" id="2_background"]
+[ext_resource type="Theme" path="res://scenes/theme.tres" id="3_theme"]
+
+[sub_resource type="SystemFont" id="Font_title"]
+font_names = PackedStringArray("Georgia", "Cambria")
+
+[node name="MainScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_theme")
+script = ExtResource("1_main")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_background")
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 52
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 52
+theme_override_constants/margin_bottom = 28
+
+[node name="Page" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Header" type="HBoxContainer" parent="Margin/Page"]
+layout_mode = 2
+
+[node name="Brand" type="Label" parent="Margin/Page/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.82, 0.72, 0.55, 1)
+theme_override_fonts/font = SubResource("Font_title")
+theme_override_font_sizes/font_size = 29
+text = "M I S T B O R N"
+
+[node name="Stage" type="Label" parent="Margin/Page/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.57, 0.66, 0.71, 1)
+theme_override_font_sizes/font_size = 13
+text = "NACIDOS DE LA BRUMA   /   EN DESARROLLO"
+vertical_alignment = 1
+
+[node name="HeaderLine" type="HSeparator" parent="Margin/Page"]
+layout_mode = 2
+modulate = Color(0.67, 0.64, 0.56, 0.3)
+
+[node name="Body" type="HBoxContainer" parent="Margin/Page"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 44
+alignment = 1
+
+[node name="Intro" type="VBoxContainer" parent="Margin/Page/Body"]
+custom_minimum_size = Vector2(344, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 22
+
+[node name="Eyebrow" type="Label" parent="Margin/Page/Body/Intro"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.76, 0.63, 0.43, 1)
+theme_override_font_sizes/font_size = 13
+text = "SCADRIAL TE ESPERA"
+
+[node name="Title" type="Label" parent="Margin/Page/Body/Intro"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("Font_title")
+theme_override_font_sizes/font_size = 57
+text = "Entre ceniza
+y bruma."
+
+[node name="Description" type="Label" parent="Margin/Page/Body/Intro"]
+custom_minimum_size = Vector2(344, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65, 0.72, 0.76, 1)
+text = "La primera ventana a una mesa compartida.
+Un proyecto para jugar con amigos,
+estén donde estén."
+autowrap_mode = 3
+
+[node name="ReloadButton" type="Button" parent="Margin/Page/Body/Intro"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Comprobar catálogo"
+mouse_default_cursor_shape = 2
+
+[node name="StatusLabel" type="Label" parent="Margin/Page/Body/Intro"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(344, 54)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Comprobando contenido…"
+autowrap_mode = 3
+
+[node name="Catalogue" type="VBoxContainer" parent="Margin/Page/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 18
+
+[node name="CatalogueHeader" type="HBoxContainer" parent="Margin/Page/Body/Catalogue"]
+layout_mode = 2
+
+[node name="CatalogueTitle" type="Label" parent="Margin/Page/Body/Catalogue/CatalogueHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("Font_title")
+theme_override_font_sizes/font_size = 27
+text = "El comienzo del mazo"
+
+[node name="CardCount" type="Label" parent="Margin/Page/Body/Catalogue/CatalogueHeader"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.57, 0.66, 0.71, 1)
+theme_override_font_sizes/font_size = 14
+vertical_alignment = 1
+
+[node name="Cards" type="HBoxContainer" parent="Margin/Page/Body/Catalogue"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="ErrorLabel" type="Label" parent="Margin/Page/Body/Catalogue"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 330)
+layout_mode = 2
+text = "No se ha podido cargar el contenido."
+autowrap_mode = 3
+vertical_alignment = 1
+
+[node name="ExampleNote" type="Label" parent="Margin/Page/Body/Catalogue"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.64, 0.69, 1)
+theme_override_font_sizes/font_size = 14
+text = "Cartas de ejemplo · Sus efectos todavía no se ejecutan."
+autowrap_mode = 3
+
+[node name="FooterLine" type="HSeparator" parent="Margin/Page"]
+layout_mode = 2
+modulate = Color(0.67, 0.64, 0.56, 0.3)
+
+[node name="Footer" type="HBoxContainer" parent="Margin/Page"]
+layout_mode = 2
+
+[node name="Roadmap" type="Label" parent="Margin/Page/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.57, 0.66, 0.71, 1)
+theme_override_font_sizes/font_size = 14
+text = "Competitivo · Cooperativo · Solitario     /     En preparación"
+vertical_alignment = 1
+
+[node name="ExitButton" type="Button" parent="Margin/Page/Footer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Salir"
+flat = true
+theme_override_colors/font_color = Color(0.78, 0.81, 0.81, 1)
+mouse_default_cursor_shape = 2
+
+[connection signal="pressed" from="Margin/Page/Body/Intro/ReloadButton" to="." method="_on_reload_pressed"]
+[connection signal="pressed" from="Margin/Page/Footer/ExitButton" to="." method="_on_exit_pressed"]

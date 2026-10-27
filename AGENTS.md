@@ -8,6 +8,8 @@ Alcance confirmado: competitivo de 2–4, cooperativo de 2–4 y cooperativo en 
 
 ## Recuperación del contexto
 
+Acceso remoto confirmado: salas privadas sin cuentas y reconexión obligatoria a la misma partida/plaza. No volver a plantearlo como opcional. Transporte, alojamiento, pausa, tiempo de reserva de plaza y pérdida del anfitrión se concretan en sus fases; no se dan por acordados con esta decisión.
+
 Al comenzar una tarea:
 
 1. Leer este archivo y `docs/README.md`.
@@ -19,7 +21,7 @@ No asumir que existe memoria persistente entre conversaciones. Todo acuerdo rele
 
 ## Entorno y organización
 
-- Motor: Godot 4.x. La versión exacta está pendiente de fijar.
+- Motor: Godot 4.7.2 estable estándar, fijado en `.godot-version`; GDScript y renderizador Compatibility. No cambiar la versión silenciosamente.
 - Plataforma inicial: aplicación para Windows; todos los participantes tienen Windows, confirmado el 2026-10-27. Versión mínima y requisitos de hardware pendientes; no volver a preguntar por el sistema operativo del grupo.
 - Lenguaje: GDScript; no usar C#.
 - `data/`: datos JSON de contenido.
@@ -41,10 +43,13 @@ Crear carpetas cuando tengan contenido. No añadir dependencias, cambiar de moto
 - No interpretar el texto descriptivo de `efecto` como código ejecutable. Documentar un modelo de efectos antes de automatizarlos.
 - Para el futuro multijugador, definir quién valida las acciones y qué información recibe cada jugador antes de implementar el transporte. No asumir que un cliente puede decidir el resultado de una acción.
 - No introducir reglas caseras silenciosamente. Registrar las discrepancias con el juego y la decisión de adaptación.
+- Consultar también SRC-002, FAQ y erratas oficiales, antes de implementar una regla de SRC-001. Las correcciones expresas del editor prevalecen sobre el PDF; conservar fuente y sección. El inventario documental no acredita fidelidad completa ni sustituye pruebas.
 - Mantener explícitas las diferencias de preparación, combate, rival y victoria por modo. El motor del rival de solitario/cooperativo pertenece al alcance obligatorio; no se clasifica como una IA opcional. No dar por completado el juego con solo el competitivo.
 - Conservar el trabajo existente del usuario y limitar los cambios al alcance de la tarea.
 
 ## Verificación
+
+Comandos de desarrollo desde la raíz: `powershell -NoProfile -ExecutionPolicy Bypass -File tools/godot.ps1 -Action test` (importación y pruebas), `-Action run` (pantalla), `-Action editor` (editor) y `-Action preview` (captura real y salida). El motor local vive en `.tools/godot/`, excluido de Git; otra ruta se indica mediante `-GodotPath` o `GODOT_BIN`. Consulta `docs/desarrollo-local.md`.
 
 El trabajo se organiza con SDD ligero: especificar comportamiento y aceptación, planificar, dividir en tareas, implementar y verificar. Las tareas pequeñas pueden usar solo una issue; las entregas complejas usan `spec.md`, `plan.md`, `tasks.md` y `verification.md`. No hay Spec Kit instalado. Los IDs locales Txx.n no son números de GitHub. Consultar `docs/gestion/desarrollo.md` y `docs/calidad.md`.
 

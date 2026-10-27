@@ -8,10 +8,12 @@ Se ha leído y revisado visualmente SRC-001: Mistborn: The Deckbuilding Game, Br
 
 Modos confirmados: competitivo de 2–4, cooperativo de 2–4 y cooperativo en solitario. El rival se resuelve por cartas y reglas. Ver [alcance](alcance.md).
 
+La fuente complementaria SRC-002 es la FAQ oficial de Brotherwise, con actualización declarada de enero de 2025 y consultada el 2026-10-27. Sus erratas expresas corrigen el PDF. Consultar el registro de fuentes antes de implementar, especialmente REG-029/030/047.
+
 ## Referencia duradera
 
 - [Fuente, hash y mapa de páginas](referencias/README.md).
-- [Matriz de reglas](referencias/matriz-reglas.md): REG-001 a REG-067.
+- [Matriz de reglas](referencias/matriz-reglas.md): REG-001 a REG-075, incluidas correcciones con SRC-002.
 - [Componentes y catálogo pendiente](referencias/componentes.md).
 - [Dudas abiertas](referencias/dudas.md).
 - [Especificación de modos](specs/002-modos-y-cooperativo/spec.md).
@@ -32,4 +34,4 @@ Páginas de referencia: preparación 5/18; turnos y combate 15–17/19; finales 
 
 Solo existe documentación de estas reglas. Database.gd y cartas.json siguen siendo ejemplos técnicos sin motor del juego. El PDF no enumera todo el catálogo ni muestra todos los textos/pistas; no se ha acreditado fidelidad completa.
 
-Algunas cláusulas tienen dudas expresas, incluida una referencia inconsistente a la pista de misiones en el beneficio final de entrenamiento de la página 12. Resolverlas mediante fuentes antes de codificarlas. No introducir reglas caseras silenciosamente.
+SRC-002 resuelve DUD-001/007 y la parte de aliados de DUD-004. Siguen pendientes el resto de DUD-004, DUD-005/006, catálogo y localización (DUD-002/003). No se da por interpretado y validado todo el juego; registrar las incertidumbres y resolverlas antes de implementar lo dependiente.

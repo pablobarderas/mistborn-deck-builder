@@ -1,0 +1,29 @@
+; Abrir este archivo con la versión de .godot-version.
+config_version=5
+
+[application]
+config/name="Mistborn · Nacidos de la Bruma"
+run/main_scene="res://scenes/MainScreen.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+config/description="Base de desarrollo para jugar a Mistborn con amigos."
+
+[autoload]
+Database="*res://scripts/Database.gd"
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=800
+window/size/window_width_override=1280
+window/size/window_height_override=800
+window/size/min_width=1024
+window/size/min_height=640
+window/stretch/mode="canvas_items"
+
+[internationalization]
+locale/fallback="es"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+environment/defaults/default_clear_color=Color(0.035, 0.055, 0.075, 1)

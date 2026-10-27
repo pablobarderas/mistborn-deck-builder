@@ -1,6 +1,6 @@
 # Verificación de SPEC-002
 
-Estado al 2026-10-27: solo se ha comprobado la trazabilidad documental contra SRC-001, no existe implementación de estas reglas.
+Estado al 2026-10-27: trazabilidad documental revisada contra SRC-001 y complementada con SRC-002. No existe implementación de estas reglas; no hay pruebas ejecutadas.
 
 | Criterio | Escenario mínimo previsto | Resultado actual |
 | --- | --- | --- |

@@ -16,6 +16,8 @@ Esta lista define qué evidencia recoger. No acredita pruebas ya realizadas. Los
 | Presentación | Cartas ampliables, textos legibles y acciones disponibles/pendientes claras en las resoluciones objetivo. | Capturas y recorrido de todos los flujos, incluidos casos saturados. |
 | Animaciones | No alteran reglas, duplican acciones ni bloquean la interacción; efectos ambientales preservan lectura. | Partida real y revisión visual. |
 | Acceso | Un amigo puede instalar/abrir, entrar y jugar siguiendo las instrucciones. | Prueba desde equipo limpio y red distinta. |
+| Salas privadas sin cuentas | Entrar mediante invitación/código sin registro y conservar la propiedad de cada plaza durante la sesión. | Creación/unión, límite de plazas y rechazo de recuperación ajena. |
+| Reconexión obligatoria | Recuperar la plaza y vista propia, incluidas elecciones pendientes, sin repetir acciones ni revelar manos ajenas. | Corte/reconexión, reintento duplicado y credencial de sesión inválida. |
 | Rendimiento | Se cumplen los objetivos fijados para los equipos admitidos. | Medición de tiempos de carga, respuesta y fluidez en esos equipos. |
 | Distribución | Versión del juego, reglas y catálogo compatibles; errores de versión comprensibles. | Exportación desde copia limpia y prueba de incompatibilidad. |
 
@@ -29,7 +31,7 @@ Esta lista define qué evidencia recoger. No acredita pruebas ya realizadas. Los
 - P16: siete configuraciones de modo/jugadores; grupo en dispositivos y redes reales, solitario en una instancia. Una prueba multijugador en un único equipo no sustituye evidencia externa.
 - P17–P18: revisión visual, exportación y acceso desde copia limpia.
 
-Elegir herramienta de pruebas y CI cuando se fije Godot. No instalar un framework ni crear un workflow que aparenten comprobar reglas inexistentes.
+P03 usa pruebas en GDScript y lanzador PowerShell, con Godot 4.7.2 fijado. Las pruebas de reglas y la integración continua se ampliarán cuando exista ese código; no atribuir cobertura de reglas a las comprobaciones de arranque.
 
 ## Registro de verificación
 

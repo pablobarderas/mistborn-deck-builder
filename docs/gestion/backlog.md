@@ -24,7 +24,7 @@
 ### T01.2 — Inventariar reglas, componentes y dudas
 
 - Tipo: documentación. Fase P01. SPEC-001, AC-02.
-- Entrega realizada: REG-001 a REG-067, inventario de cantidades y contenido faltante, DUD-001 a DUD-007. Véase [referencias](../referencias/README.md).
+- Entrega realizada: REG-001 a REG-075 tras incorporar SRC-002, inventario de cantidades/contenido faltante y DUD-001 a DUD-007 con sus estados. Véase [referencias](../referencias/README.md).
 - Aceptación: se distingue lo confirmado de lo desconocido; las dos cartas de prueba no se consideran oficiales.
 - Dependencia satisfecha: T01.1. Estado: inventario inicial del material disponible completado el 2026-10-27; sin publicar.
 - Las 20 páginas se han revisado. El PDF no contiene todos los textos/cartas/pistas; el faltante está inventariado, no cubierto ni implementado.
@@ -35,7 +35,7 @@
 - Entrega: ficha de alcance con plataformas, jugadores, modo, catálogo, acceso, desconexiones y objetivos de presentación.
 - Aceptación: Q-001 a Q-006 están resueltas al nivel requerido para pasar a P03; alojamiento/transporte finales pueden resolverse en P04.
 - Dependencia: T01.2 para cerrar. Compatibilidad y resoluciones se concretarán durante P03/P05.
-- Estado: parcial; confirmados aplicación Windows, máximo cuatro humanos y modos competitivo 2–4, cooperativo 2–4 y solitario 1. Pendientes catálogo detallado, acceso y desconexiones. Issue: sin publicar.
+- Estado: núcleo funcional acordado: Windows, máximo cuatro humanos, modos, salas privadas sin cuentas y reconexión. Catálogo y detalles de presentación/interrupciones siguen parciales; se permite preparar P03. Issue: sin publicar.
 
 ## Paquetes posteriores
 
@@ -43,8 +43,8 @@ Estos son candidatos a issues, no especificaciones listas para implementar. La a
 
 | ID | Fase | Resultado previsto | Dependencia mínima | Estado | GitHub |
 | --- | --- | --- | --- | --- | --- |
-| T03.1 | P03 | Fijar versión de Godot 4, crear project.godot y escena de inicio. | P02 | Por refinar | Sin publicar |
-| T03.2 | P03 | Definir comandos reales de arranque y comprobación; integrar el cargador sin cambiar aún las reglas. | T03.1 | Por refinar | Sin publicar |
+| T03.1 | P03 | Godot 4.7.2, project.godot, tema y escena de inicio. | Núcleo P02 confirmado | Completada; SPEC-003 | Sin publicar |
+| T03.2 | P03 | Autoload, diagnóstico, comandos y 58 comprobaciones en copia limpia. | T03.1 | Completada; SPEC-003 | Sin publicar |
 | T04.1 | P04 | Probar dos clientes con mensajes de prueba y una autoridad identificada. | P03 | Por refinar | Sin publicar |
 | T04.2 | P04 | Probar la vía de acceso desde dos redes distintas; comparar anfitrión y servicio si hace falta, con requisitos y costes. | T04.1 | Por refinar | Sin publicar |
 | T05.1 | P05 | Preparar una pantalla representativa con tablero, mano, carta ampliada y recursos de muestra. | P02, P03 | Por refinar | Sin publicar |
@@ -68,14 +68,14 @@ Estos son candidatos a issues, no especificaciones listas para implementar. La a
 | T12.1 | P12 | Mostrar turno, recursos, zonas, elecciones, historial y resultado; ampliar cartas y explicar acciones no disponibles. | P05, P10 | Por refinar | Sin publicar |
 | T12.2 | P12 | Adaptar la maqueta a casos reales: manos grandes, nombres largos, varias elecciones y resoluciones acordadas. | T12.1 | Por refinar | Sin publicar |
 | T12.3 | P12 | Interfaz de rival, Dominación, escudos y elecciones colectivas. | T12.2, T09.3 | SPEC-002; por refinar | Sin publicar |
-| T13.1 | P13 | Implementar crear/unirse, identidad de sesión, plazas y preparación de sala según el alcance. | P04, P10 | Por refinar | Sin publicar |
+| T13.1 | P13 | Crear/unirse a salas privadas sin cuentas, identidad temporal recuperable, plazas y preparación. | P04, P10 | Por refinar | Sin publicar |
 | T13.2 | P13 | Gestionar sala inexistente/llena, incompatibilidad de versiones y salida antes de empezar. | T13.1 | Por refinar | Sin publicar |
 | T13.3 | P13 | Selección de modo, plazas hasta cuatro y ruta local de solitario. | T13.2 | SPEC-002; por refinar | Sin publicar |
 | T14.1 | P14 | Enviar intenciones validadas, identificar acciones duplicadas y sincronizar cambios y elecciones. | P11, P12, P13 | Por refinar | Sin publicar |
 | T14.2 | P14 | Filtrar estado privado en el envío y comprobar convergencia del estado público y vistas autorizadas. | T14.1 | Por refinar | Sin publicar |
 | T14.3 | P14 | Sincronizar rival y decisiones cooperativas de 2–4. | T14.2, T11.3, T12.3, T13.3 | SPEC-002; por refinar | Sin publicar |
-| T15.1 | P15 | Implementar la política acordada para desconexión, abandono y pérdida de autoridad. | P14 | Por refinar | Sin publicar |
-| T15.2 | P15 | Si el alcance incluye reentrada, recuperar sesión y estado con autenticación y versiones coherentes; si no, finalizar de forma clara. | T15.1 | Por refinar | Sin publicar |
+| T15.1 | P15 | Definir y aplicar pausa/reserva, abandono y pérdida de autoridad; reconexión obligatoria ya acordada. | P14 | Detalles pendientes | Sin publicar |
+| T15.2 | P15 | Recuperar plaza propia y estado autorizado sin cuentas, reanudar elecciones y evitar acciones duplicadas. | T15.1 | Requisito obligatorio; por refinar | Sin publicar |
 | T16.1 | P16 | Completar partidas con el número de jugadores objetivo y registrar incidencias reproducibles. | P15 | Por refinar | Sin publicar |
 | T16.2 | P16 | Comprobar instalación/acceso, latencia, elecciones simultáneas si existen, visibilidad y resultados. | T16.1 | Por refinar | Sin publicar |
 | T16.3 | P16 | Verificar competitivo 2/3/4, cooperativo 2/3/4 y solitario 1. | T16.2, T14.3 | No ejecutado | Sin publicar |

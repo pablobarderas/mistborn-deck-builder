@@ -10,3 +10,7 @@ Thumbs.db
 
 # Archivos intermedios de lectura y verificación documental
 /tmp/
+
+# Motor portátil local y artefactos de ejecución
+/.tools/
+/builds/

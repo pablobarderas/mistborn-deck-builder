@@ -15,5 +15,6 @@ Especificaciones actuales:
 
 - [001 — Alcance y reglamento](001-alcance-y-reglamento/spec.md): fuente e inventario inicial documentados; decisiones de producto pendientes.
 - [002 — Modos y cooperativo](002-modos-y-cooperativo/spec.md): borrador de reglas y aceptación para competitivo 2–4, cooperativo 2–4 y solitario 1; sin implementación.
+- [003 — Arranque Godot](003-arranque-godot/spec.md): P03 completada; proyecto ejecutable, carga observable y pruebas/captura verificadas.
 
 No hay Spec Kit instalado. La estructura es propia y sigue el [flujo SDD ligero](../gestion/desarrollo.md).
