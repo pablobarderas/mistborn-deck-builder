@@ -1,5 +1,11 @@
 # Registro de trabajo
 
+## 2026-10-29 — Punto de pausa y publicación para retomar
+
+- El usuario confirma que las fotos del material español y las dudas DUD-004/005/006 seguirán pendientes por ahora. No se recibe nueva fuente ni se acuerda interpretación/adaptación de reglas. T08.1b continúa en espera de pistas/recompensas verificadas; al reanudar sin ellas se puede implementar la parte confirmada de T08.2 y mantener DUD-006 para el agotamiento total.
+- Se corrige la guía de continuidad, estado, plan, backlog y dudas para reflejar T07.1/2 y T08.1a ya publicadas. El último commit de código es `acb507a` en `origin/main`; esta entrada documenta el punto de reanudación. Sin cambios de código ni nuevas pruebas Godot en esta pausa; se comprobaron enlaces y diff documental.
+- Permanecen fuera de Git los cambios locales previos de `project.godot` y dos `.import`. P04 externa sigue pendiente; no hay partida jugable ni catálogo verificado.
+
 ## 2026-10-29 — T08.1a: preparación estructural local
 
 - Tras confirmar que `1930313` estaba en HEAD y origin/main, se especificó P08 y se implementó `game_setup.gd`: manifiesto físico de definiciones declaradas verificadas, sorteo/barajado/reparto, orden, bonificaciones/Target y rival inicial por modo. Se rechaza contenido incompleto o por encima de cantidades. `training_track_id` se incorpora al snapshot y `version_motor` sube a `p08-setup-1/godot-4.7.2`.

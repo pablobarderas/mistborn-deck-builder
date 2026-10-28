@@ -1,6 +1,6 @@
 # Dudas e información pendiente
 
-Revisión: 2026-10-27. Dos entradas resueltas por SRC-002, una parcialmente resuelta y cuatro abiertas. DUD-002/003 son material y localización pendientes, no contradicciones del PDF. Los IDs se conservan por trazabilidad.
+Revisión: 2026-10-29. Dos entradas resueltas por SRC-002, una parcialmente resuelta y cuatro abiertas. DUD-002/003 son material y localización pendientes, no contradicciones del PDF. El usuario confirma que el material y las dudas DUD-004/005/006 seguirán pendientes por ahora; no aporta fuente ni decide una adaptación. Los IDs se conservan por trazabilidad.
 
 | ID | Fuente / problema | Consecuencia y siguiente acción |
 | --- | --- | --- |

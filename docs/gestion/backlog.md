@@ -53,8 +53,8 @@ Estos son candidatos a issues, no especificaciones listas para implementar. La a
 | T06.2 | P06 | Validar tipos, IDs, referencias y recursos ausentes; decidir carga ante errores y migrar ejemplos. | T06.1 | Completada; 220 comprobaciones, migración y avisos | Sin publicar |
 | T07.1 | P07 | Estado, zonas, instancias, modos/rival e invariantes con fixtures. | Núcleo P02, P06; P04 para cierre de fase | Completada localmente; SPEC-007, 1.725 comprobaciones de estado | Sin publicar |
 | T07.2 | P07 | Transacciones, RNG, recibos por plaza, proyección privada y continuación. | T07.1 | Completada localmente; SPEC-007, 102 comprobaciones del motor | Sin publicar |
-| T08.1 | P08 | Preparación, reparto, orden de jugadores y fases del turno según REG. | P01, P07 | T08.1a completada localmente; T08.1b entrenamiento/turnos pendiente; SPEC-008 | Sin publicar |
-| T08.2 | P08 | Transiciones, límites y casos de mazo/descartes del reglamento. | T08.1 | SPEC-008; pendiente, DUD-006 para agotamiento total | Sin publicar |
+| T08.1 | P08 | Preparación, reparto, orden de jugadores y fases del turno según REG. | P01, P07 | T08.1a completada localmente; T08.1b espera pistas/recompensas verificadas; SPEC-008 | Sin publicar |
+| T08.2 | P08 | Transiciones, límites y casos de mazo/descartes del reglamento. | T08.1 | SPEC-008; parte confirmada próxima al retomar, DUD-006 pendiente para agotamiento total | Sin publicar |
 | T08.3 | P08 | Diferencias por modo: Target/bonificaciones y paso rival. | T08.2 | Preparación inicial por modo hecha en T08.1a; paso rival pendiente | Sin publicar |
 | T09.1 | P09 | Implementar por familias los efectos confirmados, objetivos y elecciones pendientes. | P08 | Por refinar | Sin publicar |
 | T09.2 | P09 | Definir orden de resolución, efectos encadenados y finalización; comprobar interacciones y objetivos inválidos. | T09.1 | Por refinar | Sin publicar |

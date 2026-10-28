@@ -76,15 +76,15 @@ La gramática de P06 es inicial y extensible: no cubre por sí sola todos los ef
 
 Confirmado: Windows, español, máximo cuatro humanos; competitivo 2–4, cooperativo 2–4 y solitario cooperativo 1. Salas privadas sin cuentas y reconexión obligatoria. El diseño visual actual es provisional; pausa/reserva de plaza y pérdida de autoridad se concretarán en P15.
 
-SRC-001: PDF inglés de 2024, 1.ª edición/1.ª impresión, 20 páginas; leído y revisado visualmente. Copia original incluida en Git, ruta/hash en [fuentes](referencias/README.md). SRC-002 añade FAQ/erratas oficiales; 75 reglas documentadas, ninguna implementada. Siete registros DUD: dos resueltos, uno parcial y cuatro abiertos.
+SRC-001: PDF inglés de 2024, 1.ª edición/1.ª impresión, 20 páginas; leído y revisado visualmente. Copia original incluida en Git, ruta/hash en [fuentes](referencias/README.md). SRC-002 añade FAQ/erratas oficiales; 75 reglas documentadas, con cobertura estructural parcial de REG-001–006/052 en T08.1a. Siete registros DUD: dos resueltos, uno parcial y cuatro abiertos.
 
 SRC-003 identifica la publicación española de Devir. El usuario aporta «Edición: David Pérez»; falta contrastar textos/tirada y completar cartas y pistas. No repetir la pregunta de editorial ni los acuerdos de acceso/jugadores.
 
 ## Repositorio y reanudación
 
-La raíz Git es la carpeta que contiene project.godot y AGENTS.md. T07.1 se publicó en main como b3ff3c7 el 2026-10-28; T07.2 se ha validado localmente y su publicación forma parte del encargo actual. No se han creado issues. Consulta [continuar en otro PC](continuar-en-otro-pc.md) para la reanudación.
+La raíz Git es la carpeta que contiene project.godot y AGENTS.md. T07.1 (`b3ff3c7`), T07.2 (`1930313`) y T08.1a (`acb507a`) están publicadas en `origin/main`. No se han creado issues. Consulta [continuar en otro PC](continuar-en-otro-pc.md) para la reanudación.
 
-P04: T04.1 completada; T04.2 pendiente de segundo equipo y prueba entre redes. P05/P06 cerradas en su alcance. **T07.1/2 y T08.1a implementadas y verificadas localmente. Próximo trabajo independiente: T08.1b, avance de entrenamiento al inicio; requiere pistas y recompensas verificadas.** No dar por cumplida la dependencia P04 para cerrar P07. Los lotes de cartas pueden incorporarse en paralelo cuando estén disponibles. No se han creado issues.
+P04: T04.1 completada; T04.2 pendiente de segundo equipo y prueba entre redes. P05/P06 cerradas en su alcance. **T07.1/2 y T08.1a implementadas y verificadas localmente.** El usuario deja por ahora pendientes las fotos del material español y las DUD-004/005/006; no se ha acordado ninguna interpretación nueva. T08.1b espera pistas y recompensas verificadas. Al reanudar sin ese material, el siguiente trabajo independiente es la parte confirmada de T08.2 (ciclo del mazo y descarte), manteniendo sin resolver el caso de mazo y descarte vacíos. No dar por cumplida la dependencia P04 para cerrar P07. No se han creado issues.
 
 ## Núcleo local de P07
 
