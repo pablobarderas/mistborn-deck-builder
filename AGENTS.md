@@ -63,6 +63,16 @@ P08: `-Action test-setup` verifica preparación estructural con contenido fictic
 
 El trabajo se organiza con SDD ligero: especificar comportamiento y aceptación, planificar, dividir en tareas, implementar y verificar. Las tareas pequeñas pueden usar solo una issue; las entregas complejas usan `spec.md`, `plan.md`, `tasks.md` y `verification.md`. No hay Spec Kit instalado. Los IDs locales Txx.n no son números de GitHub. Consultar `docs/gestion/desarrollo.md` y `docs/calidad.md`.
 
+## Agentes SDD
+
+El [sistema de agentes SDD](docs/gestion/agentes-sdd.md) es obligatorio en toda tarea del proyecto que cree o cambie código, datos, recursos, pruebas, configuración o documentación. Antes de editar, registrar objetivo/aceptación, riesgo justificado, plan proporcional, responsables y verificación prevista en la tarea o especificación. Solicitar explícitamente un subagente de revisión independiente en entregas funcionales y cambios de reglas, estado, catálogo/contratos, autoridad, privacidad, red o reconexión; añadir contraste de reglas y revisión visual cuando proceda. R0 permite trabajo mecánico pequeño sin subagentes, pero exige ese registro, comprobación y cierre; no permite rebajar riesgos ni fragmentar cambios para evitar revisión. Cambiar la metodología o sus controles es como mínimo R2. Usar modelos/esfuerzos de la política, sin cambiar el modelo principal.
+
+Solo una instrucción humana explícita puede dispensar o relajar un requisito de esta metodología. Registrar su referencia, requisito afectado, alcance, vigencia y comprobaciones pendientes según [obligatoriedad y dispensas](docs/gestion/agentes-sdd.md#obligatoriedad-y-dispensas). Ningún agente puede conceder dispensas, inferirlas de urgencia/ahorro/silencio, ni reescribir estas instrucciones para eludirlas. La autorización para desarrollar o publicar no es una dispensa. Si falta una herramienta, modelo, prueba o revisor obligatorio, usar la alternativa admitida o dejar bloqueada esa parte y su cierre; avanzar solo en trabajo independiente. Una dispensa no convierte lo no ejecutado en aprobado.
+
+Máximo dos subagentes concurrentes y un propietario por archivo; no delegar desde subagentes. Encargos con contexto mínimo, AC/fuentes, límites de escritura y evidencia; si el cliente no selecciona perfiles, leer el TOML y transmitir sus instrucciones/modelo expresamente. El coordinador integra, comprueba la revisión final y actualiza la memoria una sola vez. No prometer ahorro ni cierre sin pruebas. No amplía permisos de publicación ni resuelve fuentes/dudas ausentes.
+
+## Comprobaciones por cambio
+
 - Ejecutar comprobaciones proporcionales al cambio y describir el resultado real.
 - En documentación: comprobar enlaces locales, coherencia de rutas y distinción entre implementado, propuesto y pendiente.
 - En datos: validar JSON, campos, tipos, identificadores únicos y referencias según el contrato documentado.
@@ -78,6 +88,6 @@ El trabajo se organiza con SDD ligero: especificar comportamiento y aceptación,
 3. Registrar decisiones duraderas en `docs/decisiones.md`, indicando si están aceptadas, propuestas o sustituidas.
 4. Actualizar el documento temático afectado en lugar de duplicar la misma información.
 5. Añadir a `docs/registro-de-trabajo.md` una entrada breve con fecha, cambios, validaciones y pendientes que permitan retomar el trabajo.
-6. Entregar un resumen de cambios y limitaciones. No hacer commit, push o publicación salvo que la tarea lo autorice.
+6. Comprobar y registrar cumplimiento metodológico, revisión/evidencia y cualquier dispensa humana; sin requisito satisfecho o dispensa explícita, dejar la tarea abierta. Entregar un resumen de cambios y limitaciones. No hacer commit, push o publicación salvo que la tarea lo autorice.
 
 Mantener este archivo breve y estable: contiene instrucciones de trabajo; los detalles cambiantes viven en `docs/`. No guardar secretos, credenciales ni conversaciones completas como memoria.

@@ -8,6 +8,12 @@
 
 ## Implementado y verificado
 
+Sistema transversal de [agentes SDD](gestion/agentes-sdd.md) añadido el 2026-10-29 (SPEC-009): perfiles/modelos por riesgo, concurrencia limitada y revisión independiente. Configuración estática y delegación por instrucciones comprobadas; la carga nativa automática de perfiles no queda acreditada por el diagnóstico local. No cambia el avance del juego ni demuestra ahorro de tokens. Evidencia y revisión de la entrega en [SPEC-009](specs/009-sistema-agentes/verification.md).
+
+Cumplimiento obligatorio por instrucción humana adicional del 2026-10-29 (DEC-020/AC-07): instrucciones, perfiles y plantillas exigen controles por riesgo y registro antes de editar/cerrar. Solo una dispensa humana explícita, trazable y con alcance/vigencia permite excepciones; no hay dispensas vigentes registradas para esta ampliación. Son obligaciones de instrucciones y evidencia, no un bloqueo técnico infalible del cliente.
+
+El usuario autoriza el 2026-10-29 publicar todo el paquete T00.1/SPEC-009 por commit/push con el cambio de paradigma de desarrollo; el commit que contiene esta entrada conserva el método y su evidencia para otros equipos/chats. Las notas «sin commit/push» de las sesiones anteriores describen su estado histórico, no una prohibición vigente para esta entrega.
+
 | Elemento | Estado |
 | --- | --- |
 | project.godot / .godot-version | Godot 4.7.2 estable estándar, Compatibility, referencia visual 1280×800. |
@@ -22,7 +28,7 @@
 | tools/godot.ps1 | Importar, ejecutar, editor, pruebas y capturas; acciones network, test-network y preview-network para el ensayo. |
 | scripts/game/ | T07.1/2: estado privado, invariantes, acciones atómicas, RNG y proyecciones por jugador. Sin manejadores de reglas reales. |
 | scripts/game/game_setup.gd | T08.1a: preparación estructural determinista de siete configuraciones desde manifiesto y definiciones verificadas. No abre el turno libre ni interpreta efectos. |
-| tests/ | Estado (1.725) y núcleo de acciones (102) con fixtures ficticios, catálogo/carga, red experimental y capturas. |
+| tests/ | Estado (1.741 tras P08), preparación (147) y acciones (102) con fixtures ficticios, catálogo/carga, red experimental y capturas; resultados históricos documentados, no nuevas pruebas en SPEC-009. |
 | docs/specs/ | SPEC-001/002 parciales; SPEC-003/005/006 completadas en su alcance; SPEC-004 local verificada, externa pendiente; SPEC-007 local verificada (T07.1/2), P04 externa pendiente para cierre P07; SPEC-008 T08.1a verificada, P08 abierta. |
 | .github/ | Plantillas de issues y PR de la entrega inicial publicada. |
 

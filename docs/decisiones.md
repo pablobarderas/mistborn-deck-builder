@@ -142,6 +142,21 @@ Usar IDs estables. Para cada decisión indicar fecha, estado, contexto, elecció
 - Se registra `training_track_id` por plaza y se inicia la fase `inicio` sin ejecutar entrenamiento ni recompensas. Esto permite reanudar un snapshot con su pista identificada y evita abrir un turno como si ya se hubiese aplicado una recompensa desconocida. Se incrementa `version_motor` por la ampliación del esquema.
 - Consecuencias: la preparación local se puede probar con fixtures; no se puede alimentar desde las dos muestras actuales. El catálogo oficial y la ejecución del turno siguen pendientes. Véase [SPEC-008](specs/008-preparacion-y-turnos/plan.md).
 
+## DEC-019 — Agentes SDD proporcionales al riesgo
+
+- Fecha: 2026-10-29. Estado: decisión técnica adoptada por encargo explícito del usuario de analizar e implementar el sistema.
+- Decisión: coordinador de la sesión y siete perfiles disponibles bajo demanda; Luna medium para apoyo mecánico, Sol medium/high para desarrollo/planificación/reglas/revisión, Terra medium para inspección visual y Astra high solo para escalado difícil. El modelo principal no se cambia. Como máximo dos subagentes concurrentes, un propietario por archivo y sin delegación descendente.
+- Motivo: el juego combina reglas/modos/rival, catálogo aún incompleto, privacidad/reconexión y experiencia visual. El contraste independiente protege cambios críticos; un agente por micro paso o todos los especialistas activos duplicarían contexto y coordinación. No existe ahorro de tokens medido ni garantía de calidad por elegir un modelo.
+- Consecuencias: [política y análisis](gestion/agentes-sdd.md), configuración de proyecto `.codex/`, validador y [SPEC-009](specs/009-sistema-agentes/spec.md). AGENTS solicita revisión independiente proporcional al riesgo. Si la herramienta no selecciona perfiles, el coordinador transmite instrucciones/modelo explícitos y registra ese modo de aplicación; no se afirma carga nativa sin evidencia.
+- No modifica motor, reglas, decisiones de producto, permisos de publicación ni cierres de fase. Material/dudas aplazados y P04 externa continúan pendientes. Modelos disponibles, consumo efectivo y compatibilidad del cliente se comprueban por entorno; revisar la política tras cinco entregas comparables.
+
+## DEC-020 — Cumplimiento obligatorio y dispensas exclusivamente humanas
+
+- Fecha: 2026-10-29. Estado: aceptada por instrucción expresa del usuario: integrar la metodología en los documentos de Codex e impedir omitirla salvo indicación humana expresa. Complementa DEC-019; conserva sus roles, modelos y proporcionalidad.
+- Decisión: SDD obligatorio para toda tarea que cambie el proyecto; registro antes de editar y control de cierre según riesgo. Solo una instrucción humana explícita puede dispensar requisitos, con referencia, requisito afectado, alcance y vigencia registrados. Sin vigencia más amplia explícita, se limita a la tarea actual. Ningún agente puede conceder excepciones ni relajar los controles para eximir su propio trabajo; cambiar el método es como mínimo R2.
+- Consecuencias: AGENTS, política, siete perfiles, plantillas y recuperación alineados. R0 puede prescindir de agentes dentro de su flujo mínimo; no permite reclasificar o fragmentar un cambio para evitar revisión. Las limitaciones técnicas mantienen pendiente el control dependiente; auto-revisión no sustituye revisión independiente. Una dispensa no convierte evidencia ausente en prueba aprobada ni autoriza publicaciones por sí misma.
+- Alcance: obligaciones de conducta y trazabilidad versionables, no un bloqueo técnico infalible del cliente. No altera reglas, decisiones de producto, permisos ni criterios de fases que una dispensa no cubra. Evidencia de la ampliación en AC-07 de [SPEC-009](specs/009-sistema-agentes/verification.md).
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.

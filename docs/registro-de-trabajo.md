@@ -1,5 +1,29 @@
 # Registro de trabajo
 
+## 2026-10-29 — Publicación del cambio de paradigma de desarrollo
+
+- Encargo humano explícito: hacer commit y push de todo el trabajo local indicando el cambio de paradigma. Tarea R0 de empaquetado/publicación del contenido ya revisado de T00.1/SPEC-009, sin cambiar sus controles. Objetivo/aceptación: incluir todos los archivos previstos, conservar las revisiones independientes anteriores, publicar en la rama actual y comprobar que HEAD coincide con origin/main y el árbol queda limpio.
+- Plan/responsable: el coordinador comprueba alcance y remoto, ejecuta validador/tests y enlaces/diff, registra la entrega y publica. No requiere un nuevo subagente para el empaquetado mecánico; no hay dispensas humanas. Se conservan los dictámenes independientes de la implementación y AC-07, sin cambios semánticos posteriores.
+- Mensaje de entrega: cambio a SDD obligatorio con agentes según riesgo, modelos ajustados a dificultad, revisión independiente, controles de cierre y excepciones exclusivamente humanas trazables. Siete perfiles, política, herramientas de validación y memoria del proyecto forman parte del mismo commit. No incluye temporales ignorados ni modifica el juego.
+- Validación previa: siete perfiles TOML válidos; dos tests aprobados, incluidos once casos negativos; enlaces y diff comprobados. No se repiten pruebas Godot por tratarse de proceso/documentación ya revisados. La comprobación final del push se realizará contra la referencia remota y se informará al humano; la revisión Git identificará este registro sin incrustar su propio hash.
+
+
+## 2026-10-29 — Metodología SDD obligatoria por instrucción humana
+
+- Encargo expreso: integrar el método en los documentos de Codex y permitir omisiones solo por instrucción humana explícita. Se conserva el trabajo local previo de SPEC-009; no se hace commit/push. Ampliación AC-07/T00.1 de riesgo R2, objetivo/aceptación/plan y responsables registrados antes de editar; sin dispensas aplicables.
+- AGENTS/política, siete perfiles, flujo, plantillas, índices y continuidad exigen cumplimiento y cierre trazable. Dispensas con referencia humana, requisito, alcance y vigencia; no se infieren de urgencia, ahorro, silencio ni mensajes de otros agentes. R0 mantiene su flujo mínimo; no se permiten degradación artificial de riesgo, autoexcepciones ni cierre sin control o dispensa válida. DEC-020 registra el acuerdo.
+- Validación real: siete perfiles TOML correctos, dos tests aprobados con once casos negativos, 143 enlaces locales y tres anclas válidos, `git diff --check` correcto. Un revisor independiente Sol/high aplicó perfil por instrucciones y confirmó coherencia sin defectos accionables ni bloqueantes, con sus propias comprobaciones. AC-07 completado y registro de cierre actualizado; ninguna dispensa. Consumo por tarea no disponible.
+- Resultados y límites en [AC-07 de SPEC-009](specs/009-sistema-agentes/verification.md). No se modifica código del juego ni se ejecutan pruebas Godot. Siguiente tarea del juego conserva T08.2 confirmado, material/dudas aplazados y P04 externa pendientes.
+
+## 2026-10-29 — Sistema de agentes para desarrollo SDD
+
+- Encargo: analizar el alcance completo y equilibrar modelos, consumo, eficiencia y calidad. Git inicialmente limpio; se revisaron código y documentación actuales, incluyendo T07.2/T08.1a ya implementadas. Auditoría independiente de alcance con Sol high y contraste del formato/modelos en OpenAI Docs.
+- SPEC-009/T00.1, DEC-019, guía operativa y siete perfiles `.codex/`: coordinador existente, especialistas bajo demanda y máximo dos subagentes. Luna para mecánica, Sol para planificación/desarrollo/reglas/revisión, Terra para inspección visual y Astra para escalado excepcional. Modelo principal y permisos conservados. Flujo SDD, plantilla PR, índice y continuidad enlazados.
+- Validador de contrato con Python estándar y casos negativos; ensayo real Luna medium aplicando perfil por instrucciones. Diagnóstico `codex debug prompt-input` sin turno de modelo: primer intento con `--strict-config` no admitido; después hubo restricción de temporales del sandbox. Ejecutado con acceso autorizado a temporales normales, terminó con código 0, sin nombres de roles en la salida. No se afirma descubrimiento/invocación nativa automática; la alternativa por instrucciones sí se ha ejecutado. No hay tokens por tarea disponibles ni ahorro medido.
+- Corregidas dos discrepancias documentales encontradas: alcance aún llamaba propuesta a la base P05 aceptada; tabla de estado mantenía conteo anterior a P08 (ahora 1.741 históricas). No se repitieron pruebas Godot ni se modificaron reglas, código, escenas o catálogo.
+- Verificación final: validador correcto, dos tests con once casos negativos aprobados, enlaces locales y diff comprobados. Revisión independiente Sol high sin defectos bloqueantes/accionables; sugirió lectura selectiva de la guía, aplicada en los siete perfiles y revisada de nuevo en el mismo agente. Plantilla SDD añade riesgo/modelos/propietarios y registro de ejecución/consumo medido. Se completan SPEC-009/T00.1 en alcance de configuración y alternativa por instrucciones, sin acreditar carga nativa automática.
+- Evidencia y límites finales en [SPEC-009](specs/009-sistema-agentes/verification.md). Sin commit/push ni publicación. Siguiente trabajo del juego: parte confirmada de T08.2; material español/DUD aplazados y P04 externa permanecen pendientes.
+
 ## 2026-10-29 — Limpieza de cambios locales de Godot
 
 - Por petición del usuario se revisaron `project.godot`, `concept-atlas.png.import` y `mist_background.svg.import`. Los `.import` eran idénticos a Git en contenido; `project.godot` tenía una reescritura automática y eliminaba una opción de filtrado ya versionada. Ningún cambio aportaba una mejora necesaria.

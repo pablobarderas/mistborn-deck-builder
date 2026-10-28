@@ -22,5 +22,6 @@ Especificaciones actuales:
 
 - [007 — Estado y acciones](007-estado-y-acciones/spec.md): T07.1/2 verificadas localmente (1.725 + 102 comprobaciones); cierre P07 pendiente de P04 externa.
 - [008 — Preparación y turnos](008-preparacion-y-turnos/spec.md): T08.1a verificada localmente; entrenamiento y turno completo pendientes.
+- [009 — Sistema de agentes SDD](009-sistema-agentes/spec.md): mejora transversal P00 completada en configuración y aplicación por instrucciones, con revisión independiente; carga nativa automática no acreditada. No implementa las fases pendientes del juego.
 
 No hay Spec Kit instalado. La estructura es propia y sigue el [flujo SDD ligero](../gestion/desarrollo.md).

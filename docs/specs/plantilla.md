@@ -25,7 +25,9 @@ Copiar cada bloque al archivo indicado de una nueva carpeta NNN-descripcion. Eli
 - Información pública/privada y autoridad, si aplica:
 - Migración y compatibilidad:
 - Secuencia y riesgos:
+- Nivel R0–R3, perfiles/modelos/esfuerzo previstos y motivo de delegación; archivos por propietario:
 - Verificación por criterio:
+- Cumplimiento obligatorio de SDD; dispensas humanas explícitas aplicables o ninguna (referencia, requisito, alcance y vigencia):
 
 ## tasks.md
 
@@ -40,3 +42,7 @@ Copiar cada bloque al archivo indicado de una nueva carpeta NNN-descripcion. Eli
 | AC-01 | Pendiente | Pendiente | No ejecutado | No ejecutado | Pendiente |
 
 Registrar cambios de alcance y discrepancias. No confundir una casilla de tarea terminada con una prueba superada.
+
+Control de cierre obligatorio: AC/plan/riesgo y responsables registrados antes de editar; controles aplicables y evidencia; revisión independiente exigida y hallazgos resueltos; memoria/siguiente paso actualizados; dispensas humanas o «ninguna». Una omisión sin dispensa válida deja la tarea abierta. Lo dispensado/no ejecutado se identifica como tal, nunca como prueba aprobada. Para una puerta no aplicable, justificar por qué el cambio no la afecta.
+
+Registro de ejecución según [agentes SDD](../gestion/agentes-sdd.md): roles/modelos/esfuerzo efectivos, número de delegaciones, escalados y motivo, revisión independiente/hallazgos/correcciones, pruebas no ejecutadas y siguiente paso. Añadir tiempo y tokens/caché/razonamiento solo si se han medido; en otro caso indicar «no disponible». Una tarea R0/R1 breve puede conservar este registro en su issue o documento de tarea sin crear cuatro archivos.

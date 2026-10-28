@@ -12,6 +12,16 @@
 
 ## Primer lote: descubrimiento
 
+### T00.1 — Sistema transversal de agentes SDD
+
+- Tipo: herramientas/proceso. Fase P00, mejora posterior a su cierre documental. Spec: [SPEC-009](../specs/009-sistema-agentes/spec.md).
+- Encargo del usuario: analizar alcance, consumo, eficiencia y calidad; implementar roles/modelos adecuados y revisión independiente para el desarrollo completo.
+- Entrega: configuración nativa `.codex/`, política operativa, validador local, prueba de delegación y revisión de esta entrega. Sin SDK/servicios nuevos ni cambios del motor del juego.
+- Aceptación: AC-01–06 de SPEC-009, evidencia y límites de carga/consumo explícitos. Estado: completada en configuración y aplicación por instrucciones, revisión independiente favorable; carga nativa automática no acreditada. [Evidencia](../specs/009-sistema-agentes/verification.md). Issue: sin publicar.
+- No sustituye pruebas de reglas, experiencia visual ni cierre externo de P04; siguiente trabajo del juego conserva T08.2 en su parte confirmada.
+- Ampliación R2 del 2026-10-29, AC-07: obligatoriedad y dispensas exclusivamente humanas; AGENTS/perfiles/plantillas y control de cierre alineados. Completada con revisión independiente favorable, validación TOML, enlaces/anclas y diff correctos; ninguna dispensa aplicable.
+- Publicación autorizada expresamente el 2026-10-29 mediante commit/push de toda la entrega; la revisión que contiene esta entrada identifica el paquete. Sin issue/PR solicitada. No implica cierre de fases del juego.
+
 ### T01.1 — Identificar el reglamento aportado
 
 - Tipo: investigación/documentación. Fase P01. Spec: [SPEC-001](../specs/001-alcance-y-reglamento/spec.md), AC-01.

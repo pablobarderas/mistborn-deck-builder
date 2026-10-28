@@ -2,7 +2,7 @@
 
 ## Método elegido
 
-Usar SDD ligero: describir el comportamiento y cómo verificarlo antes de implementarlo. Las especificaciones viven en Git; GitHub Issues organiza el trabajo y las PR permiten revisar la entrega.
+SDD ligero es obligatorio: describir el comportamiento y cómo verificarlo antes de implementarlo. Las especificaciones viven en Git; GitHub Issues organiza el trabajo y las PR permiten revisar la entrega. Solo una instrucción humana explícita puede dispensar requisitos según [obligatoriedad y dispensas](agentes-sdd.md#obligatoriedad-y-dispensas); la proporcionalidad R0–R3 no permite omitir sus controles mínimos.
 
 El usuario ha delegado la elección del método. Se adopta este flujo sin instalar herramientas adicionales. Está inspirado en [GitHub Spec Kit](https://github.github.com/spec-kit/) (consultado el 2026-10-26), pero no se ha instalado Spec Kit ni existen sus comandos en este proyecto.
 
@@ -36,11 +36,17 @@ Para documentación o arreglos pequeños basta una issue con objetivo, alcance y
 
 La revisión del usuario se pide para decisiones de producto, dudas de reglas y propuesta visual. Los cambios técnicos reversibles y la documentación pueden avanzar dentro de lo autorizado sin una aprobación repetida para cada archivo.
 
+## Ejecución con agentes
+
+El [sistema de agentes SDD](agentes-sdd.md) aplica este ciclo con un coordinador y especialistas bajo demanda. Clasificar riesgo antes de asignar trabajo; revisión independiente para entregas funcionales y cambios críticos. Los perfiles agrupan responsabilidades, no obligan a crear un agente por paso. El coordinador comprueba la evidencia final y mantiene la memoria; no se cierra una fase por el dictamen de un agente sin cumplir su criterio de salida. Configuración y límites en `.codex/`; aceptación y ensayo en [SPEC-009](../specs/009-sistema-agentes/spec.md).
+
 ## Preparada y terminada
 
 Una tarea está **lista** si tiene objetivo, límites, dependencias resueltas, fuentes cuando aplica y criterios verificables; no contiene preguntas que cambien el comportamiento a construir.
 
 Está **terminada** si la implementación o documento satisface esos criterios, tiene evidencia, documentación actualizada y revisión realizada. En GitHub, una PR abierta es revisión pendiente; una issue cerrada por cancelación no significa funcionalidad entregada.
+
+El cierre exige registro de cumplimiento metodológico y dispensas humanas, o «ninguna». Si falta un control obligatorio y no hay dispensa válida, la tarea sigue abierta. Una dispensa queda visible con su alcance y limitaciones; no permite marcar como aprobada una prueba no ejecutada ni cerrar dependencias que no cubra.
 
 Los problemas de reglas pendientes bloquean su implementación, no todo el proyecto. Explicar el bloqueo y la tarea independiente que puede seguir.
 

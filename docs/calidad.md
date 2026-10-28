@@ -2,6 +2,8 @@
 
 Esta lista define qué evidencia recoger. No acredita pruebas ya realizadas. Los valores concretos de rendimiento, resoluciones y dispositivos se fijarán en P02/P05 tras conocer el grupo.
 
+El [sistema de agentes SDD](gestion/agentes-sdd.md) asigna responsables y revisión independiente según riesgo. Su configuración no acredita la calidad del juego: las puertas de esta lista y de cada especificación siguen siendo obligatorias.
+
 | Área | Criterio de aceptación | Evidencia prevista |
 | --- | --- | --- |
 | Reglas | Cada regla del alcance se vincula a fuente, comportamiento y prueba; no hay discrepancias que cambien resultados. | Matriz REG y escenarios reproducibles. |

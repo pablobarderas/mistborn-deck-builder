@@ -15,6 +15,10 @@ Comandos o pasos ejecutados, resultado observado y evidencia. Indicar lo no ejec
 
 ## Revisión
 
+- Riesgo R0–R3 justificado, revisión independiente y hallazgos corregidos (no aplicación solo según la política, con motivo verificable):
+- Roles/modelos/esfuerzo, delegaciones y escalados; consumo solo si se conoce:
+- Dispensas humanas explícitas o ninguna: referencia, requisito, alcance, vigencia y evidencia pendiente. Urgencia/ahorro no autorizan omisiones.
+- [ ] Cumplimiento metodológico registrado; no hay controles obligatorios omitidos sin dispensa humana válida.
 - [ ] Alcance y criterios de aceptación satisfechos.
 - [ ] Documentación y siguiente paso actualizados.
 - [ ] Cambios de datos/compatibilidad y limitaciones descritos cuando apliquen.

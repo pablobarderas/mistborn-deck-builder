@@ -34,11 +34,11 @@ SRC-003 identifica la publicación española de Devir. El usuario aporta el cré
 
 La propuesta es cubrir el contenido base descrito por esa fuente; no se añaden expansiones por defecto. El PDF no contiene todo el texto de las cartas y pistas: [inventario faltante](referencias/componentes.md).
 
-## Plataforma confirmada y presentación propuesta
+## Plataforma y dirección visual inicial confirmadas
 
 Plataforma inicial: aplicación para Windows. El usuario confirma que todos disponen de ese sistema. No se exige acceso mediante navegador para la primera entrega. La versión mínima de Windows, los requisitos de hardware y las resoluciones de prueba se fijarán al preparar el entorno y la maqueta.
 
-La presentación sigue como propuesta a revisar en P05: tablero 2D, cartas ampliables, zonas diferenciadas y ambientación de bruma sin sacrificar lectura.
+La maqueta 2D de P05 está aceptada como dirección visual inicial: cartas ampliables, zonas diferenciadas y una presentación legible. El acabado final, arte, animaciones y ambientación de bruma se concretan en P12/P17; la aceptación de la maqueta no acredita esos elementos ni una interfaz jugable completa. Véase [dirección visual](diseno-visual.md) y DEC-015.
 
 | Alternativa | Ventaja | Condicionante |
 | --- | --- | --- |

@@ -14,9 +14,12 @@ El [registro de trabajo](registro-de-trabajo.md) conserva cambios y verificacion
 
 ## Producto, ejecución y calidad
 
+El [cumplimiento de SDD](gestion/agentes-sdd.md#obligatoriedad-y-dispensas) es obligatorio en tareas que cambien el proyecto. Solo el humano puede dispensar expresamente requisitos; registrar alcance y vigencia. Una tarea pequeña usa el formato proporcional, sin omitir sus controles.
+
 - [Continuar en otro PC con Codex](continuar-en-otro-pc.md): clon, motor y mensaje de reanudación.
 - [Alcance](alcance.md): objetivos confirmados, Windows como plataforma inicial y preguntas pendientes.
 - [Flujo SDD e issues](gestion/desarrollo.md): método, estados y uso de GitHub.
+- [Agentes SDD](gestion/agentes-sdd.md): análisis de alcance, roles/modelos por riesgo, consumo, revisión independiente y puertas de calidad; SPEC-009.
 - [Backlog](gestion/backlog.md): primer lote detallado y paquetes de fases posteriores.
 - [Especificaciones](specs/README.md): formato y primera entrega en borrador.
 - [Referencias y trazabilidad](referencias/README.md): recepción del reglamento y matriz de cobertura.

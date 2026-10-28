@@ -16,6 +16,7 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 - Las dependencias condicionan el cierre. Se pueden investigar tareas independientes antes sin convertir propuestas en decisiones.
 - P04 y P05 pueden avanzar por separado tras P03. P11, P12 y P13 pueden avanzar por separado tras P10, respetando sus dependencias.
 - Mantener una tarea de implementación activa por defecto y dividir tareas con varios comportamientos independientes.
+- Aplicar obligatoriamente el [sistema de agentes SDD](gestion/agentes-sdd.md): delegación/modelos según riesgo, revisión independiente y como máximo dos subagentes concurrentes; un propietario por archivo. Solo una dispensa humana explícita y registrada permite omitir requisitos; falta de herramientas no exime del control ni de mantener pendiente el cierre afectado. Mejora transversal T00.1/SPEC-009, sin añadir una fase al juego.
 - Las reglas no confirmadas bloquean solo las tareas que dependan de ellas.
 - El núcleo de P02 ya permite preparar P03: no se necesita completar el catálogo ni decidir toda la red para crear el proyecto ejecutable. La especificación general puede seguir parcial mientras se cierran detalles en sus fases.
 - Revisar los prototipos antes de reutilizarlos en el producto.

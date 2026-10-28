@@ -14,6 +14,10 @@ Si ya existe un clon, revisar primero sus cambios locales y, con el árbol limpi
 
 Abrir esta carpeta como proyecto en Codex. No hace falta reproducir la carpeta contenedora del PC original. El repositorio conserva el contexto de trabajo; no incluye una copia del historial del chat. Se puede continuar desde una conversación nueva con este mensaje:
 
+El [sistema de agentes SDD](gestion/agentes-sdd.md) y sus perfiles `.codex/` también viajan con el repositorio. Usar un cliente compatible, comprobar los modelos disponibles y abrir sesión nueva si no recarga perfiles. El documento explica la alternativa por instrucciones cuando la herramienta de delegación no selecciona roles nativos; no hace falta instalar un SDK ni una API propia.
+
+Aplicar esta metodología obligatoriamente al retomar: registrar riesgo/AC/plan antes de editar y cumplir los controles de revisión y cierre. Solo una dispensa humana explícita, con alcance/vigencia registrados, puede eximir un requisito; cambiar de equipo, cliente o chat no suspende el método. La ausencia de herramientas deja pendiente el control dependiente, no autoriza sustituir revisión independiente por auto-revisión.
+
 > Lee AGENTS.md y sigue su orden de recuperación de contexto. T07.1/2 y T08.1a están implementadas y verificadas localmente; P07 sigue abierta porque P04 necesita prueba entre redes con otro equipo. P08 tiene SPEC-008: la preparación estructural está hecha, pero no hay entrenamiento ni turnos completos. El usuario deja pendientes por ahora las fotos del material español y DUD-004/005/006; no inventes respuestas ni vuelvas a pedirlas al empezar. Sin ese material, continúa con la parte confirmada de T08.2 (ciclo del mazo y descarte) y conserva DUD-006 para agotamiento total. El catálogo actual tiene dos muestras y cero cartas oficiales verificadas. Conserva Windows, español, máximo cuatro jugadores, competitivo, cooperativo y solitario, salas privadas sin cuentas y reconexión obligatoria. Revisa Git y los documentos de estado antes de editar.
 
 ## Preparar el motor
