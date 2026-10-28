@@ -1,5 +1,11 @@
 # Registro de trabajo
 
+## 2026-10-29 — Limpieza de cambios locales de Godot
+
+- Por petición del usuario se revisaron `project.godot`, `concept-atlas.png.import` y `mist_background.svg.import`. Los `.import` eran idénticos a Git en contenido; `project.godot` tenía una reescritura automática y eliminaba una opción de filtrado ya versionada. Ningún cambio aportaba una mejora necesaria.
+- Se restauraron solo esos tres archivos desde `HEAD`. `-Action test` con Godot 4.7.2 terminó con `P03_STARTUP_OK` y 58 comprobaciones, código 0; ocho errores de carga son los negativos esperados. La importación volvió a actualizar metadatos de `.import`, pero sus hashes seguían idénticos y `git status --short` quedó limpio tras refrescar el índice.
+- La guía de continuidad y el estado actual se corrigen para no afirmar que permanecen cambios locales. No se modificaron reglas, datos ni código del juego; P04/P08 conservan sus pendientes anteriores.
+
 ## 2026-10-29 — Punto de pausa y publicación para retomar
 
 - El usuario confirma que las fotos del material español y las dudas DUD-004/005/006 seguirán pendientes por ahora. No se recibe nueva fuente ni se acuerda interpretación/adaptación de reglas. T08.1b continúa en espera de pistas/recompensas verificadas; al reanudar sin ellas se puede implementar la parte confirmada de T08.2 y mantener DUD-006 para el agotamiento total.

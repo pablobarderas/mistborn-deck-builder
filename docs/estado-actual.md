@@ -82,7 +82,7 @@ SRC-003 identifica la publicación española de Devir. El usuario aporta «Edici
 
 ## Repositorio y reanudación
 
-La raíz Git es la carpeta que contiene project.godot y AGENTS.md. T07.1 (`b3ff3c7`), T07.2 (`1930313`) y T08.1a (`acb507a`) están publicadas en `origin/main`. No se han creado issues. Consulta [continuar en otro PC](continuar-en-otro-pc.md) para la reanudación.
+La raíz Git es la carpeta que contiene project.godot y AGENTS.md. T07.1 (`b3ff3c7`), T07.2 (`1930313`) y T08.1a (`acb507a`) están publicadas en `origin/main`. No se han creado issues. Consulta [continuar en otro PC](continuar-en-otro-pc.md) para la reanudación. El 2026-10-29 se revisaron y descartaron los tres cambios locales antiguos de Godot (`project.godot` y dos `.import`); la prueba de arranque volvió a pasar y el árbol de trabajo quedó limpio.
 
 P04: T04.1 completada; T04.2 pendiente de segundo equipo y prueba entre redes. P05/P06 cerradas en su alcance. **T07.1/2 y T08.1a implementadas y verificadas localmente.** El usuario deja por ahora pendientes las fotos del material español y las DUD-004/005/006; no se ha acordado ninguna interpretación nueva. T08.1b espera pistas y recompensas verificadas. Al reanudar sin ese material, el siguiente trabajo independiente es la parte confirmada de T08.2 (ciclo del mazo y descarte), manteniendo sin resolver el caso de mazo y descarte vacíos. No dar por cumplida la dependencia P04 para cerrar P07. No se han creado issues.
 
