@@ -1,5 +1,21 @@
 # Registro de trabajo
 
+## 2026-10-28 — T07.1: estado e invariantes locales
+
+- Implementados scripts/game/game_state.gd y state_validator.gd: snapshot privado v1, modos/plazas, recursos, instancias/zonas, misiones, rival/escudos y resolución pendiente. Copias profundas, referencias e invariantes; rechazar una carga conserva el último estado válido. Sin interpretar efectos ni implementar reglas con DUD abiertas.
+- Añadidos fixtures ficticios y tests/game_state_test.gd; acción test-state, marca P07_STATE_OK y rechazo de errores de motor/script. El almacén acepta parámetros de confianza; no es API de cliente ni la futura admisión de contenido del núcleo.
+- Verificación real con Godot 4.7.2.stable.official.ed1daf0bf: 1.725 comprobaciones de estado, 220 de catálogo y 58 de arranque, código 0. Aviso/errores negativos anunciados; ningún error inesperado final. La importación necesitó acceso a los datos normales del perfil Windows. Motor en Descargas mediante -GodotPath; .tools/godot ausente, discrepancia documentada.
+- Actualizados SPEC-007, tareas/backlog, estado, plan, arquitectura, guía local e índices. Enlaces y diff revisados. Conservados project.godot y dos .import previos; sin commit/push ni publicación.
+- No hay nuevas dudas de reglas bloqueantes para este alcance. Próximo paso T07.2: transacciones, RNG, recibos por plaza y vistas privadas. P07 no cerrada; P04 externa y catálogo/reglas pendientes conservan sus bloqueos.
+
+## 2026-10-28 — Especificación de P07
+
+- Siguiendo el punto de reanudación, creada SPEC-007 con modelo, contrato de intenciones, transacción atómica, RNG, deduplicación por plaza y privacidad. Incluye rival y secuencias pausables, sin implementar reglas futuras ni inventar resoluciones de DUD.
+- Refinadas T07.1/2, aceptación y plan de pruebas; actualizados índice, arquitectura, estado, plan y DEC-017. Corregida la lista antigua de decisiones pendientes que aún daba por no resuelta la carga P06.
+- Conservados cambios previos en project.godot y dos archivos .import. Revisión del código confirma que aún no existe núcleo de partida.
+- Verificación: enlaces locales de los documentos afectados y diff comprobados. Cambio documental: no se ejecutó Godot ni se acreditan pruebas de AC-01–09. Sin commit, push ni publicaciones.
+- Próximo paso: implementar T07.1 local, luego T07.2. P07 no cerrada; sigue pendiente P04 entre redes, catálogo oficial y reglas con dudas abiertas.
+
 ## 2026-10-27 — Publicación de P06
 
 - El usuario autoriza commit y push de los cambios. Se reúnen contrato/cargador, migración de muestras, pruebas, captura Android y documentación de continuidad.

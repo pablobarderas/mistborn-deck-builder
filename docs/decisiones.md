@@ -126,13 +126,21 @@ Usar IDs estables. Para cada decisión indicar fecha, estado, contexto, elecció
 - El usuario tiene Android: se documentan Google Drive para lotes y Lens para texto puntual, contrastados con ayuda oficial. El proyecto recibe fotos/PDF y realiza transcripción/revisión asistida; no exige copiar a mano todas las cartas ni integra OCR en esta fase.
 - Consecuencias: P06 cerrada como contrato inicial, catálogo oficial y DUD-002/003 pendientes. P07 debe separar instancias de definiciones. Ver [contrato](contrato-catalogo-v1.md) y [captura](captura-de-cartas.md).
 
+## DEC-017 — Diseño local del núcleo P07
+
+- Fecha: 2026-10-28.
+- Estado: T07.1 implementada y verificada localmente el 2026-10-28; diseño transaccional/proyección de T07.2 pendiente.
+- Decisión técnica: núcleo independiente de escenas/red, transacciones sobre copia, revisiones y recibos por plaza estable, RNG por partida y proyecciones construidas por lista permitida. Motivo: permitir reproducibilidad, rechazo atómico y privacidad antes de conectar transporte.
+- Alcance y alternativas en [SPEC-007](specs/007-estado-y-acciones/plan.md). Las restricciones provisionales de visibilidad no son reglas oficiales ni acuerdos de producto. Las operaciones de prueba no serán acciones públicas del jugador.
+- Consecuencias: T07.1 precede a T07.2; P04 externa sigue siendo dependencia de cierre. No decide alojamiento, política de desconexión ni reglas con dudas abiertas.
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.
 - Alcance mínimo de una partida jugable.
 - Compatibilidad mínima de Windows y objetivos finales de hardware/resolución; Godot 4.7.2 ya está fijado.
-- Carga del catálogo, validación y política ante errores.
-- Modelo estructurado de efectos.
+- Ampliación del contrato y gramática de efectos para contenido real; contrato inicial y política de carga resueltos en DEC-016.
+- Implementación del núcleo y efectos; diseño local documentado en DEC-017.
 - Transporte/alojamiento, formato de invitación, pausa/reserva y pérdida de autoridad; salas privadas sin cuentas y reconexión ya están acordadas.
 
 Registrar una nueva entrada cuando haya evidencia suficiente o un acuerdo; mientras tanto, mantener la incertidumbre explícita.

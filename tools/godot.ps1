@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog')]
+    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-state')]
     [string]$Action = 'run',
     [string]$GodotPath = $env:GODOT_BIN
 )
@@ -57,8 +57,8 @@ function Invoke-ProjectGodot {
     if (($engineOutput | Out-String) -match '(?m)^SCRIPT ERROR:') {
         throw "Godot contiene errores de script en '$LogName', aunque su proceso haya devuelto codigo 0."
     }
-    if ($LogName -eq 'import' -and (($engineOutput | Out-String) -match '(?m)^(SCRIPT ERROR|ERROR):')) {
-        throw 'La importacion contiene errores. Revisa tmp/godot/import.log.'
+    if ($LogName -in @('import', 'test-state') -and (($engineOutput | Out-String) -match '(?m)^(SCRIPT ERROR|ERROR):')) {
+        throw "La accion $LogName contiene errores. Revisa tmp/godot/$LogName.log."
     }
     if ($LogName -eq 'test' -and ($engineOutput | Out-String) -notmatch 'P03_STARTUP_OK') {
         throw 'Las pruebas no alcanzaron su marca de finalizacion.'
@@ -78,9 +78,12 @@ function Invoke-ProjectGodot {
     if ($LogName -eq 'test-catalog' -and ($engineOutput | Out-String) -notmatch 'P06_CATALOG_OK') {
         throw 'No se completo la verificacion del contrato de catalogo.'
     }
+    if ($LogName -eq 'test-state' -and ($engineOutput | Out-String) -notmatch 'P07_STATE_OK') {
+        throw 'No se completo la verificacion del estado de partida.'
+    }
 }
 
-if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog')) {
+if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-state')) {
     Invoke-ProjectGodot -EngineArguments @('--headless', '--editor', '--import') -LogName 'import'
 }
 switch ($Action) {
@@ -93,5 +96,6 @@ switch ($Action) {
     'preview-network' { Invoke-ProjectGodot -EngineArguments @('--audio-driver', 'Dummy', '--script', 'res://tests/capture_connection.gd') -LogName 'preview-network' }
     'board' { Invoke-ProjectGodot -EngineArguments @('res://scenes/BoardPreview.tscn') -LogName 'board' }
     'preview-board' { Invoke-ProjectGodot -EngineArguments @('--audio-driver', 'Dummy', '--script', 'res://tests/board_preview_test.gd') -LogName 'preview-board' }
+    'test-state' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/game_state_test.gd') -LogName 'test-state' }
     'test-catalog' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/catalog_test.gd') -LogName 'test-catalog' }
 }

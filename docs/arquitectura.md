@@ -14,7 +14,7 @@ Errores de forma/referencias/revisión rechazan todo; imagen pendiente permite s
 
 ## Organización prevista
 
-Las carpetas `data/`, `scripts/`, `scenes/` y `assets/images/` ya tienen contenido. `tests/` contiene comprobaciones de arranque, conexión y capturas; `tools/` contiene el lanzador PowerShell. `.tools/` guarda solo el motor local ignorado. El experimento de red vive en `scripts/network/`; las clases del motor de reglas se crearán cuando se implemente.
+Las carpetas `data/`, `scripts/`, `scenes/` y `assets/images/` ya tienen contenido. `tests/` contiene comprobaciones de arranque, conexión y capturas; `tools/` contiene el lanzador PowerShell. `.tools/` guarda solo el motor local ignorado. El experimento de red vive en `scripts/network/`; scripts/game/ contiene el estado e invariantes de T07.1; el procesador de acciones del motor sigue pendiente.
 
 ## Experimento de red de P04
 
@@ -69,3 +69,9 @@ La sesión debe distinguir identidad temporal del jugador, conexión de transpor
 La recuperación requiere demostrar posesión de la sesión propia; diseñar un mecanismo temporal compatible con no tener cuentas. Mantenerlo separado del nombre mostrado y del código compartido de sala. La política de pausa y el tiempo de retención siguen pendientes; el cierre de P15 exige resolverlos y probarlos.
 
 La autoridad elegida debería validar identidad, turno, recursos y legalidad de cada acción; los clientes deberían recibir solo el estado que les corresponde ver. El barajado y otros resultados aleatorios deberían resolverse de forma consistente para todos los participantes. Estos criterios aún no tienen implementación ni protocolo acordado.
+
+## Estado e invariantes de P07 implementados
+
+[SPEC-007](specs/007-estado-y-acciones/spec.md) y su [plan](specs/007-estado-y-acciones/plan.md) definen núcleo independiente de escenas/transporte: estado privado completo, instancias separadas del catálogo, invariantes, transacciones sobre copia, RNG propio y recibos por plaza estable. Las proyecciones se construirán por lista permitida; eventos, errores y recibos tampoco expondrán secretos. Zonas de visibilidad pendiente usan una restricción técnica provisional explícita.
+
+T07.1 implementada en scripts/game/game_state.gd y state_validator.gd: almacén privado RefCounted, validación estructural por esquema, rechazo completo y copias profundas. 1.725 comprobaciones reales; contrato exacto y evidencia en SPEC-007. T07.2 aún no implementada: no hay procesador de acciones, aleatoriedad operativa ni proyecciones. get_snapshot solo es para autoridad; no debe enviarse a clientes. El diseño no elige alojamiento ni convierte el prototipo de contador en salas; preparación y reglas concretas siguen en P08/P09.

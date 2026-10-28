@@ -61,3 +61,9 @@ Pasos para dos ventanas y futura prueba entre redes: [guía de conexión](prueba
 ## Contrato del catálogo de P06
 
 `-Action test-catalog` ejecuta 220 comprobaciones de estructura, referencias, revisión, recursos y recuperación, con marca P06_CATALOG_OK. Dos fallos de carga se anuncian como esperados; un SCRIPT ERROR siempre hace fallar el lanzador, aunque Godot devuelva código cero. Logs en tmp/godot/test-catalog.log. [Contrato](contrato-catalogo-v1.md) y [captura por lotes](captura-de-cartas.md).
+
+## Estado estructural de P07
+
+`-Action test-state` importa y ejecuta tests/game_state_test.gd: exige P07_STATE_OK y rechaza ERROR/SCRIPT ERROR incluso con código 0. Actualmente son 1.725 comprobaciones sobre fixtures ficticios: siete configuraciones, referencias/zonas, rival, resoluciones pendientes, copias profundas y entradas malformadas. Un WARNING anunciado corresponde al rechazo esperado de un snapshot. No ejecuta reglas ni acciones, no abre una partida y no prueba privacidad de clientes. Logs en tmp/godot/test-state.log; contrato y evidencia en [SPEC-007](specs/007-estado-y-acciones/verification.md).
+
+En este equipo (2026-10-28) el motor está en Descargas y se indica mediante -GodotPath; no se presupone que .tools/godot exista en todos los clones. La ruta local exacta se conserva solo en la evidencia, no se incrusta en el lanzador.
