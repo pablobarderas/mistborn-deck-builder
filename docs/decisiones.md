@@ -129,7 +129,7 @@ Usar IDs estables. Para cada decisión indicar fecha, estado, contexto, elecció
 ## DEC-017 — Diseño local del núcleo P07
 
 - Fecha: 2026-10-28.
-- Estado: T07.1 implementada y verificada localmente el 2026-10-28; diseño transaccional/proyección de T07.2 pendiente.
+- Estado: T07.1 implementada el 2026-10-28 y T07.2 el 2026-10-29; ambas verificadas localmente. P07 no cerrada por P04 externa.
 - Decisión técnica: núcleo independiente de escenas/red, transacciones sobre copia, revisiones y recibos por plaza estable, RNG por partida y proyecciones construidas por lista permitida. Motivo: permitir reproducibilidad, rechazo atómico y privacidad antes de conectar transporte.
 - Alcance y alternativas en [SPEC-007](specs/007-estado-y-acciones/plan.md). Las restricciones provisionales de visibilidad no son reglas oficiales ni acuerdos de producto. Las operaciones de prueba no serán acciones públicas del jugador.
 - Consecuencias: T07.1 precede a T07.2; P04 externa sigue siendo dependencia de cierre. No decide alojamiento, política de desconexión ni reglas con dudas abiertas.
@@ -140,7 +140,7 @@ Usar IDs estables. Para cada decisión indicar fecha, estado, contexto, elecció
 - Alcance mínimo de una partida jugable.
 - Compatibilidad mínima de Windows y objetivos finales de hardware/resolución; Godot 4.7.2 ya está fijado.
 - Ampliación del contrato y gramática de efectos para contenido real; contrato inicial y política de carga resueltos en DEC-016.
-- Implementación del núcleo y efectos; diseño local documentado en DEC-017.
+- Implementación de reglas/efectos y adaptación del núcleo a contenido verificado; el núcleo local estructural ya existe (DEC-017).
 - Transporte/alojamiento, formato de invitación, pausa/reserva y pérdida de autoridad; salas privadas sin cuentas y reconexión ya están acordadas.
 
 Registrar una nueva entrada cuando haya evidencia suficiente o un acuerdo; mientras tanto, mantener la incertidumbre explícita.

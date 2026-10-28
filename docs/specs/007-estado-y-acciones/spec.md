@@ -1,7 +1,7 @@
 # SPEC-007 — Estado y acciones de partida
 
 - Fecha: 2026-10-28.
-- Estado: T07.1 implementada y verificada localmente; T07.2 pendiente. P07 no cerrada.
+- Estado: T07.1 y T07.2 implementadas y verificadas localmente el 2026-10-29. P07 no cerrada por P04 externa.
 - Tareas: T07.1 y T07.2; sin issues publicadas.
 - Objetivo: construir un núcleo reproducible que conserve el estado, valide intenciones y entregue a cada plaza únicamente su información autorizada, sin depender de escenas ni transporte.
 

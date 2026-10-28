@@ -37,7 +37,7 @@ Crear carpetas cuando tengan contenido. No añadir dependencias, cambiar de moto
 
 - Usar tipado estático en GDScript siempre que sea posible.
 - Variables y funciones en `snake_case`; clases y nodos en `PascalCase`.
-- Separar reglas y estado de partida, presentación, carga de contenido y transporte de red. El código actual todavía no implementa esas capas.
+- Separar reglas y estado de partida, presentación, carga de contenido y transporte de red. El estado y el núcleo de acciones P07 ya están separados; las reglas de cartas y la interfaz jugable siguen pendientes.
 - Mantener los identificadores de cartas estables. Cargar rutas visuales desde los datos; no incrustar imágenes en el código.
 - Validar entradas y gestionar fallos de carga de archivos e instanciación de nodos con `push_error()` o `push_warning()` según corresponda.
 - No interpretar el texto descriptivo de `efecto` como código ejecutable. Documentar un modelo de efectos antes de automatizarlos.
@@ -56,6 +56,8 @@ P04 añade `-Action network` (ensayo visible), `-Action test-network` (procesos 
 P05 añade `-Action board` (maqueta) y `-Action preview-board` (interacción/capturas reales). Su contenido es de muestra y no valida reglas; paleta, estados, arte provisional y aceptación en `docs/diseno-visual.md` y SPEC-005.
 
 P06: contrato v1 en `docs/contrato-catalogo-v1.md`; `-Action test-catalog` valida estructura/revisión sin ejecutar efectos. El array legado se ha migrado explícitamente; muestras y borradores no son cartas verificadas. El usuario tiene Android y puede aportar lotes según `docs/captura-de-cartas.md`.
+
+P07: `-Action test-state` valida el estado y `-Action test-engine` verifica acciones atómicas y proyecciones con manejadores ficticios. No ejecutan reglas de cartas ni pruebas de red del producto.
 
 El trabajo se organiza con SDD ligero: especificar comportamiento y aceptación, planificar, dividir en tareas, implementar y verificar. Las tareas pequeñas pueden usar solo una issue; las entregas complejas usan `spec.md`, `plan.md`, `tasks.md` y `verification.md`. No hay Spec Kit instalado. Los IDs locales Txx.n no son números de GitHub. Consultar `docs/gestion/desarrollo.md` y `docs/calidad.md`.
 

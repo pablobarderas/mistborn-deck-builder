@@ -20,6 +20,6 @@ Especificaciones actuales:
 - [005 — Maqueta del tablero](005-maqueta-tablero/spec.md): completada como dirección visual inicial; implementación, verificación y confirmación del usuario. Mercado, mano, detalle y estados de muestra.
 - [006 — Contrato del catálogo](006-contrato-catalogo/spec.md): completada en contrato inicial; fuentes/revisión, gramática, migración y validación. Ninguna carta oficial verificada aún.
 
-- [007 — Estado y acciones](007-estado-y-acciones/spec.md): T07.1 implementada y verificada (1.725 comprobaciones); T07.2 y cierre de P07 pendientes.
+- [007 — Estado y acciones](007-estado-y-acciones/spec.md): T07.1/2 verificadas localmente (1.725 + 102 comprobaciones); cierre P07 pendiente de P04 externa.
 
 No hay Spec Kit instalado. La estructura es propia y sigue el [flujo SDD ligero](../gestion/desarrollo.md).

@@ -1,5 +1,12 @@
 # Registro de trabajo
 
+## 2026-10-29 — Publicación de T07.1 y T07.2 local
+
+- Por petición del usuario, T07.1 se registró como b3ff3c7 y se subió a origin/main. Se mantuvieron fuera los cambios previos de project.godot y dos .import.
+- Implementada T07.2: núcleo de acciones con actor por parámetro de confianza, revisión, validación previa, RNG en snapshot, recibos duraderos en la sesión y vistas filtradas por destinatario. Manejadores ficticios solo en tests; no hay reglas, interfaz ni red del juego. version_motor pasa a p07-engine-2/godot-4.7.2 por el contrato de recibos/acciones.
+- Verificación real: test-engine 102 comprobaciones; test-state 1.725, test-catalog 220 y test de arranque 58, todo código 0 con Godot 4.7.2. Dos avisos de rechazo esperados en el núcleo. Proyección de información oculta comprobada localmente; no tráfico remoto.
+- Se actualizan estado, plan, SPEC-007, backlog, arquitectura y guía. P07 sigue abierta por P04 externa. Próximo trabajo independiente: especificar P08; las dudas de reglas y el catálogo faltante permanecen registrados.
+
 ## 2026-10-28 — T07.1: estado e invariantes locales
 
 - Implementados scripts/game/game_state.gd y state_validator.gd: snapshot privado v1, modos/plazas, recursos, instancias/zonas, misiones, rival/escudos y resolución pendiente. Copias profundas, referencias e invariantes; rechazar una carga conserva el último estado válido. Sin interpretar efectos ni implementar reglas con DUD abiertas.

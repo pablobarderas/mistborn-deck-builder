@@ -1,10 +1,10 @@
 # Estado actual
 
-Última revisión: 2026-10-28.
+Última revisión: 2026-10-29.
 
 ## Resumen
 
-**T07.1 implementada y verificada localmente; T07.2 pendiente.** P06 completada en su alcance de contrato inicial y validación. P05 aceptada como maqueta visual; P03 y T04.1 completadas en su alcance. P04 sigue abierta por la prueba entre redes. Existe tablero interactivo de muestra, sin partida jugable ni reglas ejecutables.
+**T07.1 y T07.2 implementadas y verificadas localmente.** P06 completada en su alcance de contrato inicial y validación. P05 aceptada como maqueta visual; P03 y T04.1 completadas en su alcance. P04 sigue abierta por la prueba entre redes. Existe tablero interactivo de muestra, sin partida jugable ni reglas ejecutables.
 
 ## Implementado y verificado
 
@@ -20,9 +20,9 @@
 | scenes/theme.tres / assets/images/ | Tema y fondo vectorial propios provisionales. |
 | data/cartas.json | Sobre v1 con dos muestras migradas explícitamente; conserva IDs/texto/números y elimina rutas ficticias. No es catálogo oficial. |
 | tools/godot.ps1 | Importar, ejecutar, editor, pruebas y capturas; acciones network, test-network y preview-network para el ensayo. |
-| scripts/game/ | T07.1: estado privado e invariantes estructurales, sin acciones todavía. |
-| tests/ | Estado (1.725 comprobaciones), catálogo/carga, red con procesos independientes y capturas gráficas. |
-| docs/specs/ | SPEC-001/002 parciales; SPEC-003/005/006 completadas en su alcance; SPEC-004 local verificada, externa pendiente; SPEC-007 parcial (T07.1 verificada). |
+| scripts/game/ | T07.1/2: estado privado, invariantes, acciones atómicas, RNG y proyecciones por jugador. Sin manejadores de reglas reales. |
+| tests/ | Estado (1.725) y núcleo de acciones (102) con fixtures ficticios, catálogo/carga, red experimental y capturas. |
+| docs/specs/ | SPEC-001/002 parciales; SPEC-003/005/006 completadas en su alcance; SPEC-004 local verificada, externa pendiente; SPEC-007 local verificada (T07.1/2), P04 externa pendiente para cierre P07. |
 | .github/ | Plantillas de issues y PR de la entrega inicial publicada. |
 
 El motor portátil previsto en .tools/godot/ se ignora por Git; en este equipo no existe y se usa Godot 4.7.2 desde Descargas mediante -GodotPath. Datos y cachés generados en .godot/ y tmp/ también ignorados. Los UID de scripts y ajustes de importación de recursos son metadatos de fuente.
@@ -81,10 +81,10 @@ SRC-003 identifica la publicación española de Devir. El usuario aporta «Edici
 
 ## Repositorio y reanudación
 
-La raíz Git es la carpeta que contiene project.godot y AGENTS.md; en el equipo original es mistborn-deck-builder/, dentro de la carpeta contenedora. La entrega documental inicial fue f2a5744. Esta entrega reúne las revisiones posteriores, P03 y el PDF para su publicación en main a petición del usuario. No se han creado issues. Consulta [continuar en otro PC](continuar-en-otro-pc.md); el historial de Git identifica el commit de esta entrega.
+La raíz Git es la carpeta que contiene project.godot y AGENTS.md. T07.1 se publicó en main como b3ff3c7 el 2026-10-28; T07.2 se ha validado localmente y su publicación forma parte del encargo actual. No se han creado issues. Consulta [continuar en otro PC](continuar-en-otro-pc.md) para la reanudación.
 
-P04: T04.1 completada; T04.2 pendiente de segundo equipo y prueba entre redes. P05/P06 cerradas en su alcance. **T07.1 implementada y verificada localmente en SPEC-007; próximo trabajo: T07.2, transacciones y vistas privadas**, pudiendo preparar lo local; no dar por cumplida su dependencia P04 para el cierre mientras falte evidencia externa. Los lotes de cartas pueden incorporarse en paralelo cuando estén disponibles. P04/P05 están publicadas en e5cd684; la entrega de P06 se publica en main por petición del usuario el 2026-10-27. Su revisión se identifica en el historial de Git. No se han creado issues.
+P04: T04.1 completada; T04.2 pendiente de segundo equipo y prueba entre redes. P05/P06 cerradas en su alcance. **T07.1/2 implementadas y verificadas localmente en SPEC-007; próximo trabajo: preparar SPEC-008 de inicio y turnos y completar T04.2 entre redes cuando haya segundo equipo.** No dar por cumplida la dependencia P04 para cerrar P07. Los lotes de cartas pueden incorporarse en paralelo cuando estén disponibles. P04/P05 están publicadas en e5cd684; la entrega de P06 se publica en main por petición del usuario el 2026-10-27. Su revisión se identifica en el historial de Git. No se han creado issues.
 
-## Implementación estructural de P07
+## Núcleo local de P07
 
-[SPEC-007](specs/007-estado-y-acciones/spec.md) define estado, acciones atómicas, recibos por plaza, RNG reproducible, privacidad y resoluciones pendientes. T07.1 implementada: almacén RefCounted y validador de invariantes sin escenas/red, copias profundas y rechazo completo de snapshots inválidos. 1.725 comprobaciones de estado, 220 de catálogo y 58 de arranque, código 0. T07.2 pendiente: no hay acciones, RNG operativo ni proyecciones de cliente. La política conservadora de zonas no contrastadas está identificada como provisional. P07 sigue abierta y mantiene dependencia de cierre P04.
+[SPEC-007](specs/007-estado-y-acciones/spec.md) define estado, acciones atómicas, recibos por plaza, RNG reproducible, privacidad y resoluciones pendientes. T07.1 implementada: almacén RefCounted y validador de invariantes sin escenas/red, copias profundas y rechazo completo de snapshots inválidos. 1.725 comprobaciones de estado, 220 de catálogo y 58 de arranque, código 0. T07.2 implementada localmente: intenciones validadas, cambios atómicos, RNG reproducible, recibos por plaza y proyecciones conservadoras. 102 comprobaciones del motor, código 0. No hay manejadores de reglas ni adaptador de red/producto. La política conservadora de zonas no contrastadas está identificada como provisional. P07 sigue abierta y mantiene dependencia de cierre P04.

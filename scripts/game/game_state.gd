@@ -14,13 +14,18 @@ func _init(definitions: Dictionary, catalog_id: String) -> void:
 
 
 func try_load(document: Variant) -> Dictionary:
-	var result: Dictionary = Validator.new().validate(document, _definitions, _catalog_id)
+	var result: Dictionary = validate_candidate(document)
 	if result.ok:
 		_snapshot = document.duplicate(true)
 	else:
 		# Diagnóstico detallado solo en el resultado local; nunca un payload de red.
 		push_warning("Estado de partida rechazado; se conserva el snapshot anterior.")
 	return result
+
+
+func validate_candidate(document: Variant) -> Dictionary:
+	# Comprobación sin publicar. Solo la autoridad la usa antes de un commit.
+	return Validator.new().validate(document, _definitions, _catalog_id)
 
 
 func get_snapshot() -> Dictionary:

@@ -1,6 +1,6 @@
 # Backlog por fases
 
-Última revisión: 2026-10-28. IDs locales estables; **no son números de issues de GitHub**. La consulta al repositorio del 2026-10-26 no devolvió issues. Ninguna fila ha sido publicada por estas tareas documentales.
+Última revisión: 2026-10-29. IDs locales estables; **no son números de issues de GitHub**. La consulta al repositorio del 2026-10-26 no devolvió issues. Ninguna fila ha sido publicada por estas tareas documentales.
 
 ## Uso
 
@@ -52,7 +52,7 @@ Estos son candidatos a issues, no especificaciones listas para implementar. La a
 | T06.1 | P06 | Definir campos y efectos estructurados a partir del reglamento, separando definiciones e instancias. | P01, P03 | Completada en contrato inicial; SPEC-006 | Sin publicar |
 | T06.2 | P06 | Validar tipos, IDs, referencias y recursos ausentes; decidir carga ante errores y migrar ejemplos. | T06.1 | Completada; 220 comprobaciones, migración y avisos | Sin publicar |
 | T07.1 | P07 | Estado, zonas, instancias, modos/rival e invariantes con fixtures. | Núcleo P02, P06; P04 para cierre de fase | Completada localmente; SPEC-007, 1.725 comprobaciones de estado | Sin publicar |
-| T07.2 | P07 | Transacciones, RNG, recibos por plaza, proyección privada y continuación. | T07.1 | Especificada; siguiente tarea local, SPEC-007 | Sin publicar |
+| T07.2 | P07 | Transacciones, RNG, recibos por plaza, proyección privada y continuación. | T07.1 | Completada localmente; SPEC-007, 102 comprobaciones del motor | Sin publicar |
 | T08.1 | P08 | Implementar preparación, reparto, orden de jugadores y fases del turno según REG. | P01, P07 | Por refinar | Sin publicar |
 | T08.2 | P08 | Cubrir transiciones, límites y los casos de mazo/descartes que existan en el reglamento. | T08.1 | Por refinar | Sin publicar |
 | T08.3 | P08 | Preparación y turnos por modo, con Target/bonificaciones solo donde corresponda. | T08.2 | SPEC-002; por refinar | Sin publicar |
@@ -92,4 +92,4 @@ Documentos y plantillas se incluyen en la entrega inicial autorizada para commit
 
 ## Refinamiento P07
 
-[SPEC-007](../specs/007-estado-y-acciones/spec.md) y sus [tareas](../specs/007-estado-y-acciones/tasks.md) concretan T07.1/2 para trabajo local. T07.1 implementada con 1.725 comprobaciones y evidencia en verification.md; T07.2 pendiente. P04 externa sigue condicionando el cierre.
+[SPEC-007](../specs/007-estado-y-acciones/spec.md) y sus [tareas](../specs/007-estado-y-acciones/tasks.md) concretan T07.1/2 para trabajo local. T07.1/2 implementadas localmente con 1.725 y 102 comprobaciones; evidencia en verification.md. P04 externa sigue condicionando el cierre.

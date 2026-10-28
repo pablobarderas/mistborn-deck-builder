@@ -108,7 +108,7 @@ func _test_references() -> void:
 		[["missions", "mission_1", "arrival_order"], ["p1", "p1"]],
 		[["missions", "mission_1", "arrival_order"], ["p9"]],
 		[["authority", "rng_state"], 1.5], [["authority", "next_id"], -1],
-		[["authority", "receipts"], {"unsupported": {}}]
+		[["authority", "receipts"], {"p9": {"a": {"canonical": "x", "revision_aplicada": 1}}}]
 	]
 	for item: Array in cases:
 		bad(base, item[0], item[1])

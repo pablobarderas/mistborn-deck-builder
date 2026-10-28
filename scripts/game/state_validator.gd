@@ -2,7 +2,7 @@ extends RefCounted
 ## Invariantes estructurales del snapshot privado. No aplica reglas ni efectos.
 
 const SCHEMA_VERSION: int = 1
-const ENGINE_VERSION: String = "p07-state-1/godot-4.7.2"
+const ENGINE_VERSION: String = "p07-engine-2/godot-4.7.2"
 const METALS: Array[String] = ["peltre", "estano", "bronce", "cobre", "zinc", "laton", "hierro", "acero", "atium"]
 const PLAYER_ZONES: Array[String] = ["mano", "mazo", "descarte", "juego"]
 const SHARED_ZONES: Array[String] = ["mazo_mercado", "mercado", "eliminadas", "mazo_rival", "descarte_rival", "adversarios"]
@@ -71,7 +71,7 @@ func validate(document: Variant, definitions: Dictionary, catalog_id: String) ->
 			_error("target_id", "Target no aplicable a esta configuración")
 	_validate_rival(document.rival, document.mode)
 	_validate_resolution(document.resolution)
-	_validate_authority(document.authority)
+	_validate_authority(document.authority, document.revision)
 	return _result()
 
 
@@ -299,7 +299,7 @@ func _validate_resolution(value: Variant) -> void:
 				_error("resolution.pending", "límites de elección inválidos")
 
 
-func _validate_authority(value: Variant) -> void:
+func _validate_authority(value: Variant, revision: Variant) -> void:
 	if not _shape(value, ["rng_seed", "rng_state", "next_id", "receipts"], "authority"):
 		return
 	# Estado RNG admite int64 con signo (Godot); no se convierte a float/JSON.
@@ -307,9 +307,23 @@ func _validate_authority(value: Variant) -> void:
 		if typeof(value[field]) != TYPE_INT:
 			_error("authority." + field, "se requiere int64")
 	_number(value.next_id, "authority.next_id")
-	# Recibos aún no admitidos: su contrato lo implementará T07.2.
-	if _map(value.receipts, "authority.receipts") and not value.receipts.is_empty():
-		_error("authority.receipts", "recibos no soportados hasta T07.2")
+	if not _map(value.receipts, "authority.receipts"):
+		return
+	for player_id: Variant in value.receipts:
+		_player_ref(player_id, "authority.receipts.player_id")
+		var per_player: Variant = value.receipts[player_id]
+		if not _map(per_player, "authority.receipts.actions"):
+			continue
+		for action_id: Variant in per_player:
+			_id(action_id, "authority.receipts.action_id")
+			var receipt: Variant = per_player[action_id]
+			if not _shape(receipt, ["canonical", "revision_aplicada"], "authority.receipts.receipt"):
+				continue
+			if not receipt.canonical is String or receipt.canonical.is_empty():
+				_error("authority.receipts.canonical", "huella vacía o inválida")
+			if _number(receipt.revision_aplicada, "authority.receipts.revision_aplicada"):
+				if receipt.revision_aplicada == 0 or (typeof(revision) == TYPE_INT and receipt.revision_aplicada > revision):
+					_error("authority.receipts.revision_aplicada", "revisión imposible")
 
 
 func _validate_mode(value: Variant, count: int) -> void:

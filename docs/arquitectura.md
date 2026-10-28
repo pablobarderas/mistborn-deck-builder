@@ -42,7 +42,7 @@ La [maqueta de P05](diseno-visual.md) vive en `scenes/BoardPreview.tscn` y `scri
 
 Alcance confirmado el 2026-10-27: competitivo 2–4, cooperativo 2–4 y solitario cooperativo 1. El diseño debe compartir motor y diferenciar preparación, objetivos legales, Target, paso rival y finales. El solitario usa el mismo motor en una instancia local; las sesiones de grupo añaden transporte.
 
-El rival cooperativo necesita mazo/descarte, salud, casilla/cara de Dominación y adversarios con escudos persistentes. No requiere una IA estratégica que simule a un participante. Habrá secuencias pausables para elecciones y reacciones fuera del turno activo, incluidas Cloud y asignaciones colectivas. Estas son necesidades derivadas del reglamento; sus contratos técnicos aún se diseñarán en P06/P07.
+El rival cooperativo necesita mazo/descarte, salud, casilla/cara de Dominación y adversarios con escudos persistentes. No requiere una IA estratégica que simule a un participante. Habrá secuencias pausables para elecciones y reacciones fuera del turno activo, incluidas Cloud y asignaciones colectivas. Estas necesidades derivan del reglamento. P07 ya representa rival y continuaciones; las ventanas y efectos reglamentarios se concretarán en P08/P09.
 
 Ver [SPEC-002](specs/002-modos-y-cooperativo/spec.md) para aceptación, tareas y límites. La autoridad de reglas debe resolver también el mazo rival, en vez de dejar que cada cliente lo resuelva por separado.
 
@@ -70,8 +70,8 @@ La recuperación requiere demostrar posesión de la sesión propia; diseñar un 
 
 La autoridad elegida debería validar identidad, turno, recursos y legalidad de cada acción; los clientes deberían recibir solo el estado que les corresponde ver. El barajado y otros resultados aleatorios deberían resolverse de forma consistente para todos los participantes. Estos criterios aún no tienen implementación ni protocolo acordado.
 
-## Estado e invariantes de P07 implementados
+## Núcleo local de P07 implementado
 
 [SPEC-007](specs/007-estado-y-acciones/spec.md) y su [plan](specs/007-estado-y-acciones/plan.md) definen núcleo independiente de escenas/transporte: estado privado completo, instancias separadas del catálogo, invariantes, transacciones sobre copia, RNG propio y recibos por plaza estable. Las proyecciones se construirán por lista permitida; eventos, errores y recibos tampoco expondrán secretos. Zonas de visibilidad pendiente usan una restricción técnica provisional explícita.
 
-T07.1 implementada en scripts/game/game_state.gd y state_validator.gd: almacén privado RefCounted, validación estructural por esquema, rechazo completo y copias profundas. 1.725 comprobaciones reales; contrato exacto y evidencia en SPEC-007. T07.2 aún no implementada: no hay procesador de acciones, aleatoriedad operativa ni proyecciones. get_snapshot solo es para autoridad; no debe enviarse a clientes. El diseño no elige alojamiento ni convierte el prototipo de contador en salas; preparación y reglas concretas siguen en P08/P09.
+T07.1/2 implementadas en scripts/game/: almacén privado RefCounted, invariantes, procesador transaccional con RNG y recibos, y proyecciones por jugador. 1.725 comprobaciones del estado y 102 del motor; contrato y evidencia en SPEC-007. get_authority_snapshot y load_authority_snapshot son solo para autoridad; los clientes reciben get_view y nunca el snapshot completo. Los manejadores registrados actualmente son exclusivamente fixtures de tests, no reglas de producto. El diseño no elige alojamiento ni convierte el prototipo de contador en salas; preparación y reglas concretas siguen en P08/P09.
