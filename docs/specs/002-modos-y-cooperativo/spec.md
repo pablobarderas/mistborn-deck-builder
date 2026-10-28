@@ -1,7 +1,7 @@
 # SPEC-002 — Modos y rival cooperativo
 
-- Estado: borrador de comportamiento; no lista para implementación completa.
-- Fecha: 2026-10-27.
+- Estado: borrador de comportamiento; preparación inicial estructural por modo implementada en T08.1a, resto no listo para implementación completa.
+- Fecha: 2026-10-27; revisión de estado: 2026-10-29.
 - Fases: P06–P16 según tareas.
 - Fuentes: SRC-001 pp.5–20, SRC-002 (FAQ/erratas oficiales) y alcance confirmado por el usuario.
 - Objetivo: compartir reglas comunes sin mezclar victorias, preparación y objetivos entre modos.

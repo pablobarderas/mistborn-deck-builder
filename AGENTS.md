@@ -59,6 +59,8 @@ P06: contrato v1 en `docs/contrato-catalogo-v1.md`; `-Action test-catalog` valid
 
 P07: `-Action test-state` valida el estado y `-Action test-engine` verifica acciones atómicas y proyecciones con manejadores ficticios. No ejecutan reglas de cartas ni pruebas de red del producto.
 
+P08: `-Action test-setup` verifica preparación estructural con contenido ficticio declarado verificado en el fixture. No existe todavía catálogo real completo ni turno jugable.
+
 El trabajo se organiza con SDD ligero: especificar comportamiento y aceptación, planificar, dividir en tareas, implementar y verificar. Las tareas pequeñas pueden usar solo una issue; las entregas complejas usan `spec.md`, `plan.md`, `tasks.md` y `verification.md`. No hay Spec Kit instalado. Los IDs locales Txx.n no son números de GitHub. Consultar `docs/gestion/desarrollo.md` y `docs/calidad.md`.
 
 - Ejecutar comprobaciones proporcionales al cambio y describir el resultado real.

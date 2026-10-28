@@ -14,7 +14,7 @@ Errores de forma/referencias/revisión rechazan todo; imagen pendiente permite s
 
 ## Organización prevista
 
-Las carpetas `data/`, `scripts/`, `scenes/` y `assets/images/` ya tienen contenido. `tests/` contiene comprobaciones de arranque, conexión y capturas; `tools/` contiene el lanzador PowerShell. `.tools/` guarda solo el motor local ignorado. El experimento de red vive en `scripts/network/`; scripts/game/ contiene el estado e invariantes de T07.1; el procesador de acciones del motor sigue pendiente.
+Las carpetas `data/`, `scripts/`, `scenes/` y `assets/images/` ya tienen contenido. `tests/` contiene comprobaciones de arranque, conexión, estado, acciones, preparación y capturas; `tools/` contiene el lanzador PowerShell. `.tools/` guarda solo el motor local ignorado. El experimento de red vive en `scripts/network/`; `scripts/game/` contiene estado, invariantes, procesador de acciones, proyección y preparación estructural.
 
 ## Experimento de red de P04
 
@@ -75,3 +75,7 @@ La autoridad elegida debería validar identidad, turno, recursos y legalidad de 
 [SPEC-007](specs/007-estado-y-acciones/spec.md) y su [plan](specs/007-estado-y-acciones/plan.md) definen núcleo independiente de escenas/transporte: estado privado completo, instancias separadas del catálogo, invariantes, transacciones sobre copia, RNG propio y recibos por plaza estable. Las proyecciones se construirán por lista permitida; eventos, errores y recibos tampoco expondrán secretos. Zonas de visibilidad pendiente usan una restricción técnica provisional explícita.
 
 T07.1/2 implementadas en scripts/game/: almacén privado RefCounted, invariantes, procesador transaccional con RNG y recibos, y proyecciones por jugador. 1.725 comprobaciones del estado y 102 del motor; contrato y evidencia en SPEC-007. get_authority_snapshot y load_authority_snapshot son solo para autoridad; los clientes reciben get_view y nunca el snapshot completo. Los manejadores registrados actualmente son exclusivamente fixtures de tests, no reglas de producto. El diseño no elige alojamiento ni convierte el prototipo de contador en salas; preparación y reglas concretas siguen en P08/P09.
+
+## Preparación local de P08
+
+`game_setup.gd` construye un snapshot validado desde un manifiesto físico completo y definiciones declaradas verificadas. El manifiesto sigue separado de Database y del snapshot; el adaptador futuro deberá derivarlo del catálogo contrastado. Se sortean personajes/misiones y primer jugador cooperativo, se barajan mazos, se revela mercado, se reparten manos y se aplican diferencias iniciales por modo. La pista de entrenamiento queda referenciada en cada jugador y la fase `inicio` espera su avance obligatorio. La versión del motor cambia a `p08-setup-1/godot-4.7.2`. T08.1a cuenta con 147 comprobaciones; sin catálogo real ni manejadores de entrenamiento/efectos, el constructor no produce una partida jugable del producto.

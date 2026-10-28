@@ -23,6 +23,7 @@ El [registro de trabajo](registro-de-trabajo.md) conserva cambios y verificacion
 - [Reglas documentadas](referencias/matriz-reglas.md), [componentes](referencias/componentes.md) y [dudas](referencias/dudas.md): SRC-001 y las erratas/FAQ de SRC-002, consultadas el 2026-10-27; ambas en inglés.
 - [Modos y cooperativo](specs/002-modos-y-cooperativo/spec.md): comportamiento y aceptación para competitivo 2–4, cooperativo 2–4 y solitario.
 - [Estado y acciones de partida](specs/007-estado-y-acciones/spec.md): T07.1/2 implementadas/verificadas localmente; P07 espera prueba externa P04 y las reglas siguen pendientes.
+- [Preparación y turnos](specs/008-preparacion-y-turnos/spec.md): T08.1a prepara un estado estructural con contenido verificado; entrenamiento, turnos completos y catálogo real siguen pendientes.
 - [Calidad](calidad.md): evidencia necesaria de reglas, red, presentación y distribución.
 - [Dirección visual y tablero](diseno-visual.md): P05 aceptada como base visual; paleta, interacciones y resoluciones de la maqueta.
 - [Datos de cartas](datos-de-cartas.md) y [contrato v1](contrato-catalogo-v1.md): P06 implementada; procedencia, revisión, gramática y validación.

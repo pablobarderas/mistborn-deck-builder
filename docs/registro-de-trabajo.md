@@ -1,5 +1,12 @@
 # Registro de trabajo
 
+## 2026-10-29 — T08.1a: preparación estructural local
+
+- Tras confirmar que `1930313` estaba en HEAD y origin/main, se especificó P08 y se implementó `game_setup.gd`: manifiesto físico de definiciones declaradas verificadas, sorteo/barajado/reparto, orden, bonificaciones/Target y rival inicial por modo. Se rechaza contenido incompleto o por encima de cantidades. `training_track_id` se incorpora al snapshot y `version_motor` sube a `p08-setup-1/godot-4.7.2`.
+- Verificación real con Godot 4.7.2: `test-setup` 147 comprobaciones, estado 1.741, motor 102, catálogo 220 y arranque 58, todos código 0. Un primer intento de importación se interrumpió tras un error de tipo en el test recién escrito; corregido, el lanzador terminó correctamente. Casos negativos de catálogo/arranque emiten los errores esperados.
+- Actualizados SPEC-008, estado, plan, backlog, arquitectura, referencias, decisiones, guía e índices. P08 sigue abierta: no hay catálogo/pistas reales verificados ni entrenamiento o turno completo. P07 sigue abierta por P04 externa; cambios previos de `project.godot` y dos `.import` preservados fuera de la entrega.
+- Siguiente trabajo: incorporar pistas/recompensas verificadas para T08.1b o avanzar en T08.2 donde DUD-006 no afecte. No se crea issue. El usuario autoriza commit y push de la entrega validada.
+
 ## 2026-10-29 — Publicación de T07.1 y T07.2 local
 
 - Por petición del usuario, T07.1 se registró como b3ff3c7 y se subió a origin/main. Se mantuvieron fuera los cambios previos de project.godot y dos .import.

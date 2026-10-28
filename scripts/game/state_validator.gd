@@ -2,7 +2,7 @@ extends RefCounted
 ## Invariantes estructurales del snapshot privado. No aplica reglas ni efectos.
 
 const SCHEMA_VERSION: int = 1
-const ENGINE_VERSION: String = "p07-engine-2/godot-4.7.2"
+const ENGINE_VERSION: String = "p08-setup-1/godot-4.7.2"
 const METALS: Array[String] = ["peltre", "estano", "bronce", "cobre", "zinc", "laton", "hierro", "acero", "atium"]
 const PLAYER_ZONES: Array[String] = ["mano", "mazo", "descarte", "juego"]
 const SHARED_ZONES: Array[String] = ["mazo_mercado", "mercado", "eliminadas", "mazo_rival", "descarte_rival", "adversarios"]
@@ -76,7 +76,7 @@ func validate(document: Variant, definitions: Dictionary, catalog_id: String) ->
 
 
 func _validate_player(value: Variant) -> void:
-	if not _shape(value, ["player_id", "name", "eliminated", "health", "character_id", "persistent", "turn_resources", "training", "ability_uses", "metals", "burned", "burn_limit"], "players"):
+	if not _shape(value, ["player_id", "name", "eliminated", "health", "character_id", "training_track_id", "persistent", "turn_resources", "training", "ability_uses", "metals", "burned", "burn_limit"], "players"):
 		return
 	if _id(value.player_id, "players.player_id"):
 		if _players.has(value.player_id):
@@ -86,6 +86,7 @@ func _validate_player(value: Variant) -> void:
 	_bool(value.eliminated, "players.eliminated")
 	_number(value.health, "players.health")
 	_definition_ref(value.character_id, "players.character_id", "personaje", true)
+	_definition_ref(value.training_track_id, "players.training_track_id", "pista_entrenamiento", true)
 	_resources(value.persistent, ["atium", "boxings"], "players.persistent")
 	_resources(value.turn_resources, ["recursos", "ataque"], "players.turn_resources")
 	_number(value.training, "players.training")

@@ -9,6 +9,7 @@ func project(state: Dictionary, recipient_id: String) -> Dictionary:
 	for player: Dictionary in state.players:
 		players.append({"player_id": player.player_id, "name": player.name, "eliminated": player.eliminated,
 			"health": player.health, "character_id": player.character_id,
+			"training_track_id": player.training_track_id,
 			"persistent": player.persistent.duplicate(true), "turn_resources": player.turn_resources.duplicate(true),
 			"training": player.training, "metals": player.metals.duplicate(true), "burned": player.burned.duplicate(true),
 			"burn_limit": player.burn_limit})

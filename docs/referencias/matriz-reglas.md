@@ -1,14 +1,14 @@
 # Matriz inicial de reglas
 
-Revisión: 2026-10-27. Fuentes SRC-001 y SRC-002 del [registro](README.md). Un número de página sin prefijo refiere a SRC-001; SRC-002 se identifica por sección. Las erratas expresas del editor prevalecen sobre el PDF.
+Revisión: 2026-10-29. Fuentes SRC-001 y SRC-002 del [registro](README.md). Un número de página sin prefijo refiere a SRC-001; SRC-002 se identifica por sección. Las erratas expresas del editor prevalecen sobre el PDF.
 
-Este es un inventario documental inicial, no un motor ejecutable ni una transcripción completa de las cartas. Todas las filas están **documentadas, sin implementar y sin prueba ejecutada**. Consultar el estado de cada DUD en [dudas](dudas.md): algunas ya están resueltas por SRC-002, otras siguen abiertas.
+Este es un inventario documental inicial, no una transcripción completa de las cartas. **REG-001–006 y REG-052 tienen cobertura estructural parcial de preparación** en [SPEC-008](../specs/008-preparacion-y-turnos/verification.md); entrenamiento, efectos, partida real y el resto de filas siguen sin implementar. Consultar el estado de cada DUD en [dudas](dudas.md): algunas ya están resueltas por SRC-002, otras siguen abiertas.
 
 La referencia es inglesa. Los términos Burning, Flaring, Target, Funding, Savant, etc. conservan la identidad del original; la nomenclatura oficial española está pendiente de contraste.
 
 ## Reglas y cobertura prevista
 
-Cada fila tiene un caso planificado `CAS-REG-nnn`; al implementar se sustituirá por el enlace a la prueba y su evidencia. Estos casos todavía no existen como tests. SPEC-001 cubre su inventario, no su implementación; [SPEC-002](../specs/002-modos-y-cooperativo/spec.md) añade aceptación de modos.
+Cada fila tiene un caso planificado `CAS-REG-nnn`; al implementar la regla completa se sustituirá por el enlace a la prueba y su evidencia. Los casos completos todavía no existen como tests. SPEC-001 cubre su inventario; [SPEC-002](../specs/002-modos-y-cooperativo/spec.md) añade aceptación de modos. El subconjunto estructural de preparación se comprueba en `tests/game_setup_test.gd` sin catálogo oficial.
 
 | ID | Comportamiento resumido | Fuente: página o sección | Modo | Caso previsto |
 | --- | --- | --- | --- | --- |
@@ -89,6 +89,8 @@ Cada fila tiene un caso planificado `CAS-REG-nnn`; al implementar se sustituirá
 | REG-075 | Los iconos de moneda no son Boxings; estos se identifican por texto. | SRC-002 Miscellaneous | Todos | CAS-REG-075 |
 
 ## Límites del inventario
+
+T08.1a cubre parcialmente REG-001–006/052: fichas y mazos iniciales, salud, mercado, misiones seleccionadas, orden/Target, mano inicial y ficha/mazo del rival. No cubre recompensas de pista, texto de cartas, resultado del turno ni preparación con contenido real. La cobertura parcial no convierte los casos `CAS-REG` en aprobados.
 
 No detalla el texto de las 82 cartas de mercado, las 40 iniciales, las ocho misiones, los cuatro personajes, las 36 cartas del rival ni todas las casillas de entrenamiento/Dominación: el reglamento muestra ejemplos, no un catálogo completo legible de todo el contenido. Ese material debe incorporarse y verificarse en tareas propias.
 

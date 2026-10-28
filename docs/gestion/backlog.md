@@ -53,9 +53,9 @@ Estos son candidatos a issues, no especificaciones listas para implementar. La a
 | T06.2 | P06 | Validar tipos, IDs, referencias y recursos ausentes; decidir carga ante errores y migrar ejemplos. | T06.1 | Completada; 220 comprobaciones, migración y avisos | Sin publicar |
 | T07.1 | P07 | Estado, zonas, instancias, modos/rival e invariantes con fixtures. | Núcleo P02, P06; P04 para cierre de fase | Completada localmente; SPEC-007, 1.725 comprobaciones de estado | Sin publicar |
 | T07.2 | P07 | Transacciones, RNG, recibos por plaza, proyección privada y continuación. | T07.1 | Completada localmente; SPEC-007, 102 comprobaciones del motor | Sin publicar |
-| T08.1 | P08 | Implementar preparación, reparto, orden de jugadores y fases del turno según REG. | P01, P07 | Por refinar | Sin publicar |
-| T08.2 | P08 | Cubrir transiciones, límites y los casos de mazo/descartes que existan en el reglamento. | T08.1 | Por refinar | Sin publicar |
-| T08.3 | P08 | Preparación y turnos por modo, con Target/bonificaciones solo donde corresponda. | T08.2 | SPEC-002; por refinar | Sin publicar |
+| T08.1 | P08 | Preparación, reparto, orden de jugadores y fases del turno según REG. | P01, P07 | T08.1a completada localmente; T08.1b entrenamiento/turnos pendiente; SPEC-008 | Sin publicar |
+| T08.2 | P08 | Transiciones, límites y casos de mazo/descartes del reglamento. | T08.1 | SPEC-008; pendiente, DUD-006 para agotamiento total | Sin publicar |
+| T08.3 | P08 | Diferencias por modo: Target/bonificaciones y paso rival. | T08.2 | Preparación inicial por modo hecha en T08.1a; paso rival pendiente | Sin publicar |
 | T09.1 | P09 | Implementar por familias los efectos confirmados, objetivos y elecciones pendientes. | P08 | Por refinar | Sin publicar |
 | T09.2 | P09 | Definir orden de resolución, efectos encadenados y finalización; comprobar interacciones y objetivos inválidos. | T09.1 | Por refinar | Sin publicar |
 | T09.3 | P09 | Adversarios, escudos, edictos, Dominación y decisiones colectivas. | T09.2, T08.3 | SPEC-002; catálogo/dudas pendientes | Sin publicar |
@@ -93,3 +93,7 @@ Documentos y plantillas se incluyen en la entrega inicial autorizada para commit
 ## Refinamiento P07
 
 [SPEC-007](../specs/007-estado-y-acciones/spec.md) y sus [tareas](../specs/007-estado-y-acciones/tasks.md) concretan T07.1/2 para trabajo local. T07.1/2 implementadas localmente con 1.725 y 102 comprobaciones; evidencia en verification.md. P04 externa sigue condicionando el cierre.
+
+## Refinamiento P08
+
+[SPEC-008](../specs/008-preparacion-y-turnos/spec.md) divide T08.1 en preparación estructural (T08.1a) y entrenamiento/arranque de turno (T08.1b). T08.1a completada localmente con 147 comprobaciones; [evidencia](../specs/008-preparacion-y-turnos/verification.md). T08.2/3 siguen pendientes. La fase no se cierra con el constructor porque no hay catálogo verificado, reglas de turno completas ni partida jugable.

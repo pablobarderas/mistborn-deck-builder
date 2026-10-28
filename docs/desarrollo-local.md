@@ -64,10 +64,14 @@ Pasos para dos ventanas y futura prueba entre redes: [guía de conexión](prueba
 
 ## Estado estructural de P07
 
-`-Action test-state` importa y ejecuta tests/game_state_test.gd: exige P07_STATE_OK y rechaza ERROR/SCRIPT ERROR incluso con código 0. Actualmente son 1.725 comprobaciones sobre fixtures ficticios: siete configuraciones, referencias/zonas, rival, resoluciones pendientes, copias profundas y entradas malformadas. Un WARNING anunciado corresponde al rechazo esperado de un snapshot. No ejecuta reglas ni acciones, no abre una partida y no prueba privacidad de clientes. Logs en tmp/godot/test-state.log; contrato y evidencia en [SPEC-007](specs/007-estado-y-acciones/verification.md).
+`-Action test-state` importa y ejecuta tests/game_state_test.gd: exige P07_STATE_OK y rechaza ERROR/SCRIPT ERROR incluso con código 0. Actualmente son 1.741 comprobaciones tras añadir `training_track_id` en P08 (1.725 al cierre local de P07) sobre fixtures ficticios: siete configuraciones, referencias/zonas, rival, resoluciones pendientes, copias profundas y entradas malformadas. Un WARNING anunciado corresponde al rechazo esperado de un snapshot. No ejecuta reglas ni acciones, no abre una partida y no prueba privacidad de clientes. Logs en tmp/godot/test-state.log; contrato y evidencia en [SPEC-007](specs/007-estado-y-acciones/verification.md).
 
 En este equipo (2026-10-28) el motor está en Descargas y se indica mediante -GodotPath; no se presupone que .tools/godot exista en todos los clones. La ruta local exacta se conserva solo en la evidencia, no se incrusta en el lanzador.
 
 ## Núcleo de acciones de P07
 
 `-Action test-engine` importa y ejecuta `tests/game_engine_test.gd`, exige `P07_ENGINE_OK` y rechaza ERROR/SCRIPT ERROR. Son 102 comprobaciones con manejadores ficticios: transacción atómica, revisiones, RNG reproducible, recibos, reintentos, resolución pausada, vistas propias/ajenas y entradas inválidas. Dos WARNING provienen de candidatos rechazados esperadamente. No hay aún acciones de cartas reales ni interfaz de partida. Evidencia y límites en [SPEC-007](specs/007-estado-y-acciones/verification.md).
+
+## Preparación estructural de P08
+
+`-Action test-setup` importa y ejecuta `tests/game_setup_test.gd`, exige `P08_SETUP_OK` y rechaza ERROR/SCRIPT ERROR. Son 147 comprobaciones en Godot 4.7.2 sobre siete configuraciones, manifiestos, existencias, reparto, orden, bonificaciones y rival. El fixture marca definiciones ficticias como verificadas solo para aislar el contrato técnico; el catálogo real sigue sin una definición verificada. No hay pantalla ni prueba manual asociada a P08 todavía. [Evidencia y límites](specs/008-preparacion-y-turnos/verification.md).

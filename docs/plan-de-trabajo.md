@@ -1,6 +1,6 @@
 # Plan de trabajo por fases
 
-Última revisión: 2026-10-29. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba; las reglas y partidas siguen sin implementar.
+Última revisión: 2026-10-29. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba y preparación estructural P08; efectos, turnos completos y partidas siguen sin implementar.
 
 ## Objetivo y situación
 
@@ -33,7 +33,7 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 | P05 | Dirección visual y maqueta | P02, P03 | Completada como maqueta y dirección visual inicial |
 | P06 | Contrato del catálogo y carga | P01, P03 | Completada: contrato inicial, migración y validación |
 | P07 | Estado y acciones de partida | P02, P04, P06 | T07.1/2 verificadas localmente; cierre pendiente de P04 externa |
-| P08 | Preparación y turnos | P01, P07 | Pendiente |
+| P08 | Preparación y turnos | P01, P07 | T08.1a verificada localmente; turnos y catálogo real pendientes |
 | P09 | Efectos y elecciones | P08 | Pendiente |
 | P10 | Primera partida local completa | P05, P09 | Pendiente |
 | P11 | Cobertura del contenido acordado | P10 | Pendiente |
@@ -159,7 +159,7 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 
 **Cierre:** Una secuencia reproducible conserva invariantes y rechaza acciones inválidas sin alterar el estado; la información privada tiene propietario.
 
-**Avance 2026-10-29:** T07.1/2 implementadas/verificadas localmente en [SPEC-007](specs/007-estado-y-acciones/verification.md): 1.725 comprobaciones de estado y 102 del motor. Acciones estructurales con manejadores ficticios; la fase no cierra mientras P04 externa siga pendiente. No hay preparación ni reglas ejecutables de cartas.
+**Avance 2026-10-29:** T07.1/2 implementadas/verificadas localmente en [SPEC-007](specs/007-estado-y-acciones/verification.md): 1.725 comprobaciones originales de estado (1.741 tras ampliar el esquema en P08) y 102 del motor. Acciones estructurales con manejadores ficticios; la fase no cierra mientras P04 externa siga pendiente. P08 añade preparación estructural, sin reglas ejecutables de cartas.
 
 ### P08 — Preparación y turnos
 
@@ -170,6 +170,8 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 - Implementar preparación, reparto, orden de jugadores y fases del turno según REG.
 - Cubrir transiciones, límites y los casos de mazo/descartes que existan en el reglamento.
 - Implementar diferencias por modo: bonificaciones competitivas, Target y preparación del rival sin bonificaciones en solo/cooperativo (T08.3).
+
+**Avance 2026-10-29:** [SPEC-008](specs/008-preparacion-y-turnos/spec.md) divide la fase. T08.1a implementa preparación estructural y diferencias iniciales por modo, verificada con 147 comprobaciones; se rechaza un manifiesto incompleto/no verificado. La fase sigue abierta: faltan el entrenamiento de inicio, transiciones, limpieza/robo y paso rival. No hay catálogo oficial para alimentar este constructor en producción. T08.1b requiere pista/recompensas verificadas; T08.2 conserva DUD-006 para agotamiento total.
 
 **Cierre:** Los escenarios de preparación y turnos coinciden con su fuente y quedan probados, incluidas acciones fuera de turno.
 
@@ -294,7 +296,7 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 ## Punto de reanudación
 
 1. T01.1 y el inventario inicial T01.2 están documentados a partir del PDF recibido. Consultar [fuentes](referencias/README.md), [matriz](referencias/matriz-reglas.md) y [dudas](referencias/dudas.md).
-2. P03, maqueta P05 y contrato inicial P06 completados. T07.1/2 implementadas y verificadas localmente según [SPEC-007](specs/007-estado-y-acciones/spec.md): 1.725 comprobaciones de estado y 102 del motor. Próximo trabajo independiente: especificar P08, preparación y turnos; P07 no cierra hasta completar P04. T04.2 sigue pendiente de segundo equipo y evidencia externa. Mantener T02.1 parcial por catálogo y detalles de fases posteriores.
+2. P03, maqueta P05 y contrato inicial P06 completados. T07.1/2 implementadas y verificadas localmente; T08.1a prepara el estado con [SPEC-008](specs/008-preparacion-y-turnos/spec.md), 147 comprobaciones. Próximo trabajo: obtener pistas/recompensas y cartas verificadas para T08.1b, o avanzar en la parte independiente del ciclo del mazo de T08.2 dejando DUD-006 abierta. P07 no cierra hasta completar P04; T04.2 sigue pendiente de segundo equipo y evidencia externa. Mantener T02.1 parcial por catálogo y detalles de fases posteriores.
 3. Completar [SPEC-001](specs/001-alcance-y-reglamento/spec.md) y refinar [SPEC-002](specs/002-modos-y-cooperativo/spec.md) antes de la implementación dependiente.
 
 Seguir el [flujo SDD e issues](gestion/desarrollo.md) y los [criterios de calidad](calidad.md). La entrega inicial versiona estas bases por encargo del usuario; las tareas aún no se han publicado como issues.

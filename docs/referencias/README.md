@@ -1,6 +1,6 @@
 # Fuentes del juego y trazabilidad
 
-Última revisión: 2026-10-27. Reglamento leído completo mediante extracción y revisión visual de las 20 páginas. La fuente está en inglés; el producto se quiere en español.
+Última revisión: 2026-10-29. Reglamento leído completo mediante extracción y revisión visual de las 20 páginas. La fuente está en inglés; el producto se quiere en español.
 
 ## SRC-001 — Reglamento aportado por el usuario
 
@@ -56,7 +56,7 @@ El PDF acompaña al clon del repositorio. Mantener su hash y nombre para conserv
 - [SPEC-001](../specs/001-alcance-y-reglamento/spec.md): inventario y acuerdos de alcance.
 - [SPEC-002](../specs/002-modos-y-cooperativo/spec.md): comportamiento de modos y rival cooperativo.
 
-Todas las reglas documentadas siguen sin implementación ni pruebas ejecutadas. El inventario inicial no sustituye el catálogo completo de cartas.
+La preparación estructural de REG-001–006/052 tiene pruebas parciales en [SPEC-008](../specs/008-preparacion-y-turnos/verification.md); no usa cartas oficiales verificadas ni ejecuta turnos completos. El inventario inicial no sustituye el catálogo completo de cartas.
 
 ## Cómo incorporar fuentes posteriores
 

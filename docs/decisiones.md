@@ -134,13 +134,21 @@ Usar IDs estables. Para cada decisión indicar fecha, estado, contexto, elecció
 - Alcance y alternativas en [SPEC-007](specs/007-estado-y-acciones/plan.md). Las restricciones provisionales de visibilidad no son reglas oficiales ni acuerdos de producto. Las operaciones de prueba no serán acciones públicas del jugador.
 - Consecuencias: T07.1 precede a T07.2; P04 externa sigue siendo dependencia de cierre. No decide alojamiento, política de desconexión ni reglas con dudas abiertas.
 
+## DEC-018 — Preparación estructural P08
+
+- Fecha: 2026-10-29.
+- Estado: decisión técnica implementada y verificada localmente en T08.1a; no es una decisión sobre contenido o reglas pendientes.
+- Se separa el manifiesto de copias físicas del catálogo y del snapshot. La autoridad lo construirá con definiciones verificadas, cantidades positivas y relaciones contrastadas; el constructor rechaza omisiones, tipos/cantidades incompatibles y no toca entradas en error.
+- Se registra `training_track_id` por plaza y se inicia la fase `inicio` sin ejecutar entrenamiento ni recompensas. Esto permite reanudar un snapshot con su pista identificada y evita abrir un turno como si ya se hubiese aplicado una recompensa desconocida. Se incrementa `version_motor` por la ampliación del esquema.
+- Consecuencias: la preparación local se puede probar con fixtures; no se puede alimentar desde las dos muestras actuales. El catálogo oficial y la ejecución del turno siguen pendientes. Véase [SPEC-008](specs/008-preparacion-y-turnos/plan.md).
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.
 - Alcance mínimo de una partida jugable.
 - Compatibilidad mínima de Windows y objetivos finales de hardware/resolución; Godot 4.7.2 ya está fijado.
 - Ampliación del contrato y gramática de efectos para contenido real; contrato inicial y política de carga resueltos en DEC-016.
-- Implementación de reglas/efectos y adaptación del núcleo a contenido verificado; el núcleo local estructural ya existe (DEC-017).
+- Implementación de reglas/efectos y adaptación del núcleo a contenido verificado; el núcleo local estructural ya existe (DEC-017) y la preparación estructural en DEC-018.
 - Transporte/alojamiento, formato de invitación, pausa/reserva y pérdida de autoridad; salas privadas sin cuentas y reconexión ya están acordadas.
 
 Registrar una nueva entrada cuando haya evidencia suficiente o un acuerdo; mientras tanto, mantener la incertidumbre explícita.

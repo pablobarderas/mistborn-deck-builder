@@ -8,6 +8,7 @@ static func definitions() -> Dictionary:
 	return {
 		"test_action": {"id": "test_action", "tipo": "accion"},
 		"test_character": {"id": "test_character", "tipo": "personaje"},
+		"test_training_track": {"id": "test_training_track", "tipo": "pista_entrenamiento"},
 		"test_mission": {"id": "test_mission", "tipo": "mision"},
 		"test_rival": {"id": "test_rival", "tipo": "rival"},
 		"test_domination": {"id": "test_domination", "tipo": "dominacion"},
@@ -27,7 +28,7 @@ static func snapshot(mode: String = "competitivo", count: int = 2) -> Dictionary
 		progress[id] = index
 		rewards[id] = ["reward_a"] if index == 0 else []
 		players.append({"player_id": id, "name": "Prueba %d" % index, "eliminated": false,
-			"health": 7 + index, "character_id": "test_character", "persistent": {"atium": 2, "boxings": 3},
+			"health": 7 + index, "character_id": "test_character", "training_track_id": "test_training_track", "persistent": {"atium": 2, "boxings": 3},
 			"turn_resources": {"recursos": 4, "ataque": 5}, "training": 2, "ability_uses": {"test": 1},
 			"metals": [{"token_id": "cobre_1", "metal": "cobre", "exhausted": false, "used_this_turn": true},
 				{"token_id": "atium_1", "metal": "atium", "exhausted": false, "used_this_turn": false}],

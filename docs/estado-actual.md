@@ -4,7 +4,7 @@
 
 ## Resumen
 
-**T07.1 y T07.2 implementadas y verificadas localmente.** P06 completada en su alcance de contrato inicial y validación. P05 aceptada como maqueta visual; P03 y T04.1 completadas en su alcance. P04 sigue abierta por la prueba entre redes. Existe tablero interactivo de muestra, sin partida jugable ni reglas ejecutables.
+**T08.1a implementada y verificada localmente; T07.1/2 también.** P06 completada en su alcance de contrato inicial y validación. P05 aceptada como maqueta visual; P03 y T04.1 completadas en su alcance. P04 sigue abierta por la prueba entre redes. Existe tablero interactivo de muestra, sin partida jugable ni reglas de cartas ejecutables.
 
 ## Implementado y verificado
 
@@ -21,8 +21,9 @@
 | data/cartas.json | Sobre v1 con dos muestras migradas explícitamente; conserva IDs/texto/números y elimina rutas ficticias. No es catálogo oficial. |
 | tools/godot.ps1 | Importar, ejecutar, editor, pruebas y capturas; acciones network, test-network y preview-network para el ensayo. |
 | scripts/game/ | T07.1/2: estado privado, invariantes, acciones atómicas, RNG y proyecciones por jugador. Sin manejadores de reglas reales. |
+| scripts/game/game_setup.gd | T08.1a: preparación estructural determinista de siete configuraciones desde manifiesto y definiciones verificadas. No abre el turno libre ni interpreta efectos. |
 | tests/ | Estado (1.725) y núcleo de acciones (102) con fixtures ficticios, catálogo/carga, red experimental y capturas. |
-| docs/specs/ | SPEC-001/002 parciales; SPEC-003/005/006 completadas en su alcance; SPEC-004 local verificada, externa pendiente; SPEC-007 local verificada (T07.1/2), P04 externa pendiente para cierre P07. |
+| docs/specs/ | SPEC-001/002 parciales; SPEC-003/005/006 completadas en su alcance; SPEC-004 local verificada, externa pendiente; SPEC-007 local verificada (T07.1/2), P04 externa pendiente para cierre P07; SPEC-008 T08.1a verificada, P08 abierta. |
 | .github/ | Plantillas de issues y PR de la entrega inicial publicada. |
 
 El motor portátil previsto en .tools/godot/ se ignora por Git; en este equipo no existe y se usa Godot 4.7.2 desde Descargas mediante -GodotPath. Datos y cachés generados en .godot/ y tmp/ también ignorados. Los UID de scripts y ajustes de importación de recursos son metadatos de fuente.
@@ -83,8 +84,14 @@ SRC-003 identifica la publicación española de Devir. El usuario aporta «Edici
 
 La raíz Git es la carpeta que contiene project.godot y AGENTS.md. T07.1 se publicó en main como b3ff3c7 el 2026-10-28; T07.2 se ha validado localmente y su publicación forma parte del encargo actual. No se han creado issues. Consulta [continuar en otro PC](continuar-en-otro-pc.md) para la reanudación.
 
-P04: T04.1 completada; T04.2 pendiente de segundo equipo y prueba entre redes. P05/P06 cerradas en su alcance. **T07.1/2 implementadas y verificadas localmente en SPEC-007; próximo trabajo: preparar SPEC-008 de inicio y turnos y completar T04.2 entre redes cuando haya segundo equipo.** No dar por cumplida la dependencia P04 para cerrar P07. Los lotes de cartas pueden incorporarse en paralelo cuando estén disponibles. P04/P05 están publicadas en e5cd684; la entrega de P06 se publica en main por petición del usuario el 2026-10-27. Su revisión se identifica en el historial de Git. No se han creado issues.
+P04: T04.1 completada; T04.2 pendiente de segundo equipo y prueba entre redes. P05/P06 cerradas en su alcance. **T07.1/2 y T08.1a implementadas y verificadas localmente. Próximo trabajo independiente: T08.1b, avance de entrenamiento al inicio; requiere pistas y recompensas verificadas.** No dar por cumplida la dependencia P04 para cerrar P07. Los lotes de cartas pueden incorporarse en paralelo cuando estén disponibles. No se han creado issues.
 
 ## Núcleo local de P07
 
 [SPEC-007](specs/007-estado-y-acciones/spec.md) define estado, acciones atómicas, recibos por plaza, RNG reproducible, privacidad y resoluciones pendientes. T07.1 implementada: almacén RefCounted y validador de invariantes sin escenas/red, copias profundas y rechazo completo de snapshots inválidos. 1.725 comprobaciones de estado, 220 de catálogo y 58 de arranque, código 0. T07.2 implementada localmente: intenciones validadas, cambios atómicos, RNG reproducible, recibos por plaza y proyecciones conservadoras. 102 comprobaciones del motor, código 0. No hay manejadores de reglas ni adaptador de red/producto. La política conservadora de zonas no contrastadas está identificada como provisional. P07 sigue abierta y mantiene dependencia de cierre P04.
+
+## Preparación local de P08
+
+[SPEC-008](specs/008-preparacion-y-turnos/spec.md) concreta T08.1a. `game_setup.gd` exige un manifiesto completo y definiciones declaradas verificadas, con cantidades suficientes; sin ello rechaza la preparación. Sortea personajes/misiones y primer jugador cooperativo, baraja mazos, reparte manos, aplica bonificaciones/Target solo en competitivo y crea rival 48/1/36 en cooperativo/solo. Deja `turn.phase=inicio`: el entrenamiento inicial y sus recompensas no se han ejecutado. El esquema de estado añade `training_track_id` por jugador y sube `version_motor` a `p08-setup-1/godot-4.7.2`.
+
+Pruebas reales: `test-setup` 147 comprobaciones; regresión de estado 1.741, motor 102, catálogo 220 y arranque 58, código 0. No existe manifiesto de cartas reales ni adaptador de producto, por lo que no se puede iniciar una partida auténtica. No se ha probado interfaz manual de P08; aún no existe. P04 externa sigue pendiente.
