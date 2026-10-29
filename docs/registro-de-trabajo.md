@@ -1,5 +1,15 @@
 # Registro de trabajo
 
+## 2026-10-30 — Publicación de T08.2b
+
+- Autorización expresa «haz commit y push». Empaquetado R0 de la entrega R2 ya revisada: incluir sus 17 archivos, crear commit descriptivo en main y publicar sin forzar. Coordinador responsable; aceptación: commit remoto igual a HEAD y árbol limpio. Plan/checks: diff, enlaces locales, sincronía remota, commit/push y verificación posterior. Ninguna dispensa; se conservan pruebas y revisión independiente de T08.2b, sin cambios funcionales que requieran repetirlas.
+- Las menciones previas sin commit/push describen el estado antes de esta autorización. El commit que contiene esta entrada identifica el paquete; se verificará el remoto al finalizar. P08/P04 y siguientes pendientes no cambian. Este permiso se limita a esta entrega.
+
+## 2026-10-30 — T08.2b, cierre interno de limpieza
+
+- Encargo «seguimos con el siguiente desarrollo»; recuperación main/9e46660 limpio. R2/AC-11–14/plan y propietarios registrados antes del código; sin dispensas. Contraste turn_rules/sdd_rules Sol high de PDF/FAQ confirma segmento seguro y conserva límites de efectos/Atium sin contrato.
+- cleanup_impl/sdd_developer Sol medium implementa módulo, suite y test-cleanup; coordinador integra y documenta. API desde limpieza autorizada: descarte/robo5/resets atómicos, competitivo a inicio siguiente vivo, coop/solo a rival. No abre libre ni interpreta texto/efectos/finales. Atium usado y efectos desconocidos bloquean.
+- Oficial Godot 4.7.2: 334 comprobaciones; regresiones ciclo262/preparación147/estado1741/motor102/arranque58, código0. Corregido fixture StringName; importación requiere acceso normal al perfil Windows. Logs y [evidencia](specs/008-preparacion-y-turnos/verification.md#t082b--cierre-interno-de-limpieza). Revisión independiente favorable; T08.2b cerrada localmente, P08 permanece abierta. Sin commit/push.
 ## 2026-10-29 — Publicación de T08.2a
 
 - Encargo explícito «haz commit y push». Empaquetado R0 de la entrega ya revisada: objetivo incluir sus 18 archivos, publicar en `main` y verificar HEAD remoto y árbol limpio. Coordinador responsable; plan: comprobar diff/enlaces y sincronía, crear commit descriptivo y push sin forzar. Ninguna dispensa; se conserva revisión independiente favorable y pruebas anteriores, sin cambios funcionales que requieran repetirlas.

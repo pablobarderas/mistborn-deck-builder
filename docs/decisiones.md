@@ -170,6 +170,12 @@ Usar IDs estables. Para cada decisión indicar fecha, estado, contexto, elecció
 - Decisión: servicio interno de robo/reciclado personal, descarte y limpieza de cartas con RNG transaccional, sin acciones públicas de robo. El motor P07 envuelve operaciones compuestas y persiste el RNG al commit. Contrato y convenciones reproducibles en [SPEC-008/plan](specs/008-preparacion-y-turnos/plan.md).
 - Consecuencias: rechazo técnico atómico `regla_pendiente` cuando el robo excede mazo+descarte. Conserva DUD-006 abierta, sin inventar mano parcial, derrota ni resultado reglamentario. No completa el turno ni modifica las reglas de mercado/rival.
 
+## DEC-023 — Cierre interno de limpieza con puertas conservadoras
+
+- Fecha: 2026-10-30. Estado: decisión técnica implementada y verificada localmente en T08.2b, con revisión independiente favorable.
+- Decisión: servicio de autoridad únicamente desde limpieza, sin acción pública que pueda saltar combate, Target, efectos o finales. Compone descarte/robo y resets sobre copia; competitivo entrega inicio al siguiente vivo, cooperativo/solo entrega rival al mismo activo. No abre libre ni ejecuta entrenamiento/rival.
+- Los mapas ability_uses de jugador/instancias se definen como usos temporales del turno propio. Flags y counters sin duración modelada bloquean; burn_limit y agotamiento Flaring se conservan. Se bloquea Atium usado hasta definir relación entre saldo persistente y fichas, conservando Atium no usado. No es una adaptación de la regla de devolución, que sigue pendiente de ejecutar.
+- Consecuencias: [AC-11–14 y límites](specs/008-preparacion-y-turnos/spec.md). La autoridad llamadora sigue obligada a resolver efectos y finales antes de entrar en limpieza; estas guardias no acreditan un turno completo ni una partida jugable. P08/P04 y DUD pendientes se conservan.
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.

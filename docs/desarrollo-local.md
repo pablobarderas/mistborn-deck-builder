@@ -77,3 +77,7 @@ En este equipo (2026-10-28) el motor está en Descargas y se indica mediante -Go
 ## Preparación estructural de P08
 
 `-Action test-setup` importa y ejecuta `tests/game_setup_test.gd`, exige `P08_SETUP_OK` y rechaza ERROR/SCRIPT ERROR. Son 147 comprobaciones en Godot 4.7.2 sobre siete configuraciones, manifiestos, existencias, reparto, orden, bonificaciones y rival. El fixture marca definiciones ficticias como verificadas solo para aislar el contrato técnico; el catálogo real sigue sin una definición verificada. No hay pantalla ni prueba manual asociada a P08 todavía. [Evidencia y límites](specs/008-preparacion-y-turnos/verification.md).
+
+### Limpieza interna de turno (T08.2b)
+
+`-Action test-cleanup` ejecuta `tests/turn_cleanup_test.gd` y exige la marca `P08_CLEANUP_OK`. Es una API interna con fixtures ficticios; no ofrece un turno jugable. Parte de una fase limpieza autorizada y comprueba cierre atómico, guardias y entrega a inicio/rival; Atium usado y efectos aún no modelados se bloquean. [Contrato y evidencia](specs/008-preparacion-y-turnos/verification.md#t082b--cierre-interno-de-limpieza).

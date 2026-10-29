@@ -65,7 +65,7 @@ Estos son candidatos a issues, no especificaciones listas para implementar. La a
 | T07.1 | P07 | Estado, zonas, instancias, modos/rival e invariantes con fixtures. | Núcleo P02, P06; P04 para cierre de fase | Completada localmente; SPEC-007, 1.725 comprobaciones de estado | Sin publicar |
 | T07.2 | P07 | Transacciones, RNG, recibos por plaza, proyección privada y continuación. | T07.1 | Completada localmente; SPEC-007, 102 comprobaciones del motor | Sin publicar |
 | T08.1 | P08 | Preparación, reparto, orden de jugadores y fases del turno según REG. | P01, P07 | T08.1a completada localmente; T08.1b espera pistas/recompensas verificadas; SPEC-008 | Sin publicar |
-| T08.2 | P08 | Transiciones, límites y casos de mazo/descartes del reglamento. | T08.1 | SPEC-008; T08.2a implementada/verificada (262), revisión en SPEC; transiciones completas y DUD-006 pendientes | Sin publicar |
+| T08.2 | P08 | Transiciones, límites y casos de mazo/descartes del reglamento. | T08.1 | SPEC-008; T08.2a implementada/verificada (262), revisión en SPEC; T08.2b implementada/probada (334), revisión favorable; combate/efectos, Atium usado y DUD-006 pendientes | Sin publicar |
 | T08.3 | P08 | Diferencias por modo: Target/bonificaciones y paso rival. | T08.2 | Preparación inicial por modo hecha en T08.1a; paso rival pendiente | Sin publicar |
 | T09.1 | P09 | Implementar por familias los efectos confirmados, objetivos y elecciones pendientes. | P08 | Por refinar | Sin publicar |
 | T09.2 | P09 | Definir orden de resolución, efectos encadenados y finalización; comprobar interacciones y objetivos inválidos. | T09.1 | Por refinar | Sin publicar |
@@ -107,4 +107,4 @@ Documentos y plantillas se incluyen en la entrega inicial autorizada para commit
 
 ## Refinamiento P08
 
-[SPEC-008](../specs/008-preparacion-y-turnos/spec.md) divide T08.1 en preparación estructural (T08.1a) y entrenamiento/arranque de turno (T08.1b). T08.1a completada localmente con 147 comprobaciones; [evidencia](../specs/008-preparacion-y-turnos/verification.md). T08.2a implementa ciclo personal de cartas (262 comprobaciones); T08.2 sigue abierto para transiciones/limpieza completa y DUD-006. T08.3 sigue pendiente. La fase no se cierra con el constructor porque no hay catálogo verificado, reglas de turno completas ni partida jugable.
+[SPEC-008](../specs/008-preparacion-y-turnos/spec.md) divide T08.1 en preparación estructural (T08.1a) y entrenamiento/arranque de turno (T08.1b). T08.1a completada localmente con 147 comprobaciones; [evidencia](../specs/008-preparacion-y-turnos/verification.md). T08.2a implementa ciclo personal de cartas (262 comprobaciones); T08.2b añade cierre interno de limpieza a inicio/rival (334 comprobaciones, revisión favorable); T08.2 sigue abierto por combate/efectos, entrenamiento, Atium usado y DUD-006. T08.3 sigue pendiente. La fase no se cierra con el constructor porque no hay catálogo verificado, reglas de turno completas ni partida jugable.

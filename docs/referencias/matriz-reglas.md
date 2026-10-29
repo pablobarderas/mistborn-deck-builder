@@ -99,3 +99,5 @@ No detalla el texto de las 82 cartas de mercado, las 40 iniciales, las ocho misi
 Los nombres de tipos de carta no implican que se haya contado cuántas acciones, aliados, edictos o adversarios únicos hay. Ver [componentes](componentes.md).
 
 No se calcula aún porcentaje de fidelidad: el catálogo está incompleto y hay dudas que afectan a resultados.
+
+T08.2b añade cobertura parcial de cierre de REG-009/010/013/016/025/030/042/055/063 mediante API interna y fixtures: limpia temporales, conserva agotamiento y entrega a inicio/rival. No resuelve combate, Target, adversarios, entrenamiento, finales ni Atium usado; REG-019 sigue pendiente de contrato saldo/fichas. [AC-11–14](../specs/008-preparacion-y-turnos/spec.md#t082b--cierre-interno-de-limpieza-y-entrega-de-fase) y evidencia en SPEC-008. No equivale a cobertura completa de estas REG.

@@ -1,10 +1,10 @@
 # Estado actual
 
-Última revisión: 2026-10-29.
+Última revisión: 2026-10-30.
 
 ## Resumen
 
-**T08.1a y T08.2a implementadas y verificadas localmente; T07.1/2 también.** P06 completada en su alcance de contrato inicial y validación. P05 aceptada como maqueta visual; P03 y T04.1 completadas en su alcance. P04 sigue abierta por la prueba entre redes. Existe tablero interactivo de muestra, sin partida jugable ni reglas de cartas ejecutables.
+**T08.1a y T08.2a verificadas localmente; T08.2b implementada y verificada localmente; T07.1/2 también verificadas.** P06 completada en su alcance de contrato inicial y validación. P05 aceptada como maqueta visual; P03 y T04.1 completadas en su alcance. P04 sigue abierta por la prueba entre redes. Existe tablero interactivo de muestra, sin partida jugable ni reglas de cartas ejecutables.
 
 ## Implementado y verificado
 
@@ -92,7 +92,7 @@ SRC-003 identifica la publicación española de Devir. El usuario aporta «Edici
 
 La raíz Git es la carpeta que contiene project.godot y AGENTS.md. T07.1 (`b3ff3c7`), T07.2 (`1930313`) y T08.1a (`acb507a`) están publicadas en `origin/main`. No se han creado issues. Consulta [continuar en otro PC](continuar-en-otro-pc.md) para la reanudación. El 2026-10-29 se revisaron y descartaron los tres cambios locales antiguos de Godot (`project.godot` y dos `.import`); la prueba de arranque volvió a pasar y el árbol de trabajo quedó limpio.
 
-P04: T04.1 completada; T04.2 pendiente de segundo equipo y prueba entre redes. P05/P06 cerradas en su alcance. **T07.1/2 y T08.1a implementadas y verificadas localmente.** El usuario deja por ahora pendientes las fotos del material español y las DUD-004/005/006; no se ha acordado ninguna interpretación nueva. T08.1b espera pistas y recompensas verificadas. Al reanudar sin ese material, T08.2a ya implementa el ciclo personal de cartas confirmado; quedan por especificar las transiciones y la limpieza completa del turno, manteniendo sin resolver el caso de mazo y descarte vacíos. Véase el [traspaso T08.2a](specs/008-preparacion-y-turnos/verification.md#t082a--ciclo-personal-de-cartas). No dar por cumplida la dependencia P04 para cerrar P07. No se han creado issues.
+P04: T04.1 completada; T04.2 pendiente de segundo equipo y prueba entre redes. P05/P06 cerradas en su alcance. **T07.1/2 y T08.1a implementadas y verificadas localmente.** El usuario deja por ahora pendientes las fotos del material español y las DUD-004/005/006; no se ha acordado ninguna interpretación nueva. T08.1b espera pistas y recompensas verificadas. Al reanudar sin ese material, T08.2a ya implementa el ciclo personal de cartas confirmado; T08.2b implementa el cierre interno del subconjunto de limpieza con 334 comprobaciones (revisión favorable), conservando bloqueos de Atium usado/efectos y DUD-006. Véase el [traspaso T08.2b](specs/008-preparacion-y-turnos/verification.md#t082b--cierre-interno-de-limpieza). No dar por cumplida la dependencia P04 para cerrar P07. No se han creado issues.
 
 ## Núcleo local de P07
 
@@ -105,3 +105,5 @@ P04: T04.1 completada; T04.2 pendiente de segundo equipo y prueba entre redes. P
 Pruebas reales: `test-setup` 147 comprobaciones; regresión de estado 1.741, motor 102, catálogo 220 y arranque 58, código 0. No existe manifiesto de cartas reales ni adaptador de producto, por lo que no se puede iniciar una partida auténtica. No se ha probado interfaz manual de P08; aún no existe. P04 externa sigue pendiente.
 
 T08.2a: `card_cycle.gd` añade robo/reciclado personal, descarte y limpieza exclusiva de cartas conservando aliados en juego. `test-cycle`: 262 comprobaciones en siete configuraciones, código 0. Es una API interna sin acciones públicas, transiciones ni fin de turno completo; DUD-006 devuelve una guardia técnica `regla_pendiente` sin cambios parciales. Revisión independiente favorable, sin defectos bloqueantes; cierre y traspaso en [verification.md](specs/008-preparacion-y-turnos/verification.md#t082a--ciclo-personal-de-cartas).
+
+T08.2b: `turn_cleanup.gd` cierra el subconjunto confirmado desde limpieza, reinicia temporales propios y roba cinco de forma atómica. Entrega inicio al siguiente vivo competitivo o rival al mismo activo cooperativo/solo; no abre libre ni omite entrenamiento/efectos. Atium usado, adversarios activos y flags/counters sin semántica bloquean. 334 comprobaciones y regresiones aprobadas; revisión independiente favorable. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t082b--cierre-interno-de-limpieza).
