@@ -1,5 +1,5 @@
 extends SceneTree
-## SPEC-008 AC-11–14; reglas de limpieza/turno, con contenido ficticio.
+## SPEC-008 AC-11–18; reglas de limpieza/turno, con contenido ficticio.
 
 const Cleanup = preload("res://scripts/game/turn_cleanup.gd")
 const Fixtures = preload("res://tests/game_state_fixtures.gd")
@@ -18,6 +18,7 @@ func _run() -> void:
 		var counts: Array = [1] if mode == "solitario" else [2, 3, 4]
 		for count: int in counts:
 			_test_success(mode, count)
+			_test_atium(mode, count)
 	_test_guards()
 	_test_order()
 	_test_exhaustion()
@@ -55,8 +56,6 @@ func _snapshot(mode: String = "competitivo", count: int = 2) -> Dictionary:
 		if instance.owner_id == "p1":
 			instance.state.ability_uses = {"used": 2}
 	state.players[0].metals[0].exhausted = true
-	# Saldo y fichas Atium no están vinculados por el contrato del estado.
-	state.players[0].persistent.atium = 0
 	state.instances["market_card"] = Fixtures.instance("market_card", "test_action", null)
 	state.instances.market_card.state.flags = {"unknown": true}
 	state.zones.mercado.cards = ["market_card"]
@@ -121,6 +120,45 @@ func _test_success(mode: String, count: int) -> void:
 	_reject(state, "p1", "accion_ilegal", "AC13 no repite limpieza ni sale de inicio/rival")
 
 
+func _set_atium(state: Dictionary, used: Array) -> void:
+	var player: Dictionary = state.players[0]
+	player.metals = [player.metals[0]]
+	for index: int in range(used.size()):
+		player.metals.append({"token_id": "atium_%d" % (index + 1), "metal": "atium", "exhausted": false, "used_this_turn": used[index]})
+	player.persistent.atium = used.size()
+
+
+func _test_atium(mode: String, count: int) -> void:
+	for used: Array in [[], [false, false], [true, true], [true, false, true, false]]:
+		var state: Dictionary = _snapshot(mode, count)
+		_set_atium(state, used)
+		# Metal ordinario entre las fichas: el filtrado conserva el orden completo.
+		state.players[0].metals.insert(1, {"token_id": "acero_1", "metal": "acero", "exhausted": false, "used_this_turn": true})
+		var original: Dictionary = state.duplicate(true)
+		var expected_metals: Array = []
+		var expected_total: int = 0
+		for token: Dictionary in original.players[0].metals:
+			if token.metal == "atium":
+				if token.used_this_turn:
+					continue
+				expected_total += 1
+			var retained: Dictionary = token.duplicate(true)
+			if retained.metal != "atium":
+				retained.used_this_turn = false
+			expected_metals.append(retained)
+		var rng: RandomNumberGenerator = _rng(state)
+		var result: Dictionary = Cleanup.new(_definitions(), "test_catalog").finish_cleanup(state, "p1", rng)
+		_expect(result == {"ok": true, "codigo": "aceptada"}, "AC16 devolución sin identidades privadas, siete configuraciones")
+		_expect(state.players[0].metals == expected_metals and state.players[0].persistent.atium == expected_total, "AC16 mezcla/todas/ninguna/cero: retira sólo usadas y conserva orden/IDs/estado")
+		_expect(state.players[0].persistent.boxings == original.players[0].persistent.boxings, "AC16 Boxings no se altera")
+		for index: int in range(1, count):
+			_expect(state.players[index] == original.players[index], "AC16 fichas y saldo ajenos intactos")
+		_expect(Validator.new().validate(state, _definitions(), "test_catalog").ok, "AC17 devolución conserva igualdad exacta P07")
+		var after: Dictionary = state.duplicate(true)
+		var after_rng: int = rng.state
+		_expect(not Cleanup.new(_definitions(), "test_catalog").finish_cleanup(state, "p1", rng).ok and state == after and rng.state == after_rng, "AC17 segundo cierre no devuelve ni consume otra vez")
+
+
 func _reject(state: Dictionary, actor: Variant, code: String, message: String) -> void:
 	var before: Dictionary = state.duplicate(true)
 	var rng: RandomNumberGenerator = _rng(state)
@@ -168,8 +206,17 @@ func _test_guards() -> void:
 		state.instances.d1.state.flags = {"unknown": flag}
 		_reject(state, "p1", "regla_pendiente", "AC11 flag propio fuera juego bloquea incluso false")
 	state = base.duplicate(true)
-	state.players[0].metals[1].used_this_turn = true
-	_reject(state, "p1", "regla_pendiente", "AC11 Atium usado bloquea sin inferir saldo/ficha")
+	state.players[0].persistent.atium = 0
+	_reject(state, "p1", "estado_invalido", "AC15 saldo incoherente no se repara durante limpieza")
+	state = base.duplicate(true)
+	state.players[0].metals[1].exhausted = true
+	_reject(state, "p1", "estado_invalido", "AC15 Atium agotado rechazado sin refrescarlo")
+	state = base.duplicate(true)
+	state.players[1].persistent.atium = 2
+	_reject(state, "p1", "estado_invalido", "AC15 igualdad exacta también en plazas ajenas")
+	state = base.duplicate(true)
+	state.players[1].metals[1].exhausted = true
+	_reject(state, "p1", "estado_invalido", "AC15 Atium agotado ajeno también invalida snapshot")
 	for eliminated: bool in [false, true]:
 		state = base.duplicate(true)
 		state.players[0].health = 0
@@ -227,11 +274,12 @@ func _test_order() -> void:
 
 func _test_exhaustion() -> void:
 	var state: Dictionary = _snapshot()
+	state.players[0].metals[1].used_this_turn = true
 	for id: String in ["d1", "d2", "d3", "held_ally"]:
 		state.instances.erase(id)
 	state.zones.custom_mano.cards = ["c1"]
 	state.zones.custom_descarte.cards = []
-	_reject(state, "p1", "regla_pendiente", "AC14 agotamiento revierte limpieza, contadores, fase y RNG")
+	_reject(state, "p1", "regla_pendiente", "AC17 agotamiento revierte también devolución/saldo Atium, contadores, fase y RNG")
 	# Cinco disponibles exactas tras limpiar: se acepta sin reciclar al terminar.
 	state = _snapshot()
 	for id: String in ["d1", "d2"]:
@@ -243,13 +291,11 @@ func _test_exhaustion() -> void:
 	state.zones.custom_mazo.cards = ["d1", "d2", "d3", "played", "c2"]
 	state.zones.custom_descarte.cards = []
 	state.zones.custom_juego.cards = ["ally"]
-	state.players[0].persistent.atium = 17
-	state.players[0].metals[1].exhausted = true
 	rng = _rng(state)
 	var before_rng: int = rng.state
 	_expect(Cleanup.new(_definitions(), "test_catalog").finish_cleanup(state, "p1", rng).ok and rng.state == before_rng, "AC14 sin reciclado no consume RNG")
 	_expect(state.zones.custom_mano.cards == ["c2", "played", "d3", "d2", "d1"] and state.zones.custom_descarte.cards == ["c1", "held_ally"], "AC12 robo conserva orden de mazo y no recicla anticipadamente")
-	_expect(state.players[0].persistent.atium == 17 and state.players[0].metals[1].exhausted, "AC12 Atium sin usar conserva saldo independiente y exhausted")
+	_expect(state.players[0].persistent.atium == 1 and not state.players[0].metals[1].exhausted, "AC16 Atium sin usar conserva ficha y saldo total")
 
 
 func _test_engine() -> void:
@@ -265,6 +311,7 @@ func _test_engine() -> void:
 		return "accion_ilegal" if result.ok else "estado_invalido"
 	var registry: Dictionary = {"test_cleanup": handler, "test_fail_cleanup": reject_after}
 	var initial: Dictionary = _snapshot("cooperativo")
+	_set_atium(initial, [true, false, true])
 	var a: RefCounted = GameCore.new(_definitions(), "test_catalog", registry)
 	var b: RefCounted = GameCore.new(_definitions(), "test_catalog", registry)
 	_expect(a.load_authority_snapshot(initial).ok and b.load_authority_snapshot(initial).ok, "AC14 P07 acepta fixtures")
@@ -279,16 +326,19 @@ func _test_engine() -> void:
 	_expect(b.submit("p1", intent) == receipt and b.get_authority_snapshot() == a.get_authority_snapshot(), "AC14 replay determinista tras rechazo anterior")
 	var after: Dictionary = a.get_authority_snapshot()
 	_expect(after.authority.rng_state != initial.authority.rng_state and after.turn.phase == "rival", "AC14 P07 persiste RNG y fase juntos")
+	_expect(after.players[0].persistent.atium == 1 and after.players[0].metals.size() == 2 and after.players[0].metals[1].token_id == "atium_2", "AC17 P07 confirma devolución y decremento juntos")
 	_expect(a.submit("p1", intent) == receipt and a.get_authority_snapshot() == after, "AC14 reintento no limpia/roba dos veces")
 	var resumed: RefCounted = GameCore.new(_definitions(), "test_catalog", registry)
 	_expect(resumed.load_authority_snapshot(after).ok and resumed.submit("p1", intent) == receipt and resumed.get_authority_snapshot() == after, "AC14 recibo sobrevive reanudación")
 	_expect(a.submit("p1", _action("again", "test_cleanup", 1)).codigo == "accion_ilegal" and a.get_authority_snapshot() == after, "AC13 nueva intención no sale de rival")
 	var own: Dictionary = a.get_view("p1")
 	var other: Dictionary = a.get_view("p2")
+	_expect(own.players[0].persistent.atium == 1 and other.players[0].persistent.atium == 1 and own.players[0].metals == after.players[0].metals and other.players[0].metals == after.players[0].metals, "AC17 proyecciones y snapshot coinciden en saldo/fichas públicos")
 	_expect(own.zones.custom_mano.cards.size() == 5 and other.zones.custom_mano.count == 5 and not other.zones.custom_mano.has("cards"), "AC14 mano privada tras limpieza")
 	_expect(not own.has("authority") and not other.has("authority") and not own.zones.custom_mazo.has("cards") and not other.zones.custom_mazo.has("cards"), "AC14 no filtra RNG, recibos ni orden mazo")
 	initial = _snapshot()
 	initial.players[0].metals[1].used_this_turn = true
+	initial.turn.counters = {"unknown": 1}
 	_expect(a.load_authority_snapshot(initial).ok, "AC14 estado con regla pendiente es estructuralmente válido")
 	_expect(a.submit("p1", intent).codigo == "accion_ilegal" and a.get_authority_snapshot() == initial and not a.get_authority_snapshot().authority.receipts.has("p1"), "AC14 adaptador mapea regla_pendiente sin recibos ni filtraciones")
 

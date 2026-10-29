@@ -1,5 +1,7 @@
 # Matriz inicial de reglas
 
+T08.2c amplía la cobertura parcial de REG-019/020: igualdad saldo/fichas y devolución de Atium usado al limpiar, conservando no usado y sin límite físico de suministro. Fuentes SRC-001 p.8 y SRC-002 FAQ «Metal tokens & atium», contrastadas 2026-10-30. Pruebas de estado/limpieza aprobadas; revisión independiente favorable. No cubre quema, límite, comodines, ganancia, refresco ni Confrontation. [AC-15–18 y límites](../specs/008-preparacion-y-turnos/spec.md#t082c--saldo-y-devolución-de-atium).
+
 Revisión: 2026-10-29. Fuentes SRC-001 y SRC-002 del [registro](README.md). Un número de página sin prefijo refiere a SRC-001; SRC-002 se identifica por sección. Las erratas expresas del editor prevalecen sobre el PDF.
 
 Este es un inventario documental inicial, no una transcripción completa de las cartas. **REG-001–006 y REG-052 tienen cobertura estructural parcial de preparación** en [SPEC-008](../specs/008-preparacion-y-turnos/verification.md); T08.2a añade cobertura parcial de REG-009/010/025 mediante primitivas internas de cartas. Entrenamiento, efectos, turno completo y partida real siguen pendientes. Consultar el estado de cada DUD en [dudas](dudas.md): algunas ya están resueltas por SRC-002, otras siguen abiertas.

@@ -2,7 +2,7 @@ extends RefCounted
 ## Invariantes estructurales del snapshot privado. No aplica reglas ni efectos.
 
 const SCHEMA_VERSION: int = 1
-const ENGINE_VERSION: String = "p08-setup-1/godot-4.7.2"
+const ENGINE_VERSION: String = "p08-atium-1/godot-4.7.2"
 const METALS: Array[String] = ["peltre", "estano", "bronce", "cobre", "zinc", "laton", "hierro", "acero", "atium"]
 const PLAYER_ZONES: Array[String] = ["mano", "mazo", "descarte", "juego"]
 const SHARED_ZONES: Array[String] = ["mazo_mercado", "mercado", "eliminadas", "mazo_rival", "descarte_rival", "adversarios"]
@@ -97,6 +97,7 @@ func _validate_player(value: Variant) -> void:
 			_enum(metal, METALS, "players.burned.metal")
 			_number(value.burned[metal], "players.burned.count")
 	var seen: Dictionary = {}
+	var atium_count: int = 0
 	if _array(value.metals, "players.metals"):
 		for token: Variant in value.metals:
 			if not _shape(token, ["token_id", "metal", "exhausted", "used_this_turn"], "players.metals"):
@@ -108,6 +109,14 @@ func _validate_player(value: Variant) -> void:
 			_enum(token.metal, METALS, "players.metals.metal")
 			_bool(token.exhausted, "players.metals.exhausted")
 			_bool(token.used_this_turn, "players.metals.used_this_turn")
+			if token.metal is String and token.metal == "atium":
+				atium_count += 1
+				if token.exhausted is bool and token.exhausted:
+					_error("players.metals.exhausted", "Atium no admite agotamiento en este subconjunto")
+		# El total incluye las fichas usadas hasta su devolución en limpieza.
+		if value.persistent is Dictionary and value.persistent.has("atium") \
+			and typeof(value.persistent.atium) == TYPE_INT and value.persistent.atium != atium_count:
+			_error("players.persistent.atium", "saldo distinto del total de fichas de Atium")
 
 
 func _validate_instance(key: Variant, value: Variant) -> void:

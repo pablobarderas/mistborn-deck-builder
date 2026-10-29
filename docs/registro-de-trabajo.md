@@ -1,5 +1,16 @@
 # Registro de trabajo
 
+## 2026-10-30 — Publicación de T08.2c
+
+- Autorización expresa «vale pues haz commit y push». Empaquetado R0 de los 17 archivos de T08.2c ya verificada y revisada como R2, sin cambios funcionales nuevos. Coordinador responsable; objetivo/aceptación: commit descriptivo en main, remoto igual a HEAD y árbol limpio. Plan: revisar diff/enlaces, comprobar sincronía remota, commit/push sin forzar y verificación posterior. Ninguna dispensa; conservar evidencia y revisión independiente existentes, sin repetir pruebas funcionales sin cambios.
+- Las notas anteriores sin publicación describen su estado histórico. El commit que incorpora esta entrada identifica la entrega; verificar remoto y árbol al terminar. P08/P04 y pendientes no cambian; este permiso no se extiende a futuras entregas.
+
+## 2026-10-30 — T08.2c, saldo y devolución de Atium
+
+- Encargo «vamos con el siguiente paso»; recuperación main/c370d0f limpio. Objetivo/AC-15–18, riesgo R2, plan/propietarios previos en SPEC-008; ninguna dispensa ni autorización de publicación. Contraste atium_rules/sdd_rules Sol high de PDF p.8/FAQ oficial; reglas comunes a los tres modos.
+- atium_impl/sdd_developer Sol medium implementó validador/limpieza/fixtures: saldo total igual a fichas, usadas incluidas hasta devolución; retirar sólo usadas y descontar igual cantidad atómicamente. Motor p08-atium-1/godot-4.7.2, esquema v1, sin migración heurística. Coordinador corrigió comparaciones de tipos inválidos detectadas por regresión; se repitieron pruebas sin SCRIPT ERROR.
+- Godot 4.7.2: limpieza 527, estado 1.938, motor 102, preparación 147, ciclo 262, arranque 58, todos código 0; negativos de arranque esperados. Importación restringida falló por perfil/certificados; ejecución con acceso normal pasó. Logs/comandos y [traspaso](specs/008-preparacion-y-turnos/verification.md#t082c--saldo-y-devolución-de-atium). Revisión independiente favorable; P08/P04 abiertas. No hay quema/ganancia/refresco de Atium, turno completo, UI o partida real.
+
 ## 2026-10-30 — Publicación de T08.2b
 
 - Autorización expresa «haz commit y push». Empaquetado R0 de la entrega R2 ya revisada: incluir sus 17 archivos, crear commit descriptivo en main y publicar sin forzar. Coordinador responsable; aceptación: commit remoto igual a HEAD y árbol limpio. Plan/checks: diff, enlaces locales, sincronía remota, commit/push y verificación posterior. Ninguna dispensa; se conservan pruebas y revisión independiente de T08.2b, sin cambios funcionales que requieran repetirlas.

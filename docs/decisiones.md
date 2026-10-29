@@ -172,10 +172,18 @@ Usar IDs estables. Para cada decisión indicar fecha, estado, contexto, elecció
 
 ## DEC-023 — Cierre interno de limpieza con puertas conservadoras
 
+Contrato saldo/fichas y guardia de Atium usado sustituidos por DEC-024; el resto se mantiene.
+
 - Fecha: 2026-10-30. Estado: decisión técnica implementada y verificada localmente en T08.2b, con revisión independiente favorable.
 - Decisión: servicio de autoridad únicamente desde limpieza, sin acción pública que pueda saltar combate, Target, efectos o finales. Compone descarte/robo y resets sobre copia; competitivo entrega inicio al siguiente vivo, cooperativo/solo entrega rival al mismo activo. No abre libre ni ejecuta entrenamiento/rival.
 - Los mapas ability_uses de jugador/instancias se definen como usos temporales del turno propio. Flags y counters sin duración modelada bloquean; burn_limit y agotamiento Flaring se conservan. Se bloquea Atium usado hasta definir relación entre saldo persistente y fichas, conservando Atium no usado. No es una adaptación de la regla de devolución, que sigue pendiente de ejecutar.
 - Consecuencias: [AC-11–14 y límites](specs/008-preparacion-y-turnos/spec.md). La autoridad llamadora sigue obligada a resolver efectos y finales antes de entrar en limpieza; estas guardias no acreditan un turno completo ni una partida jugable. P08/P04 y DUD pendientes se conservan.
+## DEC-024 — Atium materializado y saldo total coherente
+
+- Fecha: 2026-10-30. Estado: contrato técnico implementado/verificado localmente en T08.2c; revisión independiente favorable. Sustituye exclusivamente la independencia saldo/fichas y bloqueo por Atium usado de DEC-023; conserva sus demás puertas.
+- Decisión: cada unidad de Atium poseída se materializa en `metals`; `persistent.atium` es su total exacto, incluidas usadas hasta devolverlas al limpiar, nunca una reserva adicional. Las disponibles se cuentan por fichas no usadas. Rechazar discrepancias, sin corregirlas automáticamente. Atium no agotado en el subconjunto cuyo único agotamiento modelado es Flaring, prohibido para Atium.
+- Consecuencias: retirar usadas y descontar igual cantidad sobre la copia transaccional de limpieza. Sin contador global finito de suministro. Cambio semántico a motor `p08-atium-1/godot-4.7.2`, esquema v1, sin migración heurística de snapshots anteriores. Ganancia, quema, refresco, Confrontation y excepciones de cartas ausentes siguen pendientes. Fuentes y AC en [SPEC-008](specs/008-preparacion-y-turnos/spec.md#t082c--saldo-y-devolución-de-atium).
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.

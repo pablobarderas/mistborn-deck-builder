@@ -1,7 +1,16 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.2c — Saldo y devolución de Atium
+
+Ampliación 2026-10-30, REG-019/020: SRC-001 p.8 (Atium, Flaring y Refreshing), SRC-002 FAQ «Metal tokens & atium». Contrato técnico del subconjunto: cada unidad poseída de Atium tiene una ficha en `metals`; `persistent.atium` es el total de esas fichas, incluidas las usadas hasta devolverlas al limpiar. No hay reserva virtual ni doble saldo gastable: las disponibles se identifican por `used_this_turn=false`. No se implementa su ganancia, quema, refresco ni Confrontation.
+
+- **AC-15:** el validador exige igualdad exacta saldo/conteo de Atium en cada plaza, además de tipos/IDs existentes. Atium exige `exhausted=false`: no puede hacer Flaring, única fuente de agotamiento modelada. Es una restricción del subconjunto soportado, no afirmación sobre cartas aún ausentes. Rechazar saldo menor/mayor, negativos, tipos inválidos y agotamiento de Atium sin mutación. Cero fichas/cero saldo y cantidades superiores al suministro físico son válidos dentro de límites técnicos existentes.
+- **AC-16:** desde limpieza válida, retirar exclusivamente las fichas de Atium usadas y reducir el total en igual cantidad; preservar IDs/orden/estado de las no usadas, Boxings, agotamiento ordinario y jugadores ajenos. Sin usados, conservar todo el Atium. Se elimina sólo la guardia de Atium usado de AC-11/12; las demás puertas se mantienen. No hay contador de suministro finito.
+- **AC-17:** devolución y decremento forman parte de la transacción de limpieza/robo/fase: DUD-006 o rechazo posterior P07 revierte también saldo/fichas/RNG; reintento no duplica devolución. Cubrir mezcla, todas/ninguna usadas, siete configuraciones y snapshot/proyecciones coherentes sin detalles privados en respuesta.
+- **AC-18:** subir `version_motor` a `p08-atium-1/godot-4.7.2` y conservar esquema v1 (misma forma, semántica más estricta). Rechazar versiones anteriores sin migración ni reparación heurística; adaptar fixtures explícitamente. Regresiones de estado, motor, preparación, ciclo y limpieza. No acredita turno completo, catálogo real ni cierre de P08.
+
 - Fecha: 2026-10-29.
-- Estado: T08.1a, T08.2a y T08.2b implementadas y verificadas localmente; P08 no se cierra hasta ejecutar los turnos y las diferencias restantes por modo.
+- Estado: T08.1a, T08.2a, T08.2b y T08.2c implementadas y verificadas localmente (revisión T08.2c favorable); P08 no se cierra hasta ejecutar los turnos y las diferencias restantes por modo.
 - Fuentes: SRC-001 pp.5–6, 12, 17–20; SRC-002, «Errata 2» y «Miscellaneous» (entrenamiento en primera ronda).
 - Dependencias: estado/acciones P07 localmente verificadas; P04 externa pendiente para el cierre formal de P07. Catálogo completo pendiente por DUD-002/003.
 

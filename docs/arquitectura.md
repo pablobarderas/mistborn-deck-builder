@@ -1,5 +1,11 @@
 # Arquitectura
 
+## Contrato de Atium — T08.2c
+
+Ampliación implementada, pruebas locales aprobadas; revisión independiente favorable: `persistent.atium` representa el total de fichas de Atium de la plaza, incluidas las usadas pendientes de devolución; debe ser igual al conteo de `metal=atium` en `metals`. No es una reserva adicional. Las disponibles son las no usadas. Toda futura ganancia/gasto debe actualizar agregado y fichas en la misma transacción. El subconjunto exige Atium no agotado, porque no admite Flaring; no generaliza excepciones de cartas no verificadas. Versión de motor `p08-atium-1/godot-4.7.2`, esquema v1, rechazo de versiones previas sin migración heurística.
+
+`turn_cleanup.gd` retira sólo fichas de Atium usadas del activo y descontará igual cantidad del total dentro de su copia transaccional, antes de publicar cartas/fase/RNG; el fallo posterior revierte todo. No hay suministro global limitado. Este contrato sustituye la independencia saldo/fichas y guardia de Atium usado descritas históricamente en T08.2b; mantiene las otras guardias. [AC-15–18](specs/008-preparacion-y-turnos/spec.md#t082c--saldo-y-devolución-de-atium).
+
 ## Implementación existente
 
 Flujo implementado en P03:

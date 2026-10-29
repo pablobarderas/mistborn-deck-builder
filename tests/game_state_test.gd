@@ -15,6 +15,7 @@ func _initialize() -> void:
 func _run() -> void:
 	_test_modes()
 	_test_state()
+	_test_atium()
 	_test_references()
 	_test_resolution()
 	_test_bad_types()
@@ -84,6 +85,40 @@ func _test_state() -> void:
 	var zero: Dictionary = Fixtures.snapshot()
 	zero.players[0].health = 0
 	_expect(_validate(zero).ok, "Salud cero no dispara eliminación/victoria durante almacenamiento.")
+
+
+func _test_atium() -> void:
+	_expect(Validator.SCHEMA_VERSION == 1 and Validator.ENGINE_VERSION == "p08-atium-1/godot-4.7.2", "AC18 versión semántica nueva con esquema v1")
+	for mode: String in ["competitivo", "cooperativo", "solitario"]:
+		var counts: Array = [1] if mode == "solitario" else [2, 3, 4]
+		for count: int in counts:
+			var base: Dictionary = Fixtures.snapshot(mode, count)
+			for index: int in range(count):
+				for invalid: Variant in [0, 2, -1, true, 1.0, "1", null]:
+					bad(base, ["players", index, "persistent", "atium"], invalid)
+				bad(base, ["players", index, "metals", 1, "exhausted"], true)
+				var used: Dictionary = base.duplicate(true)
+				used.players[index].metals[1].used_this_turn = true
+				_expect(_validate(used).ok, "AC15 usado sigue incluido en saldo en cualquier plaza")
+				var empty: Dictionary = base.duplicate(true)
+				empty.players[index].metals.remove_at(1)
+				empty.players[index].persistent.atium = 0
+				_expect(_validate(empty).ok, "AC15 cero fichas y cero saldo válidos")
+	var abundant: Dictionary = Fixtures.snapshot()
+	for index: int in range(1, 40):
+		abundant.players[0].metals.append({"token_id": "atium_%d" % (index + 1), "metal": "atium", "exhausted": false, "used_this_turn": index % 2 == 0})
+	abundant.players[0].persistent.atium = 40
+	_expect(_validate(abundant).ok, "AC15 no impone suministro físico finito")
+	var state: RefCounted = State.new(Fixtures.definitions(), "test_catalog")
+	var base: Dictionary = Fixtures.snapshot()
+	_expect(state.try_load(base).ok, "AC18 carga versión nueva")
+	for version: String in ["p08-setup-1/godot-4.7.2", "p07-state-1/godot-4.7.2"]:
+		var old: Dictionary = base.duplicate(true)
+		old.version_motor = version
+		var before: Dictionary = old.duplicate(true)
+		_expect(not _validate(old).ok and old == before, "AC18 versión antigua rechazada sin reparar entrada")
+		print("FALLO ESPERADO P08: versión antigua rechazada.")
+		_expect(not state.try_load(old).ok and state.get_snapshot() == base, "AC18 carga antigua conserva snapshot vigente")
 
 
 func _test_references() -> void:

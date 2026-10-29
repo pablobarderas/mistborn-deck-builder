@@ -1,5 +1,15 @@
 # Plan de SPEC-008
 
+## Encargo activo 2026-10-30 — T08.2c, contabilidad de Atium
+
+Autorización: «vamos con el siguiente paso». Recuperación: main, HEAD c370d0f, árbol limpio; T08.2b publicada. Objetivo verificable: fijar la relación entre persistent.atium y fichas y devolver exclusivamente el Atium usado durante la limpieza, con rechazo atómico de estados incoherentes. Riesgo R2 por contrato de estado y regla REG-019. El contrato definitivo y AC se registrarán tras contraste SRC-001/002, antes de modificar código. No incluye ganar/quemar/refrescar metales, efectos, entrenamiento, combate, finales ni resolver dudas aplazadas.
+
+Responsables: coordinador único escritor documental e integrador; atium_rules/sdd_rules Sol high contrasta fuentes en lectura; implementación con propietario único tras cerrar contrato; sdd_reviewer Sol high revisará el diff final. Sin descendientes ni dispensas; sin autorización de commit/push. Verificación prevista: invariantes saldo/fichas, usados/no usados, siete configuraciones, conservación ajena, rollback/RNG, composición y reintentos P07; regresiones de estado, motor, preparación, ciclo y limpieza. Comprobar enlaces y diff. Sin cambios visuales o transporte, por lo que no requiere revisión visual ni nueva prueba de red de esta API. P04/P08 siguen abiertas.
+
+Contrato cerrado tras atium_rules: saldo total igual a conteo exacto de fichas, incluidas usadas hasta limpieza; ninguna reserva virtual. Atium no agotado en este subconjunto (Flaring es la única fuente modelada). Al limpiar se retiran usadas y se decrementa saldo en igual cantidad sobre la copia transaccional, conservando no usadas. AC-15–18 en spec.md. Cambio semántico incompatible: version_motor p08-atium-1/godot-4.7.2; sin migración automática, esquema v1 conserva forma. Las futuras operaciones que ganen/gasten Atium actualizarán ambas representaciones atómicamente y contarán disponibles por used_this_turn; no se implementan ahora.
+
+Propiedad de implementación asignada a atium_impl/sdd_developer: scripts/game/state_validator.gd, scripts/game/turn_cleanup.gd, tests/game_state_fixtures.gd, tests/game_state_test.gd y tests/turn_cleanup_test.gd. Coordinador conserva toda documentación y ejecuta Godot en serie; desarrollador no ejecuta motor simultáneamente. Revisor independiente posterior. Contraste previo: SRC-001 p.8 inspeccionada visualmente con skill PDF y FAQ oficial consultada en vivo 2026-10-30; reglas comunes a los tres modos, sin aclaraciones nuevas de DUD ni cartas ausentes.
+
 ## Encargo activo 2026-10-29 — T08.2a, ciclo personal de cartas
 
 Reanudación autorizada por «vamos a continuar con el desarrollo». Git inicial limpio, `main`, HEAD `7b75181`. Objetivo verificable: operaciones internas de autoridad para robo con reciclado y descarte personal, con limpieza exclusivamente de cartas. Riesgo R2: modifica zonas privadas y RNG y aplica REG-009/010/025. No incluye finalización completa de turno, entrenamiento, recursos/metales, efectos, rival ni resolución de DUD-006; T08.2 permanece agrupador abierto.

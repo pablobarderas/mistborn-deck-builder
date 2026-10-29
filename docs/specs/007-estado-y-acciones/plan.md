@@ -1,5 +1,7 @@
 # Plan de SPEC-007
 
+Ampliación de contrato en T08.2c: `persistent.atium` es el total exacto de fichas `metal=atium` de cada plaza, incluidas usadas hasta limpieza; no reserva adicional. Atium no agotado en el subconjunto sin Flaring. La nueva semántica usa motor `p08-atium-1/godot-4.7.2` con la misma forma de esquema v1 y rechazo de snapshots previos, sin migración. [Contrato y AC-15–18](../008-preparacion-y-turnos/spec.md#t082c--saldo-y-devolución-de-atium); [verificación de la ampliación](../008-preparacion-y-turnos/verification.md#t082c--saldo-y-devolución-de-atium). Las versiones citadas debajo son históricas.
+
 Diseño técnico con T07.1 y T07.2 implementadas y verificadas localmente; la fase P07 conserva dependencia de P04 externa. Se elige núcleo RefCounted tipado, con acceso mediante copias profundas, frente a reglas dentro de nodos de UI o RPC. No añade dependencias ni cambia Godot 4.7.2.
 
 ## Estado interno v1

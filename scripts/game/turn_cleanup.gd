@@ -40,9 +40,15 @@ func finish_cleanup(snapshot: Variant, player_id: Variant, rng: Variant) -> Dict
 	active.turn_resources.ataque = 0
 	active.burned.clear()
 	active.ability_uses.clear()
+	var retained_metals: Array = []
 	for token: Dictionary in active.metals:
+		if token.metal == "atium" and token.used_this_turn:
+			active.persistent.atium -= 1
+			continue
 		if token.metal != "atium":
 			token.used_this_turn = false
+		retained_metals.append(token)
+	active.metals = retained_metals
 	for instance: Dictionary in candidate.instances.values():
 		if instance.owner_id == player_id:
 			instance.state.ability_uses.clear()
@@ -74,9 +80,6 @@ func _pending_rule(snapshot: Dictionary, player_id: String) -> String:
 		return "regla_pendiente"
 	for instance: Dictionary in snapshot.instances.values():
 		if instance.owner_id == player_id and not instance.state.flags.is_empty():
-			return "regla_pendiente"
-	for token: Dictionary in _player(snapshot, player_id).metals:
-		if token.metal == "atium" and token.used_this_turn:
 			return "regla_pendiente"
 	var alive: int = 0
 	for player: Dictionary in snapshot.players:
