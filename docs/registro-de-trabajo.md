@@ -1,5 +1,19 @@
 # Registro de trabajo
 
+## 2026-10-29 — Publicación detallada de sesiones y traspaso de contexto
+
+- Encargo humano explícito posterior a la implementación: «haz commit y push detallado». Tarea R0 de empaquetado de AC-08 ya revisada, sin modificar la política: incluir sus 16 archivos documentales/plantillas, conservar el dictamen independiente y publicar en main con mensaje detallado. Plan/responsable: coordinador comprueba diff/enlaces/anclas y sincronía remota, registra autorización, crea commit y push y verifica HEAD remoto y árbol limpio. Ninguna dispensa; no hace falta repetir la revisión R2 por este empaquetado mecánico.
+- Se conserva la revisión independiente favorable de `session_context_review` Sol/high y la evidencia de AC-08. No cambia código del juego, perfiles/modelos ni configuración. No se ejecutan suites Godot ni tests de lógica/configuración sin cambios. Los registros previos «sin publicar» corresponden al cierre de implementación anterior a este permiso.
+- La publicación documenta un objetivo verificable por sesión, ciclo SDD completo, traspaso con Git/evidencia/pendientes, recuperación contrastada y límites de permisos, aislamiento y consumo. El commit que incorpora esta entrada identifica el paquete; se comprobará el resultado real contra origin/main al terminar y se comunicará al humano, sin anticiparlo en esta nota.
+- Comprobación previa al commit: 16 archivos previstos, 139 enlaces locales y 13 anclas correctos, diff sin errores y HEAD/origin/main sin divergencia tras fetch. Se conserva el siguiente objetivo T08.2 y los bloqueos del juego.
+
+## 2026-10-29 — Sesiones por objetivo verificable y traspaso de contexto
+
+- Encargo humano: «Adelante con ello», sobre un objetivo verificable por sesión y cierre/traspaso documentado. Git inicial limpio en main, HEAD `f5d77dc`. Objetivo/AC-08, riesgo R2, plan y responsables registrados en SPEC-009 antes de cambiar la política; coordinador escritor único y revisión independiente Sol/high. Ninguna dispensa.
+- AGENTS, guía SDD, desarrollo, continuidad, plantillas e índices alineados: ciclo SDD/correcciones juntos; retomar la misma tarea tras interrupción; traspaso breve con Git/evidencia/bloqueos/siguiente paso y recuperación contrastada. No se crean chats, no se presupone aislamiento, no se repite historial completo ni se garantiza ahorro. DEC-021 registra el acuerdo; no cambia código ni configuración de agentes.
+- Validación: 138 enlaces locales y 12 anclas correctos, diff sin errores; revisión independiente Sol/high de los 16 archivos documentales/plantillas y escenarios de sesión, con comprobación propia de enlaces/diff. Dictamen favorable, sin defectos accionables ni bloqueantes. AC-08 y su cierre/traspaso completados; una delegación, sin descendientes ni dispensas; tokens/tiempo comparativo no disponibles. No se ejecutan Godot o pruebas de código/configuración sin cambios ni se crean chats.
+- [Evidencia y traspaso](specs/009-sistema-agentes/verification.md#ampliación-ac-08--sesiones-y-contexto). Sin commit/push: el permiso de la entrega anterior no se extiende a ésta. Siguiente trabajo del juego conserva T08.2 confirmado, DUD-006 y material pendiente; P04 externa sigue abierta.
+
 ## 2026-10-29 — Publicación del cambio de paradigma de desarrollo
 
 - Encargo humano explícito: hacer commit y push de todo el trabajo local indicando el cambio de paradigma. Tarea R0 de empaquetado/publicación del contenido ya revisado de T00.1/SPEC-009, sin cambiar sus controles. Objetivo/aceptación: incluir todos los archivos previstos, conservar las revisiones independientes anteriores, publicar en la rama actual y comprobar que HEAD coincide con origin/main y el árbol queda limpio.

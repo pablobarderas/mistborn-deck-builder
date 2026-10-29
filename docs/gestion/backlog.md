@@ -21,6 +21,7 @@
 - No sustituye pruebas de reglas, experiencia visual ni cierre externo de P04; siguiente trabajo del juego conserva T08.2 en su parte confirmada.
 - Ampliación R2 del 2026-10-29, AC-07: obligatoriedad y dispensas exclusivamente humanas; AGENTS/perfiles/plantillas y control de cierre alineados. Completada con revisión independiente favorable, validación TOML, enlaces/anclas y diff correctos; ninguna dispensa aplicable.
 - Publicación autorizada expresamente el 2026-10-29 mediante commit/push de toda la entrega; la revisión que contiene esta entrada identifica el paquete. Sin issue/PR solicitada. No implica cierre de fases del juego.
+- Ampliación R2 AC-08 del 2026-10-29: un objetivo verificable por sesión, cierre/traspaso y recuperación mínima contrastada; completada con revisión independiente favorable, enlaces/anclas y diff correctos. Sin dispensas; publicación mediante commit/push detallado autorizada expresamente en encargo posterior del mismo día. La revisión que incorpora esta nota identifica la entrega. [Evidencia y traspaso](../specs/009-sistema-agentes/verification.md#ampliación-ac-08--sesiones-y-contexto).
 
 ### T01.1 — Identificar el reglamento aportado
 

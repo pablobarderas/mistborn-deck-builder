@@ -17,6 +17,7 @@ Comandos o pasos ejecutados, resultado observado y evidencia. Indicar lo no ejec
 
 - Riesgo R0–R3 justificado, revisión independiente y hallazgos corregidos (no aplicación solo según la política, con motivo verificable):
 - Roles/modelos/esfuerzo, delegaciones y escalados; consumo solo si se conoce:
+- Objetivo de sesión y ruta de cierre/traspaso con estado Git, evidencia, bloqueos y siguiente paso:
 - Dispensas humanas explícitas o ninguna: referencia, requisito, alcance, vigencia y evidencia pendiente. Urgencia/ahorro no autorizan omisiones.
 - [ ] Cumplimiento metodológico registrado; no hay controles obligatorios omitidos sin dispensa humana válida.
 - [ ] Alcance y criterios de aceptación satisfechos.

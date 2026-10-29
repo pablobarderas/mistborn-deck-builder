@@ -40,6 +40,8 @@ La revisión del usuario se pide para decisiones de producto, dudas de reglas y 
 
 El [sistema de agentes SDD](agentes-sdd.md) aplica este ciclo con un coordinador y especialistas bajo demanda. Clasificar riesgo antes de asignar trabajo; revisión independiente para entregas funcionales y cambios críticos. Los perfiles agrupan responsabilidades, no obligan a crear un agente por paso. El coordinador comprueba la evidencia final y mantiene la memoria; no se cierra una fase por el dictamen de un agente sin cumplir su criterio de salida. Configuración y límites en `.codex/`; aceptación y ensayo en [SPEC-009](../specs/009-sistema-agentes/spec.md).
 
+Aplicar [un objetivo verificable por sesión](agentes-sdd.md#sesiones-y-traspaso), manteniendo su ciclo SDD y correcciones relacionados juntos. Documentar cierre o traspaso antes de cambiar de objetivo; una tarea interrumpida conserva su estado y puede retomarse en el mismo chat. El siguiente chat recupera documentos y comprueba Git/código; no recibe un historial completo por defecto. No implica crear chats automáticamente ni garantiza ahorro de tokens o aislamiento de archivos.
+
 ## Preparada y terminada
 
 Una tarea está **lista** si tiene objetivo, límites, dependencias resueltas, fuentes cuando aplica y criterios verificables; no contiene preguntas que cambien el comportamiento a construir.

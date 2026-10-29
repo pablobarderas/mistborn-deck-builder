@@ -20,6 +20,16 @@ Aplicar esta metodología obligatoriamente al retomar: registrar riesgo/AC/plan 
 
 > Lee AGENTS.md y sigue su orden de recuperación de contexto. T07.1/2 y T08.1a están implementadas y verificadas localmente; P07 sigue abierta porque P04 necesita prueba entre redes con otro equipo. P08 tiene SPEC-008: la preparación estructural está hecha, pero no hay entrenamiento ni turnos completos. El usuario deja pendientes por ahora las fotos del material español y DUD-004/005/006; no inventes respuestas ni vuelvas a pedirlas al empezar. Sin ese material, continúa con la parte confirmada de T08.2 (ciclo del mazo y descarte) y conserva DUD-006 para agotamiento total. El catálogo actual tiene dos muestras y cero cartas oficiales verificadas. Conserva Windows, español, máximo cuatro jugadores, competitivo, cooperativo y solitario, salas privadas sin cuentas y reconexión obligatoria. Revisa Git y los documentos de estado antes de editar.
 
+## Cambiar de sesión o retomar una tarea
+
+Usar [sesiones y traspaso](gestion/agentes-sdd.md#sesiones-y-traspaso): un objetivo verificable por chat principal, con todo su ciclo SDD. Antes de cambiar a otro objetivo, guardar cierre/traspaso y enlazarlo desde estado/plan; conservar tareas interrumpidas como en curso o bloqueadas. Puede retomarse el mismo chat mientras siga siendo la misma tarea. La regla no autoriza por sí sola crear chats ni publicar cambios.
+
+Mensaje breve reutilizable para un chat nuevo:
+
+> Lee AGENTS.md y recupera el contexto obligatorio. El objetivo de esta sesión es [ID y resultado verificable]. Consulta el traspaso en [ruta de tarea/verification.md y sección], contrástalo con el estado actual, Git y código antes de editar. Conserva decisiones, bloqueos y cambios ajenos; aplica agentes/revisión según riesgo. Completa los pasos relacionados de ese objetivo y deja cierre o traspaso con evidencia y siguiente paso. No presupongas permiso para commit/push ni para crear otros chats.
+
+Al cambiar también de equipo, indicar qué evidencia/artefactos solo existen en el PC anterior y cómo reproducirlos. Antes de cualquier `git pull`, revisar archivos locales. Los chats en el mismo directorio pueden compartir cambios; no confundir conversación independiente con checkout aislado.
+
 ## Preparar el motor
 
 Seguir [desarrollo local](desarrollo-local.md): descargar Godot 4.7.2 estable estándar para Windows y descomprimirlo en `.tools/godot/`, o indicar el ejecutable con `-GodotPath`.

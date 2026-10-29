@@ -14,6 +14,8 @@ Cumplimiento obligatorio por instrucción humana adicional del 2026-10-29 (DEC-0
 
 El usuario autoriza el 2026-10-29 publicar todo el paquete T00.1/SPEC-009 por commit/push con el cambio de paradigma de desarrollo; el commit que contiene esta entrada conserva el método y su evidencia para otros equipos/chats. Las notas «sin commit/push» de las sesiones anteriores describen su estado histórico, no una prohibición vigente para esta entrega.
 
+Ampliación AC-08/DEC-021 completada y revisada independientemente: un objetivo verificable por sesión principal con cierre/traspaso persistente y recuperación contrastada. El paquete anterior se publicó en `f5d77dc`; un encargo posterior del 2026-10-29 autoriza expresamente commit/push detallado de AC-08. La revisión que contiene esta actualización identifica su entrega; las notas anteriores de trabajo local describen el estado previo al permiso. [Estado, evidencia y traspaso de AC-08](specs/009-sistema-agentes/verification.md#ampliación-ac-08--sesiones-y-contexto); siguiente objetivo del juego sigue siendo la parte confirmada de T08.2, sin reabrir material/dudas aplazados.
+
 | Elemento | Estado |
 | --- | --- |
 | project.godot / .godot-version | Godot 4.7.2 estable estándar, Compatibility, referencia visual 1280×800. |

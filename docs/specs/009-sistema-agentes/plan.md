@@ -15,3 +15,9 @@ Alternativas descartadas: agente por microfase (traspasos repetidos), todos los 
 Encargo humano explícito del 2026-10-29. Riesgo R2 por modificar controles del proceso; objetivo, aceptación, plan y responsables registrados en spec.md antes de editar. Coordinador mantiene instrucciones/perfiles/documentación; Sol high revisa de forma independiente las vías de excepción y el cierre. Conservar cambios previos sin commit y limitar esta ampliación al método: no cambiar modelos ni permisos, código del juego, fuentes o fases.
 
 Secuencia: regla obligatoria y dispensas trazables en AGENTS/política; reflejo en siete perfiles, plantillas y continuidad; comprobación TOML, enlaces/anclas locales y diff; revisión/corrección y cierre con evidencia. R0 conserva proporcionalidad, nunca sirve para evadir revisión de un cambio crítico. Sin dispensa humana aplicable.
+
+## Ampliación AC-08 — Sesiones y contexto
+
+Objetivo y aceptación registrados previamente en spec.md. Riesgo R2: integrar un objetivo verificable por sesión principal en el método obligatorio, sin fragmentar los pasos de una entrega ni forzar reinicios por número de mensajes. Coordinador edita la política y documentación; Sol/high revisa independientemente. Mantener controles/roles existentes y no modificar archivos de juego ni configuración nativa.
+
+Secuencia: regla breve en AGENTS y guía operativa responsable; formato de traspaso con objetivo, Git, cambios/evidencia, decisiones, bloqueos, pendientes y primer paso; recuperación contrastada y contexto mínimo, incluyendo subagentes; enlaces desde desarrollo/continuidad/plantillas; actualización de estado, plan, backlog, DEC y registro; validación documental y revisión. No crear nuevos chats ni hacer commit/push por inferencia de este encargo. El cierre incompleto conserva su estado; no se declara terminada una tarea por cambiar de sesión. Sin ahorro medido ni dispensas.

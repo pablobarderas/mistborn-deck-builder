@@ -19,6 +19,8 @@ Al comenzar una tarea:
 
 No asumir que existe memoria persistente entre conversaciones. Todo acuerdo relevante, incertidumbre o siguiente paso debe quedar en el repositorio. Si falta contexto, explicitarlo y avanzar en lo que no dependa de él.
 
+Una sesión principal debe tener un objetivo verificable: mantener juntos especificación, plan, implementación, pruebas, revisión y correcciones relacionadas. Antes de pasar a otro objetivo, cerrar o dejar un traspaso breve en los documentos de la tarea con estado Git, evidencia, decisiones, pendientes y primer paso siguiente. Una interrupción permite retomar la misma tarea; no obliga a crear otro chat ni convierte la tarea en terminada. Al recuperar una sesión, contrastar el traspaso con archivos y Git, conservar las lecturas obligatorias y consultar después solo el contexto temático necesario. Aplicar [sesiones y traspaso](docs/gestion/agentes-sdd.md#sesiones-y-traspaso); solo una dispensa humana explícita permite apartarse de esta regla. No crear chats, hacer commit/push ni asumir aislamiento de archivos por cambiar de sesión.
+
 ## Entorno y organización
 
 - Motor: Godot 4.7.2 estable estándar, fijado en `.godot-version`; GDScript y renderizador Compatibility. No cambiar la versión silenciosamente.

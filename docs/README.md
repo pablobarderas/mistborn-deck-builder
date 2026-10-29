@@ -20,6 +20,7 @@ El [cumplimiento de SDD](gestion/agentes-sdd.md#obligatoriedad-y-dispensas) es o
 - [Alcance](alcance.md): objetivos confirmados, Windows como plataforma inicial y preguntas pendientes.
 - [Flujo SDD e issues](gestion/desarrollo.md): método, estados y uso de GitHub.
 - [Agentes SDD](gestion/agentes-sdd.md): análisis de alcance, roles/modelos por riesgo, consumo, revisión independiente y puertas de calidad; SPEC-009.
+- [Sesiones y traspaso](gestion/agentes-sdd.md#sesiones-y-traspaso): un objetivo verificable por chat, recuperación contrastada y cierre/traspaso breve antes de cambiar de objetivo.
 - [Backlog](gestion/backlog.md): primer lote detallado y paquetes de fases posteriores.
 - [Especificaciones](specs/README.md): formato y primera entrega en borrador.
 - [Referencias y trazabilidad](referencias/README.md): recepción del reglamento y matriz de cobertura.

@@ -1,6 +1,6 @@
 # SPEC-009 — Agentes para desarrollo SDD
 
-Fecha: 2026-10-29. Estado: completada en configuración y flujo con aplicación por instrucciones, incluida ampliación obligatoria AC-07 revisada independientemente. Carga nativa automática no acreditada. Tarea: T00.1, mejora transversal de P00. Evidencia y límites en [verification.md](verification.md).
+Fecha: 2026-10-29. Estado: entrega y ampliaciones AC-07/08 completadas en su alcance documental, con revisión independiente; publicación detallada de AC-08 autorizada en encargo humano posterior. Carga nativa automática no acreditada. Tarea: T00.1, mejora transversal de P00. Evidencia y límites en [verification.md](verification.md).
 
 ## Problema y alcance
 
@@ -27,8 +27,11 @@ Mantener Windows, Godot 4.7.2/GDScript, español, siete configuraciones de modo/
 | AC-05 | Hay una prueba real de delegación de alcance acotado y revisión independiente de esta entrega; registro de modelos, resultados y limitaciones. |
 | AC-06 | Documentación, backlog, siguiente paso y registro coherentes; enlaces y diff comprobados. Sin cambios de reglas, código del juego ni publicación. |
 | AC-07 | Por instrucción humana adicional, el método es obligatorio: solo dispensa humana explícita y registrada permite omitir requisitos; perfiles, recuperación, plantillas y cierre impiden autoexcepciones, degradación artificial de riesgo y cierre sin controles o dispensa válida. La falta de herramientas mantiene el control dependiente pendiente. |
+| AC-08 | Un objetivo verificable por sesión principal; ciclo SDD completo y correcciones relacionadas juntos. Antes de cambiar de objetivo o interrumpir, cierre/traspaso persistente con estado Git, evidencia, pendientes y próximo paso. La sesión siguiente recupera y contrasta contexto mínimo; no hereda confianza ciega ni omite controles. No se crean chats/publicaciones sin autorización, ni se confunden chats con aislamiento de archivos, ni se garantiza ahorro de tokens. |
 
 Ampliación del 2026-10-29: el usuario pide integrar la metodología en las instrucciones de Codex e impedir omitirla salvo indicación humana expresa. Riesgo R2 porque cambia controles del proceso; coordinador edita documentación/perfiles, revisor independiente Sol/high comprueba coherencia y vías de omisión. Plan: endurecer AGENTS y política; alinear los siete perfiles, plantillas y recuperación; verificar TOML, enlaces y diff; revisar y registrar el cierre. No cambia modelos, permisos, concurrencia ni código del juego. Dispensas humanas para esta ampliación: ninguna.
+
+Ampliación AC-08 del 2026-10-29, autorizada por «Adelante con ello» a la propuesta de un objetivo verificable por sesión con cierre/traspaso documentado. Riesgo R2 por modificar metodología; coordinador escritor único y revisor independiente Sol/high. Plan previo: fijar unidad de sesión y transición, contrato breve de traspaso y recuperación selectiva; alinear AGENTS, guía, continuidad, plantillas y memoria; comprobar enlaces/anclas/diff y revisar. Aceptación según AC-08, sin cambios de modelos/permisos/juego ni publicación o creación de chats. Ninguna dispensa humana aplicable; la redacción y revisión de esta ampliación constituyen el objetivo actual.
 
 ## Fuentes y límites
 

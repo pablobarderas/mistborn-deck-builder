@@ -157,6 +157,13 @@ Usar IDs estables. Para cada decisión indicar fecha, estado, contexto, elecció
 - Consecuencias: AGENTS, política, siete perfiles, plantillas y recuperación alineados. R0 puede prescindir de agentes dentro de su flujo mínimo; no permite reclasificar o fragmentar un cambio para evitar revisión. Las limitaciones técnicas mantienen pendiente el control dependiente; auto-revisión no sustituye revisión independiente. Una dispensa no convierte evidencia ausente en prueba aprobada ni autoriza publicaciones por sí misma.
 - Alcance: obligaciones de conducta y trazabilidad versionables, no un bloqueo técnico infalible del cliente. No altera reglas, decisiones de producto, permisos ni criterios de fases que una dispensa no cubra. Evidencia de la ampliación en AC-07 de [SPEC-009](specs/009-sistema-agentes/verification.md).
 
+## DEC-021 — Un objetivo verificable por sesión y traspaso persistente
+
+- Fecha: 2026-10-29. Estado: aceptada expresamente por el usuario al encargar «Adelante con ello» sobre la propuesta de organizar sesiones por objetivo con cierre/traspaso documentado. Complementa DEC-019/020; no dispensa controles SDD.
+- Decisión: una sesión principal reúne los pasos SDD, pruebas y correcciones de un objetivo verificable. Antes de cambiar a otro objetivo, guardar cierre/traspaso breve en la tarea o documento responsable y enlazarlo desde estado/plan. Una interrupción conserva la tarea abierta y permite retomarla en el mismo chat; no se exige una sesión por micro paso ni por cantidad fija de mensajes/tokens.
+- Consecuencias: traspaso con objetivo/AC/estado, Git y cambios locales relevantes, decisiones/rutas, evidencia/revisión, bloqueos/dispensas y primer paso siguiente. La siguiente sesión conserva la recuperación obligatoria, contrasta el resumen con archivos/Git y consulta después contexto temático mínimo. Subagentes acotados permanecen dentro del objetivo principal.
+- Límites: no autoriza creación/mensajería de chats, commit/push ni aislamiento de archivos por inferencia; las publicaciones se autorizan por entrega. Solo una instrucción humana expresa puede dispensar esta regla, con alcance/vigencia registrados. No hay ahorro de tokens medido ni garantía de reducción; valorar coste de reconstrucción y retrabajo. Evidencia en AC-08 de [SPEC-009](specs/009-sistema-agentes/verification.md).
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.

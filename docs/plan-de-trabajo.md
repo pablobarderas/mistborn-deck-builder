@@ -12,6 +12,7 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
+- Mantener un objetivo verificable por sesión principal, con ciclo SDD completo y cierre/traspaso persistente antes de cambiar a otro objetivo; [política de sesiones](gestion/agentes-sdd.md#sesiones-y-traspaso). Una interrupción puede retomarse en el mismo chat; no crea permisos de publicación ni garantiza ahorro.
 - Cerrar cada fase con evidencia de su criterio de salida, no solo con código escrito.
 - Las dependencias condicionan el cierre. Se pueden investigar tareas independientes antes sin convertir propuestas en decisiones.
 - P04 y P05 pueden avanzar por separado tras P03. P11, P12 y P13 pueden avanzar por separado tras P10, respetando sus dependencias.
@@ -299,5 +300,7 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 1. T01.1 y el inventario inicial T01.2 están documentados a partir del PDF recibido. Consultar [fuentes](referencias/README.md), [matriz](referencias/matriz-reglas.md) y [dudas](referencias/dudas.md).
 2. P03, maqueta P05 y contrato inicial P06 completados. T07.1/2 implementadas y verificadas localmente; T08.1a prepara el estado con [SPEC-008](specs/008-preparacion-y-turnos/spec.md), 147 comprobaciones. El usuario mantiene pendientes por ahora las fotos del material español y las dudas de reglas; no reinterpretarlas ni insistir al retomar. Sin nuevo material, siguiente trabajo independiente: parte confirmada de T08.2, ciclo del mazo y descarte, dejando DUD-006 abierta para agotamiento total. T08.1b espera pistas/recompensas verificadas. P07 no cierra hasta completar P04; T04.2 sigue pendiente de segundo equipo y evidencia externa. Mantener T02.1 parcial por catálogo y detalles de fases posteriores.
 3. Completar [SPEC-001](specs/001-alcance-y-reglamento/spec.md) y refinar [SPEC-002](specs/002-modos-y-cooperativo/spec.md) antes de la implementación dependiente.
+
+T00.1/AC-08 completada y revisada; publicación detallada autorizada en encargo posterior del 2026-10-29, con [cierre y traspaso](specs/009-sistema-agentes/verification.md#ampliación-ac-08--sesiones-y-contexto). Para otro objetivo del juego, usar un chat nuevo centrado en T08.2 confirmado y contrastar SPEC-008/estado/Git; no rehacer la auditoría de agentes ni inferir permiso de publicación de futuras entregas.
 
 Seguir el [flujo SDD e issues](gestion/desarrollo.md) y los [criterios de calidad](calidad.md). La entrega inicial versiona estas bases por encargo del usuario; las tareas aún no se han publicado como issues.

@@ -74,6 +74,38 @@ Concurrencia: máximo dos subagentes abiertos, además del principal, en [.codex
 
 Presupuesto de coordinación orientativo: tarea pequeña sin subagentes; funcional habitual un autor y un revisor (si el principal implementa, solo un subagente). Un especialista adicional cuando resuelva una pregunta concreta. Más de cuatro delegaciones por entrega requiere explicar la necesidad en la evidencia, incluyendo agentes reiniciados; no es un tope que permita omitir pruebas. Evitar repetir una revisión general si basta volver a revisar el defecto corregido y sus rutas afectadas.
 
+## Sesiones y traspaso
+
+Por acuerdo humano del 2026-10-29 (DEC-021/AC-08), la unidad de una sesión principal es **un objetivo verificable**, por ejemplo el ciclo confirmado de mazo/descarte de T08.2. Una fase grande puede necesitar varias tareas/sesiones con aceptación propia. Una tarea breve R0 puede resolverse y cerrarse en una sesión breve con su registro proporcional.
+
+El coordinador mantiene juntos los pasos SDD del objetivo: aclaración necesaria, especificación, plan, implementación, pruebas, revisión independiente y correcciones. Los subagentes siguen siendo encargos acotados de ese mismo objetivo, no nuevos chats de usuario por cada micro paso. No cortar trabajo autorizado todavía necesario ni reiniciar por un número arbitrario de mensajes, tiempo o tokens. Preguntas de estado, diagnósticos y ajustes relacionados no cambian el objetivo. Si una entrega necesita subdividirse, definir resultados y dependencias antes de implementarlos; no usar la división para evitar controles.
+
+Al terminar un objetivo, preparar su cierre y recomendar un chat nuevo para el siguiente objetivo distinto. Si hay interrupción o bloqueo, dejar traspaso con la tarea abierta y el siguiente paso concreto; se puede retomar el mismo chat para esa misma tarea. Las partes independientes del objetivo actual pueden avanzar mientras otra esté bloqueada. Cambiar de sesión no satisface AC, elimina revisiones ni borra bloqueos. El usuario puede indicar expresamente trabajar varios objetivos en una sesión; registrar esa dispensa con su alcance según la política obligatoria.
+
+### Registro de traspaso
+
+Guardar un único resumen breve en la tarea/`verification.md` o su documento responsable; enlazarlo desde estado y plan. Reutilizar el registro de cierre cuando ya contenga estos datos, sin copiar el mismo informe en cada archivo ni abrir carpetas por sesión. Incluir:
+
+```text
+Objetivo/ID, spec/AC, riesgo y estado: terminado, en curso o bloqueado.
+Git: rama y HEAD; archivos modificados/no versionados relevantes,
+origen del trabajo ajeno conocido y publicación hecha o pendiente.
+Resultado: qué existe, decisiones/fuentes y rutas mínimas para retomarlo.
+Evidencia: comandos/resultados y archivos; revisión/hallazgos y pendientes.
+Bloqueos/dudas/dispensas vigentes; qué no está implementado o comprobado.
+Siguiente paso ejecutable y dependencias; qué no se debe rehacer ni inferir.
+```
+
+No incluir credenciales, tokens de sala, conversaciones completas ni logs extensos. Los artefactos locales ignorados pueden servir como evidencia en ese equipo, pero indicar su ubicación y si faltarán en otro clon; conservar instrucciones para reproducirlos. Un traspaso debe distinguir trabajo guardado en archivos, commit local y push verificado: escribir el resumen no publica nada. No hacer commit/push para «limpiar contexto» sin autorización del encargo actual; una autorización de publicación de una entrega anterior no se extiende a las siguientes.
+
+### Inicio y recuperación
+
+El nuevo chat recibe un encargo corto con objetivo/ID y ruta del traspaso. Lee AGENTS, índice, estado/plan y decisiones según el orden obligatorio; después spec/tarea, traspaso y solo las fuentes/capas necesarias. Comprueba `git status --short`, rama/HEAD y el código actual antes de actuar. El traspaso orienta, no prevalece sobre hechos actuales ni concede nuevas autorizaciones. Registrar discrepancias, conservar cambios ajenos y no repetir preguntas o trabajos ya resueltos sin una razón concreta. Si el resumen no basta, recuperar los documentos originales pertinentes antes de adivinar.
+
+Durante la sesión, filtrar búsquedas y resultados, enlazar fuentes en vez de pegar documentos completos y conservar solo decisiones/evidencia útiles en memoria del proyecto. Una conversación nueva no garantiza ahorro: obliga a recuperar contexto; el exceso de sesiones añade lecturas y traspasos. Evaluar tokens/tiempo solo con métricas disponibles, conservando las reglas económicas de esta guía.
+
+El coordinador prepara el siguiente encargo y lo entrega al humano; no crea, bifurca ni envía mensajes a otros chats por inferirlo de esta regla. Solo usar herramientas de gestión de chats cuando el humano lo pida expresamente. Los chats pueden compartir archivos: comprobar propietarios y recursos antes de trabajar simultáneamente. Usar un worktree cuando haga falta aislamiento, respetando instrucciones y permisos; un chat nuevo por sí solo no proporciona una copia aislada. El traspaso y la lectura obligatoria siguen siendo necesarios con worktrees.
+
 ## Ciclo operativo
 
 1. **Recuperar y seleccionar.** Leer el contexto obligatorio y Git; localizar tarea, fuentes y dependencias. No volver a preguntar por Windows, modos, cuentas o material aplazado. Registrar discrepancias sin corregir archivos ajenos al alcance.
@@ -82,7 +114,7 @@ Presupuesto de coordinación orientativo: tarea pequeña sin subagentes; funcion
 4. **Implementar y comprobar.** El autor ejecuta los checks necesarios, conserva entradas ajenas y entrega resultados. Los tests deben verificar comportamiento y errores, sin limitarse a copiar el algoritmo. El coordinador integra y resuelve conflictos.
 5. **Revisar el resultado final.** Un agente diferente examina diff, AC/fuentes y pruebas. No recibe únicamente el relato del autor; obtiene las rutas y evidencia originales. Reporta defectos con impacto y reproducción. Puede ejecutar pruebas con artefactos temporales; no modifica fuentes.
 6. **Corregir y revalidar.** Priorizar fallos que cambien reglas, filtren información o impidan jugar. Corregir y repetir la prueba afectada; si cambia código relevante después de revisar, revisar ese delta antes del cierre. Tras un intento dirigido fallido, cambiar diagnóstico/esfuerzo/modelo con una razón; escalar a Astra solo si persiste una cuestión técnica difícil. Falta de fuente sigue pendiente.
-7. **Cerrar con evidencia.** Coordinador comprueba las puertas, marca aprobado/fallido/no ejecutado y actualiza una vez estado, plan, tarea, verificación, decisiones y registro. Un bloqueo externo no se convierte en aprobado; seleccionar siguiente tarea independiente. No publicar sin autorización.
+7. **Cerrar con evidencia.** Coordinador comprueba las puertas, marca aprobado/fallido/no ejecutado y actualiza una vez estado, plan, tarea, verificación, decisiones y registro. Preparar cierre/traspaso y encargo siguiente según sesiones y traspaso; un bloqueo no se convierte en aprobado. Las partes independientes del objetivo pueden continuar; un objetivo diferente corresponde a otro chat salvo dispensa humana explícita. No publicar ni crear chats sin autorización.
 
 ### Contrato para cada encargo
 
