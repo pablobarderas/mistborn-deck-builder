@@ -1,5 +1,11 @@
 # Plan de SPEC-008
 
+## Encargo activo 2026-10-30 — Entrada a limpieza tras T08.2c
+
+Autorización: «vamos con el siguiente paso». Recuperación contrastada: main/f3fbf54, árbol limpio; T08.2c publicada. Objetivo verificable: concretar las puertas previas a limpieza y determinar qué segmento se puede implementar con las reglas y el modelo disponibles. Riesgo R2 por secuencia reglamentaria, Target, efectos y finales. Antes de escribir código se fijarán AC y alcance tras el contraste; no se aceptará una marca aportada por el cliente como prueba de haber resuelto combate o efectos.
+
+Plan: contrastar SRC-001/002 y el estado actual; especificar orden, precondiciones y dependencias por modo; implementar únicamente un segmento con contrato completo, si lo hay; verificarlo y solicitar revisión independiente del resultado. Si la entrada depende de resolutores ausentes, entregar el contrato y desglose con esas dependencias explícitas, sin habilitar un salto de fase. Responsables: coordinador, único escritor/integrador; cleanup_entry_rules/sdd_rules Sol high, lectura y contraste previo; sdd_reviewer Sol high para revisión independiente. Sin descendientes ni dispensas. Verificación prevista: trazabilidad fuente/puerta, coherencia con APIs y snapshot, enlaces locales y diff; si hay código, pruebas adversas de orden/fase/actor, rollback y regresiones afectadas en Godot 4.7.2. Sin cambios de UI o transporte previstos. No hay autorización de commit/push.
+
 ## Encargo activo 2026-10-30 — T08.2c, contabilidad de Atium
 
 Autorización: «vamos con el siguiente paso». Recuperación: main, HEAD c370d0f, árbol limpio; T08.2b publicada. Objetivo verificable: fijar la relación entre persistent.atium y fichas y devolver exclusivamente el Atium usado durante la limpieza, con rechazo atómico de estados incoherentes. Riesgo R2 por contrato de estado y regla REG-019. El contrato definitivo y AC se registrarán tras contraste SRC-001/002, antes de modificar código. No incluye ganar/quemar/refrescar metales, efectos, entrenamiento, combate, finales ni resolver dudas aplazadas.

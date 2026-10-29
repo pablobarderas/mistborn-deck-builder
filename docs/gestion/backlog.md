@@ -110,3 +110,7 @@ Documentos y plantillas se incluyen en la entrega inicial autorizada para commit
 T08.2c completada localmente, revisión independiente favorable (2026-10-30): contrato de saldo total igual a fichas y devolución atómica del Atium usado, [AC-15–18](../specs/008-preparacion-y-turnos/spec.md#t082c--saldo-y-devolución-de-atium). Reemplaza el pendiente contable descrito abajo; entrenamiento, combate/efectos, rival y DUD-006 siguen abiertos. Sin issue publicada.
 
 [SPEC-008](../specs/008-preparacion-y-turnos/spec.md) divide T08.1 en preparación estructural (T08.1a) y entrenamiento/arranque de turno (T08.1b). T08.1a completada localmente con 147 comprobaciones; [evidencia](../specs/008-preparacion-y-turnos/verification.md). T08.2a implementa ciclo personal de cartas (262 comprobaciones); T08.2b añade cierre interno de limpieza a inicio/rival (334 comprobaciones, revisión favorable); T08.2 sigue abierto por combate/efectos, entrenamiento y DUD-006; Atium usado se cubre en T08.2c. T08.3 sigue pendiente. La fase no se cierra con el constructor porque no hay catálogo verificado, reglas de turno completas ni partida jugable.
+
+### T08.2d — Contrato previo a entrada en limpieza
+
+Entrega documental R2: [contrato y AC-19–22](../specs/008-preparacion-y-turnos/entrada-a-limpieza.md). Contrato documental completado y revisado independientemente; sin transición implementada. Entrada funcional bloqueada por resolutores de combate/Target/efectos/finales; siguiente paso: contrato de secuencia reanudable P08/P09. Sin issue publicada.

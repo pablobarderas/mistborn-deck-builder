@@ -4,6 +4,8 @@
 
 ## Resumen
 
+T08.2d concreta el [contrato previo a entrada en limpieza](specs/008-preparacion-y-turnos/entrada-a-limpieza.md): secuencia por modo, límites del estado actual y escenarios futuros. Entrega documental revisada independientemente; no añade transición. Siguiente implementación requiere primero el contrato de secuencia reanudable P08/P09.
+
 T08.2c implementada y verificada localmente (2026-10-30), revisión independiente favorable: el saldo de Atium coincide con sus fichas, incluidas usadas hasta limpieza; se devuelven exclusivamente las usadas. Motor `p08-atium-1/godot-4.7.2`, sin migración implícita de snapshots anteriores. Limpieza 527 y estado 1.938 comprobaciones. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t082c--saldo-y-devolución-de-atium).
 
 **T08.1a y T08.2a verificadas localmente; T08.2b implementada y verificada localmente; T07.1/2 también verificadas.** P06 completada en su alcance de contrato inicial y validación. P05 aceptada como maqueta visual; P03 y T04.1 completadas en su alcance. P04 sigue abierta por la prueba entre redes. Existe tablero interactivo de muestra, sin partida jugable ni reglas de cartas ejecutables.

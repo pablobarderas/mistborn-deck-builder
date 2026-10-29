@@ -1,5 +1,17 @@
 # Registro de trabajo
 
+## 2026-10-30 — Publicación de T08.2d
+
+- Autorización expresa «haz commit y push». Empaquetado R0 de los nueve Markdown de T08.2d, contrato documental R2 ya revisado independientemente, sin cambios funcionales nuevos. Coordinador responsable; aceptación: commit descriptivo en main, remoto igual a HEAD y árbol limpio. Plan: revisar diff/enlaces, comprobar sincronía, commit/push sin forzar y verificar remoto/estado. Ninguna dispensa; no se repiten pruebas Godot para este delta documental.
+- Las notas previas sin permiso de publicación describen el momento anterior al encargo. La autorización cubre esta entrega exclusivamente; no cambia el siguiente objetivo ni los pendientes de P08/P04. El commit que contiene esta entrada identifica el paquete publicado; comprobar remoto y árbol al finalizar.
+
+
+## 2026-10-30 — T08.2d, contrato previo a entrada en limpieza
+
+- Encargo «vamos con el siguiente paso»; recuperación main/f3fbf54 limpio. Plan/objetivo R2 registrados antes del contrato, coordinador único escritor, sin dispensas ni permiso de publicación.
+- Contraste cleanup_entry_rules/sdd_rules Sol high de SRC-001 pp.15–20/FAQ: no hay transición segura con el estado actual. Documentado orden por modo, dependencias combate/Target/efectos/finales y aceptación futura sin añadir flags o API que permitan omitirlas.
+- [Contrato AC-19–22](specs/008-preparacion-y-turnos/entrada-a-limpieza.md) y [evidencia](specs/008-preparacion-y-turnos/verification.md). Revisión independiente favorable tras explicitar muerte del activo por adversario antes del robo; cierre normal y robo rival bloqueados en esa rama. Nueve Markdown, 69 enlaces locales y 15 anclas correctos; diff sin errores. Sin cambios funcionales ni pruebas Godot nuevas. P08/P04 y dudas/material aplazados siguen pendientes; primer paso posterior: contrato del resolutor reanudable P08/P09.
+
 ## 2026-10-30 — Publicación de T08.2c
 
 - Autorización expresa «vale pues haz commit y push». Empaquetado R0 de los 17 archivos de T08.2c ya verificada y revisada como R2, sin cambios funcionales nuevos. Coordinador responsable; objetivo/aceptación: commit descriptivo en main, remoto igual a HEAD y árbol limpio. Plan: revisar diff/enlaces, comprobar sincronía remota, commit/push sin forzar y verificación posterior. Ninguna dispensa; conservar evidencia y revisión independiente existentes, sin repetir pruebas funcionales sin cambios.
