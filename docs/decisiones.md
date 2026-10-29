@@ -164,6 +164,12 @@ Usar IDs estables. Para cada decisión indicar fecha, estado, contexto, elecció
 - Consecuencias: traspaso con objetivo/AC/estado, Git y cambios locales relevantes, decisiones/rutas, evidencia/revisión, bloqueos/dispensas y primer paso siguiente. La siguiente sesión conserva la recuperación obligatoria, contrasta el resumen con archivos/Git y consulta después contexto temático mínimo. Subagentes acotados permanecen dentro del objetivo principal.
 - Límites: no autoriza creación/mensajería de chats, commit/push ni aislamiento de archivos por inferencia; las publicaciones se autorizan por entrega. Solo una instrucción humana expresa puede dispensar esta regla, con alcance/vigencia registrados. No hay ahorro de tokens medido ni garantía de reducción; valorar coste de reconstrucción y retrabajo. Evidencia en AC-08 de [SPEC-009](specs/009-sistema-agentes/verification.md).
 
+## DEC-022 — Ciclo personal interno y agotamiento pendiente
+
+- Fecha: 2026-10-29. Estado: decisión técnica implementada y verificada localmente en T08.2a; revisión independiente en SPEC-008.
+- Decisión: servicio interno de robo/reciclado personal, descarte y limpieza de cartas con RNG transaccional, sin acciones públicas de robo. El motor P07 envuelve operaciones compuestas y persiste el RNG al commit. Contrato y convenciones reproducibles en [SPEC-008/plan](specs/008-preparacion-y-turnos/plan.md).
+- Consecuencias: rechazo técnico atómico `regla_pendiente` cuando el robo excede mazo+descarte. Conserva DUD-006 abierta, sin inventar mano parcial, derrota ni resultado reglamentario. No completa el turno ni modifica las reglas de mercado/rival.
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.

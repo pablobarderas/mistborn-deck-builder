@@ -6,7 +6,7 @@
 - Renderizador Compatibility; pantalla de referencia 1280×800, ventana mínima provisional 1024×640. No son todavía los requisitos finales de hardware o accesibilidad.
 - PowerShell de Windows para el lanzador. No se necesitan paquetes de Python/Node ni un framework de tests.
 
-En este equipo se ha preparado una copia portátil en `.tools/godot/`, excluida de Git. Un clon no incluye el motor: descargar la [versión oficial](https://godotengine.org/download/archive/4.7.2-stable/), descomprimir allí los ejecutables estándar de Windows x86_64 o indicar su ruta con `-GodotPath`. El lanzador rechaza una versión distinta; no sustituirla silenciosamente por una más reciente.
+La ubicación portátil prevista es `.tools/godot/`, excluida de Git. Un clon no incluye el motor: descargar la [versión oficial](https://godotengine.org/download/archive/4.7.2-stable/), descomprimir allí los ejecutables estándar de Windows x86_64 o indicar su ruta con `-GodotPath`. En la sesión del 2026-10-29 se usa una instalación existente en Downloads con ese parámetro; `.tools/godot/` no existe en este clon. El lanzador rechaza una versión distinta; no sustituirla silenciosamente por una más reciente.
 
 ## Comandos
 
@@ -37,6 +37,8 @@ Pantalla en español con dos cartas identificadas como ejemplos, sus nombres y c
 Las cifras y descripciones de esos ejemplos no son un catálogo oficial ni ejecutan efectos. La pantalla no ofrece todavía una partida o una sala funcional.
 
 ## Pruebas y diagnóstico
+
+`-Action test-cycle` importa el proyecto y ejecuta `tests/card_cycle_test.gd`; exige `P08_CYCLE_OK`, código 0 y ausencia de errores de script. Cubre T08.2a: robo/reciclado personal, descarte, limpieza de cartas y composición transaccional con contenido ficticio en siete configuraciones. No ejecuta turnos completos, efectos ni el mazo rival. Como el resto de acciones, admite `-GodotPath`.
 
 La acción `test` importa primero el proyecto y ejecuta `tests/startup_test.gd` sin interfaz gráfica. Debe finalizar con `P03_STARTUP_OK` y código 0. Se prueban archivo ausente, JSON inválido, raíz incorrecta, entrada no objeto, IDs ausentes/no textuales/vacíos/duplicados y recuperación de la pantalla. Los ocho mensajes `ERROR` precedidos por `FALLO ESPERADO` forman parte de esos casos negativos; una comprobación fallida produce código distinto de cero.
 

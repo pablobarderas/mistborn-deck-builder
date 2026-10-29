@@ -1,5 +1,17 @@
 # Registro de trabajo
 
+## 2026-10-29 — Publicación de T08.2a
+
+- Encargo explícito «haz commit y push». Empaquetado R0 de la entrega ya revisada: objetivo incluir sus 18 archivos, publicar en `main` y verificar HEAD remoto y árbol limpio. Coordinador responsable; plan: comprobar diff/enlaces y sincronía, crear commit descriptivo y push sin forzar. Ninguna dispensa; se conserva revisión independiente favorable y pruebas anteriores, sin cambios funcionales que requieran repetirlas.
+- Las notas previas «sin commit/push» reflejan el cierre anterior a esta autorización. El commit que incorpora esta entrada identifica el paquete; resultado remoto se comprobará al terminar. No cambia el cierre parcial de T08.2/P08 ni resuelve material, DUD-006 o P04 externa.
+
+## 2026-10-29 — T08.2a, ciclo personal de cartas
+
+- Reanudación «vamos a continuar con el desarrollo»; Git limpio `main`/`7b75181`. Registro previo R2/AC-07–10/plan y propietarios en SPEC-008; sin dispensas. Contraste `sdd_rules` de SRC-001 pp.6/17/19/20 y FAQ oficial: reciclado ante necesidad, aliados en juego persistentes y DUD-006 sin resolver.
+- Servicio interno `card_cycle.gd`, pruebas con fixtures y comando `test-cycle`; no registra acciones públicas, completa turnos ni toca mercado/rival. Rechazo técnico de agotamiento sin mutación/RNG consumido. `sdd_developer` implementó archivos acotados; coordinador integró, corrigió colisión de nombre del test y ejecutó Godot en serie. Revisión independiente `cycle_review`/sdd_reviewer Sol high favorable, sin defectos bloqueantes; tres delegaciones sin descendientes y sin dispensas.
+- Godot 4.7.2: ciclo 262, preparación 147, estado 1.741, motor 102, catálogo 220 y arranque 58; código 0. Primera ejecución restringida no podía guardar ajustes de Godot; repetida con acceso normal al perfil Windows. Ruta alternativa Downloads porque este clon carece de `.tools/godot/`. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t082a--ciclo-personal-de-cartas).
+- Documentación de arquitectura/cobertura/estado y siguiente paso actualizada; 13 Markdown, 96 enlaces locales y 9 anclas correctos, diff sin errores. T08.2a cerrada localmente con controles satisfechos. Sin commit/push ni partida/UI/red probadas. T08.2/P08 abiertas: faltan entrenamiento, efectos previos, transiciones, limpieza completa y paso rival; P04 externa/material/dudas aplazadas conservados.
+
 ## 2026-10-29 — Publicación detallada de sesiones y traspaso de contexto
 
 - Encargo humano explícito posterior a la implementación: «haz commit y push detallado». Tarea R0 de empaquetado de AC-08 ya revisada, sin modificar la política: incluir sus 16 archivos documentales/plantillas, conservar el dictamen independiente y publicar en main con mensaje detallado. Plan/responsable: coordinador comprueba diff/enlaces/anclas y sincronía remota, registra autorización, crea commit y push y verifica HEAD remoto y árbol limpio. Ninguna dispensa; no hace falta repetir la revisión R2 por este empaquetado mecánico.

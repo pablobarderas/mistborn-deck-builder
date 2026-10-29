@@ -4,7 +4,7 @@
 
 ## Resumen
 
-**T08.1a implementada y verificada localmente; T07.1/2 también.** P06 completada en su alcance de contrato inicial y validación. P05 aceptada como maqueta visual; P03 y T04.1 completadas en su alcance. P04 sigue abierta por la prueba entre redes. Existe tablero interactivo de muestra, sin partida jugable ni reglas de cartas ejecutables.
+**T08.1a y T08.2a implementadas y verificadas localmente; T07.1/2 también.** P06 completada en su alcance de contrato inicial y validación. P05 aceptada como maqueta visual; P03 y T04.1 completadas en su alcance. P04 sigue abierta por la prueba entre redes. Existe tablero interactivo de muestra, sin partida jugable ni reglas de cartas ejecutables.
 
 ## Implementado y verificado
 
@@ -92,7 +92,7 @@ SRC-003 identifica la publicación española de Devir. El usuario aporta «Edici
 
 La raíz Git es la carpeta que contiene project.godot y AGENTS.md. T07.1 (`b3ff3c7`), T07.2 (`1930313`) y T08.1a (`acb507a`) están publicadas en `origin/main`. No se han creado issues. Consulta [continuar en otro PC](continuar-en-otro-pc.md) para la reanudación. El 2026-10-29 se revisaron y descartaron los tres cambios locales antiguos de Godot (`project.godot` y dos `.import`); la prueba de arranque volvió a pasar y el árbol de trabajo quedó limpio.
 
-P04: T04.1 completada; T04.2 pendiente de segundo equipo y prueba entre redes. P05/P06 cerradas en su alcance. **T07.1/2 y T08.1a implementadas y verificadas localmente.** El usuario deja por ahora pendientes las fotos del material español y las DUD-004/005/006; no se ha acordado ninguna interpretación nueva. T08.1b espera pistas y recompensas verificadas. Al reanudar sin ese material, el siguiente trabajo independiente es la parte confirmada de T08.2 (ciclo del mazo y descarte), manteniendo sin resolver el caso de mazo y descarte vacíos. No dar por cumplida la dependencia P04 para cerrar P07. No se han creado issues.
+P04: T04.1 completada; T04.2 pendiente de segundo equipo y prueba entre redes. P05/P06 cerradas en su alcance. **T07.1/2 y T08.1a implementadas y verificadas localmente.** El usuario deja por ahora pendientes las fotos del material español y las DUD-004/005/006; no se ha acordado ninguna interpretación nueva. T08.1b espera pistas y recompensas verificadas. Al reanudar sin ese material, T08.2a ya implementa el ciclo personal de cartas confirmado; quedan por especificar las transiciones y la limpieza completa del turno, manteniendo sin resolver el caso de mazo y descarte vacíos. Véase el [traspaso T08.2a](specs/008-preparacion-y-turnos/verification.md#t082a--ciclo-personal-de-cartas). No dar por cumplida la dependencia P04 para cerrar P07. No se han creado issues.
 
 ## Núcleo local de P07
 
@@ -103,3 +103,5 @@ P04: T04.1 completada; T04.2 pendiente de segundo equipo y prueba entre redes. P
 [SPEC-008](specs/008-preparacion-y-turnos/spec.md) concreta T08.1a. `game_setup.gd` exige un manifiesto completo y definiciones declaradas verificadas, con cantidades suficientes; sin ello rechaza la preparación. Sortea personajes/misiones y primer jugador cooperativo, baraja mazos, reparte manos, aplica bonificaciones/Target solo en competitivo y crea rival 48/1/36 en cooperativo/solo. Deja `turn.phase=inicio`: el entrenamiento inicial y sus recompensas no se han ejecutado. El esquema de estado añade `training_track_id` por jugador y sube `version_motor` a `p08-setup-1/godot-4.7.2`.
 
 Pruebas reales: `test-setup` 147 comprobaciones; regresión de estado 1.741, motor 102, catálogo 220 y arranque 58, código 0. No existe manifiesto de cartas reales ni adaptador de producto, por lo que no se puede iniciar una partida auténtica. No se ha probado interfaz manual de P08; aún no existe. P04 externa sigue pendiente.
+
+T08.2a: `card_cycle.gd` añade robo/reciclado personal, descarte y limpieza exclusiva de cartas conservando aliados en juego. `test-cycle`: 262 comprobaciones en siete configuraciones, código 0. Es una API interna sin acciones públicas, transiciones ni fin de turno completo; DUD-006 devuelve una guardia técnica `regla_pendiente` sin cambios parciales. Revisión independiente favorable, sin defectos bloqueantes; cierre y traspaso en [verification.md](specs/008-preparacion-y-turnos/verification.md#t082a--ciclo-personal-de-cartas).

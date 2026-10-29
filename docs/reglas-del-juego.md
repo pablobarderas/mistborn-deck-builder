@@ -1,6 +1,6 @@
 # Reglas del juego
 
-Última revisión: 2026-10-27.
+Última revisión: 2026-10-29.
 
 ## Fuente y alcance
 
@@ -32,6 +32,6 @@ Páginas de referencia: preparación 5/18; turnos y combate 15–17/19; finales 
 
 ## Estado real
 
-Solo existe documentación de estas reglas. Database.gd y cartas.json siguen siendo ejemplos técnicos sin motor del juego. El PDF no enumera todo el catálogo ni muestra todos los textos/pistas; no se ha acreditado fidelidad completa.
+Existe núcleo estructural de estado/acciones P07, preparación T08.1a y ciclo personal de cartas T08.2a con fixtures técnicos. No hay turno completo, efectos de cartas ni partida jugable. Database.gd carga un catálogo cuyos dos ejemplos no están verificados como contenido oficial. La cobertura parcial y las pruebas están en [SPEC-008](specs/008-preparacion-y-turnos/verification.md). El PDF no enumera todo el catálogo ni muestra todos los textos/pistas; no se ha acreditado fidelidad completa.
 
 SRC-002 resuelve DUD-001/007 y la parte de aliados de DUD-004. Siguen pendientes el resto de DUD-004, DUD-005/006, catálogo y localización (DUD-002/003). No se da por interpretado y validado todo el juego; registrar las incertidumbres y resolverlas antes de implementar lo dependiente.

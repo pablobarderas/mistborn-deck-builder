@@ -2,7 +2,7 @@
 
 Revisión: 2026-10-29. Fuentes SRC-001 y SRC-002 del [registro](README.md). Un número de página sin prefijo refiere a SRC-001; SRC-002 se identifica por sección. Las erratas expresas del editor prevalecen sobre el PDF.
 
-Este es un inventario documental inicial, no una transcripción completa de las cartas. **REG-001–006 y REG-052 tienen cobertura estructural parcial de preparación** en [SPEC-008](../specs/008-preparacion-y-turnos/verification.md); entrenamiento, efectos, partida real y el resto de filas siguen sin implementar. Consultar el estado de cada DUD en [dudas](dudas.md): algunas ya están resueltas por SRC-002, otras siguen abiertas.
+Este es un inventario documental inicial, no una transcripción completa de las cartas. **REG-001–006 y REG-052 tienen cobertura estructural parcial de preparación** en [SPEC-008](../specs/008-preparacion-y-turnos/verification.md); T08.2a añade cobertura parcial de REG-009/010/025 mediante primitivas internas de cartas. Entrenamiento, efectos, turno completo y partida real siguen pendientes. Consultar el estado de cada DUD en [dudas](dudas.md): algunas ya están resueltas por SRC-002, otras siguen abiertas.
 
 La referencia es inglesa. Los términos Burning, Flaring, Target, Funding, Savant, etc. conservan la identidad del original; la nomenclatura oficial española está pendiente de contraste.
 
@@ -91,6 +91,8 @@ Cada fila tiene un caso planificado `CAS-REG-nnn`; al implementar la regla compl
 ## Límites del inventario
 
 T08.1a cubre parcialmente REG-001–006/052: fichas y mazos iniciales, salud, mercado, misiones seleccionadas, orden/Target, mano inicial y ficha/mazo del rival. No cubre recompensas de pista, texto de cartas, resultado del turno ni preparación con contenido real. La cobertura parcial no convierte los casos `CAS-REG` en aprobados.
+
+T08.2a añade cobertura interna de REG-009/010/025 en `tests/card_cycle_test.gd`: limpieza de cartas salvo aliados en juego, robo y reciclado del descarte personal solo ante necesidad. Falta orquestar el final de turno completo y sus efectos; DUD-006 continúa abierta. El servicio no recicla mercado ni rival ni ejecuta derrota de aliados. [Aceptación y evidencia](../specs/008-preparacion-y-turnos/verification.md).
 
 No detalla el texto de las 82 cartas de mercado, las 40 iniciales, las ocho misiones, los cuatro personajes, las 36 cartas del rival ni todas las casillas de entrenamiento/Dominación: el reglamento muestra ejemplos, no un catálogo completo legible de todo el contenido. Ese material debe incorporarse y verificarse en tareas propias.
 

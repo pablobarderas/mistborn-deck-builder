@@ -1,5 +1,19 @@
 # Plan de SPEC-008
 
+## Encargo activo 2026-10-29 — T08.2a, ciclo personal de cartas
+
+Reanudación autorizada por «vamos a continuar con el desarrollo». Git inicial limpio, `main`, HEAD `7b75181`. Objetivo verificable: operaciones internas de autoridad para robo con reciclado y descarte personal, con limpieza exclusivamente de cartas. Riesgo R2: modifica zonas privadas y RNG y aplica REG-009/010/025. No incluye finalización completa de turno, entrenamiento, recursos/metales, efectos, rival ni resolución de DUD-006; T08.2 permanece agrupador abierto.
+
+Plan y propietarios: coordinador especifica e integra y es único escritor de documentación; `sdd_rules` contrasta SRC-001/002 antes del código; un desarrollador será propietario exclusivo del módulo de ciclo, sus pruebas y el comando de ejecución; `sdd_reviewer` revisará el diff final independientemente. Sin delegación descendente ni dispensas. No se requiere revisión visual: API sin escena ni presentación. Pruebas Godot en serie por el coordinador, versión 4.7.2 encontrada en Downloads mediante `-GodotPath`; la ruta portátil documentada no existe en este clon.
+
+Verificación prevista: orden de robo, reciclado solo ante necesidad, determinismo y conservación RNG, identidad/cantidad/propiedad, aliados persistentes, agotamiento sin mutación parcial ni RNG consumido, siete configuraciones, validador de estado y regresiones de preparación/motor/estado. Comprobar enlaces y diff y conservar revisión/hallazgos/traspaso en verification.md. Ningún permiso de commit/push de entregas anteriores se extiende a ésta.
+
+Contrato técnico: `card_cycle.gd` se construye con definiciones y catálogo; `draw(snapshot, player_id, count, rng)`, `discard(snapshot, player_id, instance_ids)` y `cleanup_cards(snapshot, player_id)` devuelven `{ok, codigo}` sin identidades privadas. Cada operación valida y prepara una copia antes de aceptar cambios. `draw` copia el RNG recibido y solo avanza el original en éxito; no persiste `authority.rng_state`: el commit de `GameEngine` lo hace. Un llamador directo debe persistir ese RNG al guardar. Componer limpieza y robo requiere la transacción exterior P07 para que un fallo posterior también deshaga la limpieza.
+
+Convenciones técnicas reproducibles, no reglas impresas: parte superior al final del array, Fisher–Yates descendente con RNG explícito, descarte explícito en orden de selección, limpieza primero mano y después no aliados en el orden de juego. No cambia esquema ni versión del snapshot al añadir este servicio sin registro de acciones de producto. Se prefiere un servicio personal a generalizar el reciclado: mercado y rival tienen reglas diferentes.
+
+Contraste previo `rules_deck` (perfil nativo `sdd_rules`, Sol/high): SRC-001 pp.6 (Deckbuilding 5–7), 17 (Turn Structure 5–6), 19–20 y SRC-002 FAQ oficial consultada 2026-10-29. Confirma REG-009/010/025 y límites REG-055/056/068; no encuentra aclaración expresa de DUD-006. Aliados en mano sí se descartan; solo los ya en juego permanecen. Ninguna interpretación de agotamiento ni excepción de carta sin contenido verificado.
+
 ## T08.1a — Preparación estructural
 
 `game_setup.gd` recibe definiciones verificadas, ID de catálogo, modo, plazas horarias, primer jugador competitivo, manifiesto y semilla. Comprueba forma, cantidades y tipos antes de crear estado. Usa un único RNG local para sorteo y barajados; conserva su estado en `authority`. Construye IDs de instancia locales y zonas por jugador. No hay llamada a `Database`, escena, red ni reloj.
