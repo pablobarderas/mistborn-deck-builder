@@ -1,5 +1,16 @@
 # Registro de trabajo
 
+## 2026-11-01 — Publicación de T08.2e y recuperación remota obligatoria
+
+- Autorización expresa: «vale haz commit y push de estos cambios». Empaquetado R0 de los 18 Markdown ya revisados en T08.2e/SPEC-009 AC-09; sin cambios semánticos nuevos. Coordinador responsable, ninguna dispensa. Aceptación: commit descriptivo, remoto igual a HEAD y árbol limpio. Plan previo: comprobar GitHub/estado y diff, actualizar sólo notas de publicación, verificar enlaces, hacer commit/push sin forzar y comprobar remoto/estado.
+- Fetch correcto y estado remoto consultado en `6caed87`, igual a HEAD antes de publicar. Se conservan revisión R2 y evidencia documental; no corresponde repetir Godot por metadatos de publicación. Las notas anteriores «sin commit/push» describen la situación previa al permiso. El commit que incorpora esta entrada identifica la entrega; la autorización no se extiende a tareas futuras.
+
+## 2026-11-01 — Recuperación desde GitHub y contrato de secuencias
+
+- Instrucción humana: comprobar siempre el siguiente paso en el estado publicado en GitHub. Fetch y lectura remota detectan once commits; main limpio pasa por fast-forward de `16b8247` a `6caed87`. P07 ya existía; se corrige la selección antes de modificar código.
+- T08.2e completa contrato reanudable de autoridad, AC-23–28 y casos futuros SEQ-01–10. Actualizados protocolo de reanudación (SPEC-009 AC-09), guía, decisiones y siguiente tarea T08.2f. Coordinador único escritor, apoyo de diseño Sol/high y revisión independiente Sol/high favorable, R2 sin dispensas.
+- Entrega exclusivamente documental; 18 Markdown, 174 enlaces locales y 29 anclas comprobados al cierre, diff correcto. No nuevas pruebas Godot, turno, UI o red. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t082e--contrato-de-secuencia-reanudable-y-recuperación-remota). Sin commit/push autorizados.
+
 ## 2026-10-30 — Publicación de T08.2d
 
 - Autorización expresa «haz commit y push». Empaquetado R0 de los nueve Markdown de T08.2d, contrato documental R2 ya revisado independientemente, sin cambios funcionales nuevos. Coordinador responsable; aceptación: commit descriptivo en main, remoto igual a HEAD y árbol limpio. Plan: revisar diff/enlaces, comprobar sincronía, commit/push sin forzar y verificar remoto/estado. Ninguna dispensa; no se repiten pruebas Godot para este delta documental.

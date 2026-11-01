@@ -1,5 +1,11 @@
 # Verificación de SPEC-009
 
+## Ampliación AC-09 — Estado publicado antes de seleccionar trabajo
+
+Publicación conjunta con T08.2e autorizada expresamente el 2026-11-01 mediante «vale haz commit y push de estos cambios»; el commit que contiene esta nota identifica la entrega. La ausencia de permiso en el cierre inferior describe el momento anterior al encargo. Sin cambios de contrato ni dispensa; autorización exclusiva de este paquete.
+
+2026-11-01. Requisito humano de consultar siempre el estado GitHub, integrado en la recuperación de T08.2e. Riesgo R2 y plan previo registrado; [evidencia, revisión y traspaso responsables](../008-preparacion-y-turnos/verification.md#t082e--contrato-de-secuencia-reanudable-y-recuperación-remota). No altera perfiles/modelos ni dispensa controles. Revisión independiente favorable; AC-09 completado documentalmente, sin publicación autorizada.
+
 Fecha: 2026-10-29. Estado: completada en configuración y aplicación por instrucciones, revisión independiente favorable. La carga nativa automática sigue no acreditada. Entorno: Windows, Python 3.12.14 disponible en el runtime local, Codex CLI 0.163.0-alpha.10.2. No se ha cambiado la versión de Godot ni ejecutado sus suites en esta entrega de herramientas/documentación.
 
 | AC | Resultado observado | Estado |

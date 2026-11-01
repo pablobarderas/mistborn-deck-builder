@@ -1,8 +1,12 @@
 # Estado actual
 
-Última revisión: 2026-10-30.
+Última revisión: 2026-11-01.
 
 ## Resumen
+
+Recuperación 2026-11-01: GitHub consultado con fetch, `origin/main` en `6caed87`; este PC estaba once commits atrás y se actualizó mediante fast-forward sin cambios locales previos. La selección del siguiente paso debe comprobar **siempre** el estado publicado en GitHub, según [continuidad](continuar-en-otro-pc.md), preservando las diferencias locales.
+
+T08.2e completa el [contrato de secuencia reanudable](specs/008-preparacion-y-turnos/secuencia-reanudable.md), AC-23–28, con revisión independiente favorable. Es una entrega documental: el motor conserva esquema v1/Atium. Próximo trabajo: T08.2f, implementación del mecanismo con fixtures explícitos; no habilitar combate ni entrada a limpieza por completar un programa ficticio. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t082e--contrato-de-secuencia-reanudable-y-recuperación-remota). Publicación de T08.2e y SPEC-009 AC-09 autorizada el 2026-11-01; el commit que incorpora esta actualización identifica la entrega. Verificar remoto y árbol al finalizar; las notas sin publicación del traspaso son históricas.
 
 T08.2d concreta el [contrato previo a entrada en limpieza](specs/008-preparacion-y-turnos/entrada-a-limpieza.md): secuencia por modo, límites del estado actual y escenarios futuros. Entrega documental revisada independientemente; no añade transición. Siguiente implementación requiere primero el contrato de secuencia reanudable P08/P09.
 
@@ -38,7 +42,7 @@ Ampliación AC-08/DEC-021 completada y revisada independientemente: un objetivo 
 | docs/specs/ | SPEC-001/002 parciales; SPEC-003/005/006 completadas en su alcance; SPEC-004 local verificada, externa pendiente; SPEC-007 local verificada (T07.1/2), P04 externa pendiente para cierre P07; SPEC-008 T08.1a verificada, P08 abierta. |
 | .github/ | Plantillas de issues y PR de la entrega inicial publicada. |
 
-El motor portátil previsto en .tools/godot/ se ignora por Git; en este equipo no existe y se usa Godot 4.7.2 desde Descargas mediante -GodotPath. Datos y cachés generados en .godot/ y tmp/ también ignorados. Los UID de scripts y ajustes de importación de recursos son metadatos de fuente.
+El motor portátil previsto en .tools/godot/ se ignora por Git; está presente en este PC al recuperar el 2026-11-01. El PC de las pruebas del 2026-10-29/30 usó Godot 4.7.2 desde Descargas mediante -GodotPath. No se ha ejecutado Godot en esta entrega documental. Datos y cachés generados en .godot/ y tmp/ también ignorados. Los UID de scripts y ajustes de importación de recursos son metadatos de fuente.
 
 ## Verificación real de P03
 

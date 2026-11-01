@@ -11,3 +11,5 @@ T00.1 — Sistema transversal de agentes SDD. Issue: sin publicar.
 - [x] AC-08: integrar un objetivo verificable por sesión, traspaso/recuperación mínima y límites de aislamiento/consumo; revisión independiente favorable y cierre/traspaso documentados. Sin dispensas; publicación autorizada en encargo humano posterior del 2026-10-29.
 
 No cambia el estado de cierre de P04/P07/P08. Siguiente tarea del juego: parte confirmada de T08.2, mientras fuentes y dudas aplazadas sigan pendientes.
+
+- [x] AC-09: consultar siempre el estado publicado en GitHub antes de seleccionar trabajo, preservar cambios locales y registrar commit/discrepancias; ampliación R2 del 2026-11-01, revisión conjunta con T08.2e favorable. Sin dispensas ni publicación.

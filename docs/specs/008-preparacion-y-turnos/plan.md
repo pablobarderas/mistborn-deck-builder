@@ -1,5 +1,13 @@
 # Plan de SPEC-008
 
+## Encargo 2026-11-01 — T08.2e, contrato de secuencia reanudable
+
+Autorización: «Vamos a avanzar con el siguiente paso», precisada por «Asegura el siguiente paso SIEMPRE desde el documento de estado del proyecto github ya que hubo cambios desde otro pc». Recuperación: `git fetch origin` correcto y lectura de `origin/main:docs/estado-actual.md` en `6caed87`; copia local limpia atrasada once commits, actualizada mediante fast-forward de `16b8247` a `6caed87`. No se escribió la P07 ya terminada. El estado remoto y T08.2d señalan como siguiente objetivo el contrato de secuencia reanudable, antes de implementarlo.
+
+Objetivo/aceptación previa: redactar un contrato técnico implementable de operaciones soportadas, pasos/contexto, pausas, cierre único, persistencia, compatibilidad y privacidad, con escenarios de fixtures expresamente futuros (AC-23–28). Integrar la comprobación obligatoria de GitHub al recuperar contexto, preservando trabajo local y sin inferir permisos de publicación. Riesgo R2 por autoridad/estado privado y modificación de controles de recuperación; no es una nueva interpretación reglamentaria.
+
+Plan: inspeccionar P07 y puertas de T08.2d; definir el contrato y su relación con transacciones/proyecciones existentes; concretar tareas de implementación y pruebas; alinear protocolo/guía de reanudación con la instrucción humana; comprobar enlaces, coherencia y diff; revisión independiente antes de cerrar. Coordinador único escritor de documentación; apoyo sdd_planner Sol/high sólo de lectura para contrastar el diseño, y sdd_reviewer Sol/high para dictamen final independiente. Perfiles transmitidos por instrucciones al no existir selector de perfil en esta herramienta. Sin descendientes ni dispensas, máximo dos subagentes. No se cambia código, datos ni configuración; Godot, revisión visual y ensayo de red no aplican a esta entrega documental. Las pruebas ejecutables se reservan para la implementación posterior, sin presentar escenarios como evidencia. No se implementan combate, limpieza de entrada, efectos ni finales ni se modifica el snapshot vigente. Sin autorización de commit/push.
+
 ## Encargo activo 2026-10-30 — Entrada a limpieza tras T08.2c
 
 Autorización: «vamos con el siguiente paso». Recuperación contrastada: main/f3fbf54, árbol limpio; T08.2c publicada. Objetivo verificable: concretar las puertas previas a limpieza y determinar qué segmento se puede implementar con las reglas y el modelo disponibles. Riesgo R2 por secuencia reglamentaria, Target, efectos y finales. Antes de escribir código se fijarán AC y alcance tras el contraste; no se aceptará una marca aportada por el cliente como prueba de haber resuelto combate o efectos.

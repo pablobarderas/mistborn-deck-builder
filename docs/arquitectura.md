@@ -78,6 +78,8 @@ La autoridad elegida debería validar identidad, turno, recursos y legalidad de 
 
 ## Núcleo local de P07 implementado
 
+[Contrato futuro de secuencias T08.2e](specs/008-preparacion-y-turnos/secuencia-reanudable.md): registro cerrado, ejecución hasta ventana/cierre, contexto privado y evidencia persistida de cierre. Propone esquema v2 para T08.2f; aún no implementado. El esquema ejecutable continúa v1, motor `p08-atium-1/godot-4.7.2`; no hay transición de combate a limpieza.
+
 [SPEC-007](specs/007-estado-y-acciones/spec.md) y su [plan](specs/007-estado-y-acciones/plan.md) definen núcleo independiente de escenas/transporte: estado privado completo, instancias separadas del catálogo, invariantes, transacciones sobre copia, RNG propio y recibos por plaza estable. Las proyecciones se construirán por lista permitida; eventos, errores y recibos tampoco expondrán secretos. Zonas de visibilidad pendiente usan una restricción técnica provisional explícita.
 
 T07.1/2 implementadas en scripts/game/: almacén privado RefCounted, invariantes, procesador transaccional con RNG y recibos, y proyecciones por jugador. 1.725 comprobaciones del estado y 102 del motor; contrato y evidencia en SPEC-007. get_authority_snapshot y load_authority_snapshot son solo para autoridad; los clientes reciben get_view y nunca el snapshot completo. Los manejadores registrados actualmente son exclusivamente fixtures de tests, no reglas de producto. El diseño no elige alojamiento ni convierte el prototipo de contador en salas; preparación y reglas concretas siguen en P08/P09.

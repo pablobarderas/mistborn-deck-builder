@@ -12,7 +12,8 @@ Acceso remoto confirmado: salas privadas sin cuentas y reconexión obligatoria a
 
 Al comenzar una tarea:
 
-1. Leer este archivo y `docs/README.md`.
+0. **Comprobar siempre el estado publicado en GitHub antes de elegir el siguiente paso.** Desde la raíz Git, revisar `git status --short`, rama y remoto; ejecutar `git fetch origin` y leer `git show origin/main:docs/estado-actual.md` de la referencia recién obtenida. Registrar su commit y contrastarlo con HEAD, documentos locales y traspaso. Si cambia la rama principal remota, identificarla en vez de asumir main. No basta con una referencia origin/main antigua ni con la memoria del chat. Con main limpio y avance lineal, actualizar mediante `git merge --ff-only origin/main`; ante cambios locales o divergencia, preservarlos y reconciliar el contexto sin reset, descarte ni sobrescritura. Si GitHub no es accesible, indicar que el siguiente paso no está confirmado y no iniciar trabajo dependiente de esa selección; continuar sólo comprobaciones independientes. Protocolo en [continuidad](docs/continuar-en-otro-pc.md).
+1. Leer este archivo y `docs/README.md`, incluyendo sus versiones remotas si hay cambios aún no integrados.
 2. Leer `docs/estado-actual.md` y `docs/plan-de-trabajo.md`.
 3. Consultar `docs/decisiones.md` y los documentos del área que se vaya a tocar. Para desarrollo por fases, leer `docs/gestion/desarrollo.md`, la tarea de `docs/gestion/backlog.md` y su especificación en `docs/specs/`. Usar `docs/registro-de-trabajo.md` para recuperar antecedentes cuando sea necesario.
 4. Comprobar el código y `git status --short` antes de modificar archivos. La documentación puede quedarse desactualizada; registrar cualquier discrepancia.

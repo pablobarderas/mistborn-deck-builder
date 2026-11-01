@@ -297,6 +297,8 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 
 ## Punto de reanudación
 
+Actualización 2026-11-01: comprobar siempre primero el estado de GitHub mediante fetch y registrar el commit consultado, preservando diferencias locales. Recuperación actual desde `6caed87`. [T08.2e](specs/008-preparacion-y-turnos/secuencia-reanudable.md) completa el contrato de secuencias con revisión documental independiente favorable; próximo trabajo: T08.2f con operaciones ficticias y SEQ-01–10. No repetir P07 ni T08.2a/b/c/d. Las entradas anteriores son antecedentes; ninguna habilita transición a limpieza sin resolutores reales.
+
 Actualización 2026-10-30: T08.2d redacta el [contrato de entrada a limpieza](specs/008-preparacion-y-turnos/entrada-a-limpieza.md), revisado independientemente. No existe segmento de entrada seguro con el modelo actual. El primer paso siguiente es especificar la secuencia reanudable de autoridad P08/P09, con operaciones ficticias explícitas para verificar pausas, cierre único y rollback antes de conectar combate/Target/efectos. El traspaso T08.2c inferior queda como antecedente.
 
 Objetivo cerrado localmente 2026-10-30: T08.2c (contrato y devolución de Atium usado), AC-15–18 de SPEC-008. Sustituye como próximo trabajo el contrato pendiente indicado en el punto 2 inferior. Implementación y pruebas locales completadas (limpieza 527, estado 1.938); revisión independiente favorable; [evidencia vigente](specs/008-preparacion-y-turnos/verification.md#t082c--saldo-y-devolución-de-atium). Mantener sin resolver por inferencia entrenamiento, combate/Target/efectos, rival, DUD-006 y P04 externa.

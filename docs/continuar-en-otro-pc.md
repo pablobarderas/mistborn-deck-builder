@@ -10,7 +10,19 @@ cd mistborn-deck-builder
 git status --short
 ```
 
-Si ya existe un clon, revisar primero sus cambios locales y, con el árbol limpio y en main, ejecutar `git pull --ff-only`.
+En cada reanudación, incluso en el mismo PC, comprobar **siempre** el siguiente paso en el estado publicado en GitHub antes de seleccionar trabajo. Con un clon existente:
+
+```powershell
+git status --short
+git branch -vv
+git remote -v
+git fetch origin
+git rev-parse HEAD origin/main
+git show origin/main:docs/estado-actual.md
+git log --oneline HEAD..origin/main
+```
+
+Comprobar el éxito de fetch; si falla, origin/main puede estar desactualizada. Registrar el hash consultado y contrastar estado, plan, AGENTS y traspaso con lo local. Si la rama principal remota ya no es main, identificarla y usar su referencia. Con árbol limpio, en main y sin divergencia, ejecutar `git merge --ff-only origin/main` y releer las instrucciones/documentos actualizados. Si hay cambios locales o commits divergentes, conservarlos y reconciliar el contexto antes de modificar; no hacer reset, limpieza ni sobrescritura automática. Sin acceso actual a GitHub, declarar la selección no confirmada y limitarse a comprobaciones independientes.
 
 Abrir esta carpeta como proyecto en Codex. No hace falta reproducir la carpeta contenedora del PC original. El repositorio conserva el contexto de trabajo; no incluye una copia del historial del chat. Se puede continuar desde una conversación nueva con este mensaje:
 
@@ -18,7 +30,7 @@ El [sistema de agentes SDD](gestion/agentes-sdd.md) y sus perfiles `.codex/` tam
 
 Aplicar esta metodología obligatoriamente al retomar: registrar riesgo/AC/plan antes de editar y cumplir los controles de revisión y cierre. Solo una dispensa humana explícita, con alcance/vigencia registrados, puede eximir un requisito; cambiar de equipo, cliente o chat no suspende el método. La ausencia de herramientas deja pendiente el control dependiente, no autoriza sustituir revisión independiente por auto-revisión.
 
-> Lee AGENTS.md y sigue su orden de recuperación de contexto. T07.1/2 y T08.1a están implementadas y verificadas localmente; P07 sigue abierta porque P04 necesita prueba entre redes con otro equipo. P08 tiene SPEC-008: la preparación estructural está hecha, pero no hay entrenamiento ni turnos completos. El usuario deja pendientes por ahora las fotos del material español y DUD-004/005/006; no inventes respuestas ni vuelvas a pedirlas al empezar. Sin ese material, continúa con la parte confirmada de T08.2 (ciclo del mazo y descarte) y conserva DUD-006 para agotamiento total. El catálogo actual tiene dos muestras y cero cartas oficiales verificadas. Conserva Windows, español, máximo cuatro jugadores, competitivo, cooperativo y solitario, salas privadas sin cuentas y reconexión obligatoria. Revisa Git y los documentos de estado antes de editar.
+> Lee AGENTS.md. Antes de elegir el siguiente paso, consulta el estado de GitHub mediante fetch y `git show origin/main:docs/estado-actual.md`, registra el commit y contrasta los cambios locales. Recupera el plan y traspaso vigentes; no uses una fase fijada en este mensaje como sustituto del estado actualizado. Conserva las dudas y material aplazados, los acuerdos de producto y el protocolo SDD. No presupongas autorización de publicación.
 
 ## Cambiar de sesión o retomar una tarea
 
@@ -26,7 +38,7 @@ Usar [sesiones y traspaso](gestion/agentes-sdd.md#sesiones-y-traspaso): un objet
 
 Mensaje breve reutilizable para un chat nuevo:
 
-> Lee AGENTS.md y recupera el contexto obligatorio. El objetivo de esta sesión es [ID y resultado verificable]. Consulta el traspaso en [ruta de tarea/verification.md y sección], contrástalo con el estado actual, Git y código antes de editar. Conserva decisiones, bloqueos y cambios ajenos; aplica agentes/revisión según riesgo. Completa los pasos relacionados de ese objetivo y deja cierre o traspaso con evidencia y siguiente paso. No presupongas permiso para commit/push ni para crear otros chats.
+> Lee AGENTS.md y recupera el contexto obligatorio, consultando primero el estado publicado en GitHub y registrando su commit. El objetivo previsto es [ID y resultado verificable]; comprueba que siga pendiente. Consulta el traspaso en [ruta de tarea/verification.md y sección], contrástalo con Git, cambios locales y código antes de editar. Conserva decisiones, bloqueos y cambios ajenos; aplica agentes/revisión según riesgo. Completa los pasos relacionados de ese objetivo y deja cierre o traspaso con evidencia y siguiente paso. No presupongas permiso para commit/push ni para crear otros chats.
 
 Al cambiar también de equipo, indicar qué evidencia/artefactos solo existen en el PC anterior y cómo reproducirlos. Antes de cualquier `git pull`, revisar archivos locales. Los chats en el mismo directorio pueden compartir cambios; no confundir conversación independiente con checkout aislado.
 

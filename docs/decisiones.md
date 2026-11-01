@@ -184,6 +184,19 @@ Contrato saldo/fichas y guardia de Atium usado sustituidos por DEC-024; el resto
 - Decisión: cada unidad de Atium poseída se materializa en `metals`; `persistent.atium` es su total exacto, incluidas usadas hasta devolverlas al limpiar, nunca una reserva adicional. Las disponibles se cuentan por fichas no usadas. Rechazar discrepancias, sin corregirlas automáticamente. Atium no agotado en el subconjunto cuyo único agotamiento modelado es Flaring, prohibido para Atium.
 - Consecuencias: retirar usadas y descontar igual cantidad sobre la copia transaccional de limpieza. Sin contador global finito de suministro. Cambio semántico a motor `p08-atium-1/godot-4.7.2`, esquema v1, sin migración heurística de snapshots anteriores. Ganancia, quema, refresco, Confrontation y excepciones de cartas ausentes siguen pendientes. Fuentes y AC en [SPEC-008](specs/008-preparacion-y-turnos/spec.md#t082c--saldo-y-devolución-de-atium).
 
+## DEC-025 — Consultar siempre el estado publicado al reanudar
+
+- Fecha: 2026-11-01. Estado: aceptada por instrucción expresa del usuario: «Asegura el siguiente paso SIEMPRE desde el documento de estado del proyecto github ya que hubo cambios desde otro pc».
+- Decisión: obtener la referencia actual de GitHub y leer su estado antes de seleccionar trabajo; registrar hash, contrastar con HEAD/cambios locales/traspaso y conservar divergencias. Un fallo de fetch no convierte la referencia cacheada en evidencia vigente; la selección dependiente espera confirmación remota.
+- Consecuencias: actualización de AGENTS, política SDD y [continuidad](continuar-en-otro-pc.md). Esta sesión detectó once commits nuevos y actualizó main de `16b8247` a `6caed87` sin conflictos. No autoriza reset, descarte, commit ni push. Complementa DEC-021; controles SDD y permisos permanecen.
+
+## DEC-026 — Contrato mínimo de secuencias, previo a implementación
+
+- Fecha: 2026-11-01. Estado: diseño técnico documental T08.2e completado con revisión independiente favorable, no implementado.
+- Decisión de diseño: registro cerrado de programas, avance transaccional hasta pausa o cierre, una plaza por ventana en el primer subconjunto, evidencia privada de cierre por ocurrencia e IDs opacos. Reservar esquema v2/motor nuevo para la implementación; rechazar migración implícita.
+- Motivo: P07 aporta transacciones y selección pero no reanudación general ni consumo de cierre; una resolución ausente no demuestra obligaciones cumplidas. Se prefiere ledger explícito a dejar una resolución cerrada no nula, preservando el significado de ausencia de bloqueo; sus límites y conservación están documentados.
+- Consecuencias: [contrato/escenarios T08.2e](specs/008-preparacion-y-turnos/secuencia-reanudable.md). Sólo programas ficticios en la primera implementación T08.2f. No satisface puertas reglamentarias de T08.2d ni define coordinación colectiva, prioridad terminal o política de reconexión.
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.

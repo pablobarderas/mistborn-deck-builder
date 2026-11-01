@@ -1,5 +1,7 @@
 # SPEC-008 — Preparación y turnos
 
+Ampliación documental 2026-11-01: [T08.2e, secuencia reanudable](secuencia-reanudable.md), AC-23–28. Contrato técnico previo a implementación T08.2f; no modifica todavía el snapshot ni habilita la entrada a limpieza.
+
 ## T08.2c — Saldo y devolución de Atium
 
 Ampliación 2026-10-30, REG-019/020: SRC-001 p.8 (Atium, Flaring y Refreshing), SRC-002 FAQ «Metal tokens & atium». Contrato técnico del subconjunto: cada unidad poseída de Atium tiene una ficha en `metals`; `persistent.atium` es el total de esas fichas, incluidas las usadas hasta devolverlas al limpiar. No hay reserva virtual ni doble saldo gastable: las disponibles se identifican por `used_this_turn=false`. No se implementa su ganancia, quema, refresco ni Confrontation.

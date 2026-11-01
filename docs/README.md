@@ -4,6 +4,8 @@ Esta carpeta es la memoria explícita del proyecto. Permite recuperar el context
 
 ## Orden de lectura
 
+Antes de seleccionar trabajo, consultar siempre el estado publicado en GitHub con fetch y registrar su commit; contrastar con los cambios locales según [continuidad](continuar-en-otro-pc.md). Después seguir las lecturas obligatorias:
+
 1. [AGENTS.md](../AGENTS.md): reglas de trabajo.
 2. [Estado actual](estado-actual.md): qué existe y qué se ha comprobado.
 3. [Plan de trabajo](plan-de-trabajo.md): 19 fases, dependencias, entregas y criterios de cierre.
