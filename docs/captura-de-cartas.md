@@ -12,6 +12,12 @@ Estas herramientas extraen texto o preparan imágenes; no garantizan interpretar
 
 ## Primer lote sugerido
 
+Actualización 2026-11-09: el usuario ya aporta escaneos PNG locales en `C:\Users\pbard\Pictures\Digitalizaciones`, con subcarpetas `cartas_mercado` y `cartas_personajes`. La última revisión localiza 19 PNG. La [auditoría de mercado](referencias/auditoria-escaneos-2026-11-09.md) confirma los 65 diseños únicos y las 82 cartas físicas representadas. Tirón de hierro está completa y legible en mercado9.png; todos los grupos alcanzan los conteos esperados. No hace falta separar las hojas manualmente antes de comprobar cobertura.
+
+Las cuatro hojas de entrenamiento ya están presentes; la de Vin ahora está en `cartas_personajes/vin/entrenamiento_monedas.png` y contiene cuatro entrenamientos y una carta rectangular de Financiación, no una ficha circular. También hay personajes, panel de niveles, misiones, monedas/metales y reversos. Se revisó su vista de conjunto para descartar una carta de mercado mezclada; falta verificar sus textos/contenido en detalle.
+
+Prioridad acordada: completar y revisar el material competitivo; cobertura de mercado completa y siguiente trabajo de material: recorte y revisión detallada. Financiación tiene seis copias idénticas por personaje según confirmación del usuario: basta el escaneo existente para las 24 cartas, pendiente de incorporación al catálogo. No hacen falta escaneos de cada copia idéntica. El material exclusivo del Lord Legislador se deja para el final conforme a [DEC-027](decisiones.md#dec-027--competitivo-primero-lord-legislador-al-final). La guía Android siguiente conserva su utilidad como alternativa al escáner.
+
 Empezar por 5–10 diseños para comprobar la legibilidad. Una carta por foto/página, completa y de frente. Buena luz difusa, sin reflejos ni dedos tapando bordes. Mantener color y detalles; evitar filtros que borren iconos o texto.
 
 En Drive: abrir cámara/escaneo, capturar una carta, revisar el encuadre y añadir la siguiente página. Guardar el lote con un nombre como lote_001_mercado.pdf. La interfaz puede variar según versión; la guía oficial conserva los pasos actuales.

@@ -1,5 +1,33 @@
 # Registro de trabajo
 
+## 2026-11-09 — Publicación del inventario y prioridad competitiva
+
+- Autorización humana: «haz commit y push de lo que hemos hecho y vamos con la siguiente fase del proyecto». Publicar los siete documentos de prioridad/captura/auditoría; los escaneos originales externos no forman parte de este commit. Empaquetado R0, coordinador responsable, ninguna dispensa.
+- AC/plan previo: revisar diff y enlaces, comprobar 65 diseños/82 copias, commit descriptivo y push sin forzar; verificar HEAD publicado y árbol limpio antes de continuar. Fetch inicial: main y origin/main en edebe0c1211241b4a4e703b2d66c129df3d8147d. Las notas anteriores sin commit/push son históricas; esta autorización cubre su publicación.
+- Traspaso: cobertura de imágenes de mercado completa y prioridad competitiva registrada. Recorte/transcripción siguen pendientes. Siguiente entrega técnica publicada en estado: T08.2f, secuencias reanudables con fixtures, sin habilitar aún combate ni limpiar turno. El usuario solicita continuar tras publicar en esta misma sesión; conservar objetivo, controles y evidencia propios de esa entrega.
+
+## 2026-11-09 — Cierre de cobertura de escaneos de mercado
+
+- A petición del usuario, revisado el nuevo original mercado9.png: Tirón de hierro completa y legible, bordes/esquinas presentes, aproximadamente 600 ppp y 4960 × 7015 píxeles; sin modificar el archivo. Huella SHA-256 conservada en el informe.
+- Ampliación R0 registrada antes de editar, coordinador único, sin dispensas ni cambio de reglas/catálogo. [Informe actualizado](referencias/auditoria-escaneos-2026-11-09.md): 65 nombres únicos; grupos 10/10/10/10/21/4; coincidencia exacta de los 17 diseños duplicados; cantidades suman 82. Se registra también el contraste comunitario web realizado previamente, sin convertirlo en fuente oficial de reglas.
+- Fetch correcto; HEAD/origin/main siguen en edebe0c; preservado trabajo documental local anterior. Cuentas comprobadas desde la tabla guardada, 95 enlaces locales revisados y git diff --check correcto; revisión propia del diff. No se ejecuta Godot ni se requiere revisión independiente para este inventario R0. Sin commit/push.
+- Cobertura de diseños de mercado completa; siguiente trabajo de material: recortar/enderezar derivados y revisar datos para incorporación. No acredita efectos verificados ni cobertura del Lord Legislador. Originales todavía externos al repositorio.
+
+## 2026-11-09 — Auditoría visual de mercado
+
+- Objetivo/AC y plan R0 registrados antes de crear derivados e informe; coordinador único, sin dispensas. Inventario visual sin interpretación de reglas ni cambios en catálogo/contrato. Fetch correcto, HEAD/origin/main en edebe0c; preservadas las seis modificaciones documentales del registro anterior, sin commit/push.
+- Se enumeran 18 PNG originales y se generan vistas temporales en tmp/scan-audit sin alterar originales. Ocho hojas revisadas individualmente: 64 diseños únicos; rojo/amarillo/naranja 10 cada uno, azul 9, aliados 21 y Atium 4. Falta Tirón de hierro, de la lista de duplicados aportada por el usuario. Cantidades declaradas: 80/82 cartas físicas representadas. Otras diez hojas revisadas en vista conjunta sin detectar caras de mercado mezcladas.
+- [Informe con 64 posiciones y títulos](referencias/auditoria-escaneos-2026-11-09.md). La comprobación de unicidad, grupos, duplicados físicos y suma se realizó sobre las filas transcritas. No certifica efectos ni cartas jugables. Los originales y el documento aportado siguen fuera de Git.
+- Cierre R0: conteos reproducidos desde la tabla guardada, diff revisado, 94 enlaces locales comprobados y git diff --check correcto; no procede ejecutar Godot ni revisar semántica de reglas. Auditoría completada, cobertura de escaneos pendiente del diseño ausente.
+- Siguiente paso: escanear una copia de Tirón de hierro y repetir el contraste antes de declarar completo el mercado. No necesita separación manual previa. Entrenamientos restantes y panel ya presentes; material del Lord Legislador sigue aplazado.
+
+## 2026-11-09 — Prioridad competitiva y material de captura
+
+- Registro R0 previo en backlog, coordinador único y ninguna dispensa: transcripción de la prioridad humana, sin cambios de reglas, código ni catálogo. DEC-027 fija competitivo primero y Lord Legislador al final; conserva cooperativo/solitario y criterios pendientes. Estado, plan y guía de captura enlazados.
+- Se conserva la confirmación humana de seis cartas idénticas de Financiación por personaje (24 total); el escaneo existente basta como diseño. La revisión visual anterior de entrenamiento_monedas.png muestra Financiación rectangular y cuatro entrenamientos de Vin. Los diez PNG locales localizados no acreditan todavía cobertura completa del mercado ni catálogo verificado.
+- Git: fetch correcto; main y origin/main en edebe0c1211241b4a4e703b2d66c129df3d8147d, inicialmente sin cambios. Se modifica únicamente documentación. Diff revisado, 80 enlaces locales comprobados con PowerShell y ancla nueva contrastada; git diff --check correcto. Python no disponible mediante su alias local; comprobación completada con PowerShell. No se ejecuta Godot; no corresponde revisión independiente para este registro R0.
+- Cierre: prioridad registrada localmente, sin commit/push. Siguiente paso de captura: recibir y revisar los entrenamientos restantes y paneles del competitivo; material del Lord Legislador aplazado. T08.2f sigue siendo la dependencia técnica pendiente del motor.
+
 ## 2026-11-01 — Publicación de T08.2e y recuperación remota obligatoria
 
 - Autorización expresa: «vale haz commit y push de estos cambios». Empaquetado R0 de los 18 Markdown ya revisados en T08.2e/SPEC-009 AC-09; sin cambios semánticos nuevos. Coordinador responsable, ninguna dispensa. Aceptación: commit descriptivo, remoto igual a HEAD y árbol limpio. Plan previo: comprobar GitHub/estado y diff, actualizar sólo notas de publicación, verificar enlaces, hacer commit/push sin forzar y comprobar remoto/estado.

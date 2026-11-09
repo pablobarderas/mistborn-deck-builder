@@ -197,6 +197,13 @@ Contrato saldo/fichas y guardia de Atium usado sustituidos por DEC-024; el resto
 - Motivo: P07 aporta transacciones y selección pero no reanudación general ni consumo de cierre; una resolución ausente no demuestra obligaciones cumplidas. Se prefiere ledger explícito a dejar una resolución cerrada no nula, preservando el significado de ausencia de bloqueo; sus límites y conservación están documentados.
 - Consecuencias: [contrato/escenarios T08.2e](specs/008-preparacion-y-turnos/secuencia-reanudable.md). Sólo programas ficticios en la primera implementación T08.2f. No satisface puertas reglamentarias de T08.2d ni define coordinación colectiva, prioridad terminal o política de reconexión.
 
+## DEC-027 — Competitivo primero, Lord Legislador al final
+
+- Fecha: 2026-11-09. Estado: aceptada por instrucción explícita del usuario: «la parte del lord legislador será la última de todas, de momento nos centraremos en el combate de nacidos de la bruma entre ellos».
+- Prioridad: centrar la captura de material y el desarrollo inmediato en competitivo entre Nacidos de la Bruma; abordar la parte del Lord Legislador al final. No solicitar ahora su mazo, Dominación ni otros componentes exclusivos del rival.
+- Alcance: cooperativo y solitario siguen comprometidos; se aplazan, no se eliminan. Los criterios de cierre que exigen esos modos continúan pendientes hasta implementarlos y verificarlos. Esta prioridad no habilita combate sin reglas/efectos ni sustituye las dependencias técnicas existentes.
+- Capturas actuales: completar los entrenamientos de los otros tres personajes y las pistas/paneles necesarios para competitivo. El usuario confirma que Financiación tiene seis copias idénticas por personaje al inicio; basta el diseño escaneado para representar las 24 cartas. Esta confirmación no incorpora ni verifica automáticamente el catálogo.
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.

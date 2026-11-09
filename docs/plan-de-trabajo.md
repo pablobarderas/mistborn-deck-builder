@@ -12,6 +12,10 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
+- Captura actualizada 2026-11-09 tras revisar el lote: [65/65 diseños de mercado](referencias/auditoria-escaneos-2026-11-09.md), cobertura completa tras revisar Tirón de hierro; siguiente trabajo de material: recortar y revisar datos para su incorporación. Entrenamientos y panel ya recibidos, pendientes de revisión detallada e incorporación. Este es el siguiente paso de material; no sustituye T08.2f del motor.
+
+- Prioridad humana 2026-11-09: competitivo entre Nacidos de la Bruma primero; la parte del Lord Legislador se abordará al final. [DEC-027](decisiones.md#dec-027--competitivo-primero-lord-legislador-al-final) conserva cooperativo/solitario y sus puertas de cierre pendientes. En digitalización, revisar entrenamiento y paneles del competitivo ya recibidos; en motor, se conserva T08.2f como siguiente dependencia técnica, sin iniciar aquí implementación.
+
 - Mantener un objetivo verificable por sesión principal, con ciclo SDD completo y cierre/traspaso persistente antes de cambiar a otro objetivo; [política de sesiones](gestion/agentes-sdd.md#sesiones-y-traspaso). Una interrupción puede retomarse en el mismo chat; no crea permisos de publicación ni garantiza ahorro.
 - Cerrar cada fase con evidencia de su criterio de salida, no solo con código escrito.
 - Las dependencias condicionan el cierre. Se pueden investigar tareas independientes antes sin convertir propuestas en decisiones.

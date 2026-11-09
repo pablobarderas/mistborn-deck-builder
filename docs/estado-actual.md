@@ -1,8 +1,12 @@
 # Estado actual
 
-Última revisión: 2026-11-01.
+Última revisión: 2026-11-09.
 
 ## Resumen
+
+Cierre de escaneos de mercado 2026-11-09: 19 PNG locales; nueve hojas de mercado contienen los 65 diseños únicos, con 17 diseños duplicados físicamente y 82 cartas representadas. Tirón de hierro revisada completa y legible en mercado9.png. [Inventario y evidencia](referencias/auditoria-escaneos-2026-11-09.md). Siguiente trabajo de material: recorte y revisión detallada para incorporar el catálogo. El catálogo ejecutable no cambia y sigue sin cartas oficiales verificadas.
+
+Prioridad confirmada el 2026-11-09: centrarse ahora en competitivo entre Nacidos de la Bruma y dejar la parte del Lord Legislador para el final; cooperativo y solitario permanecen en el alcance. [DEC-027](decisiones.md#dec-027--competitivo-primero-lord-legislador-al-final). Hay escaneos locales en revisión, aún sin incorporar al catálogo; los entrenamientos y panel del competitivo ya están presentes y pendientes de revisión detallada. El motor no cambia y T08.2f sigue pendiente. Contexto remoto comprobado mediante fetch en esta sesión: HEAD y origin/main coinciden en edebe0c1211241b4a4e703b2d66c129df3d8147d.
 
 Recuperación 2026-11-01: GitHub consultado con fetch, `origin/main` en `6caed87`; este PC estaba once commits atrás y se actualizó mediante fast-forward sin cambios locales previos. La selección del siguiente paso debe comprobar **siempre** el estado publicado en GitHub, según [continuidad](continuar-en-otro-pc.md), preservando las diferencias locales.
 

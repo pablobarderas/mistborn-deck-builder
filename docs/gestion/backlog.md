@@ -12,6 +12,22 @@
 
 ## Primer lote: descubrimiento
 
+### Auditoría de escaneos de mercado 2026-11-09
+
+- Ampliación de cierre solicitada por el usuario: revisar mercado9.png y confirmar cobertura de mercado. AC: imagen completa/legible de Tirón de hierro, 65 títulos únicos, grupos 10/10/10/10/21/4, 17 diseños con dos copias y total 82. Se mantiene R0 (inventario, sin catálogo ejecutable). Plan previo: inspección visual y metadatos; incorporar una fila al informe; actualizar estado de captura y comprobar cuentas/enlaces/diff. Responsable: coordinador; ninguna dispensa, sin commit/push. Completada: imagen correcta; todas las cuentas y lista exacta de duplicados comprobadas, 95 enlaces locales y diff correctos. Siguiente paso: recorte/revisión de datos; no más capturas de mercado para completar este inventario. La entrada de 64/65 inferior conserva el resultado de la primera revisión, sustituido por este cierre.
+
+- Objetivo/AC: contar diseños presentes, identificar títulos/grupos y repeticiones en las ocho hojas de mercado, contrastar 65 diseños y 17 copias adicionales indicadas por el usuario, e informar faltantes o incertidumbres sin declarar catálogo jugable verificado.
+- Riesgo R0: inventario visual de fuentes, sin interpretación de efectos ni modificación del catálogo/contrato. Responsable: coordinador; sin subagentes ni dispensas.
+- Plan previo: generar vistas temporales de lectura sin alterar originales, revisar las hojas y contrastar títulos/conteos; conservar informe de evidencia. Verificación: unicidad, sumas por grupo, lista de duplicados físicos, revisión del diff y enlaces.
+- Estado: auditoría completada; captura incompleta. [Informe](../referencias/auditoria-escaneos-2026-11-09.md): 64 diseños únicos, falta Tirón de hierro (azul); 80/82 cartas físicas representadas. Conteos verificados también sobre las filas del informe, diff revisado, 94 enlaces locales comprobados y git diff --check correcto. Sin pruebas Godot ni revisión independiente: inventario R0, no verificación del catálogo. Fetch y estado remoto consultados en edebe0c1211241b4a4e703b2d66c129df3d8147d; se preservan seis documentos locales modificados en el registro de prioridad anterior. Sin commit/push. Siguiente paso: una captura del diseño ausente y revalidar el recuento.
+
+### Registro documental 2026-11-09 — Prioridad competitiva
+
+- Objetivo/aceptación: registrar la instrucción humana «la parte del lord legislador será la última de todas» y el foco actual en combate entre Nacidos de la Bruma; conservar cooperativo/solitario en el alcance y sus criterios de cierre pendientes.
+- Riesgo R0: transcripción de una prioridad explícita, sin interpretar reglas ni modificar código, catálogo, contratos o controles SDD. Responsable: coordinador; no requiere subagente.
+- Plan: registrar decisión; enlazar desde estado/plan y orientar las capturas al competitivo. Verificación prevista: revisar diff, enlaces locales y coherencia entre prioridad y alcance. Sin commit/push ni dispensa.
+- Estado: completado documentalmente; DEC-027 registrada y enlazada. Diff revisado, 80 enlaces locales comprobados y encabezado del ancla DEC-027 contrastado; git diff --check correcto. Sin pruebas Godot por tratarse exclusivamente de memoria documental. Contexto remoto consultado mediante fetch: main local y origin/main en edebe0c1211241b4a4e703b2d66c129df3d8147d, árbol inicialmente limpio. Issue: sin publicar. Siguiente paso: recibir/revisar entrenamientos y paneles competitivos; T08.2f continúa pendiente para el motor.
+
 ### T00.1 — Sistema transversal de agentes SDD
 
 - Tipo: herramientas/proceso. Fase P00, mejora posterior a su cierre documental. Spec: [SPEC-009](../specs/009-sistema-agentes/spec.md).
