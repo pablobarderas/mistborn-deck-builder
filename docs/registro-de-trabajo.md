@@ -4,6 +4,7 @@
 
 - Autorización humana: «haz commit y push de lo que hemos hecho y vamos con la siguiente fase del proyecto». Publicar los siete documentos de prioridad/captura/auditoría; los escaneos originales externos no forman parte de este commit. Empaquetado R0, coordinador responsable, ninguna dispensa.
 - AC/plan previo: revisar diff y enlaces, comprobar 65 diseños/82 copias, commit descriptivo y push sin forzar; verificar HEAD publicado y árbol limpio antes de continuar. Fetch inicial: main y origin/main en edebe0c1211241b4a4e703b2d66c129df3d8147d. Las notas anteriores sin commit/push son históricas; esta autorización cubre su publicación.
+- Publicado en 7f2d42e, HEAD/origin/main iguales y árbol limpio tras push; 65 diseños, 82 copias y 96 enlaces locales comprobados. La comprobación del índice detectó una línea vacía final en el informe nuevo, no visible en el diff previo al estar sin seguimiento; se corrige en un seguimiento R0 de publicación y se exige salida cero de la comprobación antes del commit. Sin impacto en inventario ni datos del juego.
 - Traspaso: cobertura de imágenes de mercado completa y prioridad competitiva registrada. Recorte/transcripción siguen pendientes. Siguiente entrega técnica publicada en estado: T08.2f, secuencias reanudables con fixtures, sin habilitar aún combate ni limpiar turno. El usuario solicita continuar tras publicar en esta misma sesión; conservar objetivo, controles y evidencia propios de esa entrega.
 
 ## 2026-11-09 — Cierre de cobertura de escaneos de mercado

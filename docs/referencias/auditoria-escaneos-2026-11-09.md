@@ -102,4 +102,3 @@ Fila 1 es la superior; izquierda/derecha se refieren a la hoja original. Cantida
 ## Cierre y siguiente paso
 
 Cobertura de diseños de mercado confirmada completa. Siguiente trabajo de digitalización: separar/enderezar las cartas sobre derivados e incorporar sus datos con revisión de textos/símbolos según el contrato del catálogo. No necesita más escaneos de diseños de mercado para completar este inventario. No se declara completo el material del Lord Legislador, aplazado, ni verificados los efectos de las cartas.
-
