@@ -10,7 +10,7 @@
 | T08.2c | Contrato saldo/fichas y devolución del Atium usado; AC-15–18. | Implementada, limpieza 527 / estado 1.938; revisión independiente favorable |
 | T08.2d | Contrato documental de entrada a limpieza; AC-19–22. | Completada como contrato documental, revisión favorable; transición sin implementar |
 | T08.2e | [Contrato de secuencia reanudable](secuencia-reanudable.md); AC-23–28. | Completada documentalmente; revisión independiente favorable |
-| T08.2f | Implementar secuencia interna con registro ficticio, esquema v2, pausas/cierre único/proyecciones; SEQ-01–10. | Siguiente implementación; contrato T08.2e revisado, sin reglas ni transición real a limpieza |
+| T08.2f | Implementar secuencia interna con registro ficticio, esquema v2, pausas/cierre único/proyecciones; AC-29–34 y SEQ-01–10. | Completada localmente 2026-11-10; 253 comprobaciones de secuencia, regresiones y revisión independiente favorable; sin reglas ni transición real a limpieza |
 | T08.3 | Paso rival y diferencias de modo durante la ronda. | Pendiente; efectos de P09 |
 
 Sin issues publicadas. T08.1/2/3 del backlog siguen siendo agrupadores estables.

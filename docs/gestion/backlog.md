@@ -1,6 +1,6 @@
 # Backlog por fases
 
-Última revisión: 2026-11-01. IDs locales estables; **no son números de issues de GitHub**. La consulta al repositorio del 2026-10-26 no devolvió issues. Ninguna fila ha sido publicada por estas tareas documentales.
+Última revisión: 2026-11-10. IDs locales estables; **no son números de issues de GitHub**. La consulta al repositorio del 2026-10-26 no devolvió issues. Ninguna fila ha sido publicada por estas tareas documentales.
 
 ## Uso
 
@@ -113,7 +113,7 @@ Estos son candidatos a issues, no especificaciones listas para implementar. La a
 
 ## Mantenimiento y errores
 
-Subdivisión actual de T08.2: T08.2e, [contrato de secuencia reanudable](../specs/008-preparacion-y-turnos/secuencia-reanudable.md), AC-23–28, completada documentalmente con revisión favorable; T08.2f, implementación y pruebas SEQ-01–10, siguiente tarea con contrato revisado. Ambas sin issue publicada. No son cierre P08 ni repetición de ciclo/limpieza/Atium. Ampliación T00.1/SPEC-009 AC-09: consulta obligatoria del estado GitHub antes de seleccionar trabajo, por instrucción humana del 2026-11-01; revisión conjunta favorable.
+Subdivisión actual de T08.2: T08.2e, [contrato de secuencia reanudable](../specs/008-preparacion-y-turnos/secuencia-reanudable.md), AC-23–28, completada documentalmente con revisión favorable; T08.2f, implementación y pruebas SEQ-01–10 completadas localmente el 2026-11-10: 253 comprobaciones de secuencias, regresiones y revisión independiente favorable. [Evidencia y siguiente objetivo](../specs/008-preparacion-y-turnos/verification.md#t082f--implementación-de-secuencias-reanudables): especificar primer resolutor real competitivo. Ambas sin issue publicada. No son cierre P08 ni repetición de ciclo/limpieza/Atium. Ampliación T00.1/SPEC-009 AC-09: consulta obligatoria del estado GitHub antes de seleccionar trabajo, por instrucción humana del 2026-11-01; revisión conjunta favorable.
 
 Una incidencia encontrada durante una fase recibe su propia issue con reproducción y comportamiento esperado. Si cambia reglas o estado, tiene prioridad sobre el avance de contenido. Una corrección debe enlazar el criterio REG/AC afectado y su comprobación de regresión.
 

@@ -53,13 +53,13 @@ static func snapshot(mode: String = "competitivo", count: int = 2) -> Dictionary
 			"discard_zone": "descarte_rival", "adversary_zone": "adversarios",
 			"domination": {"definition_id": "test_domination", "face": 1, "position": 2, "visible_value": 3},
 			"adversaries": {"enemy_1": {"facing_id": "p1", "destroyed_shields": [0, 1]}}}
-	return {"version_esquema": 1, "version_motor": Validator.ENGINE_VERSION, "catalog_id": "test_catalog",
+	return {"version_esquema": Validator.SCHEMA_VERSION, "version_motor": Validator.ENGINE_VERSION, "catalog_id": "test_catalog",
 		"match_id": "test_match", "mode": mode, "revision": 0, "lifecycle": "sin_preparar",
 		"players": players, "player_order": order, "instances": instances, "zones": zones,
 		"turn": {"number": 0, "active_id": null, "phase": "sin_iniciar", "counters": {}},
 		"missions": {"mission_1": {"definition_id": "test_mission", "progress": progress,
 			"rewards": rewards, "arrival_order": []}}, "target_id": null, "rival": rival,
-		"resolution": null, "authority": {"rng_seed": 101, "rng_state": -456, "next_id": 3, "receipts": {}}}
+		"resolution": null, "authority": {"rng_seed": 101, "rng_state": -456, "next_id": 3, "receipts": {}, "completed_sequences": {}}}
 
 
 static func instance(id: String, definition_id: String, owner_id: Variant) -> Dictionary:
@@ -69,9 +69,3 @@ static func instance(id: String, definition_id: String, owner_id: Variant) -> Di
 
 static func add_zone(zones: Dictionary, id: String, kind: String, holder: Variant = null) -> void:
 	zones[id] = {"zone_id": id, "kind": kind, "holder_id": holder, "cards": []}
-
-
-static func resolution() -> Dictionary:
-	return {"resolution_id": "r1", "source_id": "c1", "steps": ["before", "choose", "after"], "cursor": 1,
-		"recipients": ["p1", "p2"], "pending": {"kind": "reaccion", "recipients": ["p2"],
-			"options": ["accept", "decline"], "min": 0, "max": 1}}

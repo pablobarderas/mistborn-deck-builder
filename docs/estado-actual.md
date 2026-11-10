@@ -1,12 +1,16 @@
 # Estado actual
 
-Última revisión: 2026-11-09.
+Última revisión: 2026-11-10.
 
 ## Resumen
 
+Publicación de T08.2f autorizada el 2026-11-10 mediante «haz commit y push». El commit que incorpora esta nota identifica la entrega revisada; las menciones de cambios locales sin publicar más abajo conservan el estado previo al permiso. Siguiente objetivo: especificar el primer resolutor real competitivo con fuentes y contenido pertinente verificados.
+
+T08.2f completada localmente y revisada favorablemente (3.353 comprobaciones): secuencias técnicas reanudables, esquema 2/motor `p08-sequence-1/godot-4.7.2`, registro cerrado, ventanas privadas y cierre único por ocurrencia. Las pruebas usan programas ficticios exclusivamente; no hay combate ni entrada a limpieza implementados. [Evidencia y traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t082f--implementación-de-secuencias-reanudables). Recuperación 2026-11-10: fetch y documento publicado consultados en `7a9f25c8eee44364b09c624178d0fd9aaf57e35c`, igual a HEAD de main; implementación local sin commit/push.
+
 Cierre de escaneos de mercado 2026-11-09: 19 PNG locales; nueve hojas de mercado contienen los 65 diseños únicos, con 17 diseños duplicados físicamente y 82 cartas representadas. Tirón de hierro revisada completa y legible en mercado9.png. [Inventario y evidencia](referencias/auditoria-escaneos-2026-11-09.md). Siguiente trabajo de material: recorte y revisión detallada para incorporar el catálogo. El catálogo ejecutable no cambia y sigue sin cartas oficiales verificadas.
 
-Prioridad confirmada el 2026-11-09: centrarse ahora en competitivo entre Nacidos de la Bruma y dejar la parte del Lord Legislador para el final; cooperativo y solitario permanecen en el alcance. [DEC-027](decisiones.md#dec-027--competitivo-primero-lord-legislador-al-final). Hay escaneos locales en revisión, aún sin incorporar al catálogo; los entrenamientos y panel del competitivo ya están presentes y pendientes de revisión detallada. El motor no cambia y T08.2f sigue pendiente. Contexto remoto comprobado mediante fetch en esta sesión: HEAD y origin/main coinciden en edebe0c1211241b4a4e703b2d66c129df3d8147d.
+Prioridad confirmada el 2026-11-09: centrarse ahora en competitivo entre Nacidos de la Bruma y dejar la parte del Lord Legislador para el final; cooperativo y solitario permanecen en el alcance. [DEC-027](decisiones.md#dec-027--competitivo-primero-lord-legislador-al-final). Los entrenamientos y panel del competitivo están escaneados y pendientes de revisión detallada. Tras publicar el inventario, el usuario eligió continuar el motor con T08.2f. Las entradas de recuperación y entregas siguientes conservan antecedentes históricos; la versión vigente del motor es la indicada arriba.
 
 Recuperación 2026-11-01: GitHub consultado con fetch, `origin/main` en `6caed87`; este PC estaba once commits atrás y se actualizó mediante fast-forward sin cambios locales previos. La selección del siguiente paso debe comprobar **siempre** el estado publicado en GitHub, según [continuidad](continuar-en-otro-pc.md), preservando las diferencias locales.
 
@@ -42,11 +46,11 @@ Ampliación AC-08/DEC-021 completada y revisada independientemente: un objetivo 
 | tools/godot.ps1 | Importar, ejecutar, editor, pruebas y capturas; acciones network, test-network y preview-network para el ensayo. |
 | scripts/game/ | T07.1/2: estado privado, invariantes, acciones atómicas, RNG y proyecciones por jugador. Sin manejadores de reglas reales. |
 | scripts/game/game_setup.gd | T08.1a: preparación estructural determinista de siete configuraciones desde manifiesto y definiciones verificadas. No abre el turno libre ni interpreta efectos. |
-| tests/ | Estado (1.741 tras P08), preparación (147) y acciones (102) con fixtures ficticios, catálogo/carga, red experimental y capturas; resultados históricos documentados, no nuevas pruebas en SPEC-009. |
+| tests/ | Secuencias (253), estado (2.004), motor (102), preparación (147), ciclo (262), limpieza (527) y arranque (58), verificadas tras T08.2f con fixtures ficticios. Red/capturas conservan evidencia histórica separada. |
 | docs/specs/ | SPEC-001/002 parciales; SPEC-003/005/006 completadas en su alcance; SPEC-004 local verificada, externa pendiente; SPEC-007 local verificada (T07.1/2), P04 externa pendiente para cierre P07; SPEC-008 T08.1a verificada, P08 abierta. |
 | .github/ | Plantillas de issues y PR de la entrega inicial publicada. |
 
-El motor portátil previsto en .tools/godot/ se ignora por Git; está presente en este PC al recuperar el 2026-11-01. El PC de las pruebas del 2026-10-29/30 usó Godot 4.7.2 desde Descargas mediante -GodotPath. No se ha ejecutado Godot en esta entrega documental. Datos y cachés generados en .godot/ y tmp/ también ignorados. Los UID de scripts y ajustes de importación de recursos son metadatos de fuente.
+El motor portátil .tools/godot/ se ignora por Git y está presente en este PC. T08.2f se verificó con Godot 4.7.2 el 2026-11-10: secuencias 253, estado 2.004, motor 102, preparación 147, ciclo 262, limpieza 527 y arranque 58, todas con código 0 y sin SCRIPT ERROR. Datos y cachés generados en .godot/ y tmp/ también ignorados. Los UID de scripts y ajustes de importación de recursos son metadatos de fuente.
 
 ## Verificación real de P03
 

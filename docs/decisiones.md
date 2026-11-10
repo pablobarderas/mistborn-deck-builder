@@ -192,6 +192,8 @@ Contrato saldo/fichas y guardia de Atium usado sustituidos por DEC-024; el resto
 
 ## DEC-026 — Contrato mínimo de secuencias, previo a implementación
 
+Actualización 2026-11-10: diseño implementado en T08.2f, esquema 2/motor `p08-sequence-1/godot-4.7.2`, con revisión independiente favorable. El registro sólo admite funciones estáticas GDScript con firmas inspeccionables compatibles y argumentos enlazados escalares; P07 invoca el resolutor y sella el cierre, mientras los adaptadores de inicio trabajan sobre copia aislada. Se conservan límites, ausencia de migración y obligación de versionar cambios semánticos. [Evidencia y restricciones](specs/008-preparacion-y-turnos/verification.md#t082f--implementación-de-secuencias-reanudables). La entrada original siguiente conserva el estado documental de noviembre 1.
+
 - Fecha: 2026-11-01. Estado: diseño técnico documental T08.2e completado con revisión independiente favorable, no implementado.
 - Decisión de diseño: registro cerrado de programas, avance transaccional hasta pausa o cierre, una plaza por ventana en el primer subconjunto, evidencia privada de cierre por ocurrencia e IDs opacos. Reservar esquema v2/motor nuevo para la implementación; rechazar migración implícita.
 - Motivo: P07 aporta transacciones y selección pero no reanudación general ni consumo de cierre; una resolución ausente no demuestra obligaciones cumplidas. Se prefiere ledger explícito a dejar una resolución cerrada no nula, preservando el significado de ausencia de bloqueo; sus límites y conservación están documentados.

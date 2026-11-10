@@ -1,5 +1,19 @@
 # Registro de trabajo
 
+## 2026-11-10 — Publicación de T08.2f
+
+- Autorización explícita posterior al cierre: «haz commit y push». Objetivo/AC: publicar la entrega revisada completa en main, comprobar el índice y verificar coincidencia con GitHub y árbol limpio después del push.
+- Empaquetado R0, coordinador responsable, ninguna dispensa: revisar estado/diff y evidencia existente, registrar autorización, comprobar enlaces/índice, crear commit descriptivo y push sin forzar. La implementación R2 conserva su revisión independiente y 3.353 comprobaciones; no se modifica código ni se repiten suites ya aprobadas.
+- Fetch previo confirma HEAD/origin/main `7a9f25c`; no hay divergencia. El commit que incorpora esta entrada identifica la publicación de T08.2f. Las menciones inferiores «sin commit/push» describen el cierre previo a esta autorización; no afectan a futuras entregas.
+
+## 2026-11-10 — T08.2f, secuencias reanudables
+
+- Usuario elige continuar el motor y pide reanudar; fetch y estado publicado confirmados en main/origin/main `7a9f25c`. Se conserva planificación previa y se completa código local sin publicación.
+- Registro cerrado, resolver, snapshot v2, pausas/respuestas, cierre único por ocurrencia y proyección privada; fixtures exclusivamente en tests. Integración con ciclo/limpieza sin habilitar entrada reglamentaria.
+- Riesgo R2, AC-29–34 y plan previos; implementador/revisores Sol high, coordinador integra y termina correcciones tras límite de uso. Firmas incompatibles, mapas tipados y contenedores de sólo lectura cubiertos por regresión. Ninguna dispensa.
+- Godot 4.7.2: secuencias 253, estado 2.004, motor 102, preparación 147, ciclo 262, limpieza 527, arranque 58; todas con código 0 y sin SCRIPT ERROR. Error de importación restringida resuelto ejecutando con permisos normales; detector del lanzador verificado con errores sintéticos. Revisión independiente final favorable.
+- [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t082f--implementación-de-secuencias-reanudables). Próximo objetivo: especificar primer resolutor real competitivo con fuentes/contenido pertinente. Combate, catálogo real, rival y cierres P04/P07/P08 siguen pendientes. Sin commit/push de esta entrega.
+
 ## 2026-11-09 — Publicación del inventario y prioridad competitiva
 
 - Autorización humana: «haz commit y push de lo que hemos hecho y vamos con la siguiente fase del proyecto». Publicar los siete documentos de prioridad/captura/auditoría; los escaneos originales externos no forman parte de este commit. Empaquetado R0, coordinador responsable, ninguna dispensa.

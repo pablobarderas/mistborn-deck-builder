@@ -3,17 +3,25 @@ extends RefCounted
 
 const State = preload("res://scripts/game/game_state.gd")
 const ViewBuilder = preload("res://scripts/game/game_projection.gd")
+const Registry = preload("res://scripts/game/sequence_registry.gd")
+const Resolver = preload("res://scripts/game/sequence_resolver.gd")
 const ACTION_VERSION: int = 1
 const MAX_ACTION_NODES: int = 256
 const MAX_CANONICAL_LENGTH: int = 4096
 var _state: RefCounted
 var _handlers: Dictionary
+var _starters: Dictionary
+var _resolver: Resolver
 var _remaining_nodes: int = MAX_ACTION_NODES
 
 
-func _init(definitions: Dictionary, catalog_id: String, handlers: Dictionary = {}) -> void:
-	_state = State.new(definitions, catalog_id)
+func _init(definitions: Dictionary, catalog_id: String, handlers: Dictionary = {}, registry: Registry = null, starters: Dictionary = {}) -> void:
+	if registry == null:
+		registry = Registry.new()
+	_state = State.new(definitions, catalog_id, registry)
 	_handlers = handlers.duplicate()
+	_starters = starters.duplicate()
+	_resolver = Resolver.new(registry, definitions)
 
 
 func load_authority_snapshot(document: Variant) -> Dictionary:
@@ -53,37 +61,60 @@ func submit(actor_id: String, input: Variant) -> Dictionary:
 		return _accepted(intent.action_id, old.revision_aplicada)
 	if intent.expected_revision != revision:
 		return _reject("revision_obsoleta", revision)
-	if not _handlers.has(intent.tipo) or not _handlers[intent.tipo] is Callable or not _handlers[intent.tipo].is_valid():
-		return _reject("accion_no_soportada", revision)
+	var responding: bool = intent.tipo == "responder"
+	var starter: Variant = _starters.get(intent.tipo)
+	var handler: Variant = _handlers.get(intent.tipo)
 	if current.resolution != null:
-		if intent.tipo != "responder":
+		if not responding:
 			return _reject("accion_ilegal", revision)
 		if not _valid_response(current.resolution, actor_id, intent.payload):
 			return _reject("eleccion_invalida", revision)
 	else:
-		if intent.tipo == "responder" or current.lifecycle != "en_curso" or current.turn.active_id != actor_id:
+		if not responding and not _valid_callable(starter) and not _valid_callable(handler):
+			return _reject("accion_no_soportada", revision)
+		if responding or current.lifecycle != "en_curso" or current.turn.active_id != actor_id:
 			return _reject("accion_ilegal", revision)
+	if revision == Registry.MAX_INT:
+		push_warning("Acción rechazada: contador de revisiones agotado.")
+		return _reject("estado_invalido", revision)
 	var candidate: Dictionary = current.duplicate(true)
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 	rng.seed = current.authority.rng_seed
 	rng.state = current.authority.rng_state
-	var result: Variant = _handlers[intent.tipo].call(candidate, actor_id, intent.payload.duplicate(true), rng)
-	if not result is String:
+	var payload: Dictionary = intent.payload.duplicate(true)
+	var sequence: Resolver.Result
+	if responding:
+		sequence = _resolver.resume(candidate, payload.options, rng)
+	elif _valid_callable(starter):
+		# El adaptador sólo propone un inicio. Su copia y su resultado no son un commit.
+		var request: Variant = starter.call(current.duplicate(true), actor_id, payload)
+		if request is String:
+			return _reject(_public_error(request), revision)
+		sequence = _resolver.begin(candidate, actor_id, request, rng)
+	else:
+		var result: Variant = handler.call(candidate, actor_id, payload, rng)
+		if not result is String or not result.is_empty():
+			return _reject(_public_error(result), revision)
+	if sequence != null:
+		match sequence.status:
+			Resolver.Result.Status.ILLEGAL:
+				return _reject("accion_ilegal", revision)
+			Resolver.Result.Status.INVALID:
+				return _reject("estado_invalido", revision)
+	if not _protected_fields(candidate, current):
 		return _reject("estado_invalido", revision)
-	if not result.is_empty():
-		# El manejador solo devuelve códigos de la lista, sin texto de contenido privado.
-		if result in ["formato_invalido", "accion_ilegal", "eleccion_invalida", "estado_invalido"]:
-			return _reject(result, revision)
-		return _reject("estado_invalido", revision)
-	if not _state.validate_candidate(candidate).ok:
-		return _reject("estado_invalido", revision)
-	for key: String in ["version_esquema", "version_motor", "catalog_id", "match_id", "mode", "player_order", "revision"]:
-		if candidate[key] != current[key]:
+	if sequence != null:
+		if candidate.get("turn") != current.turn or candidate.get("lifecycle") != current.lifecycle:
 			return _reject("estado_invalido", revision)
-	if candidate.authority.receipts != current.authority.receipts or candidate.authority.rng_seed != current.authority.rng_seed:
-		return _reject("estado_invalido", revision)
-	if candidate.authority.next_id < current.authority.next_id:
-		return _reject("estado_invalido", revision)
+		if sequence.status == Resolver.Result.Status.PAUSED:
+			candidate.resolution = sequence.resolution
+		else:
+			var ledger: Dictionary = candidate.authority.completed_sequences
+			if ledger.has(sequence.closed_id):
+				return _reject("estado_invalido", revision)
+			sequence.close["revision_aplicada"] = revision + 1
+			ledger[sequence.closed_id] = sequence.close
+			candidate.resolution = null
 	candidate.revision = revision + 1
 	candidate.authority.rng_state = rng.state
 	if not candidate.authority.receipts.has(actor_id):
@@ -93,6 +124,38 @@ func submit(actor_id: String, input: Variant) -> Dictionary:
 	if not validation.ok:
 		return _reject("estado_invalido", revision)
 	return _accepted(intent.action_id, candidate.revision)
+
+
+func _protected_fields(candidate: Dictionary, current: Dictionary) -> bool:
+	if candidate.is_typed() or candidate.is_read_only():
+		return false
+	for key: String in ["version_esquema", "version_motor", "catalog_id", "match_id", "mode", "player_order", "revision", "resolution"]:
+		if not candidate.has(key) or typeof(candidate[key]) != typeof(current[key]) or candidate[key] != current[key]:
+			return false
+	var authority: Variant = candidate.get("authority")
+	if not authority is Dictionary or authority.is_typed() or authority.is_read_only():
+		return false
+	for key: String in ["receipts", "completed_sequences", "rng_seed", "rng_state"]:
+		if not authority.has(key) or typeof(authority[key]) != typeof(current.authority[key]) or authority[key] != current.authority[key]:
+			return false
+	if authority.receipts.is_typed() or authority.completed_sequences.is_typed() \
+		or authority.receipts.is_read_only() or authority.completed_sequences.is_read_only():
+		return false
+	for per_player: Dictionary in authority.receipts.values():
+		if per_player.is_typed() or per_player.is_read_only():
+			return false
+	return typeof(authority.get("next_id")) == TYPE_INT and authority.next_id >= current.authority.next_id
+
+
+func _public_error(value: Variant) -> String:
+	# Los manejadores sólo devuelven códigos de la lista, sin texto de contenido privado.
+	if value is String and value in ["formato_invalido", "accion_ilegal", "eleccion_invalida", "estado_invalido"]:
+		return value
+	return "estado_invalido"
+
+
+func _valid_callable(value: Variant) -> bool:
+	return value is Callable and value.is_valid()
 
 
 func _check_syntax(input: Variant) -> String:

@@ -2,15 +2,18 @@ extends RefCounted
 ## Almacén privado de autoridad. No es API de cliente ni preparación reglamentaria.
 
 const Validator = preload("res://scripts/game/state_validator.gd")
+const Registry = preload("res://scripts/game/sequence_registry.gd")
+var _registry: Registry
 var _definitions: Dictionary
 var _catalog_id: String
 var _snapshot: Dictionary = {}
 
 
-func _init(definitions: Dictionary, catalog_id: String) -> void:
+func _init(definitions: Dictionary, catalog_id: String, registry: Registry = null) -> void:
 	# El adaptador entrega definiciones ya validadas. Tests inyectan fixtures propios.
 	_definitions = definitions.duplicate(true)
 	_catalog_id = catalog_id
+	_registry = registry if registry != null else Registry.new()
 
 
 func try_load(document: Variant) -> Dictionary:
@@ -25,11 +28,11 @@ func try_load(document: Variant) -> Dictionary:
 
 func validate_candidate(document: Variant) -> Dictionary:
 	# Comprobación sin publicar. Solo la autoridad la usa antes de un commit.
-	return Validator.new().validate(document, _definitions, _catalog_id)
+	return Validator.new().validate(document, _definitions, _catalog_id, _registry)
 
 
 func get_snapshot() -> Dictionary:
-	# Snapshot completo y privado: la futura proyección será otra API (T07.2).
+	# Snapshot completo y privado. La vista se construye por separado.
 	return _snapshot.duplicate(true)
 
 

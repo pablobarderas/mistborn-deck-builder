@@ -1,5 +1,23 @@
 # Plan de SPEC-008
 
+## Encargo 2026-11-09 — T08.2f, implementación de secuencias
+
+Cierre 2026-11-10: implementación, 253 comprobaciones de secuencia y regresiones (3.353 en total), revisión independiente final favorable de sequence_review_final. Coordinador completó las correcciones tras la interrupción y ejecutó las siete suites en serie con importación limpia. [Evidencia y traspaso](verification.md#t082f--implementación-de-secuencias-reanudables); ninguna dispensa, sin commit/push. Las notas de reanudación siguientes son históricas.
+
+Segunda reanudación 2026-11-10 por «sigue»: fetch vuelve a confirmar `7a9f25c`. El desarrollador se interrumpió por límite de uso tras escribir la implementación y obtener 219 comprobaciones de secuencia; importación con error de permisos pendiente, por lo que no se acepta aún la verificación completa. No quedan subagentes activos. El coordinador asume la propiedad de código/tests/lanzador para integración y pruebas; se solicitará un revisor independiente final nuevo. Conservar hallazgos previos sobre diccionarios tipados y aridad de callbacks, ya corregidos y pendientes de contraste final. La delegación adicional es necesaria por la interrupción y no sustituye controles.
+
+Reanudación 2026-11-10 por «continua»: fetch confirma HEAD/origin/main en 7a9f25c. Solo quedaron los tres documentos de planificación modificados; no hay cambios de código ni pruebas nuevas. El subagente anterior ya no está activo y se reasigna su propiedad a sequence_impl_resume, con el mismo perfil/alcance. Se conserva el trabajo documental y la revisión independiente posterior obligatoria.
+
+Autorización: tras publicar el inventario, el usuario elige expresamente «Continuar el motor (T08.2f)». Recuperación: main/origin/main en 7a9f25c8eee44364b09c624178d0fd9aaf57e35c, fetch y estado publicado comprobados, árbol limpio. El encargo anterior de commit/push queda satisfecho; esta implementación se entregará localmente sin inferir nueva autorización de publicación.
+
+Objetivo verificable: implementar el contrato de [secuencias reanudables](secuencia-reanudable.md), AC-29–34 y SEQ-01–10, mediante registro de programas ficticios exclusivamente en tests. Riesgo R2: estado, transacciones/RNG, autoridad y privacidad. No interpreta reglas nuevas ni habilita combate, limpieza de entrada, entrenamiento, rival o acciones de producto. La prioridad competitiva DEC-027 se mantiene; las siete configuraciones prueban compatibilidad estructural existente, no desarrollan el Lord Legislador.
+
+Plan previo: registro cerrado y validación íntegra; esquema v2 y versión p08-sequence-1/godot-4.7.2; servicio de ejecución/ventanas; integración transaccional con cierre protegido; proyección por destinatario; fixtures adversos y regresiones; revisión independiente, correcciones y memoria final. Evitar migraciones implícitas y cambios en contrato de intención v1.
+
+Propietarios: sequence_impl/sdd_developer Sol high, único escritor de scripts/game/, tests/ y tools/godot.ps1; coordinador único escritor de documentación e integrador; sdd_reviewer Sol high posterior, solo lectura. Perfiles transmitidos por instrucciones conforme a .codex/agents; sin descendientes, como máximo dos subagentes y ninguna dispensa metodológica. El usuario ha solicitado expresamente continuar tras publicar en esta sesión. Desarrollador puede ejecutar Godot en exclusiva durante implementación; coordinador lo hará tras su entrega, sin ejecuciones simultáneas.
+
+Verificación prevista: test-sequence SEQ-01–10, test-state, test-engine, test-setup, test-cycle, test-cleanup y test (arranque) en Godot 4.7.2, marcas finales/código cero/sin SCRIPT ERROR. Inspección de payloads, carga, reintentos y ledger; enlaces y diff. UI/red no aplican porque no se añade presentación/transporte; P04 externa sigue pendiente y no se cierra P08. Revisión independiente obligatoria antes de aceptar esta entrega.
+
 ## Encargo 2026-11-01 — T08.2e, contrato de secuencia reanudable
 
 Autorización: «Vamos a avanzar con el siguiente paso», precisada por «Asegura el siguiente paso SIEMPRE desde el documento de estado del proyecto github ya que hubo cambios desde otro pc». Recuperación: `git fetch origin` correcto y lectura de `origin/main:docs/estado-actual.md` en `6caed87`; copia local limpia atrasada once commits, actualizada mediante fast-forward de `16b8247` a `6caed87`. No se escribió la P07 ya terminada. El estado remoto y T08.2d señalan como siguiente objetivo el contrato de secuencia reanudable, antes de implementarlo.

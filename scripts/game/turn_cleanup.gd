@@ -3,13 +3,16 @@ extends RefCounted
 
 const Validator = preload("res://scripts/game/state_validator.gd")
 const CardCycle = preload("res://scripts/game/card_cycle.gd")
+const Registry = preload("res://scripts/game/sequence_registry.gd")
+var _registry: Registry
 var _definitions: Dictionary
 var _catalog_id: String
 
 
-func _init(definitions: Dictionary, catalog_id: String) -> void:
+func _init(definitions: Dictionary, catalog_id: String, registry: Registry = null) -> void:
 	_definitions = definitions.duplicate(true)
 	_catalog_id = catalog_id
+	_registry = registry
 
 
 func finish_cleanup(snapshot: Variant, player_id: Variant, rng: Variant) -> Dictionary:
@@ -31,7 +34,7 @@ func finish_cleanup(snapshot: Variant, player_id: Variant, rng: Variant) -> Dict
 	var staged_rng: RandomNumberGenerator = RandomNumberGenerator.new()
 	staged_rng.seed = rng.seed
 	staged_rng.state = rng.state
-	var cycle: RefCounted = CardCycle.new(_definitions, _catalog_id)
+	var cycle: RefCounted = CardCycle.new(_definitions, _catalog_id, _registry)
 	var result: Dictionary = cycle.cleanup_cards(candidate, player_id)
 	if not result.ok:
 		return result
@@ -108,7 +111,7 @@ func _player(snapshot: Dictionary, player_id: String) -> Dictionary:
 
 
 func _valid(snapshot: Variant) -> bool:
-	return Validator.new().validate(snapshot, _definitions, _catalog_id).ok
+	return Validator.new().validate(snapshot, _definitions, _catalog_id, _registry).ok
 
 
 func _result(code: String) -> Dictionary:

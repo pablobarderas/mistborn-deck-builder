@@ -11,8 +11,7 @@ static func registry() -> Dictionary:
 		"test_corrupt": Callable(GameEngineHandlers, "corrupt_after_rng"),
 		"test_erase": Callable(GameEngineHandlers, "erase_authority"),
 		"test_rewind": Callable(GameEngineHandlers, "rewind_id"),
-		"test_forget": Callable(GameEngineHandlers, "forget_receipts"),
-		"responder": Callable(GameEngineHandlers, "respond")}
+		"test_forget": Callable(GameEngineHandlers, "forget_receipts")}
 
 
 static func move_card(state: Dictionary, actor_id: String, payload: Dictionary, rng: RandomNumberGenerator) -> String:
@@ -68,20 +67,6 @@ static func fail_after_rng(state: Dictionary, actor_id: String, payload: Diction
 static func corrupt_after_rng(state: Dictionary, actor_id: String, payload: Dictionary, rng: RandomNumberGenerator) -> String:
 	state.players[0].persistent.atium = -1
 	rng.randi()
-	return ""
-
-
-static func respond(state: Dictionary, actor_id: String, payload: Dictionary, rng: RandomNumberGenerator) -> String:
-	# Efecto ficticio inequívoco para probar la continuación, no regla de carta.
-	if "accept" in payload.options:
-		for player: Dictionary in state.players:
-			if player.player_id == actor_id:
-				player.health += 1
-	state.resolution.cursor += 1
-	if state.resolution.cursor >= state.resolution.steps.size():
-		state.resolution = null
-	else:
-		state.resolution.pending = null
 	return ""
 
 

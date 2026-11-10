@@ -1,5 +1,7 @@
 # SPEC-007 — Estado y acciones de partida
 
+Ampliación 2026-11-10 en T08.2f: [esquema v2, secuencias y privacidad](plan.md#extensión-v2-de-t082f), AC-29–34 de SPEC-008. Implementada y verificada localmente, revisión independiente favorable; [evidencia vigente](../008-preparacion-y-turnos/verification.md#t082f--implementación-de-secuencias-reanudables). Sustituye la representación mínima de continuación v1 de esta entrega inicial, sin cambiar el sobre de intención ni cerrar P07.
+
 - Fecha: 2026-10-28.
 - Estado: T07.1 y T07.2 implementadas y verificadas localmente el 2026-10-29. P07 no cerrada por P04 externa.
 - Tareas: T07.1 y T07.2; sin issues publicadas.

@@ -1,6 +1,6 @@
 # Plan de trabajo por fases
 
-Última revisión: 2026-10-30. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba y preparación estructural P08; efectos, turnos completos y partidas siguen sin implementar.
+Última revisión: 2026-11-10. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba y preparación estructural P08; efectos, turnos completos y partidas siguen sin implementar.
 
 ## Objetivo y situación
 
@@ -12,9 +12,9 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
-- Captura actualizada 2026-11-09 tras revisar el lote: [65/65 diseños de mercado](referencias/auditoria-escaneos-2026-11-09.md), cobertura completa tras revisar Tirón de hierro; siguiente trabajo de material: recortar y revisar datos para su incorporación. Entrenamientos y panel ya recibidos, pendientes de revisión detallada e incorporación. Este es el siguiente paso de material; no sustituye T08.2f del motor.
+- Captura actualizada 2026-11-09 tras revisar el lote: [65/65 diseños de mercado](referencias/auditoria-escaneos-2026-11-09.md), cobertura completa tras revisar Tirón de hierro; siguiente trabajo de material: recortar y revisar datos para su incorporación. Entrenamientos y panel ya recibidos, pendientes de revisión detallada e incorporación. Este es el siguiente paso de material; T08.2f del motor ya está verificada localmente.
 
-- Prioridad humana 2026-11-09: competitivo entre Nacidos de la Bruma primero; la parte del Lord Legislador se abordará al final. [DEC-027](decisiones.md#dec-027--competitivo-primero-lord-legislador-al-final) conserva cooperativo/solitario y sus puertas de cierre pendientes. En digitalización, revisar entrenamiento y paneles del competitivo ya recibidos; en motor, se conserva T08.2f como siguiente dependencia técnica, sin iniciar aquí implementación.
+- Prioridad humana 2026-11-09: competitivo entre Nacidos de la Bruma primero; la parte del Lord Legislador se abordará al final. [DEC-027](decisiones.md#dec-027--competitivo-primero-lord-legislador-al-final) conserva cooperativo/solitario y sus puertas de cierre pendientes. En digitalización, revisar entrenamiento y paneles del competitivo ya recibidos; en motor, T08.2f está completada localmente; sigue concretar el primer resolutor real competitivo con fuentes y contenido verificado.
 
 - Mantener un objetivo verificable por sesión principal, con ciclo SDD completo y cierre/traspaso persistente antes de cambiar a otro objetivo; [política de sesiones](gestion/agentes-sdd.md#sesiones-y-traspaso). Una interrupción puede retomarse en el mismo chat; no crea permisos de publicación ni garantiza ahorro.
 - Cerrar cada fase con evidencia de su criterio de salida, no solo con código escrito.
@@ -300,6 +300,10 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 **Cierre:** Una copia limpia permite ejecutar la versión y completar una partida remota; se conservan evidencia de pruebas y limitaciones conocidas.
 
 ## Punto de reanudación
+
+Publicación de la entrega T08.2f autorizada el 2026-11-10; la revisión que incorpora esta nota identifica su commit. Las notas de cambios locales sin commit/push siguientes son históricas. No cambia el siguiente objetivo ni autoriza publicar entregas futuras.
+
+Actualización vigente 2026-11-10: T08.2f completada localmente, 253 comprobaciones de secuencias y 3.353 con regresiones, revisión independiente favorable. Esquema 2/motor `p08-sequence-1/godot-4.7.2`; [evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t082f--implementación-de-secuencias-reanudables). HEAD/origin/main consultados mediante fetch en `7a9f25c`; cambios locales sin commit/push. Siguiente objetivo: especificar el primer resolutor real de competitivo con reglamento y escaneos pertinentes verificados, antes de habilitar combate/entrada a limpieza. Lord Legislador al final según DEC-027. No repetir el núcleo ficticio; las entradas inferiores son antecedentes.
 
 Actualización 2026-11-01: comprobar siempre primero el estado de GitHub mediante fetch y registrar el commit consultado, preservando diferencias locales. Recuperación actual desde `6caed87`. [T08.2e](specs/008-preparacion-y-turnos/secuencia-reanudable.md) completa el contrato de secuencias con revisión documental independiente favorable; próximo trabajo: T08.2f con operaciones ficticias y SEQ-01–10. No repetir P07 ni T08.2a/b/c/d. Las entradas anteriores son antecedentes; ninguna habilita transición a limpieza sin resolutores reales.
 

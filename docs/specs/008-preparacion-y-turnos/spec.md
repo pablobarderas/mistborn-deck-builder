@@ -1,5 +1,18 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.2f — Implementación interna de secuencias reanudables
+
+Encargo 2026-11-09. Contrato normativo: [secuencia reanudable](secuencia-reanudable.md); los criterios siguientes llevan ese diseño a código, sin añadir reglas reales.
+
+Completada localmente 2026-11-10, con revisión independiente favorable y 3.353 comprobaciones entre secuencias y regresiones. [Evidencia, hallazgos corregidos y traspaso](verification.md#t082f--implementación-de-secuencias-reanudables). Las ampliaciones inferiores conservan sus versiones históricas.
+
+- **AC-29:** registro cerrado congelado al crear el motor, validación de todos los pasos/operaciones/contexto, límites explícitos y rechazo de programas incompatibles incluso después de una ventana; ningún programa ficticio se registra en producto.
+- **AC-30:** snapshot v2 y motor p08-sequence-1/godot-4.7.2, sin migración implícita; carga atómica y validación de pausa/contexto/turno/ledger. Exportar/cargar conserva RNG int64 y permite reanudar en otro motor equivalente.
+- **AC-31:** avanzar pasos en una transacción hasta ventana o cierre; respuesta legal completa un paso y reanuda, error revierte todo el segmento actual. Conservar efectos de segmentos previamente aceptados; no cambiar fase/turno ni activar reglas de cartas.
+- **AC-32:** cierre único por ocurrencia, sellado por P07 con revisión aplicada; manejadores no pueden inventar, borrar o alterar cierres. Recibos, reintentos idénticos/contradictorios, ventanas obsoletas y ocurrencias cerradas mantienen idempotencia y rollback.
+- **AC-33:** proyección por lista permitida: solo destinatario recibe step_id/opciones/límites; ningún cliente recibe cursor/programa/contexto/ledger/RNG. Identidades de paso/resolución opacas y actor separado del payload; rechazar respuestas inválidas sin efectos ni fugas.
+- **AC-34:** ejecutar SEQ-01–10 y regresiones estado/motor/preparación/ciclo/limpieza/arranque con fixtures explícitos en las siete configuraciones. Registrar evidencia y revisión independiente antes de cerrar la entrega; no cerrar P08, P04 ni reglas pendientes.
+
 Ampliación documental 2026-11-01: [T08.2e, secuencia reanudable](secuencia-reanudable.md), AC-23–28. Contrato técnico previo a implementación T08.2f; no modifica todavía el snapshot ni habilita la entrada a limpieza.
 
 ## T08.2c — Saldo y devolución de Atium

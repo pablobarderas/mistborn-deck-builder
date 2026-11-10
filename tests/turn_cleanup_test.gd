@@ -2,10 +2,12 @@ extends SceneTree
 ## SPEC-008 AC-11–18; reglas de limpieza/turno, con contenido ficticio.
 
 const Cleanup = preload("res://scripts/game/turn_cleanup.gd")
+const Sequences = preload("res://tests/sequence_fixtures.gd")
 const Fixtures = preload("res://tests/game_state_fixtures.gd")
 const Validator = preload("res://scripts/game/state_validator.gd")
 const GameCore = preload("res://scripts/game/game_engine.gd")
 var checks: int = 0
+var _registry: Sequences.Registry = Sequences.Registry.new(Sequences.registration())
 var failures: int = 0
 
 
@@ -163,7 +165,7 @@ func _reject(state: Dictionary, actor: Variant, code: String, message: String) -
 	var before: Dictionary = state.duplicate(true)
 	var rng: RandomNumberGenerator = _rng(state)
 	var before_rng: int = rng.state
-	var result: Dictionary = Cleanup.new(_definitions(), "test_catalog").finish_cleanup(state, actor, rng)
+	var result: Dictionary = Cleanup.new(_definitions(), "test_catalog", _registry).finish_cleanup(state, actor, rng)
 	_expect(result == {"ok": false, "codigo": code} and state == before and rng.state == before_rng, message)
 
 
@@ -195,7 +197,7 @@ func _test_guards() -> void:
 	state.turn.active_id = null
 	_reject(state, "p1", "accion_ilegal", "AC11 activo ausente")
 	state = base.duplicate(true)
-	state.resolution = Fixtures.resolution()
+	state.resolution = Sequences.reaction(state)
 	_reject(state, "p1", "accion_ilegal", "AC11 resolución pendiente no se salta")
 	for counter: int in [0, 1]:
 		state = base.duplicate(true)

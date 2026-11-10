@@ -1,6 +1,6 @@
 # T08.2e — Contrato técnico de secuencia reanudable
 
-Fecha: 2026-11-01. Estado: contrato documental R2 completado con revisión independiente favorable. Próxima implementación: T08.2f. Este documento especifica comportamiento futuro; no modifica el código, el snapshot v1 ni el motor vigente `p08-atium-1/godot-4.7.2`.
+Contrato documental R2 de 2026-11-01, revisado independientemente en T08.2e. Implementación T08.2f verificada y revisada favorablemente 2026-11-10, con esquema v2/motor `p08-sequence-1/godot-4.7.2`; [aceptación y evidencia](verification.md#t082f--implementación-de-secuencias-reanudables). Las secciones siguientes definen el comportamiento del núcleo técnico; no acreditan reglas de cartas ni una partida jugable.
 
 Entradas: [puertas de entrada a limpieza](entrada-a-limpieza.md), [contrato P07](../007-estado-y-acciones/plan.md), [motor](../../../scripts/game/game_engine.gd), [validador](../../../scripts/game/state_validator.gd) y [proyección](../../../scripts/game/game_projection.gd). No interpreta nuevas reglas. Se mantienen las fuentes y límites de T08.2d, DUD-004/005/006, material aplazado y cierre externo P04.
 
@@ -15,15 +15,17 @@ Entradas: [puertas de entrada a limpieza](entrada-a-limpieza.md), [contrato P07]
 
 ## Frontera de autoridad y registro cerrado
 
-El futuro `SequenceResolver` será un servicio RefCounted, sin escena, reloj ni red. Sólo código fiable de autoridad podrá iniciar una secuencia. El cliente nunca envía pasos, operaciones, contexto, cursores, resultados ni marcas de combate/efectos completados. Un manejador validado de una intención concreta determina qué programa necesita; no habrá una acción genérica de producto para ejecutar programas.
+`SequenceResolver` es un servicio RefCounted, sin escena, reloj ni red. Sólo código fiable de autoridad puede iniciar una secuencia. El cliente nunca envía pasos, operaciones, contexto, cursores, resultados ni marcas de combate/efectos completados. Un adaptador validado de una intención concreta determina qué programa necesita; no hay una acción genérica de producto para ejecutar programas.
 
 El registro inmutable se fija al crear el motor junto a las definiciones congeladas. Cada programa tiene `program_id` versionado, lista ordenada y finita de pasos, esquema exacto del contexto y operaciones con parámetros tipados. Cada operación dispone de un validador y ejecutor local. No hay evaluación de texto, rutas de scripts ni Callables en snapshots. La carga y el comienzo verifican **todos** los pasos y parámetros, incluso los posteriores a una pausa. Una operación ausente o incompatible rechaza la secuencia entera; nunca se omite silenciosamente ni se aproxima con otra.
 
+El subconjunto implementado admite funciones estáticas GDScript con metadatos de firma inspeccionables: aridad, tipos de argumentos y retorno compatibles, argumentos enlazados escalares y sin contenedores genéricos. Variant permite validación dinámica del resultado. Se rechazan mapas de commit tipados o de sólo lectura, antes de cargarlos o escribir revisión/recibo/cierre. El registro congela descriptores; el código fiable debe conservar semántica fija y no mutar estado externo. [Detalles de integración P07](../007-estado-y-acciones/plan.md#extensión-v2-de-t082f).
+
 Cambiar el registro o la semántica de un programa requiere nueva versión de motor. Un programa de pruebas no puede registrarse en el adaptador de producto. El primer registro será exclusivamente ficticio y vivirá en `tests/`; no habilita combate, Target, efectos de carta, finales, entrenamiento ni transición a limpieza. El cierre de este programa certifica únicamente la terminación de ese programa, nunca las obligaciones de T08.2d.
 
-## Forma propuesta del estado v2
+## Forma del estado v2
 
-La implementación cambiará `version_esquema` a **2** y `version_motor` a **p08-sequence-1/godot-4.7.2**. Son valores reservados para T08.2f; no se aplican a código ni datos ahora. No se migrarán snapshots anteriores de forma implícita, ni siquiera con `resolution=null`. Se mantiene versión de intención 1 porque su sobre y la respuesta conservan su forma; el adaptador futuro comprobará compatibilidad de motor antes de admitir clientes.
+T08.2f cambia `version_esquema` a **2** y `version_motor` a **p08-sequence-1/godot-4.7.2**. No se migran snapshots anteriores de forma implícita, ni siquiera con `resolution=null`. Se mantiene versión de intención 1 porque su sobre y la respuesta conservan su forma; el adaptador futuro comprobará compatibilidad de motor antes de admitir clientes.
 
 `resolution` será null o un objeto con claves exactas:
 
@@ -60,7 +62,7 @@ La integración P07 conservará intactas todas las entradas anteriores del ledge
 4. **Responder:** `submit(actor_id, intent)` conserva identidad separada. Payload exacto `{resolution_id, step_id, options}`; IDs coinciden con resolución y paso actuales, actor con único destinatario y opciones con los límites/IDs ofertados sin duplicados. El resolutor revalida las precondiciones dinámicas antes de aplicar la respuesta. Una reacción puede proceder de otra plaza que la activa si esa ventana la autoriza; no cambia el dueño del turno.
 5. **Cerrar:** al consumir el último paso, insertar el registro de cierre y poner resolution a null en **la misma transacción**. No se persiste un cursor al final ni se expone un token de cierre reutilizable al cliente. No hay API pública `finalizar_secuencia`. Un llamador posterior sólo puede consultar el cierre para el programa/ocurrencia exactos; no convertirlo en permiso genérico para limpiar o terminar el turno.
 
-P07 conserva el único commit de estado/revisión/recibo/RNG por intención aceptada. El servicio devuelve un resultado interno tipado (pausada/cerrada o error); el manejador lo traduce al contrato de cadenas existente y el resultado público sigue siendo `{ok,codigo,revision,...}` sin detalles de pasos. Errores del programa/precondiciones se traducen a `accion_ilegal`; respuesta inválida a `eleccion_invalida`; incompatibilidad/corrupción a `estado_invalido`. No introducir códigos privados en el resultado público ni crear recibos de rechazo.
+P07 conserva el único commit de estado/revisión/recibo/RNG por intención aceptada. El servicio devuelve un resultado interno tipado (pausada/cerrada o error); P07 lo traduce al contrato de códigos existente y el resultado público sigue siendo `{ok,codigo,revision,...}` sin detalles de pasos. Los adaptadores de inicio sólo proponen una solicitud desde copia aislada; P07 invoca el resolutor y controla el cierre. Los manejadores ordinarios conservan su contrato de cadenas. Errores del programa/precondiciones se traducen a `accion_ilegal`; respuesta inválida a `eleccion_invalida`; incompatibilidad/corrupción a `estado_invalido`. No introducir códigos privados en el resultado público ni crear recibos de rechazo.
 
 Una operación fallida revierte **todo el segmento desde la última intención aceptada**, incluidos pasos previos del mismo segmento, ventana, IDs, cierre, recibo y RNG. Un fallo tras una respuesta deja intacto el snapshot pausado previo y permite reintentar; no deshace efectos de segmentos ya confirmados antes de la pausa. Si un futuro efecto necesita atomicidad a través de varias respuestas, requerirá diseño explícito de reservas/commit; este contrato no la promete. No se deshacen elecciones ya confirmadas cargando un snapshot antiguo.
 
@@ -95,12 +97,12 @@ Cada ventana ficticia usa `max=1`; `min=1` por defecto y `min=0` sólo en el pro
 | SEQ-09: corrupción de ledger/contexto o sustitución de registro | Carga rechazada; activo/cerrado repetidos, revisión futura, referencia inexistente o contexto ajeno fallan; mutar una copia no modifica autoridad. Probar también manejadores deliberadamente defectuosos que borran/reescriben cierres o inventan uno: P07 rechaza el commit aunque el candidato sea estructuralmente válido, conservando estado/RNG/recibos. |
 | SEQ-10: límites y siete configuraciones | Cubrir competitivo/cooperativo 2/3/4 y solo 1; límites de pasos/opciones y desbordamiento contable/ledger/IDs; fallo atómico sin truncado. Reacción ajena sólo donde hay otra plaza. |
 
-Son casos planificados, **no ejecutados** en T08.2e. No acreditan combate, final de turno, turno rival ni P15. Los ocho escenarios reglamentarios de T08.2d siguen pendientes hasta disponer de sus resolutores.
+Son casos planificados, **no ejecutados** en la entrega documental T08.2e. Su ejecución en T08.2f se registra en [verification.md](verification.md#t082f--implementación-de-secuencias-reanudables). No acreditan combate, final de turno, turno rival ni P15. Los ocho escenarios reglamentarios de T08.2d siguen pendientes hasta disponer de sus resolutores.
 
-## Plan de implementación posterior y puertas
+## Plan de implementación y puertas
 
-T08.2f tendrá riesgo R2 y nueva revisión independiente. Un único propietario modificará validador/estado, motor/proyección, resolver, fixtures/tests y lanzador en una entrega coherente: primero forma v2 y validación de registro, después ejecución/ventanas/cierre, integración P07 y suites. Coordinador integra y actualiza memoria; no se paralelizan escritores de esos archivos. Actualizar SPEC-007 y preparación/fixtures a v2; ningún cambio de versión sin pruebas de rechazo del esquema anterior.
+T08.2f se ejecutó como entrega R2 con nueva revisión independiente: forma v2 y validación de registro, ejecución/ventanas/cierre, integración P07 y suites. Se mantuvo un único propietario de código en cada momento; el coordinador asumió las correcciones tras la interrupción e integró la memoria. SPEC-007, preparación y fixtures se actualizaron a v2, con pruebas de rechazo del esquema anterior. El traspaso conserva responsables, hallazgos y evidencia.
 
-Verificación prevista: nuevo `test-sequence` con SEQ-01–10 y regresiones `test-state`, `test-engine`, `test-setup`, `test-cycle`, `test-cleanup` y arranque. Godot 4.7.2, marcas finales/código cero y ningún SCRIPT ERROR; comprobar payloads y diffs. La implementación decidirá rutas concretas de tests/lanzador dentro de ese plan; el comando nuevo todavía no existe. No requiere captura ni red porque no integra UI/transporte; no sustituye esas puertas futuras.
+Verificación: `test-sequence` con SEQ-01–10 en `tests/sequence_test.gd` y regresiones `test-state`, `test-engine`, `test-setup`, `test-cycle`, `test-cleanup` y arranque. Godot 4.7.2, marcas finales/código cero y ningún SCRIPT ERROR; comprobar payloads y diffs. No requiere captura ni red porque no integra UI/transporte; no sustituye esas puertas futuras.
 
 Después del núcleo ficticio verificado, especificar resolutores reales por fuentes/contenido y sólo entonces habilitar obligaciones/transiciones de T08.2d. Un catálogo con cero definiciones verificadas y dudas aplazadas sigue sin permitir una partida real. P04, P07 y P08 conservan sus dependencias de cierre.

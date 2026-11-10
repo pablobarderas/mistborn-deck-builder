@@ -198,7 +198,7 @@ func _empty_state(match_id: String, mode: String, order: Array, seed: int) -> Di
 		"lifecycle": "en_curso", "players": [], "player_order": order,
 		"instances": {}, "zones": {}, "turn": {"number": 1, "active_id": order[0], "phase": "inicio", "counters": {}},
 		"missions": {}, "target_id": null, "rival": null, "resolution": null,
-		"authority": {"rng_seed": seed, "rng_state": seed, "next_id": 1, "receipts": {}}}
+		"authority": {"rng_seed": seed, "rng_state": seed, "next_id": 1, "receipts": {}, "completed_sequences": {}}}
 
 
 func _new_player(seat: Dictionary, character_id: String, track_id: String) -> Dictionary:

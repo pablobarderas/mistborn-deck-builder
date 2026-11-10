@@ -1,5 +1,21 @@
 # Plan de SPEC-007
 
+## Extensión v2 de T08.2f
+
+Implementada y verificada localmente 2026-11-10, revisión independiente favorable: el contrato vigente de la ampliación está en [secuencias reanudables](../008-preparacion-y-turnos/secuencia-reanudable.md), con aceptación AC-29–34 y [evidencia](../008-preparacion-y-turnos/verification.md#t082f--implementación-de-secuencias-reanudables). Usa esquema 2 y motor `p08-sequence-1/godot-4.7.2`, sin migración automática desde v1; conserva intención v1 y la contabilidad de Atium. Las versiones y formas v1 de las secciones inferiores documentan las entregas anteriores.
+
+`sequence_registry.gd` congela los descriptores de programas/operaciones locales y valida todos los pasos antes de admitir el estado. `sequence_resolver.gd` ejecuta sobre la copia transaccional hasta pausa o cierre. El registro de producción está vacío; los programas y operaciones ficticios viven sólo en tests. Cambiar su semántica requiere nueva versión de motor: el snapshot no contiene una huella criptográfica del código del registro.
+
+El registro admite sólo funciones estáticas GDScript con firmas inspeccionables: aridad, tipos de argumentos y retorno compatibles, sin contenedores genéricos; permite Variant y argumentos enlazados escalares del tipo declarado. Los Callables son código fiable de autoridad, no datos ni extensiones aportadas por clientes. Validadores, constructores de ventanas y cálculo de destinatarios deben ser puros; ejecutores sólo alteran la copia/RNG recibidos. Mantener semántica fija y evitar estado externo mutable en objetos o argumentos enlazados. La copia profunda congela descriptores, no clona el código ni aísla efectos externos de un Callable. Los fixtures usan funciones estáticas y argumentos enlazados escalares; no hay promesa de sandbox para código arbitrario.
+
+`GameEngine` recibe adicionalmente el registro de secuencias y adaptadores de inicio de autoridad. Un adaptador valida una intención concreta y propone el inicio desde una copia aislada; no recibe la copia que se publicará ni puede emitir un cierre. P07 invoca el resolutor, protege la resolución y el historial previo, y sella exclusivamente su cierre con la revisión aceptada. Los manejadores ordinarios conservan su firma de cuatro argumentos. No hay acción de producto para ejecutar un programa arbitrario ni para finalizarlo desde el cliente.
+
+Firma: `GameEngine.new(definitions, catalog_id, handlers={}, registry=null, starters={})`. El mismo objeto `SequenceRegistry` se puede pasar opcionalmente a `GameState`, `CardCycle`, `TurnCleanup` y al validador. Es necesario para validar snapshots que conservan cierres de ese registro, incluso con `resolution=null`; la omisión crea un registro vacío y rechaza programas desconocidos. Esto no autoriza una transición desde libre hasta limpieza.
+
+Una resolución persistida incluye programa, pasos exactos, contexto cerrado vinculado al turno y una ventana no nula. `authority.completed_sequences` conserva cierres únicos por ocurrencia junto con recibos, IDs y RNG. La proyección elimina el cursor público y entrega `step_id`/opciones/límites sólo al destinatario. Exportar y cargar conserva int64 mediante copias de Variant; no implementa archivos de guardado ni recuperación de red.
+
+## Antecedentes v1
+
 Ampliación de contrato en T08.2c: `persistent.atium` es el total exacto de fichas `metal=atium` de cada plaza, incluidas usadas hasta limpieza; no reserva adicional. Atium no agotado en el subconjunto sin Flaring. La nueva semántica usa motor `p08-atium-1/godot-4.7.2` con la misma forma de esquema v1 y rechazo de snapshots previos, sin migración. [Contrato y AC-15–18](../008-preparacion-y-turnos/spec.md#t082c--saldo-y-devolución-de-atium); [verificación de la ampliación](../008-preparacion-y-turnos/verification.md#t082c--saldo-y-devolución-de-atium). Las versiones citadas debajo son históricas.
 
 Diseño técnico con T07.1 y T07.2 implementadas y verificadas localmente; la fase P07 conserva dependencia de P04 externa. Se elige núcleo RefCounted tipado, con acceso mediante copias profundas, frente a reglas dentro de nodos de UI o RPC. No añade dependencias ni cambia Godot 4.7.2.

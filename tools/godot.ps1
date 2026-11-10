@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup')]
+    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence')]
     [string]$Action = 'run',
     [string]$GodotPath = $env:GODOT_BIN
 )
@@ -51,51 +51,55 @@ function Invoke-ProjectGodot {
         $ErrorActionPreference = $previousErrorPreference
     }
     $engineOutput | ForEach-Object { Write-Host $_ }
+    $engineText = ($engineOutput | ForEach-Object { [string]$_ }) -join "`n"
     if ($engineCode -ne 0) {
         throw "Godot fallo en '$LogName' con codigo $engineCode."
     }
-    if (($engineOutput | Out-String) -match '(?m)^SCRIPT ERROR:') {
+    if ($engineText -match '(?m)^SCRIPT ERROR:') {
         throw "Godot contiene errores de script en '$LogName', aunque su proceso haya devuelto codigo 0."
     }
-    if ($LogName -in @('import', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup') -and (($engineOutput | Out-String) -match '(?m)^(SCRIPT ERROR|ERROR):')) {
+    if ($LogName -in @('import', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence') -and ($engineText -match '(?m)^(SCRIPT ERROR|ERROR):')) {
         throw "La accion $LogName contiene errores. Revisa tmp/godot/$LogName.log."
     }
-    if ($LogName -eq 'test' -and ($engineOutput | Out-String) -notmatch 'P03_STARTUP_OK') {
+    if ($LogName -eq 'test' -and $engineText -notmatch 'P03_STARTUP_OK') {
         throw 'Las pruebas no alcanzaron su marca de finalizacion.'
     }
-    if ($LogName -eq 'preview' -and ($engineOutput | Out-String) -notmatch 'P03_PREVIEW_OK') {
+    if ($LogName -eq 'preview' -and $engineText -notmatch 'P03_PREVIEW_OK') {
         throw 'No se genero la previsualizacion.'
     }
-    if ($LogName -eq 'test-network' -and ($engineOutput | Out-String) -notmatch 'P04_NETWORK_OK') {
+    if ($LogName -eq 'test-network' -and $engineText -notmatch 'P04_NETWORK_OK') {
         throw 'La prueba de red no alcanzo su marca de finalizacion.'
     }
-    if ($LogName -eq 'preview-network' -and ($engineOutput | Out-String) -notmatch 'P04_PREVIEW_OK') {
+    if ($LogName -eq 'preview-network' -and $engineText -notmatch 'P04_PREVIEW_OK') {
         throw 'No se completo la captura de conexion.'
     }
-    if ($LogName -eq 'preview-board' -and ($engineOutput | Out-String) -notmatch 'P05_BOARD_OK') {
+    if ($LogName -eq 'preview-board' -and $engineText -notmatch 'P05_BOARD_OK') {
         throw 'No se completo la verificacion y captura del tablero.'
     }
-    if ($LogName -eq 'test-catalog' -and ($engineOutput | Out-String) -notmatch 'P06_CATALOG_OK') {
+    if ($LogName -eq 'test-catalog' -and $engineText -notmatch 'P06_CATALOG_OK') {
         throw 'No se completo la verificacion del contrato de catalogo.'
     }
-    if ($LogName -eq 'test-engine' -and ($engineOutput | Out-String) -notmatch 'P07_ENGINE_OK') {
+    if ($LogName -eq 'test-engine' -and $engineText -notmatch 'P07_ENGINE_OK') {
         throw 'No se completo la verificacion de acciones y privacidad.'
     }
-    if ($LogName -eq 'test-state' -and ($engineOutput | Out-String) -notmatch 'P07_STATE_OK') {
+    if ($LogName -eq 'test-state' -and $engineText -notmatch 'P07_STATE_OK') {
         throw 'No se completo la verificacion del estado de partida.'
     }
-    if ($LogName -eq 'test-setup' -and ($engineOutput | Out-String) -notmatch 'P08_SETUP_OK') {
+    if ($LogName -eq 'test-setup' -and $engineText -notmatch 'P08_SETUP_OK') {
         throw 'No se completo la verificacion de preparacion.'
     }
-    if ($LogName -eq 'test-cycle' -and ($engineOutput | Out-String) -notmatch 'P08_CYCLE_OK') {
+    if ($LogName -eq 'test-cycle' -and $engineText -notmatch 'P08_CYCLE_OK') {
         throw 'No se completo la verificacion del ciclo personal de cartas.'
     }
-    if ($LogName -eq 'test-cleanup' -and ($engineOutput | Out-String) -notmatch 'P08_CLEANUP_OK') {
+    if ($LogName -eq 'test-sequence' -and $engineText -notmatch 'P08_SEQUENCE_OK') {
+        throw 'La prueba de secuencias no alcanzo su marca de finalizacion.'
+    }
+    if ($LogName -eq 'test-cleanup' -and $engineText -notmatch 'P08_CLEANUP_OK') {
         throw 'No se completo la verificacion del cierre de limpieza.'
     }
 }
 
-if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup')) {
+if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence')) {
     Invoke-ProjectGodot -EngineArguments @('--headless', '--editor', '--import') -LogName 'import'
 }
 switch ($Action) {
@@ -112,6 +116,7 @@ switch ($Action) {
     'test-state' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/game_state_test.gd') -LogName 'test-state' }
     'test-setup' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/game_setup_test.gd') -LogName 'test-setup' }
     'test-cycle' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/card_cycle_test.gd') -LogName 'test-cycle' }
+    'test-sequence' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/sequence_test.gd') -LogName 'test-sequence' }
     'test-cleanup' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/turn_cleanup_test.gd') -LogName 'test-cleanup' }
     'test-catalog' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/catalog_test.gd') -LogName 'test-catalog' }
 }

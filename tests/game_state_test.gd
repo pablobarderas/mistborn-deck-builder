@@ -1,9 +1,11 @@
 extends SceneTree
 
 const State = preload("res://scripts/game/game_state.gd")
+const Sequences = preload("res://tests/sequence_fixtures.gd")
 const Validator = preload("res://scripts/game/state_validator.gd")
 const Fixtures = preload("res://tests/game_state_fixtures.gd")
 var checks: int = 0
+var _registry: Sequences.Registry = Sequences.Registry.new(Sequences.registration())
 var failures: int = 0
 var validator: RefCounted = Validator.new()
 
@@ -88,7 +90,7 @@ func _test_state() -> void:
 
 
 func _test_atium() -> void:
-	_expect(Validator.SCHEMA_VERSION == 1 and Validator.ENGINE_VERSION == "p08-atium-1/godot-4.7.2", "AC18 versión semántica nueva con esquema v1")
+	_expect(Validator.SCHEMA_VERSION == 2 and Validator.ENGINE_VERSION == "p08-sequence-1/godot-4.7.2", "AC30 versiones de estado y motor para secuencias")
 	for mode: String in ["competitivo", "cooperativo", "solitario"]:
 		var counts: Array = [1] if mode == "solitario" else [2, 3, 4]
 		for count: int in counts:
@@ -109,10 +111,10 @@ func _test_atium() -> void:
 		abundant.players[0].metals.append({"token_id": "atium_%d" % (index + 1), "metal": "atium", "exhausted": false, "used_this_turn": index % 2 == 0})
 	abundant.players[0].persistent.atium = 40
 	_expect(_validate(abundant).ok, "AC15 no impone suministro físico finito")
-	var state: RefCounted = State.new(Fixtures.definitions(), "test_catalog")
+	var state: RefCounted = State.new(Fixtures.definitions(), "test_catalog", _registry)
 	var base: Dictionary = Fixtures.snapshot()
 	_expect(state.try_load(base).ok, "AC18 carga versión nueva")
-	for version: String in ["p08-setup-1/godot-4.7.2", "p07-state-1/godot-4.7.2"]:
+	for version: String in ["p08-atium-1/godot-4.7.2", "p08-setup-1/godot-4.7.2", "p07-state-1/godot-4.7.2"]:
 		var old: Dictionary = base.duplicate(true)
 		old.version_motor = version
 		var before: Dictionary = old.duplicate(true)
@@ -124,7 +126,7 @@ func _test_atium() -> void:
 func _test_references() -> void:
 	var base: Dictionary = Fixtures.snapshot()
 	var cases: Array = [
-		[["version_esquema"], 2], [["version_esquema"], true], [["version_motor"], "other"],
+		[["version_esquema"], 1], [["version_esquema"], true], [["version_motor"], "other"],
 		[["catalog_id"], "other"], [["match_id"], ""], [["revision"], -1], [["lifecycle"], "inventada"],
 		[["instances", "c1", "instance_id"], "c2"], [["instances", "c1", "definition_id"], "missing"],
 		[["instances", "c1", "owner_id"], "p3"], [["instances", "c1", "owner_id"], null],
@@ -174,9 +176,13 @@ func _test_references() -> void:
 
 func _test_resolution() -> void:
 	var base: Dictionary = Fixtures.snapshot()
-	base.resolution = Fixtures.resolution()
+	base.lifecycle = "en_curso"
+	base.turn.active_id = "p1"
+	base.turn.number = 1
+	base.turn.phase = "libre"
+	base.resolution = Sequences.reaction(base)
 	_expect(_validate(base).ok, "Representa reacción de otra plaza sin inferir ventana reglamentaria.")
-	var state: RefCounted = State.new(Fixtures.definitions(), "test_catalog")
+	var state: RefCounted = State.new(Fixtures.definitions(), "test_catalog", _registry)
 	_expect(state.try_load(base).ok and state.get_snapshot().resolution == base.resolution, "Resolución pendiente conserva cursor/destinatarios.")
 	for item: Array in [
 		[["resolution", "source_id"], "missing"], [["resolution", "cursor"], 3],
@@ -194,7 +200,11 @@ func _test_bad_types() -> void:
 	_expect(not _validate([]).ok, "Raíz array rechazada.")
 	# Mutaciones recursivas de campos: el validador no debe lanzar SCRIPT ERROR.
 	var base: Dictionary = Fixtures.snapshot("cooperativo")
-	base.resolution = Fixtures.resolution()
+	base.lifecycle = "en_curso"
+	base.turn.active_id = "p1"
+	base.turn.number = 1
+	base.turn.phase = "libre"
+	base.resolution = Sequences.reaction(base)
 	var paths: Array[Array] = []
 	_collect(base, [], paths)
 	for path: Array in paths:
@@ -242,7 +252,7 @@ func _collect(value: Variant, path: Array, paths: Array[Array]) -> void:
 
 
 func _validate(document: Variant) -> Dictionary:
-	return validator.validate(document, Fixtures.definitions(), "test_catalog")
+	return validator.validate(document, Fixtures.definitions(), "test_catalog", _registry)
 
 
 func bad(base: Dictionary, path: Array, value: Variant) -> void:

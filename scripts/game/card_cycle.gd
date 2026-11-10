@@ -3,13 +3,16 @@ extends RefCounted
 ## No registra acciones de cliente, ejecuta efectos ni completa el turno.
 
 const Validator = preload("res://scripts/game/state_validator.gd")
+const Registry = preload("res://scripts/game/sequence_registry.gd")
+var _registry: Registry
 var _definitions: Dictionary
 var _catalog_id: String
 
 
-func _init(definitions: Dictionary, catalog_id: String) -> void:
+func _init(definitions: Dictionary, catalog_id: String, registry: Registry = null) -> void:
 	_definitions = definitions.duplicate(true)
 	_catalog_id = catalog_id
+	_registry = registry
 
 
 func draw(snapshot: Variant, player_id: Variant, count: Variant, rng: Variant) -> Dictionary:
@@ -89,7 +92,7 @@ func _check(snapshot: Variant, player_id: Variant) -> String:
 
 
 func _valid(snapshot: Variant) -> bool:
-	return Validator.new().validate(snapshot, _definitions, _catalog_id).ok
+	return Validator.new().validate(snapshot, _definitions, _catalog_id, _registry).ok
 
 
 func _personal_zones(snapshot: Dictionary, player_id: String) -> Dictionary:

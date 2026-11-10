@@ -35,16 +35,15 @@ func project(state: Dictionary, recipient_id: String) -> Dictionary:
 			"domination": state.rival.domination.duplicate(true), "adversaries": state.rival.adversaries.duplicate(true)}
 	var resolution: Variant = null
 	if state.resolution != null:
-		resolution = {"resolution_id": state.resolution.resolution_id, "cursor": state.resolution.cursor,
-			"recipients": state.resolution.recipients.duplicate(true)}
-		if state.resolution.pending != null:
-			var pending: Dictionary = state.resolution.pending
-			resolution["kind"] = pending.kind
-			resolution["pending_recipients"] = pending.recipients.duplicate(true)
-			if recipient_id in pending.recipients:
-				resolution["options"] = pending.options.duplicate(true)
-				resolution["min"] = pending.min
-				resolution["max"] = pending.max
+		var active: Dictionary = state.resolution
+		var pending: Dictionary = active.pending
+		resolution = {"resolution_id": active.resolution_id, "recipients": active.recipients.duplicate(),
+			"kind": pending.kind, "pending_recipients": pending.recipients.duplicate()}
+		if recipient_id in pending.recipients:
+			resolution["step_id"] = active.steps[active.cursor]
+			resolution["options"] = pending.options.duplicate()
+			resolution["min"] = pending.min
+			resolution["max"] = pending.max
 	return {"version_motor": state.version_motor, "catalog_id": state.catalog_id, "match_id": state.match_id, "mode": state.mode,
 		"revision": state.revision, "lifecycle": state.lifecycle, "player_order": state.player_order.duplicate(true),
 		"players": players, "zones": zones, "turn": {"number": state.turn.number,

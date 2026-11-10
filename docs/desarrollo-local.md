@@ -6,7 +6,7 @@
 - Renderizador Compatibility; pantalla de referencia 1280×800, ventana mínima provisional 1024×640. No son todavía los requisitos finales de hardware o accesibilidad.
 - PowerShell de Windows para el lanzador. No se necesitan paquetes de Python/Node ni un framework de tests.
 
-La ubicación portátil prevista es `.tools/godot/`, excluida de Git. Un clon no incluye el motor: descargar la [versión oficial](https://godotengine.org/download/archive/4.7.2-stable/), descomprimir allí los ejecutables estándar de Windows x86_64 o indicar su ruta con `-GodotPath`. En la sesión del 2026-10-29 se usa una instalación existente en Downloads con ese parámetro; `.tools/godot/` no existe en este clon. El lanzador rechaza una versión distinta; no sustituirla silenciosamente por una más reciente.
+La ubicación portátil prevista es `.tools/godot/`, excluida de Git y presente en este PC al verificar T08.2f el 2026-11-10. Un clon no incluye el motor: descargar la [versión oficial](https://godotengine.org/download/archive/4.7.2-stable/), descomprimir allí los ejecutables estándar de Windows x86_64 o indicar su ruta con `-GodotPath`. El lanzador rechaza una versión distinta; no sustituirla silenciosamente por una más reciente.
 
 ## Comandos
 
@@ -44,7 +44,7 @@ La acción `test` importa primero el proyecto y ejecuta `tests/startup_test.gd` 
 
 La captura requiere sesión gráfica y renderizador; queda en `tmp/screenshots/main-screen.png`. Logs por acción en `tmp/godot/`. Los archivos de entrada de las pruebas quedan en `tmp/test-fixtures/`. El lanzador crea `tmp/.gdignore` para no importar esos intermedios como recursos del juego.
 
-Godot crea sus datos normales de aplicación en el perfil de Windows. En un entorno de herramientas restringido puede requerir permiso de ejecución para escribir ahí; eso no es un fallo de las reglas del proyecto.
+Godot crea sus datos normales de aplicación en el perfil de Windows. En herramientas restringidas puede requerir permiso de ejecución para escribir ahí. En T08.2f, redirigir APPDATA a una carpeta temporal no resolvió `Safe save failed` durante importación; las pruebas finales usaron ejecución fuera del sandbox con el perfil normal, sin cambiar ajustes globales. El lanzador rechaza errores de importación o de script incluso con salida nativa cero y contempla la conversión de stderr a ErrorRecord en Windows PowerShell.
 
 Para revisar una copia limpia, copiar solo `.godot-version`, project.godot y las carpetas scripts, scenes, assets, data, tests y tools a una carpeta nueva sin `.godot/`; ejecutar `test` allí indicando la ruta absoluta del motor con `-GodotPath`.
 
@@ -66,13 +66,13 @@ Pasos para dos ventanas y futura prueba entre redes: [guía de conexión](prueba
 
 ## Estado estructural de P07
 
-`-Action test-state` importa y ejecuta tests/game_state_test.gd: exige P07_STATE_OK y rechaza ERROR/SCRIPT ERROR incluso con código 0. Actualmente son 1.741 comprobaciones tras añadir `training_track_id` en P08 (1.725 al cierre local de P07) sobre fixtures ficticios: siete configuraciones, referencias/zonas, rival, resoluciones pendientes, copias profundas y entradas malformadas. Un WARNING anunciado corresponde al rechazo esperado de un snapshot. No ejecuta reglas ni acciones, no abre una partida y no prueba privacidad de clientes. Logs en tmp/godot/test-state.log; contrato y evidencia en [SPEC-007](specs/007-estado-y-acciones/verification.md).
+`-Action test-state` importa y ejecuta tests/game_state_test.gd: exige P07_STATE_OK y rechaza ERROR/SCRIPT ERROR incluso con código 0. Actualmente son 2.004 comprobaciones tras T08.2f (1.725 al cierre local de P07) sobre fixtures ficticios: siete configuraciones, referencias/zonas, rival, resoluciones pendientes, copias profundas y entradas malformadas. Un WARNING anunciado corresponde al rechazo esperado de un snapshot. No ejecuta reglas ni acciones, no abre una partida y no prueba privacidad de clientes. Logs en tmp/godot/test-state.log; contrato y evidencia en [SPEC-007](specs/007-estado-y-acciones/verification.md).
 
 En este equipo (2026-10-28) el motor está en Descargas y se indica mediante -GodotPath; no se presupone que .tools/godot exista en todos los clones. La ruta local exacta se conserva solo en la evidencia, no se incrusta en el lanzador.
 
 ## Núcleo de acciones de P07
 
-`-Action test-engine` importa y ejecuta `tests/game_engine_test.gd`, exige `P07_ENGINE_OK` y rechaza ERROR/SCRIPT ERROR. Son 102 comprobaciones con manejadores ficticios: transacción atómica, revisiones, RNG reproducible, recibos, reintentos, resolución pausada, vistas propias/ajenas y entradas inválidas. Dos WARNING provienen de candidatos rechazados esperadamente. No hay aún acciones de cartas reales ni interfaz de partida. Evidencia y límites en [SPEC-007](specs/007-estado-y-acciones/verification.md).
+`-Action test-engine` importa y ejecuta `tests/game_engine_test.gd`, exige `P07_ENGINE_OK` y rechaza ERROR/SCRIPT ERROR. Son 102 comprobaciones con manejadores ficticios: transacción atómica, revisiones, RNG reproducible, recibos, reintentos, resolución pausada, vistas propias/ajenas y entradas inválidas. Los WARNING provienen de candidatos rechazados esperadamente. No hay aún acciones de cartas reales ni interfaz de partida. Evidencia y límites en [SPEC-007](specs/007-estado-y-acciones/verification.md).
 
 ## Preparación estructural de P08
 
@@ -80,4 +80,8 @@ En este equipo (2026-10-28) el motor está en Descargas y se indica mediante -Go
 
 ### Limpieza interna de turno (T08.2b)
 
-`-Action test-cleanup` ejecuta `tests/turn_cleanup_test.gd` y exige la marca `P08_CLEANUP_OK`. Es una API interna con fixtures ficticios; no ofrece un turno jugable. Parte de una fase limpieza autorizada y comprueba cierre atómico, guardias y entrega a inicio/rival; Atium usado y efectos aún no modelados se bloquean. [Contrato y evidencia](specs/008-preparacion-y-turnos/verification.md#t082b--cierre-interno-de-limpieza).
+`-Action test-cleanup` ejecuta `tests/turn_cleanup_test.gd` y exige la marca `P08_CLEANUP_OK`. Es una API interna con fixtures ficticios; no ofrece un turno jugable. Parte de una fase limpieza autorizada y comprueba cierre atómico, guardias y entrega a inicio/rival. T08.2c añade devolución de Atium usado; los efectos aún no modelados siguen bloqueados. [Contrato y evidencia](specs/008-preparacion-y-turnos/verification.md#t082b--cierre-interno-de-limpieza).
+
+### Secuencias reanudables (T08.2f)
+
+`-Action test-sequence` ejecuta `tests/sequence_test.gd` y exige `P08_SEQUENCE_OK`, código 0 y ausencia de errores de script. Comprueba registro cerrado, pausa/carga/respuesta, rollback, RNG, cierres únicos, reintentos, proyecciones y límites con programas ficticios. El estado usa esquema 2/motor `p08-sequence-1/godot-4.7.2`; rechaza snapshots previos sin migración. No implementa cartas oficiales ni un turno jugable. Resultados y comandos finales en [evidencia T08.2f](specs/008-preparacion-y-turnos/verification.md#t082f--implementación-de-secuencias-reanudables).

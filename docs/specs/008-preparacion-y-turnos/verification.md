@@ -1,5 +1,44 @@
 # Verificación de SPEC-008
 
+## T08.2f — Implementación de secuencias reanudables
+
+Publicación autorizada tras el cierre el 2026-11-10: «haz commit y push». Empaquetado R0 documentado en el registro de trabajo, sin cambios de código ni semántica respecto al dictamen final. El commit que contiene esta nota identifica la entrega; las referencias sin publicación inferiores son históricas. Comprobar índice, push y coincidencia remota al finalizar.
+
+2026-11-10. **Completada localmente**, AC-29–34 y SEQ-01–10, riesgo R2; revisión independiente favorable. Fetch y estado publicado comprobados al retomar y tras la interrupción en `7a9f25c8eee44364b09c624178d0fd9aaf57e35c`, igual a HEAD de main. Al comenzar sólo existían los tres documentos de planificación; la implementación nueva permanece sin commit/push.
+
+Resultado: [registro cerrado](../../../scripts/game/sequence_registry.gd), [resolutor](../../../scripts/game/sequence_resolver.gd), esquema 2/motor `p08-sequence-1/godot-4.7.2`, integración P07 y proyección por destinatario. Los adaptadores de inicio proponen desde copia aislada; P07 conserva autoridad sobre resolución, ledger, revisión y recibos. CardCycle/TurnCleanup aceptan el mismo registro para conservar cierres anteriores. No hay programas ni operaciones de cartas registrados en producto.
+
+| Criterio | Evidencia en tests/sequence_test.gd |
+| --- | --- |
+| AC-29 | SEQ-06/09/10: registro congelado, parámetros y contexto cerrados, operación desconocida o firma incompatible después de pausa rechazada antes de iniciar; 64/65 pasos y 16/17 opciones. |
+| AC-30 | SEQ-02/06/09: round-trip Variant int64 a motor nuevo, rechazo v1, cursor/ventana/contexto/ledger corruptos y registro incompatible sin sustituir estado. |
+| AC-31 | SEQ-01–04: orden/azar esperado, pausas sucesivas, reacción ajena, fallo antes y después de respuesta conserva snapshot completo de la última intención aceptada. |
+| AC-32 | SEQ-05/09/10: cierre y recibo únicos, repetición tras carga, ocurrencia consumida, manejadores que borran/reescriben/inventan cierres o congelan contenedores; overflow sin truncado. |
+| AC-33 | SEQ-07/08: identidad separada, respuestas inválidas, declinación explícita, vistas ajenas iguales pese a secretos distintos; respuesta construida sólo desde vista propia. |
+| AC-34 | SEQ-10: pausa/carga/respuesta en competitivo 2/3/4, cooperativo 2/3/4 y solo 1, reacción ajena donde existe otra plaza; suites siguientes y revisión final. |
+
+Comando reproducible desde la raíz: `powershell -NoProfile -ExecutionPolicy Bypass -File tools/godot.ps1 -Action <acción>`. Godot portátil 4.7.2.stable.official.ed1daf0bf. Ejecución final secuencial tras las correcciones, código 0 en las siete acciones, importaciones limpias y ningún SCRIPT ERROR:
+
+| Acción | Marca / comprobaciones |
+| --- | --- |
+| test-sequence | P08_SEQUENCE_OK / 253 |
+| test-state | P07_STATE_OK / 2.004 |
+| test-engine | P07_ENGINE_OK / 102 |
+| test-setup | P08_SETUP_OK / 147 |
+| test-cycle | P08_CYCLE_OK / 262 |
+| test-cleanup | P08_CLEANUP_OK / 527 |
+| test | P03_STARTUP_OK / 58 |
+
+Total: 3.353 comprobaciones. Los ocho ERROR de carga anunciados por arranque son casos negativos esperados; los WARNING de estado corresponden a rechazos deliberados. Logs locales ignorados `tmp/godot/<acción>.log` (`test.log` para arranque) y `final-<acción>-output.txt`; no viajan en otro clon, repetir comandos para reproducir. La ejecución restringida inicial produjo `Safe save failed` en importación incluso con APPDATA temporal: no se cuenta como verificación completa. Las ejecuciones finales usaron permiso de ejecución fuera del sandbox y perfil normal, sin alterar ajustes globales. El lanzador convierte cada ErrorRecord a texto antes de detectar errores; dos sondas nativas con stderr ERROR/SCRIPT ERROR y salida 0 se rechazaron con salida 1 (`launcher-error-probe-output.txt`, `launcher-script-error-probe-output.txt`).
+
+Comprobación documental final: 14 Markdown modificados, 160 enlaces locales y 40 anclas válidos; `git diff --check` correcto y ocho archivos nuevos revisados también para espacios/líneas finales, al no figurar en el diff de archivos seguidos. No se han alterado catálogo, escenas ni material escaneado.
+
+Revisión: `sequence_review` encontró aridad incompatible y diccionarios tipados en contenedores de commit; corregidos con regresiones. Tras límite de uso/interrupción, `sequence_review_final` reprodujo un callback de cinco argumentos con tipo Vector2 incompatible y detectó contenedores de sólo lectura y retornos incompatibles. El coordinador corrigió firmas completas y mutabilidad, añadió los casos y repitió suites. Dictamen final favorable tras inspeccionar diff, nuevas rutas, pruebas y logs finales; ningún hallazgo bloqueante restante. La sonda temporal del defecto previo no forma parte de la suite aprobada.
+
+Cumplimiento: plan/AC previos, propietario único por archivo, implementador Sol/high y revisores Sol/high aplicados por instrucciones; coordinador asumió código después de la interrupción. Cuatro delegaciones contando el implementador original interrumpido, su sustituto y los dos revisores; nunca más de dos simultáneos ni descendientes. Ninguna dispensa. No hay UI/transporte ni nueva interpretación reglamentaria, por lo que no aplican capturas, ensayo de red ni nuevo contraste de reglas a esta entrega. P04/P07/P08 conservan sus puertas abiertas.
+
+Traspaso: main/`7a9f25c`, cambios locales en scripts/game/, tests/, tools/godot.ps1 y documentación; nuevos módulos/fixtures/tests y sus UID incluidos en el árbol de trabajo. El permiso anterior de publicación se completó para el inventario, no se publica T08.2f. Siguiente objetivo: especificar el primer resolutor real de competitivo con fuentes y material verificado pertinente, antes de habilitar las puertas de T08.2d. No repetir el núcleo ficticio; no inferir combate, turno completo, catálogo oficial, guardado en disco o reconexión a partir de estas pruebas.
+
 ## T08.2e — Contrato de secuencia reanudable y recuperación remota
 
 Publicación autorizada posteriormente el 2026-11-01: «vale haz commit y push de estos cambios». Empaquetado R0 registrado en el registro de trabajo, conservando contrato/revisión R2 sin cambios semánticos. El commit que incorpora esta nota identifica T08.2e y SPEC-009 AC-09; comprobar HEAD remoto y árbol limpio al publicar. Las notas inferiores «sin commit/push» conservan el estado histórico anterior a este permiso, no una prohibición vigente para esta entrega. No autoriza publicaciones futuras.

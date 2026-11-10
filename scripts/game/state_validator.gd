@@ -1,8 +1,9 @@
 extends RefCounted
 ## Invariantes estructurales del snapshot privado. No aplica reglas ni efectos.
 
-const SCHEMA_VERSION: int = 1
-const ENGINE_VERSION: String = "p08-atium-1/godot-4.7.2"
+const Registry = preload("res://scripts/game/sequence_registry.gd")
+const SCHEMA_VERSION: int = 2
+const ENGINE_VERSION: String = "p08-sequence-1/godot-4.7.2"
 const METALS: Array[String] = ["peltre", "estano", "bronce", "cobre", "zinc", "laton", "hierro", "acero", "atium"]
 const PLAYER_ZONES: Array[String] = ["mano", "mazo", "descarte", "juego"]
 const SHARED_ZONES: Array[String] = ["mazo_mercado", "mercado", "eliminadas", "mazo_rival", "descarte_rival", "adversarios"]
@@ -18,15 +19,22 @@ var _instances: Dictionary = {}
 var _zones: Dictionary = {}
 
 
-func validate(document: Variant, definitions: Dictionary, catalog_id: String) -> Dictionary:
+func validate(document: Variant, definitions: Dictionary, catalog_id: String, registry: Registry = null) -> Dictionary:
 	_errors.clear()
 	_remaining_nodes = MAX_NODES
 	_players = {}
 	_definitions = definitions
 	_instances = {}
 	_zones = {}
+	if registry == null:
+		registry = Registry.new()
+	if not registry.is_valid():
+		_error("registro", "registro de secuencias incompatible")
+		return _result()
 	if not _plain(document, 0):
 		_error("$", "datos no serializables o límite técnico excedido")
+		return _result()
+	if not _writable_map(document, "$"):
 		return _result()
 	if not _shape(document, ["version_esquema", "version_motor", "catalog_id", "match_id", "mode", "revision", "lifecycle", "players", "player_order", "instances", "zones", "turn", "missions", "target_id", "rival", "resolution", "authority"], "$"):
 		return _result()
@@ -70,8 +78,9 @@ func validate(document: Variant, definitions: Dictionary, catalog_id: String) ->
 		if document.mode != "competitivo" or _players.size() < 3:
 			_error("target_id", "Target no aplicable a esta configuración")
 	_validate_rival(document.rival, document.mode)
-	_validate_resolution(document.resolution)
 	_validate_authority(document.authority, document.revision)
+	if _errors.is_empty():
+		_validate_sequences(document, registry)
 	return _result()
 
 
@@ -275,54 +284,70 @@ func _validate_rival(value: Variant, mode: Variant) -> void:
 				_error("rival.adversaries", "adversario sin estado")
 
 
-func _validate_resolution(value: Variant) -> void:
-	if value == null:
+func _validate_sequences(document: Dictionary, registry: Registry) -> void:
+	var active: Variant = document.resolution
+	var ledger: Dictionary = document.authority.completed_sequences
+	var occurrences: Dictionary = {}
+	for resolution_id: Variant in ledger:
+		var closed: Variant = ledger[resolution_id]
+		if not _shape(closed, ["program_id", "occurrence_id", "owner_id", "turn_number", "revision_aplicada"], "authority.completed_sequences.entry"):
+			continue
+		if not Registry.allocated_id(resolution_id, document.authority.next_id):
+			_error("authority.completed_sequences.key", "identidad no asignada")
+		if not registry.has_program(closed.program_id):
+			_error("authority.completed_sequences.program_id", "programa no disponible")
+		_player_ref(closed.owner_id, "authority.completed_sequences.owner_id")
+		if _number(closed.turn_number, "authority.completed_sequences.turn_number") and (closed.turn_number == 0 or closed.turn_number > document.turn.number):
+			_error("authority.completed_sequences.turn_number", "turno imposible")
+		if _number(closed.revision_aplicada, "authority.completed_sequences.revision_aplicada") and (closed.revision_aplicada == 0 or closed.revision_aplicada > document.revision):
+			_error("authority.completed_sequences.revision_aplicada", "revisión imposible")
+		if _id(closed.occurrence_id, "authority.completed_sequences.occurrence_id"):
+			if occurrences.has(closed.occurrence_id):
+				_error("authority.completed_sequences.occurrence_id", "ocurrencia duplicada")
+			occurrences[closed.occurrence_id] = true
+	if active == null or not _shape(active, ["resolution_id", "program_id", "source_id", "steps", "cursor", "context", "recipients", "pending"], "resolution"):
 		return
-	if not _shape(value, ["resolution_id", "source_id", "steps", "cursor", "recipients", "pending"], "resolution"):
+	if not Registry.allocated_id(active.resolution_id, document.authority.next_id) or ledger.has(active.resolution_id):
+		_error("resolution.resolution_id", "identidad no asignada o ya cerrada")
+	if not registry.has_program(active.program_id):
+		_error("resolution.program_id", "programa no disponible")
 		return
-	_id(value.resolution_id, "resolution.resolution_id")
-	if value.source_id != null and not _instances.has(value.source_id) and not _definitions.has(value.source_id):
-		_error("resolution.source_id", "origen inexistente")
-	if _array(value.steps, "resolution.steps"):
-		_unique_ids(value.steps, "resolution.steps")
-		if _number(value.cursor, "resolution.cursor") and value.cursor >= value.steps.size():
-			_error("resolution.cursor", "cursor fuera de pasos pendientes")
-	if _array(value.recipients, "resolution.recipients"):
-		_player_list(value.recipients, "resolution.recipients")
-	if value.pending == null:
+	if not active.steps is Array or active.steps != registry.step_ids(active.program_id):
+		_error("resolution.steps", "pasos incompatibles con el programa")
 		return
-	if not _shape(value.pending, ["kind", "recipients", "options", "min", "max"], "resolution.pending"):
+	if not _number(active.cursor, "resolution.cursor"):
 		return
-	var pending: Dictionary = value.pending
-	_enum(pending.kind, ["eleccion", "reaccion"], "resolution.pending.kind")
-	if _array(pending.recipients, "resolution.pending.recipients"):
-		_player_list(pending.recipients, "resolution.pending.recipients")
-		if pending.recipients.is_empty():
-			_error("resolution.pending.recipients", "sin destinatarios")
-		for player_id: Variant in pending.recipients:
-			if value.recipients is Array and not player_id in value.recipients:
-				_error("resolution.pending.recipients", "destinatario fuera de resolución")
-	if _array(pending.options, "resolution.pending.options"):
-		_unique_ids(pending.options, "resolution.pending.options")
-		if _number(pending.min, "resolution.pending.min") and _number(pending.max, "resolution.pending.max"):
-			if pending.min > pending.max or pending.max > pending.options.size() or pending.max == 0:
-				_error("resolution.pending", "límites de elección inválidos")
+	if active.cursor >= active.steps.size():
+		_error("resolution.cursor", "cursor fuera de pasos pendientes")
+		return
+	if not registry.valid_binding(document, active, _definitions):
+		_error("resolution.context", "origen, contexto o destinatarios incompatibles")
+		return
+	if occurrences.has(active.context.occurrence_id):
+		_error("resolution.context.occurrence_id", "ocurrencia ya cerrada")
+	var step: Dictionary = registry.get_step(active.program_id, active.cursor)
+	if not registry.is_window(step) or not registry.valid_pending(active.pending, active.recipients) \
+		or active.pending != registry.offer(step, document, active.context):
+		_error("resolution.pending", "ventana incompatible con el paso actual")
 
 
 func _validate_authority(value: Variant, revision: Variant) -> void:
-	if not _shape(value, ["rng_seed", "rng_state", "next_id", "receipts"], "authority"):
+	if not _shape(value, ["rng_seed", "rng_state", "next_id", "receipts", "completed_sequences"], "authority"):
+		return
+	if not _writable_map(value, "authority"):
 		return
 	# Estado RNG admite int64 con signo (Godot); no se convierte a float/JSON.
 	for field: String in ["rng_seed", "rng_state"]:
 		if typeof(value[field]) != TYPE_INT:
 			_error("authority." + field, "se requiere int64")
 	_number(value.next_id, "authority.next_id")
-	if not _map(value.receipts, "authority.receipts"):
+	_writable_map(value.completed_sequences, "authority.completed_sequences")
+	if not _writable_map(value.receipts, "authority.receipts"):
 		return
 	for player_id: Variant in value.receipts:
 		_player_ref(player_id, "authority.receipts.player_id")
 		var per_player: Variant = value.receipts[player_id]
-		if not _map(per_player, "authority.receipts.actions"):
+		if not _writable_map(per_player, "authority.receipts.actions"):
 			continue
 		for action_id: Variant in per_player:
 			_id(action_id, "authority.receipts.action_id")
@@ -442,6 +467,15 @@ func _map(value: Variant, at: String) -> bool:
 		return true
 	_error(at, "se requiere objeto")
 	return false
+
+
+func _writable_map(value: Variant, at: String) -> bool:
+	if not _map(value, at):
+		return false
+	if value.is_typed() or value.is_read_only():
+		_error(at, "se requiere objeto mutable sin restricciones de tipos internas")
+		return false
+	return true
 
 
 func _array(value: Variant, at: String) -> bool:

@@ -78,7 +78,7 @@ La autoridad elegida debería validar identidad, turno, recursos y legalidad de 
 
 ## Núcleo local de P07 implementado
 
-[Contrato futuro de secuencias T08.2e](specs/008-preparacion-y-turnos/secuencia-reanudable.md): registro cerrado, ejecución hasta ventana/cierre, contexto privado y evidencia persistida de cierre. Propone esquema v2 para T08.2f; aún no implementado. El esquema ejecutable continúa v1, motor `p08-atium-1/godot-4.7.2`; no hay transición de combate a limpieza.
+[Contrato de secuencias T08.2e/f](specs/008-preparacion-y-turnos/secuencia-reanudable.md): registro cerrado, ejecución hasta ventana/cierre, contexto privado y registro persistido de cierre por ocurrencia. T08.2f añade esquema v2 y motor `p08-sequence-1/godot-4.7.2`, sin migración de snapshots anteriores; implementación verificada y revisión independiente favorable. P07 controla el cierre y conserva historial/recibos/RNG atómicamente. Sólo el destinatario recibe el paso y opciones de la ventana; el cursor permanece privado. Los programas y operaciones concretos viven exclusivamente en tests; no hay transición de combate a limpieza. [API y compatibilidad](specs/007-estado-y-acciones/plan.md#extensión-v2-de-t082f).
 
 [SPEC-007](specs/007-estado-y-acciones/spec.md) y su [plan](specs/007-estado-y-acciones/plan.md) definen núcleo independiente de escenas/transporte: estado privado completo, instancias separadas del catálogo, invariantes, transacciones sobre copia, RNG propio y recibos por plaza estable. Las proyecciones se construirán por lista permitida; eventos, errores y recibos tampoco expondrán secretos. Zonas de visibilidad pendiente usan una restricción técnica provisional explícita.
 

@@ -1,9 +1,11 @@
 extends SceneTree
 
 const GameCore = preload("res://scripts/game/game_engine.gd")
+const Sequences = preload("res://tests/sequence_fixtures.gd")
 const Fixtures = preload("res://tests/game_state_fixtures.gd")
 const Handlers = preload("res://tests/game_engine_handlers.gd")
 var checks: int = 0
+var _registry: Sequences.Registry = Sequences.Registry.new(Sequences.registration())
 var failures: int = 0
 
 
@@ -28,13 +30,14 @@ func _prepared(mode: String = "competitivo") -> Dictionary:
 	var state: Dictionary = Fixtures.snapshot(mode)
 	state.lifecycle = "en_curso"
 	state.turn.active_id = "p1"
+	state.turn.number = 1
 	state.turn.phase = "libre"
 	return state
 
 
 func _engine(state: Dictionary, handlers: Dictionary = {}) -> RefCounted:
 	var registry: Dictionary = Handlers.registry() if handlers.is_empty() else handlers
-	var engine: RefCounted = GameCore.new(Fixtures.definitions(), "test_catalog", registry)
+	var engine: RefCounted = GameCore.new(Fixtures.definitions(), "test_catalog", registry, _registry)
 	_expect(engine.load_authority_snapshot(state).ok, "Fixture aceptado")
 	return engine
 
@@ -136,39 +139,39 @@ func _test_rng() -> void:
 
 func _test_resolution() -> void:
 	var fixture: Dictionary = _prepared()
-	fixture.resolution = Fixtures.resolution()
+	fixture.resolution = Sequences.reaction(fixture)
 	var engine: RefCounted = _engine(fixture)
-	var response: Dictionary = _action("answer", "responder", 0, {"resolution_id": "r1", "step_id": "choose", "options": ["accept"]})
+	var response: Dictionary = _action("answer", "responder", 0, {"resolution_id": "resolution_1", "step_id": "choose", "options": ["accept"]})
 	_reject(engine, "p1", response, "eleccion_invalida")
 	_reject(engine, "p2", _action("blocked", "test_spend", 0, {"amount": 1}), "accion_ilegal")
 	for payload: Dictionary in [
 		{"resolution_id": "wrong", "step_id": "choose", "options": ["accept"]},
-		{"resolution_id": "r1", "step_id": "wrong", "options": ["accept"]},
-		{"resolution_id": "r1", "step_id": "choose", "options": ["unknown"]},
-		{"resolution_id": "r1", "step_id": "choose", "options": ["accept", "accept"]},
+		{"resolution_id": "resolution_1", "step_id": "wrong", "options": ["accept"]},
+		{"resolution_id": "resolution_1", "step_id": "choose", "options": ["unknown"]},
+		{"resolution_id": "resolution_1", "step_id": "choose", "options": ["accept", "accept"]},
 		{"resolution_id": true, "step_id": "choose", "options": []},
-		{"resolution_id": "r1", "step_id": 1, "options": []},
-		{"resolution_id": "r1", "step_id": "choose", "options": [] , "state": {}}
+		{"resolution_id": "resolution_1", "step_id": 1, "options": []},
+		{"resolution_id": "resolution_1", "step_id": "choose", "options": [] , "state": {}}
 	]:
 		_reject(engine, "p2", _action("invalid", "responder", 0, payload), "eleccion_invalida")
 	var before: Dictionary = engine.get_authority_snapshot()
 	var accepted: Dictionary = engine.submit("p2", response)
 	_expect(accepted.ok and accepted.revision == 1, "Respuesta fuera del turno activo admitida")
 	var after: Dictionary = engine.get_authority_snapshot()
-	_expect(after.resolution.cursor == 2 and after.resolution.pending == null and after.players[1].health == before.players[1].health + 1, "Continuación ficticia conserva paso y efecto del handler")
-	_reject(engine, "p2", _action("late", "responder", 1, response.payload), "eleccion_invalida")
+	_expect(after.resolution == null and after.players[1].turn_resources.recursos == before.players[1].turn_resources.recursos + 1 and after.authority.completed_sequences.has("resolution_1"), "Continuación ficticia aplica respuesta, paso final y cierre")
+	_reject(engine, "p2", _action("late", "responder", 1, response.payload), "accion_ilegal")
 	var restored: RefCounted = _engine(before)
 	_expect(restored.submit("p2", response) == accepted and restored.get_authority_snapshot() == after, "Resolución pausada reanudable tras snapshot")
 
 
 func _test_projection() -> void:
 	var fixture: Dictionary = _prepared("cooperativo")
-	fixture.resolution = Fixtures.resolution()
+	fixture.resolution = Sequences.reaction(fixture)
 	fixture.zones.p1_mazo.cards.clear()
 	fixture.zones.p1_descarte.cards.append("c2")
 	var definitions: Dictionary = Fixtures.definitions()
 	definitions["test_action_alt"] = {"id": "test_action_alt", "tipo": "accion"}
-	var engine: RefCounted = GameCore.new(definitions, "test_catalog", Handlers.registry())
+	var engine: RefCounted = GameCore.new(definitions, "test_catalog", Handlers.registry(), _registry)
 	_expect(engine.load_authority_snapshot(fixture).ok, "Proyección con descarte y rival")
 	var own: Dictionary = engine.get_view("p1")
 	var other: Dictionary = engine.get_view("p2")
@@ -183,7 +186,7 @@ func _test_projection() -> void:
 	_expect(engine.get_view("p9").is_empty(), "Destinatario desconocido sin vista")
 	var changed: Dictionary = fixture.duplicate(true)
 	changed.instances.c1.definition_id = "test_action_alt"
-	var secret_engine: RefCounted = GameCore.new(definitions, "test_catalog", Handlers.registry())
+	var secret_engine: RefCounted = GameCore.new(definitions, "test_catalog", Handlers.registry(), _registry)
 	_expect(secret_engine.load_authority_snapshot(changed).ok, "Variante de secreto válida")
 	_expect(secret_engine.get_view("p2") == other and secret_engine.get_view("p1") != own, "Cambiar carta oculta no altera vista ajena")
 	var attempted: Dictionary = engine.get_view("p1")
