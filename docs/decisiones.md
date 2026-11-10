@@ -206,6 +206,12 @@ Actualización 2026-11-10: diseño implementado en T08.2f, esquema 2/motor `p08-
 - Alcance: cooperativo y solitario siguen comprometidos; se aplazan, no se eliminan. Los criterios de cierre que exigen esos modos continúan pendientes hasta implementarlos y verificarlos. Esta prioridad no habilita combate sin reglas/efectos ni sustituye las dependencias técnicas existentes.
 - Capturas actuales: completar los entrenamientos de los otros tres personajes y las pistas/paneles necesarios para competitivo. El usuario confirma que Financiación tiene seis copias idénticas por personaje al inicio; basta el diseño escaneado para representar las 24 cartas. Esta confirmación no incorpora ni verifica automáticamente el catálogo.
 
+## DEC-028 — Funding como primer programa reglamentario competitivo
+
+- Fecha: 2026-11-11. Estado: diseño técnico T08.2g completado documentalmente y revisado independientemente; implementación T08.2h pendiente. No es una nueva preferencia humana ni una regla casera.
+- Elección: programa cerrado de juego Funding con movimiento mano→juego y aplicación u omisión explícita de su moneda según SRC-001 p.11 y SRC-002 Action cards. Usa reserva del turno, nunca Boxings. Motivo: primera regla de carta compatible con T08.2f, sin ampliar fases/terminales antes del contrato de combate.
+- Consecuencias: [contrato, contenido soportado y escenarios](specs/008-preparacion-y-turnos/primer-resolutor-competitivo.md). Sólo competitivo 2–4 en esta implementación; conserva cooperativo/solo como alcance posterior y DEC-027. Descriptores completos y perfil cerrado de autoridad; fixtures no verifican catálogo español. El futuro cambio semántico versionará motor, sin migración implícita. No autoriza entrada a limpieza ni apertura de libre.
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.

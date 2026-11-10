@@ -1,5 +1,19 @@
 # Plan de SPEC-008
 
+## T08.2g/h — Contrato e implementación de Funding
+
+T08.2g entrega únicamente el [contrato](primer-resolutor-competitivo.md), AC-35–38, tras inspeccionar P07/T08.2f y contrastar SRC-001/002. Riesgo R2; coordinador autor documental, `resolver_rules` sdd_rules Sol/high en lectura y revisión final independiente sdd_reviewer Sol/high. Registro previo en tasks.md; ninguna dispensa. Escaneos del otro PC ausentes aquí: la regla inglesa del PDF puede especificarse, pero no se incorpora ni verifica su localización española.
+
+Plan de T08.2h (pendiente, no ejecutado):
+
+1. Revisar contrato y concretar perfil cerrado de contenido inerte de prueba más Funding; comprobar descriptores completos y condiciones dinámicas admitidas. Crear definición de prueba trazada a REG-027/069/070/075, sin modificar las muestras de producto ni atribuir fidelidad al catálogo completo.
+2. Un propietario implementará `scripts/game/funding_play.gd` y su UID: fábrica/validador de perfil, adaptador `jugar_funding` y registro `funding_play_v1` con callback estático. Un paso atómico mueve mano→juego y aplica +1/+0 según elección. IDs derivados de autoridad, sin nueva operación genérica accesible al jugador. Alternativa descartada: empezar por combate exigiría ampliar terminales, reacciones y fase antes de verificar una primera regla de carta.
+3. Añadir `tests/funding_play_test.gd` y fixture de perfil bajo tests, sus UID y acción `test-funding` en `tools/godot.ps1`. Versionar motor a `p08-funding-1/godot-4.7.2` en validador y fixtures pertinentes, conservando esquema 2 y sin migración automática. No alterar las protecciones de P07. Todos estos archivos tendrán un único propietario; coordinador documentación y ejecución serial de Godot.
+4. Verificar FUND-01–08, incluido aplicar/omitir, instancias distintas, rechazos sin mutación, recibos/carga, overflow y perfil desconocido. Prueba aislada en `libre` explícita: no afirmar que el constructor de preparación llega allí. Ejecutar `test-funding` y regresiones `test-sequence`, `test-state`, `test-engine`, `test-setup`, `test-cycle`, `test-cleanup`, `test-catalog` y `test`, secuencialmente con el lanzador documentado. Revisar marcas, código 0 y ausencia de SCRIPT ERROR.
+5. Revisión independiente R2 del diff final y evidencia; corregir hallazgos y actualizar memoria una vez. Sin cambios de UI/transporte, no corresponden capturas o pruebas nuevas de red. No cerrar P04/P07/P08 ni declarar cartas españolas verificadas por pasar fixtures.
+
+Compatibilidad: la fábrica debe conservar copias de los descriptores, validar la identidad del catálogo/perfil al cargar y usar sólo enlaces escalares en callbacks del registro. El cliente únicamente elige instancia y booleano; el origen de efectos/cantidades pertenece a autoridad. Perfil desconocido o no soportado bloquea; nunca se descartan habilidades adicionales por conveniencia.
+
 ## Encargo 2026-11-09 — T08.2f, implementación de secuencias
 
 Cierre 2026-11-10: implementación, 253 comprobaciones de secuencia y regresiones (3.353 en total), revisión independiente final favorable de sequence_review_final. Coordinador completó las correcciones tras la interrupción y ejecutó las siete suites en serie con importación limpia. [Evidencia y traspaso](verification.md#t082f--implementación-de-secuencias-reanudables); ninguna dispensa, sin commit/push. Las notas de reanudación siguientes son históricas.

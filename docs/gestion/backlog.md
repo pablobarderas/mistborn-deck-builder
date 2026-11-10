@@ -125,6 +125,8 @@ Documentos y plantillas se incluyen en la entrega inicial autorizada para commit
 
 ## Refinamiento P08
 
+T08.2g, [contrato del primer resolutor competitivo](../specs/008-preparacion-y-turnos/primer-resolutor-competitivo.md), AC-35–38, R2: completada documentalmente con revisión independiente favorable (2026-11-11). Funding desde mano con elección aplicar/omitir; contraste de reglas y plan registrados en SPEC-008. T08.2h pendiente: implementación del perfil cerrado y FUND-01–08. Sin issues publicadas; no incorpora catálogo español ni completa turno/combate. [Evidencia y traspaso](../specs/008-preparacion-y-turnos/verification.md#t082g--contrato-del-primer-resolutor-competitivo).
+
 T08.2c completada localmente, revisión independiente favorable (2026-10-30): contrato de saldo total igual a fichas y devolución atómica del Atium usado, [AC-15–18](../specs/008-preparacion-y-turnos/spec.md#t082c--saldo-y-devolución-de-atium). Reemplaza el pendiente contable descrito abajo; entrenamiento, combate/efectos, rival y DUD-006 siguen abiertos. Sin issue publicada.
 
 [SPEC-008](../specs/008-preparacion-y-turnos/spec.md) divide T08.1 en preparación estructural (T08.1a) y entrenamiento/arranque de turno (T08.1b). T08.1a completada localmente con 147 comprobaciones; [evidencia](../specs/008-preparacion-y-turnos/verification.md). T08.2a implementa ciclo personal de cartas (262 comprobaciones); T08.2b añade cierre interno de limpieza a inicio/rival (334 comprobaciones, revisión favorable); T08.2 sigue abierto por combate/efectos, entrenamiento y DUD-006; Atium usado se cubre en T08.2c. T08.3 sigue pendiente. La fase no se cierra con el constructor porque no hay catálogo verificado, reglas de turno completas ni partida jugable.

@@ -1,5 +1,9 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.2g — Primer resolutor competitivo
+
+[Contrato Funding](primer-resolutor-competitivo.md), AC-35–38 y escenarios futuros FUND-01–08: juego desde mano, elección aplicar/omitir, reserva del turno, autoridad y cierre único. Entrega documental; implementación T08.2h pendiente. No incorpora catálogo oficial ni abre fases.
+
 ## T08.2f — Implementación interna de secuencias reanudables
 
 Encargo 2026-11-09. Contrato normativo: [secuencia reanudable](secuencia-reanudable.md); los criterios siguientes llevan ese diseño a código, sin añadir reglas reales.

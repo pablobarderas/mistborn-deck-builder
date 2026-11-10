@@ -1,5 +1,16 @@
 # Registro de trabajo
 
+## 2026-11-11 — Publicación de T08.2g
+
+- Autorización humana: «haz commit y push y vamos con el siguiente paso». Empaquetado R0: publicar los diez Markdown revisados, comprobar diff/índice y coincidencia remota; coordinador responsable, sin dispensas. No cambia semántica ni requiere repetir la revisión R2.
+- Fetch confirma main/HEAD/origin/main `2fdc4c3`, sin divergencia ni cambios ajenos. El commit que incorpora esta nota identifica la entrega; las referencias sin publicación inferiores son históricas. Después se continúa T08.2h en esta sesión por petición expresa, sin extender el permiso de publicación a código futuro.
+
+## 2026-11-11 — T08.2g, primer resolutor competitivo
+
+- Encargo «vamos con el siguiente paso»; fetch y estado publicado contrastados en main/HEAD/origin/main `2fdc4c3`, árbol inicialmente limpio. El siguiente objetivo publicado era especificar el primer resolutor real competitivo.
+- Registro previo R2 y contraste sdd_rules Sol/high: Funding, moneda del turno y elección de omisión según FAQ. Contrato AC-35–38, plan T08.2h y escenarios futuros FUND-01–08; perfil cerrado, atomicidad, ocurrencias y privacidad. No cambia catálogo/motor ni se ejecuta Godot.
+- Revisión independiente favorable, 126 enlaces locales/31 anclas y diff correctos; evidencia y cierre se mantienen en [traspaso T08.2g](specs/008-preparacion-y-turnos/verification.md#t082g--contrato-del-primer-resolutor-competitivo). Sin dispensas ni commit/push. Continúan pendientes entrenamiento, contenido español verificado, combate y fases completas.
+
 ## 2026-11-10 — Publicación de T08.2f
 
 - Autorización explícita posterior al cierre: «haz commit y push». Objetivo/AC: publicar la entrega revisada completa en main, comprobar el índice y verificar coincidencia con GitHub y árbol limpio después del push.

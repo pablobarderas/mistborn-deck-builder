@@ -1,6 +1,6 @@
 # Plan de trabajo por fases
 
-Última revisión: 2026-11-10. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba y preparación estructural P08; efectos, turnos completos y partidas siguen sin implementar.
+Última revisión: 2026-11-11. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba y preparación estructural P08; efectos, turnos completos y partidas siguen sin implementar.
 
 ## Objetivo y situación
 
@@ -11,6 +11,8 @@ Acceso confirmado: salas privadas sin cuentas y capacidad de reconectarse a la m
 SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edición/1.ª impresión. El usuario tiene la caja española; falta contrastar localización y completar cartas/pistas. Windows es la plataforma inicial confirmada; la maqueta 2D de P05 se acepta como dirección visual inicial.
 
 ## Cómo avanzar
+
+- Actualización 2026-11-11: T08.2g especifica [Funding como primer resolutor competitivo](specs/008-preparacion-y-turnos/primer-resolutor-competitivo.md), con elección aplicar/omitir y perfil cerrado. Contrato documental completado con revisión independiente favorable; sigue T08.2h para implementar y ejecutar FUND-01–08 con contenido de prueba explícito. No abre `libre` ni combate/limpieza; incorporación del catálogo español sigue separada y pendiente. [Traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t082g--contrato-del-primer-resolutor-competitivo).
 
 - Captura actualizada 2026-11-09 tras revisar el lote: [65/65 diseños de mercado](referencias/auditoria-escaneos-2026-11-09.md), cobertura completa tras revisar Tirón de hierro; siguiente trabajo de material: recortar y revisar datos para su incorporación. Entrenamientos y panel ya recibidos, pendientes de revisión detallada e incorporación. Este es el siguiente paso de material; T08.2f del motor ya está verificada localmente.
 
