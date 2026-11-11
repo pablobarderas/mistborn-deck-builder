@@ -127,6 +127,8 @@ Documentos y plantillas se incluyen en la entrega inicial autorizada para commit
 
 ## Refinamiento P08
 
+T08.1b1: [contrato del avance de entrenamiento competitivo](../specs/008-preparacion-y-turnos/avance-entrenamiento.md), R2 documental, ENT-AC-01 a 04. Sigue T08.1b2 para implementar y probar un paso interno con fuente SRC-004. La apertura de `libre` conserva su puerta de integración. Sin issue publicada.
+
 T08.1b dispone de [originales y lectura del panel competitivo](../referencias/entrenamiento-competitivo.md). Siguiente trabajo: especificar el avance y sus recompensas con SRC-001/002/004 y pruebas de frontera. La disponibilidad del material no acredita implementación ni cierre de la fase.
 
 T08.2h: implementación local de Funding completada, revisión independiente favorable y 3.778 comprobaciones, escenarios FUND-01–08; [evidencia](../specs/008-preparacion-y-turnos/verification.md#t082h--implementación-de-funding). Sólo perfil aislado competitivo, sin catálogo oficial ni fases nuevas. Sin issue ni commit/push. Siguiente objetivo: revisión de entrenamiento/panel competitivo para T08.1b, condicionada a disponer de originales verificables.

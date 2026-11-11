@@ -1,5 +1,11 @@
 # Plan de SPEC-008
 
+## T08.1b1/b2 — Avance de entrenamiento competitivo
+
+[Contrato](avance-entrenamiento.md), ENT-AC-01 a 04, R2. T08.1b1 fija las recompensas, el perfil y la frontera entre la operación interna y la integración de inicio. Contraste de fuentes y revisión independiente. T08.1b2 implementará y probará ENT-AC-01 a 03 en un módulo de autoridad separado, sin registrar acciones ni cambiar fases. El coordinador asignará un propietario al módulo, pruebas y lanzador antes de editar código.
+
+Implementar con perfil SRC-004 asociado explícitamente al catálogo y pista de autoridad, validar candidato con el registro de secuencias vigente y conservar saldo/fichas de Atium. Usar un fixture documentado para aislar la regla. Ejecutar la suite de entrenamiento y las regresiones de preparación, estado, secuencias, Funding y limpieza que cubran sus dependencias. La versión del motor se revisará si la integración cambia la semántica de un snapshot o el registro admitido. Pruebas de ENT-AC-04, integración de inicio, perfil de producto y demás modos quedan en tareas posteriores.
+
 ## T08.2g/h — Contrato e implementación de Funding
 
 T08.2g entrega únicamente el [contrato](primer-resolutor-competitivo.md), AC-35–38, tras inspeccionar P07/T08.2f y contrastar SRC-001/002. Riesgo R2; coordinador autor documental, `resolver_rules` sdd_rules Sol/high en lectura y revisión final independiente sdd_reviewer Sol/high. Registro previo en tasks.md; ninguna dispensa. Escaneos del otro PC ausentes aquí: la regla inglesa del PDF puede especificarse, pero no se incorpora ni verifica su localización española.

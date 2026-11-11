@@ -12,6 +12,8 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
+- T08.1b1 define el [avance de entrenamiento competitivo](specs/008-preparacion-y-turnos/avance-entrenamiento.md). T08.1b2 implementará la operación interna y probará posición, límites, desbloqueo, Atium y rechazo atómico. La integración de inicio único y apertura de `libre` tendrá aceptación propia.
+
 - T08.1b: usar la [lectura de las cinco piezas de entrenamiento](referencias/entrenamiento-competitivo.md) como entrada de la especificación del avance inicial y recompensas. Separar desbloqueo de nivel de ejecución de habilidades. El catálogo ejecutable y la transición a fase libre siguen pendientes.
 
 - Aplicar [AC-10, trabajo contenido](gestion/agentes-sdd.md#protocolo-operativo-de-trabajo-contenido--ac-10): lecturas/salidas acotadas, equipo mínimo necesario y evidencia centralizada; mantienen recuperación remota, pruebas y revisión. Mejora documental completada y revisada; no cambia las dependencias del juego.

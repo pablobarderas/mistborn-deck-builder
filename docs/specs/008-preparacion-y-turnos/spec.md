@@ -1,5 +1,9 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.1b1 — Avance de entrenamiento competitivo
+
+[Contrato del avance](avance-entrenamiento.md), ENT-AC-01 a 04. La preparación sitúa el marcador en la primera casilla. Cada inicio de turno aplica un paso y su recompensa de SRC-004. La operación interna se implementará en T08.1b2. La apertura de `libre` requiere una integración de autoridad que consuma el inicio una sola vez y resuelva las obligaciones previas.
+
 ## T08.2h — Funding ejecutable en perfil aislado
 
 Implementación completada localmente del [contrato](primer-resolutor-competitivo.md) y escenarios FUND-01–08, con pruebas y revisión independiente favorable en [verification.md](verification.md#t082h--implementación-de-funding). Se conserva esquema 2, versión de motor `p08-funding-1/godot-4.7.2`, sin migración implícita. Los criterios de aceptación de implementación son los ocho escenarios del contrato, no los AC-35–38 exclusivamente documentales de T08.2g.

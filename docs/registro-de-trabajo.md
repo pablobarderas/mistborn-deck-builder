@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-11 — Contrato del avance de entrenamiento
+
+- Tras publicar la revisión de originales en `13bb11f`, T08.1b1 fija el avance competitivo y sus recompensas. Contraste de fuentes y revisión independiente favorables. Siguiente paso: T08.1b2, implementar y probar un paso interno. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b1--contrato-del-avance-competitivo).
+
 ## 2026-11-11 — Originales de entrenamiento competitivo
 
 - El usuario facilita la ruta de los originales. SRC-004 documenta las 16 cartas iniciales de entrenamiento, Financiación y las 21 casillas del panel, con contraste de fuentes y revisión independiente. Siguiente paso: especificar avance y recompensas para T08.1b. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b--revisión-previa-de-los-originales-competitivos).

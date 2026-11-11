@@ -1,5 +1,15 @@
 # Verificación de SPEC-008
 
+## T08.1b1 — Contrato del avance competitivo
+
+Publicación autorizada el 2026-11-11. Empaquetado R0 a cargo del coordinador, con fetch confirmado en `13bb11f` y revisión independiente previa del contrato. Aceptación: publicar el contrato revisado y mantener el estado coherente con Git. Comprobar enlaces, índice y coincidencia con el remoto. Los datos de trabajo local del traspaso inferior corresponden al cierre previo a la publicación.
+
+2026-11-11. Contrato documental R2 completado. Fetch y estado publicado comprobados en `13bb11f`, publicación de la revisión de originales. Registro previo en tasks.md. Coordinador único escritor. `advance_rules` (sdd_rules Sol/high) contrastó SRC-001, FAQ vigente y SRC-004 para primera ronda, umbrales, Atium terminal y Keeper. `advance_review` (sdd_reviewer Sol/high) revisó el contrato y su delta frente a las APIs e invariantes actuales. Dictamen favorable tras concretar guardas de fase/vida, orden de la pista, y los casos de Keeper y final de partida en la futura integración. Sin dispensas ni descendientes.
+
+[ENT-AC-01 a 04](avance-entrenamiento.md#aceptación-y-pruebas-previstas) están especificados y revisados. Enlaces locales y `git diff --check` comprobados. No se ejecutó Godot porque el cambio es documental. Los casos funcionales siguen previstos, no aprobados por esta revisión.
+
+Traspaso: `main`, HEAD/origin/main `13bb11f`, sólo documentación local sin commit ni push. T08.1b2 implementará y probará ENT-AC-01 a 03 con un perfil aislado ligado a SRC-004. ENT-AC-04, obligaciones de inicio y apertura de `libre` siguen pendientes de integración. Mantener DUD-004 y modos del rival fuera de esta subentrega.
+
 ## T08.1b — Revisión previa de los originales competitivos
 
 Publicación autorizada mediante «haz commit y push y vamos con lo siguiente». Empaquetado R0 a cargo del coordinador. Fetch y estado publicado contrastados en `b07303b`, igual a HEAD. Comprobar el índice y la coincidencia remota. Se conserva la revisión independiente y la evidencia de 132 enlaces y anclas locales. Las menciones inferiores a trabajo local describen el cierre previo a la autorización.
