@@ -1,5 +1,9 @@
 # Plan de SPEC-009
 
+## Ampliación AC-10 — 2026-11-11
+
+Plan proporcional registrado antes de edición en tasks.md: concretar seis reglas operativas en la política existente, comprobar que preservan AC-01–09 y AGENTS, revisar independientemente el delta y cerrar con evidencia centralizada/enlaces breves. Coordinador único escritor; un sdd_reviewer Sol/high, sólo lectura. No cambian modelos, TOML, pruebas ni código. Verificación documental; ninguna dispensa. El plan original inferior conserva su alcance histórico.
+
 1. Auditar estado/código y dependencias actuales; contrastar esquema de agentes y modelos en OpenAI Docs.
 2. Elegir coordinador existente y especialistas bajo demanda, concurrencia máxima de dos subagentes y un escritor por archivo. No crear infraestructura de orquestación propia.
 3. Configurar `.codex/config.toml` y siete perfiles `.codex/agents/`. El coordinador conserva el modelo de la sesión. En clientes sin selección de rol, leer el perfil y trasladar instrucciones/modelo a la herramienta disponible.

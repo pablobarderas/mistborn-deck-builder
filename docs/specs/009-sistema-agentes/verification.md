@@ -1,5 +1,17 @@
 # Verificación de SPEC-009
 
+## AC-10 — Trabajo contenido sin rebajar controles
+
+Publicación de AC-10 autorizada después del cierre mediante «haz el commit y el push». Empaquetado documental R0 a cargo del coordinador. Fetch y estado publicado comprobados en `1e6c917`, igual a HEAD. Preparar y verificar sólo el delta revisado de AC-10, preservar los cambios locales de T08.2h en archivos compartidos y comprobar el commit en GitHub. Las notas inferiores sobre publicación pendiente describen el cierre anterior a esta autorización.
+
+2026-11-11, completada documentalmente, R2. Encargo y plan previos en tasks.md; coordinador autor, un revisor independiente Sol/high, ninguna dispensa. Fetch/estado publicado contrastados en main/HEAD/origin/main `1e6c917`; se conserva la entrega local T08.2h sin editar su código ni pruebas. Cambio documental en la política existente: seis reglas sobre lecturas, salida de herramientas, equipo mínimo, coordinación, evidencia de pruebas y memoria centralizada.
+
+AC-10 se verifica por instrucciones concretas y coherencia con controles previos; no acredita ahorro medido. En esta entrega: contexto previo conservado, lectura dirigida de SPEC-009/política, un único autor y una revisión acotada; sin ejecutar Godot ni validar TOML porque no cambian código ni configuración. Revisión independiente favorable y enlaces/diff finales comprobados según cierre siguiente. Sin commit/push.
+
+Revisión independiente `efficiency_review`, sdd_reviewer Sol/high nativo, sólo lectura y sin descendientes: favorable tras dos correcciones P2 (conservar actualización de documentos temáticos aunque no cambie contrato; enlazar política permanente desde AGENTS). Revisor confirmó delta y siete enlaces nuevos; coordinador comprobó 11 Markdown, 147 enlaces locales y 47 anclas sin errores, más `git diff --check`. Un autor y un revisor, sin pruebas Godot/TOML inaplicables ni segunda auditoría de T08.2h; no hay métricas de tokens/tiempo/ahorro disponibles.
+
+Cierre/traspaso AC-10: satisfecha documentalmente, ninguna dispensa. Rama main/HEAD `1e6c917`; cambios locales de esta mejora en AGENTS, política, cuatro documentos SPEC-009 y cinco entradas breves de memoria, junto a T08.2h previamente terminada y preservada. Sin commit/push. Siguiente uso: aplicar el protocolo al próximo objetivo; el siguiente paso del juego sigue siendo revisar material de entrenamiento/panel competitivo para T08.1b. Medir ahorro sólo si existen métricas, sin convertir cada tarea en una auditoría de consumo.
+
 ## Ampliación AC-09 — Estado publicado antes de seleccionar trabajo
 
 Publicación conjunta con T08.2e autorizada expresamente el 2026-11-01 mediante «vale haz commit y push de estos cambios»; el commit que contiene esta nota identifica la entrega. La ausencia de permiso en el cierre inferior describe el momento anterior al encargo. Sin cambios de contrato ni dispensa; autorización exclusiva de este paquete.

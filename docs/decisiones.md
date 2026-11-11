@@ -212,6 +212,10 @@ Actualización 2026-11-10: diseño implementado en T08.2f, esquema 2/motor `p08-
 - Elección: programa cerrado de juego Funding con movimiento mano→juego y aplicación u omisión explícita de su moneda según SRC-001 p.11 y SRC-002 Action cards. Usa reserva del turno, nunca Boxings. Motivo: primera regla de carta compatible con T08.2f, sin ampliar fases/terminales antes del contrato de combate.
 - Consecuencias: [contrato, contenido soportado y escenarios](specs/008-preparacion-y-turnos/primer-resolutor-competitivo.md). Sólo competitivo 2–4 en esta implementación; conserva cooperativo/solo como alcance posterior y DEC-027. Descriptores completos y perfil cerrado de autoridad; fixtures no verifican catálogo español. El futuro cambio semántico versionará motor, sin migración implícita. No autoriza entrada a limpieza ni apertura de libre.
 
+## DEC-029 — Reducir redundancia sin rebajar calidad
+
+- Fecha: 2026-11-11. Estado: política implementada documentalmente y revisada independientemente, por encargo humano «de acuerdo pues vamos a mejorar eso» sobre el consumo excesivo observado. Aplicar [AC-10](gestion/agentes-sdd.md#protocolo-operativo-de-trabajo-contenido--ac-10): lectura y salida selectivas, delegación mínima justificada, coordinación por resultados, reutilización comprobable de pruebas y memoria sin copias del mismo informe. Mantiene todos los controles SDD y permisos; ninguna dispensa ni ahorro medido atribuido.
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.

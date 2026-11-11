@@ -1,5 +1,10 @@
 # Registro de trabajo
 
+## 2026-11-11 — SPEC-009 AC-10, reducir redundancia
+
+- Encargo humano de mejorar consumo; cambio documental R2 de política, sin dispensas, código, modelos ni publicación. Se preservan todos los cambios locales de T08.2h. Fetch/estado publicado confirmado en `1e6c917`.
+- Se concretan seis reglas para lecturas, herramientas, delegación, coordinación, pruebas y memoria; revisión independiente y evidencia en [SPEC-009](specs/009-sistema-agentes/verification.md#ac-10--trabajo-contenido-sin-rebajar-controles). Sin medición que permita prometer un porcentaje de ahorro.
+
 ## 2026-11-11 — Publicación de T08.2g
 
 - Autorización humana: «haz commit y push y vamos con el siguiente paso». Empaquetado R0: publicar los diez Markdown revisados, comprobar diff/índice y coincidencia remota; coordinador responsable, sin dispensas. No cambia semántica ni requiere repetir la revisión R2.

@@ -12,6 +12,8 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
+- Aplicar [AC-10, trabajo contenido](gestion/agentes-sdd.md#protocolo-operativo-de-trabajo-contenido--ac-10): lecturas/salidas acotadas, equipo mínimo necesario y evidencia centralizada; mantienen recuperación remota, pruebas y revisión. Mejora documental completada y revisada; no cambia las dependencias del juego.
+
 - Actualización 2026-11-11: T08.2g especifica [Funding como primer resolutor competitivo](specs/008-preparacion-y-turnos/primer-resolutor-competitivo.md), con elección aplicar/omitir y perfil cerrado. Contrato documental completado con revisión independiente favorable; sigue T08.2h para implementar y ejecutar FUND-01–08 con contenido de prueba explícito. No abre `libre` ni combate/limpieza; incorporación del catálogo español sigue separada y pendiente. [Traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t082g--contrato-del-primer-resolutor-competitivo).
 
 - Captura actualizada 2026-11-09 tras revisar el lote: [65/65 diseños de mercado](referencias/auditoria-escaneos-2026-11-09.md), cobertura completa tras revisar Tirón de hierro; siguiente trabajo de material: recortar y revisar datos para su incorporación. Entrenamientos y panel ya recibidos, pendientes de revisión detallada e incorporación. Este es el siguiente paso de material; T08.2f del motor ya está verificada localmente.

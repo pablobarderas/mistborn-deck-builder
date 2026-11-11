@@ -30,6 +30,8 @@
 
 ### T00.1 — Sistema transversal de agentes SDD
 
+- AC-10 (2026-11-11): reducir redundancia manteniendo controles, R2 documental, completada con revisión independiente favorable; [tarea y registro previo](../specs/009-sistema-agentes/tasks.md#ac-10--reducir-trabajo-redundante-sin-rebajar-controles). Sin issue ni publicación.
+
 - Tipo: herramientas/proceso. Fase P00, mejora posterior a su cierre documental. Spec: [SPEC-009](../specs/009-sistema-agentes/spec.md).
 - Encargo del usuario: analizar alcance, consumo, eficiencia y calidad; implementar roles/modelos adecuados y revisión independiente para el desarrollo completo.
 - Entrega: configuración nativa `.codex/`, política operativa, validador local, prueba de delegación y revisión de esta entrega. Sin SDK/servicios nuevos ni cambios del motor del juego.

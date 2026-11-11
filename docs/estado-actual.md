@@ -4,6 +4,8 @@
 
 ## Resumen
 
+Mejora transversal AC-10 de SPEC-009: [trabajo contenido](gestion/agentes-sdd.md#protocolo-operativo-de-trabajo-contenido--ac-10), completada documentalmente y revisada independientemente. Reduce duplicación de lecturas/coordinación/evidencia sin omitir controles. No cambia el siguiente objetivo del juego ni la entrega local T08.2h. [Evidencia](specs/009-sistema-agentes/verification.md#ac-10--trabajo-contenido-sin-rebajar-controles).
+
 T08.2g completada documentalmente y revisada independientemente: [primer resolutor competitivo, Funding](specs/008-preparacion-y-turnos/primer-resolutor-competitivo.md). Define juego desde mano y elección aplicar/omitir una moneda del turno, sin metal ni Boxing, sobre T08.2f. No hay implementación nueva ni catálogo oficial incorporado. Recuperación: fetch y estado publicado comprobados en `2fdc4c35a1868b8bc600d4deccd6a865a4a37b63`, igual a HEAD/main; árbol inicial limpio. Próximo paso: T08.2h, implementación y pruebas del perfil aislado. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t082g--contrato-del-primer-resolutor-competitivo).
 
 Publicación de T08.2f autorizada el 2026-11-10 mediante «haz commit y push». El commit que incorpora esta nota identifica la entrega revisada; las menciones de cambios locales sin publicar más abajo conservan el estado previo al permiso. Siguiente objetivo: especificar el primer resolutor real competitivo con fuentes y contenido pertinente verificados.

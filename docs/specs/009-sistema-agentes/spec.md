@@ -18,6 +18,8 @@ Mantener Windows, Godot 4.7.2/GDScript, español, siete configuraciones de modo/
 
 ## Aceptación
 
+Ampliación AC-10, 2026-11-11: reducir redundancia de ejecución por petición humana, sin relajar AC-01–09. **AC-10:** política operativa con lectura selectiva tras recuperación obligatoria, salidas acotadas, delegación mínima justificada, coordinación sin sondeo repetitivo, reutilización verificable de pruebas y revisión del delta, y evidencia centralizada con enlaces breves. Mantener fuentes/privacidad/pruebas/revisión independiente; no prometer ahorro porcentual ni cambiar modelos/permisos. Registro previo en tasks.md; revisión y evidencia en verification.md.
+
 | ID | Criterio |
 | --- | --- |
 | AC-01 | Análisis documentado del alcance, riesgos, alternativas, modelos y coste total, con fuentes y límites de lo medido. |
