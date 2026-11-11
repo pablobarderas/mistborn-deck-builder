@@ -1,6 +1,55 @@
 # Verificación de SPEC-008
 
+## T08.2h — Implementación de Funding
+
+Publicación autorizada mediante «antes haz commit y push de lo actual». Empaquetado documental R0 a cargo del coordinador. Fetch y estado publicado contrastados en `f412e32`, igual a HEAD. Comprobar el índice y la coincidencia remota. Se conserva la evidencia técnica de las 3.778 comprobaciones y la revisión independiente. Las menciones inferiores a trabajo local sin publicar describen el cierre anterior a esta autorización.
+
+2026-11-11, completada localmente, riesgo R2, revisión independiente favorable. Contrato publicado T08.2g y escenarios FUND-01–08; registro previo/responsables en tasks.md y plan de nueve suites en plan.md. Publicación anterior confirmada: main/HEAD/origin/main y `ls-remote` en `1e6c91747737d0c867a928763f0e3d11873091cf`, fetch posterior correcto y estado remoto leído antes de seleccionar esta implementación. Árbol limpio tras publicar; el permiso de commit/push se aplicó a T08.2g, no al código futuro.
+
+Entorno recuperado: `.tools/godot/` no existe en este PC, pese a la nota del estado publicado desde otro equipo. Motor encontrado en `C:/Users/pablo/Downloads/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64_console.exe`; las pruebas usarán `-GodotPath`. No se ha cambiado ni instalado el motor. Implementador `funding_impl`, perfil sdd_developer aplicado por instrucciones Sol/high (TOML leído), único propietario de código/fixtures/lanzador; coordinador conserva documentación y revisión final. Sin dispensas, descendientes, UI ni transporte nuevos.
+
+Implementación, pruebas oficiales y revisión independiente completadas. Fuente y límite de contenido: [contrato](primer-resolutor-competitivo.md); los componentes inertes son fixtures y el catálogo español sigue sin incorporarse.
+
+Reanudación por «retoma donde se haya quedado»: fetch actualizado correcto, HEAD/origin/main continúan en `1e6c917`; se preservan cambios locales del implementador en módulo/fixtures/suite/UID, versión del validador, prueba de estado y lanzador, además de los tres documentos de planificación. El agente se detuvo por límite de uso antes de entregar evidencia; no había log test-funding que acreditase aprobación. Se reactiva el mismo encargado y conserva propiedad de código/Godot hasta entregar, sin reiniciar la tarea ni atribuir pruebas no ejecutadas.
+
+Resultado: [adaptador Funding](../../../scripts/game/funding_play.gd), [fixture completo](../../../tests/funding_fixtures.gd) y [suite](../../../tests/funding_play_test.gd), esquema 2/motor `p08-funding-1/godot-4.7.2`; acción `test-funding` en lanzador. No se modifican las protecciones de GameEngine. Identidad técnica canonicalizada del documento P06; el perfil sólo admite una Funding y descriptores inertes completos idénticos a las demás definiciones. Igualdad de claves independiente del orden y números integrales de JSON normalizados; el ID editorial no basta para aceptar otra versión del contenido.
+
+| Escenario | Evidencia de la suite Funding |
+| --- | --- |
+| FUND-01/02 | Competitivo 2/3/4, saldo previo cero/positivo, aplicar y omitir, dos instancias distintas, Target preservado, cambios de snapshot exactos y cierre por juego. |
+| FUND-03/04 | Actor/fase/modo/vida/zona/resolución, payload, definición y perfil completo, marcas dinámicas; entradas externas mutables no alteran efectos. |
+| FUND-05 | Recibos antes/después de round-trip, ID contradictorio y carta ya jugada, registro vacío, claves reordenadas, JSON y contenido cambiado, rechazo de versión anterior. |
+| FUND-06 | Overflow saldo/revisión/contador, omisión con saldo máximo, límite de nodos/ledger y rechazo final sin cambios; contenedor tipado incompatible sin error de script. |
+| FUND-07 | Vistas reales propias/ajenas, carta jugada pública, mano/mazo ocultos y errores iguales con secretos distintos. |
+| FUND-08 | Preservación de recursos persistentes/metales/salud/Target/misiones/fase; cierre no habilita limpieza; composición interna sólo desde fixture explícito en limpieza. |
+
+Ejecución oficial del coordinador tras liberar código, nueve acciones seriales con Godot `4.7.2.stable.official.ed1daf0bf`: `powershell -NoProfile -ExecutionPolicy Bypass -File tools/godot.ps1 -Action <acción> -GodotPath 'C:/Users/pablo/Downloads/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64_console.exe'`. Cada acción importa primero; todas devuelven código 0, marca final esperada y ningún SCRIPT ERROR.
+
+| Acción | Comprobaciones |
+| --- | ---: |
+| test-funding | 205 |
+| test-sequence | 253 |
+| test-state | 2.004 |
+| test-engine | 102 |
+| test-setup | 147 |
+| test-cycle | 262 |
+| test-cleanup | 527 |
+| test-catalog | 220 |
+| test | 58 |
+
+Total consolidado **3.778 comprobaciones**. Tras las tres correcciones de revisión se repitió oficialmente test-funding (205, código 0, importación limpia y sin ERROR/SCRIPT ERROR); las otras ocho suites conservan sus 3.573 comprobaciones, pues las correcciones sólo modifican funding_play.gd y su suite, sin cambios del núcleo, lanzador o fixtures comunes. Los dos errores de carga de catálogo y ocho de arranque son negativos esperados; las demás acciones no contienen ERROR, los WARNING corresponden a rechazos deliberados. Logs ignorados `tmp/godot/t082h-final-<acción>.txt` y `<acción>.log`; no acompañan otro clon, reproducir con el comando anterior. El fallo inicial restringido de certificados/ajustes no se cuenta como prueba aprobada; la ejecución oficial usa permisos normales autorizados.
+
+Correcciones antes de revisión: caso de números JSON integrales distinto de igualdad profunda int/float, rechazo de zona Array[int] que habría emitido SCRIPT ERROR al añadir ID textual, y sustitución accidental en el argumento LogName de test-sequence detectada por el coordinador y reparada. Tras correcciones se ejecutan las nueve suites anteriores. Ninguna adaptación reglamentaria ni modificación de muestras de producto. Revisión independiente `funding_code_review`, sdd_reviewer Sol/high, solicitada sobre diff/contrato/fuentes/evidencia; dictamen técnico favorable tras corregir los tres hallazgos siguientes.
+
+Hallazgos de revisión corregidos y confirmados por el revisor: carga admitía flags desconocidos en mano ajena que alteraban la aceptación visible de jugar Funding; comparación de descriptores Variant frente a catálogo JSON no normalizaba enteros en ambos lados; carga no correlacionaba ocurrencia Funding con el sufijo de su ID de cierre, admitiendo colisión futura. El revisor los reprodujo en un probe local ignorado (`tmp/t082h-review-probe.gd`/`tmp/godot/t082h-review-probe.log`); su arranque aislado avisó de certificados, por lo que no sustituye la ejecución oficial limpia. Corrección realizada por el mismo implementador sólo en módulo/suite Funding: validación estructural y dinámica previa a publicación; igualdad recursiva de forma/tipos con equivalencia numérica integral (fracciones rechazadas); cierre resolution_N correlacionado con funding_play_N. Regresiones A/B, comparación cruzada JSON/Variant y cierre incompatible conservan estado. Test-funding final: 205 comprobaciones aprobadas por implementador y coordinador. Revisión final favorable: `funding_code_review` confirmó las tres correcciones, sin bloqueantes residuales, y contrastó los logs oficiales consolidados; no se repiten las ocho suites sin cambios de sus dependencias.
+
+Cumplimiento y cierre T08.2h: registro previo R2, contrato/fuentes, autor único, pruebas FUND-01–08 y regresiones, revisión independiente adversaria y tres hallazgos resueltos, memoria/traspaso completos. Implementador `funding_impl` Sol/high por instrucciones (reanuda el mismo encargo tras límite de uso) y revisor `funding_code_review` sdd_reviewer Sol/high nativo, sin descendientes. Ninguna dispensa. Coordinador y revisor verifican 14 Markdown, 208 enlaces locales y 51 anclas sin errores; `git diff --check` limpio. No se ejecutan UI/red/partida completa porque no son parte de esta API; sus puertas de fase permanecen abiertas.
+
+Traspaso de cierre: main, HEAD/origin/main `1e6c917`, T08.2g publicada; T08.2h local sin commit/push. Archivos: módulo Funding/UID, fixture y suite/UID, versión del validador y su prueba, lanzador y 14 Markdown de especificación/memoria. Ningún cambio ajeno descartado. Resultado: primer programa reglamentario acotado con aplicación/omisión, admisión de perfil y cierre/recibos coherentes; no catálogo oficial ni turno completo. Primer paso del siguiente objetivo: revisar material de entrenamiento/panel competitivo para preparar T08.1b, comprobando disponibilidad de originales (los escaneos del inventario no están aquí); no inferir recompensas ni abrir libre con fixture. Conservar pendientes P04 externa, catálogo, combate/Target/finales, rival y DUD-004/005/006. No repetir el núcleo o Funding ya verificados; recuperar estado remoto y este traspaso al iniciar otra sesión.
+
 ## T08.2g — Contrato del primer resolutor competitivo
+
+La implementación posterior T08.2h ya está completada localmente en la sección superior; esta sección conserva evidencia y traspaso históricos del contrato.
 
 Publicación autorizada posteriormente el 2026-11-11: «haz commit y push y vamos con el siguiente paso». El commit que contiene esta nota identifica la entrega documental revisada; las menciones sin publicación inferiores son históricas. Se continúa T08.2h en esta sesión por instrucción expresa, tras comprobar publicación; no se autoriza automáticamente publicar su implementación futura.
 

@@ -2,6 +2,8 @@
 
 Fecha: 2026-11-11. Contrato documental R2, pendiente de implementación T08.2h. Amplía SPEC-008 sin cambiar todavía motor, esquema, catálogo o acciones disponibles. Registro previo y responsables en [tareas](tasks.md); implementación posterior en [plan](plan.md). No acredita una partida jugable.
 
+Seguimiento: T08.2g fue publicada en `1e6c917`; T08.2h lleva este contrato a código local. El estado de implementación/pruebas se mantiene en [su evidencia](verification.md#t082h--implementación-de-funding); el resto del documento conserva el contrato previo y sus requisitos, no un resultado de ejecución.
+
 ## Elección y fuentes
 
 Se selecciona jugar Funding: mover una instancia propia de la mano a juego y, si se elige aplicar su habilidad, obtener una moneda de la reserva del turno. Es la primera regla de carta sobre T08.2f. El identificador técnico de la reserva es `turn_resources.recursos`; **no** `persistent.boxings`. Financiación es el nombre observado en el inventario español, aún sin transcripción verificada incorporada.

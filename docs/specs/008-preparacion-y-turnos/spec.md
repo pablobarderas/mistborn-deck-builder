@@ -1,8 +1,12 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.2h — Funding ejecutable en perfil aislado
+
+Implementación completada localmente del [contrato](primer-resolutor-competitivo.md) y escenarios FUND-01–08, con pruebas y revisión independiente favorable en [verification.md](verification.md#t082h--implementación-de-funding). Se conserva esquema 2, versión de motor `p08-funding-1/godot-4.7.2`, sin migración implícita. Los criterios de aceptación de implementación son los ocho escenarios del contrato, no los AC-35–38 exclusivamente documentales de T08.2g.
+
 ## T08.2g — Primer resolutor competitivo
 
-[Contrato Funding](primer-resolutor-competitivo.md), AC-35–38 y escenarios futuros FUND-01–08: juego desde mano, elección aplicar/omitir, reserva del turno, autoridad y cierre único. Entrega documental; implementación T08.2h pendiente. No incorpora catálogo oficial ni abre fases.
+[Contrato Funding](primer-resolutor-competitivo.md), AC-35–38 y escenarios futuros FUND-01–08: juego desde mano, elección aplicar/omitir, reserva del turno, autoridad y cierre único. Entrega documental histórica; T08.2h implementada según la sección superior. No incorpora catálogo oficial ni abre fases.
 
 ## T08.2f — Implementación interna de secuencias reanudables
 

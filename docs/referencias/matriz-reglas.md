@@ -102,4 +102,6 @@ Los nombres de tipos de carta no implican que se haya contado cuántas acciones,
 
 No se calcula aún porcentaje de fidelidad: el catálogo está incompleto y hay dudas que afectan a resultados.
 
+T08.2h añade ejecución aislada de REG-027 y aplicación acotada de REG-069/070/075 al jugar Funding: moneda en reserva del turno, omisión voluntaria y distinción de Boxing. FUND-01–08 cubren competitivo 2/3/4 con contenido ficticio explícito alrededor de esa regla. [Pruebas y revisión](../specs/008-preparacion-y-turnos/verification.md#t082h--implementación-de-funding). No acredita localización española, efectos de otras cartas, apertura de libre, turnos completos ni cobertura de cooperativo/solitario.
+
 T08.2b añade cobertura parcial de cierre de REG-009/010/013/016/025/030/042/055/063 mediante API interna y fixtures: limpia temporales, conserva agotamiento y entrega a inicio/rival. No resuelve combate, Target, adversarios, entrenamiento, finales ni Atium usado; REG-019 sigue pendiente de contrato saldo/fichas. [AC-11–14](../specs/008-preparacion-y-turnos/spec.md#t082b--cierre-interno-de-limpieza-y-entrega-de-fase) y evidencia en SPEC-008. No equivale a cobertura completa de estas REG.

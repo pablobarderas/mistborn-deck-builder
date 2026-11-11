@@ -1,5 +1,13 @@
 # Arquitectura
 
+## Adaptador Funding — T08.2h
+
+[funding_play.gd](../scripts/game/funding_play.gd) extiende GameEngine y registra exclusivamente `jugar_funding`/`funding_play_v1`. Recibe catálogo P06 completo, ID Funding y mapa de descriptores inertes confiables; P06 valida estructura/revisión y el adaptador limita la semántica. Juega una instancia propia en `libre`, competitivo 2–4, con elección aplicar/omitir: mano→juego y +1/+0 recursos del turno. No abre fases ni conecta UI/red. Pruebas y revisión en [evidencia T08.2h](specs/008-preparacion-y-turnos/verification.md#t082h--implementación-de-funding).
+
+`catalog_identity()` es la identidad técnica `funding_`+SHA-256 del catálogo completo canonicalizado, diferente de su `id_catalogo` editorial. Ordena claves, conserva orden de arrays y normaliza números integrales JSON; el perfil exige una única Funding y que todos los descriptores inertes coincidan exactamente con el contenido validado. Cambiar contenido impide cargar cierres antiguos aun manteniendo ID editorial. Las copias y recibos siguen en P07; callbacks del registro son estáticos con ID Funding escalar enlazado.
+
+Rechaza marcas dinámicas no soportadas (contadores de turno, usos de jugador/instancia, flags y recompensas de misión), overflow y contenedores incompatibles con la escritura. Conserva esquema 2 y cambia versión a `p08-funding-1/godot-4.7.2`, sin migración implícita. Los componentes inertes y la definición que representa la regla son fixtures; no se ha incorporado catálogo español verificado. Las versiones y límites inferiores conservan el historial de las entregas anteriores.
+
 ## Contrato de Atium — T08.2c
 
 Ampliación implementada, pruebas locales aprobadas; revisión independiente favorable: `persistent.atium` representa el total de fichas de Atium de la plaza, incluidas las usadas pendientes de devolución; debe ser igual al conteo de `metal=atium` en `metals`. No es una reserva adicional. Las disponibles son las no usadas. Toda futura ganancia/gasto debe actualizar agregado y fichas en la misma transacción. El subconjunto exige Atium no agotado, porque no admite Flaring; no generaliza excepciones de cartas no verificadas. Versión de motor `p08-atium-1/godot-4.7.2`, esquema v1, rechazo de versiones previas sin migración heurística.

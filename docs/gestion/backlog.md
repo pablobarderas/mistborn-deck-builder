@@ -127,7 +127,9 @@ Documentos y plantillas se incluyen en la entrega inicial autorizada para commit
 
 ## Refinamiento P08
 
-T08.2g, [contrato del primer resolutor competitivo](../specs/008-preparacion-y-turnos/primer-resolutor-competitivo.md), AC-35–38, R2: completada documentalmente con revisión independiente favorable (2026-11-11). Funding desde mano con elección aplicar/omitir; contraste de reglas y plan registrados en SPEC-008. T08.2h pendiente: implementación del perfil cerrado y FUND-01–08. Sin issues publicadas; no incorpora catálogo español ni completa turno/combate. [Evidencia y traspaso](../specs/008-preparacion-y-turnos/verification.md#t082g--contrato-del-primer-resolutor-competitivo).
+T08.2h: implementación local de Funding completada, revisión independiente favorable y 3.778 comprobaciones, escenarios FUND-01–08; [evidencia](../specs/008-preparacion-y-turnos/verification.md#t082h--implementación-de-funding). Sólo perfil aislado competitivo, sin catálogo oficial ni fases nuevas. Sin issue ni commit/push. Siguiente objetivo: revisión de entrenamiento/panel competitivo para T08.1b, condicionada a disponer de originales verificables.
+
+T08.2g, [contrato del primer resolutor competitivo](../specs/008-preparacion-y-turnos/primer-resolutor-competitivo.md), AC-35–38, R2: completada documentalmente con revisión independiente favorable (2026-11-11). Funding desde mano con elección aplicar/omitir; contraste de reglas y plan registrados en SPEC-008. T08.2h completada localmente: perfil cerrado y FUND-01–08, según entrada superior. Sin issues publicadas; no incorpora catálogo español ni completa turno/combate. [Evidencia y traspaso](../specs/008-preparacion-y-turnos/verification.md#t082g--contrato-del-primer-resolutor-competitivo).
 
 T08.2c completada localmente, revisión independiente favorable (2026-10-30): contrato de saldo total igual a fichas y devolución atómica del Atium usado, [AC-15–18](../specs/008-preparacion-y-turnos/spec.md#t082c--saldo-y-devolución-de-atium). Reemplaza el pendiente contable descrito abajo; entrenamiento, combate/efectos, rival y DUD-006 siguen abiertos. Sin issue publicada.
 

@@ -85,3 +85,9 @@ En este equipo (2026-10-28) el motor está en Descargas y se indica mediante -Go
 ### Secuencias reanudables (T08.2f)
 
 `-Action test-sequence` ejecuta `tests/sequence_test.gd` y exige `P08_SEQUENCE_OK`, código 0 y ausencia de errores de script. Comprueba registro cerrado, pausa/carga/respuesta, rollback, RNG, cierres únicos, reintentos, proyecciones y límites con programas ficticios. El estado usa esquema 2/motor `p08-sequence-1/godot-4.7.2`; rechaza snapshots previos sin migración. No implementa cartas oficiales ni un turno jugable. Resultados y comandos finales en [evidencia T08.2f](specs/008-preparacion-y-turnos/verification.md#t082f--implementación-de-secuencias-reanudables).
+
+### Primer efecto de carta (T08.2h)
+
+`-Action test-funding` ejecuta `tests/funding_play_test.gd`, exige `P08_FUNDING_OK` y rechaza ERROR/SCRIPT ERROR incluso con código 0. Comprueba juego Funding con aplicar/omitir, perfil completo, rechazos, recibos/carga, límites y privacidad en competitivo 2–4. El fixture sitúa `libre` expresamente; no ejecuta entrenamiento ni turno completo. La versión actual es esquema 2/motor `p08-funding-1/godot-4.7.2`, sustituyendo la versión histórica del apartado anterior. [Evidencia y límites](specs/008-preparacion-y-turnos/verification.md#t082h--implementación-de-funding).
+
+En este PC no existe `.tools/godot/`: usar `-GodotPath` con el motor 4.7.2 de Descargas, cuya ruta comprobada figura en la evidencia. No se ha instalado ni cambiado la versión silenciosamente.

@@ -5,6 +5,12 @@
 - Encargo humano de mejorar consumo; cambio documental R2 de política, sin dispensas, código, modelos ni publicación. Se preservan todos los cambios locales de T08.2h. Fetch/estado publicado confirmado en `1e6c917`.
 - Se concretan seis reglas para lecturas, herramientas, delegación, coordinación, pruebas y memoria; revisión independiente y evidencia en [SPEC-009](specs/009-sistema-agentes/verification.md#ac-10--trabajo-contenido-sin-rebajar-controles). Sin medición que permita prometer un porcentaje de ahorro.
 
+## 2026-11-11 — T08.2h, Funding en perfil aislado
+
+- Tras publicar T08.2g en `1e6c917`, el usuario pide continuar y después retomar la interrupción; fetch y estado publicado reconfirmados, cambios locales preservados. SDD R2, contrato previo y contraste SRC-001/002 heredado de T08.2g; implementador Sol/high por instrucciones, revisor independiente Sol/high nativo y coordinador de memoria/pruebas. Ninguna dispensa ni publicación de código.
+- Adaptador `funding_play.gd`: Funding mano→juego y +1/+0 recursos en competitivo 2–4; perfil completo P06, identidad canónica, legalidad, cierre/recibos, carga y privacidad. Esquema 2/motor `p08-funding-1/godot-4.7.2`. Fixture representa regla real con componentes inertes de prueba; no incorpora catálogo español ni abre libre/limpieza.
+- Nueve suites: 3.778 comprobaciones consolidadas, código 0 y sin SCRIPT ERROR; Funding final 205 tras corregir hallazgos de privacidad en admisión, comparación JSON/Variant y coherencia de cierres. Las otras ocho suites no se modifican por esas correcciones. Revisión independiente final favorable, tres hallazgos corregidos y delta confirmado. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t082h--implementación-de-funding). Godot local en Descargas; no existe `.tools/godot` en este PC. Logs ignorados y comando reproducible en evidencia.
+
 ## 2026-11-11 — Publicación de T08.2g
 
 - Autorización humana: «haz commit y push y vamos con el siguiente paso». Empaquetado R0: publicar los diez Markdown revisados, comprobar diff/índice y coincidencia remota; coordinador responsable, sin dispensas. No cambia semántica ni requiere repetir la revisión R2.

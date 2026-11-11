@@ -208,7 +208,9 @@ Actualización 2026-11-10: diseño implementado en T08.2f, esquema 2/motor `p08-
 
 ## DEC-028 — Funding como primer programa reglamentario competitivo
 
-- Fecha: 2026-11-11. Estado: diseño técnico T08.2g completado documentalmente y revisado independientemente; implementación T08.2h pendiente. No es una nueva preferencia humana ni una regla casera.
+Ampliación técnica T08.2h, 2026-11-11: adaptador GameEngine con perfil completo validado, registro cerrado y `catalog_identity()` derivada por SHA-256 del catálogo canonicalizado. Sólo una Funding es compatible y los descriptores inertes coinciden exactamente con las demás definiciones; el documento validado identifica así el perfil completo. Reordenar claves o reconstruir enteros desde JSON conserva identidad; cambiar contenido bajo el mismo ID editorial impide cargar cierres. Esquema 2/motor `p08-funding-1/godot-4.7.2`, sin migración. [Estado de pruebas y revisión](specs/008-preparacion-y-turnos/verification.md#t082h--implementación-de-funding); no cambia el contrato P06 ni incorpora catálogo oficial.
+
+- Fecha: 2026-11-11. Estado: diseño técnico T08.2g completado documentalmente y revisado independientemente; implementación T08.2h completada localmente y revisada independientemente. No es una nueva preferencia humana ni una regla casera.
 - Elección: programa cerrado de juego Funding con movimiento mano→juego y aplicación u omisión explícita de su moneda según SRC-001 p.11 y SRC-002 Action cards. Usa reserva del turno, nunca Boxings. Motivo: primera regla de carta compatible con T08.2f, sin ampliar fases/terminales antes del contrato de combate.
 - Consecuencias: [contrato, contenido soportado y escenarios](specs/008-preparacion-y-turnos/primer-resolutor-competitivo.md). Sólo competitivo 2–4 en esta implementación; conserva cooperativo/solo como alcance posterior y DEC-027. Descriptores completos y perfil cerrado de autoridad; fixtures no verifican catálogo español. El futuro cambio semántico versionará motor, sin migración implícita. No autoriza entrada a limpieza ni apertura de libre.
 
