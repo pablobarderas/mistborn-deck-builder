@@ -1,5 +1,17 @@
 # Verificación de SPEC-008
 
+## T08.1b — Revisión previa de los originales competitivos
+
+Publicación autorizada mediante «haz commit y push y vamos con lo siguiente». Empaquetado R0 a cargo del coordinador. Fetch y estado publicado contrastados en `b07303b`, igual a HEAD. Comprobar el índice y la coincidencia remota. Se conserva la revisión independiente y la evidencia de 132 enlaces y anclas locales. Las menciones inferiores a trabajo local describen el cierre previo a la autorización.
+
+2026-11-11. Fetch y estado publicado contrastados en `b07303b`, HEAD/main inicialmente limpio. El usuario aporta la carpeta local. Se identificaron y revisaron cinco PNG (cuatro hojas y panel), con huellas, filas, marcas e índices en [SRC-004](../../referencias/entrenamiento-competitivo.md). Los originales siguen fuera de Git. Las vistas temporales ignoradas se generaron en `tmp/t081b-inspection/`.
+
+R2, registro previo en tasks.md, coordinador único escritor. Contraste `training_rules` (sdd_rules Sol/high) de SRC-001 y FAQ oficial vigente: primera casilla en preparación, avance incluso en primera ronda, recompensas inmediatas, Atium por avances posteriores al final, niveles y DUD-004, iconos MISSION/TRAIN. `training_review` (sdd_reviewer Sol/high) comprobó independientemente las cinco huellas/dimensiones, 21 huecos y marcas, 16 cartas y Financiación. Lectura visual favorable. Se atendieron las precisiones de estado de la tarea y fecha del índice de fuentes. Ninguna dispensa ni delegación descendiente.
+
+Aceptación del registro previo: (1) cinco originales identificados y legibles, aprobado; (2) localizadores, huellas y lectura comprobados, aprobado; (3) distinción entre marcas visibles, reglas contrastadas y dependencias pendientes, aprobado. Enlaces locales y `git diff --check` correctos.
+
+Traspaso: `main` en `b07303b`, cambios documentales locales. El objetivo de revisión de originales queda completado. T08.1b sigue abierta. Primer paso: especificar avance inicial y recompensas de pista con SRC-001/002/004 y casos límite, separando el desbloqueo de niveles de su ejecución. Para verificar activaciones habrá que revisar las habilidades en las fichas de personaje y conservar DUD-004. No se ejecutó Godot porque sólo cambió documentación. Sin commit ni push.
+
 ## T08.2h — Implementación de Funding
 
 Publicación autorizada mediante «antes haz commit y push de lo actual». Empaquetado documental R0 a cargo del coordinador. Fetch y estado publicado contrastados en `f412e32`, igual a HEAD. Comprobar el índice y la coincidencia remota. Se conserva la evidencia técnica de las 3.778 comprobaciones y la revisión independiente. Las menciones inferiores a trabajo local sin publicar describen el cierre anterior a esta autorización.

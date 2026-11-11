@@ -1,6 +1,6 @@
 # Fuentes del juego y trazabilidad
 
-Última revisión: 2026-10-29. Reglamento leído completo mediante extracción y revisión visual de las 20 páginas. La fuente está en inglés; el producto se quiere en español.
+Revisión del reglamento: 2026-10-29. Reglamento leído completo mediante extracción y revisión visual de las 20 páginas. La fuente está en inglés; el producto se quiere en español.
 
 ## SRC-001 — Reglamento aportado por el usuario
 
@@ -35,6 +35,10 @@ El PDF acompaña al clon del repositorio. Mantener su hash y nombre para conserv
 - Estado: referencia de identidad editorial, no reglamento ni catálogo. No permite cerrar DUD-003 ni verificar toda la traducción de su ejemplar.
 - En las páginas consultadas no se localizó un enlace accesible al reglamento español oficial; no se afirma que no exista. No se usaron traducciones de aficionados como autoridad.
 
+## SRC-004 — Escaneos españoles de entrenamiento
+
+Originales facilitados el 2026-11-11 en `C:/Users/pablo/Documents/Digitalizaciones/Digitalizaciones/cartas_personajes`. Cuatro hojas de cartas y panel de niveles, de la caja española del usuario. [Inventario, huellas y lectura del panel](entrenamiento-competitivo.md). Los PNG originales se conservan fuera del repositorio. La revisión se limita a estas piezas y no establece la equivalencia íntegra de ediciones.
+
 ## Mapa de lectura del reglamento
 
 | Páginas | Contenido |
@@ -60,6 +64,6 @@ La preparación estructural de REG-001–006/052 tiene pruebas parciales en [SPE
 
 ## Cómo incorporar fuentes posteriores
 
-Asignar el siguiente ID libre (actualmente SRC-004), registrar origen, edición, idioma, páginas y fecha; comprobar diferencias con SRC-001/002. Las fotos de cartas deben identificar qué diseño y cantidad respaldan. Mantener nombre del original y nombre oficial español por separado hasta contrastarlos.
+Asignar el siguiente ID libre (actualmente SRC-005), registrar origen, edición, idioma, páginas y fecha; comprobar diferencias con SRC-001/002. Las fotos de cartas deben identificar qué diseño y cantidad respaldan. Mantener nombre del original y nombre oficial español por separado hasta contrastarlos.
 
 No completar contradicciones por intuición. Cerrar cada DUD con una fuente o una adaptación expresamente acordada. Conservar los IDs REG aunque se amplíe o corrija su redacción.

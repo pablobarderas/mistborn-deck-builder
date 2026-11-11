@@ -4,6 +4,8 @@
 
 ## Resumen
 
+T08.1b: disponibles las cuatro hojas de entrenamiento y el panel competitivo de la caja española. La revisión documental del lote está en [SRC-004](referencias/entrenamiento-competitivo.md). El siguiente trabajo del motor es especificar el avance de entrenamiento y las recompensas de la pista. T08.2h (Funding) está publicada en `b07303b`; las menciones inferiores a trabajo local conservan el estado anterior a su publicación.
+
 Mejora transversal AC-10 de SPEC-009: [trabajo contenido](gestion/agentes-sdd.md#protocolo-operativo-de-trabajo-contenido--ac-10), completada documentalmente y revisada independientemente. Reduce duplicación de lecturas/coordinación/evidencia sin omitir controles. No cambia el siguiente objetivo del juego ni la entrega local T08.2h. [Evidencia](specs/009-sistema-agentes/verification.md#ac-10--trabajo-contenido-sin-rebajar-controles).
 
 T08.2h completada localmente, revisión independiente favorable y 3.778 comprobaciones: [Funding](specs/008-preparacion-y-turnos/primer-resolutor-competitivo.md) permite jugar una instancia de mano y aplicar u omitir su moneda en competitivo 2–4, sobre un perfil aislado validado. Esquema 2/motor `p08-funding-1/godot-4.7.2`; no incorpora catálogo español ni abre la fase libre. [Pruebas, hallazgos y traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t082h--implementación-de-funding). GitHub confirmado en `1e6c917`, publicación de T08.2g; esta implementación permanece local sin commit/push. Siguiente objetivo: revisar material de entrenamiento/panel competitivo para T08.1b, verificando disponibilidad de originales; no abrir libre mediante fixtures de producto.

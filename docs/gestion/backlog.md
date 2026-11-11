@@ -82,7 +82,7 @@ Estos son candidatos a issues, no especificaciones listas para implementar. La a
 | T06.2 | P06 | Validar tipos, IDs, referencias y recursos ausentes; decidir carga ante errores y migrar ejemplos. | T06.1 | Completada; 220 comprobaciones, migración y avisos | Sin publicar |
 | T07.1 | P07 | Estado, zonas, instancias, modos/rival e invariantes con fixtures. | Núcleo P02, P06; P04 para cierre de fase | Completada localmente; SPEC-007, 1.725 comprobaciones de estado | Sin publicar |
 | T07.2 | P07 | Transacciones, RNG, recibos por plaza, proyección privada y continuación. | T07.1 | Completada localmente; SPEC-007, 102 comprobaciones del motor | Sin publicar |
-| T08.1 | P08 | Preparación, reparto, orden de jugadores y fases del turno según REG. | P01, P07 | T08.1a completada localmente; T08.1b espera pistas/recompensas verificadas; SPEC-008 | Sin publicar |
+| T08.1 | P08 | Preparación, reparto, orden de jugadores y fases del turno según REG. | P01, P07 | T08.1a completada localmente. T08.1b tiene fuente competitiva revisada y especificación del avance pendiente (SPEC-008). | Sin publicar |
 | T08.2 | P08 | Transiciones, límites y casos de mazo/descartes del reglamento. | T08.1 | SPEC-008; T08.2a implementada/verificada (262), revisión en SPEC; T08.2b implementada/probada (334), revisión favorable; T08.2c saldo/devolución Atium verificada (527 limpieza, 1.938 estado), revisión favorable; combate/efectos y DUD-006 pendientes | Sin publicar |
 | T08.3 | P08 | Diferencias por modo: Target/bonificaciones y paso rival. | T08.2 | Preparación inicial por modo hecha en T08.1a; paso rival pendiente | Sin publicar |
 | T09.1 | P09 | Implementar por familias los efectos confirmados, objetivos y elecciones pendientes. | P08 | Por refinar | Sin publicar |
@@ -126,6 +126,8 @@ Documentos y plantillas se incluyen en la entrega inicial autorizada para commit
 [SPEC-007](../specs/007-estado-y-acciones/spec.md) y sus [tareas](../specs/007-estado-y-acciones/tasks.md) concretan T07.1/2 para trabajo local. T07.1/2 implementadas localmente con 1.725 y 102 comprobaciones; evidencia en verification.md. P04 externa sigue condicionando el cierre.
 
 ## Refinamiento P08
+
+T08.1b dispone de [originales y lectura del panel competitivo](../referencias/entrenamiento-competitivo.md). Siguiente trabajo: especificar el avance y sus recompensas con SRC-001/002/004 y pruebas de frontera. La disponibilidad del material no acredita implementación ni cierre de la fase.
 
 T08.2h: implementación local de Funding completada, revisión independiente favorable y 3.778 comprobaciones, escenarios FUND-01–08; [evidencia](../specs/008-preparacion-y-turnos/verification.md#t082h--implementación-de-funding). Sólo perfil aislado competitivo, sin catálogo oficial ni fases nuevas. Sin issue ni commit/push. Siguiente objetivo: revisión de entrenamiento/panel competitivo para T08.1b, condicionada a disponer de originales verificables.
 

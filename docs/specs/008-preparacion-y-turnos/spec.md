@@ -65,7 +65,7 @@ Subentrega de T08.2: servicio interno de autoridad, independiente de escenas y t
 
 ## Dudas y límites
 
-DUD-002/003 impiden preparar una partida con contenido real hasta verificar el catálogo y su traducción. DUD-006 afecta el robo con mazo y descarte vacíos; T08.2 lo tratará explícitamente, sin inventar carta ni resultado. Las recompensas concretas de pistas no se conocen aún y bloquean la apertura automática de `libre` tras `inicio`. SRC-002 corrige la mención a Mission Track en la regla de Atium continuo y confirma entrenamiento en la primera ronda.
+DUD-002/003 impiden preparar una partida con contenido real hasta verificar el catálogo y su traducción. DUD-006 afecta el robo con mazo y descarte vacíos; T08.2 lo tratará explícitamente, sin inventar carta ni resultado. [SRC-004](../../referencias/entrenamiento-competitivo.md) documenta las recompensas del panel competitivo. La apertura automática de `libre` tras `inicio` requiere especificación y ejecución del avance y sus obligaciones. SRC-002 corrige la mención a Mission Track en la regla de Atium continuo y confirma entrenamiento en la primera ronda.
 
 ## T08.2b — Cierre interno de limpieza y entrega de fase
 

@@ -1,9 +1,15 @@
 # Tareas de SPEC-008
 
+### T08.1b — Revisión previa de los originales competitivos
+
+Registro previo 2026-11-11. El usuario aporta `C:/Users/pablo/Documents/Digitalizaciones`. Fetch correcto y estado publicado leídos en `b07303bc77f6ac6cd6419c628afdf44268ac313b`, igual a HEAD/main con árbol limpio. La mención a T08.2h local en el resumen publicado es histórica, pues ese commit contiene su implementación.
+
+Objetivo y aceptación: identificar y revisar las cuatro hojas de entrenamiento y el panel de niveles, conservar localizadores y huellas, y distinguir lo visible de las reglas y dependencias pendientes para T08.1b. Riesgo R2 por su uso futuro como fuente de reglas y catálogo. El coordinador inspecciona y redacta. Contraste especializado para la lectura reglamentaria y revisión independiente de la evidencia antes del cierre. Comprobaciones: correspondencia de fuentes, lectura visual, enlaces y diff. Alcance documental, sin incorporar catálogo ejecutable ni abrir fases. Ninguna dispensa ni autorización de publicación.
+
 | ID | Resultado | Estado |
 | --- | --- | --- |
 | T08.1a | Constructor de preparación, reparto, orden, bonificaciones y rival con manifiesto verificado. | Completada localmente; AC-01–06, 147 comprobaciones |
-| T08.1b | Entrenamiento inicial/de turno y recompensas confirmadas; apertura de fase libre. | En espera de pistas/recompensas verificadas; usuario las deja pendientes por ahora |
+| T08.1b | Entrenamiento inicial/de turno y recompensas confirmadas; apertura de fase libre. | Fuente competitiva revisada en [SRC-004](../../referencias/entrenamiento-competitivo.md). Pendientes la especificación del avance, implementación y pruebas. |
 | T08.2 | Transiciones, limpieza, mano siguiente y reciclado de mazos. | Agrupador abierto; T08.2a completada localmente, transiciones completas y DUD-006 pendientes |
 | T08.2a | Primitivas internas de robo, reciclado personal y limpieza de cartas; AC-07–10. | Completada localmente; 262 comprobaciones y revisión independiente favorable |
 | T08.2b | Cierre interno de limpieza y entrega a inicio/rival con guardias; AC-11–14. | Implementada, 334 comprobaciones; revisión independiente favorable |

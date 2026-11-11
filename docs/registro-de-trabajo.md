@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-11 — Originales de entrenamiento competitivo
+
+- El usuario facilita la ruta de los originales. SRC-004 documenta las 16 cartas iniciales de entrenamiento, Financiación y las 21 casillas del panel, con contraste de fuentes y revisión independiente. Siguiente paso: especificar avance y recompensas para T08.1b. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b--revisión-previa-de-los-originales-competitivos).
+
 ## 2026-11-11 — SPEC-009 AC-10, reducir redundancia
 
 - Encargo humano de mejorar consumo; cambio documental R2 de política, sin dispensas, código, modelos ni publicación. Se preservan todos los cambios locales de T08.2h. Fetch/estado publicado confirmado en `1e6c917`.

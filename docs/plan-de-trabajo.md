@@ -12,6 +12,8 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
+- T08.1b: usar la [lectura de las cinco piezas de entrenamiento](referencias/entrenamiento-competitivo.md) como entrada de la especificación del avance inicial y recompensas. Separar desbloqueo de nivel de ejecución de habilidades. El catálogo ejecutable y la transición a fase libre siguen pendientes.
+
 - Aplicar [AC-10, trabajo contenido](gestion/agentes-sdd.md#protocolo-operativo-de-trabajo-contenido--ac-10): lecturas/salidas acotadas, equipo mínimo necesario y evidencia centralizada; mantienen recuperación remota, pruebas y revisión. Mejora documental completada y revisada; no cambia las dependencias del juego.
 
 - T08.2h completada localmente, revisión independiente favorable y 3.778 comprobaciones: [evidencia Funding](specs/008-preparacion-y-turnos/verification.md#t082h--implementación-de-funding). El siguiente objetivo será revisar e incorporar el material de entrenamiento/panel competitivo para desbloquear T08.1b; verificar disponibilidad real de originales, sin asumir que el inventario es contenido ejecutable. No abrir libre con fixtures en producto. Combate/Target y rival siguen pendientes.
