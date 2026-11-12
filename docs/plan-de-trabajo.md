@@ -1,6 +1,6 @@
 # Plan de trabajo por fases
 
-Última revisión: 2026-11-11. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba y preparación estructural P08; efectos, turnos completos y partidas siguen sin implementar.
+Última revisión: 2026-11-12. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba y preparación estructural P08; efectos, turnos completos y partidas siguen sin implementar.
 
 ## Objetivo y situación
 
@@ -12,7 +12,7 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
-- T08.1b2 implementa y prueba el [avance de entrenamiento competitivo](specs/008-preparacion-y-turnos/verification.md#t081b2--operación-interna-de-avance-competitivo). Siguiente objetivo: especificar la integración de inicio único según ENT-AC-04, incluidas las obligaciones de inicio y la comprobación de final de partida antes de abrir `libre`.
+- T08.1b3 especifica el [inicio único competitivo](specs/008-preparacion-y-turnos/inicio-competitivo.md). Sigue T08.1b4 para implementar y probar INI-01–05 en el perfil aislado, conforme a ENT-AC-04.
 
 - La [lectura de las cinco piezas de entrenamiento](referencias/entrenamiento-competitivo.md) sustenta las recompensas de la pista competitiva. Siguen pendientes la activación de habilidades, el catálogo ejecutable y la transición a fase libre.
 
@@ -310,6 +310,8 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 **Cierre:** Una copia limpia permite ejecutar la versión y completar una partida remota; se conservan evidencia de pruebas y limitaciones conocidas.
 
 ## Punto de reanudación
+
+Actualización vigente 2026-11-12. T08.1b2 publicada en `ab3ef55`. T08.1b3 completada documentalmente con revisión independiente. El siguiente objetivo es T08.1b4. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b3--contrato-del-inicio-único-competitivo).
 
 Actualización vigente 2026-11-11: [T08.1b2](specs/008-preparacion-y-turnos/verification.md#t081b2--operación-interna-de-avance-competitivo) implementada y probada con un perfil aislado. Siguiente objetivo: diseñar la transacción de inicio competitivo de ENT-AC-04. Las notas de reanudación inferiores son antecedentes.
 

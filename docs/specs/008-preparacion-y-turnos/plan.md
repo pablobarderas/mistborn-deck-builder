@@ -1,5 +1,14 @@
 # Plan de SPEC-008
 
+## T08.1b3/b4 — Inicio único competitivo
+
+[Contrato](inicio-competitivo.md) e INI-01–05 para ENT-AC-04. T08.1b3 contrasta fuentes y APIs y entrega el diseño revisado. T08.1b4 implementará y probará el perfil aislado. Antes de editar código, asignar un propietario para la entrada interna, el adaptador, el versionado y las pruebas.
+
+1. Separar entradas pública e interna sobre el commit compartido de P07. Reservar tipo e IDs de inicio, verificar su separación antes de los recibos y comprobar el número de turno antes de ejecutar el manejador.
+2. Construir la admisión del perfil y las comprobaciones de obligaciones y final. Componer T08.1b2 en el candidato de autoridad, cambiar sólo la fase y validar el delta y el candidato. Reutilizar el registro Funding si el perfil lo admite.
+3. Versionar la admisión del snapshot para distinguir la semántica del nuevo perfil. Usar una versión coherente en preparación, validación de estado, entrenamiento y Funding o limpieza si se reutilizan. `StateValidator` compara hoy una constante compartida. No reetiquetar snapshots anteriores. Serializar las entradas y comprobar que sólo un motor vacío recibe el último estado confirmado de la fuente de autoridad.
+4. Ejecutar INI-01–05 y regresiones de entrenamiento, preparación, estado, motor, Funding, secuencias y limpieza. Revisar de forma independiente. La entrada de producto depende del catálogo verificado, las obligaciones y finales aplicables y su integración.
+
 ## T08.1b1/b2 — Avance de entrenamiento competitivo
 
 [Contrato](avance-entrenamiento.md), ENT-AC-01 a 04, R2. T08.1b1 fija las recompensas, el perfil y la frontera entre la operación interna y la integración de inicio. T08.1b2 aplica ENT-AC-01 a 03 en `training_advance.gd` con un descriptor técnico externo a P06 que liga catálogo, ID, definición y marcas ordenadas. La operación devuelve un candidato validado con el registro de secuencias de la autoridad. Responsables y verificación en [tareas](tasks.md#t081b2--operación-interna-de-avance-competitivo).

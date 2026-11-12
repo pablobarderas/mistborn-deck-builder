@@ -1,10 +1,10 @@
 # Estado actual
 
-Última revisión: 2026-11-11.
+Última revisión: 2026-11-12.
 
 ## Resumen
 
-T08.1b2 completada localmente con revisión independiente favorable. La operación interna de entrenamiento competitivo calcula un paso y sus recompensas con un perfil aislado del panel de 21 casillas. El siguiente paso es especificar la integración de inicio único y sus obligaciones antes de abrir la fase libre. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b2--operación-interna-de-avance-competitivo).
+T08.1b2 publicada en `ab3ef55` con 4.053 comprobaciones y revisión independiente favorable. T08.1b3 deja el [contrato del inicio único competitivo](specs/008-preparacion-y-turnos/inicio-competitivo.md) revisado localmente. Sigue T08.1b4 para implementar y verificar la apertura de la fase libre en el perfil aislado. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b3--contrato-del-inicio-único-competitivo).
 
 La revisión de las cuatro hojas de entrenamiento y el panel competitivo de la caja española está publicada en `13bb11f`. [Inventario y lectura de SRC-004](referencias/entrenamiento-competitivo.md).
 

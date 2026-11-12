@@ -218,6 +218,10 @@ Ampliación técnica T08.2h, 2026-11-11: adaptador GameEngine con perfil complet
 
 - Fecha: 2026-11-11. Estado: política implementada documentalmente y revisada independientemente, por encargo humano «de acuerdo pues vamos a mejorar eso» sobre el consumo excesivo observado. Aplicar [AC-10](gestion/agentes-sdd.md#protocolo-operativo-de-trabajo-contenido--ac-10): lectura y salida selectivas, delegación mínima justificada, coordinación por resultados, reutilización comprobable de pruebas y memoria sin copias del mismo informe. Mantiene todos los controles SDD y permisos; ninguna dispensa ni ahorro medido atribuido.
 
+## DEC-030 — Consumo del inicio competitivo por transición de fase
+
+2026-11-12. Diseño técnico propuesto para T08.1b4. Reutilizar los recibos de P07 con una entrada interna separada de las acciones de jugador. Consumir el inicio al confirmar la transición y el avance en la misma transacción. El perfil cerrado permite identificar la ocurrencia por partida, turno y plaza porque sus transiciones son monotónicas y la restauración usa el último estado confirmado. Este diseño evita duplicar el consumo en otro registro. [Contrato y límites](specs/008-preparacion-y-turnos/inicio-competitivo.md).
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.

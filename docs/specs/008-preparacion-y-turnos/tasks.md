@@ -1,5 +1,9 @@
 # Tareas de SPEC-008
 
+### T08.1b3 — Contrato del inicio único competitivo
+
+Registro previo 2026-11-12. T08.1b2 publicada con autorización expresa. Fetch posterior y `git show` contrastados en `ab3ef5573596713ec03a06a965d25e7b8cfc33d9`, igual a HEAD de main con árbol limpio. Objetivo documental R2 por autoridad, idempotencia, privacidad y reglas de final. Aceptación: especificar ENT-AC-04, el subconjunto implementable y las pruebas de avance único, reenvío, obligaciones, finales y fallo atómico. Coordinador único autor, contraste de `training_rules` y revisión independiente de `training_review`. Verificación documental contra SRC-001/002/004, P07/P08, enlaces y diff. Sin dispensas. La implementación será una tarea posterior.
+
 ### T08.1b2 — Operación interna de avance competitivo
 
 Registro previo 2026-11-11. Fetch y estado publicado contrastados en `c6f11e8367f50fcef818dc68d00cb4719a7eb6bf`, igual a HEAD de main y árbol inicialmente limpio. Objetivo y aceptación en [ENT-AC-01 a 03](avance-entrenamiento.md#aceptación-y-pruebas-previstas). Riesgo R2 por aplicación de reglas, cambio de estado y uso del contador de autoridad. Coordinador propietario del módulo, suite, lanzador y documentación. `training_rules` contrasta SRC-001/002/004 y `training_review` revisará el diff final de forma independiente. Plan: validar el perfil aislado y el estado, calcular y verificar el candidato, ejecutar `test-training` y las regresiones del plan, revisar y registrar evidencia. ENT-AC-04 queda para la integración. Sin dispensas.
@@ -20,6 +24,8 @@ Objetivo y aceptación: identificar y revisar las cuatro hojas de entrenamiento 
 | T08.1b | Entrenamiento inicial/de turno y recompensas confirmadas; apertura de fase libre. | Contrato y paso interno competitivo completados. Pendiente la integración de inicio. |
 | T08.1b1 | [Contrato del avance competitivo](avance-entrenamiento.md), ENT-AC-01 a 04. | Completada documentalmente con revisión independiente favorable. |
 | T08.1b2 | Implementar y probar un paso interno con ENT-AC-01 a 03. | Completada localmente con revisión favorable. [Evidencia](verification.md#t081b2--operación-interna-de-avance-competitivo). ENT-AC-04 queda para la integración. |
+| T08.1b3 | [Contrato del inicio competitivo](inicio-competitivo.md) y plan de pruebas para ENT-AC-04. | Completada documentalmente con revisión independiente favorable. |
+| T08.1b4 | Implementar el inicio competitivo en perfil aislado y verificar INI-01–05. | Siguiente. Pendientes implementación, pruebas e integración de producto. |
 | T08.2 | Transiciones, limpieza, mano siguiente y reciclado de mazos. | Agrupador abierto; T08.2a completada localmente, transiciones completas y DUD-006 pendientes |
 | T08.2a | Primitivas internas de robo, reciclado personal y limpieza de cartas; AC-07–10. | Completada localmente; 262 comprobaciones y revisión independiente favorable |
 | T08.2b | Cierre interno de limpieza y entrega a inicio/rival con guardias; AC-11–14. | Implementada, 334 comprobaciones; revisión independiente favorable |

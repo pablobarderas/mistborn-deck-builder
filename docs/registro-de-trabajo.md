@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-12 — Publicación del avance y contrato de inicio
+
+- T08.1b2 publicada en `ab3ef55`, confirmado mediante fetch. T08.1b3 especifica el inicio atómico, los reenvíos y las comprobaciones de obligaciones y finales. Contraste de fuentes y revisión independiente favorables. Sigue la implementación aislada T08.1b4. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b3--contrato-del-inicio-único-competitivo).
+
 ## 2026-11-11 — T08.1b2, avance interno de entrenamiento
 
 - Implementación local del paso competitivo con perfil aislado, niveles derivados y recompensas de Atium. Revisión independiente favorable tras corregir el rechazo de campos mal tipados. Siguiente paso: especificar el inicio único y sus obligaciones antes de abrir la fase libre. [Pruebas y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b2--operación-interna-de-avance-competitivo).

@@ -1,5 +1,9 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.1b3/b4 — Inicio único competitivo
+
+El [contrato de inicio competitivo](inicio-competitivo.md) concreta ENT-AC-04. Define el avance y la apertura atómicos, el reenvío de autoridad y las comprobaciones de obligaciones y finales. T08.1b4 implementará y probará el subconjunto aislado.
+
 ## T08.1b1/b2 — Avance de entrenamiento competitivo
 
 [Contrato del avance](avance-entrenamiento.md), ENT-AC-01 a 04. La preparación sitúa el marcador en la primera casilla. T08.1b2 implementa la operación interna que calcula un paso y su recompensa de SRC-004 en competitivo. La apertura de `libre` requiere una integración de autoridad que consuma el inicio una sola vez y resuelva las obligaciones previas. [Evidencia y traspaso](verification.md#t081b2--operación-interna-de-avance-competitivo).

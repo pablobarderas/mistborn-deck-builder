@@ -1,5 +1,17 @@
 # Verificación de SPEC-008
 
+## T08.1b3 — Contrato del inicio único competitivo
+
+Publicación autorizada por el usuario el 2026-11-12. Empaquetado R0 del contrato revisado a cargo del coordinador, con fetch confirmado en `ab3ef55`. Se comprueban alcance del índice, diff y coincidencia con `origin/main` tras publicar.
+
+2026-11-12. T08.1b2 publicada en `ab3ef5573596713ec03a06a965d25e7b8cfc33d9`. Fetch posterior, documento remoto y HEAD coincidieron con árbol limpio al comenzar T08.1b3. [Registro previo R2](tasks.md#t081b3--contrato-del-inicio-único-competitivo). Coordinador único escritor. `training_rules` (sdd_rules Sol/high) contrastó SRC-001/002 y la lectura SRC-004 para avance, Keeper y finales. Dos encargos acotados de solo lectura, sin descendientes ni dispensas. Métricas de tokens no disponibles.
+
+`training_review` (sdd_reviewer Sol/high) revisó el [contrato](inicio-competitivo.md) frente a P07 y T08.1b2. Detectó dos riesgos de doble aplicación, por sustitución del estado con una revisión anterior y por transacciones intercaladas. El contrato limita la restauración al último estado confirmado para ese perfil en un motor vacío y exige una autoridad que serialice las operaciones. INI-02/05 cubren ambas correcciones. Dictamen documental final favorable.
+
+ENT-AC-04 queda especificado con INI-01–05 y plan de implementación. Comprobados 176 enlaces locales, cinco anclas y `git diff --check`. Los escenarios de Godot quedan pendientes de ejecución en T08.1b4. T08.1b3 sólo cambia documentación.
+
+Traspaso en `main` desde `ab3ef55`, con T08.1b3 local. Siguiente objetivo T08.1b4. Empezar por separar las entradas interna y pública sobre la transacción compartida de P07, fijar la admisión del perfil aislado y ejecutar INI-01–05. La integración de producto requiere catálogo, obligaciones y finales resueltos. Los modos con rival y P15 conservan su trabajo propio.
+
 ## T08.1b2 — Operación interna de avance competitivo
 
 El usuario autorizó el commit y push de T08.1b2 el 2026-11-12. Empaquetado R0 a cargo del coordinador sobre `c6f11e8`, confirmado mediante fetch. Se comprueba que el índice contiene sólo la entrega revisada, que el diff no tiene errores y que el commit coincide con `origin/main` tras publicar. El traspaso inferior describe el cierre previo a la publicación.
