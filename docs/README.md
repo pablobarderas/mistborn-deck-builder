@@ -30,6 +30,7 @@ El [cumplimiento de SDD](gestion/agentes-sdd.md#obligatoriedad-y-dispensas) es o
 - [Modos y cooperativo](specs/002-modos-y-cooperativo/spec.md): comportamiento y aceptación para competitivo 2–4, cooperativo 2–4 y solitario.
 - [Estado y acciones de partida](specs/007-estado-y-acciones/spec.md): T07.1/2 implementadas/verificadas localmente; P07 espera prueba externa P04 y las reglas siguen pendientes.
 - [Preparación y turnos](specs/008-preparacion-y-turnos/spec.md) cubre la preparación estructural y el inicio competitivo en un perfil aislado. Quedan pendientes la integración de producto, los turnos completos y el catálogo real.
+- [Avance de misiones M5/M6/M7](specs/008-preparacion-y-turnos/verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7): piloto automático verificado localmente con premios, primeras llegadas y victoria; reservas y componentes restantes ficticios, sin producto integrado.
 - [Funding en perfil aislado](specs/008-preparacion-y-turnos/verification.md#t082h--implementación-de-funding): primera regla de carta implementada localmente en competitivo, con aplicación u omisión; pruebas y estado de revisión. No abre turno ni incorpora cartas españolas verificadas.
 - [Calidad](calidad.md): evidencia necesaria de reglas, red, presentación y distribución.
 - [Dirección visual y tablero](diseno-visual.md): P05 aceptada como base visual; paleta, interacciones y resoluciones de la maqueta.

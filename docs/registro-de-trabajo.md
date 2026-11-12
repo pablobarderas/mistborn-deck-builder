@@ -1,5 +1,13 @@
 # Registro de trabajo
 
+## 2026-11-12 — Publicación de T08.1b12
+
+- Encargo expreso «haz el commit y el push». Empaquetado R0 sobre `2bc058c`, igual a origin/main tras fetch; se reutilizan pruebas y revisión del resolutor. Comprobar enlaces, índice/diff y fuentes excluidas, publicar los 35 archivos y verificar sincronización remota/árbol limpio. El commit que contiene esta nota identifica la entrega. Siguiente objetivo: contrato de permanentes M3/M4, sin iniciar otra implementación. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7).
+
+## 2026-11-12 — Publicación del contrato y avance automático de misiones
+
+- T08.1b11 publicada por encargo en `2bc058c`; fetch posterior confirmó HEAD/origin/main y árbol limpio. T08.1b12 implementa localmente M5/M6/M7, primeras llegadas, premios y victoria inmediata sin últimos premios. Snapshot 3 y núcleo Training compartido. 5.418 comprobaciones en 13 suites; revisión independiente favorable y comprobaciones documentales. Sin publicar esta implementación. Siguiente T08.1b13: contrato de permanentes M3/M4 para inicio/limpieza. [Evidencia, correcciones, límites y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7).
+
 ## 2026-11-12 — Contrato del avance competitivo de misiones
 
 - Recuperación tras fetch en `7f8c579`, igual a HEAD/main y árbol inicialmente limpio. T08.1b11 concreta gasto unitario, primeras llegadas, premios, resultado terminal y plan M5/M6/M7. DEC-034 registra las dos decisiones expresas del usuario sobre orden de premios y victoria. Contraste reglamentario y revisión independiente favorables; enlaces/anclas y diff comprobados. Entrega documental sin Godot, código, commit ni push. [Evidencia, límites y siguiente implementación T08.1b12](specs/008-preparacion-y-turnos/verification.md#t081b11--contrato-del-avance-de-misiones-competitivo).

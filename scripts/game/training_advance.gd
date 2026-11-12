@@ -1,6 +1,6 @@
 extends RefCounted
-## Un paso de autoridad en inicio competitivo. El llamador decide si confirma
-## el candidato y debe garantizar el consumo único del inicio al integrarlo.
+## Paso de entrenamiento de autoridad, compartido por inicio y premios.
+## El llamador confirma el candidato y garantiza el consumo unico del inicio.
 
 const Validator = preload("res://scripts/game/state_validator.gd")
 const Registry = preload("res://scripts/game/sequence_registry.gd")
@@ -53,13 +53,22 @@ static func unlocked_level(position: int) -> int:
 
 
 func advance(snapshot: Variant, player_id: Variant) -> Dictionary:
+	return _advance_candidate(snapshot, player_id, "inicio")
+
+
+## Entrada interna de autoridad para componer premios; no abre inicio publico.
+func advance_for_mission(snapshot: Variant, player_id: Variant) -> Dictionary:
+	return _advance_candidate(snapshot, player_id, "libre")
+
+
+func _advance_candidate(snapshot: Variant, player_id: Variant, required_phase: String) -> Dictionary:
 	var validator: Validator = Validator.new()
 	if not validator.validate(snapshot, _definitions, _catalog_id, _registry).ok:
 		return _reject("estado_invalido")
 	if not player_id is String:
 		return _reject("formato_invalido")
 	if snapshot.mode != "competitivo" or snapshot.lifecycle != "en_curso" \
-		or snapshot.turn.phase != "inicio" or snapshot.turn.number < 1 \
+		or snapshot.turn.phase != required_phase or snapshot.turn.number < 1 \
 		or snapshot.turn.active_id != player_id or snapshot.resolution != null:
 		return _reject("accion_ilegal")
 	var player_index: int = -1

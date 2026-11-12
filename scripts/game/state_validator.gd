@@ -2,8 +2,8 @@ extends RefCounted
 ## Invariantes estructurales del snapshot privado. No aplica reglas ni efectos.
 
 const Registry = preload("res://scripts/game/sequence_registry.gd")
-const SCHEMA_VERSION: int = 2
-const ENGINE_VERSION: String = "p08-draw-1/godot-4.7.2"
+const SCHEMA_VERSION: int = 3
+const ENGINE_VERSION: String = "p08-missions-1/godot-4.7.2"
 const METALS: Array[String] = ["peltre", "estano", "bronce", "cobre", "zinc", "laton", "hierro", "acero", "atium"]
 const PLAYER_ZONES: Array[String] = ["mano", "mazo", "descarte", "juego"]
 const SHARED_ZONES: Array[String] = ["mazo_mercado", "mercado", "eliminadas", "mazo_rival", "descarte_rival", "adversarios"]
@@ -36,7 +36,7 @@ func validate(document: Variant, definitions: Dictionary, catalog_id: String, re
 		return _result()
 	if not _writable_map(document, "$"):
 		return _result()
-	if not _shape(document, ["version_esquema", "version_motor", "catalog_id", "match_id", "mode", "revision", "lifecycle", "players", "player_order", "instances", "zones", "turn", "missions", "target_id", "rival", "resolution", "authority"], "$"):
+	if not _shape(document, ["version_esquema", "version_motor", "catalog_id", "match_id", "mode", "revision", "lifecycle", "players", "player_order", "instances", "zones", "turn", "missions", "target_id", "rival", "resolution", "outcome", "authority"], "$"):
 		return _result()
 	if typeof(document.version_esquema) != TYPE_INT or document.version_esquema != SCHEMA_VERSION:
 		_error("version_esquema", "versión no admitida")
@@ -78,6 +78,8 @@ func validate(document: Variant, definitions: Dictionary, catalog_id: String, re
 		if document.mode != "competitivo" or _players.size() < 3:
 			_error("target_id", "Target no aplicable a esta configuración")
 	_validate_rival(document.rival, document.mode)
+	if _errors.is_empty():
+		_validate_outcome(document)
 	_validate_authority(document.authority, document.revision)
 	if _errors.is_empty():
 		_validate_sequences(document, registry)
@@ -97,7 +99,7 @@ func _validate_player(value: Variant) -> void:
 	_definition_ref(value.character_id, "players.character_id", "personaje", true)
 	_definition_ref(value.training_track_id, "players.training_track_id", "pista_entrenamiento", true)
 	_resources(value.persistent, ["atium", "boxings"], "players.persistent")
-	_resources(value.turn_resources, ["recursos", "ataque"], "players.turn_resources")
+	_resources(value.turn_resources, ["recursos", "ataque", "mision"], "players.turn_resources")
 	_number(value.training, "players.training")
 	_counters(value.ability_uses, "players.ability_uses")
 	_number(value.burn_limit, "players.burn_limit")
@@ -217,7 +219,7 @@ func _validate_missions(value: Variant) -> void:
 	for key: Variant in value:
 		_id(key, "missions.key")
 		var mission: Variant = value[key]
-		if not _shape(mission, ["definition_id", "progress", "rewards", "arrival_order"], "missions"):
+		if not _shape(mission, ["definition_id", "progress", "rewards", "arrival_order", "first_arrivals"], "missions"):
 			continue
 		_definition_ref(mission.definition_id, "missions.definition_id", "mision")
 		for field: String in ["progress", "rewards"]:
@@ -231,8 +233,65 @@ func _validate_missions(value: Variant) -> void:
 					_number(mission[field][player_id], "missions.progress.value")
 				elif _array(mission[field][player_id], "missions.rewards.value"):
 					_unique_ids(mission[field][player_id], "missions.rewards.value")
+		var cells: Array[String] = mission_cells(_definitions.get(mission.definition_id))
+		if _map(mission.first_arrivals, "missions.first_arrivals"):
+			if mission.first_arrivals.size() != cells.size():
+				_error("missions.first_arrivals", "claves incompatibles con recorrido")
+			for cell_id: Variant in mission.first_arrivals:
+				if not cell_id in cells:
+					_error("missions.first_arrivals", "casilla desconocida")
+				if mission.first_arrivals[cell_id] != null:
+					_player_ref(mission.first_arrivals[cell_id], "missions.first_arrivals.value")
+		if not cells.is_empty() and mission.progress is Dictionary:
+			for position: Variant in mission.progress.values():
+				if typeof(position) == TYPE_INT and position > cells.size():
+					_error("missions.progress.value", "posicion fuera del recorrido")
 		if _array(mission.arrival_order, "missions.arrival_order"):
 			_player_list(mission.arrival_order, "missions.arrival_order")
+
+
+## Recorridos estructurales: los stubs sin rasgos no certifican reglas reales.
+static func mission_cells(definition: Variant) -> Array[String]:
+	var result: Array[String] = []
+	if not definition is Dictionary or not definition.get("rasgos") is Dictionary:
+		return result
+	var tracks: Variant = definition.rasgos.get("recorridos")
+	if not tracks is Array or tracks.size() != 1 or not tracks[0] is Dictionary:
+		return result
+	var cells: Variant = tracks[0].get("casillas")
+	if not cells is Array:
+		return result
+	for cell: Variant in cells:
+		if not cell is Dictionary or not cell.get("id") is String:
+			return []
+		result.append(cell.id)
+	return result
+
+
+func _validate_outcome(document: Dictionary) -> void:
+	if document.outcome == null:
+		return
+	var outcome: Variant = document.outcome
+	if not _shape(outcome, ["winner_id", "reason", "mission_id", "turn_number"], "outcome"):
+		return
+	if not _player_ref(outcome.winner_id, "outcome.winner_id"):
+		return
+	_enum(outcome.reason, ["tres_misiones"], "outcome.reason")
+	if not _id(outcome.mission_id, "outcome.mission_id") or not document.missions.has(outcome.mission_id):
+		_error("outcome.mission_id", "mision inexistente")
+	if not _number(outcome.turn_number, "outcome.turn_number") or outcome.turn_number < 1 or outcome.turn_number != document.turn.number:
+		_error("outcome.turn_number", "turno incompatible")
+	if document.mode != "competitivo" or document.lifecycle != "finalizada" \
+		or document.turn.phase != "finalizada" or document.turn.active_id != outcome.winner_id or document.resolution != null:
+		_error("outcome", "resultado incompatible con estado terminal competitivo")
+	for player: Dictionary in document.players:
+		if player.player_id == outcome.winner_id and (player.eliminated or player.health <= 0):
+			_error("outcome.winner_id", "ganador sin vida")
+	if document.missions.size() != 3:
+		_error("outcome", "se requieren tres misiones")
+	for mission: Dictionary in document.missions.values():
+		if mission.progress.get(outcome.winner_id) != 12:
+			_error("outcome", "ganador sin tres cimas")
 
 
 func _validate_rival(value: Variant, mode: Variant) -> void:

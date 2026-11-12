@@ -41,6 +41,7 @@ func finish_cleanup(snapshot: Variant, player_id: Variant, rng: Variant) -> Dict
 	active = _player(candidate, player_id)
 	active.turn_resources.recursos = 0
 	active.turn_resources.ataque = 0
+	active.turn_resources.mision = 0
 	active.burned.clear()
 	active.ability_uses.clear()
 	var retained_metals: Array = []

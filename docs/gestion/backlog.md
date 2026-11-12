@@ -127,7 +127,9 @@ Documentos y plantillas se incluyen en la entrega inicial autorizada para commit
 
 ## Refinamiento P08
 
-T08.1b11 (R2 documental) especifica [avance de misiones, MIS-01–06](../specs/008-preparacion-y-turnos/avance-misiones.md) y DEC-034. Completada documentalmente con revisión independiente favorable. T08.1b12 queda planificada para el primer resolutor aislado M5/M6/M7. Sin issue publicada.
+T08.1b12 (R2) completada/verificada localmente y revisada: [M5/M6/M7](../specs/008-preparacion-y-turnos/verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7), snapshot 3, 13 suites/5.418 comprobaciones. Sin issue; publicación de implementación autorizada el 2026-11-12 y realizada por el commit que incorpora esta nota. T08.1b13: contrato de integración de permanentes M3/M4 con inicio/limpieza; elecciones y producto pendientes.
+
+T08.1b11 (R2 documental) especifica [avance de misiones, MIS-01–06](../specs/008-preparacion-y-turnos/avance-misiones.md) y DEC-034. Completada documentalmente con revisión independiente favorable. T08.1b12 ya implementa el primer resolutor aislado M5/M6/M7 según la evidencia superior. Sin issue publicada.
 
 T08.1b7 (R2 documental) registra DEC-032 y está publicada en `02e38c7`. T08.2i aplica el robo personal. Queda aplicar el desbloqueo tardío en el resolutor de habilidades y la prioridad de finales del rival en T08.3. [Casos y evidencia](../specs/008-preparacion-y-turnos/verification.md#t082i--robo-personal-con-mazo-y-descarte-agotados).
 

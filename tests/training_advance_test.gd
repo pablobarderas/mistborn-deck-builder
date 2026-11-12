@@ -20,9 +20,45 @@ func _initialize() -> void:
 	_test_illegal()
 	_test_limits()
 	_test_funding()
+	_test_mission_composition()
 	if _failures == 0:
 		print("P08_TRAINING_OK: %d comprobaciones." % _checks)
 	quit(0 if _failures == 0 else 1)
+
+
+func _test_mission_composition() -> void:
+	var definitions: Dictionary = Base.definitions()
+	var service: Advance = Advance.new(definitions, CATALOG_ID, _profile(definitions))
+	for count: int in [2, 3, 4]:
+		var state: Dictionary = _snapshot(19, "competitivo", count)
+		state.turn.phase = "libre"
+		var before: Dictionary = state.duplicate(true)
+		_expect(not service.advance(state, "p1").ok, "MIS-02 libre no habilita entrada de inicio")
+		var normal: Dictionary = service.advance_for_mission(state, "p1")
+		_expect(normal.ok and state == before, "MIS-02 premio normal conserva origen")
+		if not normal.ok:
+			continue
+		_expect(normal.candidate.players[0].training == 20 and normal.candidate.players[0].persistent.atium == state.players[0].persistent.atium,
+			"MIS-02 desde 19 alcanza 20 sin Atium")
+		var extra: Dictionary = service.advance_for_mission(normal.candidate, "p1")
+		_expect(extra.ok and extra.candidate.players[0].training == 20
+			and extra.candidate.players[0].persistent.atium == state.players[0].persistent.atium + 1,
+			"MIS-02 extra desde 20 concede Atium")
+		if extra.ok:
+			_expect(extra.candidate.turn == state.turn and extra.candidate.authority.rng_state == state.authority.rng_state,
+				"MIS-02 composicion no falsea fase ni consume RNG")
+		state.turn.phase = "inicio"
+		_expect(not service.advance_for_mission(state, "p1").ok, "Inicio no habilita entrada de mision")
+	var state: Dictionary = _snapshot(20)
+	state.turn.phase = "libre"
+	state.authority.next_id = Registry.MAX_INT
+	var before: Dictionary = state.duplicate(true)
+	_expect(not service.advance_for_mission(state, "p1").ok and state == before, "MIS-03 overflow de premio conserva candidato completo")
+	state = _snapshot(10)
+	state.turn.phase = "libre"
+	state.players[0].metals.append({"token_id": "token_atium_3", "metal": "cobre", "exhausted": false, "used_this_turn": false})
+	before = state.duplicate(true)
+	_expect(not service.advance_for_mission(state, "p1").ok and state == before, "MIS-03 colision de ID conserva candidato completo")
 
 
 func _profile(definitions: Dictionary, catalog_id: String = CATALOG_ID) -> Dictionary:

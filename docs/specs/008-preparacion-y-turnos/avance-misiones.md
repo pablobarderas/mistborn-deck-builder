@@ -1,12 +1,12 @@
 # Contrato de avance de misiones competitivo
 
-T08.1b11 es una entrega documental R2 para competitivo de 2–4 plazas. T08.1b12 implementará el primer perfil automático descrito aquí. No habilita una partida de producto ni amplía los perfiles actuales de Funding o inicio competitivo.
+T08.1b11 es una entrega documental R2 para competitivo de 2–4 plazas. T08.1b12 implementa el primer perfil automático M5/M6/M7 descrito aquí; verificación y revisión en [evidencia](verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7). No habilita una partida de producto ni amplía los perfiles actuales de Funding o inicio competitivo.
 
 Fuentes: [SRC-001](../../referencias/README.md#src-001--reglamento-aportado-por-el-usuario), pp. 8–9, 12–14 y 17; [SRC-002, FAQ oficial](https://www.brotherwisegames.com/mistborn-deckbuilding-game-faq), «Missions», «Metal tokens & atium», «Action cards» y «Miscellaneous» (consulta 2026-11-12); [transcripción SRC-005](../../referencias/misiones-competitivas.md), [catálogo v2](catalogo-misiones.md), REG-032–035/044/045 y DEC-031/032. [DEC-034](../../decisiones.md#dec-034--orden-de-premios-y-victoria-por-misiones) resuelve el orden no explicitado por las fuentes: normal antes del extra; victoria por la tercera cima antes de sus premios.
 
 ## Intención y autoridad
 
-La futura intención `avanzar_mision` usa el sobre de P07 y un payload exacto `{mission_id}`. Consume **un punto neto de misión** de la reserva de la plaza activa y avanza su marcador una casilla. Repetir acciones permite repartir puntos entre las tres misiones, sin saltar premios intermedios. No se admite cantidad, posición de destino, premio, primer jugador, ganador, programa o snapshot decidido por el cliente. Las pérdidas de puntos afectan a la reserva; nunca retroceden un marcador.
+La intención `avanzar_mision` usa el sobre de P07 y un payload exacto `{mission_id}`. Consume **un punto neto de misión** de `players[].turn_resources.mision`, la reserva de la plaza activa y avanza su marcador una casilla. Repetir acciones permite repartir puntos entre las tres misiones, sin saltar premios intermedios. No se admite cantidad, posición de destino, premio, primer jugador, ganador, programa o snapshot decidido por el cliente. Las pérdidas de puntos afectan a la reserva; nunca retroceden un marcador.
 
 La autoridad exige partida en curso, competitivo de 2–4, fase `libre`, actor activo vivo, salud/eliminación coherentes, al menos dos vivos, `resolution == null`, reserva neta suficiente y recorrido conocido con progreso 0–11. Una misión terminada no consume puntos. Antes de empezar, comprobar continuidad y ausencia de un final previo o pendiente. Tener cuatro Atium no acredita Confrontación ni provoca victoria por sí solo.
 
@@ -14,9 +14,9 @@ El perfil reconoce las definiciones completas y sus efectos, también fuera de j
 
 P07 serializa la intención desde lectura hasta publicación y conserva su contrato de recibos: duplicado idéntico devuelve recibo original aun tras finalizar; ID reutilizado con contenido distinto se rechaza; nuevo ID requiere revisión vigente. Una nueva intención válida desde la posición siguiente es un nuevo gasto legítimo, no una repetición del mismo paso. No se añade una entrada pública de aplicar premios.
 
-## Estado propuesto e invariantes
+## Estado de snapshot 3 e invariantes
 
-La implementación de este contrato usará **esquema de snapshot 3 y una nueva versión de motor**. La versión literal se fijará en T08.1b12; no se cambia el motor durante esta entrega documental. El catálogo conserva su versión 2, independiente del snapshot. No habrá migración implícita de esquema 2: sus posiciones no permiten reconstruir quién llegó primero a una casilla intermedia.
+T08.1b12 usa **esquema de snapshot 3 y motor `p08-missions-1/godot-4.7.2`**. T08.1b11 especificó el formato sin cambiar entonces el motor. El catálogo conserva su versión 2, independiente del snapshot. No hay migración implícita de esquema 2: sus posiciones no permiten reconstruir quién llegó primero a una casilla intermedia.
 
 Por misión se mantienen `definition_id`, `progress`, `rewards` y `arrival_order`, y se añade `first_arrivals`: mapa exacto de `p01`…`p12` a plaza o null. El mapa registra todas las casillas, incluso sin premio. Al entrar por primera vez se fija la plaza; nunca se sobrescribe, tampoco tras eliminarla. `arrival_order` contiene una vez cada plaza que alcanzó 12, en orden de llegada, y su primera plaza coincide con `first_arrivals.p12`.
 
@@ -26,7 +26,7 @@ Por misión se mantienen `definition_id`, `progress`, `rewards` y `arrival_order
 - En un estado estable en curso deben estar liquidados todos los premios alcanzados. Durante una pausa futura, únicamente la resolución de autoridad vinculada a esa plaza/casilla puede explicar grupos pendientes; el cursor impide repetir operaciones ya confirmadas. No confundir primera llegada, premio pendiente y premio liquidado.
 - La eliminación conserva marcadores, primeras llegadas, premios y orden de cima. Una plaza eliminada no actúa ni vuelve disponibles extras.
 
-Se añade al snapshot `outcome`, null mientras siga en curso. El primer perfil sólo admite como resultado `{winner_id, reason: "tres_misiones", mission_id, turn_number}`: ganador vivo con las tres posiciones a 12, última misión identificada y turno de la acción ganadora. `lifecycle == "finalizada"` y ese resultado se confirman juntos. Cualquier otro final exige su propio contrato; el perfil no admite estados que puedan haberlo producido. Los restantes constructores/fixtures que usen esquema 3 deberán declarar `outcome: null` y mapas de primera llegada con valores null antes de cualquier avance, con las claves del recorrido de cada perfil, sin reinterpretar snapshots antiguos.
+Se añade al snapshot `outcome`, null mientras siga en curso. El primer perfil sólo admite como resultado `{winner_id, reason: "tres_misiones", mission_id, turn_number}`: ganador vivo con las tres posiciones a 12, última misión identificada y turno de la acción ganadora. `lifecycle == "finalizada"` y ese resultado se confirman juntos. Cualquier otro final exige su propio contrato; el perfil no admite estados que puedan haberlo producido. Los constructores/fixtures de esquema 3 declaran `outcome: null` y mapas de primera llegada con valores null antes de cualquier avance, con las claves del recorrido de cada perfil, sin reinterpretar snapshots antiguos.
 
 En una victoria inmediata, la última cima no liquida sus grupos de premio y no instala su permanente. Esa omisión sólo es válida en la misión/turno del resultado terminal confirmado. No deja una resolución ni una obligación posterior. Las otras dos misiones completadas conservan sus premios anteriores.
 
@@ -82,4 +82,4 @@ Cooperativo y solitario conservan sus propios finales y reglas de adversarios/po
 
 Plan: (1) actualizar esquema/versión, constructores/fixtures y validación de llegadas/grupos/resultado; (2) añadir servicio interno de candidato y adaptador de autoridad con consumo y delta cerrado; (3) extraer el núcleo de entrenamiento conservando sus guardas de inicio, implementar premios soportados y recibos/terminal; (4) ejecutar suite nueva y regresiones de estado, motor, catálogo v1/v2, preparación, ciclo, limpieza, secuencia, Funding, entrenamiento e inicio, con Godot 4.7.2; (5) revisión independiente R2 y cierre documentado. Reutilizar el contraste de fuentes de esta entrega. Los permanentes de inicio, elecciones y las demás misiones requerirán integración posterior con sus contratos concretos. No añadir UI ni red al piloto.
 
-T08.1b11 se cierra con revisión documental, coherencia de APIs/versiones, enlaces y diff. Los escenarios de esta tabla son **pruebas futuras, no ejecutadas** en esta entrega.
+T08.1b11 se cerró documentalmente. La ejecución del subconjunto automático MIS-01–03/05/06 y sus límites se registra en [T08.1b12](verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7); MIS-04, elecciones y pausas siguen siendo pruebas futuras.

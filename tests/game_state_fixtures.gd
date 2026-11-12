@@ -29,7 +29,7 @@ static func snapshot(mode: String = "competitivo", count: int = 2) -> Dictionary
 		rewards[id] = ["reward_a"] if index == 0 else []
 		players.append({"player_id": id, "name": "Prueba %d" % index, "eliminated": false,
 			"health": 7 + index, "character_id": "test_character", "training_track_id": "test_training_track", "persistent": {"atium": 1, "boxings": 3},
-			"turn_resources": {"recursos": 4, "ataque": 5}, "training": 2, "ability_uses": {"test": 1},
+			"turn_resources": {"recursos": 4, "ataque": 5, "mision": 0}, "training": 2, "ability_uses": {"test": 1},
 			"metals": [{"token_id": "cobre_1", "metal": "cobre", "exhausted": false, "used_this_turn": true},
 				{"token_id": "atium_1", "metal": "atium", "exhausted": false, "used_this_turn": false}],
 			"burned": {"cobre": 1}, "burn_limit": 2})
@@ -58,8 +58,8 @@ static func snapshot(mode: String = "competitivo", count: int = 2) -> Dictionary
 		"players": players, "player_order": order, "instances": instances, "zones": zones,
 		"turn": {"number": 0, "active_id": null, "phase": "sin_iniciar", "counters": {}},
 		"missions": {"mission_1": {"definition_id": "test_mission", "progress": progress,
-			"rewards": rewards, "arrival_order": []}}, "target_id": null, "rival": rival,
-		"resolution": null, "authority": {"rng_seed": 101, "rng_state": -456, "next_id": 3, "receipts": {}, "completed_sequences": {}}}
+			"rewards": rewards, "arrival_order": [], "first_arrivals": {}}}, "target_id": null, "rival": rival,
+		"resolution": null, "outcome": null, "authority": {"rng_seed": 101, "rng_state": -456, "next_id": 3, "receipts": {}, "completed_sequences": {}}}
 
 
 static func instance(id: String, definition_id: String, owner_id: Variant) -> Dictionary:

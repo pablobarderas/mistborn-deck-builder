@@ -1,5 +1,9 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.1b12 — Resolutor automático M5/M6/M7
+
+[Contrato MIS-01–06](avance-misiones.md). El primer perfil implementa MIS-01–03/05/06 en competitivo 2–4 con las tres misiones automáticas, reservas/componentes ficticios y nuevo esquema. MIS-04, elecciones y pausas permanecen pendientes para otras misiones. [Evidencia de ejecución y revisión](verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7). No cierra P08 ni integra producto.
+
 ## T08.1b9 — Catálogo de misiones
 
 El [contrato de catálogo para M1–M8](catalogo-misiones.md) define la forma v2, las fuentes físicas y CAT-MIS-01–05. T08.1b10 implementa la validación del contenido en carga explícita. La admisión de partida pertenece a la integración.

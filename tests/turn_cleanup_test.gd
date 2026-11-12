@@ -58,6 +58,7 @@ func _snapshot(mode: String = "competitivo", count: int = 2) -> Dictionary:
 	for instance: Dictionary in state.instances.values():
 		if instance.owner_id == "p1":
 			instance.state.ability_uses = {"used": 2}
+	state.players[0].turn_resources.mision = 3
 	state.players[0].metals[0].exhausted = true
 	state.instances["market_card"] = Fixtures.instance("market_card", "test_action", null)
 	state.instances.market_card.state.flags = {"unknown": true}
@@ -95,7 +96,7 @@ func _test_success(mode: String, count: int) -> void:
 	_expect(state.zones.custom_mano.cards.size() == 5 and state.zones.custom_mano.cards[0] == "c2", "AC12 robo cinco, empieza por superior anterior")
 	_expect(state.zones.custom_juego.cards == ["ally"] and state.zones.custom_mazo.cards.size() == 2 and state.zones.custom_descarte.cards.is_empty(), "AC12 limpia mano/no aliados antes de reciclar y conserva aliado")
 	var expected_player: Dictionary = original.players[0].duplicate(true)
-	expected_player.turn_resources = {"recursos": 0, "ataque": 0}
+	expected_player.turn_resources = {"recursos": 0, "ataque": 0, "mision": 0}
 	expected_player.burned = {}
 	expected_player.ability_uses = {}
 	expected_player.metals[0].used_this_turn = false

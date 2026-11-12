@@ -110,3 +110,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/godot.ps1 -Action test
 ```
 
 El preparador comprueba ambas huellas, conserva las copias idénticas y señala los destinos discordantes. Las copias de `evidencia_local/` quedan fuera de Git y de la importación de recursos. `test-missions` carga explícitamente `data/misiones.json` y contrasta cada premio, localizador y fuente. [Contrato y alcance](specs/008-preparacion-y-turnos/catalogo-misiones.md).
+
+### Avance automático de misiones (T08.1b12)
+
+`-Action test-mission-advance` ejecuta `tests/mission_advance_test.gd` y exige `P08_MISSION_ADVANCE_OK`, código 0 y ausencia de errores de script. Requiere las fuentes locales de misiones preparadas mediante el comando del apartado anterior. Usa las definiciones reales M5/M6/M7 y componentes/reservas netas ficticios de autoridad; verifica gasto, primeros, premios, rollback, recibos, restauración y victoria antes de premios. El motor vigente es `p08-missions-1/godot-4.7.2`, esquema 3, sin migración implícita desde esquema 2. No abre UI ni un turno completo de producto. [Evidencia y límites](specs/008-preparacion-y-turnos/verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7).

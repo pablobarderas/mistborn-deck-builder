@@ -117,5 +117,7 @@ static func compact_snapshot(catalog_id: String, mode: String = "competitivo", c
 		var mission: Dictionary = state.missions.mission_1.duplicate(true)
 		mission.definition_id = "test_mission_%d" % index
 		state.missions["mission_%d" % index] = mission
+	for mission: Dictionary in state.missions.values():
+		mission.first_arrivals = {"cell": null}
 	state.instances.c1.definition_id = FUNDING_ID
 	return state

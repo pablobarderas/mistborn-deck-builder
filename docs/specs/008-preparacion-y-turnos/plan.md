@@ -2,7 +2,9 @@
 
 ## T08.1b11 y T08.1b12 — Avance de misiones
 
-[Contrato, MIS-01–06 y plan del piloto](avance-misiones.md). T08.1b11 fija gasto unitario, primeras llegadas, premios, prioridad terminal DEC-034 y compatibilidad propuesta de snapshot 3. T08.1b12 implementará el perfil automático M5/M6/M7 con Training compartido y revisión independiente; las elecciones y permanentes de otras misiones conservan sus puertas propias. No se cambia código ni versión en la entrega documental.
+T08.1b12 completada localmente, 13 suites/5.418 comprobaciones y revisión independiente favorable. Siguiente T08.1b13: contrato de permanentes M3/M4 para inicio/limpieza.
+
+[Contrato, MIS-01–06 y plan del piloto](avance-misiones.md). T08.1b11 fija gasto unitario, primeras llegadas, premios, prioridad terminal DEC-034 y compatibilidad propuesta de snapshot 3. T08.1b12 implementa el perfil automático M5/M6/M7 con Training compartido; ver [verificación y estado de revisión](verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7). las elecciones y permanentes de otras misiones conservan sus puertas propias. T08.1b11 no cambió código; T08.1b12 usa esquema 3/motor `p08-missions-1/godot-4.7.2`.
 
 ## T08.1b9 y T08.1b10 — Catálogo de misiones
 

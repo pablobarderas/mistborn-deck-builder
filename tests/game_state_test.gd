@@ -1,5 +1,6 @@
 extends SceneTree
 
+const ViewBuilder = preload("res://scripts/game/game_projection.gd")
 const State = preload("res://scripts/game/game_state.gd")
 const Sequences = preload("res://tests/sequence_fixtures.gd")
 const Validator = preload("res://scripts/game/state_validator.gd")
@@ -18,6 +19,7 @@ func _run() -> void:
 	_test_modes()
 	_test_state()
 	_test_atium()
+	_test_missions()
 	_test_references()
 	_test_resolution()
 	_test_bad_types()
@@ -90,7 +92,7 @@ func _test_state() -> void:
 
 
 func _test_atium() -> void:
-	_expect(Validator.SCHEMA_VERSION == 2 and Validator.ENGINE_VERSION == "p08-draw-1/godot-4.7.2", "DEC-032 esquema 2 y versión de robo personal")
+	_expect(Validator.SCHEMA_VERSION == 3 and Validator.ENGINE_VERSION == "p08-missions-1/godot-4.7.2", "MIS-06 esquema 3 y version de misiones")
 	for mode: String in ["competitivo", "cooperativo", "solitario"]:
 		var counts: Array = [1] if mode == "solitario" else [2, 3, 4]
 		for count: int in counts:
@@ -114,7 +116,7 @@ func _test_atium() -> void:
 	var state: RefCounted = State.new(Fixtures.definitions(), "test_catalog", _registry)
 	var base: Dictionary = Fixtures.snapshot()
 	_expect(state.try_load(base).ok, "AC18 carga versión nueva")
-	for version: String in ["p08-start-1/godot-4.7.2", "p08-atium-1/godot-4.7.2", "p08-setup-1/godot-4.7.2", "p07-state-1/godot-4.7.2"]:
+	for version: String in ["p08-draw-1/godot-4.7.2", "p08-start-1/godot-4.7.2", "p08-atium-1/godot-4.7.2", "p08-setup-1/godot-4.7.2", "p07-state-1/godot-4.7.2"]:
 		var old: Dictionary = base.duplicate(true)
 		old.version_motor = version
 		var before: Dictionary = old.duplicate(true)
@@ -123,10 +125,63 @@ func _test_atium() -> void:
 		_expect(not state.try_load(old).ok and state.get_snapshot() == base, "AC18 carga antigua conserva snapshot vigente")
 
 
+func _test_missions() -> void:
+	var definitions: Dictionary = Fixtures.definitions()
+	var cells: Array = []
+	for index: int in range(1, 13):
+		cells.append({"id": "p%02d" % index})
+	definitions.test_mission["rasgos"] = {"recorridos": [{"id": "principal", "casillas": cells}]}
+	var terminal: Dictionary = Fixtures.snapshot()
+	terminal.lifecycle = "finalizada"
+	terminal.turn = {"number": 8, "active_id": "p1", "phase": "finalizada", "counters": {}}
+	terminal.outcome = {"winner_id": "p1", "reason": "tres_misiones", "mission_id": "mission_3", "turn_number": 8}
+	var mission: Dictionary = terminal.missions.mission_1
+	mission.progress.p1 = 12
+	mission.first_arrivals = {}
+	for cell: Dictionary in cells:
+		mission.first_arrivals[cell.id] = "p1"
+	mission.arrival_order = ["p1"]
+	terminal.missions["mission_2"] = mission.duplicate(true)
+	terminal.missions["mission_3"] = mission.duplicate(true)
+	var terminal_validation: Dictionary = validator.validate(terminal, definitions, "test_catalog")
+	_expect(terminal_validation.ok, "MIS-05 resultado terminal estructural valido sin imponer premios reales: " + str(terminal_validation.errors))
+	var legacy: Dictionary = terminal.duplicate(true)
+	legacy.outcome = null
+	var legacy_validation: Dictionary = validator.validate(legacy, definitions, "test_catalog")
+	_expect(legacy_validation.ok, "Terminal de fixture ajeno al piloto conserva resultado null: " + str(legacy_validation.errors))
+	for mutation: Array in [
+		[["turn"], []], [["missions"], []], [["missions", "mission_1"], []],
+		[["missions", "mission_1", "progress"], []], [["missions", "mission_1", "progress"], null],
+		[["outcome", "winner_id"], "p9"], [["outcome", "reason"], "atium"],
+		[["outcome", "mission_id"], "missing"], [["outcome", "turn_number"], 7],
+		[["turn", "active_id"], "p2"], [["turn", "phase"], "libre"], [["lifecycle"], "en_curso"],
+		[["players", 0, "health"], 0], [["players", 0, "eliminated"], true],
+		[["missions", "mission_2", "progress", "p1"], 11],
+		[["missions", "mission_1", "progress", "p1"], 13],
+		[["missions", "mission_1", "first_arrivals", "p01"], "missing"],
+		[["missions", "mission_1", "first_arrivals"], {}],
+		[["players", 0, "turn_resources", "mision"], -1]
+	]:
+		var invalid: Dictionary = terminal.duplicate(true)
+		_replace_field(invalid, mutation[0], mutation[1])
+		var before: Dictionary = invalid.duplicate(true)
+		_expect(not validator.validate(invalid, definitions, "test_catalog").ok and invalid == before,
+			"MIS-05/06 rechazo estructural atomico: " + str(mutation[0]))
+	var view: Dictionary = ViewBuilder.new().project(terminal, "p2")
+	_expect(view.outcome == terminal.outcome and view.missions.mission_1.first_arrivals == mission.first_arrivals,
+		"MIS-06 resultado y primeras llegadas publicos")
+	view.outcome.winner_id = "p2"
+	view.missions.mission_1.first_arrivals.p01 = "p2"
+	_expect(terminal.outcome.winner_id == "p1" and mission.first_arrivals.p01 == "p1", "Proyeccion no comparte referencias")
+	terminal.outcome["private_context"] = "secret"
+	view = ViewBuilder.new().project(terminal, "p2")
+	_expect(not view.outcome.has("private_context") and not view.has("authority"), "Lista permitida no filtra contexto o autoridad")
+
+
 func _test_references() -> void:
 	var base: Dictionary = Fixtures.snapshot()
 	var cases: Array = [
-		[["version_esquema"], 1], [["version_esquema"], true], [["version_motor"], "other"],
+		[["version_esquema"], 2], [["version_esquema"], 1], [["version_esquema"], true], [["version_motor"], "other"],
 		[["catalog_id"], "other"], [["match_id"], ""], [["revision"], -1], [["lifecycle"], "inventada"],
 		[["instances", "c1", "instance_id"], "c2"], [["instances", "c1", "definition_id"], "missing"],
 		[["instances", "c1", "owner_id"], "p3"], [["instances", "c1", "owner_id"], null],

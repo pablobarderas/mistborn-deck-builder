@@ -254,7 +254,7 @@ Ampliación técnica T08.2h, 2026-11-11: adaptador GameEngine con perfil complet
 - Al alcanzar una casilla, resolver primero el premio normal (o permanente de cima) y después el extra del primero cuando corresponda.
 - Al completar la tercera misión competitiva, confirmar la llegada y la victoria inmediatamente, antes de los premios de esa última cima. No concederlos ni continuar el turno. Los premios de las misiones anteriores permanecen.
 
-Es una decisión de adaptación, no una errata atribuida al editor. El [contrato de avance](specs/008-preparacion-y-turnos/avance-misiones.md) fija consumo, estado y escenarios; la implementación queda para T08.1b12. No cambia finales de cooperativo/solitario.
+Es una decisión de adaptación, no una errata atribuida al editor. El [contrato de avance](specs/008-preparacion-y-turnos/avance-misiones.md) fija consumo, estado y escenarios; T08.1b12 la implementa localmente para M5/M6/M7, con snapshot 3/motor `p08-missions-1/godot-4.7.2`, primeras llegadas y resultado persistidos sin migración implícita desde esquema 2. No cambia finales de cooperativo/solitario.
 
 ## Decisiones aún pendientes
 

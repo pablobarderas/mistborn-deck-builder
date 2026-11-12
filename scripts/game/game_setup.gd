@@ -71,8 +71,11 @@ func create(match_id: String, mode: String, seats: Variant, first_player_id: Var
 		for seat: Dictionary in seats:
 			progress[seat.player_id] = 0
 			rewards[seat.player_id] = []
+		var first_arrivals: Dictionary = {}
+		for cell_id: String in Validator.mission_cells(_definitions[missions[index]]):
+			first_arrivals[cell_id] = null
 		state.missions[mission_id] = {"definition_id": missions[index], "progress": progress,
-			"rewards": rewards, "arrival_order": []}
+			"rewards": rewards, "arrival_order": [], "first_arrivals": first_arrivals}
 	if mode == "competitivo" and seats.size() >= 3:
 		state.target_id = order.back()
 	if mode != "competitivo":
@@ -197,7 +200,7 @@ func _empty_state(match_id: String, mode: String, order: Array, seed: int) -> Di
 		"catalog_id": _catalog_id, "match_id": match_id, "mode": mode, "revision": 0,
 		"lifecycle": "en_curso", "players": [], "player_order": order,
 		"instances": {}, "zones": {}, "turn": {"number": 1, "active_id": order[0], "phase": "inicio", "counters": {}},
-		"missions": {}, "target_id": null, "rival": null, "resolution": null,
+		"missions": {}, "target_id": null, "rival": null, "resolution": null, "outcome": null,
 		"authority": {"rng_seed": seed, "rng_state": seed, "next_id": 1, "receipts": {}, "completed_sequences": {}}}
 
 
@@ -207,7 +210,7 @@ func _new_player(seat: Dictionary, character_id: String, track_id: String) -> Di
 		metals.append({"token_id": "token_" + metal, "metal": metal, "exhausted": false, "used_this_turn": false})
 	return {"player_id": seat.player_id, "name": seat.name, "eliminated": false, "health": 36,
 		"character_id": character_id, "training_track_id": track_id,
-		"persistent": {"atium": 0, "boxings": 0}, "turn_resources": {"recursos": 0, "ataque": 0},
+		"persistent": {"atium": 0, "boxings": 0}, "turn_resources": {"recursos": 0, "ataque": 0, "mision": 0},
 		"training": 0, "ability_uses": {}, "metals": metals, "burned": {}, "burn_limit": 1}
 
 

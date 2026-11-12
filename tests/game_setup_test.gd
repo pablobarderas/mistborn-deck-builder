@@ -43,6 +43,9 @@ func _test_mode(definitions: Dictionary, manifest: Dictionary, mode: String, cou
 	_expect(local_manifest == original and definitions == _definitions(), "Entradas sin mutar")
 	_expect(state.players.size() == count and state.instances.size() == 82 + 10 * count + (0 if mode == "competitivo" else 36), "Instancias físicas correctas")
 	_expect(state.zones.mercado.cards.size() == 6 and state.zones.mazo_mercado.cards.size() == 76, "Mercado seis de 82")
+	_expect(state.outcome == null, "MIS-06 preparacion sin resultado")
+	for mission: Dictionary in state.missions.values():
+		_expect(mission.first_arrivals == {"fixture_cell": null}, "MIS-06 claves reales del recorrido inicialmente vacias")
 	_expect(state.missions.size() == 3 and _mission_defs(state).size() == 3, "Tres misiones distintas")
 	_expect(state.turn.phase == "inicio" and state.turn.number == 1 and state.turn.active_id == state.player_order[0], "Entrenamiento inicial aún pendiente")
 	_expect(state.authority.rng_state != state.authority.rng_seed and state.authority.next_id == state.instances.size() + 1, "RNG e IDs guardados")
@@ -132,6 +135,7 @@ func _definitions() -> Dictionary:
 		result["starter_%d" % index] = {"id": "starter_%d" % index, "tipo": "entrenamiento", "cantidad": 4, "revision": {"estado": "verificada"}}
 	for index: int in 8:
 		result["mission_%d" % index] = {"id": "mission_%d" % index, "tipo": "mision", "cantidad": 1, "revision": {"estado": "verificada"}}
+		result["mission_%d" % index]["rasgos"] = {"recorridos": [{"id": "fixture", "casillas": [{"id": "fixture_cell"}]}]}
 	return result
 
 

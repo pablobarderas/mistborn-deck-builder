@@ -311,6 +311,8 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 
 ## Punto de reanudación
 
+2026-11-12. T08.1b12 completada localmente y revisada: [avance automático M5/M6/M7](specs/008-preparacion-y-turnos/verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7), esquema 3, 5.418 comprobaciones. T08.1b11 publicada en `2bc058c`; T08.1b12 se publica por encargo expreso en el commit que incorpora esta actualización. Siguiente objetivo T08.1b13: especificar integración de permanentes M3/M4 y aplicación única en inicio/limpieza. Mantener pendientes elecciones, cartas generadoras de puntos, catálogo restante, integración de producto y modos con rival.
+
 2026-11-12. T08.1b11 concreta el [avance de misiones](specs/008-preparacion-y-turnos/avance-misiones.md), MIS-01–06 y DEC-034; completada documentalmente con revisión independiente favorable. Siguiente implementación T08.1b12: perfil automático M5/M6/M7 con primeras llegadas y victoria, esquema de snapshot nuevo y núcleo de entrenamiento compartido. Elecciones, permanentes e integración de producto siguen pendientes.
 
 2026-11-12. T08.1b8 transcribe M1–M8, T08.1b9 especifica su [contrato de catálogo v2](specs/008-preparacion-y-turnos/catalogo-misiones.md) y T08.1b10 incorpora el lote en carga explícita. Siguiente paso propuesto: especificar la transacción competitiva de avance de misión, sus premios y sus finales.

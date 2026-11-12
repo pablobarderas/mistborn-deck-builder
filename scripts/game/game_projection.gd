@@ -28,7 +28,12 @@ func project(state: Dictionary, recipient_id: String) -> Dictionary:
 	for mission_id: String in state.missions:
 		var mission: Dictionary = state.missions[mission_id]
 		missions[mission_id] = {"definition_id": mission.definition_id, "progress": mission.progress.duplicate(true),
-			"rewards": mission.rewards.duplicate(true), "arrival_order": mission.arrival_order.duplicate(true)}
+			"rewards": mission.rewards.duplicate(true), "arrival_order": mission.arrival_order.duplicate(true),
+			"first_arrivals": mission.first_arrivals.duplicate(true)}
+	var outcome: Variant = null
+	if state.outcome != null:
+		outcome = {"winner_id": state.outcome.winner_id, "reason": state.outcome.reason,
+			"mission_id": state.outcome.mission_id, "turn_number": state.outcome.turn_number}
 	var rival: Variant = null
 	if state.rival != null:
 		rival = {"definition_id": state.rival.definition_id, "health": state.rival.health,
@@ -48,7 +53,7 @@ func project(state: Dictionary, recipient_id: String) -> Dictionary:
 		"revision": state.revision, "lifecycle": state.lifecycle, "player_order": state.player_order.duplicate(true),
 		"players": players, "zones": zones, "turn": {"number": state.turn.number,
 			"active_id": state.turn.active_id, "phase": state.turn.phase}, "missions": missions,
-		"target_id": state.target_id, "rival": rival, "resolution": resolution}
+		"target_id": state.target_id, "rival": rival, "resolution": resolution, "outcome": outcome}
 
 
 func _known_player(players: Array, recipient_id: String) -> bool:

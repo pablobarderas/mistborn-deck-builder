@@ -57,6 +57,9 @@ static func snapshot(mode: String = "competitivo", count: int = 2) -> Dictionary
 	for player: Dictionary in state.players:
 		player.ability_uses = {}
 	for mission: Dictionary in state.missions.values():
+		mission.first_arrivals = {"cell": null}
+		for player_id: String in mission.progress:
+			mission.progress[player_id] = 0
 		for player_id: String in mission.rewards:
 			mission.rewards[player_id] = []
 	state.instances.c1.definition_id = "test_funding"

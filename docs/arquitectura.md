@@ -1,5 +1,11 @@
 # Arquitectura
 
+## Misiones automáticas — T08.1b12
+
+[mission_advance.gd](../scripts/game/mission_advance.gd) genera un candidato sobre copia: gasto neto unitario, primera llegada, premio normal/extra y final por tres misiones según DEC-034. [mission_play.gd](../scripts/game/mission_play.gd) registra sólo `avanzar_mision`, valida el catálogo v2 completo y descriptores confiables, y selecciona exclusivamente M5/M6/M7. P07 conserva el commit/recibo/RNG; no se relajan las guardas de secuencia. Training comparte núcleo entre la entrada de inicio y `advance_for_mission` en libre, sin cambiar temporalmente la fase. `restore_match` exige fuente tipada del último estado confirmado e instancia vacía; el llamador fiable serializa la autoridad. No existe entrada cliente para cargar un estado.
+
+Esquema 3, motor `p08-missions-1/godot-4.7.2`: recurso temporal `mision`, primeras llegadas por casilla y resultado terminal. La proyección conserva la privacidad de mano/mazo y metadatos de autoridad. Catálogo de ocho misiones real, demás componentes y reservas del perfil son fixtures explícitos; no hay producto integrado ni generadores de puntos. [Contrato, límites y plan](specs/008-preparacion-y-turnos/avance-misiones.md). Permanentes de inicio y misiones con elecciones siguen pendientes.
+
 ## Adaptador Funding — T08.2h
 
 [funding_play.gd](../scripts/game/funding_play.gd) extiende GameEngine y registra exclusivamente `jugar_funding`/`funding_play_v1`. Recibe catálogo P06 completo, ID Funding y mapa de descriptores inertes confiables; P06 valida estructura/revisión y el adaptador limita la semántica. Juega una instancia propia en `libre`, competitivo 2–4, con elección aplicar/omitir: mano→juego y +1/+0 recursos del turno. No abre fases ni conecta UI/red. Pruebas y revisión en [evidencia T08.2h](specs/008-preparacion-y-turnos/verification.md#t082h--implementación-de-funding).

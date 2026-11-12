@@ -4,6 +4,10 @@
 
 ## Resumen
 
+Publicación de T08.1b12 autorizada el 2026-11-12 mediante «haz el commit y el push». El commit que contiene esta nota publica la implementación revisada; los traspasos inferiores sin publicación son históricos. Siguiente objetivo T08.1b13: contrato de permanentes M3/M4 en inicio/limpieza.
+
+T08.1b12 implementa y verifica localmente el avance automático M5/M6/M7: puntos netos, primeras llegadas, premios y victoria por tres misiones antes de sus últimos premios. Esquema 3/motor `p08-missions-1/godot-4.7.2`; no admite snapshots de esquema 2 sin migración. 5.418 comprobaciones en 13 suites y revisión independiente favorable. Las misiones son reales; reservas/componentes restantes son fixtures. Sin integración de producto ni turno completo. [Evidencia y siguiente paso](specs/008-preparacion-y-turnos/verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7).
+
 T08.1b11 especifica el avance de misiones competitivo y registra DEC-034: normal antes del extra, y victoria por la tercera misión antes de sus premios. [Contrato y piloto M5/M6/M7](specs/008-preparacion-y-turnos/avance-misiones.md). Entrega documental completada con revisión independiente favorable; no cambia el motor ni los snapshots. [Evidencia y siguiente paso](specs/008-preparacion-y-turnos/verification.md#t081b11--contrato-del-avance-de-misiones-competitivo).
 
 T08.1b10 incorpora las ocho misiones en un catálogo v2 de carga explícita y comprueba los dos originales de SRC-005. El arranque sigue usando las muestras de v1. La resolución y admisión de misiones en partida siguen pendientes. [Contrato](specs/008-preparacion-y-turnos/catalogo-misiones.md) · [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b10--validación-y-lote-de-catálogo-de-misiones).

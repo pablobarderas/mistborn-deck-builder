@@ -1,5 +1,9 @@
 # Plan de SPEC-007
 
+## Ampliación vigente de misiones — esquema 3
+
+T08.1b12 incorpora `outcome`, `missions[].first_arrivals` y `players[].turn_resources.mision`, con motor `p08-missions-1/godot-4.7.2`. Los constructores crean resultado null, primeras llegadas null según recorrido y cero puntos netos; limpieza reinicia esos puntos. Se rechaza esquema 2 sin migración implícita. El validador genérico comprueba formas/referencias y coherencia básica de resultado; el perfil M5/M6/M7 comprueba la liquidación exacta de premios, primeras llegadas y continuidad. Los stubs técnicos sin recorrido siguen sin certificar reglas. Resultado y llegadas se proyectan por lista permitida. [Contrato y frontera](../008-preparacion-y-turnos/avance-misiones.md). Las versiones siguientes conservan antecedentes.
+
 ## Extensión v2 de T08.2f
 
 Implementada y verificada localmente 2026-11-10, revisión independiente favorable: el contrato vigente de la ampliación está en [secuencias reanudables](../008-preparacion-y-turnos/secuencia-reanudable.md), con aceptación AC-29–34 y [evidencia](../008-preparacion-y-turnos/verification.md#t082f--implementación-de-secuencias-reanudables). Usa esquema 2 y motor `p08-sequence-1/godot-4.7.2`, sin migración automática desde v1; conserva intención v1 y la contabilidad de Atium. Las versiones y formas v1 de las secciones inferiores documentan las entregas anteriores.
