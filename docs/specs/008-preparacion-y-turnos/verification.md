@@ -1,5 +1,27 @@
 # Verificación de SPEC-008
 
+## T08.1b4 — Implementación del inicio competitivo
+
+Publicación autorizada por el usuario el 2026-11-12. Empaquetado R0 a cargo del coordinador, con fetch confirmado en `fd75e23`. Se comprueban el alcance del índice, el diff y la coincidencia con `origin/main` después de publicar. El traspaso inferior recoge el estado previo a esta publicación.
+
+2026-11-12. Contrato T08.1b3 publicado con autorización en `fd75e232657f7e477b8f2e92ba685785ddea392c`, coincidente con HEAD y origin/main por fetch. [Registro previo R2](tasks.md#t081b4--implementación-del-inicio-competitivo). Coordinador autor del adaptador, motor, lanzador y documentación. `start_tests` (sdd_developer Sol/medium) fue propietario de la suite y fixtures. Contraste reglamentario de T08.1b3 reutilizado y FAQ consultada. Dos delegaciones acotadas, sin descendientes ni dispensas. Métricas de tokens no disponibles.
+
+| Criterio | Resultado en el perfil de prueba |
+| --- | --- |
+| INI-01 | Preparación real P08 con fixtures para 2/3/4 plazas, incluidas cantidades integrales de JSON. Inicio de cada plaza, avance, capacidad, Atium, manos intactas y Funding en libre. |
+| INI-02 | Recibo idéntico tras otro commit, restauración y finalización. Rechazo de ID distinto en la revisión anterior, turno anterior, llamada reentrante y uso público del tipo o prefijo reservado. |
+| INI-03 | Se excluye el perfil con Keeper derrotado y un pendiente, y se rechazan marcas desconocidas incluso fuera de juego. |
+| INI-04 | Puerta cerrada con único superviviente, misiones de otra plaza completadas, perfil incompatible con Confrontation o partida finalizada. La cuarta ficha obtenida por entrenamiento permite abrir libre. |
+| INI-05 | Se rechazan carga anterior, perfil o fuente incompatibles, solicitudes inválidas y fallos de candidato. Se prueba rollback del avance y, por separado, del commit P07 al intentar añadir el recibo 10.001. La vista ajena conserva la privacidad. |
+
+Godot `4.7.2.stable.official.ed1daf0bf`. `tools/godot.ps1 -Action test-start` con `-GodotPath` de [desarrollo local](../../desarrollo-local.md#inicio-competitivo-aislado) registró **199 comprobaciones** y `P08_START_OK`. Diez regresiones sumaron **4.053** (entrenamiento 275, preparación 147, estado 2.004, secuencias 253, Funding 205, limpieza 527, motor 102, ciclo 262, catálogo 220 y arranque 58). Todas salieron con código 0 y sin errores de script. Los avisos de rechazo en la suite y los ocho errores de carga del arranque corresponden a entradas negativas.
+
+`training_review` (sdd_reviewer Sol/high) reprodujo un error de script con una fuente de restauración cuya firma tenía dos argumentos de tipo incorrecto. La interfaz tipada `SnapshotSource` y el caso de rechazo corrigen el fallo. Revisión final independiente favorable tras repetir la comprobación y revisar la prueba de capacidad de recibos.
+
+Comprobados 222 enlaces locales, cuatro anclas y espacios del diff y de los archivos nuevos.
+
+Traspaso local en `main` desde `fd75e23`, sin commit ni push de T08.1b4. Esquema 2, versión compartida de motor `p08-start-1/godot-4.7.2`. Restauración y entregas posteriores usan fixtures. El perfil de producto requiere catálogo, obligaciones y finales aplicables. Primer paso: contrastar material disponible y delimitar definiciones y misiones del manifiesto competitivo. La persistencia duradera, el transporte y los modos con rival conservan su trabajo propio.
+
 ## T08.1b3 — Contrato del inicio único competitivo
 
 Publicación autorizada por el usuario el 2026-11-12. Empaquetado R0 del contrato revisado a cargo del coordinador, con fetch confirmado en `ab3ef55`. Se comprueban alcance del índice, diff y coincidencia con `origin/main` tras publicar.

@@ -46,3 +46,9 @@ En el adaptador de inicio, la carga inicial de una partida nueva admite únicame
 INI-01–05 materializan ENT-AC-04 para el perfil aislado. La aceptación de T08.1b3 consiste en la revisión documental de este contrato y de su plan. La ejecución de estos escenarios y la apertura efectiva de `libre` corresponden a T08.1b4.
 
 Para probar inicios posteriores, el fixture de autoridad proporciona estados de entrega con turno monotónico y progreso de cada plaza preservado. Se ejercita la admisión al cargar un motor vacío desde la fuente de prueba. Esos estados no introducen una acción de entrega ni acreditan un ciclo de turno completo.
+
+## Adaptador de prueba
+
+`competitive_start.gd` usa el perfil de Funding con descriptores inertes, la pista de T08.1b2 y tres misiones de prueba de una casilla. `prepare_match` invoca la preparación de P08. `restore_match` recibe una fuente `SnapshotSource` de la autoridad. La fuente selecciona la última revisión confirmada y devuelve su identidad de perfil y snapshot. El adaptador comprueba ambos y admite la carga sólo en un motor vacío. La fuente de prueba vive en el fixture.
+
+`start_turn` reserva el tipo `iniciar_turno` y el prefijo `inicio_` en la transacción de P07. La operación comparte el registro de Funding y valida el candidato antes de confirmar fase y recibo. El propietario serializa la ejecución en un hilo. La integración futura debe mantener una instancia activa por partida. La versión compartida es `p08-start-1/godot-4.7.2`, con esquema 2.

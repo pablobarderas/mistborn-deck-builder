@@ -9,6 +9,8 @@ const OCCURRENCE_PREFIX: String = "funding_play_"
 var _supported: bool = false
 var _funding_id: String
 var _identity: String = "funding_invalid"
+var _funding_definitions: Dictionary
+var _funding_registry: Registry
 
 
 func _init(catalog: Dictionary, funding_id: String, inert_descriptors: Dictionary) -> void:
@@ -25,6 +27,8 @@ func _init(catalog: Dictionary, funding_id: String, inert_descriptors: Dictionar
 		# inertes coinciden con el catálogo y sus copias quedan en GameEngine.
 		_identity = "funding_" + _canonical_content(catalog).sha256_text()
 		starters[ACTION_ID] = _start
+	_funding_definitions = content
+	_funding_registry = registry
 	super(content, _identity, {}, registry, starters)
 
 
@@ -213,7 +217,7 @@ static func _funding(card: Dictionary) -> bool:
 
 
 static func _inert(card: Dictionary) -> bool:
-	if card.tipo not in ["accion", "aliado", "personaje", "mision", "pista_entrenamiento", "rival", "dominacion", "adversario"] \
+	if card.tipo not in ["accion", "aliado", "entrenamiento", "personaje", "mision", "pista_entrenamiento", "rival", "dominacion", "adversario"] \
 		or card.metales != [] or card.vinculos != []:
 		return false
 	for ability: Dictionary in card.habilidades:

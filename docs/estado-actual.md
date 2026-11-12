@@ -4,7 +4,7 @@
 
 ## Resumen
 
-T08.1b2 publicada en `ab3ef55` con 4.053 comprobaciones y revisión independiente favorable. T08.1b3 deja el [contrato del inicio único competitivo](specs/008-preparacion-y-turnos/inicio-competitivo.md) revisado localmente. Sigue T08.1b4 para implementar y verificar la apertura de la fase libre en el perfil aislado. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b3--contrato-del-inicio-único-competitivo).
+T08.1b4 implementa el inicio único competitivo en perfil aislado. El avance, la recompensa y la apertura de la fase libre se confirman juntos, con reenvío idempotente y guardas de obligaciones y finales. El contrato T08.1b3 está publicado en `fd75e23`. Sigue delimitar el perfil de producto a partir del material verificado. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b4--implementación-del-inicio-competitivo).
 
 La revisión de las cuatro hojas de entrenamiento y el panel competitivo de la caja española está publicada en `13bb11f`. [Inventario y lectura de SRC-004](referencias/entrenamiento-competitivo.md).
 
@@ -57,7 +57,8 @@ Ampliación AC-08/DEC-021 completada y revisada independientemente: un objetivo 
 | scripts/game/ | T07.1/2: estado privado, invariantes, acciones atómicas, RNG y proyecciones por jugador. Sin manejadores de reglas reales. |
 | scripts/game/game_setup.gd | T08.1a: preparación estructural determinista de siete configuraciones desde manifiesto y definiciones verificadas. No abre el turno libre ni interpreta efectos. |
 | scripts/game/funding_play.gd | T08.2h verificada: primer efecto real en perfil aislado, Funding +1/+0 recursos al jugar; catálogo completo y marcas dinámicas validados, recibos y carga compatibles. |
-| scripts/game/training_advance.gd | T08.1b2: candidato validado de un paso de entrenamiento competitivo, con aumentos de capacidad, niveles derivados y fichas de Atium. Integración de inicio pendiente. |
+| scripts/game/training_advance.gd | T08.1b2: candidato validado de un paso de entrenamiento competitivo, con aumentos de capacidad, niveles derivados y fichas de Atium. |
+| scripts/game/competitive_start.gd | T08.1b4: preparación y apertura competitiva aisladas, recibos de P07 y carga desde una fuente de autoridad tipada. El perfil de producto sigue pendiente. |
 | tests/ | T08.2h: Funding (205), secuencias (253), estado (2.004), motor (102), preparación (147), ciclo (262), limpieza (527), catálogo (220) y arranque (58). Fixtures explícitos; red/capturas conservan evidencia histórica separada. |
 | docs/specs/ | SPEC-001/002 parciales; SPEC-003/005/006 completadas en su alcance; SPEC-004 local verificada, externa pendiente; SPEC-007 local verificada (T07.1/2), P04 externa pendiente para cierre P07; SPEC-008 T08.1a verificada, P08 abierta. |
 | .github/ | Plantillas de issues y PR de la entrega inicial publicada. |

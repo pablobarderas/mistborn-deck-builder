@@ -12,7 +12,7 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
-- T08.1b3 especifica el [inicio único competitivo](specs/008-preparacion-y-turnos/inicio-competitivo.md). Sigue T08.1b4 para implementar y probar INI-01–05 en el perfil aislado, conforme a ENT-AC-04.
+- T08.1b4 integra el [inicio único competitivo](specs/008-preparacion-y-turnos/verification.md#t081b4--implementación-del-inicio-competitivo) en un perfil aislado. El primer paso para integrarlo al producto es contrastar el material disponible y delimitar las definiciones y misiones del manifiesto competitivo.
 
 - La [lectura de las cinco piezas de entrenamiento](referencias/entrenamiento-competitivo.md) sustenta las recompensas de la pista competitiva. Siguen pendientes la activación de habilidades, el catálogo ejecutable y la transición a fase libre.
 
@@ -310,6 +310,8 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 **Cierre:** Una copia limpia permite ejecutar la versión y completar una partida remota; se conservan evidencia de pruebas y limitaciones conocidas.
 
 ## Punto de reanudación
+
+Actualización vigente 2026-11-12. Contrato T08.1b3 publicado en `fd75e23` e inicio aislado implementado localmente en T08.1b4. Sigue delimitar el perfil de producto y sus dependencias de contenido y reglas. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b4--implementación-del-inicio-competitivo).
 
 Actualización vigente 2026-11-12. T08.1b2 publicada en `ab3ef55`. T08.1b3 completada documentalmente con revisión independiente. El siguiente objetivo es T08.1b4. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b3--contrato-del-inicio-único-competitivo).
 

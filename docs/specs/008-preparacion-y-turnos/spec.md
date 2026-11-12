@@ -2,7 +2,7 @@
 
 ## T08.1b3/b4 — Inicio único competitivo
 
-El [contrato de inicio competitivo](inicio-competitivo.md) concreta ENT-AC-04. Define el avance y la apertura atómicos, el reenvío de autoridad y las comprobaciones de obligaciones y finales. T08.1b4 implementará y probará el subconjunto aislado.
+El [contrato de inicio competitivo](inicio-competitivo.md) concreta ENT-AC-04. T08.1b4 implementa y prueba el avance y la apertura atómicos, el reenvío de autoridad y las comprobaciones de obligaciones y finales en el perfil aislado. [Evidencia y traspaso](verification.md#t081b4--implementación-del-inicio-competitivo).
 
 ## T08.1b1/b2 — Avance de entrenamiento competitivo
 

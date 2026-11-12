@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-12 — Publicación del contrato e inicio competitivo aislado
+
+- T08.1b3 publicada en `fd75e23`, verificado por fetch. T08.1b4 completa ENT-AC-04 en el perfil aislado, con 199 comprobaciones propias, 4.053 de regresión y revisión independiente favorable. Queda delimitar el perfil competitivo de producto. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b4--implementación-del-inicio-competitivo).
+
 ## 2026-11-12 — Publicación del avance y contrato de inicio
 
 - T08.1b2 publicada en `ab3ef55`, confirmado mediante fetch. T08.1b3 especifica el inicio atómico, los reenvíos y las comprobaciones de obligaciones y finales. Contraste de fuentes y revisión independiente favorables. Sigue la implementación aislada T08.1b4. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b3--contrato-del-inicio-único-competitivo).

@@ -6,6 +6,8 @@ const ViewBuilder = preload("res://scripts/game/game_projection.gd")
 const Registry = preload("res://scripts/game/sequence_registry.gd")
 const Resolver = preload("res://scripts/game/sequence_resolver.gd")
 const ACTION_VERSION: int = 1
+const START_TURN_ACTION: String = "iniciar_turno"
+const START_TURN_ID_PREFIX: String = "inicio_"
 const MAX_ACTION_NODES: int = 256
 const MAX_CANONICAL_LENGTH: int = 4096
 var _state: RefCounted
@@ -38,6 +40,10 @@ func get_view(recipient_id: String) -> Dictionary:
 
 
 func submit(actor_id: String, input: Variant) -> Dictionary:
+	return _submit(actor_id, input)
+
+
+func _submit(actor_id: String, input: Variant, internal_start: Callable = Callable()) -> Dictionary:
 	var current: Dictionary = _state.get_snapshot()
 	if current.is_empty():
 		return _reject("estado_invalido", 0)
@@ -48,6 +54,13 @@ func submit(actor_id: String, input: Variant) -> Dictionary:
 	if not syntax.is_empty():
 		return _reject(syntax, revision)
 	var intent: Dictionary = input
+	var internal_type: bool = intent.tipo == START_TURN_ACTION
+	var internal_id: bool = intent.action_id.begins_with(START_TURN_ID_PREFIX)
+	if internal_start.is_valid():
+		if not internal_type or not internal_id:
+			return _reject("formato_invalido", revision)
+	elif internal_type or internal_id:
+		return _reject("accion_no_soportada", revision)
 	if intent.match_id != current.match_id:
 		return _reject("partida_incorrecta", revision)
 	var canonical: String = _canonical(intent)
@@ -62,8 +75,8 @@ func submit(actor_id: String, input: Variant) -> Dictionary:
 	if intent.expected_revision != revision:
 		return _reject("revision_obsoleta", revision)
 	var responding: bool = intent.tipo == "responder"
-	var starter: Variant = _starters.get(intent.tipo)
-	var handler: Variant = _handlers.get(intent.tipo)
+	var starter: Variant = null if internal_type else _starters.get(intent.tipo)
+	var handler: Variant = internal_start if internal_type else _handlers.get(intent.tipo)
 	if current.resolution != null:
 		if not responding:
 			return _reject("accion_ilegal", revision)
@@ -94,6 +107,8 @@ func submit(actor_id: String, input: Variant) -> Dictionary:
 	else:
 		var result: Variant = handler.call(candidate, actor_id, payload, rng)
 		if not result is String or not result.is_empty():
+			if internal_type and result is String and result == "regla_pendiente":
+				return _reject("regla_pendiente", revision)
 			return _reject(_public_error(result), revision)
 	if sequence != null:
 		match sequence.status:
@@ -103,6 +118,12 @@ func submit(actor_id: String, input: Variant) -> Dictionary:
 				return _reject("estado_invalido", revision)
 	if not _protected_fields(candidate, current):
 		return _reject("estado_invalido", revision)
+	if internal_type:
+		var expected_turn: Dictionary = current.turn.duplicate(true)
+		expected_turn.phase = "libre"
+		if not candidate.get("turn") is Dictionary or candidate.turn != expected_turn \
+			or not candidate.get("lifecycle") is String or candidate.lifecycle != current.lifecycle:
+			return _reject("estado_invalido", revision)
 	if sequence != null:
 		if candidate.get("turn") != current.turn or candidate.get("lifecycle") != current.lifecycle:
 			return _reject("estado_invalido", revision)

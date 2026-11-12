@@ -220,7 +220,7 @@ Ampliación técnica T08.2h, 2026-11-11: adaptador GameEngine con perfil complet
 
 ## DEC-030 — Consumo del inicio competitivo por transición de fase
 
-2026-11-12. Diseño técnico propuesto para T08.1b4. Reutilizar los recibos de P07 con una entrada interna separada de las acciones de jugador. Consumir el inicio al confirmar la transición y el avance en la misma transacción. El perfil cerrado permite identificar la ocurrencia por partida, turno y plaza porque sus transiciones son monotónicas y la restauración usa el último estado confirmado. Este diseño evita duplicar el consumo en otro registro. [Contrato y límites](specs/008-preparacion-y-turnos/inicio-competitivo.md).
+2026-11-12. Diseño técnico implementado en T08.1b4 para el perfil aislado. Reutiliza los recibos de P07 con una entrada interna separada de las acciones de jugador. Consume el inicio al confirmar la transición y el avance en la misma transacción. El perfil cerrado identifica la ocurrencia por partida, turno y plaza con transiciones monotónicas. La fuente tipada de autoridad selecciona el último estado confirmado. [Contrato y límites](specs/008-preparacion-y-turnos/inicio-competitivo.md).
 
 ## Decisiones aún pendientes
 

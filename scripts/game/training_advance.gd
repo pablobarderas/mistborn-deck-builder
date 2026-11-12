@@ -38,6 +38,10 @@ func _init(definitions: Dictionary, catalog_id: String, profile: Dictionary, reg
 		_track_id = profile.track_id
 
 
+func supports_track(track_id: Variant) -> bool:
+	return track_id is String and not _track_id.is_empty() and track_id == _track_id
+
+
 static func unlocked_level(position: int) -> int:
 	if position < 0 or position > LAST_POSITION:
 		return 0
@@ -69,7 +73,7 @@ func advance(snapshot: Variant, player_id: Variant) -> Dictionary:
 	var player: Dictionary = snapshot.players[player_index]
 	if player.eliminated or player.health <= 0:
 		return _reject("accion_ilegal")
-	if _track_id.is_empty() or player.training_track_id != _track_id:
+	if not supports_track(player.training_track_id):
 		return _reject("pista_incompatible")
 	var position: int = player.training
 	if position > LAST_POSITION or not _writable(player):

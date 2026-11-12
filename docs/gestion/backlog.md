@@ -129,7 +129,7 @@ Documentos y plantillas se incluyen en la entrega inicial autorizada para commit
 
 T08.1b1: [contrato del avance de entrenamiento competitivo](../specs/008-preparacion-y-turnos/avance-entrenamiento.md), R2 documental, ENT-AC-01 a 04. T08.1b2 implementa y prueba ENT-AC-01 a 03 con perfil aislado SRC-004. Sigue la especificación de integración de inicio único y apertura de `libre` (ENT-AC-04). [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b2--operación-interna-de-avance-competitivo). Sin issue publicada.
 
-T08.1b3 completada documentalmente con revisión independiente. El [contrato del inicio único competitivo](../specs/008-preparacion-y-turnos/inicio-competitivo.md) cubre ENT-AC-04. T08.1b4 queda lista para implementar el perfil aislado y verificar INI-01–05. Sin issue publicada.
+T08.1b3 publicada en `fd75e23`. T08.1b4 implementa ENT-AC-04 en el perfil aislado. Sigue definir el perfil de producto con catálogo y reglas comprobadas. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b4--implementación-del-inicio-competitivo). Sin issue publicada.
 
 T08.1b dispone de [originales y lectura del panel competitivo](../referencias/entrenamiento-competitivo.md), utilizados como fuente de las recompensas del paso interno. La incorporación de las cartas y la pista al catálogo ejecutable sigue pendiente.
 
