@@ -4,7 +4,11 @@
 
 ## Resumen
 
-T08.1b4 implementa el inicio único competitivo en perfil aislado. El avance, la recompensa y la apertura de la fase libre se confirman juntos, con reenvío idempotente y guardas de obligaciones y finales. El contrato T08.1b3 está publicado en `fd75e23`. Sigue delimitar el perfil de producto a partir del material verificado. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b4--implementación-del-inicio-competitivo).
+T08.1b6 registra DEC-031 sobre prevalencia de la edición española en estas discrepancias, nivel II, Guardadora, recompensas de misión y empates. Son reglas documentadas para la futura integración. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b6--resoluciones-de-reglas-del-perfil-competitivo).
+
+T08.1b5 delimita el manifiesto competitivo de producto, localiza las ocho misiones españolas y documenta las reglas que exige su admisión. El catálogo ejecutable sigue siendo de muestra. Siguiente paso propuesto: revisión y transcripción del lote M1–M8. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b5--delimitación-del-perfil-competitivo-de-producto).
+
+T08.1b4, publicada en `69c1ef2`, implementa el inicio único competitivo en perfil aislado. El avance, la recompensa y la apertura de la fase libre se confirman juntos, con reenvío idempotente y guardas de obligaciones y finales. El contrato T08.1b3 está publicado en `fd75e23`. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b4--implementación-del-inicio-competitivo).
 
 La revisión de las cuatro hojas de entrenamiento y el panel competitivo de la caja española está publicada en `13bb11f`. [Inventario y lectura de SRC-004](referencias/entrenamiento-competitivo.md).
 

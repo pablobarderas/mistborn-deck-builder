@@ -222,6 +222,17 @@ Ampliación técnica T08.2h, 2026-11-11: adaptador GameEngine con perfil complet
 
 2026-11-12. Diseño técnico implementado en T08.1b4 para el perfil aislado. Reutiliza los recibos de P07 con una entrada interna separada de las acciones de jugador. Consume el inicio al confirmar la transición y el avance en la misma transacción. El perfil cerrado identifica la ocurrencia por partida, turno y plaza con transiciones monotónicas. La fuente tipada de autoridad selecciona el último estado confirmado. [Contrato y límites](specs/008-preparacion-y-turnos/inicio-competitivo.md).
 
+## DEC-031 — Criterios de la edición española y reglas competitivas
+
+2026-11-12. Aceptada por indicación expresa del usuario para T08.1b6.
+
+- En discrepancias de este tipo entre el material español y el inglés, usar el material de la edición española del proyecto. Para el nivel II, se admite comprar una Acción o un Aliado, resolver su capacidad primaria y eliminar la carta después. Se conserva el contraste con la FAQ y las erratas expresas del editor.
+- La carta apartada por Guardadora pasa a la mano antes de avanzar en la pista de entrenamiento, dentro de un único inicio de turno. El orden es interno, sin ventana de acción ni estado intermedio visible.
+- Guarnición de Luthadel y Fortaleza Venture conceden su beneficio permanente en el momento de completar la misión, también en ese turno. En turnos posteriores se aplica una vez por turno.
+- Al comparar plazas en competitivo o cooperativo, todos los marcadores empatados en un extremo cumplen la condición de ese extremo. Los marcadores que aún no han entrado en la misión quedan fuera del cálculo. Se conservan los casos reglamentarios de único marcador, primero en completar y la excepción de solitario de REG-065.
+
+[Reglas y escenarios](specs/008-preparacion-y-turnos/perfil-competitivo-producto.md).
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.

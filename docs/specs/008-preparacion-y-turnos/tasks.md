@@ -1,5 +1,13 @@
 # Tareas de SPEC-008
 
+### T08.1b6 — Resoluciones de reglas del perfil competitivo
+
+Registro previo 2026-11-12. Fetch y estado publicado en `69c1ef254bf2fb78b71454da2518567c351e1303`, igual a HEAD. Se conserva T08.1b5 en el árbol local. Riesgo R2 documental por elegibilidad y orden de efectos, premios y posiciones de misión. Objetivo y aceptación: registrar las decisiones expresas sobre fuente española, nivel II, Guardadora, M2/M3 y empates; reflejarlas en REG, DUD y casos de integración sin cambiar el motor. Coordinador único escritor, contraste de `profile_rules` (sdd_rules, Sol/high) y revisión independiente sdd_reviewer Sol/high. Plan: actualizar fuentes, contrato y traspaso; comprobar coherencia, enlaces y diff. Sin dispensas.
+
+### T08.1b5 — Delimitación del perfil competitivo de producto
+
+Registro previo 2026-11-12. `git fetch origin` y estado publicado contrastados en `69c1ef254bf2fb78b71454da2518567c351e1303`, igual a HEAD de `main`, árbol limpio y fast-forward al día. Objetivo documental R2 por catálogo, reglas y admisión de autoridad. Aceptación: (1) especificar inventario y relaciones del manifiesto para 2–4 plazas, con evidencia y faltantes por componente; (2) delimitar qué puede reutilizarse del inicio aislado y qué reglas bloquean la admisión real; (3) dejar criterios comprobables para la siguiente integración y un primer paso acotado de contenido. El coordinador es propietario de la documentación, `profile_rules` (sdd_rules, Sol/high) contrasta reglas y un sdd_reviewer (Sol/high) revisará el diff. Plan: contrastar fuentes, inventario, P06 y APIs, redactar alcance, comprobar enlaces y diff, revisar y registrar el traspaso. Entrega documental, sin dispensas.
+
 ### T08.1b4 — Implementación del inicio competitivo
 
 Registro previo 2026-11-12. Contrato T08.1b3 publicado y comprobado por fetch en `fd75e232657f7e477b8f2e92ba685785ddea392c`, igual a HEAD de main con árbol limpio. Riesgo R2 por estado, reglas, privacidad y autoridad. Aceptación en [INI-01–05](inicio-competitivo.md#escenarios-para-t081b4). El coordinador posee el motor, adaptador, versión, lanzador y documentación. `start_tests` posee la suite y fixtures nuevos. Reutilizar el contraste SRC-001/002/004 del contrato, comprobar FAQ y solicitar revisión independiente final. Validar la entrada separada, admisión y commit compartido con la suite y regresiones del plan. Sin dispensas.

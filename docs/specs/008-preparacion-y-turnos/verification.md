@@ -1,5 +1,29 @@
 # Verificación de SPEC-008
 
+## Publicación conjunta de T08.1b5 y T08.1b6
+
+2026-11-12. El usuario autoriza expresamente «haz commit y push de todo». Empaquetado R0 a cargo del coordinador: publicar en `main` los cambios documentales ya revisados de T08.1b5 y T08.1b6. El fetch confirmó que la base local y publicada coincide en `69c1ef254bf2fb78b71454da2518567c351e1303`. Aceptación: revisar el alcance del índice, comprobar enlaces y espacios, publicar y verificar coincidencia de HEAD con GitHub y árbol limpio. Se reutilizan las revisiones R2 de las entregas; el empaquetado no cambia reglas. El commit que incorpora esta nota identifica la publicación y las notas de trabajo local inferiores son históricas. Siguiente paso: revisar y transcribir M1–M8.
+
+## T08.1b6 — Resoluciones de reglas del perfil competitivo
+
+2026-11-12. [Registro previo R2](tasks.md#t081b6--resoluciones-de-reglas-del-perfil-competitivo). HEAD y origin/main comprobados en `69c1ef254bf2fb78b71454da2518567c351e1303`. T08.1b5 se conserva en el árbol local. [DEC-031](../../decisiones.md#dec-031--criterios-de-la-edición-española-y-reglas-competitivas) procede de la indicación expresa del usuario sobre edición, orden de inicio, premios y posiciones. DUD-005 se resuelve al comparar plazas y DUD-008 se resuelve con el texto español. Los escenarios PERF-03/05/06 recogen las consecuencias para la futura implementación.
+
+`profile_rules` (sdd_rules, Sol/high) contrastó SRC-001 pp. 14 y 20 y reutilizó el cotejo de SRC-002/005. `profile_review` (sdd_reviewer, Sol/high) emitió dictamen favorable tras precisar el caso de dos cubos, la prioridad del primer finalista y el alcance por modo. Coordinador único escritor, dos delegaciones sin descendientes ni dispensas. Métricas de tokens no disponibles.
+
+Comprobados 263 enlaces locales, 103 anclas y diff sin errores de espacios. Entrega documental completada en el árbol local, sin commit ni push. Godot y PERF-01–06 corresponden a la futura integración. Siguiente paso: revisar y transcribir M1–M8 con DEC-031 y P06.
+
+## T08.1b5 — Delimitación del perfil competitivo de producto
+
+2026-11-12. [Registro previo R2](tasks.md#t081b5--delimitación-del-perfil-competitivo-de-producto). Fetch, estado publicado y árbol inicial contrastados en `main` y `origin/main` en `69c1ef254bf2fb78b71454da2518567c351e1303`. [Delimitación y casos de integración](perfil-competitivo-producto.md).
+
+- **Inventario.** Composición contrastada con SRC-001, SRC-004, DEC-027 y la auditoría de mercado. Se localizaron los cuatro personajes y las ocho misiones y se cotejaron Guardadora y Confrontación en SRC-005. El recuento de la auditoría devuelve 65 diseños y 82 copias, 60 acciones y 22 aliados.
+- **Admisión.** Contrastadas las comprobaciones de `GameSetup` y `CompetitiveStart`. El perfil de producto necesita contenido revisado, comprobación exacta del manifiesto y reglas de obligaciones, premios y finales. La diferencia de fuentes sobre el nivel II queda en [DUD-008](../../referencias/dudas.md).
+- **Traspaso.** Primer lote de contenido propuesto: revisar y transcribir las ocho misiones M1–M8 contra los originales y P06. Conservar como borrador los premios o condiciones pendientes. PERF-01–04 son comprobaciones previstas de integración. Godot no se ejecuta en esta entrega documental.
+
+Revisión independiente favorable. `profile_rules` (sdd_rules, Sol/high) contrastó el reglamento, la FAQ y los originales. `profile_review` (sdd_reviewer, Sol/high) reprodujo los recuentos, comprobó las huellas de SRC-005 y revisó el delta final. A raíz de la revisión se precisaron la activación opcional del nivel II y el caso de restauración con una obligación futura de Guardadora. El coordinador fue el único autor. Dos delegaciones acotadas, sin descendientes ni dispensas. Métricas de tokens no disponibles.
+
+Comprobación final del coordinador: 198 enlaces locales, 77 anclas y diff sin errores de espacios. Entrega documental completada en el árbol local, sin commit ni push. P08 continúa abierta por contenido e integración.
+
 ## T08.1b4 — Implementación del inicio competitivo
 
 Publicación autorizada por el usuario el 2026-11-12. Empaquetado R0 a cargo del coordinador, con fetch confirmado en `fd75e23`. Se comprueban el alcance del índice, el diff y la coincidencia con `origin/main` después de publicar. El traspaso inferior recoge el estado previo a esta publicación.

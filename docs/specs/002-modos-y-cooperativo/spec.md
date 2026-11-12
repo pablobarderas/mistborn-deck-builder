@@ -29,6 +29,6 @@ No incluye oponentes humanos simulados para competitivo, cambios de reglas ni ex
 
 ## Dependencias y bloqueos
 
-DUD-001/007 están resueltas por SRC-002. Sigue abierta parte de DUD-004 (personajes), DUD-005/006 (casos límite); DUD-002/003 cubren catálogo y localización pendientes. Implementar las partes independientes cuando exista proyecto ejecutable, aplicando las erratas; no considerar resuelto lo que la FAQ no responde.
+DUD-001/007 están resueltas por SRC-002. [DEC-031](../../decisiones.md#dec-031--criterios-de-la-edición-española-y-reglas-competitivas) resuelve DUD-005 al comparar plazas en competitivo y cooperativo. Solitario mantiene la excepción de REG-065. Sigue abierta parte de DUD-004 (personajes) y DUD-006 (casos límite); DUD-002/003 cubren catálogo y localización pendientes.
 
 La privacidad debe derivarse de las zonas del reglamento; que el modo sea cooperativo no autoriza a enviar automáticamente todas las manos a todos los clientes.

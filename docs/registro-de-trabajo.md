@@ -1,5 +1,13 @@
 # Registro de trabajo
 
+## 2026-11-12 — Resoluciones de reglas competitivas
+
+- T08.1b6 registra DEC-031 y cierra DUD-005/008 para la adaptación. Los casos de integración recogen nivel II, Guardadora, premios de M2/M3 y empates. El siguiente lote sigue siendo la revisión y transcripción de M1–M8. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b6--resoluciones-de-reglas-del-perfil-competitivo).
+
+## 2026-11-12 — Perfil competitivo de producto
+
+- T08.1b5 delimita el manifiesto, confirma la cobertura de misiones en los originales españoles y registra DUD-008 sobre el nivel II. Se comprobó el inventario contra las fuentes y el constructor actual. Siguiente lote propuesto: revisar y transcribir las ocho misiones. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b5--delimitación-del-perfil-competitivo-de-producto).
+
 ## 2026-11-12 — Publicación del contrato e inicio competitivo aislado
 
 - T08.1b3 publicada en `fd75e23`, verificado por fetch. T08.1b4 completa ENT-AC-04 en el perfil aislado, con 199 comprobaciones propias, 4.053 de regresión y revisión independiente favorable. Queda delimitar el perfil competitivo de producto. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b4--implementación-del-inicio-competitivo).

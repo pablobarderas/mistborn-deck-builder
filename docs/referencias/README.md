@@ -25,6 +25,7 @@ El PDF acompaña al clon del repositorio. Mantener su hash y nombre para conserv
 - Idioma: inglés. Actualización declarada por la página: enero de 2025; consulta: 2026-10-27.
 - Estado: leída como complemento de SRC-001. Identificación por secciones, no por páginas; no se ha archivado una copia local completa.
 - Precedencia de trabajo: las erratas y aclaraciones expresas del editor corrigen SRC-001. No completar con ellas casos que no responden explícitamente.
+- Ante discrepancias de este tipo entre el material inglés y el de la edición española del proyecto, aplicar el texto español conforme a [DEC-031](../decisiones.md#dec-031--criterios-de-la-edición-española-y-reglas-competitivas). Conservar la discrepancia y contrastar las erratas expresas.
 - Los cambios incorporados aparecen con SRC-002 en la matriz. Los casos específicos de cartas deberán revisarse otra vez al completar el catálogo.
 
 ## SRC-003 — Identificación de la edición española
@@ -38,6 +39,18 @@ El PDF acompaña al clon del repositorio. Mantener su hash y nombre para conserv
 ## SRC-004 — Escaneos españoles de entrenamiento
 
 Originales facilitados el 2026-11-11 en `C:/Users/pablo/Documents/Digitalizaciones/Digitalizaciones/cartas_personajes`. Cuatro hojas de cartas y panel de niveles, de la caja española del usuario. [Inventario, huellas y lectura del panel](entrenamiento-competitivo.md). Los PNG originales se conservan fuera del repositorio. La revisión se limita a estas piezas y no establece la equivalencia íntegra de ediciones.
+
+## SRC-005 — Escaneos españoles de personajes, misiones y mercado
+
+Originales de la caja española del usuario, comprobados para T08.1b5 el 2026-11-12 en `C:/Users/pablo/Documents/Digitalizaciones/Digitalizaciones`. Las rutas de esta tabla son relativas a `cartas_personajes`.
+
+| Original | SHA-256 |
+| --- | --- |
+| `personajes.png` | `DB0356C5FC95D1BF0178FF0DDF2D240EC87DBF24E4B38E34CF5C3BB95C96C952` |
+| `misiones/misiones.1.png` | `0185C0D65D2CEC7B66070BD08D5CD7D8FE618272BE490ED82C725C419346FA9D` |
+| `misiones/misiones.2.png` | `3DA0CF82F7CCB10CC08AFA27EE3F694A8CF51B6C536E153CB21F8DB6F5225B5B` |
+
+Los nueve PNG de `cartas_mercado` corresponden a la [auditoría de mercado](auditoria-escaneos-2026-11-09.md). T08.1b5 cotejó visualmente la cobertura de personajes y misiones, el nivel II impreso y las piezas pertinentes para delimitar inicio y finales. [Localizadores y alcance de lectura](../specs/008-preparacion-y-turnos/perfil-competitivo-producto.md). Quedan pendientes la transcripción, la revisión sistemática y la incorporación al catálogo.
 
 ## Mapa de lectura del reglamento
 
@@ -64,6 +77,6 @@ La preparación estructural de REG-001–006/052 tiene pruebas parciales en [SPE
 
 ## Cómo incorporar fuentes posteriores
 
-Asignar el siguiente ID libre (actualmente SRC-005), registrar origen, edición, idioma, páginas y fecha; comprobar diferencias con SRC-001/002. Las fotos de cartas deben identificar qué diseño y cantidad respaldan. Mantener nombre del original y nombre oficial español por separado hasta contrastarlos.
+Asignar el siguiente ID libre (actualmente SRC-006), registrar origen, edición, idioma, páginas y fecha; comprobar diferencias con SRC-001/002. Las fotos de cartas deben identificar qué diseño y cantidad respaldan. Mantener nombre del original y nombre oficial español por separado hasta contrastarlos.
 
 No completar contradicciones por intuición. Cerrar cada DUD con una fuente o una adaptación expresamente acordada. Conservar los IDs REG aunque se amplíe o corrija su redacción.

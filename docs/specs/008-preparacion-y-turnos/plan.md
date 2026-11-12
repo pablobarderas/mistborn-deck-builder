@@ -1,5 +1,9 @@
 # Plan de SPEC-008
 
+## T08.1b5 — Perfil competitivo de producto
+
+[Registros R2 de delimitación](tasks.md#t081b5--delimitación-del-perfil-competitivo-de-producto) y [resolución de reglas](tasks.md#t081b6--resoluciones-de-reglas-del-perfil-competitivo). Tras el contraste del manifiesto y la incorporación de DEC-031, preparar el lote de misiones M1–M8 y revisar las ampliaciones de catálogo y reglas que requieran sus premios. Los casos [PERF-01–06](perfil-competitivo-producto.md#comprobaciones-para-la-integración-posterior) pertenecen a la integración futura.
+
 ## T08.1b3/b4 — Inicio único competitivo
 
 [Contrato](inicio-competitivo.md) e INI-01–05 para ENT-AC-04. T08.1b3 contrasta fuentes y APIs y entrega el diseño revisado. T08.1b4 implementará y probará el perfil aislado. Antes de editar código, asignar un propietario para la entrada interna, el adaptador, el versionado y las pruebas.

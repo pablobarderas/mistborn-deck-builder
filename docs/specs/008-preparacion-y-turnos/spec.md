@@ -1,5 +1,9 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.1b5 — Perfil competitivo de producto
+
+[Delimitación del perfil](perfil-competitivo-producto.md) con inventario, localizadores de misiones y dependencias del inicio. T08.1b6 incorpora DEC-031 a los escenarios PERF-01–06 para la integración posterior. La preparación y el inicio con contenido de producto siguen pendientes.
+
 ## T08.1b3/b4 — Inicio único competitivo
 
 El [contrato de inicio competitivo](inicio-competitivo.md) concreta ENT-AC-04. T08.1b4 implementa y prueba el avance y la apertura atómicos, el reenvío de autoridad y las comprobaciones de obligaciones y finales en el perfil aislado. [Evidencia y traspaso](verification.md#t081b4--implementación-del-inicio-competitivo).

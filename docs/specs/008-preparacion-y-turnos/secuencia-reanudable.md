@@ -2,7 +2,7 @@
 
 Contrato documental R2 de 2026-11-01, revisado independientemente en T08.2e. Implementación T08.2f verificada y revisada favorablemente 2026-11-10, con esquema v2/motor `p08-sequence-1/godot-4.7.2`; [aceptación y evidencia](verification.md#t082f--implementación-de-secuencias-reanudables). Las secciones siguientes definen el comportamiento del núcleo técnico; no acreditan reglas de cartas ni una partida jugable.
 
-Entradas: [puertas de entrada a limpieza](entrada-a-limpieza.md), [contrato P07](../007-estado-y-acciones/plan.md), [motor](../../../scripts/game/game_engine.gd), [validador](../../../scripts/game/state_validator.gd) y [proyección](../../../scripts/game/game_projection.gd). No interpreta nuevas reglas. Se mantienen las fuentes y límites de T08.2d, DUD-004/005/006, material aplazado y cierre externo P04.
+Entradas: [puertas de entrada a limpieza](entrada-a-limpieza.md), [contrato P07](../007-estado-y-acciones/plan.md), [motor](../../../scripts/game/game_engine.gd), [validador](../../../scripts/game/state_validator.gd) y [proyección](../../../scripts/game/game_projection.gd). Se mantienen las fuentes y límites de T08.2d, el [estado de DUD-004/005/006](../../referencias/dudas.md), el material aplazado y el cierre externo P04.
 
 ## Aceptación documental
 

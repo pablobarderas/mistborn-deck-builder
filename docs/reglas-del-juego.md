@@ -34,4 +34,4 @@ Páginas de referencia: preparación 5/18; turnos y combate 15–17/19; finales 
 
 Existe núcleo estructural de estado/acciones P07, preparación T08.1a y ciclo personal de cartas T08.2a con fixtures técnicos. No hay turno completo, efectos de cartas ni partida jugable. Database.gd carga un catálogo cuyos dos ejemplos no están verificados como contenido oficial. La cobertura parcial y las pruebas están en [SPEC-008](specs/008-preparacion-y-turnos/verification.md). El PDF no enumera todo el catálogo ni muestra todos los textos/pistas; no se ha acreditado fidelidad completa.
 
-SRC-002 resuelve DUD-001/007 y la parte de aliados de DUD-004. Siguen pendientes el resto de DUD-004, DUD-005/006, catálogo y localización (DUD-002/003). No se da por interpretado y validado todo el juego; registrar las incertidumbres y resolverlas antes de implementar lo dependiente.
+SRC-002 resuelve DUD-001/007 y la parte de aliados de DUD-004. [DEC-031](decisiones.md#dec-031--criterios-de-la-edición-española-y-reglas-competitivas) resuelve DUD-005/008 para la adaptación. Siguen pendientes el resto de DUD-004, DUD-006, catálogo y localización (DUD-002/003).

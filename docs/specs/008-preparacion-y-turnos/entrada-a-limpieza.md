@@ -51,7 +51,7 @@ Estos escenarios son aceptación futura, **no pruebas ejecutadas** en T08.2d:
 
 1. **Siguiente trabajo ejecutable:** especificar el contrato mínimo de secuencia reanudable de autoridad para P08/P09, sobre `resolution` P07: pasos, contexto, procedencia, pausas, cierre único, persistencia y compatibilidad. Usar operaciones ficticias explícitas para probar el mecanismo sin declararlas reglas del juego. Clasificar R2 y exigir revisión independiente antes de implementar.
 2. Sobre ese contrato, especificar e implementar combate y ventanas con un subconjunto de contenido declarado, incluidas restricciones y eliminaciones. Añadir Target competitivo cuando sus resolutores estén disponibles.
-3. Incorporar efectos de fin de turno/adversarios y finales con fuentes y contenido soportado. Mantener DUD-004/005/006 y recompensas de entrenamiento fuera de inferencias.
+3. Incorporar efectos de fin de turno/adversarios y finales con fuentes y contenido soportado. Consultar el [estado de DUD-004/005/006](../../referencias/dudas.md) y las fuentes de las recompensas de entrenamiento.
 4. Habilitar la transición a limpieza únicamente para las secuencias totalmente cubiertas; integrar T08.2a/b/c y ejecutar los escenarios anteriores. Después abordar el paso rival T08.3 y apertura tras entrenamiento T08.1b según sus dependencias.
 
 T08.2d puede cerrarse como contrato documental revisado. T08.2 y P08 siguen abiertas; no hay un turno completo ni partida jugable. No se necesita solicitar de nuevo material aplazado para redactar el contrato técnico del primer paso.
