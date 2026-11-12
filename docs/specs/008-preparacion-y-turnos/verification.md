@@ -1,5 +1,13 @@
 # Verificación de SPEC-008
 
+## T08.1b7 — Desbloqueo tardío, robo y finales del rival
+
+2026-11-12. Publicación autorizada por «haz el commit y push y ponte con los arreglos». Empaquetado R0 por el coordinador sobre `5fe5e65`, con revisión del índice, enlaces y diff. El commit que contiene esta nota identifica la entrega documental. Se comprobará su recepción en `origin/main` y el árbol limpio antes de iniciar el arreglo del robo personal.
+
+2026-11-12. [Registro previo R2](tasks.md#t081b7--desbloqueo-tardío-robo-y-finales-del-rival). Fetch y estado publicado contrastados en `5fe5e65b632e78a6a4c64b3894fa646fcde171a9`, igual a HEAD y árbol limpio. El usuario resuelve DUD-004/006 mediante DEC-032. `profile_rules` (sdd_rules, Sol/high) contrastó SRC-001 pp. 6, 12–13 y 19–20, SRC-002 y las guardias vigentes en `CardCycle` y `TurnCleanup`. [Escenarios previstos](spec.md#t081b7--reglas-acordadas-para-desbloqueo-robo-y-finales). Siguiente paso: revisar y transcribir M1–M8.
+
+`profile_review` (sdd_reviewer, Sol/high) emitió dictamen independiente favorable tras precisar la condición para intentar el robo rival y distinguir las dos victorias de prueba. Coordinador único escritor, dos delegaciones acotadas sin descendientes ni dispensas. Métricas de tokens no disponibles. Comprobados 257 enlaces locales, 110 anclas y diff limpio. Entrega documental completada en el árbol local, sin commit ni push. No se ejecutó Godot; el motor y sus pruebas quedan para las tareas de implementación.
+
 ## Publicación conjunta de T08.1b5 y T08.1b6
 
 2026-11-12. El usuario autoriza expresamente «haz commit y push de todo». Empaquetado R0 a cargo del coordinador: publicar en `main` los cambios documentales ya revisados de T08.1b5 y T08.1b6. El fetch confirmó que la base local y publicada coincide en `69c1ef254bf2fb78b71454da2518567c351e1303`. Aceptación: revisar el alcance del índice, comprobar enlaces y espacios, publicar y verificar coincidencia de HEAD con GitHub y árbol limpio. Se reutilizan las revisiones R2 de las entregas; el empaquetado no cambia reglas. El commit que incorpora esta nota identifica la publicación y las notas de trabajo local inferiores son históricas. Siguiente paso: revisar y transcribir M1–M8.

@@ -15,7 +15,7 @@ La preparación deja el marcador en `training=0` y la capacidad de quema de fich
 | Las demás casillas alcanzables | Sólo avanza el marcador. |
 | Un paso solicitado estando ya en 20 | El marcador permanece en 20 y se obtiene una ficha de Atium. |
 
-Los niveles alcanzados se consultan por umbral en la posición del marcador. Evitar una segunda copia persistente de los desbloqueos. La operación de avance no ejecuta las habilidades, no consume sus usos ni decide si un metal quemado antes del desbloqueo permite activarlas (DUD-004). La capacidad base alcanza 4 sólo por la pista; no tratar 4 como tope general para efectos futuros. Un avance normal de misión no se convierte en Atium. Si una recompensa de misión indica TRAIN, su futuro resolutor solicitará el avance de entrenamiento correspondiente.
+Los niveles alcanzados se consultan por umbral en la posición del marcador. Evitar una segunda copia persistente de los desbloqueos. La operación de avance sólo desbloquea la habilidad. El futuro resolutor de activación permitirá usarla ese turno si ya se quemó su metal y se cumplen los demás requisitos, según [DEC-032](../../decisiones.md#dec-032--desbloqueo-tardío-robo-personal-y-finales-del-rival). La pista aporta hasta 4 de capacidad base; los efectos futuros pueden modificarla. Si una recompensa de misión indica TRAIN, su futuro resolutor solicitará el avance de entrenamiento correspondiente. El progreso normal de misión conserva su recorrido propio.
 
 ## Contrato técnico para T08.1b2
 

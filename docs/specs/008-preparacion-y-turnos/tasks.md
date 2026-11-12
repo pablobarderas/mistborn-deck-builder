@@ -1,5 +1,9 @@
 # Tareas de SPEC-008
 
+### T08.1b7 — Desbloqueo tardío, robo y finales del rival
+
+Registro previo 2026-11-12. Fetch y estado publicado contrastados en `5fe5e65b632e78a6a4c64b3894fa646fcde171a9`, igual a HEAD y árbol limpio. R2 documental por acciones legales, robo privado y condiciones terminales. Aceptación: cerrar DUD-004/006 según la decisión expresa del usuario, precisar los casos comprobables y distinguir la regla futura de la guardia actual. Coordinador único escritor, contraste de `profile_rules` (sdd_rules, Sol/high) y revisión independiente sdd_reviewer Sol/high. Plan: contrastar fuentes, código y contratos; actualizar REG/DUD, aceptación y traspaso; verificar enlaces y diff. Sin dispensas.
+
 ### T08.1b6 — Resoluciones de reglas del perfil competitivo
 
 Registro previo 2026-11-12. Fetch y estado publicado en `69c1ef254bf2fb78b71454da2518567c351e1303`, igual a HEAD. Se conserva T08.1b5 en el árbol local. Riesgo R2 documental por elegibilidad y orden de efectos, premios y posiciones de misión. Objetivo y aceptación: registrar las decisiones expresas sobre fuente española, nivel II, Guardadora, M2/M3 y empates; reflejarlas en REG, DUD y casos de integración sin cambiar el motor. Coordinador único escritor, contraste de `profile_rules` (sdd_rules, Sol/high) y revisión independiente sdd_reviewer Sol/high. Plan: actualizar fuentes, contrato y traspaso; comprobar coherencia, enlaces y diff. Sin dispensas.
@@ -38,7 +42,7 @@ Objetivo y aceptación: identificar y revisar las cuatro hojas de entrenamiento 
 | T08.1b2 | Implementar y probar un paso interno con ENT-AC-01 a 03. | Completada localmente con revisión favorable. [Evidencia](verification.md#t081b2--operación-interna-de-avance-competitivo). ENT-AC-04 queda para la integración. |
 | T08.1b3 | [Contrato del inicio competitivo](inicio-competitivo.md) y plan de pruebas para ENT-AC-04. | Completada documentalmente con revisión independiente favorable. |
 | T08.1b4 | Implementar el inicio competitivo en perfil aislado y verificar INI-01–05. | Completada localmente con revisión favorable. [Evidencia](verification.md#t081b4--implementación-del-inicio-competitivo). |
-| T08.2 | Transiciones, limpieza, mano siguiente y reciclado de mazos. | Agrupador abierto; T08.2a completada localmente, transiciones completas y DUD-006 pendientes |
+| T08.2 | Transiciones, limpieza, mano siguiente y reciclado de mazos. | Agrupador abierto; T08.2a completada localmente. Transiciones completas y aplicación de DEC-032 al robo personal pendientes. |
 | T08.2a | Primitivas internas de robo, reciclado personal y limpieza de cartas; AC-07–10. | Completada localmente; 262 comprobaciones y revisión independiente favorable |
 | T08.2b | Cierre interno de limpieza y entrega a inicio/rival con guardias; AC-11–14. | Implementada, 334 comprobaciones; revisión independiente favorable |
 | T08.2c | Contrato saldo/fichas y devolución del Atium usado; AC-15–18. | Implementada, limpieza 527 / estado 1.938; revisión independiente favorable |

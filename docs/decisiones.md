@@ -168,7 +168,7 @@ Usar IDs estables. Para cada decisión indicar fecha, estado, contexto, elecció
 
 - Fecha: 2026-10-29. Estado: decisión técnica implementada y verificada localmente en T08.2a; revisión independiente en SPEC-008.
 - Decisión: servicio interno de robo/reciclado personal, descarte y limpieza de cartas con RNG transaccional, sin acciones públicas de robo. El motor P07 envuelve operaciones compuestas y persiste el RNG al commit. Contrato y convenciones reproducibles en [SPEC-008/plan](specs/008-preparacion-y-turnos/plan.md).
-- Consecuencias: rechazo técnico atómico `regla_pendiente` cuando el robo excede mazo+descarte. Conserva DUD-006 abierta, sin inventar mano parcial, derrota ni resultado reglamentario. No completa el turno ni modifica las reglas de mercado/rival.
+- Consecuencias en T08.2a: rechazo técnico atómico `regla_pendiente` cuando el robo excede mazo+descarte. La guardia sigue implementada. La regla de producto se acordó después en DEC-032.
 
 ## DEC-023 — Cierre interno de limpieza con puertas conservadoras
 
@@ -232,6 +232,16 @@ Ampliación técnica T08.2h, 2026-11-11: adaptador GameEngine con perfil complet
 - Al comparar plazas en competitivo o cooperativo, todos los marcadores empatados en un extremo cumplen la condición de ese extremo. Los marcadores que aún no han entrado en la misión quedan fuera del cálculo. Se conservan los casos reglamentarios de único marcador, primero en completar y la excepción de solitario de REG-065.
 
 [Reglas y escenarios](specs/008-preparacion-y-turnos/perfil-competitivo-producto.md).
+
+## DEC-032 — Desbloqueo tardío, robo personal y finales del rival
+
+2026-11-12. Aceptada por indicación expresa del usuario. Cierra DUD-004 y DUD-006 para la adaptación.
+
+- Una habilidad de personaje que acaba de desbloquearse puede activarse ese mismo turno si su metal requerido ya se quemó en ese turno. Se conservan los demás requisitos y el límite de una activación por turno de los niveles I y III.
+- Ante un robo personal, reciclar el descarte si se acaba el mazo. Si ambos están vacíos, omitir las cartas que queden por robar. Las cartas obtenidas antes de agotar ambas zonas permanecen en la mano. Esto sustituye como regla de producto el bloqueo técnico de DEC-022, que sigue en el código hasta implementar el cambio.
+- En solitario y cooperativo, ganar inmediatamente cuando la salud del Lord Legislador llega a cero o se resuelve Confrontación con cuatro Atium. Si ocurre durante el turno humano, la partida termina antes del robo rival. Si la partida continúa, tras descartar y robar la nueva mano se intenta robar la carta rival. Se pierde inmediatamente si su mazo ya está vacío en ese intento. Si queda una carta, se roba y se resuelve según su efecto.
+
+[Casos de integración](specs/008-preparacion-y-turnos/verification.md#t081b7--desbloqueo-tardío-robo-y-finales-del-rival).
 
 ## Decisiones aún pendientes
 

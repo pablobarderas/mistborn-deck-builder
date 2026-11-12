@@ -1,5 +1,13 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.1b7 — Reglas acordadas para desbloqueo, robo y finales
+
+[DEC-032](../../decisiones.md#dec-032--desbloqueo-tardío-robo-personal-y-finales-del-rival) fija el comportamiento de producto. Los criterios de las entregas aisladas inferiores conservan el comportamiento verificado entonces. `CardCycle.draw` y su uso en limpieza aún rechazan con `regla_pendiente` si la cantidad supera el total disponible.
+
+- **Desbloqueo.** Quemar el metal requerido, alcanzar el umbral después y poder activar la habilidad en ese turno. Rechazar el uso antes de desbloquearla, sin el metal requerido o cuando ya se usó ese turno. La activación de nivel II conserva su condición de compra.
+- **Robo personal.** Solicitar cinco cartas con dos en el mazo y una en el descarte: robar las tres disponibles, reciclar sólo al necesitarlo y completar el efecto con una mano más corta. Con ambas zonas vacías, el robo aporta cero cartas y no consume RNG. En limpieza, probar también el avance de fase con la mano más corta y el rollback si falla otra validación de la transacción.
+- **Rival.** Aplicar [SPEC-002, AC-09](../002-modos-y-cooperativo/spec.md#criterios-de-aceptación) en solitario y cooperativo. Comprobar victoria durante el turno humano con mazo rival vacío, resolución de la última carta existente y derrota al siguiente intento de robo si la partida continúa.
+
 ## T08.1b5 — Perfil competitivo de producto
 
 [Delimitación del perfil](perfil-competitivo-producto.md) con inventario, localizadores de misiones y dependencias del inicio. T08.1b6 incorpora DEC-031 a los escenarios PERF-01–06 para la integración posterior. La preparación y el inicio con contenido de producto siguen pendientes.
@@ -77,7 +85,7 @@ Subentrega de T08.2: servicio interno de autoridad, independiente de escenas y t
 
 ## Dudas y límites
 
-DUD-002/003 impiden preparar una partida con contenido real hasta verificar el catálogo y su traducción. DUD-006 afecta el robo con mazo y descarte vacíos; T08.2 lo tratará explícitamente, sin inventar carta ni resultado. [SRC-004](../../referencias/entrenamiento-competitivo.md) documenta las recompensas del panel competitivo. La apertura automática de `libre` tras `inicio` requiere especificación y ejecución del avance y sus obligaciones. SRC-002 corrige la mención a Mission Track en la regla de Atium continuo y confirma entrenamiento en la primera ronda.
+DUD-002/003 impiden preparar una partida con contenido real hasta verificar el catálogo y su traducción. T08.2 debe implementar el robo con mazo y descarte vacíos según DEC-032. [SRC-004](../../referencias/entrenamiento-competitivo.md) documenta las recompensas del panel competitivo. La apertura automática de `libre` tras `inicio` requiere especificación y ejecución del avance y sus obligaciones. SRC-002 corrige la mención a Mission Track en la regla de Atium continuo y confirma entrenamiento en la primera ronda.
 
 ## T08.2b — Cierre interno de limpieza y entrega de fase
 

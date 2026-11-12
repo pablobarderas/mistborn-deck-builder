@@ -4,6 +4,8 @@
 
 ## Resumen
 
+T08.1b7 registra DEC-032 y resuelve DUD-004/006 para la adaptación. El robo personal con agotamiento total conserva la guardia técnica en el código y los finales del rival siguen pendientes de implementación. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b7--desbloqueo-tardío-robo-y-finales-del-rival).
+
 T08.1b6 registra DEC-031 sobre prevalencia de la edición española en estas discrepancias, nivel II, Guardadora, recompensas de misión y empates. Son reglas documentadas para la futura integración. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b6--resoluciones-de-reglas-del-perfil-competitivo).
 
 T08.1b5 delimita el manifiesto competitivo de producto, localiza las ocho misiones españolas y documenta las reglas que exige su admisión. El catálogo ejecutable sigue siendo de muestra. Siguiente paso propuesto: revisión y transcripción del lote M1–M8. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b5--delimitación-del-perfil-competitivo-de-producto).

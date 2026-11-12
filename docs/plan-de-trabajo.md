@@ -311,6 +311,8 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 
 ## Punto de reanudación
 
+2026-11-12. DEC-032 resuelve DUD-004/006 para la adaptación. Su aplicación se incorpora a las tareas de habilidades, robo personal y finales del rival. Siguiente lote: revisar y transcribir M1–M8. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b7--desbloqueo-tardío-robo-y-finales-del-rival).
+
 2026-11-12. T08.1b5 delimita el perfil competitivo de producto y T08.1b6 recoge DEC-031. El siguiente lote propuesto es revisar y transcribir las ocho misiones M1–M8 contra SRC-001/002/005, DEC-031 y P06. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b6--resoluciones-de-reglas-del-perfil-competitivo).
 
 Antecedente del 2026-11-12. Contrato T08.1b3 publicado en `fd75e23` e inicio aislado T08.1b4 publicado en `69c1ef2`. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b4--implementación-del-inicio-competitivo).

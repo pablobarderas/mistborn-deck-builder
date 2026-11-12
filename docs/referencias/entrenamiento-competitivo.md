@@ -39,4 +39,4 @@ SRC-001 pp. 12 y 17 identifica el avance al inicio del turno, el aumento de capa
 
 ## Paso siguiente para T08.1b
 
-Especificar y probar avance de inicio, aumentos, desbloqueos y Atium con esta pista, incluyendo cruce de casillas y avances posteriores al final. Distinguir desbloqueo de ejecución de las habilidades de personaje y no resolver DUD-004 por inferencia. La incorporación de cartas españolas, su gramática de efectos, la validación del perfil completo y la apertura de `libre` pertenecen a entregas posteriores. Los PNG originales están fuera de Git y este documento conserva evidencia de lectura, no definiciones ejecutables.
+Especificar y probar avance de inicio, aumentos, desbloqueos y Atium con esta pista, incluyendo cruce de casillas y avances posteriores al final. La ejecución de las habilidades de personaje se trata aparte y el desbloqueo tardío se rige por DEC-032. La incorporación de cartas españolas, su gramática de efectos, la validación del perfil completo y la apertura de `libre` pertenecen a entregas posteriores. Los PNG originales están fuera de Git y este documento conserva evidencia de lectura, no definiciones ejecutables.

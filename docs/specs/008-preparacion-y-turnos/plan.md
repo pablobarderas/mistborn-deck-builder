@@ -1,5 +1,9 @@
 # Plan de SPEC-008
 
+## T08.1b7 — Desbloqueo tardío, robo y finales del rival
+
+[Registro R2](tasks.md#t081b7--desbloqueo-tardío-robo-y-finales-del-rival) y [casos acordados](spec.md#t081b7--reglas-acordadas-para-desbloqueo-robo-y-finales). El resolutor de habilidades debe aplicar el desbloqueo tardío; T08.2 debe sustituir la guardia de agotamiento personal y actualizar las pruebas de ciclo, limpieza, RNG y rollback; T08.3 debe aplicar el orden del paso del rival y sus finales. El siguiente lote de contenido sigue siendo M1–M8.
+
 ## T08.1b5 — Perfil competitivo de producto
 
 [Registros R2 de delimitación](tasks.md#t081b5--delimitación-del-perfil-competitivo-de-producto) y [resolución de reglas](tasks.md#t081b6--resoluciones-de-reglas-del-perfil-competitivo). Tras el contraste del manifiesto y la incorporación de DEC-031, preparar el lote de misiones M1–M8 y revisar las ampliaciones de catálogo y reglas que requieran sus premios. Los casos [PERF-01–06](perfil-competitivo-producto.md#comprobaciones-para-la-integración-posterior) pertenecen a la integración futura.

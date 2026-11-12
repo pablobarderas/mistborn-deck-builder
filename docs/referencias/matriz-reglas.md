@@ -23,7 +23,7 @@ Cada fila tiene un caso planificado `CAS-REG-nnn`; al implementar la regla compl
 | REG-007 | Cada jugador puede consultar su mano y descarte, pero no mirar el contenido de su mazo. | 6 | Todos | CAS-REG-007 |
 | REG-008 | Salvo indicación contraria, las cartas obtenidas van inmediatamente al descarte del propietario. | 6 | Todos | CAS-REG-008 |
 | REG-009 | Al final del turno se descartan cartas en juego salvo aliados y cartas restantes en mano; después se roban cinco. | 6, 17 | Todos | CAS-REG-009 |
-| REG-010 | Cuando se necesita robar con el mazo vacío, se baraja el descarte para formar un nuevo mazo; si tampoco hay descarte, consultar DUD-006. | 6 | Todos | CAS-REG-010 |
+| REG-010 | Al robar con el mazo personal vacío, se baraja el descarte para formar un nuevo mazo. Si ambos están vacíos, se omiten las cartas que falten por robar. | 6; DEC-032, DUD-006 | Todos | CAS-REG-010 |
 | REG-011 | Las cartas eliminadas van a una pila común que cualquiera puede consultar. | 6, 10 | Todos | CAS-REG-011 |
 | REG-012 | El límite inicial permite quemar una ficha de metal por turno; entrenamiento y efectos pueden ampliarlo. Al final del recorrido permite cuatro. | 7, 12 | Todos | CAS-REG-012 |
 | REG-013 | Cada ficha ordinaria de metal se usa como máximo una vez por turno, incluso si se refresca durante ese turno. | 8 | Todos | CAS-REG-013 |
@@ -43,7 +43,7 @@ Cada fila tiene un caso planificado `CAS-REG-nnn`; al implementar la regla compl
 | REG-027 | Funding solo aparece en los mazos iniciales, produce una moneda y carece de metal o coste de activación por metal. | 11 | Todos | CAS-REG-027 |
 | REG-028 | Al inicio del turno se avanza un paso de entrenamiento; cartas y misiones también pueden avanzarlo. Las recompensas se desbloquean inmediatamente. | 12, 17 | Todos | CAS-REG-028 |
 | REG-029 | Al final del entrenamiento, avanzar esa pista concede Atium; no la de misiones. | 12 corregida por SRC-002 Errata 2 | Todos | CAS-REG-029 |
-| REG-030 | Los niveles I y III del personaje se activan una vez por turno. | 13; SRC-002 Player abilities & allies | Todos | CAS-REG-030 |
+| REG-030 | Las habilidades de nivel I y III se pueden activar una vez por turno. Una habilidad recién desbloqueada puede activarse ese turno aunque su metal requerido se haya quemado antes del desbloqueo, si cumple los demás requisitos. | 13; SRC-002 Player abilities & allies; DEC-032, DUD-004 | Todos | CAS-REG-030 |
 | REG-031 | Una vez desbloqueada, la habilidad común de nivel II se puede activar una vez por turno al comprar una Acción o un Aliado del mercado. Se resuelve inmediatamente la capacidad primaria sin quemar metal y después se elimina la carta. | SRC-005 personajes H1–H4; SRC-002 Player abilities & allies; DEC-031, DUD-008 | Todos | CAS-REG-031 |
 | REG-032 | Cada misión requiere doce puntos hasta la cima; los puntos ganados pueden repartirse entre recorridos. Alcanzar una recompensa la concede inmediatamente. | 14 | Todos | CAS-REG-032 |
 | REG-033 | Las recompensas intermedias son de un uso; hay extras para el primero. La cima registra orden de llegada y su recompensa puede ser única o permanente; el extra del primero es único. Guarnición de Luthadel y Fortaleza Venture conceden su beneficio por turno desde el momento en que se completan, incluido ese turno. | 14; SRC-005 M2/M3; DEC-031 | Todos | CAS-REG-033 |
@@ -68,7 +68,7 @@ Cada fila tiene un caso planificado `CAS-REG-nnn`; al implementar la regla compl
 | REG-052 | Solo/cooperativo usa la preparación normal sin Target ni bonificaciones iniciales, más Lord Ruler con 48 de salud, mazo de 36 cartas y Dominación inicial uno. | 18 | Solo/cooperativo | CAS-REG-052 |
 | REG-053 | La Dominación llega hasta seis; algunos pasos solo producen efectos. X usa el mayor valor visible actual, no la suma de valores anteriores. | 18 | Solo/cooperativo | CAS-REG-053 |
 | REG-054 | En cooperativo no se ataca a compañeros ni a sus aliados; se permite ayudar a protegerlos con efectos como Cloud. | 19 | Cooperativo | CAS-REG-054 |
-| REG-055 | Después del turno de cada jugador y de robar su nueva mano se roba y resuelve la carta superior del mazo del Lord Ruler. | 19 | Solo/cooperativo | CAS-REG-055 |
+| REG-055 | Si la partida continúa, tras robar la nueva mano se roba y resuelve la carta superior del mazo del Lord Legislador. El intento con mazo vacío se rige por REG-064. | 19; DEC-032 | Solo/cooperativo | CAS-REG-055 |
 | REG-056 | Un adversario permanece frente a quien lo roba hasta ser derrotado; puede tener efecto permanente o efecto al final del turno de ese jugador antes de robar. El ejemplo recién robado empieza en el siguiente turno. | 19 | Solo/cooperativo | CAS-REG-056 |
 | REG-057 | Un adversario tiene de uno a tres escudos, destruidos de izquierda a derecha con daño suficiente para cada escudo; X depende de Dominación. Los escudos destruidos permanecen marcados; se pueden destruir varios en un turno. | 19 | Solo/cooperativo | CAS-REG-057 |
 | REG-058 | Cualquier jugador puede atacar a cualquier adversario; un efecto que mata un aliado destruye un escudo de adversario, no toda la carta. Excepción: REG-073. | 19; SRC-002 Solo & Co-op mode | Solo/cooperativo | CAS-REG-058 |
@@ -77,7 +77,7 @@ Cada fila tiene un caso planificado `CAS-REG-nnn`; al implementar la regla compl
 | REG-061 | Cada misión no completada cura diez de salud al Lord Ruler, hasta 48; basta que un jugador alcance la cima para considerarla completada. | 20 | Solo/cooperativo | CAS-REG-061 |
 | REG-062 | La limpieza por edicto elimina las dos posiciones del mercado marcadas en la carta y las repone inmediatamente. | 20 | Solo/cooperativo | CAS-REG-062 |
 | REG-063 | Un eliminado no tiene más turnos ni provoca robos del Lord Ruler. Las condiciones por número de jugadores usan el nuevo total de supervivientes. | 20 | Solo/cooperativo | CAS-REG-063 |
-| REG-064 | El equipo pierde si se agota el mazo del Lord Ruler o mueren todos; gana al bajar su salud a cero o usar cuatro Atium en Confrontation. Completar las tres misiones no da victoria directa. Última carta/simultaneidad: DUD-006. | 20 | Solo/cooperativo | CAS-REG-064 |
+| REG-064 | El equipo gana inmediatamente al bajar a cero la salud del Lord Legislador o resolver Confrontación con cuatro Atium. Si la partida continúa, se roba y resuelve la carta rival tras la nueva mano; si el mazo ya está vacío en ese intento de robo, el equipo pierde inmediatamente. También pierde si todos mueren. Completar tres misiones no da victoria directa. | 19–20; DEC-032, DUD-006 | Solo/cooperativo | CAS-REG-064 |
 | REG-065 | En solitario se es más bajo solo tras entrar y antes de la primera recompensa; más alto tras recibir la recompensa más alta anterior a la final. Se reciben todas las recompensas de primero. | 20 | Solo | CAS-REG-065 |
 | REG-066 | Los efectos Collective se reparten entre los jugadores según el efecto; con uno solo, ese jugador asume todo. La aplicación exacta depende del texto del edicto. | 20 | Solo/cooperativo | CAS-REG-066 |
 | REG-067 | Una barra entre iconos representa elegir una alternativa, no obtenerlas todas. | 17 | Todos | CAS-REG-067 |
@@ -94,7 +94,7 @@ Cada fila tiene un caso planificado `CAS-REG-nnn`; al implementar la regla compl
 
 T08.1a cubre parcialmente REG-001–006/052: fichas y mazos iniciales, salud, mercado, misiones seleccionadas, orden/Target, mano inicial y ficha/mazo del rival. No cubre recompensas de pista, texto de cartas, resultado del turno ni preparación con contenido real. La cobertura parcial no convierte los casos `CAS-REG` en aprobados.
 
-T08.2a añade cobertura interna de REG-009/010/025 en `tests/card_cycle_test.gd`: limpieza de cartas salvo aliados en juego, robo y reciclado del descarte personal solo ante necesidad. Falta orquestar el final de turno completo y sus efectos; DUD-006 continúa abierta. El servicio no recicla mercado ni rival ni ejecuta derrota de aliados. [Aceptación y evidencia](../specs/008-preparacion-y-turnos/verification.md).
+T08.2a añade cobertura interna de REG-009/010/025 en `tests/card_cycle_test.gd`: limpieza de cartas salvo aliados en juego, robo y reciclado del descarte personal solo ante necesidad. El agotamiento total conserva el rechazo técnico en el código; aplicar DEC-032 requiere una implementación posterior. Falta orquestar el final de turno completo y sus efectos. El servicio no recicla mercado ni rival ni ejecuta derrota de aliados. [Aceptación y evidencia](../specs/008-preparacion-y-turnos/verification.md).
 
 No detalla el texto de las 82 cartas de mercado, las 40 iniciales, las ocho misiones, los cuatro personajes, las 36 cartas del rival ni todas las casillas de entrenamiento/Dominación: el reglamento muestra ejemplos, no un catálogo completo legible de todo el contenido. Ese material debe incorporarse y verificarse en tareas propias.
 

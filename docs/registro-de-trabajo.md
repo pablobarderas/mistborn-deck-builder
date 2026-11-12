@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-12 — Desbloqueo tardío, robo y finales
+
+- T08.1b7 registra DEC-032 y cierra DUD-004/006. Las reglas acordadas y los escenarios quedan listos para las tareas de implementación. Siguiente lote: revisión y transcripción de M1–M8. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b7--desbloqueo-tardío-robo-y-finales-del-rival).
+
 ## 2026-11-12 — Resoluciones de reglas competitivas
 
 - T08.1b6 registra DEC-031 y cierra DUD-005/008 para la adaptación. Los casos de integración recogen nivel II, Guardadora, premios de M2/M3 y empates. El siguiente lote sigue siendo la revisión y transcripción de M1–M8. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b6--resoluciones-de-reglas-del-perfil-competitivo).
