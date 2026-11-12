@@ -247,6 +247,15 @@ Ampliación técnica T08.2h, 2026-11-11: adaptador GameEngine con perfil complet
 
 2026-11-12. Diseño técnico de T08.1b9 implementado localmente en T08.1b10. Usar un documento v2 de carga explícita, con premios de casilla, extras del primero y cima permanente diferenciados. Reutilizar los originales de SRC-005 como fuentes locales con SHA-256. La ruta de arranque sigue cargando el catálogo v1 de muestra. [Contrato](specs/008-preparacion-y-turnos/catalogo-misiones.md).
 
+## DEC-034 — Orden de premios y victoria por misiones
+
+2026-11-12. Aceptada expresamente por el usuario durante T08.1b11: «Premio normal y después extra del primero» y «Victoria inmediata antes de los premios». Resuelve dos órdenes que SRC-001 pp.14/17 no explicita conjuntamente.
+
+- Al alcanzar una casilla, resolver primero el premio normal (o permanente de cima) y después el extra del primero cuando corresponda.
+- Al completar la tercera misión competitiva, confirmar la llegada y la victoria inmediatamente, antes de los premios de esa última cima. No concederlos ni continuar el turno. Los premios de las misiones anteriores permanecen.
+
+Es una decisión de adaptación, no una errata atribuida al editor. El [contrato de avance](specs/008-preparacion-y-turnos/avance-misiones.md) fija consumo, estado y escenarios; la implementación queda para T08.1b12. No cambia finales de cooperativo/solitario.
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.

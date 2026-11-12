@@ -311,6 +311,8 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 
 ## Punto de reanudación
 
+2026-11-12. T08.1b11 concreta el [avance de misiones](specs/008-preparacion-y-turnos/avance-misiones.md), MIS-01–06 y DEC-034; completada documentalmente con revisión independiente favorable. Siguiente implementación T08.1b12: perfil automático M5/M6/M7 con primeras llegadas y victoria, esquema de snapshot nuevo y núcleo de entrenamiento compartido. Elecciones, permanentes e integración de producto siguen pendientes.
+
 2026-11-12. T08.1b8 transcribe M1–M8, T08.1b9 especifica su [contrato de catálogo v2](specs/008-preparacion-y-turnos/catalogo-misiones.md) y T08.1b10 incorpora el lote en carga explícita. Siguiente paso propuesto: especificar la transacción competitiva de avance de misión, sus premios y sus finales.
 
 2026-11-12. T08.2i aplica el robo personal de DEC-032. La activación de habilidades y el paso del Lord Legislador requieren sus resolutores. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t082i--robo-personal-con-mazo-y-descarte-agotados).

@@ -4,6 +4,8 @@
 
 ## Resumen
 
+T08.1b11 especifica el avance de misiones competitivo y registra DEC-034: normal antes del extra, y victoria por la tercera misión antes de sus premios. [Contrato y piloto M5/M6/M7](specs/008-preparacion-y-turnos/avance-misiones.md). Entrega documental completada con revisión independiente favorable; no cambia el motor ni los snapshots. [Evidencia y siguiente paso](specs/008-preparacion-y-turnos/verification.md#t081b11--contrato-del-avance-de-misiones-competitivo).
+
 T08.1b10 incorpora las ocho misiones en un catálogo v2 de carga explícita y comprueba los dos originales de SRC-005. El arranque sigue usando las muestras de v1. La resolución y admisión de misiones en partida siguen pendientes. [Contrato](specs/008-preparacion-y-turnos/catalogo-misiones.md) · [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b10--validación-y-lote-de-catálogo-de-misiones).
 
 T08.1b8 reúne los recorridos y recompensas de M1–M8 en un borrador documental cotejado con los dos escaneos españoles de SRC-005. [Transcripción](referencias/misiones-competitivas.md).

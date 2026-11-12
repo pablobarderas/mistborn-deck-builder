@@ -1,5 +1,15 @@
 # Verificación de SPEC-008
 
+## T08.1b11 — Contrato del avance de misiones competitivo
+
+2026-11-12. Publicación autorizada mediante «haz el commit y el push y vamos con lo siguiente». Empaquetado R0 del coordinador, sobre `7f8c579`, igual a HEAD/origin/main tras fetch. Plan y aceptación: comprobar enlaces/diff y alcance de los diez Markdown revisados, publicar y verificar sincronización remota/árbol limpio. Se reutilizan contraste y revisión R2; el commit que contiene esta nota identifica la publicación. La implementación futura no queda autorizada para publicar por este permiso.
+
+2026-11-12. [Registro previo R2](tasks.md#t081b11--contrato-del-avance-de-misiones-competitivo). Fetch y estado publicado contrastados en `7f8c579550cf4752d25c904208d59a63eae36448`, igual a HEAD/main y árbol inicialmente limpio. Coordinador único escritor. `mission_rules` (sdd_rules, Sol/high) contrastó directamente SRC-001 pp.8–9/14/17, FAQ vigente y SRC-005. El usuario resolvió los dos órdenes ambiguos mediante DEC-034. [Contrato, aceptación y plan](avance-misiones.md). `mission_review` (sdd_reviewer, Sol/high) dio dictamen favorable sin bloqueantes tras comprobar el contrato, delta documental, TrainingAdvance, P07, SequenceRegistry y la FAQ en vivo. Reprodujo 217 enlaces locales, 89 anclas y `git diff --check`, correctos. Se aclaró que los mapas iniciales llevan valores null con las claves del recorrido de cada perfil y que M6 necesita un núcleo compartido sin falsear la fase. Godot y MIS-01–06 no ejecutados: esta entrega no cambia código.
+
+Cumplimiento: objetivo/AC, riesgo R2, plan y propietario registrados antes de editar; contraste de reglas y revisión independiente satisfechos, dos delegaciones sin descendientes, ninguna dispensa. Se corrigió el desfase del documento de perfil que aún describía el lote ya validado como pendiente/borrador. Comprobación final tras actualizar la memoria: 10 Markdown, 248 enlaces locales y 113 anclas correctos, `git diff --check` correcto; estado Git con los diez Markdown de esta entrega (incluido el contrato nuevo).
+
+Traspaso: T08.1b11 completada documentalmente, main sobre `7f8c579`, cambios locales exclusivamente Markdown, sin commit/push. DEC-034 aceptada; snapshot 3, resultado y primeras llegadas sólo especificados, motor actual sin cambios. Primer paso T08.1b12: implementar el perfil aislado M5/M6/M7, empezando por esquema/validación y núcleo de entrenamiento compartido, según MIS-01–06. Permanentes de inicio, elecciones de M1/M2/M8, catálogo restante, integración de producto, red externa y rival conservan sus dependencias. No atribuir fidelidad de partida ni pruebas ejecutadas a este contrato.
+
 ## T08.1b10 — Validación y lote de catálogo de misiones
 
 2026-11-12. Publicación autorizada expresamente por el usuario. Empaquetado R0 a cargo del coordinador sobre `cfecee9`, igual a HEAD tras el fetch. Aceptación y plan: comprobar enlaces, diff, alcance del índice y exclusión de los escaneos, publicar en `main` y verificar la rama remota y el árbol limpio. Se reutilizan las pruebas y la revisión R2. El commit que incorpora esta nota identifica la publicación.

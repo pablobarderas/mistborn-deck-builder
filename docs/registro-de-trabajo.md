@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-12 — Contrato del avance competitivo de misiones
+
+- Recuperación tras fetch en `7f8c579`, igual a HEAD/main y árbol inicialmente limpio. T08.1b11 concreta gasto unitario, primeras llegadas, premios, resultado terminal y plan M5/M6/M7. DEC-034 registra las dos decisiones expresas del usuario sobre orden de premios y victoria. Contraste reglamentario y revisión independiente favorables; enlaces/anclas y diff comprobados. Entrega documental sin Godot, código, commit ni push. [Evidencia, límites y siguiente implementación T08.1b12](specs/008-preparacion-y-turnos/verification.md#t081b11--contrato-del-avance-de-misiones-competitivo).
+
 ## 2026-11-12 — Validación del catálogo v2 de misiones
 
 - Contrato publicado en `cfecee9`. T08.1b10 incorpora y verifica localmente las ocho definiciones de misión con los originales de SRC-005. La revisión independiente fue favorable. Sigue especificar el avance competitivo de misión y su integración. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b10--validación-y-lote-de-catálogo-de-misiones).

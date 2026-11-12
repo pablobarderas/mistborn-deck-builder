@@ -1,5 +1,9 @@
 # Plan de SPEC-008
 
+## T08.1b11 y T08.1b12 — Avance de misiones
+
+[Contrato, MIS-01–06 y plan del piloto](avance-misiones.md). T08.1b11 fija gasto unitario, primeras llegadas, premios, prioridad terminal DEC-034 y compatibilidad propuesta de snapshot 3. T08.1b12 implementará el perfil automático M5/M6/M7 con Training compartido y revisión independiente; las elecciones y permanentes de otras misiones conservan sus puertas propias. No se cambia código ni versión en la entrega documental.
+
 ## T08.1b9 y T08.1b10 — Catálogo de misiones
 
 T08.1b9 especifica el [contrato y las pruebas de catálogo](catalogo-misiones.md#aceptación-y-plan-de-implementación) sobre la transcripción publicada. T08.1b10 implementará la validación v2, la preparación local de las dos fuentes y la comprobación del JSON M1–M8 en una carga explícita. Las pruebas de resolución y admisión de producto se mantienen en la integración posterior.
