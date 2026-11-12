@@ -4,7 +4,7 @@
 
 ## Resumen
 
-T08.1b1 completada con revisión independiente favorable. El [contrato del avance de entrenamiento](specs/008-preparacion-y-turnos/avance-entrenamiento.md) define un paso competitivo, las recompensas de las 21 casillas y el requisito de aplicar el inicio una sola vez por turno. El siguiente paso es implementar y probar la operación interna T08.1b2. La apertura de la fase libre queda pendiente de integración.
+T08.1b2 completada localmente con revisión independiente favorable. La operación interna de entrenamiento competitivo calcula un paso y sus recompensas con un perfil aislado del panel de 21 casillas. El siguiente paso es especificar la integración de inicio único y sus obligaciones antes de abrir la fase libre. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b2--operación-interna-de-avance-competitivo).
 
 La revisión de las cuatro hojas de entrenamiento y el panel competitivo de la caja española está publicada en `13bb11f`. [Inventario y lectura de SRC-004](referencias/entrenamiento-competitivo.md).
 
@@ -57,11 +57,12 @@ Ampliación AC-08/DEC-021 completada y revisada independientemente: un objetivo 
 | scripts/game/ | T07.1/2: estado privado, invariantes, acciones atómicas, RNG y proyecciones por jugador. Sin manejadores de reglas reales. |
 | scripts/game/game_setup.gd | T08.1a: preparación estructural determinista de siete configuraciones desde manifiesto y definiciones verificadas. No abre el turno libre ni interpreta efectos. |
 | scripts/game/funding_play.gd | T08.2h verificada: primer efecto real en perfil aislado, Funding +1/+0 recursos al jugar; catálogo completo y marcas dinámicas validados, recibos y carga compatibles. |
+| scripts/game/training_advance.gd | T08.1b2: candidato validado de un paso de entrenamiento competitivo, con aumentos de capacidad, niveles derivados y fichas de Atium. Integración de inicio pendiente. |
 | tests/ | T08.2h: Funding (205), secuencias (253), estado (2.004), motor (102), preparación (147), ciclo (262), limpieza (527), catálogo (220) y arranque (58). Fixtures explícitos; red/capturas conservan evidencia histórica separada. |
 | docs/specs/ | SPEC-001/002 parciales; SPEC-003/005/006 completadas en su alcance; SPEC-004 local verificada, externa pendiente; SPEC-007 local verificada (T07.1/2), P04 externa pendiente para cierre P07; SPEC-008 T08.1a verificada, P08 abierta. |
 | .github/ | Plantillas de issues y PR de la entrega inicial publicada. |
 
-El motor portátil .tools/godot/ se ignora por Git y está presente en este PC. T08.2f se verificó con Godot 4.7.2 el 2026-11-10: secuencias 253, estado 2.004, motor 102, preparación 147, ciclo 262, limpieza 527 y arranque 58, todas con código 0 y sin SCRIPT ERROR. Datos y cachés generados en .godot/ y tmp/ también ignorados. Los UID de scripts y ajustes de importación de recursos son metadatos de fuente.
+El motor portátil .tools/godot/ se ignora por Git. En este PC la prueba T08.1b2 utilizó [Godot 4.7.2 desde Descargas](desarrollo-local.md#avance-de-entrenamiento-competitivo). Datos y cachés generados en .godot/ y tmp/ también ignorados. Los UID de scripts y ajustes de importación de recursos son metadatos de fuente.
 
 ## Verificación real de P03
 

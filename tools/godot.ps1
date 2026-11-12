@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding')]
+    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training')]
     [string]$Action = 'run',
     [string]$GodotPath = $env:GODOT_BIN
 )
@@ -58,7 +58,7 @@ function Invoke-ProjectGodot {
     if ($engineText -match '(?m)^SCRIPT ERROR:') {
         throw "Godot contiene errores de script en '$LogName', aunque su proceso haya devuelto codigo 0."
     }
-    if ($LogName -in @('import', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding') -and ($engineText -match '(?m)^(SCRIPT ERROR|ERROR):')) {
+    if ($LogName -in @('import', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training') -and ($engineText -match '(?m)^(SCRIPT ERROR|ERROR):')) {
         throw "La accion $LogName contiene errores. Revisa tmp/godot/$LogName.log."
     }
     if ($LogName -eq 'test' -and $engineText -notmatch 'P03_STARTUP_OK') {
@@ -97,12 +97,15 @@ function Invoke-ProjectGodot {
     if ($LogName -eq 'test-funding' -and $engineText -notmatch 'P08_FUNDING_OK') {
         throw 'La prueba de Funding no alcanzo su marca de finalizacion.'
     }
+    if ($LogName -eq 'test-training' -and $engineText -notmatch 'P08_TRAINING_OK') {
+        throw 'La prueba de entrenamiento no alcanzo su marca de finalizacion.'
+    }
     if ($LogName -eq 'test-cleanup' -and $engineText -notmatch 'P08_CLEANUP_OK') {
         throw 'No se completo la verificacion del cierre de limpieza.'
     }
 }
 
-if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding')) {
+if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training')) {
     Invoke-ProjectGodot -EngineArguments @('--headless', '--editor', '--import') -LogName 'import'
 }
 switch ($Action) {
@@ -121,6 +124,7 @@ switch ($Action) {
     'test-cycle' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/card_cycle_test.gd') -LogName 'test-cycle' }
     'test-sequence' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/sequence_test.gd') -LogName 'test-sequence' }
     'test-funding' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/funding_play_test.gd') -LogName 'test-funding' }
+    'test-training' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/training_advance_test.gd') -LogName 'test-training' }
     'test-cleanup' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/turn_cleanup_test.gd') -LogName 'test-cleanup' }
     'test-catalog' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/catalog_test.gd') -LogName 'test-catalog' }
 }

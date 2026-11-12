@@ -1,5 +1,9 @@
 # Tareas de SPEC-008
 
+### T08.1b2 — Operación interna de avance competitivo
+
+Registro previo 2026-11-11. Fetch y estado publicado contrastados en `c6f11e8367f50fcef818dc68d00cb4719a7eb6bf`, igual a HEAD de main y árbol inicialmente limpio. Objetivo y aceptación en [ENT-AC-01 a 03](avance-entrenamiento.md#aceptación-y-pruebas-previstas). Riesgo R2 por aplicación de reglas, cambio de estado y uso del contador de autoridad. Coordinador propietario del módulo, suite, lanzador y documentación. `training_rules` contrasta SRC-001/002/004 y `training_review` revisará el diff final de forma independiente. Plan: validar el perfil aislado y el estado, calcular y verificar el candidato, ejecutar `test-training` y las regresiones del plan, revisar y registrar evidencia. ENT-AC-04 queda para la integración. Sin dispensas.
+
 ### T08.1b1 — Contrato del avance de entrenamiento competitivo
 
 Registro previo 2026-11-11. Fetch posterior a publicación y estado comprobados en `13bb11fca786fa2f227e9455062da83eb4b5a51d`, igual a HEAD/main y árbol limpio. El usuario pide continuar tras publicar la revisión de originales. Objetivo: especificar la operación interna de avance y las condiciones de integración con inicio de turno. Aceptación: ENT-AC-01 a 04, cobertura de las 21 casillas, atomicidad, Atium y prevención de doble inicio. R2 por reglas, estado y autoridad. Coordinador único escritor, contraste reglamentario específico y revisión independiente de contrato. Plan: contrastar SRC-001/002/004 y el estado vigente, escribir contrato y escenarios, verificar referencias y diff, revisar y registrar el traspaso. Sólo documentación, sin dispensa ni publicación de este nuevo trabajo.
@@ -13,9 +17,9 @@ Objetivo y aceptación: identificar y revisar las cuatro hojas de entrenamiento 
 | ID | Resultado | Estado |
 | --- | --- | --- |
 | T08.1a | Constructor de preparación, reparto, orden, bonificaciones y rival con manifiesto verificado. | Completada localmente; AC-01–06, 147 comprobaciones |
-| T08.1b | Entrenamiento inicial/de turno y recompensas confirmadas; apertura de fase libre. | Fuente competitiva y contrato T08.1b1 revisados. Pendientes T08.1b2 y la integración de inicio. |
+| T08.1b | Entrenamiento inicial/de turno y recompensas confirmadas; apertura de fase libre. | Contrato y paso interno competitivo completados. Pendiente la integración de inicio. |
 | T08.1b1 | [Contrato del avance competitivo](avance-entrenamiento.md), ENT-AC-01 a 04. | Completada documentalmente con revisión independiente favorable. |
-| T08.1b2 | Implementar y probar un paso interno con ENT-AC-01 a 03. | Siguiente. ENT-AC-04 queda para la integración posterior. |
+| T08.1b2 | Implementar y probar un paso interno con ENT-AC-01 a 03. | Completada localmente con revisión favorable. [Evidencia](verification.md#t081b2--operación-interna-de-avance-competitivo). ENT-AC-04 queda para la integración. |
 | T08.2 | Transiciones, limpieza, mano siguiente y reciclado de mazos. | Agrupador abierto; T08.2a completada localmente, transiciones completas y DUD-006 pendientes |
 | T08.2a | Primitivas internas de robo, reciclado personal y limpieza de cartas; AC-07–10. | Completada localmente; 262 comprobaciones y revisión independiente favorable |
 | T08.2b | Cierre interno de limpieza y entrega a inicio/rival con guardias; AC-11–14. | Implementada, 334 comprobaciones; revisión independiente favorable |

@@ -1,5 +1,28 @@
 # Verificación de SPEC-008
 
+## T08.1b2 — Operación interna de avance competitivo
+
+El usuario autorizó el commit y push de T08.1b2 el 2026-11-12. Empaquetado R0 a cargo del coordinador sobre `c6f11e8`, confirmado mediante fetch. Se comprueba que el índice contiene sólo la entrega revisada, que el diff no tiene errores y que el commit coincide con `origin/main` tras publicar. El traspaso inferior describe el cierre previo a la publicación.
+
+2026-11-11. Recuperación con fetch en `c6f11e8367f50fcef818dc68d00cb4719a7eb6bf`, igual a HEAD de main, árbol inicialmente limpio. R2 con [registro previo](tasks.md#t081b2--operación-interna-de-avance-competitivo). Coordinador único autor. `training_rules` (sdd_rules Sol/high) contrastó las recompensas contra SRC-001/002/004 y confirmó las fronteras del paso. Se reutilizaron el inventario visual y el contrato revisado. Sin dispensas.
+
+| Criterio | Evidencia |
+| --- | --- |
+| ENT-AC-01 | Recorrido completo de la pista competitiva de 2 a 4 plazas, primer avance con límite inicial 1, tres aumentos acumulativos y tres niveles derivados. Rechazo de perfiles con marcas reordenadas, identidad distinta o catálogo incompatible. |
+| ENT-AC-02 | Incrementos en 11 y 16, llegada a 20 y dos avances posteriores. Comparación del delta completo, incluidos saldo, fichas, contador y Atium previamente usado. |
+| ENT-AC-03 | Entradas adversas, colisión, desbordamientos, contenedores incompatibles y candidato que rebasa el presupuesto estructural. Original intacto en rechazo, candidato separado en éxito, conservación de RNG, fases y cierres/recibos Funding. |
+| ENT-AC-04 | Pendiente de integración del inicio único, obligaciones y finales de partida antes de abrir `libre`. |
+
+Godot `4.7.2.stable.official.ed1daf0bf` desde [la ruta local comprobada](../../desarrollo-local.md#avance-de-entrenamiento-competitivo). Se ejecutó `powershell -NoProfile -ExecutionPolicy Bypass -File tools/godot.ps1 -Action <acción> -GodotPath <ruta>` para cada suite. El entorno restringido bloqueaba el almacén de certificados y el guardado de preferencias de Godot. La ejecución con acceso a ambos completó importación y pruebas.
+
+Las diez acciones pasaron con código 0 y sin errores de script. En total, **4.053 comprobaciones**. Entrenamiento 275, preparación 147, estado 2.004, secuencias 253, Funding 205, limpieza 527, motor 102, ciclo 262, catálogo 220 y arranque 58. Los ocho errores de carga del arranque corresponden a casos negativos previstos.
+
+Comprobados 187 enlaces locales, las cuatro anclas de esta entrega y `git diff --check`.
+
+`training_review` (sdd_reviewer Sol/high) reprodujo un error de script al comparar campos mal tipados del perfil y de las definiciones. El coordinador añadió guardas de tipo y seis casos de rechazo, y repitió las diez suites. El revisor repitió 24 variantes puntuales en un proyecto temporal y confirmó el rechazo sin errores de script. Dictamen final favorable para ENT-AC-01 a 03. Dos delegaciones acotadas de solo lectura, sin descendientes. Métricas de tokens no disponibles.
+
+Traspaso local en `main` desde `c6f11e8`, sin commit ni push de esta entrega. El módulo usa un perfil de prueba y conserva esquema 2 y motor `p08-funding-1/godot-4.7.2`. Siguiente objetivo: especificar la transacción de inicio único ENT-AC-04, con reenvíos, obligaciones pendientes como Keeper y condiciones de final. El perfil de producto, la activación de habilidades y los modos con rival requieren entregas posteriores.
+
 ## T08.1b1 — Contrato del avance competitivo
 
 Publicación autorizada el 2026-11-11. Empaquetado R0 a cargo del coordinador, con fetch confirmado en `13bb11f` y revisión independiente previa del contrato. Aceptación: publicar el contrato revisado y mantener el estado coherente con Git. Comprobar enlaces, índice y coincidencia con el remoto. Los datos de trabajo local del traspaso inferior corresponden al cierre previo a la publicación.

@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-11 — T08.1b2, avance interno de entrenamiento
+
+- Implementación local del paso competitivo con perfil aislado, niveles derivados y recompensas de Atium. Revisión independiente favorable tras corregir el rechazo de campos mal tipados. Siguiente paso: especificar el inicio único y sus obligaciones antes de abrir la fase libre. [Pruebas y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b2--operación-interna-de-avance-competitivo).
+
 ## 2026-11-11 — Contrato del avance de entrenamiento
 
 - Tras publicar la revisión de originales en `13bb11f`, T08.1b1 fija el avance competitivo y sus recompensas. Contraste de fuentes y revisión independiente favorables. Siguiente paso: T08.1b2, implementar y probar un paso interno. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b1--contrato-del-avance-competitivo).

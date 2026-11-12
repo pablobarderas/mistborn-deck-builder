@@ -12,9 +12,9 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
-- T08.1b1 define el [avance de entrenamiento competitivo](specs/008-preparacion-y-turnos/avance-entrenamiento.md). T08.1b2 implementará la operación interna y probará posición, límites, desbloqueo, Atium y rechazo atómico. La integración de inicio único y apertura de `libre` tendrá aceptación propia.
+- T08.1b2 implementa y prueba el [avance de entrenamiento competitivo](specs/008-preparacion-y-turnos/verification.md#t081b2--operación-interna-de-avance-competitivo). Siguiente objetivo: especificar la integración de inicio único según ENT-AC-04, incluidas las obligaciones de inicio y la comprobación de final de partida antes de abrir `libre`.
 
-- T08.1b: usar la [lectura de las cinco piezas de entrenamiento](referencias/entrenamiento-competitivo.md) como entrada de la especificación del avance inicial y recompensas. Separar desbloqueo de nivel de ejecución de habilidades. El catálogo ejecutable y la transición a fase libre siguen pendientes.
+- La [lectura de las cinco piezas de entrenamiento](referencias/entrenamiento-competitivo.md) sustenta las recompensas de la pista competitiva. Siguen pendientes la activación de habilidades, el catálogo ejecutable y la transición a fase libre.
 
 - Aplicar [AC-10, trabajo contenido](gestion/agentes-sdd.md#protocolo-operativo-de-trabajo-contenido--ac-10): lecturas/salidas acotadas, equipo mínimo necesario y evidencia centralizada; mantienen recuperación remota, pruebas y revisión. Mejora documental completada y revisada; no cambia las dependencias del juego.
 
@@ -310,6 +310,8 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 **Cierre:** Una copia limpia permite ejecutar la versión y completar una partida remota; se conservan evidencia de pruebas y limitaciones conocidas.
 
 ## Punto de reanudación
+
+Actualización vigente 2026-11-11: [T08.1b2](specs/008-preparacion-y-turnos/verification.md#t081b2--operación-interna-de-avance-competitivo) implementada y probada con un perfil aislado. Siguiente objetivo: diseñar la transacción de inicio competitivo de ENT-AC-04. Las notas de reanudación inferiores son antecedentes.
 
 Publicación de la entrega T08.2f autorizada el 2026-11-10; la revisión que incorpora esta nota identifica su commit. Las notas de cambios locales sin commit/push siguientes son históricas. No cambia el siguiente objetivo ni autoriza publicar entregas futuras.
 

@@ -1,8 +1,8 @@
 # SPEC-008 — Preparación y turnos
 
-## T08.1b1 — Avance de entrenamiento competitivo
+## T08.1b1/b2 — Avance de entrenamiento competitivo
 
-[Contrato del avance](avance-entrenamiento.md), ENT-AC-01 a 04. La preparación sitúa el marcador en la primera casilla. Cada inicio de turno aplica un paso y su recompensa de SRC-004. La operación interna se implementará en T08.1b2. La apertura de `libre` requiere una integración de autoridad que consuma el inicio una sola vez y resuelva las obligaciones previas.
+[Contrato del avance](avance-entrenamiento.md), ENT-AC-01 a 04. La preparación sitúa el marcador en la primera casilla. T08.1b2 implementa la operación interna que calcula un paso y su recompensa de SRC-004 en competitivo. La apertura de `libre` requiere una integración de autoridad que consuma el inicio una sola vez y resuelva las obligaciones previas. [Evidencia y traspaso](verification.md#t081b2--operación-interna-de-avance-competitivo).
 
 ## T08.2h — Funding ejecutable en perfil aislado
 

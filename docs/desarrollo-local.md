@@ -90,4 +90,8 @@ En este equipo (2026-10-28) el motor está en Descargas y se indica mediante -Go
 
 `-Action test-funding` ejecuta `tests/funding_play_test.gd`, exige `P08_FUNDING_OK` y rechaza ERROR/SCRIPT ERROR incluso con código 0. Comprueba juego Funding con aplicar/omitir, perfil completo, rechazos, recibos/carga, límites y privacidad en competitivo 2–4. El fixture sitúa `libre` expresamente; no ejecuta entrenamiento ni turno completo. La versión actual es esquema 2/motor `p08-funding-1/godot-4.7.2`, sustituyendo la versión histórica del apartado anterior. [Evidencia y límites](specs/008-preparacion-y-turnos/verification.md#t082h--implementación-de-funding).
 
-En este PC no existe `.tools/godot/`: usar `-GodotPath` con el motor 4.7.2 de Descargas, cuya ruta comprobada figura en la evidencia. No se ha instalado ni cambiado la versión silenciosamente.
+### Avance de entrenamiento competitivo
+
+`-Action test-training` importa y ejecuta `tests/training_advance_test.gd`, exige `P08_TRAINING_OK` y rechaza errores de Godot. Recorre la pista competitiva de 2 a 4 plazas, comprueba los límites, niveles y Atium, y verifica el rechazo atómico y la conservación de cierres Funding. Usa un perfil técnico aislado y un fixture. [Evidencia T08.1b2](specs/008-preparacion-y-turnos/verification.md#t081b2--operación-interna-de-avance-competitivo).
+
+En este PC el ejecutable estándar se comprobó en `C:/Users/pablo/Downloads/godot/Godot_v4.7.2-stable_win64_console.exe`. Si falta `.tools/godot/`, indicar la ruta local con `-GodotPath`.

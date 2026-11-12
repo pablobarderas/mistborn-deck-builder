@@ -375,9 +375,9 @@ func _definition_ref(value: Variant, at: String, kind: String = "", nullable: bo
 	if not _id(value, at):
 		return
 	var definition: Variant = _definitions.get(value)
-	if not definition is Dictionary or definition.get("id") != value:
+	if not definition is Dictionary or not definition.get("id") is String or definition.id != value:
 		_error(at, "definición no disponible")
-	elif not kind.is_empty() and definition.get("tipo") != kind:
+	elif not kind.is_empty() and (not definition.get("tipo") is String or definition.tipo != kind):
 		_error(at, "tipo de definición incorrecto")
 
 

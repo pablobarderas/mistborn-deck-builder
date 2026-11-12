@@ -2,9 +2,9 @@
 
 ## T08.1b1/b2 — Avance de entrenamiento competitivo
 
-[Contrato](avance-entrenamiento.md), ENT-AC-01 a 04, R2. T08.1b1 fija las recompensas, el perfil y la frontera entre la operación interna y la integración de inicio. Contraste de fuentes y revisión independiente. T08.1b2 implementará y probará ENT-AC-01 a 03 en un módulo de autoridad separado, sin registrar acciones ni cambiar fases. El coordinador asignará un propietario al módulo, pruebas y lanzador antes de editar código.
+[Contrato](avance-entrenamiento.md), ENT-AC-01 a 04, R2. T08.1b1 fija las recompensas, el perfil y la frontera entre la operación interna y la integración de inicio. T08.1b2 aplica ENT-AC-01 a 03 en `training_advance.gd` con un descriptor técnico externo a P06 que liga catálogo, ID, definición y marcas ordenadas. La operación devuelve un candidato validado con el registro de secuencias de la autoridad. Responsables y verificación en [tareas](tasks.md#t081b2--operación-interna-de-avance-competitivo).
 
-Implementar con perfil SRC-004 asociado explícitamente al catálogo y pista de autoridad, validar candidato con el registro de secuencias vigente y conservar saldo/fichas de Atium. Usar un fixture documentado para aislar la regla. Ejecutar la suite de entrenamiento y las regresiones de preparación, estado, secuencias, Funding y limpieza que cubran sus dependencias. La versión del motor se revisará si la integración cambia la semántica de un snapshot o el registro admitido. Pruebas de ENT-AC-04, integración de inicio, perfil de producto y demás modos quedan en tareas posteriores.
+Verificar con `test-training` y las regresiones de preparación, estado, secuencias, Funding y limpieza. El módulo aislado usa el esquema 2 y el registro vigente de la autoridad. Revisar el versionado cuando se integre el inicio y cambie la semántica del snapshot. Pruebas de ENT-AC-04, integración de inicio, perfil de producto y demás modos quedan en tareas posteriores.
 
 ## T08.2g/h — Contrato e implementación de Funding
 
