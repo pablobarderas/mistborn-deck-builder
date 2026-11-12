@@ -1,5 +1,9 @@
 # Plan de SPEC-008
 
+## T08.1b9 y T08.1b10 — Catálogo de misiones
+
+T08.1b9 especifica el [contrato y las pruebas de catálogo](catalogo-misiones.md#aceptación-y-plan-de-implementación) sobre la transcripción publicada. T08.1b10 implementará la validación v2, la preparación local de las dos fuentes y la comprobación del JSON M1–M8 en una carga explícita. Las pruebas de resolución y admisión de producto se mantienen en la integración posterior.
+
 ## T08.2i — Robo personal con mazo y descarte agotados
 
 [Registro R2](tasks.md#t082i--robo-personal-con-mazo-y-descarte-agotados) y [ROBO-01–03](spec.md#t082i--robo-personal-con-mazo-y-descarte-agotados). Acotar el robo después de validar la entrada y conservar el reciclado y el commit de la copia candidata. `TurnCleanup` usa el mismo resultado aceptado para cerrar con una mano corta. Mantener esquema 2, cambiar versión de motor y comprobar rechazo de la versión previa. Ejecutar suites de ciclo, limpieza y regresiones; revisión independiente del diff. El resolutor de habilidades y el paso rival mantienen sus tareas propias.

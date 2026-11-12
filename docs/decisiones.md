@@ -243,6 +243,10 @@ Ampliación técnica T08.2h, 2026-11-11: adaptador GameEngine con perfil complet
 
 [Casos de integración](specs/008-preparacion-y-turnos/verification.md#t081b7--desbloqueo-tardío-robo-y-finales-del-rival).
 
+## DEC-033 — Catálogo v2 de misiones con evidencia local
+
+2026-11-12. Diseño técnico propuesto en T08.1b9, pendiente de implementación. Usar un documento v2 de carga explícita, con premios de casilla, extras del primero y cima permanente diferenciados. Reutilizar los originales de SRC-005 como fuentes locales con SHA-256. La ruta de arranque sigue cargando el catálogo v1 de muestra. [Contrato y pruebas previstas](specs/008-preparacion-y-turnos/catalogo-misiones.md).
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.

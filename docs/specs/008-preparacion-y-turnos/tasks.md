@@ -1,5 +1,9 @@
 # Tareas de SPEC-008
 
+### T08.1b9 — Contrato de catálogo para las misiones
+
+Registro previo 2026-11-12. Fetch y estado publicado leídos en `55a9399b52e76c39ba75f3d52cf373f8baf699e2`, igual a HEAD de main, con árbol limpio. R2 documental por versionado, fuentes, semántica de premios y frontera de admisión. Aceptación: representar M1–M8 sin pérdida, definir validación y convivencia con P06 v1, registrar los originales ya cotejados de manera reproducible, y fijar pruebas de admisión y de integración posterior. El coordinador es el único escritor, se reutiliza el contraste reglamentario de T08.1b8 y se solicita revisión final independiente sdd_reviewer (Sol/high). Plan: inspeccionar cargador, validador y consumidores, especificar forma y ejemplos, comprobar cobertura, huellas, enlaces y diff, revisar y dejar traspaso para implementación. Sin dispensas.
+
 ### T08.1b8 — Transcripción de las ocho misiones
 
 Registro previo 2026-11-12. Fetch y estado publicado comprobados en `916c81a05f84ff18c65335eaa8ade347ed59b0d4`, igual a HEAD de main y con árbol limpio. R2 documental por recorridos, recompensas y futura admisión de catálogo. Aceptación: cotejar las ocho cartas de SRC-005 con sus posiciones, premios de casilla, extras del primero y recompensas de cima, contrastar los símbolos y las reglas con SRC-001/002 y DEC-031, y delimitar lo que P06 permite representar. Plan: comprobar huellas, leer los originales y las páginas pertinentes, registrar un borrador trazable, verificar cobertura, enlaces y diff, y someter el resultado a revisión independiente. El coordinador es el único escritor, `mission_rules` (sdd_rules, Sol/high) contrasta las reglas y un sdd_reviewer (Sol/high) revisa la entrega. Sin dispensas.

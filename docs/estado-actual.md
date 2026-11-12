@@ -4,7 +4,9 @@
 
 ## Resumen
 
-T08.1b8 reúne los recorridos y recompensas de M1–M8 en un borrador documental cotejado con los dos escaneos españoles de SRC-005. El catálogo ejecutable sigue siendo de muestra. El siguiente paso propuesto es especificar cómo representar los premios de misión y registrar en el catálogo esos escaneos ya cotejados. [Transcripción](referencias/misiones-competitivas.md) · [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b8--transcripción-de-las-ocho-misiones).
+T08.1b9 especifica el contrato v2 del lote de misiones y cómo registrar los dos escaneos existentes de SRC-005. El catálogo ejecutable sigue siendo de muestra. Siguiente paso: T08.1b10, implementar la validación v2 y comprobar el lote con esos originales. [Contrato](specs/008-preparacion-y-turnos/catalogo-misiones.md) · [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b9--contrato-de-catálogo-para-las-misiones).
+
+T08.1b8 reúne los recorridos y recompensas de M1–M8 en un borrador documental cotejado con los dos escaneos españoles de SRC-005. [Transcripción](referencias/misiones-competitivas.md).
 
 T08.2i aplica DEC-032 al robo personal. El ciclo toma las cartas disponibles y la limpieza puede cerrar con mano corta. Esquema 2, motor `p08-draw-1/godot-4.7.2`. Los resolutores de habilidades y del paso rival siguen pendientes. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t082i--robo-personal-con-mazo-y-descarte-agotados).
 

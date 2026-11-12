@@ -311,7 +311,7 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 
 ## Punto de reanudación
 
-2026-11-12. T08.1b8 transcribe M1–M8 en un [borrador documental](referencias/misiones-competitivas.md). Siguiente paso propuesto: especificar la representación de sus recorridos, premios y fuentes físicas para el catálogo.
+2026-11-12. T08.1b8 transcribe M1–M8 y T08.1b9 especifica su [contrato de catálogo v2](specs/008-preparacion-y-turnos/catalogo-misiones.md). Sigue T08.1b10 con el validador, la preparación local de fuentes y la comprobación del lote.
 
 2026-11-12. T08.2i aplica el robo personal de DEC-032. La activación de habilidades y el paso del Lord Legislador requieren sus resolutores. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t082i--robo-personal-con-mazo-y-descarte-agotados).
 

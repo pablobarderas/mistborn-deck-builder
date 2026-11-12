@@ -1,5 +1,9 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.1b9 — Catálogo de misiones
+
+El [contrato de catálogo para M1–M8](catalogo-misiones.md) define la forma v2, las fuentes físicas y CAT-MIS-01–05. La validación del contenido se distingue de la admisión de partida. La implementación queda para T08.1b10.
+
 ## T08.2i — Robo personal con mazo y descarte agotados
 
 Aplica el robo personal de [DEC-032](../../decisiones.md#dec-032--desbloqueo-tardío-robo-personal-y-finales-del-rival). El resultado de `CardCycle.draw` conserva `ok` y `codigo`: tanto un robo parcial como uno vacío son aceptados. El esquema sigue en 2 y el motor usa `p08-draw-1/godot-4.7.2`.

@@ -1,5 +1,15 @@
 # Verificación de SPEC-008
 
+## T08.1b9 — Contrato de catálogo para las misiones
+
+2026-11-12. Publicación autorizada por el usuario. Empaquetado R0 del coordinador sobre `55a9399`: comprobar alcance, enlaces e índice, publicar en main y verificar remoto y árbol limpio. Se reutiliza la revisión R2. El commit que incorpora esta nota identifica la publicación y la nota local inferior es histórica.
+
+2026-11-12. [Registro previo R2](tasks.md#t081b9--contrato-de-catálogo-para-las-misiones). Fetch y estado publicado contrastados en `55a9399b52e76c39ba75f3d52cf373f8baf699e2`, igual a HEAD con árbol inicialmente limpio. Se reutiliza el contraste de T08.1b8. [Contrato y CAT-MIS-01–05](catalogo-misiones.md).
+
+Se comprobaron las dos huellas SHA-256 contra SRC-005, el JSON de la cima de M2, los cinco casos de aceptación, 239 enlaces locales, 112 anclas y `git diff --check`. `mission_contract_review` (sdd_reviewer, Sol/high) dio un dictamen favorable tras revisar los casos añadidos de sustitución de fuentes, conflicto de destino y rechazo desde un perfil por lo demás admisible. Una delegación sin descendientes ni dispensas.
+
+Especificación completada localmente. Godot, el lote ejecutable y la exportación de prueba quedan para T08.1b10. Primer paso: añadir la rama de validación v2 conservando la carga de v1. Sin commit ni push.
+
 ## T08.1b8 — Transcripción de las ocho misiones
 
 2026-11-12. Publicación autorizada expresamente por el usuario. Empaquetado R0 a cargo del coordinador sobre la base publicada `916c81a05f84ff18c65335eaa8ade347ed59b0d4`, igual a HEAD tras el fetch. Aceptación y plan: aclarar el traspaso sin alterar la transcripción revisada, comprobar enlaces, diff e índice, publicar en `main` y comprobar que la rama remota contiene el commit y el árbol queda limpio. Se reutiliza la revisión R2. El commit que incorpora esta nota identifica la entrega.
