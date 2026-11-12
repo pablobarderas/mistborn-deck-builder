@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start')]
+    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start')]
     [string]$Action = 'run',
     [string]$GodotPath = $env:GODOT_BIN
 )
@@ -79,6 +79,9 @@ function Invoke-ProjectGodot {
     if ($LogName -eq 'test-catalog' -and $engineText -notmatch 'P06_CATALOG_OK') {
         throw 'No se completo la verificacion del contrato de catalogo.'
     }
+    if ($LogName -eq 'test-missions' -and $engineText -notmatch 'P08_MISSION_CATALOG_OK') {
+        throw 'No se completo la verificacion del catalogo de misiones.'
+    }
     if ($LogName -eq 'test-engine' -and $engineText -notmatch 'P07_ENGINE_OK') {
         throw 'No se completo la verificacion de acciones y privacidad.'
     }
@@ -108,7 +111,7 @@ function Invoke-ProjectGodot {
     }
 }
 
-if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start')) {
+if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start')) {
     Invoke-ProjectGodot -EngineArguments @('--headless', '--editor', '--import') -LogName 'import'
 }
 switch ($Action) {
@@ -130,5 +133,6 @@ switch ($Action) {
     'test-training' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/training_advance_test.gd') -LogName 'test-training' }
     'test-start' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/competitive_start_test.gd') -LogName 'test-start' }
     'test-cleanup' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/turn_cleanup_test.gd') -LogName 'test-cleanup' }
+    'test-missions' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/mission_catalog_test.gd') -LogName 'test-missions' }
     'test-catalog' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/catalog_test.gd') -LogName 'test-catalog' }
 }

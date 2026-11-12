@@ -4,7 +4,7 @@
 
 ## Resumen
 
-T08.1b9 especifica el contrato v2 del lote de misiones y cómo registrar los dos escaneos existentes de SRC-005. El catálogo ejecutable sigue siendo de muestra. Siguiente paso: T08.1b10, implementar la validación v2 y comprobar el lote con esos originales. [Contrato](specs/008-preparacion-y-turnos/catalogo-misiones.md) · [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b9--contrato-de-catálogo-para-las-misiones).
+T08.1b10 incorpora las ocho misiones en un catálogo v2 de carga explícita y comprueba los dos originales de SRC-005. El arranque sigue usando las muestras de v1. La resolución y admisión de misiones en partida siguen pendientes. [Contrato](specs/008-preparacion-y-turnos/catalogo-misiones.md) · [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b10--validación-y-lote-de-catálogo-de-misiones).
 
 T08.1b8 reúne los recorridos y recompensas de M1–M8 en un borrador documental cotejado con los dos escaneos españoles de SRC-005. [Transcripción](referencias/misiones-competitivas.md).
 

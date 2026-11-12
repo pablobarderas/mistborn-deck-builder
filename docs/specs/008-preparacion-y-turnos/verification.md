@@ -1,5 +1,17 @@
 # Verificación de SPEC-008
 
+## T08.1b10 — Validación y lote de catálogo de misiones
+
+2026-11-12. Publicación autorizada expresamente por el usuario. Empaquetado R0 a cargo del coordinador sobre `cfecee9`, igual a HEAD tras el fetch. Aceptación y plan: comprobar enlaces, diff, alcance del índice y exclusión de los escaneos, publicar en `main` y verificar la rama remota y el árbol limpio. Se reutilizan las pruebas y la revisión R2. El commit que incorpora esta nota identifica la publicación.
+
+2026-11-12. [Registro previo R2](tasks.md#t081b10--validación-y-lote-de-catálogo-de-misiones). Contrato publicado y comprobado por fetch en `cfecee9f5d9955a223c6bb3dbf8a3d02f46e73ac`, igual a HEAD de main antes de implementar. [Comandos de preparación y prueba](../../desarrollo-local.md#catálogo-de-misiones).
+
+Godot `4.7.2.stable.official.ed1daf0bf`, lanzador `tools/godot.ps1`, código 0 y sin errores de script en la ejecución final. **967 comprobaciones**: misiones 138, catálogo v1 220, arranque 58, preparación 147, Funding 205 e inicio 199. Los fallos de carga de los casos negativos son esperados. CAT-MIS-01–03 verifican compatibilidad, 96 casillas, 17 premios intermedios y ocho cimas, referencias y rechazos. CAT-MIS-04 verifica huellas, sustitución coordinada, recuperación y carga separada. CAT-MIS-05 verifica la frontera del catálogo frente a los perfiles aislados.
+
+`mission_sources` (sdd_developer, Sol/medium) implementó y ejecutó `tests/mission_sources_test.ps1` con ambos originales y Godot 4.7.2. Código 0 y `MISSION_SOURCES_OK`: precomprobación de destinos, copia exacta, reejecución, exclusión de Git e importación y ZIP de exportación de prueba con control positivo. `mission_impl_review` (sdd_reviewer, Sol/high) dio dictamen favorable tras el guard de tipos de fuente v2 y la regresión correspondiente. Su prueba aislada cubrió 242 mutaciones sin errores de script. Dos delegaciones sin descendientes ni dispensas.
+
+Los originales quedan en la digitalización y sus copias de trabajo en `evidencia_local/`. Queda pendiente el resolutor y la admisión de producto. Siguiente paso propuesto: especificar la transacción de avance competitivo, el registro de primeras llegadas, la aplicación de premios y la prioridad de finales.
+
 ## T08.1b9 — Contrato de catálogo para las misiones
 
 2026-11-12. Publicación autorizada por el usuario. Empaquetado R0 del coordinador sobre `55a9399`: comprobar alcance, enlaces e índice, publicar en main y verificar remoto y árbol limpio. Se reutiliza la revisión R2. El commit que incorpora esta nota identifica la publicación y la nota local inferior es histórica.

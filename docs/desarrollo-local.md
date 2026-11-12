@@ -99,3 +99,14 @@ En este PC el ejecutable estándar se comprobó en `C:/Users/pablo/Downloads/god
 ### Inicio competitivo aislado
 
 `-Action test-start` ejecuta `tests/competitive_start_test.gd` y exige `P08_START_OK`. Cubre los escenarios INI-01–05 del [contrato de inicio](specs/008-preparacion-y-turnos/inicio-competitivo.md) con contenido de prueba. La versión de motor de los snapshots es `p08-start-1/godot-4.7.2`, con esquema 2. Las versiones anteriores requieren una migración explícita para ser admitidas.
+
+### Catálogo de misiones
+
+La carga de arranque usa `data/cartas.json`. Para comprobar aparte las ocho misiones españolas con Godot 4.7.2, usa la carpeta de SRC-005 que contiene los dos PNG originales.
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File tools/prepare-mission-sources.ps1 -SourceDirectory 'C:/Users/pablo/Documents/Digitalizaciones/Digitalizaciones/cartas_personajes/misiones'
+powershell -NoProfile -ExecutionPolicy Bypass -File tools/godot.ps1 -Action test-missions
+```
+
+El preparador comprueba ambas huellas, conserva las copias idénticas y señala los destinos discordantes. Las copias de `evidencia_local/` quedan fuera de Git y de la importación de recursos. `test-missions` carga explícitamente `data/misiones.json` y contrasta cada premio, localizador y fuente. [Contrato y alcance](specs/008-preparacion-y-turnos/catalogo-misiones.md).

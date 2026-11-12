@@ -129,7 +129,7 @@ Documentos y plantillas se incluyen en la entrega inicial autorizada para commit
 
 T08.1b7 (R2 documental) registra DEC-032 y está publicada en `02e38c7`. T08.2i aplica el robo personal. Queda aplicar el desbloqueo tardío en el resolutor de habilidades y la prioridad de finales del rival en T08.3. [Casos y evidencia](../specs/008-preparacion-y-turnos/verification.md#t082i--robo-personal-con-mazo-y-descarte-agotados).
 
-T08.1b9 (R2 documental) especifica el [contrato de catálogo v2 de misiones](../specs/008-preparacion-y-turnos/catalogo-misiones.md). T08.1b10 queda pendiente para implementar validación, preparación de fuentes y comprobación de M1–M8. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b9--contrato-de-catálogo-para-las-misiones). Sin issue publicada.
+T08.1b9 (R2 documental), publicada en `cfecee9`, especifica el [contrato de catálogo v2 de misiones](../specs/008-preparacion-y-turnos/catalogo-misiones.md). T08.1b10 implementa validación, preparación de fuentes y comprobación local de M1–M8. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b10--validación-y-lote-de-catálogo-de-misiones). Sin issue publicada.
 
 T08.1b8 (R2 documental) reúne la [transcripción de M1–M8](../referencias/misiones-competitivas.md). [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b8--transcripción-de-las-ocho-misiones). Sin issue publicada.
 

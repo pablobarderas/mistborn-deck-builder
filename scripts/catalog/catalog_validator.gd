@@ -1,7 +1,7 @@
 extends RefCounted
 ## Valida estructura y revisión declarada; no ejecuta texto ni efectos.
 
-const VERSION: int = 1
+const MISSION_VERSION: int = 2
 const MAX_DEPTH: int = 8
 const MAX_NUMBER: int = 1000000
 const TYPES: Array[String] = ["muestra", "sin_clasificar", "funding", "entrenamiento", "accion", "aliado", "personaje", "mision", "edicto", "adversario", "rival", "dominacion", "pista_entrenamiento"]
@@ -24,18 +24,20 @@ func validate(document: Variant) -> Dictionary:
 	var counts: Dictionary = {"muestra": 0, "borrador": 0, "verificada": 0}
 	if not _shape(document, ["version_esquema", "id_catalogo", "idioma", "fuentes", "cartas"], [], "$catalogo"):
 		return _result(cards, verified, counts)
-	if not _integer(document["version_esquema"], 1) or document["version_esquema"] != VERSION:
-		_error("version_esquema", "versión no admitida; se requiere 1")
+	if not _integer(document["version_esquema"], 1, MISSION_VERSION):
+		_error("version_esquema", "versión no admitida; se requiere 1 o 2")
+		return _result(cards, verified, counts)
+	var mission_version: bool = document["version_esquema"] == MISSION_VERSION
 	_identifier(document["id_catalogo"], "id_catalogo")
 	_enum(document["idioma"], ["es"], "idioma")
 	if _array(document["fuentes"], "fuentes", 1, 256):
 		for index: int in document["fuentes"].size():
-			_validate_source(document["fuentes"][index], "fuentes[%d]" % index)
+			_validate_source(document["fuentes"][index], "fuentes[%d]" % index, mission_version)
 	if _array(document["cartas"], "cartas", 1, 512):
 		for index: int in document["cartas"].size():
 			var entry: Variant = document["cartas"][index]
 			var before: int = _errors.size()
-			_validate_card(entry, "cartas[%d]" % index)
+			_validate_card(entry, "cartas[%d]" % index, mission_version)
 			if before != _errors.size():
 				continue
 			var id: String = entry["id"]
@@ -62,8 +64,13 @@ func _result(cards: Dictionary, verified: Dictionary, counts: Dictionary) -> Dic
 	return {"ok": _errors.is_empty(), "errors": _errors.duplicate(), "warnings": _warnings.duplicate(), "cards": cards if _errors.is_empty() else {}, "verified": verified if _errors.is_empty() else {}, "counts": counts if _errors.is_empty() else {}}
 
 
-func _validate_source(value: Variant, at: String) -> void:
-	if not _shape(value, ["id", "tipo", "descripcion", "ruta", "url"], [], at):
+func _validate_source(value: Variant, at: String, mission_version: bool) -> void:
+	var source_type: Variant = value.get("tipo") if value is Dictionary else null
+	var physical_v2: bool = mission_version and source_type is String and source_type == "carta_fisica"
+	var fields: Array = ["id", "tipo", "descripcion", "ruta", "url"]
+	if physical_v2:
+		fields.append("sha256")
+	if not _shape(value, fields, [], at):
 		return
 	if not _text(value["id"], at + ".id", 64):
 		return
@@ -74,8 +81,11 @@ func _validate_source(value: Variant, at: String) -> void:
 		return
 	_text(value["descripcion"], at + ".descripcion", 2000)
 	if value["ruta"] != null:
-		if _safe_path(value["ruta"], at + ".ruta", "res://") and not FileAccess.file_exists(value["ruta"]):
-			_error(at + ".ruta", "archivo fuente ausente")
+		if _safe_path(value["ruta"], at + ".ruta", "res://"):
+			if not FileAccess.file_exists(value["ruta"]):
+				_error(at + ".ruta", "archivo fuente ausente")
+			elif physical_v2:
+				_validate_source_hash(value, at)
 	if value["url"] != null:
 		if not _text(value["url"], at + ".url", 2048) or not String(value["url"]).begins_with("https://"):
 			_error(at + ".url", "se requiere una URL https")
@@ -86,7 +96,17 @@ func _validate_source(value: Variant, at: String) -> void:
 	_sources[id] = value
 
 
-func _validate_card(value: Variant, at: String) -> void:
+func _validate_source_hash(source: Dictionary, at: String) -> void:
+	var digest: Variant = source["sha256"]
+	var format: RegEx = RegEx.create_from_string("^[0-9a-f]{64}$")
+	if not digest is String or digest.length() != 64 or format.search(digest) == null:
+		_error(at + ".sha256", "se requieren 64 dígitos hexadecimales en minúscula")
+		return
+	if FileAccess.get_sha256(source["ruta"]) != digest:
+		_error(at + ".sha256", "huella distinta o archivo fuente ilegible")
+
+
+func _validate_card(value: Variant, at: String, mission_version: bool) -> void:
 	if not _shape(value, ["id", "nombre", "tipo", "cantidad", "coste_compra", "texto_original", "resumen", "metales", "ruta_imagen", "fuentes", "revision", "vinculos", "rasgos", "habilidades"], [], at):
 		return
 	_identifier(value["id"], at + ".id")
@@ -94,6 +114,7 @@ func _validate_card(value: Variant, at: String) -> void:
 	_text(value["nombre"], at + ".nombre", 160)
 	if not _enum(value["tipo"], TYPES, at + ".tipo"):
 		return
+	var mission_v2: bool = mission_version and value["tipo"] == "mision"
 	if value["cantidad"] != null:
 		_number(value["cantidad"], at + ".cantidad", 1)
 	if value["coste_compra"] != null:
@@ -109,6 +130,7 @@ func _validate_card(value: Variant, at: String) -> void:
 	_validate_image(value["ruta_imagen"], at + ".ruta_imagen")
 	_string_list(value["vinculos"], at + ".vinculos", 128)
 	var has_real_source: bool = false
+	var has_physical_source: bool = false
 	if _array(value["fuentes"], at + ".fuentes", 1, 64):
 		for ref: Variant in value["fuentes"]:
 			if _shape(ref, ["id", "localizador"], [], at + ".fuentes"):
@@ -117,8 +139,13 @@ func _validate_card(value: Variant, at: String) -> void:
 					_error(at + ".fuentes.id", "fuente no declarada")
 				elif _sources[ref["id"]]["tipo"] != "muestra":
 					has_real_source = true
-	_validate_traits(value["rasgos"], at + ".rasgos")
-	if _array(value["habilidades"], at + ".habilidades", 0, 32):
+					if _sources[ref["id"]]["tipo"] == "carta_fisica":
+						has_physical_source = true
+	if mission_v2:
+		_validate_mission_traits(value["rasgos"], at + ".rasgos")
+	else:
+		_validate_traits(value["rasgos"], at + ".rasgos")
+	if _array(value["habilidades"], at + ".habilidades", 0, 0 if mission_v2 else 32):
 		var ability_ids: Dictionary = {}
 		for index: int in value["habilidades"].size():
 			var ability: Variant = value["habilidades"][index]
@@ -145,11 +172,97 @@ func _validate_card(value: Variant, at: String) -> void:
 	if not _string_list(review["dudas"], at + ".revision.dudas", 128):
 		return
 	if review["estado"] == "verificada":
+		if mission_v2 and not has_physical_source:
+			_error(at + ".fuentes", "una misión v2 verificada requiere una fuente física")
 		if not has_real_source or review["idioma_verificado"] != true or review["dudas"] != [] or _has_pending(value):
 			_error(at + ".revision", "verificada exige fuente real, idioma revisado, ninguna duda ni operación/momento pendiente")
 		if value["tipo"] in ["muestra", "sin_clasificar"]:
 			_error(at + ".tipo", "una muestra o carta sin clasificar no puede declararse verificada")
 		_validate_verified_traits(value, at)
+
+
+func _validate_mission_traits(traits: Variant, at: String) -> void:
+	if not _shape(traits, ["recorridos"], [], at):
+		return
+	at += ".recorridos"
+	if not _array(traits["recorridos"], at, 1, 1):
+		return
+	var track: Variant = traits["recorridos"][0]
+	if not _shape(track, ["id", "casillas"], [], at + "[0]"):
+		return
+	_enum(track["id"], ["principal"], at + "[0].id")
+	at += "[0].casillas"
+	if not _array(track["casillas"], at, 12, 12):
+		return
+	for index: int in 12:
+		var cell: Variant = track["casillas"][index]
+		var cell_at: String = "%s[%d]" % [at, index]
+		var summit: bool = index == 11
+		var fields: Array = ["id", "efectos", "primero"]
+		if summit:
+			fields.append("permanente")
+		if not _shape(cell, fields, [], cell_at):
+			continue
+		_enum(cell["id"], ["p%02d" % (index + 1)], cell_at + ".id")
+		_mission_effects(cell["efectos"], cell_at + ".efectos")
+		_mission_effects(cell["primero"], cell_at + ".primero")
+		if not cell["efectos"] is Array or not cell["primero"] is Array:
+			continue
+		if summit:
+			var permanent: Variant = cell["permanente"]
+			if permanent != null:
+				_mission_permanent(permanent, cell_at + ".permanente")
+			if cell["efectos"].is_empty() == (permanent == null):
+				_error(cell_at + ".permanente", "la cima requiere un premio normal inmediato o permanente")
+		elif cell["efectos"].is_empty() and not cell["primero"].is_empty():
+			_error(cell_at + ".primero", "el extra intermedio requiere premio normal")
+
+
+func _mission_permanent(value: Variant, at: String) -> void:
+	if not value is Dictionary or not _enum(value.get("tipo"), ["capacidad_quema", "cada_turno", "mano_nueva"], at + ".tipo"):
+		if not value is Dictionary:
+			_error(at, "se esperaba un objeto de premio permanente")
+		return
+	var fields: Array = ["tipo", "cantidad"]
+	if value["tipo"] == "cada_turno":
+		fields.append("recurso")
+	if not _shape(value, fields, [], at):
+		return
+	_number(value["cantidad"], at + ".cantidad", 1)
+	if value["tipo"] == "cada_turno":
+		_enum(value["recurso"], ["ataque", "recursos"], at + ".recurso")
+
+
+func _mission_effects(value: Variant, at: String) -> void:
+	if not _array(value, at, 0, 64):
+		return
+	for index: int in value.size():
+		var effect: Variant = value[index]
+		var effect_at: String = "%s[%d]" % [at, index]
+		if not effect is Dictionary or not effect.get("op") is String:
+			_error(effect_at, "efecto debe ser objeto con op textual")
+			continue
+		match effect["op"]:
+			"ganar", "robar", "curar", "avanzar", "pendiente":
+				_effects([effect], effect_at, 0)
+				if effect["op"] != "pendiente":
+					_enum(effect.get("objetivo"), ["propio"], effect_at + ".objetivo")
+				if effect["op"] == "ganar":
+					_enum(effect.get("recurso"), ["recursos", "ataque", "atium"], effect_at + ".recurso")
+				if effect["op"] == "avanzar":
+					_enum(effect.get("pista"), ["entrenamiento"], effect_at + ".pista")
+			"refrescar_agotados":
+				if _shape(effect, ["op", "cantidad"], [], effect_at):
+					var quantity: Variant = effect["cantidad"]
+					if not (quantity is String and quantity == "todos"):
+						_number(quantity, effect_at + ".cantidad", 1)
+			"derrotar_aliado_en_juego":
+				_shape(effect, ["op"], [], effect_at)
+			"eliminar_propias":
+				if _shape(effect, ["op", "maximo"], [], effect_at):
+					_number(effect["maximo"], effect_at + ".maximo", 1)
+			_:
+				_error(effect_at + ".op", "operación de misión desconocida")
 
 
 func _validate_image(value: Variant, at: String) -> void:

@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-12 — Validación del catálogo v2 de misiones
+
+- Contrato publicado en `cfecee9`. T08.1b10 incorpora y verifica localmente las ocho definiciones de misión con los originales de SRC-005. La revisión independiente fue favorable. Sigue especificar el avance competitivo de misión y su integración. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b10--validación-y-lote-de-catálogo-de-misiones).
+
 ## 2026-11-12 — Contrato de catálogo para M1–M8
 
 - T08.1b9 especifica recorridos y premios en v2 y la preparación local de los dos escaneos ya cotejados de SRC-005. Sigue T08.1b10 con el validador y la comprobación del lote. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b9--contrato-de-catálogo-para-las-misiones).

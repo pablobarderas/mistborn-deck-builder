@@ -22,7 +22,7 @@ func _run() -> void:
 	_expect(good["counts"] == {"muestra": 2, "borrador": 0, "verificada": 0}, "Conteo de estados.")
 	_expect(good["warnings"].size() == 4, "Aviso de imagen y revisión por muestra.")
 	var cases: Array[Dictionary] = [
-		{"path": ["version_esquema"], "value": 2, "field": "version_esquema"},
+		{"path": ["version_esquema"], "value": 3, "field": "version_esquema"},
 		{"path": ["version_esquema"], "value": "1", "field": "version_esquema"},
 		{"path": ["idioma"], "value": "en", "field": "idioma"},
 		{"path": ["cartas"], "value": [], "field": "cartas"},

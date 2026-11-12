@@ -1,6 +1,6 @@
 # Contrato de catálogo para M1–M8
 
-T08.1b9 especifica la ampliación de [P06 v1](../../contrato-catalogo-v1.md) necesaria para incorporar las ocho [misiones cotejadas](../../referencias/misiones-competitivas.md). Los ejemplos describen datos para un futuro validador. La carga de producto y la resolución de misiones son entregas posteriores.
+T08.1b9 especifica la ampliación de [P06 v1](../../contrato-catalogo-v1.md) para las ocho [misiones cotejadas](../../referencias/misiones-competitivas.md). T08.1b10 implementa el validador y el lote de carga explícita. La carga de producto y la resolución de misiones son entregas posteriores. [Comandos locales](../../desarrollo-local.md#catálogo-de-misiones).
 
 ## Versión y admisión
 
@@ -70,6 +70,6 @@ La implementación preparará estas rutas a partir de la carpeta de originales q
 | CAT-MIS-04 · Evidencia y carga | Comprobar preparación repetible y que un conflicto en el segundo destino deja intacto el primero. Ruta externa, huella inválida, ausencia o sustitución de una hoja y referencia inválida rechazan la carga explícita, sin resultados parciales. La comprobación de lote también rechaza sustituir una hoja junto con su huella declarada e intercambiar ambas hojas con referencias internamente coherentes. Probar recuperación al reponer la hoja, arranque con las muestras y exclusión de escaneos de Git, importación y exportación de prueba. |
 | CAT-MIS-05 · Frontera de juego | Verificar que el nuevo lote no habilita acciones. Partir de un perfil aislado admitido, incluir una misión v2 con un descriptor coincidente y conservar Funding y las restantes definiciones válidas. Acreditar que el rechazo se debe a la misión v2. Para la integración futura, cubrir dos plazas en una misma casilla, reenvío y fallo de una recompensa, cimas con extras únicos y permanentes, aplicación M2/M3 al completar, nueva mano M4 y llegada de la misma plaza a las tres cimas. |
 
-T08.1b10 implementará primero la validación de v2 y la preparación local de fuentes. Después incorporará y cotejará el JSON del lote. Ejecutará `test-catalog`, `test`, `test-setup`, `test-funding`, `test-start` y la comprobación específica del lote con los originales. El caso de la suite v1 que usa 2 como versión desconocida pasará a usar una versión aún sin soporte y conservará la comprobación de rechazo.
+T08.1b10 incorpora [el lote JSON](../../../data/misiones.json), la validación v2 y la preparación local de fuentes. Los resultados de `test-missions`, las regresiones y la exportación de prueba figuran en la [verificación](verification.md#t081b10--validación-y-lote-de-catálogo-de-misiones).
 
 La transacción de avance, las elecciones, el registro del primero por casilla, la persistencia y la evaluación de finales pertenecen a la futura integración. El estado actual tiene `progress`, `rewards` y `arrival_order`. Acreditar quién llegó primero a cada casilla y el pago de sus premios exige comprobaciones de autoridad adicionales. El futuro contrato deberá fijar esas comprobaciones y el orden de resolución si la última cima coincide con un premio, conforme a REG-032/033/044.

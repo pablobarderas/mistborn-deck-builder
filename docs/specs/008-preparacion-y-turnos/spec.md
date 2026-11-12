@@ -2,7 +2,7 @@
 
 ## T08.1b9 — Catálogo de misiones
 
-El [contrato de catálogo para M1–M8](catalogo-misiones.md) define la forma v2, las fuentes físicas y CAT-MIS-01–05. La validación del contenido se distingue de la admisión de partida. La implementación queda para T08.1b10.
+El [contrato de catálogo para M1–M8](catalogo-misiones.md) define la forma v2, las fuentes físicas y CAT-MIS-01–05. T08.1b10 implementa la validación del contenido en carga explícita. La admisión de partida pertenece a la integración.
 
 ## T08.2i — Robo personal con mazo y descarte agotados
 

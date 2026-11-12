@@ -1,5 +1,9 @@
 # Tareas de SPEC-008
 
+### T08.1b10 — Validación y lote de catálogo de misiones
+
+Registro previo 2026-11-12. Contrato publicado y verificado tras fetch en `cfecee9f5d9955a223c6bb3dbf8a3d02f46e73ac`, igual a HEAD/main con árbol limpio. Riesgo R2 por contrato de datos, admisión y fuentes físicas. Aceptación CAT-MIS-01–05 en el [contrato](catalogo-misiones.md). El coordinador posee el validador, datos y documentación; sdd_developer implementa la preparación y verificación local de las fuentes, y sdd_reviewer (Sol/high) revisa el resultado. Plan: añadir la rama v2, incorporar M1–M8 en carga explícita, preparar las fuentes originales, ejecutar pruebas del lote y regresiones de catálogo, arranque y perfiles, comprobar exclusiones y revisar. Se reutiliza el contraste reglamentario de T08.1b8–9. Sin dispensas.
+
 ### T08.1b9 — Contrato de catálogo para las misiones
 
 Registro previo 2026-11-12. Fetch y estado publicado leídos en `55a9399b52e76c39ba75f3d52cf373f8baf699e2`, igual a HEAD de main, con árbol limpio. R2 documental por versionado, fuentes, semántica de premios y frontera de admisión. Aceptación: representar M1–M8 sin pérdida, definir validación y convivencia con P06 v1, registrar los originales ya cotejados de manera reproducible, y fijar pruebas de admisión y de integración posterior. El coordinador es el único escritor, se reutiliza el contraste reglamentario de T08.1b8 y se solicita revisión final independiente sdd_reviewer (Sol/high). Plan: inspeccionar cargador, validador y consumidores, especificar forma y ejemplos, comprobar cobertura, huellas, enlaces y diff, revisar y dejar traspaso para implementación. Sin dispensas.

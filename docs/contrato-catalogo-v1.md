@@ -2,6 +2,8 @@
 
 Implementado en [catalog_validator.gd](../scripts/catalog/catalog_validator.gd). Versión de desarrollo; nuevas familias podrán ampliarlo mediante especificación y pruebas. No afirma cobertura de todas las cartas aún no recibidas.
 
+Este documento describe v1, que sigue siendo la versión del catálogo de arranque. El [contrato v2 de misiones](specs/008-preparacion-y-turnos/catalogo-misiones.md) se usa en una carga explícita independiente.
+
 ## Sobre del documento
 
 Raíz objeto con campos obligatorios: version_esquema (entero 1), id_catalogo (ID estable), idioma (es), fuentes (array no vacío) y cartas (array no vacío). No se ignoran claves desconocidas. El array plano anterior se rechaza con diagnóstico; la migración de los dos ejemplos es explícita.

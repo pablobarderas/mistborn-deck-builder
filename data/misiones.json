@@ -1,0 +1,409 @@
+{
+  "version_esquema": 2,
+  "id_catalogo": "mistborn_es_misiones",
+  "idioma": "es",
+  "fuentes": [
+    {
+      "id": "src_005_misiones_1",
+      "tipo": "carta_fisica",
+      "descripcion": "SRC-005, hoja española de misiones 1",
+      "ruta": "res://evidencia_local/src_005/misiones.1.png",
+      "url": null,
+      "sha256": "0185c0d65d2cec7b66070bd08d5cd7d8fe618272be490ed82c725c419346fa9d"
+    },
+    {
+      "id": "src_005_misiones_2",
+      "tipo": "carta_fisica",
+      "descripcion": "SRC-005, hoja española de misiones 2",
+      "ruta": "res://evidencia_local/src_005/misiones.2.png",
+      "url": null,
+      "sha256": "3da0cf82f7ccb10cc08afa27ee3f694a8cf51b6c536e153cb21f8db6f5225b5b"
+    }
+  ],
+  "cartas": [
+    {
+      "id": "mision_m1",
+      "nombre": "Cavernas Skaa",
+      "tipo": "mision",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "PERMANENTE [+1 capacidad de quema]\n1.º [refrescar] todos\np05 y p09: [refrescar]. 1.º +1 [refrescar]",
+      "resumen": {
+        "recurso": null,
+        "ataque": null
+      },
+      "metales": [],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_005_misiones_1",
+          "localizador": "M1, superior izquierda"
+        }
+      ],
+      "revision": {
+        "estado": "verificada",
+        "idioma_verificado": true,
+        "dudas": []
+      },
+      "vinculos": [],
+      "rasgos": {
+        "recorridos": [
+          {
+            "id": "principal",
+            "casillas": [
+              {"id": "p01", "efectos": [], "primero": []},
+              {"id": "p02", "efectos": [], "primero": []},
+              {"id": "p03", "efectos": [], "primero": []},
+              {"id": "p04", "efectos": [], "primero": []},
+              {"id": "p05", "efectos": [{"op": "refrescar_agotados", "cantidad": 1}], "primero": [{"op": "refrescar_agotados", "cantidad": 1}]},
+              {"id": "p06", "efectos": [], "primero": []},
+              {"id": "p07", "efectos": [], "primero": []},
+              {"id": "p08", "efectos": [], "primero": []},
+              {"id": "p09", "efectos": [{"op": "refrescar_agotados", "cantidad": 1}], "primero": [{"op": "refrescar_agotados", "cantidad": 1}]},
+              {"id": "p10", "efectos": [], "primero": []},
+              {"id": "p11", "efectos": [], "primero": []},
+              {"id": "p12", "efectos": [], "primero": [{"op": "refrescar_agotados", "cantidad": "todos"}], "permanente": {"tipo": "capacidad_quema", "cantidad": 1}}
+            ]
+          }
+        ]
+      },
+      "habilidades": []
+    },
+    {
+      "id": "mision_m2",
+      "nombre": "Guarnición de Luthadel",
+      "tipo": "mision",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "PERMANENTE Obtienes [2 combate] en cada turno\n1.º +[1 combate]\np04: [1 combate]. p07: [2 combate]. p10: [3 combate]. En cada una, 1.º + Derrota a 1 Aliado en juego",
+      "resumen": {
+        "recurso": null,
+        "ataque": null
+      },
+      "metales": [],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_005_misiones_1",
+          "localizador": "M2, inferior izquierda"
+        }
+      ],
+      "revision": {
+        "estado": "verificada",
+        "idioma_verificado": true,
+        "dudas": []
+      },
+      "vinculos": [],
+      "rasgos": {
+        "recorridos": [
+          {
+            "id": "principal",
+            "casillas": [
+              {"id": "p01", "efectos": [], "primero": []},
+              {"id": "p02", "efectos": [], "primero": []},
+              {"id": "p03", "efectos": [], "primero": []},
+              {"id": "p04", "efectos": [{"op": "ganar", "recurso": "ataque", "cantidad": 1, "objetivo": "propio"}], "primero": [{"op": "derrotar_aliado_en_juego"}]},
+              {"id": "p05", "efectos": [], "primero": []},
+              {"id": "p06", "efectos": [], "primero": []},
+              {"id": "p07", "efectos": [{"op": "ganar", "recurso": "ataque", "cantidad": 2, "objetivo": "propio"}], "primero": [{"op": "derrotar_aliado_en_juego"}]},
+              {"id": "p08", "efectos": [], "primero": []},
+              {"id": "p09", "efectos": [], "primero": []},
+              {"id": "p10", "efectos": [{"op": "ganar", "recurso": "ataque", "cantidad": 3, "objetivo": "propio"}], "primero": [{"op": "derrotar_aliado_en_juego"}]},
+              {"id": "p11", "efectos": [], "primero": []},
+              {"id": "p12", "efectos": [], "primero": [{"op": "ganar", "recurso": "ataque", "cantidad": 1, "objetivo": "propio"}], "permanente": {"tipo": "cada_turno", "cantidad": 2, "recurso": "ataque"}}
+            ]
+          }
+        ]
+      },
+      "habilidades": []
+    },
+    {
+      "id": "mision_m3",
+      "nombre": "Fortaleza Venture",
+      "tipo": "mision",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "PERMANENTE Obtienes [2 monedas] en cada turno\n1.º +[3 monedas]\np04, p06, p08 y p10: [1 moneda]. 1.º +[1 moneda]",
+      "resumen": {
+        "recurso": null,
+        "ataque": null
+      },
+      "metales": [],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_005_misiones_1",
+          "localizador": "M3, superior derecha"
+        }
+      ],
+      "revision": {
+        "estado": "verificada",
+        "idioma_verificado": true,
+        "dudas": []
+      },
+      "vinculos": [],
+      "rasgos": {
+        "recorridos": [
+          {
+            "id": "principal",
+            "casillas": [
+              {"id": "p01", "efectos": [], "primero": []},
+              {"id": "p02", "efectos": [], "primero": []},
+              {"id": "p03", "efectos": [], "primero": []},
+              {"id": "p04", "efectos": [{"op": "ganar", "recurso": "recursos", "cantidad": 1, "objetivo": "propio"}], "primero": [{"op": "ganar", "recurso": "recursos", "cantidad": 1, "objetivo": "propio"}]},
+              {"id": "p05", "efectos": [], "primero": []},
+              {"id": "p06", "efectos": [{"op": "ganar", "recurso": "recursos", "cantidad": 1, "objetivo": "propio"}], "primero": [{"op": "ganar", "recurso": "recursos", "cantidad": 1, "objetivo": "propio"}]},
+              {"id": "p07", "efectos": [], "primero": []},
+              {"id": "p08", "efectos": [{"op": "ganar", "recurso": "recursos", "cantidad": 1, "objetivo": "propio"}], "primero": [{"op": "ganar", "recurso": "recursos", "cantidad": 1, "objetivo": "propio"}]},
+              {"id": "p09", "efectos": [], "primero": []},
+              {"id": "p10", "efectos": [{"op": "ganar", "recurso": "recursos", "cantidad": 1, "objetivo": "propio"}], "primero": [{"op": "ganar", "recurso": "recursos", "cantidad": 1, "objetivo": "propio"}]},
+              {"id": "p11", "efectos": [], "primero": []},
+              {"id": "p12", "efectos": [], "primero": [{"op": "ganar", "recurso": "recursos", "cantidad": 3, "objetivo": "propio"}], "permanente": {"tipo": "cada_turno", "cantidad": 2, "recurso": "recursos"}}
+            ]
+          }
+        ]
+      },
+      "habilidades": []
+    },
+    {
+      "id": "mision_m4",
+      "nombre": "Kredik Shaw",
+      "tipo": "mision",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "PERMANENTE +1 carta al robar una nueva mano\n1.º +2 [robar]\np04 y p08: [robar]. 1.º +[robar]",
+      "resumen": {
+        "recurso": null,
+        "ataque": null
+      },
+      "metales": [],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_005_misiones_2",
+          "localizador": "M4, superior derecha"
+        }
+      ],
+      "revision": {
+        "estado": "verificada",
+        "idioma_verificado": true,
+        "dudas": []
+      },
+      "vinculos": [],
+      "rasgos": {
+        "recorridos": [
+          {
+            "id": "principal",
+            "casillas": [
+              {"id": "p01", "efectos": [], "primero": []},
+              {"id": "p02", "efectos": [], "primero": []},
+              {"id": "p03", "efectos": [], "primero": []},
+              {"id": "p04", "efectos": [{"op": "robar", "cantidad": 1, "objetivo": "propio"}], "primero": [{"op": "robar", "cantidad": 1, "objetivo": "propio"}]},
+              {"id": "p05", "efectos": [], "primero": []},
+              {"id": "p06", "efectos": [], "primero": []},
+              {"id": "p07", "efectos": [], "primero": []},
+              {"id": "p08", "efectos": [{"op": "robar", "cantidad": 1, "objetivo": "propio"}], "primero": [{"op": "robar", "cantidad": 1, "objetivo": "propio"}]},
+              {"id": "p09", "efectos": [], "primero": []},
+              {"id": "p10", "efectos": [], "primero": []},
+              {"id": "p11", "efectos": [], "primero": []},
+              {"id": "p12", "efectos": [], "primero": [{"op": "robar", "cantidad": 2, "objetivo": "propio"}], "permanente": {"tipo": "mano_nueva", "cantidad": 1}}
+            ]
+          }
+        ]
+      },
+      "habilidades": []
+    },
+    {
+      "id": "mision_m5",
+      "nombre": "Pozos de Hathsin",
+      "tipo": "mision",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "1 SOLA VEZ +1 [Atium]\n1.º +1 [Atium]\np04: [1 moneda]. 1.º +[1 moneda]\np08: [2 combate]. 1.º +[2 curación]",
+      "resumen": {
+        "recurso": null,
+        "ataque": null
+      },
+      "metales": [],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_005_misiones_2",
+          "localizador": "M5, inferior izquierda"
+        }
+      ],
+      "revision": {
+        "estado": "verificada",
+        "idioma_verificado": true,
+        "dudas": []
+      },
+      "vinculos": [],
+      "rasgos": {
+        "recorridos": [
+          {
+            "id": "principal",
+            "casillas": [
+              {"id": "p01", "efectos": [], "primero": []},
+              {"id": "p02", "efectos": [], "primero": []},
+              {"id": "p03", "efectos": [], "primero": []},
+              {"id": "p04", "efectos": [{"op": "ganar", "recurso": "recursos", "cantidad": 1, "objetivo": "propio"}], "primero": [{"op": "ganar", "recurso": "recursos", "cantidad": 1, "objetivo": "propio"}]},
+              {"id": "p05", "efectos": [], "primero": []},
+              {"id": "p06", "efectos": [], "primero": []},
+              {"id": "p07", "efectos": [], "primero": []},
+              {"id": "p08", "efectos": [{"op": "ganar", "recurso": "ataque", "cantidad": 2, "objetivo": "propio"}], "primero": [{"op": "curar", "cantidad": 2, "objetivo": "propio"}]},
+              {"id": "p09", "efectos": [], "primero": []},
+              {"id": "p10", "efectos": [], "primero": []},
+              {"id": "p11", "efectos": [], "primero": []},
+              {"id": "p12", "efectos": [{"op": "ganar", "recurso": "atium", "cantidad": 1, "objetivo": "propio"}], "primero": [{"op": "ganar", "recurso": "atium", "cantidad": 1, "objetivo": "propio"}], "permanente": null}
+            ]
+          }
+        ]
+      },
+      "habilidades": []
+    },
+    {
+      "id": "mision_m6",
+      "nombre": "Tejados de Luthadel",
+      "tipo": "mision",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "1 SOLA VEZ +[1 entrenamiento]\n1.º +[1 entrenamiento]\np06: [1 entrenamiento]. 1.º +[1 entrenamiento]",
+      "resumen": {
+        "recurso": null,
+        "ataque": null
+      },
+      "metales": [],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_005_misiones_1",
+          "localizador": "M6, inferior derecha"
+        }
+      ],
+      "revision": {
+        "estado": "verificada",
+        "idioma_verificado": true,
+        "dudas": []
+      },
+      "vinculos": [],
+      "rasgos": {
+        "recorridos": [
+          {
+            "id": "principal",
+            "casillas": [
+              {"id": "p01", "efectos": [], "primero": []},
+              {"id": "p02", "efectos": [], "primero": []},
+              {"id": "p03", "efectos": [], "primero": []},
+              {"id": "p04", "efectos": [], "primero": []},
+              {"id": "p05", "efectos": [], "primero": []},
+              {"id": "p06", "efectos": [{"op": "avanzar", "cantidad": 1, "pista": "entrenamiento", "objetivo": "propio"}], "primero": [{"op": "avanzar", "cantidad": 1, "pista": "entrenamiento", "objetivo": "propio"}]},
+              {"id": "p07", "efectos": [], "primero": []},
+              {"id": "p08", "efectos": [], "primero": []},
+              {"id": "p09", "efectos": [], "primero": []},
+              {"id": "p10", "efectos": [], "primero": []},
+              {"id": "p11", "efectos": [], "primero": []},
+              {"id": "p12", "efectos": [{"op": "avanzar", "cantidad": 1, "pista": "entrenamiento", "objetivo": "propio"}], "primero": [{"op": "avanzar", "cantidad": 1, "pista": "entrenamiento", "objetivo": "propio"}], "permanente": null}
+            ]
+          }
+        ]
+      },
+      "habilidades": []
+    },
+    {
+      "id": "mision_m7",
+      "nombre": "Escondite de la Banda",
+      "tipo": "mision",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "1 SOLA VEZ +[6 curación]\n1.º +[2 curación]\np06: [4 curación]. 1.º +[2 curación]",
+      "resumen": {
+        "recurso": null,
+        "ataque": null
+      },
+      "metales": [],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_005_misiones_2",
+          "localizador": "M7, superior izquierda"
+        }
+      ],
+      "revision": {
+        "estado": "verificada",
+        "idioma_verificado": true,
+        "dudas": []
+      },
+      "vinculos": [],
+      "rasgos": {
+        "recorridos": [
+          {
+            "id": "principal",
+            "casillas": [
+              {"id": "p01", "efectos": [], "primero": []},
+              {"id": "p02", "efectos": [], "primero": []},
+              {"id": "p03", "efectos": [], "primero": []},
+              {"id": "p04", "efectos": [], "primero": []},
+              {"id": "p05", "efectos": [], "primero": []},
+              {"id": "p06", "efectos": [{"op": "curar", "cantidad": 4, "objetivo": "propio"}], "primero": [{"op": "curar", "cantidad": 2, "objetivo": "propio"}]},
+              {"id": "p07", "efectos": [], "primero": []},
+              {"id": "p08", "efectos": [], "primero": []},
+              {"id": "p09", "efectos": [], "primero": []},
+              {"id": "p10", "efectos": [], "primero": []},
+              {"id": "p11", "efectos": [], "primero": []},
+              {"id": "p12", "efectos": [{"op": "curar", "cantidad": 6, "objetivo": "propio"}], "primero": [{"op": "curar", "cantidad": 2, "objetivo": "propio"}], "permanente": null}
+            ]
+          }
+        ]
+      },
+      "habilidades": []
+    },
+    {
+      "id": "mision_m8",
+      "nombre": "Cantón de la Ortodoxia",
+      "tipo": "mision",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "1 SOLA VEZ Elimina hasta 4 cartas\n1.º +1 [eliminar]\np05 y p09: [eliminar]. 1.º +1 [eliminar]",
+      "resumen": {
+        "recurso": null,
+        "ataque": null
+      },
+      "metales": [],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_005_misiones_2",
+          "localizador": "M8, inferior derecha"
+        }
+      ],
+      "revision": {
+        "estado": "verificada",
+        "idioma_verificado": true,
+        "dudas": []
+      },
+      "vinculos": [],
+      "rasgos": {
+        "recorridos": [
+          {
+            "id": "principal",
+            "casillas": [
+              {"id": "p01", "efectos": [], "primero": []},
+              {"id": "p02", "efectos": [], "primero": []},
+              {"id": "p03", "efectos": [], "primero": []},
+              {"id": "p04", "efectos": [], "primero": []},
+              {"id": "p05", "efectos": [{"op": "eliminar_propias", "maximo": 1}], "primero": [{"op": "eliminar_propias", "maximo": 1}]},
+              {"id": "p06", "efectos": [], "primero": []},
+              {"id": "p07", "efectos": [], "primero": []},
+              {"id": "p08", "efectos": [], "primero": []},
+              {"id": "p09", "efectos": [{"op": "eliminar_propias", "maximo": 1}], "primero": [{"op": "eliminar_propias", "maximo": 1}]},
+              {"id": "p10", "efectos": [], "primero": []},
+              {"id": "p11", "efectos": [], "primero": []},
+              {"id": "p12", "efectos": [{"op": "eliminar_propias", "maximo": 4}], "primero": [{"op": "eliminar_propias", "maximo": 1}], "permanente": null}
+            ]
+          }
+        ]
+      },
+      "habilidades": []
+    }
+  ]
+}
