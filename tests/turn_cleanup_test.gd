@@ -1,5 +1,5 @@
 extends SceneTree
-## SPEC-008 AC-11–18; reglas de limpieza/turno, con contenido ficticio.
+## SPEC-008 AC-11–18 y DEC-032; reglas de limpieza/turno, con contenido ficticio.
 
 const Cleanup = preload("res://scripts/game/turn_cleanup.gd")
 const Sequences = preload("res://tests/sequence_fixtures.gd")
@@ -21,9 +21,10 @@ func _run() -> void:
 		for count: int in counts:
 			_test_success(mode, count)
 			_test_atium(mode, count)
+			_test_short_hand(mode, count)
 	_test_guards()
 	_test_order()
-	_test_exhaustion()
+	_test_exact_draw()
 	_test_engine()
 	if failures == 0:
 		print("P08_CLEANUP_OK: %d comprobaciones." % checks)
@@ -274,21 +275,55 @@ func _test_order() -> void:
 	_expect(service.finish_cleanup(state, "p1", _rng(state)).ok and state.turn.active_id == "p3" and state.turn.number == 5 and state.target_id == "p3", "AC13 vuelta de orden no reinicia número ni modifica Target")
 
 
-func _test_exhaustion() -> void:
-	var state: Dictionary = _snapshot()
-	state.players[0].metals[1].used_this_turn = true
+func _short_snapshot(mode: String, count: int) -> Dictionary:
+	var state: Dictionary = _snapshot(mode, count)
 	for id: String in ["d1", "d2", "d3", "held_ally"]:
 		state.instances.erase(id)
 	state.zones.custom_mano.cards = ["c1"]
 	state.zones.custom_descarte.cards = []
-	_reject(state, "p1", "regla_pendiente", "AC17 agotamiento revierte también devolución/saldo Atium, contadores, fase y RNG")
-	# Cinco disponibles exactas tras limpiar: se acepta sin reciclar al terminar.
-	state = _snapshot()
+	return state
+
+
+func _test_short_hand(mode: String, count: int) -> void:
+	var service: RefCounted = Cleanup.new(_definitions(), "test_catalog")
+	var state: Dictionary = _short_snapshot(mode, count)
+	_set_atium(state, [true, false])
+	var rng: RandomNumberGenerator = _rng(state)
+	var before_rng: int = rng.state
+	_expect(service.finish_cleanup(state, "p1", rng) == {"ok": true, "codigo": "aceptada"},
+		"DEC-032 limpieza acepta mano corta sin identidades privadas")
+	var hand: Array = state.zones.custom_mano.cards
+	_expect(hand.size() == 3 and hand[0] == "c2" and "c1" in hand and "played" in hand
+		and state.zones.custom_mazo.cards.is_empty() and state.zones.custom_descarte.cards.is_empty()
+		and state.zones.custom_juego.cards == ["ally"] and rng.state != before_rng,
+		"DEC-032 limpia, roba tres con reciclado y conserva al aliado en juego")
+	_expect(state.players[0].persistent.atium == 1 and state.players[0].metals.size() == 2
+		and state.players[0].metals[1].token_id == "atium_2", "AC17 mano corta conserva devolución de Atium usado")
+	var expected_turn: Dictionary = {"number": 5, "active_id": "p2", "phase": "inicio", "counters": {}}
+	if mode != "competitivo":
+		expected_turn = {"number": 4, "active_id": "p1", "phase": "rival", "counters": {}}
+	_expect(state.turn == expected_turn and Validator.new().validate(state, _definitions(), "test_catalog").ok,
+		"DEC-032 entrega el turno con mano corta y estado válido")
+	state = _short_snapshot(mode, count)
+	for id: String in ["c1", "c2", "played"]:
+		state.instances.erase(id)
+	state.zones.custom_mano.cards.clear()
+	state.zones.custom_mazo.cards.clear()
+	state.zones.custom_juego.cards = ["ally"]
+	rng = _rng(state)
+	before_rng = rng.state
+	_expect(service.finish_cleanup(state, "p1", rng).ok and state.turn == expected_turn
+		and state.zones.custom_mano.cards.is_empty() and state.zones.custom_juego.cards == ["ally"]
+		and rng.state == before_rng, "DEC-032 limpieza entrega turno con mano vacía sin consumir RNG")
+
+
+func _test_exact_draw() -> void:
+	var state: Dictionary = _snapshot()
 	for id: String in ["d1", "d2"]:
 		state.instances.erase(id)
 	state.zones.custom_descarte.cards = ["d3"]
 	var rng: RandomNumberGenerator = _rng(state)
-	_expect(Cleanup.new(_definitions(), "test_catalog").finish_cleanup(state, "p1", rng).ok and state.zones.custom_mano.cards.size() == 5 and state.zones.custom_mazo.cards.is_empty(), "AC14 robo exacto no se considera agotamiento pendiente")
+	_expect(Cleanup.new(_definitions(), "test_catalog").finish_cleanup(state, "p1", rng).ok and state.zones.custom_mano.cards.size() == 5 and state.zones.custom_mazo.cards.is_empty(), "AC14 robo exacto deja vacía la reserva de cartas")
 	state = _snapshot()
 	state.zones.custom_mazo.cards = ["d1", "d2", "d3", "played", "c2"]
 	state.zones.custom_descarte.cards = []
@@ -312,12 +347,12 @@ func _test_engine() -> void:
 		var result: Dictionary = service.finish_cleanup(state, actor, rng)
 		return "accion_ilegal" if result.ok else "estado_invalido"
 	var registry: Dictionary = {"test_cleanup": handler, "test_fail_cleanup": reject_after}
-	var initial: Dictionary = _snapshot("cooperativo")
+	var initial: Dictionary = _short_snapshot("cooperativo", 2)
 	_set_atium(initial, [true, false, true])
 	var a: RefCounted = GameCore.new(_definitions(), "test_catalog", registry)
 	var b: RefCounted = GameCore.new(_definitions(), "test_catalog", registry)
 	_expect(a.load_authority_snapshot(initial).ok and b.load_authority_snapshot(initial).ok, "AC14 P07 acepta fixtures")
-	_expect(a.submit("p1", _action("failed", "test_fail_cleanup", 0)).codigo == "accion_ilegal" and a.get_authority_snapshot() == initial, "AC14 rechazo posterior al éxito revierte fase/cartas/recibos y RNG consumido")
+	_expect(a.submit("p1", _action("failed", "test_fail_cleanup", 0)).codigo == "accion_ilegal" and a.get_authority_snapshot() == initial, "AC14 rechazo posterior al robo corto revierte fase, cartas, RNG, Atium y recibos")
 	var injected: Dictionary = _action("injected", "test_cleanup", 0)
 	injected.payload = {"phase": "libre", "count": 0}
 	_expect(a.submit("p1", injected).codigo == "formato_invalido" and a.get_authority_snapshot() == initial, "AC14 cliente no decide fase ni cantidad")
@@ -336,7 +371,7 @@ func _test_engine() -> void:
 	var own: Dictionary = a.get_view("p1")
 	var other: Dictionary = a.get_view("p2")
 	_expect(own.players[0].persistent.atium == 1 and other.players[0].persistent.atium == 1 and own.players[0].metals == after.players[0].metals and other.players[0].metals == after.players[0].metals, "AC17 proyecciones y snapshot coinciden en saldo/fichas públicos")
-	_expect(own.zones.custom_mano.cards.size() == 5 and other.zones.custom_mano.count == 5 and not other.zones.custom_mano.has("cards"), "AC14 mano privada tras limpieza")
+	_expect(own.zones.custom_mano.cards.size() == 3 and other.zones.custom_mano.count == 3 and not other.zones.custom_mano.has("cards"), "AC14 mano corta privada tras limpieza")
 	_expect(not own.has("authority") and not other.has("authority") and not own.zones.custom_mazo.has("cards") and not other.zones.custom_mazo.has("cards"), "AC14 no filtra RNG, recibos ni orden mazo")
 	initial = _snapshot()
 	initial.players[0].metals[1].used_this_turn = true

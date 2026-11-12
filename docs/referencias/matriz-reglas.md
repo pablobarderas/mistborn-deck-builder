@@ -94,7 +94,7 @@ Cada fila tiene un caso planificado `CAS-REG-nnn`; al implementar la regla compl
 
 T08.1a cubre parcialmente REG-001–006/052: fichas y mazos iniciales, salud, mercado, misiones seleccionadas, orden/Target, mano inicial y ficha/mazo del rival. No cubre recompensas de pista, texto de cartas, resultado del turno ni preparación con contenido real. La cobertura parcial no convierte los casos `CAS-REG` en aprobados.
 
-T08.2a añade cobertura interna de REG-009/010/025 en `tests/card_cycle_test.gd`: limpieza de cartas salvo aliados en juego, robo y reciclado del descarte personal solo ante necesidad. El agotamiento total conserva el rechazo técnico en el código; aplicar DEC-032 requiere una implementación posterior. Falta orquestar el final de turno completo y sus efectos. El servicio no recicla mercado ni rival ni ejecuta derrota de aliados. [Aceptación y evidencia](../specs/008-preparacion-y-turnos/verification.md).
+T08.2a añade cobertura interna de REG-009/010/025 en `tests/card_cycle_test.gd`: limpieza de cartas salvo aliados en juego, robo y reciclado del descarte personal solo ante necesidad. T08.2i cubre el agotamiento total de REG-010 conforme a DEC-032. Falta orquestar el final de turno completo y sus efectos. El servicio no recicla mercado ni rival ni ejecuta derrota de aliados. [Aceptación y evidencia](../specs/008-preparacion-y-turnos/verification.md).
 
 No detalla el texto de las 82 cartas de mercado, las 40 iniciales, las ocho misiones, los cuatro personajes, las 36 cartas del rival ni todas las casillas de entrenamiento/Dominación: el reglamento muestra ejemplos, no un catálogo completo legible de todo el contenido. Ese material debe incorporarse y verificarse en tareas propias.
 

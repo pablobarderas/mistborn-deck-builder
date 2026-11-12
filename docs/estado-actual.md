@@ -4,7 +4,9 @@
 
 ## Resumen
 
-T08.1b7 registra DEC-032 y resuelve DUD-004/006 para la adaptación. El robo personal con agotamiento total conserva la guardia técnica en el código y los finales del rival siguen pendientes de implementación. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b7--desbloqueo-tardío-robo-y-finales-del-rival).
+T08.2i aplica DEC-032 al robo personal. El ciclo toma las cartas disponibles y la limpieza puede cerrar con mano corta. Esquema 2, motor `p08-draw-1/godot-4.7.2`. Los resolutores de habilidades y del paso rival siguen pendientes. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t082i--robo-personal-con-mazo-y-descarte-agotados).
+
+T08.1b7, publicada en `02e38c7`, registra DEC-032 y resuelve DUD-004/006 para la adaptación. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b7--desbloqueo-tardío-robo-y-finales-del-rival).
 
 T08.1b6 registra DEC-031 sobre prevalencia de la edición española en estas discrepancias, nivel II, Guardadora, recompensas de misión y empates. Son reglas documentadas para la futura integración. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b6--resoluciones-de-reglas-del-perfil-competitivo).
 

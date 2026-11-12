@@ -22,15 +22,16 @@ func draw(snapshot: Variant, player_id: Variant, count: Variant, rng: Variant) -
 	if typeof(count) != TYPE_INT or count < 0 or not rng is RandomNumberGenerator:
 		return _result("formato_invalido")
 	var zones: Dictionary = _personal_zones(snapshot, player_id)
-	if count > zones.mazo.cards.size() + zones.descarte.cards.size():
-		# Guardia técnica DUD-006: no decide un resultado reglamentario.
-		return _result("regla_pendiente")
+	var available: int = zones.mazo.cards.size() + zones.descarte.cards.size()
+	var draw_count: int = mini(count, available)
+	if draw_count == 0:
+		return _result("")
 	var candidate: Dictionary = snapshot.duplicate(true)
 	zones = _personal_zones(candidate, player_id)
 	var staged_rng: RandomNumberGenerator = RandomNumberGenerator.new()
 	staged_rng.seed = rng.seed
 	staged_rng.state = rng.state
-	for unused: int in count:
+	for unused: int in draw_count:
 		if zones.mazo.cards.is_empty():
 			zones.mazo.cards.assign(zones.descarte.cards)
 			zones.descarte.cards.clear()

@@ -1,5 +1,9 @@
 # Plan de SPEC-008
 
+## T08.2i — Robo personal con mazo y descarte agotados
+
+[Registro R2](tasks.md#t082i--robo-personal-con-mazo-y-descarte-agotados) y [ROBO-01–03](spec.md#t082i--robo-personal-con-mazo-y-descarte-agotados). Acotar el robo después de validar la entrada y conservar el reciclado y el commit de la copia candidata. `TurnCleanup` usa el mismo resultado aceptado para cerrar con una mano corta. Mantener esquema 2, cambiar versión de motor y comprobar rechazo de la versión previa. Ejecutar suites de ciclo, limpieza y regresiones; revisión independiente del diff. El resolutor de habilidades y el paso rival mantienen sus tareas propias.
+
 ## T08.1b7 — Desbloqueo tardío, robo y finales del rival
 
 [Registro R2](tasks.md#t081b7--desbloqueo-tardío-robo-y-finales-del-rival) y [casos acordados](spec.md#t081b7--reglas-acordadas-para-desbloqueo-robo-y-finales). El resolutor de habilidades debe aplicar el desbloqueo tardío; T08.2 debe sustituir la guardia de agotamiento personal y actualizar las pruebas de ciclo, limpieza, RNG y rollback; T08.3 debe aplicar el orden del paso del rival y sus finales. El siguiente lote de contenido sigue siendo M1–M8.

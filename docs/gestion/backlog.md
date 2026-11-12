@@ -127,7 +127,7 @@ Documentos y plantillas se incluyen en la entrega inicial autorizada para commit
 
 ## Refinamiento P08
 
-T08.1b7 (R2 documental) registra DEC-032. Queda aplicar el desbloqueo tardío en el resolutor de habilidades, el robo personal en T08.2 y la prioridad de finales del rival en T08.3. [Casos y evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b7--desbloqueo-tardío-robo-y-finales-del-rival).
+T08.1b7 (R2 documental) registra DEC-032 y está publicada en `02e38c7`. T08.2i aplica el robo personal. Queda aplicar el desbloqueo tardío en el resolutor de habilidades y la prioridad de finales del rival en T08.3. [Casos y evidencia](../specs/008-preparacion-y-turnos/verification.md#t082i--robo-personal-con-mazo-y-descarte-agotados).
 
 T08.1b5 y T08.1b6 (R2 documental): [delimitación del perfil competitivo de producto](../specs/008-preparacion-y-turnos/perfil-competitivo-producto.md) y resoluciones de DEC-031. Próximo lote propuesto: revisión y transcripción de M1–M8. PERF-01–06 quedan para la integración. Sin issue publicada.
 

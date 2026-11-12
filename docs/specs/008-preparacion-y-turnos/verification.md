@@ -1,5 +1,17 @@
 # Verificación de SPEC-008
 
+## T08.2i — Robo personal con mazo y descarte agotados
+
+2026-11-12. El usuario autoriza «haz commit y push» para T08.2i. Empaquetado R0 a cargo del coordinador: fetch y estado remoto comprobados en `02e38c7`; revisar alcance del índice y espacios, publicar en `main` y verificar coincidencia con GitHub y árbol limpio. Se reutilizan las pruebas y la revisión R2 del cambio funcional. El commit que incorpora esta nota identifica la entrega publicada; el estado local descrito abajo es histórico.
+
+2026-11-12. [Registro R2](tasks.md#t082i--robo-personal-con-mazo-y-descarte-agotados) y [ROBO-01–03](spec.md#t082i--robo-personal-con-mazo-y-descarte-agotados). Base publicada `02e38c723ac86f0492f2f5c64abb2a9b852030bf`, igual a HEAD y origin/main, árbol inicial limpio. Contraste reglamentario reutilizado de DEC-032. El coordinador implementó el cambio y versionó el motor; `draw_tests` (sdd_developer, Sol/medium) fue propietario de las suites de ciclo y limpieza.
+
+Godot `4.7.2.stable.official.ed1daf0bf`, lanzador `tools/godot.ps1`. Código 0 y marcas de éxito en once suites, **4.295 comprobaciones**: ciclo 269, limpieza 561, estado 2.006, motor 102, preparación 147, secuencias 253, Funding 205, entrenamiento 275, inicio 199, catálogo 220 y arranque 58. Los ocho errores de carga de arranque son casos negativos esperados. Los intentos iniciales de importación se corrigieron usando la distribución portátil completa y ejecutando fuera del aislamiento que impedía leer el almacén de certificados.
+
+`profile_review` (sdd_reviewer, Sol/high) emitió dictamen favorable tras revisar el diff funcional y nueve logs de Godot. El coordinador verificó las dos regresiones restantes. Dos delegaciones sin descendientes ni dispensas. Métricas de tokens no disponibles. Comprobados 238 enlaces locales, 106 anclas y diff limpio. Entrega funcional verificada en el árbol local, sin commit ni push.
+
+Traspaso: esquema 2, motor `p08-draw-1/godot-4.7.2`. El cambio se aplica por la misma llamada de `TurnCleanup` al ciclo y deja los snapshots anteriores fuera de la versión admitida. Las otras dos reglas de DEC-032 requieren el resolutor de habilidades y el paso del Lord Legislador. Siguiente lote de contenido: M1–M8.
+
 ## T08.1b7 — Desbloqueo tardío, robo y finales del rival
 
 2026-11-12. Publicación autorizada por «haz el commit y push y ponte con los arreglos». Empaquetado R0 por el coordinador sobre `5fe5e65`, con revisión del índice, enlaces y diff. El commit que contiene esta nota identifica la entrega documental. Se comprobará su recepción en `origin/main` y el árbol limpio antes de iniciar el arreglo del robo personal.

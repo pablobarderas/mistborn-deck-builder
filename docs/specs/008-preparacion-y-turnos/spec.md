@@ -1,8 +1,16 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.2i — Robo personal con mazo y descarte agotados
+
+Aplica el robo personal de [DEC-032](../../decisiones.md#dec-032--desbloqueo-tardío-robo-personal-y-finales-del-rival). El resultado de `CardCycle.draw` conserva `ok` y `codigo`: tanto un robo parcial como uno vacío son aceptados. El esquema sigue en 2 y el motor usa `p08-draw-1/godot-4.7.2`.
+
+- **ROBO-01:** tomar todas las cartas disponibles hasta la cantidad solicitada. Reciclar sólo al necesitar otra carta. Una solicitud válida con ambas zonas vacías no cambia el estado ni el RNG.
+- **ROBO-02:** el cierre interno de limpieza entrega una mano corta y conserva sus reglas de recursos, Atium, privacidad y fase en las siete configuraciones. El rechazo posterior conserva snapshot y RNG y el reenvío de una acción confirmada no repite el robo.
+- **ROBO-03:** rechazar entradas inválidas y snapshots de motor anterior. Conservar los demás bloqueos de limpieza y la separación entre robo personal, mercado y rival.
+
 ## T08.1b7 — Reglas acordadas para desbloqueo, robo y finales
 
-[DEC-032](../../decisiones.md#dec-032--desbloqueo-tardío-robo-personal-y-finales-del-rival) fija el comportamiento de producto. Los criterios de las entregas aisladas inferiores conservan el comportamiento verificado entonces. `CardCycle.draw` y su uso en limpieza aún rechazan con `regla_pendiente` si la cantidad supera el total disponible.
+[DEC-032](../../decisiones.md#dec-032--desbloqueo-tardío-robo-personal-y-finales-del-rival) fija el comportamiento de producto. Los criterios de las entregas aisladas inferiores conservan el comportamiento verificado entonces. T08.2i sustituye la guardia de agotamiento personal. Los escenarios de activación y del rival siguen destinados a sus integraciones.
 
 - **Desbloqueo.** Quemar el metal requerido, alcanzar el umbral después y poder activar la habilidad en ese turno. Rechazar el uso antes de desbloquearla, sin el metal requerido o cuando ya se usó ese turno. La activación de nivel II conserva su condición de compra.
 - **Robo personal.** Solicitar cinco cartas con dos en el mazo y una en el descarte: robar las tres disponibles, reciclar sólo al necesitarlo y completar el efecto con una mano más corta. Con ambas zonas vacías, el robo aporta cero cartas y no consume RNG. En limpieza, probar también el avance de fase con la mano más corta y el rollback si falla otra validación de la transacción.
@@ -85,7 +93,7 @@ Subentrega de T08.2: servicio interno de autoridad, independiente de escenas y t
 
 ## Dudas y límites
 
-DUD-002/003 impiden preparar una partida con contenido real hasta verificar el catálogo y su traducción. T08.2 debe implementar el robo con mazo y descarte vacíos según DEC-032. [SRC-004](../../referencias/entrenamiento-competitivo.md) documenta las recompensas del panel competitivo. La apertura automática de `libre` tras `inicio` requiere especificación y ejecución del avance y sus obligaciones. SRC-002 corrige la mención a Mission Track en la regla de Atium continuo y confirma entrenamiento en la primera ronda.
+DUD-002/003 impiden preparar una partida con contenido real hasta verificar el catálogo y su traducción. El robo personal con mazo y descarte agotados se cubre en T08.2i. [SRC-004](../../referencias/entrenamiento-competitivo.md) documenta las recompensas del panel competitivo. La apertura automática de `libre` tras `inicio` requiere especificación y ejecución del avance y sus obligaciones. SRC-002 corrige la mención a Mission Track en la regla de Atium continuo y confirma entrenamiento en la primera ronda.
 
 ## T08.2b — Cierre interno de limpieza y entrega de fase
 

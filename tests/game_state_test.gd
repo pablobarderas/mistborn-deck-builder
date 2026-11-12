@@ -90,7 +90,7 @@ func _test_state() -> void:
 
 
 func _test_atium() -> void:
-	_expect(Validator.SCHEMA_VERSION == 2 and Validator.ENGINE_VERSION == "p08-start-1/godot-4.7.2", "AC30 esquema 2 y versión del motor con inicio competitivo")
+	_expect(Validator.SCHEMA_VERSION == 2 and Validator.ENGINE_VERSION == "p08-draw-1/godot-4.7.2", "DEC-032 esquema 2 y versión de robo personal")
 	for mode: String in ["competitivo", "cooperativo", "solitario"]:
 		var counts: Array = [1] if mode == "solitario" else [2, 3, 4]
 		for count: int in counts:
@@ -114,7 +114,7 @@ func _test_atium() -> void:
 	var state: RefCounted = State.new(Fixtures.definitions(), "test_catalog", _registry)
 	var base: Dictionary = Fixtures.snapshot()
 	_expect(state.try_load(base).ok, "AC18 carga versión nueva")
-	for version: String in ["p08-atium-1/godot-4.7.2", "p08-setup-1/godot-4.7.2", "p07-state-1/godot-4.7.2"]:
+	for version: String in ["p08-start-1/godot-4.7.2", "p08-atium-1/godot-4.7.2", "p08-setup-1/godot-4.7.2", "p07-state-1/godot-4.7.2"]:
 		var old: Dictionary = base.duplicate(true)
 		old.version_motor = version
 		var before: Dictionary = old.duplicate(true)
