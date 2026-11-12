@@ -1,5 +1,9 @@
 # Tareas de SPEC-008
 
+### T08.1b8 — Transcripción de las ocho misiones
+
+Registro previo 2026-11-12. Fetch y estado publicado comprobados en `916c81a05f84ff18c65335eaa8ade347ed59b0d4`, igual a HEAD de main y con árbol limpio. R2 documental por recorridos, recompensas y futura admisión de catálogo. Aceptación: cotejar las ocho cartas de SRC-005 con sus posiciones, premios de casilla, extras del primero y recompensas de cima, contrastar los símbolos y las reglas con SRC-001/002 y DEC-031, y delimitar lo que P06 permite representar. Plan: comprobar huellas, leer los originales y las páginas pertinentes, registrar un borrador trazable, verificar cobertura, enlaces y diff, y someter el resultado a revisión independiente. El coordinador es el único escritor, `mission_rules` (sdd_rules, Sol/high) contrasta las reglas y un sdd_reviewer (Sol/high) revisa la entrega. Sin dispensas.
+
 ### T08.2i — Robo personal con mazo y descarte agotados
 
 Registro previo 2026-11-12. DEC-032 publicada en `02e38c723ac86f0492f2f5c64abb2a9b852030bf`; fetch posterior confirma HEAD, origin/main y árbol limpio. R2 por reglas, zonas privadas, RNG y cierre transaccional. Aceptación: robar hasta el total disponible, reciclar sólo al necesitarlo, aceptar robo vacío sin cambios/RNG, cerrar limpieza con mano corta y conservar rollback, recibos y privacidad. El coordinador posee `card_cycle.gd`, versión de motor, prueba de versión y documentación. `draw_tests` (sdd_developer, Sol/medium) posee las suites de ciclo y limpieza. Reutilizar contraste de DEC-032; revisión independiente sdd_reviewer Sol/high. Plan: mantener el contrato de retorno, limitar el bucle al total disponible, versionar la semántica conservando esquema 2, ejecutar ciclo/limpieza/estado/motor y regresiones P08 pertinentes. Sin dispensas.

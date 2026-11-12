@@ -1,5 +1,15 @@
 # Verificación de SPEC-008
 
+## T08.1b8 — Transcripción de las ocho misiones
+
+2026-11-12. Publicación autorizada expresamente por el usuario. Empaquetado R0 a cargo del coordinador sobre la base publicada `916c81a05f84ff18c65335eaa8ade347ed59b0d4`, igual a HEAD tras el fetch. Aceptación y plan: aclarar el traspaso sin alterar la transcripción revisada, comprobar enlaces, diff e índice, publicar en `main` y comprobar que la rama remota contiene el commit y el árbol queda limpio. Se reutiliza la revisión R2. El commit que incorpora esta nota identifica la entrega.
+
+2026-11-12. [Registro previo R2](tasks.md#t081b8--transcripción-de-las-ocho-misiones). Fetch y estado publicado contrastados en `916c81a05f84ff18c65335eaa8ade347ed59b0d4`, igual a HEAD con árbol inicialmente limpio. Las dos huellas SHA-256 coinciden con SRC-005. El coordinador leyó las dos hojas originales y contrastó el ejemplo de SRC-001 p. 14 y la leyenda de p. 17. `mission_rules` (sdd_rules, Sol/high) cotejó de forma independiente las casillas y recompensas de las ocho misiones, la FAQ SRC-002 y DEC-031. [Transcripción y encaje con P06](../../referencias/misiones-competitivas.md).
+
+Verificación de cobertura: ocho códigos y localizadores únicos, 17 casillas intermedias con premio y ocho cimas, cuatro de premio permanente y cuatro de premio único. Comprobados 198 enlaces locales, 91 anclas y `git diff --check`. `mission_review` (sdd_reviewer, Sol/high) emitió dictamen favorable tras revisar el lote, fuentes, P06 y documentación. Se incorporó su sugerencia de acotar la comparación de posiciones a competitivo y remitir a REG-065 para solitario. Godot queda fuera de esta verificación documental. Dos delegaciones sin descendientes ni dispensas.
+
+Transcripción documental completada. El lote conserva estado de borrador para catálogo. Primer paso siguiente propuesto: especificar extras del primero, duración y aplicación de los premios y efectos sin representación, y cómo registrar en P06 los escaneos existentes de SRC-005.
+
 ## T08.2i — Robo personal con mazo y descarte agotados
 
 2026-11-12. El usuario autoriza «haz commit y push» para T08.2i. Empaquetado R0 a cargo del coordinador: fetch y estado remoto comprobados en `02e38c7`; revisar alcance del índice y espacios, publicar en `main` y verificar coincidencia con GitHub y árbol limpio. Se reutilizan las pruebas y la revisión R2 del cambio funcional. El commit que incorpora esta nota identifica la entrega publicada; el estado local descrito abajo es histórico.

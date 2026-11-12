@@ -50,7 +50,7 @@ Originales de la caja española del usuario, comprobados para T08.1b5 el 2026-11
 | `misiones/misiones.1.png` | `0185C0D65D2CEC7B66070BD08D5CD7D8FE618272BE490ED82C725C419346FA9D` |
 | `misiones/misiones.2.png` | `3DA0CF82F7CCB10CC08AFA27EE3F694A8CF51B6C536E153CB21F8DB6F5225B5B` |
 
-Los nueve PNG de `cartas_mercado` corresponden a la [auditoría de mercado](auditoria-escaneos-2026-11-09.md). T08.1b5 cotejó visualmente la cobertura de personajes y misiones, el nivel II impreso y las piezas pertinentes para delimitar inicio y finales. [Localizadores y alcance de lectura](../specs/008-preparacion-y-turnos/perfil-competitivo-producto.md). Quedan pendientes la transcripción, la revisión sistemática y la incorporación al catálogo.
+Los nueve PNG de `cartas_mercado` corresponden a la [auditoría de mercado](auditoria-escaneos-2026-11-09.md). T08.1b5 cotejó visualmente la cobertura de personajes y misiones, el nivel II impreso y las piezas pertinentes para delimitar inicio y finales. [Localizadores y alcance de lectura](../specs/008-preparacion-y-turnos/perfil-competitivo-producto.md). T08.1b8 conserva la [transcripción de las ocho misiones](misiones-competitivas.md) como borrador documental. Quedan pendientes su incorporación al catálogo y la revisión sistemática del resto de este lote de fuentes.
 
 ## Mapa de lectura del reglamento
 

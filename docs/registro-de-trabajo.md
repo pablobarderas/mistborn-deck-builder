@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-12 — Recorridos y premios de las misiones
+
+- T08.1b8 coteja las ocho misiones españolas con las dos hojas de SRC-005, el reglamento y la FAQ. El borrador conserva los premios normales, los extras del primero y su duración. Siguiente paso propuesto: especificar su representación y la admisión de las fuentes físicas en catálogo. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b8--transcripción-de-las-ocho-misiones).
+
 ## 2026-11-12 — Robo personal con agotamiento
 
 - DEC-032 publicada en `02e38c7`. T08.2i aplica el robo parcial o vacío y permite cerrar limpieza con mano corta. Quedan los resolutores de habilidades y del rival. [Verificación y traspaso](specs/008-preparacion-y-turnos/verification.md#t082i--robo-personal-con-mazo-y-descarte-agotados).

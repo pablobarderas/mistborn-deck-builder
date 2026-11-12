@@ -4,13 +4,15 @@
 
 ## Resumen
 
+T08.1b8 reúne los recorridos y recompensas de M1–M8 en un borrador documental cotejado con los dos escaneos españoles de SRC-005. El catálogo ejecutable sigue siendo de muestra. El siguiente paso propuesto es especificar cómo representar los premios de misión y registrar en el catálogo esos escaneos ya cotejados. [Transcripción](referencias/misiones-competitivas.md) · [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b8--transcripción-de-las-ocho-misiones).
+
 T08.2i aplica DEC-032 al robo personal. El ciclo toma las cartas disponibles y la limpieza puede cerrar con mano corta. Esquema 2, motor `p08-draw-1/godot-4.7.2`. Los resolutores de habilidades y del paso rival siguen pendientes. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t082i--robo-personal-con-mazo-y-descarte-agotados).
 
 T08.1b7, publicada en `02e38c7`, registra DEC-032 y resuelve DUD-004/006 para la adaptación. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b7--desbloqueo-tardío-robo-y-finales-del-rival).
 
 T08.1b6 registra DEC-031 sobre prevalencia de la edición española en estas discrepancias, nivel II, Guardadora, recompensas de misión y empates. Son reglas documentadas para la futura integración. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b6--resoluciones-de-reglas-del-perfil-competitivo).
 
-T08.1b5 delimita el manifiesto competitivo de producto, localiza las ocho misiones españolas y documenta las reglas que exige su admisión. El catálogo ejecutable sigue siendo de muestra. Siguiente paso propuesto: revisión y transcripción del lote M1–M8. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b5--delimitación-del-perfil-competitivo-de-producto).
+T08.1b5 delimita el manifiesto competitivo de producto, localiza las ocho misiones españolas y documenta las reglas que exige su admisión. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b5--delimitación-del-perfil-competitivo-de-producto).
 
 T08.1b4, publicada en `69c1ef2`, implementa el inicio único competitivo en perfil aislado. El avance, la recompensa y la apertura de la fase libre se confirman juntos, con reenvío idempotente y guardas de obligaciones y finales. El contrato T08.1b3 está publicado en `fd75e23`. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b4--implementación-del-inicio-competitivo).
 
