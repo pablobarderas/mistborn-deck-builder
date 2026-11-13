@@ -256,6 +256,10 @@ Ampliación técnica T08.2h, 2026-11-11: adaptador GameEngine con perfil complet
 
 Es una decisión de adaptación, no una errata atribuida al editor. El [contrato de avance](specs/008-preparacion-y-turnos/avance-misiones.md) fija consumo, estado y escenarios; T08.1b12 la implementa localmente para M5/M6/M7, con snapshot 3/motor `p08-missions-1/godot-4.7.2`, primeras llegadas y resultado persistidos sin migración implícita desde esquema 2. No cambia finales de cooperativo/solitario.
 
+## DEC-035 — Permanentes competitivos con marcas y cierre interno
+
+2026-11-13. Diseño técnico de T08.1b14 implementado y verificado localmente, con [revisión independiente favorable](specs/008-preparacion-y-turnos/verification.md#t081b14--implementación-de-permanentes-m3m4). El perfil aislado M3/M4/M7 comparte candidatos de misión y P07 para confirmar llegada, inicio y nueva mano. Snapshot 4/motor `p08-permanents-1/godot-4.7.2`, sin migración implícita. M3 conserva marcas privadas de adquisición/última aplicación; M4 deriva mano 5/6 de su premio liquidado. Los namespaces internos de inicio/cierre quedan vedados a la entrada pública antes de consultar recibos. No habilita entrada a limpieza, cartas generadoras de puntos, producto ni modos con rival. No modifica las decisiones humanas DEC-031/032/034; [contrato normativo](specs/008-preparacion-y-turnos/permanentes-misiones.md).
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.

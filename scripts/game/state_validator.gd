@@ -2,8 +2,8 @@ extends RefCounted
 ## Invariantes estructurales del snapshot privado. No aplica reglas ni efectos.
 
 const Registry = preload("res://scripts/game/sequence_registry.gd")
-const SCHEMA_VERSION: int = 3
-const ENGINE_VERSION: String = "p08-missions-1/godot-4.7.2"
+const SCHEMA_VERSION: int = 4
+const ENGINE_VERSION: String = "p08-permanents-1/godot-4.7.2"
 const METALS: Array[String] = ["peltre", "estano", "bronce", "cobre", "zinc", "laton", "hierro", "acero", "atium"]
 const PLAYER_ZONES: Array[String] = ["mano", "mazo", "descarte", "juego"]
 const SHARED_ZONES: Array[String] = ["mazo_mercado", "mercado", "eliminadas", "mazo_rival", "descarte_rival", "adversarios"]
@@ -81,6 +81,8 @@ func validate(document: Variant, definitions: Dictionary, catalog_id: String, re
 	if _errors.is_empty():
 		_validate_outcome(document)
 	_validate_authority(document.authority, document.revision)
+	if _errors.is_empty():
+		_validate_permanents(document)
 	if _errors.is_empty():
 		_validate_sequences(document, registry)
 	return _result()
@@ -390,8 +392,61 @@ func _validate_sequences(document: Dictionary, registry: Registry) -> void:
 		_error("resolution.pending", "ventana incompatible con el paso actual")
 
 
+func _validate_permanents(document: Dictionary) -> void:
+	var ledger: Variant = document.authority.mission_permanents
+	if not _writable_map(ledger, "authority.mission_permanents"):
+		return
+	var expected: Dictionary = {}
+	for mission_id: String in document.missions:
+		var mission: Dictionary = document.missions[mission_id]
+		if mission.definition_id != "mision_m3":
+			continue
+		for player_id: String in mission.rewards:
+			if not "p12_permanente" in mission.rewards[player_id]:
+				continue
+			if mission.progress[player_id] != 12 or not _definitions.has("mision_m3"):
+				_error("authority.mission_permanents", "permanente sin llegada")
+				continue
+			var tracks: Array = _definitions.mision_m3.get("rasgos", {}).get("recorridos", [])
+			if tracks.size() != 1 or tracks[0].get("casillas", []).size() != 12 \
+				or not _m3_descriptor(tracks[0].casillas[11].get("permanente")):
+				_error("authority.mission_permanents", "definición incompatible")
+			if not expected.has(mission_id):
+				expected[mission_id] = {}
+			expected[mission_id][player_id] = true
+	if ledger.keys().size() != expected.keys().size():
+		_error("authority.mission_permanents", "marcas ausentes o huérfanas")
+	for mission_id: Variant in ledger:
+		var entries: Variant = ledger[mission_id]
+		if not expected.has(mission_id) or not _writable_map(entries, "authority.mission_permanents.entries"):
+			_error("authority.mission_permanents", "misión incompatible")
+			continue
+		if not Registry.exact_keys(entries, expected[mission_id].keys()):
+			_error("authority.mission_permanents", "plazas incompatibles")
+		for player_id: Variant in entries:
+			var mark: Variant = entries[player_id]
+			if not expected[mission_id].has(player_id) or not _shape(mark, ["acquired_turn", "last_applied_turn"], "authority.mission_permanents.mark"):
+				_error("authority.mission_permanents", "marca incompatible")
+				continue
+			if not mark.acquired_turn is int or not mark.last_applied_turn is int:
+				_error("authority.mission_permanents", "turnos no enteros")
+				continue
+			if mark.acquired_turn < 1 or mark.acquired_turn > mark.last_applied_turn or mark.last_applied_turn > document.turn.number:
+				_error("authority.mission_permanents", "intervalo imposible")
+			if player_id == document.turn.active_id:
+				if document.turn.phase == "inicio" and mark.last_applied_turn >= document.turn.number:
+					_error("authority.mission_permanents", "inicio parcialmente aplicado")
+				if document.turn.phase in ["libre", "limpieza"] and mark.last_applied_turn != document.turn.number:
+					_error("authority.mission_permanents", "inicio sin aplicar")
+
+
+static func _m3_descriptor(value: Variant) -> bool:
+	return value is Dictionary and Registry.exact_keys(value, ["tipo", "cantidad", "recurso"]) \
+		and value.tipo == "cada_turno" and value.cantidad == 2 and value.recurso == "recursos"
+
+
 func _validate_authority(value: Variant, revision: Variant) -> void:
-	if not _shape(value, ["rng_seed", "rng_state", "next_id", "receipts", "completed_sequences"], "authority"):
+	if not _shape(value, ["rng_seed", "rng_state", "next_id", "receipts", "completed_sequences", "mission_permanents"], "authority"):
 		return
 	if not _writable_map(value, "authority"):
 		return

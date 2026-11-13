@@ -1,6 +1,10 @@
 # Plan de SPEC-007
 
-## Ampliación vigente de misiones — esquema 3
+## Ampliación de permanentes — esquema 4
+
+T08.1b14 añade `authority.mission_permanents` privado, con marcas M3 `{acquired_turn, last_applied_turn}`, y motor `p08-permanents-1/godot-4.7.2`. Constructores y fixtures crean el mapa vacío; validación rechaza omisiones, huérfanos, intervalos imposibles y fases incompatibles. P07 reserva también tipo `cerrar_limpieza` e IDs `limpieza_` para la entrada interna; el recibo y el siguiente turno se confirman junto al candidato/RNG. La entrada pública rechaza esos namespaces antes de consultar recibos. No hay migración implícita desde esquema 3 ni transporte de producto. [Contrato](../008-preparacion-y-turnos/permanentes-misiones.md) y [verificación vigente](../008-preparacion-y-turnos/verification.md#t081b14--implementación-de-permanentes-m3m4).
+
+## Ampliación de misiones — esquema 3 (antecedente)
 
 T08.1b12 incorpora `outcome`, `missions[].first_arrivals` y `players[].turn_resources.mision`, con motor `p08-missions-1/godot-4.7.2`. Los constructores crean resultado null, primeras llegadas null según recorrido y cero puntos netos; limpieza reinicia esos puntos. Se rechaza esquema 2 sin migración implícita. El validador genérico comprueba formas/referencias y coherencia básica de resultado; el perfil M5/M6/M7 comprueba la liquidación exacta de premios, primeras llegadas y continuidad. Los stubs técnicos sin recorrido siguen sin certificar reglas. Resultado y llegadas se proyectan por lista permitida. [Contrato y frontera](../008-preparacion-y-turnos/avance-misiones.md). Las versiones siguientes conservan antecedentes.
 

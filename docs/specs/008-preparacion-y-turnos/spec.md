@@ -1,8 +1,8 @@
 # SPEC-008 — Preparación y turnos
 
-## T08.1b13 — Permanentes M3/M4
+## T08.1b13/14 — Permanentes M3/M4
 
-[Contrato, PERM-01–06 y plan de implementación](permanentes-misiones.md): M3 al completar y una vez por inicio posterior; M4 sólo al robar nueva mano. Snapshot 4/motor de permanentes previstos para T08.1b14, sin cambios actuales de código. El perfil futuro M3/M4/M7 conservará fixtures y la entrada a limpieza pendiente. [Evidencia documental](verification.md#t081b13--contrato-de-permanentes-m3m4).
+[Contrato, PERM-01–06 y plan de implementación](permanentes-misiones.md): M3 al completar y una vez por inicio posterior; M4 sólo al robar nueva mano. T08.1b14 implementa snapshot 4/motor de permanentes, perfil aislado M3/M4/M7 con fixtures y entrada a limpieza pendiente. [Evidencia de ejecución y revisión](verification.md#t081b14--implementación-de-permanentes-m3m4).
 
 ## T08.1b12 — Resolutor automático M5/M6/M7
 

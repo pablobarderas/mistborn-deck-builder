@@ -1,5 +1,11 @@
 # Arquitectura
 
+## Permanentes de misión — T08.1b14
+
+[permanents_play.gd](../scripts/game/permanents_play.gd) compone el perfil aislado M3/M4/M7 sobre el candidato compartido de misiones. Las entradas internas `start_turn` y `finish_cleanup` usan recibos P07 y namespaces reservados; la entrada pública conserva únicamente `avanzar_mision`. Inicio confirma entrenamiento, +2 de M3, marca privada y apertura de libre juntos. Limpieza deriva mano 5/6 de M4, conserva sus guardas y entrega inicio al siguiente vivo. No implementa entrada desde libre a limpieza.
+
+Snapshot 4/motor `p08-permanents-1/godot-4.7.2`, sin migración implícita desde esquema 3. `authority.mission_permanents` conserva adquisición/última aplicación de M3; las vistas excluyen toda la autoridad privada. Catálogo v2 y perfil anterior M5/M6/M7 se conservan; componentes restantes, pista y reservas siguen siendo fixtures. [Contrato](specs/008-preparacion-y-turnos/permanentes-misiones.md) y [estado de verificación](specs/008-preparacion-y-turnos/verification.md#t081b14--implementación-de-permanentes-m3m4). Los apartados siguientes conservan versiones históricas.
+
 ## Misiones automáticas — T08.1b12
 
 [mission_advance.gd](../scripts/game/mission_advance.gd) genera un candidato sobre copia: gasto neto unitario, primera llegada, premio normal/extra y final por tres misiones según DEC-034. [mission_play.gd](../scripts/game/mission_play.gd) registra sólo `avanzar_mision`, valida el catálogo v2 completo y descriptores confiables, y selecciona exclusivamente M5/M6/M7. P07 conserva el commit/recibo/RNG; no se relajan las guardas de secuencia. Training comparte núcleo entre la entrada de inicio y `advance_for_mission` en libre, sin cambiar temporalmente la fase. `restore_match` exige fuente tipada del último estado confirmado e instancia vacía; el llamador fiable serializa la autoridad. No existe entrada cliente para cargar un estado.

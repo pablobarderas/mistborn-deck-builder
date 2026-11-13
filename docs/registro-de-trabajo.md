@@ -1,5 +1,13 @@
 # Registro de trabajo
 
+## 2026-11-13 — Publicación de T08.1b14
+
+- Commit/push autorizado expresamente; empaquetado R0 de los 27 archivos revisados sobre `bc9bdb1`, confirmado con fetch. Sin cambios funcionales: se reutilizan las 14 suites/7.904 comprobaciones y revisión independiente favorable. Comprobar enlaces/diff, índice, remoto y árbol limpio; ninguna dispensa. El commit que contiene esta nota identifica la entrega. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b14--implementación-de-permanentes-m3m4).
+
+## 2026-11-13 — Permanentes M3/M4 implementados
+
+- T08.1b14 R2 sobre main/`bc9bdb1`, confirmado con fetch y árbol inicialmente limpio. Snapshot 4, perfil aislado M3/M4/M7, ledger privado M3, inicio/cierre internos con recibos y nueva mano 5/6 derivada de M4. Corregidos fallos de fixtures y comparación de cantidades JSON, sin cambiar reglas. 14 suites/7.904 comprobaciones en Godot 4.7.2; revisión independiente favorable y comprobación documental. Ninguna dispensa ni commit/push. Pendientes entrada a limpieza/producto/rival; siguiente propuesto T08.1b15 contrato M8. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b14--implementación-de-permanentes-m3m4).
+
 ## 2026-11-13 — Publicación de T08.1b13
 
 - Commit/push autorizado expresamente. Empaquetado R0 de diez Markdown sobre `4905b4e`, confirmado con fetch; revisión independiente reutilizada, enlaces/anclas y diff comprobados. Publicación identificada por el commit que contiene esta nota; siguiente T08.1b14, sin iniciar implementación. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b13--contrato-de-permanentes-m3m4).

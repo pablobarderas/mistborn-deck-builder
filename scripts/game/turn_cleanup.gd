@@ -56,7 +56,16 @@ func finish_cleanup(snapshot: Variant, player_id: Variant, rng: Variant) -> Dict
 	for instance: Dictionary in candidate.instances.values():
 		if instance.owner_id == player_id:
 			instance.state.ability_uses.clear()
-	result = cycle.draw(candidate, player_id, 5, staged_rng)
+	var hand_size: int = 5
+	for mission: Dictionary in candidate.missions.values():
+		if mission.definition_id == "mision_m4" and mission.progress[player_id] == 12 \
+			and "p12_permanente" in mission.rewards[player_id]:
+			var tracks: Array = _definitions[mission.definition_id].get("rasgos", {}).get("recorridos", [])
+			if tracks.size() != 1 or tracks[0].get("casillas", []).size() != 12 \
+				or not _m4_descriptor(tracks[0].casillas[11].get("permanente")):
+				return _result("estado_invalido")
+			hand_size = 6
+	result = cycle.draw(candidate, player_id, hand_size, staged_rng)
 	if not result.ok:
 		return result
 	if candidate.mode == "competitivo":
@@ -77,6 +86,11 @@ func finish_cleanup(snapshot: Variant, player_id: Variant, rng: Variant) -> Dict
 	snapshot.merge(candidate, true)
 	rng.state = staged_rng.state
 	return _result("")
+
+
+static func _m4_descriptor(value: Variant) -> bool:
+	return value is Dictionary and Registry.exact_keys(value, ["tipo", "cantidad"]) \
+		and value.tipo == "mano_nueva" and value.cantidad == 1
 
 
 func _pending_rule(snapshot: Dictionary, player_id: String) -> String:

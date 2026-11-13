@@ -12,7 +12,7 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
-- Traspaso vigente 2026-11-13: T08.1b13 en revisión documental; [permanentes M3/M4 y plan T08.1b14](specs/008-preparacion-y-turnos/permanentes-misiones.md). El punto de reanudación inferior distingue este objetivo de los antecedentes.
+- Traspaso vigente 2026-11-13: T08.1b14 completada localmente, 14 suites/7.904 comprobaciones y revisión independiente favorable. Siguiente propuesto T08.1b15: contrato de elecciones/eliminación opcional de M8. [Evidencia de permanentes M3/M4](specs/008-preparacion-y-turnos/verification.md#t081b14--implementación-de-permanentes-m3m4). El punto de reanudación inferior distingue este objetivo de los antecedentes.
 
 - T08.1b4 integra el [inicio único competitivo](specs/008-preparacion-y-turnos/verification.md#t081b4--implementación-del-inicio-competitivo) en un perfil aislado. El primer paso para integrarlo al producto es contrastar el material disponible y delimitar las definiciones y misiones del manifiesto competitivo.
 
@@ -313,7 +313,7 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 
 ## Punto de reanudación
 
-2026-11-13. T08.1b13 en revisión documental: [contrato de permanentes M3/M4](specs/008-preparacion-y-turnos/permanentes-misiones.md). Tras revisión, siguiente T08.1b14: perfil aislado M3/M4/M7 con inicio y cierre internos; sin entrada a limpieza ni producto. [Evidencia vigente](specs/008-preparacion-y-turnos/verification.md#t081b13--contrato-de-permanentes-m3m4). Las entradas inferiores conservan antecedentes.
+2026-11-13. T08.1b14 completada localmente y revisada: perfil aislado M3/M4/M7 con inicio y cierre internos según [contrato de permanentes](specs/008-preparacion-y-turnos/permanentes-misiones.md), 14 suites/7.904 comprobaciones. Sin commit/push, entrada a limpieza ni producto. Siguiente propuesto T08.1b15: especificar elecciones y eliminación opcional de M8, fuentes/AC y enlace con secuencias antes de implementarla. [Evidencia vigente](specs/008-preparacion-y-turnos/verification.md#t081b14--implementación-de-permanentes-m3m4). Las entradas inferiores conservan antecedentes.
 
 2026-11-12. T08.1b12 completada localmente y revisada: [avance automático M5/M6/M7](specs/008-preparacion-y-turnos/verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7), esquema 3, 5.418 comprobaciones. T08.1b11 publicada en `2bc058c`; T08.1b12 se publica por encargo expreso en el commit que incorpora esta actualización. Siguiente objetivo T08.1b13: especificar integración de permanentes M3/M4 y aplicación única en inicio/limpieza. Mantener pendientes elecciones, cartas generadoras de puntos, catálogo restante, integración de producto y modos con rival.
 

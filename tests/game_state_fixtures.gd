@@ -59,7 +59,7 @@ static func snapshot(mode: String = "competitivo", count: int = 2) -> Dictionary
 		"turn": {"number": 0, "active_id": null, "phase": "sin_iniciar", "counters": {}},
 		"missions": {"mission_1": {"definition_id": "test_mission", "progress": progress,
 			"rewards": rewards, "arrival_order": [], "first_arrivals": {}}}, "target_id": null, "rival": rival,
-		"resolution": null, "outcome": null, "authority": {"rng_seed": 101, "rng_state": -456, "next_id": 3, "receipts": {}, "completed_sequences": {}}}
+		"resolution": null, "outcome": null, "authority": {"rng_seed": 101, "rng_state": -456, "next_id": 3, "receipts": {}, "completed_sequences": {}, "mission_permanents": {}}}
 
 
 static func instance(id: String, definition_id: String, owner_id: Variant) -> Dictionary:

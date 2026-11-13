@@ -4,6 +4,10 @@
 
 ## Resumen
 
+Publicación de T08.1b14 autorizada el 2026-11-13 mediante «haz el commit y el push» e identificada por el commit que incorpora esta nota. Las menciones inferiores sin commit/push conservan el estado previo al permiso. [Evidencia y siguiente objetivo propuesto T08.1b15](specs/008-preparacion-y-turnos/verification.md#t081b14--implementación-de-permanentes-m3m4).
+
+T08.1b14 completada localmente el 2026-11-13: permanentes M3/M4 en perfil aislado M3/M4/M7, snapshot 4/motor `p08-permanents-1/godot-4.7.2`, 14 suites/7.904 comprobaciones y revisión independiente favorable. M3 se aplica al llegar y una vez por inicio; M4 deriva la nueva mano de seis. T08.1b13 está publicada; las notas inferiores «en revisión» conservan antecedentes. [Registro, verificación y traspaso T08.1b14](specs/008-preparacion-y-turnos/verification.md#t081b14--implementación-de-permanentes-m3m4). Sin commit/push, entrada a limpieza ni producto. Siguiente objetivo propuesto T08.1b15: contrato de elecciones/eliminación opcional de M8.
+
 Publicación de T08.1b13 autorizada el 2026-11-13 mediante «haz commit y push» y recogida en el commit que incorpora esta nota. Siguiente objetivo T08.1b14. Las menciones inferiores sin publicación conservan el estado previo al permiso.
 
 T08.1b13 en revisión documental: [permanentes M3/M4](specs/008-preparacion-y-turnos/permanentes-misiones.md), aplicación única en inicio/nueva mano y PERM-01–06. El código conserva snapshot 3; snapshot 4 está previsto para T08.1b14. [Evidencia y traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t081b13--contrato-de-permanentes-m3m4). Sin publicación ni turno completo.

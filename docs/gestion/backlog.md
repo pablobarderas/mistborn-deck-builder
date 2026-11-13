@@ -127,7 +127,7 @@ Documentos y plantillas se incluyen en la entrega inicial autorizada para commit
 
 ## Refinamiento P08
 
-T08.1b13 (R2 documental) en revisión: [permanentes M3/M4 y PERM-01–06](../specs/008-preparacion-y-turnos/permanentes-misiones.md). Sin issue ni publicación. Próxima implementación T08.1b14: perfil aislado M3/M4/M7, marca de inicio M3 y nueva mano M4; entrada a limpieza, elecciones y producto pendientes.
+T08.1b13 (R2 documental) publicada y revisada favorablemente: [permanentes M3/M4 y PERM-01–06](../specs/008-preparacion-y-turnos/permanentes-misiones.md). T08.1b14 completada localmente, sin issue ni publicación: perfil aislado M3/M4/M7, marca de inicio M3 y nueva mano M4; 14 suites/7.904 comprobaciones y revisión independiente favorable. Entrada a limpieza y producto pendientes. Siguiente propuesto T08.1b15: contrato de elecciones/eliminación opcional M8, sin implementación iniciada. [Evidencia vigente](../specs/008-preparacion-y-turnos/verification.md#t081b14--implementación-de-permanentes-m3m4).
 
 T08.1b12 (R2) publicada en `4905b4e` y revisada: [M5/M6/M7](../specs/008-preparacion-y-turnos/verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7), snapshot 3, 13 suites/5.418 comprobaciones. Sin issue.
 

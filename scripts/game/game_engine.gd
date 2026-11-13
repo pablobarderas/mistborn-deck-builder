@@ -8,6 +8,8 @@ const Resolver = preload("res://scripts/game/sequence_resolver.gd")
 const ACTION_VERSION: int = 1
 const START_TURN_ACTION: String = "iniciar_turno"
 const START_TURN_ID_PREFIX: String = "inicio_"
+const CLEANUP_ACTION: String = "cerrar_limpieza"
+const CLEANUP_ID_PREFIX: String = "limpieza_"
 const MAX_ACTION_NODES: int = 256
 const MAX_CANONICAL_LENGTH: int = 4096
 var _state: RefCounted
@@ -43,7 +45,7 @@ func submit(actor_id: String, input: Variant) -> Dictionary:
 	return _submit(actor_id, input)
 
 
-func _submit(actor_id: String, input: Variant, internal_start: Callable = Callable()) -> Dictionary:
+func _submit(actor_id: String, input: Variant, internal_start: Callable = Callable(), internal_action: String = START_TURN_ACTION) -> Dictionary:
 	var current: Dictionary = _state.get_snapshot()
 	if current.is_empty():
 		return _reject("estado_invalido", 0)
@@ -54,10 +56,11 @@ func _submit(actor_id: String, input: Variant, internal_start: Callable = Callab
 	if not syntax.is_empty():
 		return _reject(syntax, revision)
 	var intent: Dictionary = input
-	var internal_type: bool = intent.tipo == START_TURN_ACTION
-	var internal_id: bool = intent.action_id.begins_with(START_TURN_ID_PREFIX)
+	var internal_type: bool = intent.tipo in [START_TURN_ACTION, CLEANUP_ACTION]
+	var internal_id: bool = intent.action_id.begins_with(START_TURN_ID_PREFIX) or intent.action_id.begins_with(CLEANUP_ID_PREFIX)
 	if internal_start.is_valid():
-		if not internal_type or not internal_id:
+		var prefix: String = START_TURN_ID_PREFIX if internal_action == START_TURN_ACTION else CLEANUP_ID_PREFIX
+		if intent.tipo != internal_action or not intent.action_id.begins_with(prefix):
 			return _reject("formato_invalido", revision)
 	elif internal_type or internal_id:
 		return _reject("accion_no_soportada", revision)
@@ -120,7 +123,22 @@ func _submit(actor_id: String, input: Variant, internal_start: Callable = Callab
 		return _reject("estado_invalido", revision)
 	if internal_type:
 		var expected_turn: Dictionary = current.turn.duplicate(true)
-		expected_turn.phase = "libre"
+		if internal_action == START_TURN_ACTION:
+			expected_turn.phase = "libre"
+		else:
+			if current.mode != "competitivo" or current.turn.number == Registry.MAX_INT:
+				return _reject("estado_invalido", revision)
+			expected_turn.number += 1
+			expected_turn.phase = "inicio"
+			var index: int = current.player_order.find(actor_id)
+			for offset: int in range(1, current.player_order.size()):
+				var next_id: String = current.player_order[(index + offset) % current.player_order.size()]
+				for player: Dictionary in current.players:
+					if player.player_id == next_id and not player.eliminated:
+						expected_turn.active_id = next_id
+						break
+				if expected_turn.active_id != actor_id:
+					break
 		if not candidate.get("turn") is Dictionary or candidate.turn != expected_turn \
 			or not candidate.get("lifecycle") is String or candidate.lifecycle != current.lifecycle:
 			return _reject("estado_invalido", revision)

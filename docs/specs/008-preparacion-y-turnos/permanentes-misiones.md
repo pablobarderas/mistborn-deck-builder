@@ -1,6 +1,6 @@
 # T08.1b13 — Permanentes de M3/M4 en competitivo
 
-Contrato documental R2 para 2–4 plazas. Desarrolla MIS-04 del [avance de misiones](avance-misiones.md), el [inicio único](inicio-competitivo.md) y el [cierre de limpieza](entrada-a-limpieza.md). No cambia el código ni admite nuevas misiones en el motor actual. T08.1b14 implementará el perfil aislado descrito al final.
+Contrato R2 para 2–4 plazas, cerrado documentalmente en T08.1b13. Desarrolla MIS-04 del [avance de misiones](avance-misiones.md), el [inicio único](inicio-competitivo.md) y el [cierre de limpieza](entrada-a-limpieza.md). T08.1b14 implementa el perfil aislado descrito al final; su [evidencia vigente](verification.md#t081b14--implementación-de-permanentes-m3m4) distingue implementación, pruebas y revisión.
 
 ## Fuentes y alcance
 
@@ -19,7 +19,7 @@ M1/M2/M8, efectos de cartas, Guardadora, combate/Target, entrada desde `libre` a
 
 ## Estado previsto y compatibilidad
 
-La implementación usará **snapshot 4** y motor `p08-permanents-1/godot-4.7.2`. Son versiones previstas: el ejecutable actual conserva snapshot 3/motor `p08-missions-1/godot-4.7.2`. El catálogo continúa en v2. Sin migración implícita: los grupos de premio de snapshot 3 no permiten reconstruir el turno en que se adquirió/aplicó M3. No completar marcas al cargar ni reiniciar recursos para aparentar compatibilidad.
+T08.1b14 usa **snapshot 4** y motor `p08-permanents-1/godot-4.7.2`, sustituyendo snapshot 3/motor `p08-missions-1/godot-4.7.2`. El catálogo continúa en v2. Sin migración implícita: los grupos de premio de snapshot 3 no permiten reconstruir el turno en que se adquirió/aplicó M3. No completar marcas al cargar ni reiniciar recursos para aparentar compatibilidad.
 
 La posesión se deriva de `missions[mission_id].rewards[player_id]` incluyendo `p12_permanente`, posición 12 y definición exacta admitida. Mantener primera llegada y grupos con las invariantes MIS-01–06. Llegar después del primero también instala el permanente, sin su extra. Ningún contador público o bandera en una carta sustituye esos hechos.
 
@@ -45,7 +45,7 @@ La proyección pública conserva progreso, premios y recursos visibles; el propi
 
 ## Aceptación y escenarios de implementación
 
-La aceptación de T08.1b13 es documental: contrato, límites, versiones, plan y escenarios revisados contra fuentes y APIs, enlaces/diff válidos y revisión independiente. Los siguientes casos **no están ejecutados** y son obligatorios para T08.1b14 en 2/3/4 plazas.
+La aceptación de T08.1b13 fue documental: contrato, límites, versiones, plan y escenarios revisados contra fuentes y APIs, enlaces/diff válidos y revisión independiente. Los siguientes casos son obligatorios para T08.1b14 en 2/3/4 plazas; sus resultados ejecutados se registran en la [evidencia](verification.md#t081b14--implementación-de-permanentes-m3m4).
 
 | AC | Escenario y resultado exigido |
 | --- | --- |

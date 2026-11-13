@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance')]
+    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents')]
     [string]$Action = 'run',
     [string]$GodotPath = $env:GODOT_BIN
 )
@@ -58,7 +58,7 @@ function Invoke-ProjectGodot {
     if ($engineText -match '(?m)^SCRIPT ERROR:') {
         throw "Godot contiene errores de script en '$LogName', aunque su proceso haya devuelto codigo 0."
     }
-    if ($LogName -in @('import', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance') -and ($engineText -match '(?m)^(SCRIPT ERROR|ERROR):')) {
+    if ($LogName -in @('import', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents') -and ($engineText -match '(?m)^(SCRIPT ERROR|ERROR):')) {
         throw "La accion $LogName contiene errores. Revisa tmp/godot/$LogName.log."
     }
     if ($LogName -eq 'test' -and $engineText -notmatch 'P03_STARTUP_OK') {
@@ -106,6 +106,9 @@ function Invoke-ProjectGodot {
     if ($LogName -eq 'test-mission-advance' -and $engineText -notmatch 'P08_MISSION_ADVANCE_OK') {
         throw 'La prueba de avance de misiones no alcanzo su marca de finalizacion.'
     }
+    if ($LogName -eq 'test-permanents' -and $engineText -notmatch 'P08_PERMANENTS_OK') {
+        throw 'La prueba de permanentes no alcanzo su marca de finalizacion.'
+    }
     if ($LogName -eq 'test-start' -and $engineText -notmatch 'P08_START_OK') {
         throw 'La prueba de inicio competitivo no alcanzo su marca de finalizacion.'
     }
@@ -114,7 +117,7 @@ function Invoke-ProjectGodot {
     }
 }
 
-if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance')) {
+if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents')) {
     Invoke-ProjectGodot -EngineArguments @('--headless', '--editor', '--import') -LogName 'import'
 }
 switch ($Action) {
@@ -137,6 +140,7 @@ switch ($Action) {
     'test-start' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/competitive_start_test.gd') -LogName 'test-start' }
     'test-cleanup' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/turn_cleanup_test.gd') -LogName 'test-cleanup' }
     'test-mission-advance' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/mission_advance_test.gd') -LogName 'test-mission-advance' }
+    'test-permanents' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/permanents_test.gd') -LogName 'test-permanents' }
     'test-missions' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/mission_catalog_test.gd') -LogName 'test-missions' }
     'test-catalog' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/catalog_test.gd') -LogName 'test-catalog' }
 }

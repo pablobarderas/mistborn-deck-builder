@@ -2,7 +2,7 @@
 
 ## T08.1b13 y T08.1b14 — Permanentes M3/M4
 
-T08.1b13 en revisión documental: [contrato, PERM-01–06 y plan](permanentes-misiones.md). T08.1b14 implementará el perfil aislado M3/M4/M7 con inicio y cierre internos, marca privada M3 y nueva mano derivada de M4. Snapshot 4 sólo previsto; no se habilita entrada a limpieza ni producto. [Evidencia y traspaso](verification.md#t081b13--contrato-de-permanentes-m3m4).
+T08.1b13 publicada y revisada favorablemente. T08.1b14 completada localmente según [contrato, PERM-01–06 y plan](permanentes-misiones.md): perfil aislado M3/M4/M7 con inicio y cierre internos, marca privada M3 y nueva mano derivada de M4. Snapshot 4, 14 suites/7.904 comprobaciones y revisión independiente favorable. No se habilita entrada a limpieza ni producto. Siguiente propuesto T08.1b15: contrato de elecciones/eliminación opcional M8. [Evidencia y traspaso](verification.md#t081b14--implementación-de-permanentes-m3m4).
 
 ## T08.1b11 y T08.1b12 — Avance de misiones
 
