@@ -127,6 +127,8 @@ Documentos y plantillas se incluyen en la entrega inicial autorizada para commit
 
 ## Refinamiento P08
 
+T08.1b17 R2 documental completada y revisada favorablemente, sin issue: [contrato M1, M1-DOC-01–04 y plan T08.1b18](../specs/008-preparacion-y-turnos/elecciones-m1.md). DEC-037 fija refresco obligatorio; siguiente propuesto T08.1b18, implementación no iniciada. [Evidencia y traspaso vigente](../specs/008-preparacion-y-turnos/verification.md#t081b17--contrato-de-selección-y-premios-m1). T08.1b15/16 publicadas en `3be2a8d`; notas inferiores de no publicación son históricas.
+
 T08.1b16 R2 implementada y verificada localmente, revisión independiente favorable, sin issue ni publicación: perfil aislado M5/M7/M8, snapshot 5, M8-01–08 y 15 suites/8.418 comprobaciones. [Evidencia y siguiente paso T08.1b17 propuesto](../specs/008-preparacion-y-turnos/verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8). Producto/entrada a limpieza y modos con rival pendientes; los registros inferiores conservan antecedentes.
 
 T08.1b14 publicada en `d5d6403`, comprobado tras fetch del 2026-11-13. T08.1b15 R2 documental completada con revisión independiente favorable, sin issue ni publicación: [contrato M8, M8-DOC-01–04 y plan T08.1b16](../specs/008-preparacion-y-turnos/elecciones-m8.md). Implementación no iniciada; entrada a limpieza/producto y modos con rival pendientes. [Evidencia vigente](../specs/008-preparacion-y-turnos/verification.md#t081b15--contrato-de-elecciones-y-eliminación-m8).

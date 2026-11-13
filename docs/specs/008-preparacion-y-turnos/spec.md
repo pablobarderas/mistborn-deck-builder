@@ -1,5 +1,9 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.1b17 — Contrato M1
+
+[Selección de fichas agotadas, refresco total y capacidad permanente](elecciones-m1.md), M1-DOC-01–04 y escenarios futuros M1-01–08. Completada documentalmente con revisión independiente favorable. DEC-037 fija refresco obligatorio, selección para una y total automático. Código/motor vigentes sin cambios, snapshot 5; snapshot 6 y perfil aislado M1/M5/M7 sólo previstos para T08.1b18. [Evidencia y traspaso](verification.md#t081b17--contrato-de-selección-y-premios-m1).
+
 ## T08.1b16 — Elecciones M8 implementadas
 
 [Contrato M8-01–08](elecciones-m8.md), perfil aislado M5/M7/M8 competitivo 2–4: eliminación opcional normal/extra, ventanas privadas completas y restauración sin repetir llegada/premios. Snapshot 5, 15 suites/8.418 comprobaciones; revisión independiente favorable. [Evidencia](verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8). No habilita producto ni entrada a limpieza ni modos con rival; las notas inferiores de versiones anteriores conservan antecedentes.

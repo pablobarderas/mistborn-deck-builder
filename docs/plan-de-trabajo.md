@@ -12,6 +12,8 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
+- T08.1b17 completada documentalmente y revisada favorablemente: [contrato M1 y plan T08.1b18](specs/008-preparacion-y-turnos/elecciones-m1.md). DEC-037 fija refresco obligatorio; siguiente propuesto T08.1b18, implementación del perfil M1/M5/M7; snapshot 5 sin cambios. [Traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t081b17--contrato-de-selección-y-premios-m1). T08.1b15/16 ya publicadas en `3be2a8d`; las notas inferiores sin publicación conservan antecedentes.
+
 - Traspaso vigente 2026-11-13: T08.1b16 implementada y verificada, revisión independiente favorable; perfil aislado M5/M7/M8, snapshot 5 y 15 suites/8.418 comprobaciones. [Evidencia M8](specs/008-preparacion-y-turnos/verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8). Siguiente propuesto T08.1b17: contrato de selección de fichas agotadas y premios M1. Sin publicación, producto ni entrada a limpieza; el punto de reanudación inferior conserva los antecedentes.
 
 - T08.1b4 integra el [inicio único competitivo](specs/008-preparacion-y-turnos/verification.md#t081b4--implementación-del-inicio-competitivo) en un perfil aislado. El primer paso para integrarlo al producto es contrastar el material disponible y delimitar las definiciones y misiones del manifiesto competitivo.
@@ -312,6 +314,8 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 **Cierre:** Una copia limpia permite ejecutar la versión y completar una partida remota; se conservan evidencia de pruebas y limitaciones conocidas.
 
 ## Punto de reanudación
+
+2026-11-13. T08.1b17 completada documentalmente y revisada favorablemente sobre main/`3be2a8d`, sólo Markdown local. [Traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t081b17--contrato-de-selección-y-premios-m1): DEC-037 y contrato único revisados; primer paso T08.1b18: versión y derivación de capacidad por perfil. No repetir M8 publicada ni confundir el contrato con M1 implementada. Sin commit/push, producto ni entrada a limpieza. Notas inferiores históricas.
 
 2026-11-13. T08.1b16 implementada y verificada localmente, revisión independiente favorable. [Resultado, evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8): perfil aislado M5/M7/M8, snapshot 5, 15 suites/8.418 comprobaciones. Cambios locales de T08.1b15/16 sobre `d5d6403`, sin commit/push. Siguiente objetivo propuesto T08.1b17, contrato de selección/premios M1; no rehacer M8 ni admitirla en perfiles anteriores. Entrada a limpieza/producto, P04 externa y modos con rival siguen pendientes. Las entradas inferiores conservan antecedentes.
 

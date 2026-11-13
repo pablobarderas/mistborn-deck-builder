@@ -1,5 +1,11 @@
 # Tareas de SPEC-008
 
+### T08.1b17 — Contrato de selección y premios M1
+
+Registro previo 2026-11-13. Encargo «Vamos con el siguiente paso». Fetch y estado publicado contrastados en `3be2a8d29dd2c756614c3efc0a43a1ceaac35385`, igual a HEAD/main, árbol limpio; fast-forward sin cambios. T08.1b15/16 ya publicadas; sus menciones inferiores sin publicación son históricas. Objetivo documental: especificar refresco selectivo/total de M1 y capacidad permanente sin reiniciar usos, con llegada, grupos, restauración, privacidad y AC adversos. R2 por reglas, estado, autoridad y continuaciones. Coordinador único escritor de Markdown; sdd_rules Sol/high contrasta SRC-001/002/005 y DEC-034; sdd_reviewer Sol/high revisará diff y fuentes. Plan: inspeccionar APIs y fuentes; redactar contrato, compatibilidad y plan de implementación; comprobar enlaces/anclas y diff; resolver revisión y registrar cierre. Aceptación M1-DOC-01–04 y escenarios futuros se fijarán en el contrato antes del dictamen. Verificación documental, sin cambios de código ni ejecución Godot; visual/red no aplican al contrato sin UI/transporte. No delegación descendiente, dispensas ni autorización de commit/push.
+
+Cierre T08.1b17: M1-DOC-01–04 satisfechos documentalmente; DEC-037 resuelve DUD-009, contraste y revisión independiente favorables. Enlaces/anclas y diff correctos; sin código/Godot ni dispensas. [Evidencia y siguiente objetivo T08.1b18](verification.md#t081b17--contrato-de-selección-y-premios-m1). Sin commit/push.
+
 ### T08.1b16 — Implementación de elecciones y eliminación M8
 
 Implementación y pruebas oficiales completadas localmente: M8-01–08, 15 suites/8.418 comprobaciones; revisión independiente favorable. [Resultado, incidencias, responsables y traspaso](verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8). Sin commit/push; siguiente propuesto T08.1b17, contrato de selección M1.

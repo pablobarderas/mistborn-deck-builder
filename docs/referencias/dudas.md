@@ -1,6 +1,6 @@
 # Dudas e información pendiente
 
-Revisión: 2026-11-12. DUD-002/003 son material y localización pendientes. DUD-004/006 se resolvieron para la adaptación mediante [DEC-032](../decisiones.md#dec-032--desbloqueo-tardío-robo-personal-y-finales-del-rival) y DUD-005/008 mediante [DEC-031](../decisiones.md#dec-031--criterios-de-la-edición-española-y-reglas-competitivas). Los IDs se conservan por trazabilidad.
+Revisión: 2026-11-13. DUD-002/003 son material y localización pendientes; DUD-009 se resuelve para la adaptación mediante [DEC-037](../decisiones.md#dec-037--refresco-obligatorio-de-premios-m1). DUD-004/006 se resolvieron para la adaptación mediante [DEC-032](../decisiones.md#dec-032--desbloqueo-tardío-robo-personal-y-finales-del-rival) y DUD-005/008 mediante [DEC-031](../decisiones.md#dec-031--criterios-de-la-edición-española-y-reglas-competitivas). Los IDs se conservan por trazabilidad.
 
 | ID | Fuente / problema | Consecuencia y siguiente acción |
 | --- | --- | --- |
@@ -12,6 +12,7 @@ Revisión: 2026-11-12. DUD-002/003 son material y localización pendientes. DUD-
 | DUD-006 | SRC-001 p.6 no detalla el robo con mazo y descarte vacíos; pp.19–20 describen la secuencia y los finales del rival. | Resuelta por DEC-032. Robo personal: reciclar el descarte al agotarse el mazo y omitir lo que falte si ambos están vacíos. Rival: victoria inmediata por salud cero o Confrontación; derrota por agotamiento al intentar el robo rival con el mazo vacío. |
 | DUD-007 | Resuelta: frecuencia de niveles I/III. | SRC-002, Player abilities & allies; aplicada en REG-030 el 2026-10-27. |
 | DUD-008 | Nivel II. SRC-001 p.13, paso 4, describe una Acción y eliminación al comprar antes de explicar la resolución. La figura inglesa de Vin dice carta sin restringir tipo y enuncia resolver primero. SRC-005, `personajes.png` H1–H4, imprime Acción o Aliado, resolución inmediata de capacidad primaria y eliminación posterior. SRC-002, «Player abilities & allies», confirma gratuidad y frecuencia de una vez por turno. | Resuelta por DEC-031. Aplicar el texto español en REG-031. |
+| DUD-009 | SRC-001 pp.8/14/17 y SRC-005 M1 describen refresco/premios, pero no aclaran omitir el refresco con fichas agotadas. SRC-002 permite omitir habilidades de cartas; no menciona expresamente premios de misión. La omisión universal de eliminación no responde este caso. | Resuelta por respuesta humana del 2026-11-13, DEC-037: refresco obligatorio si hay agotadas, selección para una y automático para todas; vacío se liquida sin efecto. [Contrato y alcance](../specs/008-preparacion-y-turnos/elecciones-m1.md#premios-y-reglas-confirmadas). |
 
 ## Resolución
 

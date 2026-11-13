@@ -1,5 +1,13 @@
 # Registro de trabajo
 
+## 2026-11-13 — Publicación del contrato M1
+
+- Autorización humana «haz el commit y el push». Empaquetado R0 registrado antes de publicar: doce Markdown de T08.1b17, contrato y DEC-037 revisados, sin cambios semánticos; coordinador responsable. Fetch confirma HEAD/origin/main `3be2a8d`; conservar entrega local. Reutilizar revisión independiente, comprobar enlaces/diff e índice y verificar commit/push contra remoto y árbol limpio. Ninguna dispensa. El commit que incorpora esta nota identifica la publicación; las notas inferiores sin publicación son históricas. Siguiente objetivo propuesto T08.1b18, sin autorización de publicar esa futura entrega.
+
+## 2026-11-13 — Contrato M1 revisado
+
+- T08.1b17 R2 documental, recuperación GitHub/main `3be2a8d` con árbol inicialmente limpio. Contrato de selección/refresco/capacidad y plan de perfil M1/M5/M7; contraste sdd_rules Sol/high y revisión final sdd_reviewer Sol/high favorables; corregida referencia al array de jugadores. Comprobaciones documentales correctas. Respuesta humana registrada en DEC-037/DUD-009: refresco obligatorio, elegir una o total automático; no extrapolar M8. Código y snapshot 5 sin cambios; pruebas funcionales no ejecutadas. Sin dispensas ni commit/push. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b17--contrato-de-selección-y-premios-m1).
+
 ## 2026-11-13 — Publicación T08.1b15/16
 
 - Autorización humana «haz el commit y push». Registro previo R0: publicar contrato y ejecución revisados de M8, sin cambios funcionales; coordinador responsable. Fetch confirma HEAD/origin/main `d5d6403`; conservar los cambios locales de estas entregas. Reutilizar las 15 suites/8.418 comprobaciones y revisión independiente favorable; comprobar enlaces/diff e índice, commit/push y verificar remoto y árbol limpio. Ninguna dispensa. El commit que incorpora esta nota identifica la publicación; las notas anteriores sin commit/push son históricas y no autorizan futuras entregas.

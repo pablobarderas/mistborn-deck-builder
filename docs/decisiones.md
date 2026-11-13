@@ -264,6 +264,14 @@ Es una decisión de adaptación, no una errata atribuida al editor. El [contrato
 
 2026-11-13. Diseño técnico implementado y verificado localmente en T08.1b16, revisión independiente favorable; [contrato](specs/008-preparacion-y-turnos/elecciones-m8.md) y [evidencia](specs/008-preparacion-y-turnos/verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8). P07 selecciona DIRECT/SEQUENCE desde autoridad congelada, con gasto/llegada automática y ventanas privadas normal/extra, cierre vacío explícito y grupos ligados a cursor. M8 declara 10.000 opciones frente a 16 por defecto y conserva límites globales; reserva capacidad para respuestas/cierre antes del gasto y al restaurar. Delta y RNG real se validan antes de publicar. Snapshot 5 sin migración implícita desde 4, perfil aislado M5/M7/M8 con fixtures restantes. No modifica las reglas humanas de DEC-034 ni habilita producto, limpieza o rival.
 
+## DEC-037 — Refresco obligatorio de premios M1
+
+2026-11-13. Aceptada por respuesta expresa del usuario en T08.1b17: «Refrescar obligatoriamente si hay fichas agotadas (si es una, elegir cuál; si son todas, automático)», a una consulta que incluía tanto el premio selectivo como el total. Resuelve DUD-009 para la adaptación; SRC-001/002 no aclaran inequívocamente su omisión en premios de misión. No se atribuye al editor.
+
+- Cada premio de refrescar una ficha ordinaria agotada de M1 exige elegir una si existe alguna; no se permite omitir. Incluso una única candidata mantiene la selección. Sin candidatas se liquida automáticamente sin efecto.
+- El premio de refrescar todas se aplica automáticamente y sin opción de omisión ni subconjunto. No altera `used_this_turn` ni permite reutilizar una ficha usada ese turno.
+- Normal antes del extra y victoria por la tercera cima antes de sus premios conservan DEC-034. El [contrato M1](specs/008-preparacion-y-turnos/elecciones-m1.md) concreta programas, grupos, capacidad y pruebas futuras. No cambia el motor en esta entrega documental ni decide opcionalidad de otras familias de efectos.
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.

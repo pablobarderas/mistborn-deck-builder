@@ -4,6 +4,10 @@
 
 ## Resumen
 
+Publicación T08.1b17 autorizada el 2026-11-13 mediante «haz el commit y el push». El commit que incorpora esta nota publica el contrato M1 revisado y DEC-037. Las menciones inferiores sin publicación son antecedentes; siguiente objetivo propuesto T08.1b18. No extiende autorización de publicación a entregas futuras.
+
+T08.1b17 completada documentalmente y revisada favorablemente: [selección y premios M1](specs/008-preparacion-y-turnos/elecciones-m1.md). DEC-037 fija refresco obligatorio, selectivo o total automático. Siguiente propuesto T08.1b18: implementar el perfil aislado M1/M5/M7 según el contrato. Snapshot 5/motor actual sin cambios. [Evidencia y traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t081b17--contrato-de-selección-y-premios-m1). Recuperación GitHub 2026-11-13: HEAD/origin/main `3be2a8d`, árbol inicialmente limpio; T08.1b15/16 publicadas y sus notas inferiores sin publicación históricas. Sin commit/push de esta entrega.
+
 Publicación de T08.1b15/16 autorizada el 2026-11-13 mediante «haz el commit y push». El commit que contiene esta nota publica el contrato y la implementación M8 revisados. Las notas inferiores sin publicación son antecedentes. Siguiente propuesto T08.1b17; no se autoriza publicar entregas futuras.
 
 T08.1b16 implementada y verificada localmente el 2026-11-13, revisión independiente favorable: [elecciones M8](specs/008-preparacion-y-turnos/elecciones-m8.md), perfil aislado M5/M7/M8, snapshot 5/motor `p08-m8-choices-1/godot-4.7.2`. 15 suites/8.418 comprobaciones. Ventanas privadas completas, omisión, grupos pendientes, restauración y capacidad reservada; victoria por tercera cima antes de premios. Sin commit/push, producto ni entrada a limpieza. Siguiente propuesto T08.1b17: contrato de selección/premios M1. [Evidencia y traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8). Las notas inferiores conservan antecedentes.
