@@ -1,5 +1,66 @@
 # Verificación de SPEC-008
 
+## T08.1b16 — Implementación de elecciones y eliminación M8
+
+Publicación T08.1b15/16 autorizada posteriormente el 2026-11-13: «haz el commit y push». Empaquetado R0 registrado antes de publicar, sin cambios funcionales; se reutilizan las 15 suites/8.418 comprobaciones y revisión independiente favorable. El commit que incorpora esta nota identifica ambas entregas; verificar coincidencia remota y árbol limpio. Las menciones inferiores sin commit/push conservan el estado previo al permiso; no extiende autorización a futuras entregas.
+
+2026-11-13. Implementada y verificada localmente, revisión independiente favorable. [Registro previo R2 y responsabilidades](tasks.md#t081b16--implementación-de-elecciones-y-eliminación-m8), [contrato M8-01–08](elecciones-m8.md). Recuperación con fetch: HEAD/origin/main `d5d64037fb0132ab915bfbce9fe8968fd09749b4`, main sin divergencia. Se conservaron los doce Markdown locales de T08.1b15, revisados pero no publicados. No había código ajeno previo conocido. Encargos humanos «vamos a por ello» y «continua»; sin autorización de commit/push ni dispensas.
+
+Resultado: [m8_play.gd](../../../scripts/game/m8_play.gd), perfil aislado M5/M7/M8 con ocho misiones reales congeladas y componentes/reservas inertes ficticios. Snapshot **5**, motor `p08-m8-choices-1/godot-4.7.2`, catálogo v2 e intención v1. Rechaza esquema 4 sin migración implícita. Registry añade límite por programa (16 por defecto, 10.000 M8), binding y `auto_empty` tipados. P07 elige una ruta DIRECT/SEQUENCE de autoridad, aplica llegada/gasto en el paso automático inicial y valida candidato/delta antes de confirmar. `option_cards` sólo llega al destinatario. Carga de pausa, grupos, ledger y capacidad restante se validan explícitamente; la tercera cima finaliza antes de premios, sin secuencia. [DEC-036](../../decisiones.md#dec-036--elecciones-m8-por-segmentos-con-capacidad-reservada).
+
+| AC | Evidencia ejecutada en `tests/m8_test.gd` | Resultado |
+| --- | --- | --- |
+| M8-01 | Competitivo 2/3/4; 5/9/12, primeros/posteriores, máximos y ejecución 4+1, gasto único, sin premio y tercera cima terminal sin cartas/premios/ledger nuevo | Aprobado |
+| M8-02/03 | Mano/descarte/juego, aliado inerte, copias por instancia, cero/omisión, cruce de zonas, orden canónico de traslado, identidad/propietario y efectos obtenidos conservados | Aprobado |
+| M8-04 | 0/1/16/17/100 candidatas completas; programas anteriores mantienen 16; exceso de 10.000 rechazado. Base válida de 9.998 recibos rechazada antes del gasto; 9.997 admite y cierra con 10.000. Base válida de 6.000 cartas rechazada al crecer oferta; control de 4.800 admite y cierra omisiones. 7.000 excede estado; revisión MAX_INT−3 admite cierre y MAX_INT−2 rechaza | Aprobado |
+| M8-05 | Recibos, duplicados, conflictos, actor/revisión/paso/opciones inválidos y bloqueo de acciones. Inyección técnica alcanza fallo tras mover primera carta y al preparar extra: rollback del segmento. Fallo posterior al extra conserva normal confirmado; RNG/IDs/ledger/recibos íntegros | Aprobado |
+| M8-06 | Exportar/cargar normal y extra desde fuente tipada reproduce continuidad int64. Corrupciones de versión/contexto/posición/fuente/cursor/primero/oferta/grupos/ledger/zonas/programa/presupuesto y registro alterado rechazadas; fuente cliente/perfil distinto/motor ocupado rechazados | Aprobado |
+| M8-07/08 | Correspondencias privadas y vistas ajenas indistinguibles; eliminadas públicas; delta malicioso y consumo de RNG rechazados; selector inválido/mal tipado/ruta ausente, callbacks Variant con retorno no bool y sobre excesivo rechazados. Sin predicado no se salta ventana vacía; perfiles anteriores y modos con rival no admiten M8 | Aprobado en alcance aislado |
+
+Ejecución oficial del coordinador con `.tools/godot/Godot_v4.7.2-stable_win64_console.exe`, versión **4.7.2.stable.official.ed1daf0bf**. Lanzador `powershell -NoProfile -ExecutionPolicy Bypass -File tools/godot.ps1 -Action <acción>`, en serie, importación real incluida. **15 suites / 8.418 comprobaciones, códigos 0**, marcas finales y ningún SCRIPT ERROR. Los ocho errores de carga del arranque son negativos esperados, no fallos aceptados. El runner local ignorado `tmp/t081b16-run.ps1` enumera las acciones del contrato y aborta ante fallo; resultados `tmp/t081b16-results.json`, salidas `tmp/t081b16-test-*.txt` y logs `tmp/godot/`. No acompañan otro clon: reproducir las acciones siguientes y preparar previamente SRC-005 según la guía local para el catálogo explícito.
+
+| Acción | Comprobaciones |
+| --- | ---: |
+| test-m8 | 512 |
+| test-sequence | 253 |
+| test-mission-advance | 878 |
+| test-permanents | 2.478 |
+| test-state | 2.075 |
+| test-engine | 102 |
+| test-setup | 175 |
+| test-cycle | 269 |
+| test-cleanup | 561 |
+| test-funding | 205 |
+| test-training | 295 |
+| test-start | 199 |
+| test-catalog | 220 |
+| test-missions | 138 |
+| test | 58 |
+
+Responsables: `m8_impl` Sol/high, perfil sdd_developer por instrucciones con esfuerzo elevado por atomicidad, escribió núcleo/adaptador/tests/lanzador. Se reutilizó el contraste reglamentario y DEC-034 de T08.1b15, sin reinterpretar reglas. `m8_review` Sol/high realizó auditoría estática preliminar y detectó P1: un handler podía aplicar delta válido y consumir RNG después; P07 sellaba ese RNG tras la comparación. Corregido con guarda final del candidato ya sellado y prueba `_malicious_rng`, aprobada. Reforzadas las pruebas de 4+1 y capacidad desde bases válidas; corregidas claves StringName de fixtures y expectativas de errores, sin alterar reglas para acomodarlas. Una primera corrida del coordinador falló sólo por cambiar incorrectamente la expectativa de un payload extra: corresponde `eleccion_invalida`, no `formato_invalido`. Corregida y ejecutada después la batería oficial completa; esa corrida fallida no se cuenta como aprobada.
+
+Desarrollador y primer revisor se detuvieron por límite de uso de Sol antes de entregar cierre. El coordinador retomó propiedad de todo el código, conservó lo escrito, terminó los casos de capacidad y ejecutó la batería. `m8_review_fallback` usa el modelo competente heredado de la sesión, sustitución admitida por la política; revisó independientemente código, contrato, delta final y logs sin editar ni ejecutar Godot en paralelo. No es una dispensa ni cambio de modelo principal. Dictamen final **favorable, sin hallazgos residuales accionables** para M8-01–08. Sin descendientes ni escritores concurrentes; máximo dos subagentes simultáneos. Tokens/coste comparativo no disponibles.
+
+Cierre metodológico: objetivo/AC/riesgo R2, plan y propietarios previos, contraste de fuentes reutilizado, implementación, pruebas adversas/regresiones, revisión independiente y correcciones, memoria y traspaso satisfechos. Ninguna dispensa. Coordinador y revisor comprobaron `py -3 tmp/t081b5-previews/check_docs.py`: **15 Markdown, 426 enlaces locales y 190 anclas correctos**; `git diff --check`, código 0. El checker local ignorado no acompaña otro clon; recorre Markdown modificados/nuevos y resuelve rutas/anclas contra encabezados. Tras el dictamen sólo se sellan metadatos de cierre. T08.1b16 cerrada localmente en su alcance aislado, sin cerrar P08.
+
+Traspaso: main/HEAD `d5d6403`, cambios locales de T08.1b15/16 en documentación, núcleo, adaptador M8, fixtures/tests, UID y lanzador; sin commit/push. No hay UI, partida de producto, cartas reales generadoras de puntos, transición a limpieza, persistencia en disco ni reconexión de producto. P04 externa/P08 y modos con rival permanecen abiertos. Siguiente objetivo propuesto T08.1b17: contrato de selección de fichas agotadas y premios de M1, contrastando fuentes/interacciones antes de implementarlo; no volver a hacer M8 ni inferir su admisión en perfiles anteriores.
+
+## T08.1b15 — Contrato de elecciones y eliminación M8
+
+2026-11-13. Completada documentalmente y revisada favorablemente, R2, [registro previo y responsables](tasks.md#t081b15--contrato-de-elecciones-y-eliminación-m8). Encargo «Vamos con el siguiente paso». Fetch confirma `d5d64037fb0132ab915bfbce9fe8968fd09749b4` en HEAD/origin/main, árbol inicialmente limpio. Se leyó estado remoto y contexto local: T08.1b14 publicada, notas sin publicación inferiores históricas. Fast-forward sin cambios; primer intento no pudo escribir ORIG_HEAD por permisos del entorno y repetición autorizada devolvió Already up to date. Sin cambios ajenos previos conocidos.
+
+[Contrato y aceptación M8-DOC-01–04](elecciones-m8.md). Coordinador único escritor. `m8_rules`, perfil nativo sdd_rules Sol/high, sin descendientes, contrastó SRC-001 por extracción, SRC-002 FAQ viva y SRC-005 M8 visualmente con hash coincidente. Confirmó zonas propias, aliados elegibles, opcionalidad, destino compartido visible, conservación de beneficios obtenidos y máximos 1+1/4+1; DEC-034 fija orden/tercera cima. Efectos continuos/reacciones de cartas reales no incorporadas siguen excluidos. En cooperativo/solo se mantienen rival y finales propios, fuera de este perfil.
+
+Inspección local: SequenceRegistry limita hoy 16 opciones, SequenceResolver no tiene cierre vacío de ventana, GameProjection carece de correspondencias privadas, MissionAdvance rechaza M8/pausas. El contrato especifica esas ampliaciones explícitamente para T08.1b16 sin afirmar que existan. Código actual: snapshot 4; snapshot 5 únicamente previsto. M8-01–08 son pruebas futuras, Godot no ejecutado en este cambio exclusivamente Markdown. Visual/red no aplican a esta entrega, y no se sustituyen sus puertas de integración.
+
+Aceptación: M8-DOC-01 satisfecha por reglas/tabla y contraste de fuentes; M8-DOC-02 por programas, llegada automática, selección de ruta cerrada, ofertas completas y correspondencias privadas; M8-DOC-03 por invariantes de pausas/grupos, atomicidad por segmento, continuidad y versiones; M8-DOC-04 por plan, M8-01–08, revisión y comprobaciones documentales.
+
+`m8_review`, perfil nativo sdd_reviewer Sol/high, revisó independientemente contrato nuevo, diff, APIs, PDF pp.6/9/10/14/17, original M8 y FAQ viva; hashes PDF/hoja coincidentes. Dictamen favorable sin bloqueantes de reglas/autoridad/privacidad. Único hallazgo documental: acceso principal «Traspaso vigente» y fecha en plan-de-trabajo conservaban T08.1b14 como vigente; corregidos a esta entrega/2026-11-13. El coordinador concretó antes del dictamen la frontera del starter: gasto/llegada en paso automático inicial y selector local DIRECT/SEQUENCE, sin commit previo ni ruta terminal mediante secuencia. El revisor confirmó esa solución. La extracción pypdf no estuvo disponible al revisor; usó contraste visual de las páginas, sin omitir fuentes. Primer arranque del revisor quedó pending_init; se reinició el mismo encargo, después ejecutó la revisión real. Dos especialistas, sin descendientes ni escritores concurrentes; no se atribuyen tokens/coste o ahorro medido.
+
+Comprobación documental: `py -3 tmp/t081b5-previews/check_docs.py`, 12 Markdown, 344 enlaces locales y 157 anclas correctos en la primera ejecución del coordinador; el revisor comprobó 345 enlaces/157 anclas tras corregir el acceso principal. Ejecución final del coordinador tras metadatos: **12 Markdown, 346 enlaces locales y 158 anclas correctos**, `git diff --check` código 0. El script temporal es local ignorado, no acompaña otro clon: recorre Markdown modificados/nuevos, resuelve enlaces locales y anclas contra encabezados. No se ejecutaron pruebas Godot ni se validaron funcionalmente M8-01–08. El cambio sólo afecta documentación.
+
+Cierre metodológico: objetivo/AC/riesgo/plan y responsables previos, contraste reglamentario, revisión independiente y corrección, comprobación documental y memoria satisfechos; ninguna dispensa ni autorización de commit/push. Traspaso: main/HEAD `d5d6403`, doce Markdown locales de T08.1b15, incluido contrato nuevo no versionado, sin cambios ajenos previos conocidos. Próximo objetivo T08.1b16, todavía no iniciado: implementar registro/ventanas/proyección, selector P07 y perfil aislado M5/M7/M8 con M8-01–08 y regresiones. No rehacer permanentes ni habilitar entrada a limpieza/producto/rival por este contrato. P04/P08 y modos con rival conservan sus puertas pendientes.
+
 ## T08.1b14 — Implementación de permanentes M3/M4
 
 Publicación autorizada el 2026-11-13 mediante «haz el commit y el push». Registro previo R0 de empaquetado: objetivo publicar los 27 archivos revisados de T08.1b14, sin cambios funcionales; coordinador responsable. Fetch confirma HEAD/origin/main en `bc9bdb1`, con los cambios locales de esta entrega preservados. Plan/aceptación: reutilizar las 14 suites/7.904 comprobaciones y revisión independiente favorable, actualizar notas de publicación, comprobar enlaces/diff e índice, hacer commit/push y verificar coincidencia remota y árbol limpio. Ninguna dispensa. El commit que contiene esta nota identifica la publicación; las menciones inferiores sin commit/push describen el estado previo al permiso. Siguiente objetivo propuesto T08.1b15, aún sin iniciar.

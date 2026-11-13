@@ -1,5 +1,13 @@
 # Arquitectura
 
+## Elecciones de misión — T08.1b16
+
+Implementación verificada del [contrato M8](specs/008-preparacion-y-turnos/elecciones-m8.md). [m8_play.gd](../scripts/game/m8_play.gd) registra el perfil aislado M5/M7/M8 sobre el candidato compartido de misiones y un registro congelado. P07 selecciona una sola ruta DIRECT/SEQUENCE desde código de autoridad: la tercera cima termina por ruta directa; las llegadas no terminales con premio M8 realizan gasto y llegada en `s01` y pausan después para normal/extra. Las respuestas y el cierre conservan commits, recibos y ledger de P07.
+
+El registro incorpora límite de opciones por programa (16 por defecto, 10.000 para M8), binding de resolución y predicado tipado `auto_empty`. Las ventanas vacías admitidas se liquidan internamente; una oferta inválida sigue siendo error. La proyección sólo da `option_cards` al destinatario para relacionar tokens con instancias propias de mano/descarte/juego. El perfil valida grupos pendientes contra cursor/llegada y recalcula el delta autorizado antes del commit; la restauración exige fuente tipada e instancia vacía. El presupuesto previo simula omisiones y reserva las respuestas/cierre restantes, también al cargar una pausa.
+
+Snapshot 5/motor `p08-m8-choices-1/godot-4.7.2`, sin migración implícita desde 4. 15 suites/8.418 comprobaciones, revisión independiente favorable; [evidencia](specs/008-preparacion-y-turnos/verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8). La guarda final valida el RNG ya sellado frente a la autoridad anterior, pues este perfil no consume azar. Las misiones son reales del lote; restantes cartas, pista y reservas son fixtures inertes. No incorpora entrada a limpieza, interfaz, producto ni modos con rival; las versiones inferiores son antecedentes.
+
 ## Permanentes de misión — T08.1b14
 
 [permanents_play.gd](../scripts/game/permanents_play.gd) compone el perfil aislado M3/M4/M7 sobre el candidato compartido de misiones. Las entradas internas `start_turn` y `finish_cleanup` usan recibos P07 y namespaces reservados; la entrada pública conserva únicamente `avanzar_mision`. Inicio confirma entrenamiento, +2 de M3, marca privada y apertura de libre juntos. Limpieza deriva mano 5/6 de M4, conserva sus guardas y entrega inicio al siguiente vivo. No implementa entrada desde libre a limpieza.

@@ -14,17 +14,20 @@ const MAX_ACTION_NODES: int = 256
 const MAX_CANONICAL_LENGTH: int = 4096
 var _state: RefCounted
 var _handlers: Dictionary
+enum Route { DIRECT, SEQUENCE }
+var _selectors: Dictionary
 var _starters: Dictionary
 var _resolver: Resolver
 var _remaining_nodes: int = MAX_ACTION_NODES
 
 
-func _init(definitions: Dictionary, catalog_id: String, handlers: Dictionary = {}, registry: Registry = null, starters: Dictionary = {}) -> void:
+func _init(definitions: Dictionary, catalog_id: String, handlers: Dictionary = {}, registry: Registry = null, starters: Dictionary = {}, selectors: Dictionary = {}) -> void:
 	if registry == null:
 		registry = Registry.new()
 	_state = State.new(definitions, catalog_id, registry)
 	_handlers = handlers.duplicate()
 	_starters = starters.duplicate()
+	_selectors = selectors.duplicate()
 	_resolver = Resolver.new(registry, definitions)
 
 
@@ -93,6 +96,21 @@ func _submit(actor_id: String, input: Variant, internal_start: Callable = Callab
 	if revision == Registry.MAX_INT:
 		push_warning("Acción rechazada: contador de revisiones agotado.")
 		return _reject("estado_invalido", revision)
+	if not responding and not internal_type and _selectors.has(intent.tipo):
+		var selector: Variant = _selectors[intent.tipo]
+		if not _valid_selector(selector):
+			return _reject("estado_invalido", revision)
+		var route: Variant = selector.call(current.duplicate(true), actor_id, intent.payload.duplicate(true))
+		if route is String:
+			return _reject(_public_error(route), revision)
+		if not route is int or route not in [Route.DIRECT, Route.SEQUENCE]:
+			return _reject("estado_invalido", revision)
+		if route == Route.DIRECT:
+			if not _valid_callable(handler):
+				return _reject("estado_invalido", revision)
+			starter = null
+		elif not _valid_callable(starter):
+			return _reject("estado_invalido", revision)
 	var candidate: Dictionary = current.duplicate(true)
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 	rng.seed = current.authority.rng_seed
@@ -159,6 +177,8 @@ func _submit(actor_id: String, input: Variant, internal_start: Callable = Callab
 	if not candidate.authority.receipts.has(actor_id):
 		candidate.authority.receipts[actor_id] = {}
 	candidate.authority.receipts[actor_id][intent.action_id] = {"canonical": canonical, "revision_aplicada": candidate.revision}
+	if not _candidate_error(candidate).is_empty():
+		return _reject("estado_invalido", revision)
 	var validation: Dictionary = _state.try_load(candidate)
 	if not validation.ok:
 		return _reject("estado_invalido", revision)
@@ -304,3 +324,28 @@ func _reject(code: String, revision: int) -> Dictionary:
 
 func _accepted(action_id: String, applied: int) -> Dictionary:
 	return {"ok": true, "codigo": "aceptada", "action_id": action_id, "revision": applied, "revision_aplicada": applied}
+
+
+func _candidate_error(_candidate: Dictionary) -> String:
+	return ""
+
+
+func _valid_selector(value: Variant) -> bool:
+	if not _valid_callable(value) or value.get_argument_count() != 3 or value.get_unbound_arguments_count() != 0:
+		return false
+	var target: Object = value.get_object()
+	var script: Variant = target if target is GDScript else target.get_script()
+	if not script is GDScript:
+		return false
+	var expected: Array = [TYPE_DICTIONARY, TYPE_STRING, TYPE_DICTIONARY]
+	for method: Dictionary in script.get_script_method_list():
+		if method.name != value.get_method():
+			continue
+		if method.args.size() != 3 or not value.get_bound_arguments().is_empty():
+			return false
+		for index: int in 3:
+			var arg: Dictionary = method.args[index]
+			if not (arg.type == expected[index] or (arg.type == TYPE_NIL and arg.usage & PROPERTY_USAGE_NIL_IS_VARIANT)) or (arg.type == TYPE_DICTIONARY and arg.hint != PROPERTY_HINT_NONE):
+				return false
+		return method.return.type == TYPE_INT or (method.return.type == TYPE_NIL and method.return.usage & PROPERTY_USAGE_NIL_IS_VARIANT)
+	return false

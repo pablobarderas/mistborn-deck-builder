@@ -92,7 +92,7 @@ func _test_state() -> void:
 
 
 func _test_atium() -> void:
-	_expect(Validator.SCHEMA_VERSION == 4 and Validator.ENGINE_VERSION == "p08-permanents-1/godot-4.7.2", "PERM-04 esquema 4 y versión de permanentes")
+	_expect(Validator.SCHEMA_VERSION == 5 and Validator.ENGINE_VERSION == "p08-m8-choices-1/godot-4.7.2", "M8-06 esquema 5 y version de elecciones")
 	for mode: String in ["competitivo", "cooperativo", "solitario"]:
 		var counts: Array = [1] if mode == "solitario" else [2, 3, 4]
 		for count: int in counts:
@@ -181,7 +181,7 @@ func _test_missions() -> void:
 func _test_references() -> void:
 	var base: Dictionary = Fixtures.snapshot()
 	var cases: Array = [
-		[["version_esquema"], 2], [["version_esquema"], 1], [["version_esquema"], true], [["version_motor"], "other"],
+		[["version_esquema"], 4], [["version_esquema"], 3], [["version_esquema"], 2], [["version_esquema"], 1], [["version_esquema"], true], [["version_motor"], "other"],
 		[["catalog_id"], "other"], [["match_id"], ""], [["revision"], -1], [["lifecycle"], "inventada"],
 		[["instances", "c1", "instance_id"], "c2"], [["instances", "c1", "definition_id"], "missing"],
 		[["instances", "c1", "owner_id"], "p3"], [["instances", "c1", "owner_id"], null],

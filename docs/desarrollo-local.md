@@ -1,5 +1,9 @@
 # Ejecutar el proyecto en Windows
 
+## Elecciones M8 (T08.1b16)
+
+`powershell -NoProfile -ExecutionPolicy Bypass -File tools/godot.ps1 -Action test-m8` importa y ejecuta `tests/m8_test.gd`; exige código cero, `P08_M8_OK` y ausencia de ERROR/SCRIPT ERROR. Resultado local: 512 comprobaciones M8 y 8.418 en las quince suites del contrato, revisión independiente favorable; [evidencia](specs/008-preparacion-y-turnos/verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8). No hay interfaz ni partida auténtica que abrir con esta acción. [Contrato y escenarios M8-01–08](specs/008-preparacion-y-turnos/elecciones-m8.md). El perfil selecciona M5/M7/M8 y usa fixtures para el resto del contenido/reservas. Snapshot 5/motor `p08-m8-choices-1/godot-4.7.2`, incompatible con 4 sin migración explícita. Las secciones inferiores conservan versiones históricas.
+
 ## Entorno fijado
 
 - Godot **4.7.2 estable**, versión estándar con GDScript, registrada en `.godot-version`.

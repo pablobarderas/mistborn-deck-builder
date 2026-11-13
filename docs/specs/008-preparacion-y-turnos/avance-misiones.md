@@ -44,6 +44,8 @@ Para futuros premios con elecciones se reutilizará el [contrato de secuencia](s
 
 ## Premios y permanentes
 
+T08.1b15 concreta las futuras elecciones, límites, programas y validación de premios pendientes de M8 en el [contrato de eliminación](elecciones-m8.md). No amplía los perfiles ejecutables actuales.
+
 T08.1b13 concreta la futura integración de M3/M4, marcas privadas y nueva mano en el [contrato de permanentes](permanentes-misiones.md), sin ampliar el piloto actualmente ejecutable.
 
 | Misión | Resolución exigida al integrarla |

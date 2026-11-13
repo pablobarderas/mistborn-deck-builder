@@ -50,6 +50,9 @@ func resume(state: Dictionary, selected: Array, rng: RandomNumberGenerator) -> R
 	# La respuesta ya pasó la comprobación de actor, ventana y opciones de P07.
 	if not _registry.valid_binding(state, resolution, _definitions) or _registry.offer(step, state, resolution.context) != resolution.pending:
 		return Result.new(Result.Status.ILLEGAL)
+	var empty: Variant = _registry.auto_empty(step, state, resolution.context)
+	if not empty is bool or empty:
+		return Result.new(Result.Status.INVALID)
 	if not _registry.execute(step, state, resolution.context, rng, selected):
 		return Result.new(Result.Status.ILLEGAL)
 	resolution.cursor += 1
@@ -72,7 +75,17 @@ func _advance(state: Dictionary, resolution: Dictionary, rng: RandomNumberGenera
 			var pending: Variant = _registry.offer(step, state, resolution.context)
 			if pending == null:
 				return Result.new(Result.Status.ILLEGAL)
-			if not _registry.valid_pending(pending, resolution.recipients):
+			var empty: Variant = _registry.auto_empty(step, state, resolution.context)
+			if not empty is bool:
+				return Result.new(Result.Status.INVALID)
+			if empty:
+				if not Registry.exact_keys(pending, ["kind", "recipients", "options", "min", "max"]) or pending.options != [] or pending.min != 0 or pending.max != 0 or pending.kind != "eleccion" or pending.recipients != resolution.recipients:
+					return Result.new(Result.Status.INVALID)
+				if not _registry.execute(step, state, resolution.context, rng, []):
+					return Result.new(Result.Status.ILLEGAL)
+				resolution.cursor += 1
+				continue
+			if not _registry.valid_pending(pending, resolution.recipients, resolution.program_id):
 				return Result.new(Result.Status.INVALID)
 			resolution.pending = pending.duplicate(true)
 			var result: Result = Result.new(Result.Status.PAUSED)

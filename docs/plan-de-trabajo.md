@@ -1,6 +1,6 @@
 # Plan de trabajo por fases
 
-Última revisión: 2026-11-12. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba y preparación estructural P08; efectos, turnos completos y partidas siguen sin implementar.
+Última revisión: 2026-11-13. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba y preparación estructural P08; efectos, turnos completos y partidas siguen sin implementar.
 
 ## Objetivo y situación
 
@@ -12,7 +12,7 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
-- Traspaso vigente 2026-11-13: T08.1b14 completada localmente, 14 suites/7.904 comprobaciones y revisión independiente favorable. Siguiente propuesto T08.1b15: contrato de elecciones/eliminación opcional de M8. [Evidencia de permanentes M3/M4](specs/008-preparacion-y-turnos/verification.md#t081b14--implementación-de-permanentes-m3m4). El punto de reanudación inferior distingue este objetivo de los antecedentes.
+- Traspaso vigente 2026-11-13: T08.1b16 implementada y verificada, revisión independiente favorable; perfil aislado M5/M7/M8, snapshot 5 y 15 suites/8.418 comprobaciones. [Evidencia M8](specs/008-preparacion-y-turnos/verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8). Siguiente propuesto T08.1b17: contrato de selección de fichas agotadas y premios M1. Sin publicación, producto ni entrada a limpieza; el punto de reanudación inferior conserva los antecedentes.
 
 - T08.1b4 integra el [inicio único competitivo](specs/008-preparacion-y-turnos/verification.md#t081b4--implementación-del-inicio-competitivo) en un perfil aislado. El primer paso para integrarlo al producto es contrastar el material disponible y delimitar las definiciones y misiones del manifiesto competitivo.
 
@@ -312,6 +312,10 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 **Cierre:** Una copia limpia permite ejecutar la versión y completar una partida remota; se conservan evidencia de pruebas y limitaciones conocidas.
 
 ## Punto de reanudación
+
+2026-11-13. T08.1b16 implementada y verificada localmente, revisión independiente favorable. [Resultado, evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8): perfil aislado M5/M7/M8, snapshot 5, 15 suites/8.418 comprobaciones. Cambios locales de T08.1b15/16 sobre `d5d6403`, sin commit/push. Siguiente objetivo propuesto T08.1b17, contrato de selección/premios M1; no rehacer M8 ni admitirla en perfiles anteriores. Entrada a limpieza/producto, P04 externa y modos con rival siguen pendientes. Las entradas inferiores conservan antecedentes.
+
+2026-11-13. T08.1b15 completada documentalmente con revisión independiente favorable: [contrato M8 y plan de implementación](specs/008-preparacion-y-turnos/elecciones-m8.md). T08.1b14 está publicada en `d5d6403`, confirmado tras fetch. Próxima implementación T08.1b16: ventanas completas y cierre vacío, proyección privada y perfil aislado M5/M7/M8; contrato revisado, implementación todavía no iniciada. Sin código ni publicación de T08.1b15. [Evidencia vigente](specs/008-preparacion-y-turnos/verification.md#t081b15--contrato-de-elecciones-y-eliminación-m8). Las notas siguientes son antecedentes.
 
 2026-11-13. T08.1b14 completada localmente y revisada: perfil aislado M3/M4/M7 con inicio y cierre internos según [contrato de permanentes](specs/008-preparacion-y-turnos/permanentes-misiones.md), 14 suites/7.904 comprobaciones. Sin commit/push, entrada a limpieza ni producto. Siguiente propuesto T08.1b15: especificar elecciones y eliminación opcional de M8, fuentes/AC y enlace con secuencias antes de implementarla. [Evidencia vigente](specs/008-preparacion-y-turnos/verification.md#t081b14--implementación-de-permanentes-m3m4). Las entradas inferiores conservan antecedentes.
 

@@ -1,5 +1,13 @@
 # Plan de SPEC-007
 
+## Ampliación M8 — esquema 5
+
+T08.1b16 implementada y verificada según [contrato de elecciones](../008-preparacion-y-turnos/elecciones-m8.md). P07 añade selectores locales congelados opcionales, comprobados antes de invocarlos y después de recibos/revisión/guardas. Su enum DIRECT/SEQUENCE escoge un único handler/starter, sin campo de cliente ni cambios de registro durante submit. Las acciones sin selector conservan el despacho anterior. El primer paso automático de M8 realiza gasto/llegada en la copia de la misma intención; la tercera cima nunca entra en una secuencia.
+
+`SequenceRegistry` valida también `option_limit` por programa, callback de binding y `auto_empty` tipado de operaciones de ventana. El límite anterior sigue siendo el valor por defecto. Los pasos posteriores a una pausa se comprueban al registrar y cargar. `GameEngine` dispone de validación de candidato de perfil antes de publicar; M8 exige grupos/ledger compatibles con programa/cursor y delta recalculado desde el registro fiable. No se relajan campos protegidos ni se permite un callback que finalice lifecycle durante una secuencia.
+
+La vista M8 autorizada añade `option_cards`, exclusivamente al dueño destinatario y derivado por lista permitida. Contexto, registro, ledger, recibos y RNG permanecen privados. Snapshot 5/motor `p08-m8-choices-1/godot-4.7.2`, sin migración desde 4; intención v1 y catálogo v2 no cambian. 15 suites/8.418 comprobaciones, revisión independiente favorable; [evidencia](../008-preparacion-y-turnos/verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8). No acredita reconexión de producto ni persistencia en disco. Las ampliaciones inferiores conservan sus versiones históricas.
+
 ## Ampliación de permanentes — esquema 4
 
 T08.1b14 añade `authority.mission_permanents` privado, con marcas M3 `{acquired_turn, last_applied_turn}`, y motor `p08-permanents-1/godot-4.7.2`. Constructores y fixtures crean el mapa vacío; validación rechaza omisiones, huérfanos, intervalos imposibles y fases incompatibles. P07 reserva también tipo `cerrar_limpieza` e IDs `limpieza_` para la entrada interna; el recibo y el siguiente turno se confirman junto al candidato/RNG. La entrada pública rechaza esos namespaces antes de consultar recibos. No hay migración implícita desde esquema 3 ni transporte de producto. [Contrato](../008-preparacion-y-turnos/permanentes-misiones.md) y [verificación vigente](../008-preparacion-y-turnos/verification.md#t081b14--implementación-de-permanentes-m3m4).

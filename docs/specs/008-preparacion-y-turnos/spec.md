@@ -1,5 +1,13 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.1b16 — Elecciones M8 implementadas
+
+[Contrato M8-01–08](elecciones-m8.md), perfil aislado M5/M7/M8 competitivo 2–4: eliminación opcional normal/extra, ventanas privadas completas y restauración sin repetir llegada/premios. Snapshot 5, 15 suites/8.418 comprobaciones; revisión independiente favorable. [Evidencia](verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8). No habilita producto ni entrada a limpieza ni modos con rival; las notas inferiores de versiones anteriores conservan antecedentes.
+
+## T08.1b15 — Contrato de elecciones M8
+
+[Contrato, M8-DOC-01–04 y escenarios futuros M8-01–08](elecciones-m8.md): eliminación propia opcional, ventanas privadas completas, normal antes de extra y restauración sin repetir premios. Entrega documental completada con revisión independiente favorable; snapshot 5 sólo previsto para T08.1b16. No cambia el código ni admite M8 en los perfiles actuales. [Evidencia](verification.md#t081b15--contrato-de-elecciones-y-eliminación-m8).
+
 ## T08.1b13/14 — Permanentes M3/M4
 
 [Contrato, PERM-01–06 y plan de implementación](permanentes-misiones.md): M3 al completar y una vez por inicio posterior; M4 sólo al robar nueva mano. T08.1b14 implementa snapshot 4/motor de permanentes, perfil aislado M3/M4/M7 con fixtures y entrada a limpieza pendiente. [Evidencia de ejecución y revisión](verification.md#t081b14--implementación-de-permanentes-m3m4).

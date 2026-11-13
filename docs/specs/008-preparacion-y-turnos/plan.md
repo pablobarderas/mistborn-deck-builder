@@ -1,5 +1,13 @@
 # Plan de SPEC-008
 
+## T08.1b16 — Implementación M8
+
+Implementada y verificada localmente, revisión independiente favorable: [M8-01–08 y plan ejecutado](elecciones-m8.md#aceptación-y-plan-de-implementación), perfil aislado M5/M7/M8 y snapshot 5. 15 suites/8.418 comprobaciones; sin entrada a limpieza/producto ni publicación. [Evidencia y traspaso](verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8). Siguiente propuesto T08.1b17: especificar selección de fichas agotadas y premios M1 antes de implementarlos. Las secciones inferiores conservan antecedentes.
+
+## T08.1b15 — Elecciones M8
+
+[Contrato y plan T08.1b16](elecciones-m8.md#aceptación-y-plan-de-implementación) completado documentalmente con revisión independiente favorable: perfil aislado M5/M7/M8, ampliaciones explícitas de ventana, grupos pendientes y correspondencias privadas. No se ha iniciado implementación. T08.1b14 está publicada en `d5d6403`; las notas sin publicación siguientes son antecedentes. [Evidencia vigente](verification.md#t081b15--contrato-de-elecciones-y-eliminación-m8).
+
 ## T08.1b13 y T08.1b14 — Permanentes M3/M4
 
 T08.1b13 publicada y revisada favorablemente. T08.1b14 completada localmente según [contrato, PERM-01–06 y plan](permanentes-misiones.md): perfil aislado M3/M4/M7 con inicio y cierre internos, marca privada M3 y nueva mano derivada de M4. Snapshot 4, 14 suites/7.904 comprobaciones y revisión independiente favorable. No se habilita entrada a limpieza ni producto. Siguiente propuesto T08.1b15: contrato de elecciones/eliminación opcional M8. [Evidencia y traspaso](verification.md#t081b14--implementación-de-permanentes-m3m4).

@@ -1,5 +1,17 @@
 # Registro de trabajo
 
+## 2026-11-13 — Publicación T08.1b15/16
+
+- Autorización humana «haz el commit y push». Registro previo R0: publicar contrato y ejecución revisados de M8, sin cambios funcionales; coordinador responsable. Fetch confirma HEAD/origin/main `d5d6403`; conservar los cambios locales de estas entregas. Reutilizar las 15 suites/8.418 comprobaciones y revisión independiente favorable; comprobar enlaces/diff e índice, commit/push y verificar remoto y árbol limpio. Ninguna dispensa. El commit que incorpora esta nota identifica la publicación; las notas anteriores sin commit/push son históricas y no autorizan futuras entregas.
+
+## 2026-11-13 — Elecciones M8 implementadas
+
+- T08.1b16 R2 sobre main/`d5d6403`, confirmado tras fetch; preservado contrato local T08.1b15 revisado. Perfil aislado M5/M7/M8, snapshot 5, elección completa privada, omisión y restauración por segmentos con capacidad reservada. Corregido hallazgo RNG después de delta y reforzados casos de capacidad/4+1; desarrollador/revisor Sol interrumpidos por límite, coordinador retoma código y revisor sustituto competente según política. 15 suites/8.418 comprobaciones oficiales en Godot 4.7.2, revisión independiente favorable. Ninguna dispensa ni commit/push. P08/producto/rival abiertos; siguiente propuesto contrato M1 T08.1b17. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8).
+
+## 2026-11-13 — Contrato de elecciones y eliminación M8
+
+- T08.1b15 R2 documental sobre main/`d5d6403`, contrastado con GitHub tras fetch, árbol inicial limpio y fast-forward sin cambios. Contrato de eliminación opcional, normal/extra, ventanas completas privadas, cierre vacío, restauración y ocho escenarios futuros. Contraste sdd_rules favorable con PDF, FAQ viva y original M8/hash. Revisión independiente favorable; corregido acceso de continuidad obsoleto. Comprobados enlaces/anclas y diff; no se ejecuta Godot por cambio exclusivamente documental. Código/datos intactos, snapshot 4 conservado; snapshot 5 sólo previsto. Ninguna dispensa ni commit/push. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b15--contrato-de-elecciones-y-eliminación-m8).
+
 ## 2026-11-13 — Publicación de T08.1b14
 
 - Commit/push autorizado expresamente; empaquetado R0 de los 27 archivos revisados sobre `bc9bdb1`, confirmado con fetch. Sin cambios funcionales: se reutilizan las 14 suites/7.904 comprobaciones y revisión independiente favorable. Comprobar enlaces/diff, índice, remoto y árbol limpio; ninguna dispensa. El commit que contiene esta nota identifica la entrega. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b14--implementación-de-permanentes-m3m4).

@@ -9,6 +9,8 @@ const Cycle = preload("res://scripts/game/card_cycle.gd")
 const ACTIVE_DEFINITIONS: Array[String] = ["mision_m5", "mision_m6", "mision_m7"]
 const PERMANENT_DEFINITIONS: Array[String] = ["mision_m3", "mision_m4", "mision_m7"]
 var _active_definitions: Array[String] = ACTIVE_DEFINITIONS
+const CHOICE_DEFINITIONS: Array[String] = ["mision_m5", "mision_m7", "mision_m8"]
+var _choices: bool = false
 var _permanents: bool = false
 var _definitions: Dictionary
 var _catalog_id: String
@@ -16,12 +18,15 @@ var _training: Training
 var _registry: Registry = Registry.new()
 
 
-func _init(definitions: Dictionary, catalog_id: String, training_profile: Dictionary, permanents: bool = false) -> void:
+func _init(definitions: Dictionary, catalog_id: String, training_profile: Dictionary, permanents: bool = false, choices: bool = false, registry: Registry = null) -> void:
+	_choices = choices
+	if registry != null:
+		_registry = registry
 	_definitions = definitions.duplicate(true)
 	_catalog_id = catalog_id
 	_training = Training.new(_definitions, _catalog_id, training_profile, _registry)
 	_permanents = permanents
-	_active_definitions = PERMANENT_DEFINITIONS if permanents else ACTIVE_DEFINITIONS
+	_active_definitions = CHOICE_DEFINITIONS if choices else (PERMANENT_DEFINITIONS if permanents else ACTIVE_DEFINITIONS)
 
 
 func supported() -> bool:
@@ -32,7 +37,7 @@ func supported() -> bool:
 
 
 static func supported_mission(card: Dictionary) -> bool:
-	if not card.get("id") in ACTIVE_DEFINITIONS + PERMANENT_DEFINITIONS or card.get("tipo") != "mision":
+	if not card.get("id") in ACTIVE_DEFINITIONS + PERMANENT_DEFINITIONS + CHOICE_DEFINITIONS or card.get("tipo") != "mision":
 		return false
 	var tracks: Array = card.get("rasgos", {}).get("recorridos", [])
 	if tracks.size() != 1 or tracks[0].id != "principal" or tracks[0].casillas.size() != 12:
@@ -72,6 +77,9 @@ static func supported_mission(card: Dictionary) -> bool:
 		elif card.id == "mision_m7" and position in [6, 12]:
 			cell.efectos = [_effect("curar", 4 if position == 6 else 6)]
 			cell.primero = [_effect("curar", 2)]
+		elif card.id == "mision_m8" and position in [5, 9, 12]:
+			cell.efectos = [{"op": "eliminar_propias", "maximo": 4 if position == 12 else 1}]
+			cell.primero = [{"op": "eliminar_propias", "maximo": 1}]
 		expected.append(cell)
 	return Funding._same_descriptor(tracks[0].casillas, expected)
 
@@ -87,7 +95,7 @@ static func _effect(operation: String, amount: int) -> Dictionary:
 func state_error(state: Variant) -> String:
 	if not Validator.new().validate(state, _definitions, _catalog_id, _registry).ok or not _writable_tree(state):
 		return "estado_invalido"
-	if not supported() or state.mode != "competitivo" or state.turn.number < 1 or state.resolution != null 		or not state.turn.counters.is_empty() or not state.authority.completed_sequences.is_empty():
+	if not supported() or state.mode != "competitivo" or state.turn.number < 1 or (not _choices and (state.resolution != null or not state.authority.completed_sequences.is_empty())) or not state.turn.counters.is_empty():
 		return "estado_invalido"
 	var phases: Array = ["inicio", "libre", "limpieza"] if _permanents else ["libre"]
 	if state.lifecycle not in ["en_curso", "finalizada"] or state.turn.phase not in (phases if state.lifecycle == "en_curso" else ["finalizada"]):
@@ -143,6 +151,13 @@ func state_error(state: Variant) -> String:
 				if not cell.primero.is_empty() and mission.first_arrivals[cell.id] == player_id:
 					expected.append(cell.id + "_primero")
 			var actual: Array = mission.rewards[player_id].duplicate()
+			if _choices and state.resolution != null and state.resolution.context.mission_id == mission_id and state.resolution.context.owner_id == player_id:
+				var active: Dictionary = state.resolution
+				var prefix: String = "p%02d" % active.context.position
+				if active.cursor == 1:
+					expected.erase(prefix + "_normal")
+				if active.cursor in [1, 2]:
+					expected.erase(prefix + "_primero")
 			actual.sort()
 			expected.sort()
 			if actual != expected:
@@ -170,6 +185,8 @@ func state_error(state: Variant) -> String:
 	else:
 		if state.outcome == null or winners != [state.outcome.winner_id] 			or state.outcome.winner_id != state.turn.active_id or state.outcome.turn_number != state.turn.number:
 			return "estado_invalido"
+	if _choices and not _choice_closures(state):
+		return "estado_invalido"
 	return ""
 
 
@@ -190,15 +207,11 @@ func advance(snapshot: Variant, actor_id: String, mission_id: String, rng: Rando
 	else:
 		staged_rng.seed = snapshot.authority.rng_seed
 		staged_rng.state = snapshot.authority.rng_state
+	var position: int = candidate.missions[mission_id].progress[actor_id] + 1
+	if not arrive(candidate, actor_id, mission_id, position):
+		return _reject("estado_invalido")
 	var staged: Dictionary = candidate.missions[mission_id]
-	var position: int = staged.progress[actor_id] + 1
 	var cell_id: String = "p%02d" % position
-	staged.progress[actor_id] = position
-	_player(candidate, actor_id).turn_resources.mision -= 1
-	if staged.first_arrivals[cell_id] == null:
-		staged.first_arrivals[cell_id] = actor_id
-	if position == 12:
-		staged.arrival_order.append(actor_id)
 	var all_complete: bool = true
 	for value: Dictionary in candidate.missions.values():
 		all_complete = all_complete and value.progress[actor_id] == 12
@@ -301,3 +314,47 @@ static func _writable_tree(value: Variant) -> bool:
 
 static func _reject(code: String) -> Dictionary:
 	return {"ok": false, "codigo": code}
+
+
+static func arrive(state: Dictionary, actor_id: String, mission_id: String, position: int) -> bool:
+	var mission: Dictionary = state.missions[mission_id]
+	var player: Dictionary = _player(state, actor_id)
+	if position < 1 or position > 12 or mission.progress[actor_id] != position - 1 or player.turn_resources.mision < 1:
+		return false
+	mission.progress[actor_id] = position
+	player.turn_resources.mision -= 1
+	var cell_id: String = "p%02d" % position
+	if mission.first_arrivals[cell_id] == null:
+		mission.first_arrivals[cell_id] = actor_id
+	if position == 12:
+		mission.arrival_order.append(actor_id)
+	return true
+
+
+static func occurrence(state: Dictionary, owner: String, mission_id: String, position: int) -> String:
+	return "m8_" + Funding._canonical_content([state.match_id, owner, mission_id, position]).sha256_text()
+
+
+func _choice_closures(state: Dictionary) -> bool:
+	var expected: Dictionary = {}
+	for mission_id: String in state.missions:
+		var mission: Dictionary = state.missions[mission_id]
+		if mission.definition_id != "mision_m8":
+			continue
+		for owner: String in mission.progress:
+			for position: int in [5, 9, 12]:
+				if mission.progress[owner] < position:
+					continue
+				if state.outcome != null and state.outcome.mission_id == mission_id and state.outcome.winner_id == owner and position == 12:
+					continue
+				var id: String = occurrence(state, owner, mission_id, position)
+				if state.resolution != null and state.resolution.context.occurrence_id == id:
+					continue
+				expected[id] = {"owner": owner, "program": "m8_first_v1" if mission.first_arrivals["p%02d" % position] == owner else "m8_normal_v1"}
+	if expected.size() != state.authority.completed_sequences.size():
+		return false
+	for closed: Dictionary in state.authority.completed_sequences.values():
+		if not expected.has(closed.occurrence_id) or expected[closed.occurrence_id].owner != closed.owner_id or expected[closed.occurrence_id].program != closed.program_id:
+			return false
+		expected.erase(closed.occurrence_id)
+	return expected.is_empty()

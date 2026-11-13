@@ -16,6 +16,8 @@ El [registro de trabajo](registro-de-trabajo.md) conserva cambios y verificacion
 
 ## Producto, ejecución y calidad
 
+- [Elecciones y eliminación M8](specs/008-preparacion-y-turnos/elecciones-m8.md): perfil aislado implementado y verificado con fixtures, sin integración de producto; [evidencia](specs/008-preparacion-y-turnos/verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8).
+
 El [cumplimiento de SDD](gestion/agentes-sdd.md#obligatoriedad-y-dispensas) es obligatorio en tareas que cambien el proyecto. Solo el humano puede dispensar expresamente requisitos; registrar alcance y vigencia. Una tarea pequeña usa el formato proporcional, sin omitir sus controles.
 
 - [Continuar en otro PC con Codex](continuar-en-otro-pc.md): clon, motor y mensaje de reanudación.

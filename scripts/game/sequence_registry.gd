@@ -80,18 +80,22 @@ func valid_binding(state: Dictionary, resolution: Dictionary, definitions: Dicti
 		if not valid_id(recipient) or _player(state, recipient).is_empty() or seen.has(recipient):
 			return false
 		seen[recipient] = true
+	if program.has("binding"):
+		var bound: Variant = program.binding.call(state.duplicate(true), resolution.duplicate(true))
+		if not bound is bool or not bound:
+			return false
 	var scope: Variant = program.scope.call(state.duplicate(true), context.duplicate(true))
 	return scope is Array and recipients == scope
 
 
-func valid_pending(value: Variant, recipients: Array) -> bool:
+func valid_pending(value: Variant, recipients: Array, program_id: String = "") -> bool:
 	if not exact_keys(value, ["kind", "recipients", "options", "min", "max"]):
 		return false
 	if not value.kind is String or not value.kind in ["eleccion", "reaccion"]:
 		return false
 	if not value.recipients is Array or value.recipients.size() != 1 or not value.recipients[0] in recipients:
 		return false
-	if not value.options is Array or value.options.size() > MAX_OPTIONS:
+	if not value.options is Array or value.options.size() > option_limit(program_id):
 		return false
 	if typeof(value.min) != TYPE_INT or typeof(value.max) != TYPE_INT or value.min < 0 \
 		or value.max <= 0 or value.min > value.max or value.max > value.options.size():
@@ -113,6 +117,10 @@ func _validate_registration(registration: Dictionary) -> bool:
 		var fields: Array = ["params", "validate_params", "execute"]
 		if op is Dictionary and op.has("offer"):
 			fields.append("offer")
+		if op is Dictionary and op.has("auto_empty"):
+			fields.append("auto_empty")
+		if op is Dictionary and op.has("auto_empty") and (not op.has("offer") or not _valid_callable(op.auto_empty, [TYPE_DICTIONARY, TYPE_DICTIONARY, TYPE_DICTIONARY], TYPE_BOOL)):
+			return false
 		if not valid_id(operation_id) or not exact_keys(op, fields) or not _valid_schema(op.params, false):
 			return false
 		if not _valid_callable(op.execute, [TYPE_DICTIONARY, TYPE_DICTIONARY, TYPE_DICTIONARY, TYPE_OBJECT, TYPE_ARRAY], TYPE_BOOL) \
@@ -121,7 +129,16 @@ func _validate_registration(registration: Dictionary) -> bool:
 			return false
 	for program_id: Variant in registration.programs:
 		var program: Variant = registration.programs[program_id]
-		if not valid_id(program_id) or not exact_keys(program, ["steps", "context", "scope", "allow_null_source"]):
+		var fields: Array = ["steps", "context", "scope", "allow_null_source"]
+		if program is Dictionary and program.has("option_limit"):
+			fields.append("option_limit")
+			if not program.option_limit is int or program.option_limit < 1 or program.option_limit > 10000:
+				return false
+		if program is Dictionary and program.has("binding"):
+			fields.append("binding")
+			if not _valid_callable(program.binding, [TYPE_DICTIONARY, TYPE_DICTIONARY], TYPE_BOOL):
+				return false
+		if not valid_id(program_id) or not exact_keys(program, fields):
 			return false
 		if not _valid_schema(program.context, true) or not _valid_callable(program.scope, [TYPE_DICTIONARY, TYPE_DICTIONARY], TYPE_ARRAY) or not program.allow_null_source is bool:
 			return false
@@ -256,3 +273,14 @@ static func exact_keys(value: Variant, keys: Array) -> bool:
 		if not value.has(key):
 			return false
 	return true
+
+
+func option_limit(program_id: String) -> int:
+	return _programs.get(program_id, {}).get("option_limit", MAX_OPTIONS)
+
+
+func auto_empty(step: Dictionary, state: Dictionary, context: Dictionary) -> Variant:
+	var operation: Dictionary = _operations[step.operation]
+	if not operation.has("auto_empty"):
+		return false
+	return operation.auto_empty.call(state.duplicate(true), context.duplicate(true), step.params.duplicate())

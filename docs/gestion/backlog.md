@@ -127,7 +127,9 @@ Documentos y plantillas se incluyen en la entrega inicial autorizada para commit
 
 ## Refinamiento P08
 
-T08.1b13 (R2 documental) publicada y revisada favorablemente: [permanentes M3/M4 y PERM-01–06](../specs/008-preparacion-y-turnos/permanentes-misiones.md). T08.1b14 completada localmente, sin issue ni publicación: perfil aislado M3/M4/M7, marca de inicio M3 y nueva mano M4; 14 suites/7.904 comprobaciones y revisión independiente favorable. Entrada a limpieza y producto pendientes. Siguiente propuesto T08.1b15: contrato de elecciones/eliminación opcional M8, sin implementación iniciada. [Evidencia vigente](../specs/008-preparacion-y-turnos/verification.md#t081b14--implementación-de-permanentes-m3m4).
+T08.1b16 R2 implementada y verificada localmente, revisión independiente favorable, sin issue ni publicación: perfil aislado M5/M7/M8, snapshot 5, M8-01–08 y 15 suites/8.418 comprobaciones. [Evidencia y siguiente paso T08.1b17 propuesto](../specs/008-preparacion-y-turnos/verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8). Producto/entrada a limpieza y modos con rival pendientes; los registros inferiores conservan antecedentes.
+
+T08.1b14 publicada en `d5d6403`, comprobado tras fetch del 2026-11-13. T08.1b15 R2 documental completada con revisión independiente favorable, sin issue ni publicación: [contrato M8, M8-DOC-01–04 y plan T08.1b16](../specs/008-preparacion-y-turnos/elecciones-m8.md). Implementación no iniciada; entrada a limpieza/producto y modos con rival pendientes. [Evidencia vigente](../specs/008-preparacion-y-turnos/verification.md#t081b15--contrato-de-elecciones-y-eliminación-m8).
 
 T08.1b12 (R2) publicada en `4905b4e` y revisada: [M5/M6/M7](../specs/008-preparacion-y-turnos/verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7), snapshot 3, 13 suites/5.418 comprobaciones. Sin issue.
 

@@ -49,6 +49,8 @@ func project(state: Dictionary, recipient_id: String) -> Dictionary:
 			resolution["options"] = pending.options.duplicate()
 			resolution["min"] = pending.min
 			resolution["max"] = pending.max
+			if active.program_id in ["m8_normal_v1", "m8_first_v1"]:
+				resolution["option_cards"] = _option_cards(state, recipient_id)
 	return {"version_motor": state.version_motor, "catalog_id": state.catalog_id, "match_id": state.match_id, "mode": state.mode,
 		"revision": state.revision, "lifecycle": state.lifecycle, "player_order": state.player_order.duplicate(true),
 		"players": players, "zones": zones, "turn": {"number": state.turn.number,
@@ -61,3 +63,16 @@ func _known_player(players: Array, recipient_id: String) -> bool:
 		if player.player_id == recipient_id:
 			return true
 	return false
+
+
+static func _option_cards(state: Dictionary, owner: String) -> Array:
+	var result: Array = []
+	for kind: String in ["mano", "descarte", "juego"]:
+		for zone_id: String in state.zones:
+			var zone: Dictionary = state.zones[zone_id]
+			if zone.kind == kind and zone.holder_id == owner:
+				for id: String in zone.cards:
+					var card: Dictionary = state.instances[id]
+					if card.owner_id == owner:
+						result.append({"option_id": "o%05d" % (result.size() + 1), "instance_id": id, "definition_id": card.definition_id, "zone_id": zone_id})
+	return result

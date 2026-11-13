@@ -260,6 +260,10 @@ Es una decisión de adaptación, no una errata atribuida al editor. El [contrato
 
 2026-11-13. Diseño técnico de T08.1b14 implementado y verificado localmente, con [revisión independiente favorable](specs/008-preparacion-y-turnos/verification.md#t081b14--implementación-de-permanentes-m3m4). El perfil aislado M3/M4/M7 comparte candidatos de misión y P07 para confirmar llegada, inicio y nueva mano. Snapshot 4/motor `p08-permanents-1/godot-4.7.2`, sin migración implícita. M3 conserva marcas privadas de adquisición/última aplicación; M4 deriva mano 5/6 de su premio liquidado. Los namespaces internos de inicio/cierre quedan vedados a la entrada pública antes de consultar recibos. No habilita entrada a limpieza, cartas generadoras de puntos, producto ni modos con rival. No modifica las decisiones humanas DEC-031/032/034; [contrato normativo](specs/008-preparacion-y-turnos/permanentes-misiones.md).
 
+## DEC-036 — Elecciones M8 por segmentos con capacidad reservada
+
+2026-11-13. Diseño técnico implementado y verificado localmente en T08.1b16, revisión independiente favorable; [contrato](specs/008-preparacion-y-turnos/elecciones-m8.md) y [evidencia](specs/008-preparacion-y-turnos/verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8). P07 selecciona DIRECT/SEQUENCE desde autoridad congelada, con gasto/llegada automática y ventanas privadas normal/extra, cierre vacío explícito y grupos ligados a cursor. M8 declara 10.000 opciones frente a 16 por defecto y conserva límites globales; reserva capacidad para respuestas/cierre antes del gasto y al restaurar. Delta y RNG real se validan antes de publicar. Snapshot 5 sin migración implícita desde 4, perfil aislado M5/M7/M8 con fixtures restantes. No modifica las reglas humanas de DEC-034 ni habilita producto, limpieza o rival.
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.
