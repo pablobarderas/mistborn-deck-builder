@@ -1,5 +1,9 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.1b13 — Permanentes M3/M4
+
+[Contrato, PERM-01–06 y plan de implementación](permanentes-misiones.md): M3 al completar y una vez por inicio posterior; M4 sólo al robar nueva mano. Snapshot 4/motor de permanentes previstos para T08.1b14, sin cambios actuales de código. El perfil futuro M3/M4/M7 conservará fixtures y la entrada a limpieza pendiente. [Evidencia documental](verification.md#t081b13--contrato-de-permanentes-m3m4).
+
 ## T08.1b12 — Resolutor automático M5/M6/M7
 
 [Contrato MIS-01–06](avance-misiones.md). El primer perfil implementa MIS-01–03/05/06 en competitivo 2–4 con las tres misiones automáticas, reservas/componentes ficticios y nuevo esquema. MIS-04, elecciones y pausas permanecen pendientes para otras misiones. [Evidencia de ejecución y revisión](verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7). No cierra P08 ni integra producto.

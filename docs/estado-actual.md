@@ -1,8 +1,12 @@
 # Estado actual
 
-Última revisión: 2026-11-12.
+Última revisión: 2026-11-13.
 
 ## Resumen
+
+Publicación de T08.1b13 autorizada el 2026-11-13 mediante «haz commit y push» y recogida en el commit que incorpora esta nota. Siguiente objetivo T08.1b14. Las menciones inferiores sin publicación conservan el estado previo al permiso.
+
+T08.1b13 en revisión documental: [permanentes M3/M4](specs/008-preparacion-y-turnos/permanentes-misiones.md), aplicación única en inicio/nueva mano y PERM-01–06. El código conserva snapshot 3; snapshot 4 está previsto para T08.1b14. [Evidencia y traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t081b13--contrato-de-permanentes-m3m4). Sin publicación ni turno completo.
 
 Publicación de T08.1b12 autorizada el 2026-11-12 mediante «haz el commit y el push». El commit que contiene esta nota publica la implementación revisada; los traspasos inferiores sin publicación son históricos. Siguiente objetivo T08.1b13: contrato de permanentes M3/M4 en inicio/limpieza.
 

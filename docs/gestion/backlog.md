@@ -127,7 +127,9 @@ Documentos y plantillas se incluyen en la entrega inicial autorizada para commit
 
 ## Refinamiento P08
 
-T08.1b12 (R2) completada/verificada localmente y revisada: [M5/M6/M7](../specs/008-preparacion-y-turnos/verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7), snapshot 3, 13 suites/5.418 comprobaciones. Sin issue; publicación de implementación autorizada el 2026-11-12 y realizada por el commit que incorpora esta nota. T08.1b13: contrato de integración de permanentes M3/M4 con inicio/limpieza; elecciones y producto pendientes.
+T08.1b13 (R2 documental) en revisión: [permanentes M3/M4 y PERM-01–06](../specs/008-preparacion-y-turnos/permanentes-misiones.md). Sin issue ni publicación. Próxima implementación T08.1b14: perfil aislado M3/M4/M7, marca de inicio M3 y nueva mano M4; entrada a limpieza, elecciones y producto pendientes.
+
+T08.1b12 (R2) publicada en `4905b4e` y revisada: [M5/M6/M7](../specs/008-preparacion-y-turnos/verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7), snapshot 3, 13 suites/5.418 comprobaciones. Sin issue.
 
 T08.1b11 (R2 documental) especifica [avance de misiones, MIS-01–06](../specs/008-preparacion-y-turnos/avance-misiones.md) y DEC-034. Completada documentalmente con revisión independiente favorable. T08.1b12 ya implementa el primer resolutor aislado M5/M6/M7 según la evidencia superior. Sin issue publicada.
 

@@ -44,6 +44,8 @@ Para futuros premios con elecciones se reutilizará el [contrato de secuencia](s
 
 ## Premios y permanentes
 
+T08.1b13 concreta la futura integración de M3/M4, marcas privadas y nueva mano en el [contrato de permanentes](permanentes-misiones.md), sin ampliar el piloto actualmente ejecutable.
+
 | Misión | Resolución exigida al integrarla |
 | --- | --- |
 | M1 | Selección de fichas ordinarias agotadas propias; refrescar no borra `used_this_turn`. Atium no se agota. La cima aumenta capacidad de quema una vez y después refresca todas si es primero. Antes de implementar: definir selección cuando hay menos fichas que el premio y las ventanas de selección. |

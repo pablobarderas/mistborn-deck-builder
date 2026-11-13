@@ -1,5 +1,13 @@
 # Registro de trabajo
 
+## 2026-11-13 — Publicación de T08.1b13
+
+- Commit/push autorizado expresamente. Empaquetado R0 de diez Markdown sobre `4905b4e`, confirmado con fetch; revisión independiente reutilizada, enlaces/anclas y diff comprobados. Publicación identificada por el commit que contiene esta nota; siguiente T08.1b14, sin iniciar implementación. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b13--contrato-de-permanentes-m3m4).
+
+## 2026-11-13 — Contrato de permanentes M3/M4
+
+- T08.1b13 recuperada desde `4905b4e`, igual a HEAD/origin/main tras fetch, árbol inicialmente limpio. Contrato de aplicación única, futura marca privada M3 y nueva mano M4, con PERM-01–06 y plan T08.1b14. Contraste de reglas favorable; revisión documental independiente pendiente. Sólo Markdown, sin Godot, commit ni push. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b13--contrato-de-permanentes-m3m4).
+
 ## 2026-11-12 — Publicación de T08.1b12
 
 - Encargo expreso «haz el commit y el push». Empaquetado R0 sobre `2bc058c`, igual a origin/main tras fetch; se reutilizan pruebas y revisión del resolutor. Comprobar enlaces, índice/diff y fuentes excluidas, publicar los 35 archivos y verificar sincronización remota/árbol limpio. El commit que contiene esta nota identifica la entrega. Siguiente objetivo: contrato de permanentes M3/M4, sin iniciar otra implementación. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b12--resolutor-automático-de-misiones-m5m6m7).
