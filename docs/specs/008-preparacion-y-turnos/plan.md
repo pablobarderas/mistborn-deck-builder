@@ -1,5 +1,9 @@
 # Plan de SPEC-008
 
+## T08.1b18 — Premios M1
+
+Completada localmente según el [plan del contrato y M1-01–08](elecciones-m1.md#aceptación-documental-y-plan-de-implementación). [Registro previo y responsables](tasks.md#t081b18--implementación-de-premios-m1). Versión/capacidad por perfil → adaptador y ventanas → suite M1 y regresiones → revisión independiente y correcciones, ejecutados. Snapshot 6, 16 suites/10.475 comprobaciones y dictamen favorable. [Evidencia y siguiente objetivo propuesto, contrato M2](verification.md#t081b18--implementación-de-premios-m1). Sin publicación ni producto.
+
 ## T08.1b17 — Contrato M1
 
 Completada documentalmente, revisión independiente favorable: [contrato, M1-DOC-01–04 y plan T08.1b18](elecciones-m1.md#aceptación-documental-y-plan-de-implementación). DEC-037 resuelve la omisión: selección obligatoria en 5/9, cima directa con total automático. T08.1b18 implementará el perfil aislado M1/M5/M7, capacidad derivada y selecciones sobre snapshot 6 previsto; siguiente objetivo propuesto, con contrato ya revisado. [Evidencia y traspaso](verification.md#t081b17--contrato-de-selección-y-premios-m1). Motor actual snapshot 5 sin cambios.

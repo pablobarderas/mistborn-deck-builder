@@ -1,5 +1,54 @@
 # Verificación de SPEC-008
 
+## T08.1b18 — Implementación de premios M1
+
+Completada localmente, 2026-11-13, revisión independiente favorable. [Registro previo R2](tasks.md#t081b18--implementación-de-premios-m1), [contrato M1-01–08](elecciones-m1.md). Recuperación con fetch y lectura publicada en `424a2ea1daceb1c70c8e900249807a48a047f950`, igual a HEAD/main y origin/main; árbol inicialmente limpio, fast-forward sin cambios. T08.1b17 publicada: su traspaso inferior sin publicación conserva el antecedente. Se reutiliza el contraste de reglas documentado en esa entrega y DEC-037; no hay nuevas decisiones de reglas.
+
+Propiedad: `m1_impl`, GPT-6.1 Sol/high, perfil desarrollador aplicado por instrucciones por atomicidad/continuaciones, posee código, pruebas y lanzador. Coordinador posee documentación y ejecución oficial Godot en serie. `m1_review`, sdd_reviewer nativo GPT-6.1 Sol/high, revisión independiente de diff final, AC/fuentes y evidencia. Dos encargos sin descendientes ni dispensas. Tokens/coste no disponibles. Pruebas y dictamen final favorables; cierre local sin publicación.
+
+Resultado implementado y verificado: [m1_play.gd](../../../scripts/game/m1_play.gd) y [metal_refresh.gd](../../../scripts/game/metal_refresh.gd), perfil aislado M1/M5/M7 con ocho misiones reales completas y sus fuentes físicas; demás componentes/reservas son fixtures inertes. Snapshot 6/motor `p08-m1-refresh-1/godot-4.7.2`, sin migración implícita desde 5. El candidato compartido deriva capacidad base+bonus sólo en este perfil; no añade marcas permanentes ni relaja perfiles anteriores. Selección obligatoria normal/extra en 5/9, `auto_empty` sin candidatas, cima directa con capacidad y total automático; tercera cima terminal antes de premios. `option_metals` sólo para destinatario M1. Se mantienen recibos, segmentos atómicos, grupos/ledger y RNG efectivo.
+
+Revisión preliminar independiente y correcciones comprobadas por el mismo revisor: la carga verifica la proyección de la pausa actual antes de simular respuestas; regresión con vista exacta de 50.001 nodos aunque la siguiente frontera cabe. La inyección del fallo total distingue preflight exitoso de segunda aplicación real y exige rollback tras la primera ficha. Auto-revisión del autor ajusta presupuesto a respuestas realmente necesarias con cero/una candidatas; revisor confirma delta y casos de revisión máxima/10.000 recibos. Hallazgos resueltos con evidencia dirigida y final.
+
+Ejecución: fuentes SRC-005 preparadas y sus huellas comprobadas mediante `tools/prepare-mission-sources.ps1`, código 0. Iteraciones iniciales interrumpidas para evitar repetir la suite sobre código sustituido, sin resultado completo acreditado; no contarlas como pruebas superadas. Una sospecha inicial de importación bloqueada se descartó al identificar que el proceso ya ejecutaba la suite silenciosa; el lanzador conserva su importación original. Ejecución oficial del coordinador en serie con `powershell -NoProfile -ExecutionPolicy Bypass -File tools/godot.ps1 -Action <acción>`, Godot **4.7.2.stable.official.ed1daf0bf**. Runner ignorado `tmp/t081b18-run.ps1`, resultados `tmp/t081b18-results.json`, salidas `tmp/t081b18-test-*.txt` y logs `tmp/godot/`. Estos artefactos no acompañan otro clon; reproducir las dieciséis acciones del contrato tras preparar SRC-005.
+
+Primera ejecución oficial fallida en `test-m1`, código 1: fixture de recibos de la ruta directa no admitido y frontera de vista no construida exactamente; acceso posterior al estado vacío produce SCRIPT ERROR. Log preservado `tmp/t081b18-m1-first-failed.log`; el runner se detuvo sin ejecutar regresiones. Diagnóstico conjunto del coordinador/autor/revisor, confirmado por probe real: el fixture bajaba la revisión a 1 aunque contenía un cierre de revisión 2; el cálculo de vista usaba 13/6 nodos en lugar de los 12/5 reales. Corrección exclusiva de pruebas: conservar revisión histórica y derivar el coste incremental de nodos del objeto real. Ejecución dirigida del autor `tmp/m1_targeted.gd`, sólo `_windows_and_budgets`/`_restore_view_budget`: **63 comprobaciones, código 0**, sin ERROR/SCRIPT ERROR/M1_FAIL; log `tmp/godot/m1-targeted.log`. No sustituye la suite completa; segunda ejecución oficial completa descrita abajo. No hubo cambios de reglas, fuentes ni motor por estos fallos.
+
+Segunda ejecución oficial completa: **16 suites / 10.475 comprobaciones aprobadas, códigos 0**, con marcas finales y sin SCRIPT ERROR/M1_FAIL. M1 termina con `P08_M1_OK: 2057`, sin ERROR; resuelve los fallos de fixtures de la primera ejecución. Los errores impresos son negativos esperados: ocho de carga de `test`, dos de esquema/tamaño de `test-catalog` y uno de fuente ausente de `test-missions`; contrastados por el revisor con las pruebas. Dictamen final favorable.
+
+| Acción oficial | Comprobaciones |
+| --- | ---: |
+| test-m1 | 2.057 |
+| test-m8 | 512 |
+| test-sequence | 253 |
+| test-mission-advance | 878 |
+| test-permanents | 2.478 |
+| test-state | 2.075 |
+| test-engine | 102 |
+| test-setup | 175 |
+| test-cycle | 269 |
+| test-cleanup | 561 |
+| test-funding | 205 |
+| test-training | 295 |
+| test-start | 199 |
+| test-catalog | 220 |
+| test-missions | 138 |
+| test | 58 |
+
+| AC | Evidencia ejecutada en `tests/m1_test.gd`, aprobada |
+| --- | --- |
+| M1-01/02 | `_arrivals` y `_summits`: competitivo 2/3/4, 5/9/12, primeros/posteriores, cero/una/varias candidatas, min=max=1 y vacío automático; sólo cambia agotamiento, conserva usados/quemados/Atium y orden; total sin secuencia |
+| M1-03/04 | `_summits` y `_terminal`: capacidad 2–5, carga estable sin duplicar bonus, candidato de entrenamiento sin falsear fase, victoria por cada misión antes del último premio, cuatro Atium sin victoria |
+| M1-05/06 | `_restore_and_responses` y `_segment_failures`: reenvíos, errores, corrupción, continuidad normal/extra, rollback real tras primera ficha y segmentos fallidos, normal confirmado conservado, RNG malicioso rechazado |
+| M1-07 | `_windows_and_budgets` y `_restore_view_budget`: ofertas completas 16/17/100, programa con techo 10.000, límites de estado/vista/IDs/revisión/recibos y reserva exacta; vista privada desde proyección |
+| M1-08 | `_admission`: identidad/descriptor/registro, snapshot 5, perfiles previos y modos con rival rechazados; sin acciones de inicio/limpieza/quema |
+
+`m1_review` emitió dictamen final favorable sin bloqueantes ni mejoras necesarias para aceptar el alcance. Examinó diff y rutas efectivas, pruebas, documentos y logs originales; recalculó 16 resultados/10.475 comprobaciones y distinguió los negativos esperados. Comprobación documental de coordinador y revisor antes del sellado: `py -3 tmp/t081b5-previews/check_docs.py`, 12 Markdown, 416 enlaces locales y 201 anclas correctos. Tras sellar sólo resultados/estado, coordinador repite: **12 Markdown, 418 enlaces locales y 203 anclas correctos**; `git diff --check`, código 0. El checker ignorado no acompaña otro clon; comprueba rutas/anclas, no reglas. Sin cambios funcionales tras dictamen.
+
+Cumplimiento metodológico: R2, objetivo/AC/plan/propietarios previos, contraste de T08.1b17 reutilizado, pruebas adversas/regresiones, revisión independiente y correcciones satisfechos. AC-10: mismo autor/revisor en seguimientos, diagnóstico dirigido de 63 comprobaciones antes de repetir la ejecución completa, Godot en serie y evidencia centralizada. Se descartó cambiar las fuentes físicas del fixture para acelerar pruebas. Ninguna dispensa; no hay métricas de tokens/coste ni ahorro acreditado.
+
+Traspaso: main/HEAD `424a2ea1daceb1c70c8e900249807a48a047f950`; cambios locales en código/pruebas/lanzador y doce Markdown, nuevos adaptador/servicio/fixtures/suite M1 con sus UID. Sin trabajo ajeno conocido ni commit/push. T08.1b18 cerrada localmente, M1-01–08 satisfechos; no repetir M1/M8 ni interpretar fixtures como producto. Visual/red no aplican al servicio sin esas capas. P04 externa, P08 completa y rival siguen pendientes. No hay quema, turno completo, persistencia en disco ni reconexión de producto. Siguiente objetivo propuesto en nueva sesión: contrato de selección/derrota de Aliado y permanente M2, antes de implementar esa misión; empezar por fuentes y APIs de aliados/reacciones, sin ampliar automáticamente el perfil a producto.
+
 ## T08.1b17 — Contrato de selección y premios M1
 
 Publicación autorizada posteriormente el 2026-11-13: «haz el commit y el push». Registro previo R0 de empaquetado, coordinador responsable: publicar únicamente los doce Markdown de T08.1b17 ya revisados, sin cambios semánticos. Fetch confirma HEAD/origin/main `3be2a8d29dd2c756614c3efc0a43a1ceaac35385`; se conserva la entrega local. Reutilizar contraste y revisión independiente favorables; comprobar enlaces/diff e índice, commit/push y coincidencia remota con árbol limpio. Ninguna dispensa; el commit que incorpora esta nota identifica la publicación. Notas inferiores sin publicación históricas; T08.1b18 sigue como siguiente objetivo propuesto.

@@ -122,3 +122,9 @@ El preparador comprueba ambas huellas, conserva las copias idénticas y señala 
 ### Permanentes de misión (T08.1b14)
 
 `-Action test-permanents` importa y ejecuta `tests/permanents_test.gd`, exige `P08_PERMANENTS_OK` y rechaza ERROR/SCRIPT ERROR aunque el proceso termine con cero. Usa el mismo lote local de fuentes de misiones, perfil M3/M4/M7, pista/componentes y reservas ficticias. Comprueba llegadas, inicio único con M3, mano nueva 5/6 con M4, rechazos atómicos, recibos, carga, finales y privacidad. Snapshot 4/motor `p08-permanents-1/godot-4.7.2`, sin migración implícita desde esquema 3. Los estados de limpieza proceden de una fuente fixture fiable; no prueban combate, Target, transición desde libre ni una partida completa. [Resultados y revisión](specs/008-preparacion-y-turnos/verification.md#t081b14--implementación-de-permanentes-m3m4).
+
+### Refresco y capacidad de M1 (T08.1b18)
+
+`-Action test-m1` importa y ejecuta `tests/m1_test.gd`, exige `P08_M1_OK` y rechaza ERROR/SCRIPT ERROR incluso con código 0. Preparar antes las fuentes SRC-005 según el apartado de catálogo de misiones. Usa las ocho misiones reales completas y un perfil aislado M1/M5/M7 con componentes/reservas inertes ficticios. Comprueba selección obligatoria, vacío automático, cima directa, capacidad base+bonus, carga de elecciones, privacidad, límites, duplicados y rollback en competitivo 2/3/4. La validación repetida de los originales físicos puede hacer que la suite tarde varios minutos sin imprimir resultados intermedios.
+
+El esquema compartido vigente es **6**, motor `p08-m1-refresh-1/godot-4.7.2`, sin migración implícita desde snapshot 5. Las versiones de apartados anteriores describen sus entregas originales. No habilita quema, activación, inicio, limpieza, UI ni red de producto. [Contrato](specs/008-preparacion-y-turnos/elecciones-m1.md) y [resultado de ejecución/revisión](specs/008-preparacion-y-turnos/verification.md#t081b18--implementación-de-premios-m1).

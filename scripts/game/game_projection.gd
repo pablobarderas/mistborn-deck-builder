@@ -51,6 +51,8 @@ func project(state: Dictionary, recipient_id: String) -> Dictionary:
 			resolution["max"] = pending.max
 			if active.program_id in ["m8_normal_v1", "m8_first_v1"]:
 				resolution["option_cards"] = _option_cards(state, recipient_id)
+			if active.program_id in ["m1_normal_v1", "m1_first_v1"]:
+				resolution["option_metals"] = _option_metals(state, recipient_id)
 	return {"version_motor": state.version_motor, "catalog_id": state.catalog_id, "match_id": state.match_id, "mode": state.mode,
 		"revision": state.revision, "lifecycle": state.lifecycle, "player_order": state.player_order.duplicate(true),
 		"players": players, "zones": zones, "turn": {"number": state.turn.number,
@@ -76,3 +78,7 @@ static func _option_cards(state: Dictionary, owner: String) -> Array:
 					if card.owner_id == owner:
 						result.append({"option_id": "o%05d" % (result.size() + 1), "instance_id": id, "definition_id": card.definition_id, "zone_id": zone_id})
 	return result
+
+
+static func _option_metals(state: Dictionary, owner: String) -> Array:
+	return preload("res://scripts/game/metal_refresh.gd").options(state, owner)

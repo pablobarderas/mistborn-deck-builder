@@ -12,6 +12,10 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
+- Comunicación de todo el proyecto: indicativos de actividad con título escueto durante el trabajo, según [AGENTS](../AGENTS.md#comunicación-durante-el-trabajo) y DEC-038; [tarea de la instrucción](specs/009-sistema-agentes/tasks.md#comunicación-breve-durante-el-trabajo). El siguiente objetivo del juego se conserva.
+
+- T08.1b18 completada localmente: [contrato M1-01–08](specs/008-preparacion-y-turnos/elecciones-m1.md), perfil M1/M5/M7 y snapshot 6; dieciséis suites/10.475 comprobaciones y revisión independiente favorables. Siguiente objetivo propuesto: especificar M2 (selección/derrota de Aliado y permanente) antes de implementarla. [Traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t081b18--implementación-de-premios-m1). Sin publicación; las notas inferiores conservan antecedentes.
+
 - T08.1b17 completada documentalmente y revisada favorablemente: [contrato M1 y plan T08.1b18](specs/008-preparacion-y-turnos/elecciones-m1.md). DEC-037 fija refresco obligatorio; siguiente propuesto T08.1b18, implementación del perfil M1/M5/M7; snapshot 5 sin cambios. [Traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t081b17--contrato-de-selección-y-premios-m1). T08.1b15/16 ya publicadas en `3be2a8d`; las notas inferiores sin publicación conservan antecedentes.
 
 - Traspaso vigente 2026-11-13: T08.1b16 implementada y verificada, revisión independiente favorable; perfil aislado M5/M7/M8, snapshot 5 y 15 suites/8.418 comprobaciones. [Evidencia M8](specs/008-preparacion-y-turnos/verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8). Siguiente propuesto T08.1b17: contrato de selección de fichas agotadas y premios M1. Sin publicación, producto ni entrada a limpieza; el punto de reanudación inferior conserva los antecedentes.

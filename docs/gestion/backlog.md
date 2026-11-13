@@ -30,6 +30,8 @@
 
 ### T00.1 — Sistema transversal de agentes SDD
 
+- Comunicación breve (2026-11-13), R2 documental por instrucción humana para todo el proyecto: [registro, aceptación y cierre](../specs/009-sistema-agentes/tasks.md#comunicación-breve-durante-el-trabajo). AGENTS y AC-10 alineados; comprobación documental y revisión independiente favorables, sin issue ni publicación.
+
 - AC-10 (2026-11-11): reducir redundancia manteniendo controles, R2 documental, completada con revisión independiente favorable; [tarea y registro previo](../specs/009-sistema-agentes/tasks.md#ac-10--reducir-trabajo-redundante-sin-rebajar-controles). Sin issue ni publicación.
 
 - Tipo: herramientas/proceso. Fase P00, mejora posterior a su cierre documental. Spec: [SPEC-009](../specs/009-sistema-agentes/spec.md).
@@ -126,6 +128,8 @@ Documentos y plantillas se incluyen en la entrega inicial autorizada para commit
 [SPEC-007](../specs/007-estado-y-acciones/spec.md) y sus [tareas](../specs/007-estado-y-acciones/tasks.md) concretan T07.1/2 para trabajo local. T07.1/2 implementadas localmente con 1.725 y 102 comprobaciones; evidencia en verification.md. P04 externa sigue condicionando el cierre.
 
 ## Refinamiento P08
+
+T08.1b18 R2 completada localmente, sin issue ni publicación: [M1-01–08](../specs/008-preparacion-y-turnos/elecciones-m1.md), perfil aislado M1/M5/M7, snapshot 6; 16 suites/10.475 comprobaciones y revisión independiente favorables. [Evidencia vigente](../specs/008-preparacion-y-turnos/verification.md#t081b18--implementación-de-premios-m1). Siguiente propuesto: contrato M2, sin iniciar su implementación ni producto.
 
 T08.1b17 R2 documental completada y revisada favorablemente, sin issue: [contrato M1, M1-DOC-01–04 y plan T08.1b18](../specs/008-preparacion-y-turnos/elecciones-m1.md). DEC-037 fija refresco obligatorio; siguiente propuesto T08.1b18, implementación no iniciada. [Evidencia y traspaso vigente](../specs/008-preparacion-y-turnos/verification.md#t081b17--contrato-de-selección-y-premios-m1). T08.1b15/16 publicadas en `3be2a8d`; notas inferiores de no publicación son históricas.
 

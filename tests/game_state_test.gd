@@ -92,7 +92,7 @@ func _test_state() -> void:
 
 
 func _test_atium() -> void:
-	_expect(Validator.SCHEMA_VERSION == 5 and Validator.ENGINE_VERSION == "p08-m8-choices-1/godot-4.7.2", "M8-06 esquema 5 y version de elecciones")
+	_expect(Validator.SCHEMA_VERSION == 6 and Validator.ENGINE_VERSION == "p08-m1-refresh-1/godot-4.7.2", "M1-08 esquema 6 y version de refresco")
 	for mode: String in ["competitivo", "cooperativo", "solitario"]:
 		var counts: Array = [1] if mode == "solitario" else [2, 3, 4]
 		for count: int in counts:

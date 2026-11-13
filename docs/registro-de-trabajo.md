@@ -1,5 +1,19 @@
 # Registro de trabajo
 
+## 2026-11-13 — Publicación de M1 y comunicación breve
+
+- Autorización humana «haz commit y push de estos cambios». Registro previo R0 de empaquetado: publicar T08.1b18 y la norma de comunicación/herramientas ya revisadas; coordinador responsable. Fetch y HEAD/origin/main coinciden en `424a2ea`; conservar todos los cambios locales revisados. Reutilizar las 16 suites/10.475 comprobaciones y dictámenes favorables; comprobar enlaces/diff, índice, commit/push y remoto limpio. Sin dispensas. El commit que incorpora esta nota identifica la publicación; menciones anteriores sin publicación son históricas. No autoriza entregas futuras.
+
+## 2026-11-13 — Comunicación breve en todo el proyecto
+
+- Ampliación humana: incluir salidas de herramientas y casos similares; sólo archivos editados, sin diffs/líneas ni volcados. AGENTS, AC-10 y DEC-038 ampliados; revisión independiente favorable y comprobación documental correcta tras alinear también AC-10 punto 2, sin código/Godot ni publicación.
+
+- Instrucción expresa del usuario: durante el trabajo sólo un indicativo con título escueto. Norma añadida a AGENTS, AC-10 alineado y DEC-038 registrada; sin relajar pruebas, revisión ni evidencia. R2, registro previo, aceptación y cierre en [T00.1](specs/009-sistema-agentes/tasks.md#comunicación-breve-durante-el-trabajo). Revisión independiente Sol/high y comprobación documental favorables. Se conservan los cambios locales de M1; sin código/Godot, dispensas ni publicación.
+
+## 2026-11-13 — Premios M1, T08.1b18
+
+- R2, recuperación GitHub/main `424a2ea` con árbol inicialmente limpio. Implementado perfil aislado M1/M5/M7, snapshot 6, refresco obligatorio/selectivo o total automático y capacidad base+bonus; fuentes/DEC-037 de T08.1b17 reutilizadas. Desarrollador Sol/high y revisor independiente Sol/high, sin descendientes ni dispensas. Resueltos hallazgos de presupuesto de vista/carga y prueba de rollback real; primera ejecución falló por dos fixtures, corregidos y validados con 63 comprobaciones dirigidas. Ejecución final: 16 suites/10.475 comprobaciones, incluidas 2.057 de M1; dictamen independiente favorable y comprobación documental correcta. Sin producto/UI/red/quema ni commit/push. Siguiente propuesto: contrato M2. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b18--implementación-de-premios-m1).
+
 ## 2026-11-13 — Publicación del contrato M1
 
 - Autorización humana «haz el commit y el push». Empaquetado R0 registrado antes de publicar: doce Markdown de T08.1b17, contrato y DEC-037 revisados, sin cambios semánticos; coordinador responsable. Fetch confirma HEAD/origin/main `3be2a8d`; conservar entrega local. Reutilizar revisión independiente, comprobar enlaces/diff e índice y verificar commit/push contra remoto y árbol limpio. Ninguna dispensa. El commit que incorpora esta nota identifica la publicación; las notas inferiores sin publicación son históricas. Siguiente objetivo propuesto T08.1b18, sin autorización de publicar esa futura entrega.

@@ -266,11 +266,17 @@ Es una decisión de adaptación, no una errata atribuida al editor. El [contrato
 
 ## DEC-037 — Refresco obligatorio de premios M1
 
+Aplicación técnica T08.1b18, 2026-11-13: perfil aislado M1/M5/M7 y capacidad base+bonus derivada del grupo liquidado, snapshot 6 sin migración implícita desde 5. Implementada y verificada localmente, revisión independiente favorable, sin nuevas decisiones de reglas ni integración de producto. [Evidencia y estado de revisión](specs/008-preparacion-y-turnos/verification.md#t081b18--implementación-de-premios-m1).
+
 2026-11-13. Aceptada por respuesta expresa del usuario en T08.1b17: «Refrescar obligatoriamente si hay fichas agotadas (si es una, elegir cuál; si son todas, automático)», a una consulta que incluía tanto el premio selectivo como el total. Resuelve DUD-009 para la adaptación; SRC-001/002 no aclaran inequívocamente su omisión en premios de misión. No se atribuye al editor.
 
 - Cada premio de refrescar una ficha ordinaria agotada de M1 exige elegir una si existe alguna; no se permite omitir. Incluso una única candidata mantiene la selección. Sin candidatas se liquida automáticamente sin efecto.
 - El premio de refrescar todas se aplica automáticamente y sin opción de omisión ni subconjunto. No altera `used_this_turn` ni permite reutilizar una ficha usada ese turno.
 - Normal antes del extra y victoria por la tercera cima antes de sus premios conservan DEC-034. El [contrato M1](specs/008-preparacion-y-turnos/elecciones-m1.md) concreta programas, grupos, capacidad y pruebas futuras. No cambia el motor en esta entrega documental ni decide opcionalidad de otras familias de efectos.
+
+## DEC-038 — Indicativos breves durante el trabajo
+
+2026-11-13. Aceptada por instrucción expresa del usuario, para todo el proyecto: durante el trabajo mostrar únicamente un indicativo de actividad con título escueto; evitar narración interna, detalles técnicos, logs y actualizaciones repetitivas. Sólo preguntas imprescindibles y bloqueos que requieran intervención interrumpen ese formato; resultados relevantes y limitaciones en un cierre breve. Norma en [AGENTS](../AGENTS.md#comunicación-durante-el-trabajo). Ampliación expresa del mismo día: extenderlo a herramientas y operaciones similares, mostrando sólo archivos editados, sin diffs, líneas, código, comandos completos ni volcados; lecturas/pruebas/Git con salida mínima. Usar mecanismos sin detalle automático cuando sea posible. La evidencia y los controles SDD permanecen obligatorios. [Registro de la tarea](specs/009-sistema-agentes/tasks.md#comunicación-breve-durante-el-trabajo).
 
 ## Decisiones aún pendientes
 

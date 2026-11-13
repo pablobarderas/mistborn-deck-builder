@@ -1,6 +1,6 @@
 # Contrato de selección y premios de M1
 
-T08.1b17, entrega documental R2 para competitivo de 2–4 plazas. Contrato completado documentalmente y revisado favorablemente; refresco obligatorio según DEC-037. [Evidencia y traspaso](verification.md#t081b17--contrato-de-selección-y-premios-m1). No cambia código, datos ni el motor vigente: snapshot 5 / `p08-m8-choices-1/godot-4.7.2`. El plan inferior pertenece a T08.1b18, todavía no implementada. No habilita producto, quema, activación de habilidades, inicio, entrada a limpieza, UI ni red.
+T08.1b17, contrato R2 para competitivo de 2–4 plazas, completado documentalmente y revisado favorablemente; refresco obligatorio según DEC-037. [Evidencia documental](verification.md#t081b17--contrato-de-selección-y-premios-m1). T08.1b18 implementa y verifica este contrato en perfil aislado M1/M5/M7, snapshot 6 / `p08-m1-refresh-1/godot-4.7.2`; 16 suites/10.475 comprobaciones y revisión independiente favorables, según su [evidencia vigente](verification.md#t081b18--implementación-de-premios-m1). No habilita producto, quema, activación de habilidades, inicio, entrada a limpieza, UI ni red.
 
 Fuentes: [SRC-001](../../referencias/README.md#src-001--reglamento-aportado-por-el-usuario), pp.7–8, 12, 14 y 17; [SRC-002, FAQ oficial](https://www.brotherwisegames.com/mistborn-deckbuilding-game-faq), «Metal tokens & atium», «Missions» y «Action cards», consultada el 2026-11-13; [SRC-005 M1](../../referencias/misiones-competitivas.md), hoja `misiones.1.png`, superior izquierda. REG-012/013/016/017/019/032/033/044; [DEC-034](../../decisiones.md#dec-034--orden-de-premios-y-victoria-por-misiones). El [catálogo v2](catalogo-misiones.md) ya representa `refrescar_agotados` y `capacidad_quema`; su validación no ejecuta estos efectos.
 
@@ -20,13 +20,13 @@ El refresco de misión no exige descartar una carta, no se restringe a una parej
 
 ## Perfil y capacidad permanente
 
-El piloto técnico previsto selecciona exactamente **M1/M5/M7**. Reconoce y congela las ocho misiones reales completas del lote v2; las demás definiciones y reservas netas son fixtures inertes explícitos de autoridad. No combina M2/M3/M4/M6/M8 ni Funding activo. Sólo admite `libre` en curso y el final competitivo por tres misiones; las pausas conservan `libre`. No expone operaciones de iniciar, limpiar, quemar o activar. El catálogo, perfil de entrenamiento y registro cerrado forman parte de la identidad de autoridad; rechazar contenido con obligaciones desconocidas, no confiar en flags de cliente.
+El piloto técnico selecciona exactamente **M1/M5/M7**. Reconoce y congela las ocho misiones reales completas del lote v2; las demás definiciones y reservas netas son fixtures inertes explícitos de autoridad. No combina M2/M3/M4/M6/M8 ni Funding activo. Sólo admite `libre` en curso y el final competitivo por tres misiones; las pausas conservan `libre`. No expone operaciones de iniciar, limpiar, quemar o activar. El catálogo, perfil de entrenamiento y registro cerrado forman parte de la identidad de autoridad; rechazar contenido con obligaciones desconocidas, no confiar en flags de cliente.
 
 La capacidad persistida `burn_limit` debe ser exactamente `base_entrenamiento(training) + bonus_m1`, donde la base cuenta las marcas `quema` de `TrainingAdvance.PANEL` desde cero hasta la posición inclusive; `bonus_m1` vale uno exclusivamente si esa plaza tiene progreso M1=12 y `p12_permanente` liquidado, y cero en otro caso. Sólo hay una M1 activa y no se duplica el bonus por primera llegada ni por turno. Se deriva la posesión del grupo existente; no añadir otra marca mutable ni un contador de aplicaciones para M1. `authority.mission_permanents` continúa vacío en este piloto: las marcas temporales de M3 no se reutilizan para M1.
 
 Al completar M1 sin terminar la partida, incrementar `burn_limit` en uno y liquidar `p12_permanente` juntos, antes del extra. La capacidad aumenta desde esa llegada, también durante el turno actual; se conserva en turnos posteriores y al cargar. El techo de cuatro del entrenamiento no limita a cuatro la capacidad total: con la base máxima y M1 es cinco. No reiniciar usos ni metales quemados para conceder capacidad. La futura quema deberá consultar este valor, pero no se implementa ni acredita aquí. El servicio genérico de entrenamiento ya suma uno sobre el valor actual al alcanzar una marca; conservarlo al integrar M1, sin sustituir el total por la base. La composición con inicio, otras fuentes de capacidad y efectos temporales requiere sus contratos posteriores.
 
-Discrepancia de código detectada: `MissionAdvance.state_error` exige actualmente igualdad con la base del entrenamiento y no admite M1. La implementación debe parametrizar la admisión/derivación para el nuevo perfil sin relajar esa igualdad en los anteriores. `GameProjection` ya publica metales, usos, `burned` y capacidad de todas las plazas. La nueva elección privada no convierte esos datos en secretos.
+Discrepancia de código detectada en T08.1b17: `MissionAdvance.state_error` exigía igualdad con la base del entrenamiento y no admitía M1. T08.1b18 parametriza la admisión/derivación para el nuevo perfil sin relajar esa igualdad en los anteriores. `GameProjection` publica metales, usos, `burned` y capacidad de todas las plazas. La nueva elección privada no convierte esos datos en secretos.
 
 ## Llegada, autoridad y segmentos
 
@@ -54,7 +54,7 @@ Terceros reciben únicamente el bloqueo P07 existente, sin `step_id`, opciones, 
 
 ## Carga, grupos y compatibilidad
 
-Se prevé **snapshot 6 / `p08-m1-refresh-1/godot-4.7.2`**, catálogo v2 e intención v1; sin migración implícita de snapshot 5. El cambio semántico de capacidad, programas y pausas requiere versión nueva aunque reutilice los campos actuales. Actualizar constructores/fixtures/versiones compartidas y preservar las restricciones de cada perfil anterior. Es una previsión, no el estado implementado.
+T08.1b18 usa **snapshot 6 / `p08-m1-refresh-1/godot-4.7.2`**, catálogo v2 e intención v1; sin migración implícita de snapshot 5. El cambio semántico de capacidad, programas y pausas requiere versión nueva aunque reutilice los campos actuales. Constructores/fixtures/versiones compartidas deben preservar las restricciones de cada perfil anterior.
 
 Los únicos grupos M1 posibles son `p05_normal`, `p05_primero`, `p09_normal`, `p09_primero`, `p12_permanente` y `p12_primero`. Un premio sin candidatas queda liquidado, sin lista de fichas persistida; no añadir `p12_normal` vacío. El extra exige `first_arrivals` del dueño. Fuera de pausa deben estar todos los grupos alcanzados y debidos, excepto la última cima terminal. En una pausa sólo el cursor y programa de esa llegada selectiva en 5/9 justifican el grupo normal y/o extra pendientes; todos los demás grupos de todas las plazas siguen completos. Rechazar cualquier pausa M1 vinculada a posición 12, incluso no terminal: su cima es siempre directa. Ledger de cierre, contexto, fuente y programa deben concordar con los grupos. Una llegada selectiva sin candidatas puede completar toda la secuencia en el segmento inicial: conserva su cierre/ledger único, sin persistir ventana vacía.
 
@@ -69,7 +69,7 @@ Cargar sólo desde fuente tipada fiable que entregue el último snapshot confirm
 | M1-DOC-03 | Escenarios funcionales y plan trazables, diferenciados de pruebas ejecutadas; versión vigente y prevista explícitas. |
 | M1-DOC-04 | Enlaces/anclas y diff válidos, contraste reglamentario, revisión independiente y hallazgos resueltos; memoria y traspaso actualizados. |
 
-Los siguientes escenarios son **pruebas futuras**, no ejecutadas en esta entrega:
+Los siguientes escenarios fueron pruebas futuras en T08.1b17. T08.1b18 los implementa en `tests/m1_test.gd`; sus resultados reales se registran en la [evidencia de implementación](verification.md#t081b18--implementación-de-premios-m1).
 
 | AC de T08.1b18 | Casos exigidos en competitivo 2/3/4 |
 | --- | --- |

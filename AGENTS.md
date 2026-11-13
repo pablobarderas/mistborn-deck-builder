@@ -22,6 +22,13 @@ No asumir que existe memoria persistente entre conversaciones. Todo acuerdo rele
 
 Una sesión principal debe tener un objetivo verificable: mantener juntos especificación, plan, implementación, pruebas, revisión y correcciones relacionadas. Antes de pasar a otro objetivo, cerrar o dejar un traspaso breve en los documentos de la tarea con estado Git, evidencia, decisiones, pendientes y primer paso siguiente. Una interrupción permite retomar la misma tarea; no obliga a crear otro chat ni convierte la tarea en terminada. Al recuperar una sesión, contrastar el traspaso con archivos y Git, conservar las lecturas obligatorias y consultar después solo el contexto temático necesario. Aplicar [sesiones y traspaso](docs/gestion/agentes-sdd.md#sesiones-y-traspaso); solo una dispensa humana explícita permite apartarse de esta regla. No crear chats, hacer commit/push ni asumir aislamiento de archivos por cambiar de sesión.
 
+## Comunicación durante el trabajo
+
+- Aplicar en todo el proyecto: los mensajes intermedios serán únicamente un indicativo de actividad con un título escueto, por ejemplo «Ejecutando pruebas…» o «Revisando cambios…».
+- No narrar pasos internos ni imprimir explicaciones técnicas, coordinación de agentes, logs, recuentos parciales o avisos repetitivos. Mantener la evidencia detallada en los documentos y archivos de la tarea.
+- Extender la salida mínima a herramientas y operaciones similares: al editar, mostrar sólo los nombres de los archivos modificados; evitar diffs, líneas añadidas/eliminadas, fragmentos de código, comandos completos y volcados de resultados. En lecturas, búsquedas, pruebas y Git, limitar la salida visible al indicativo de actividad o resultado imprescindible. Revisar internamente lo necesario y guardar la salida extensa en archivos, sin volcarla al chat; usar mecanismos que no muestren automáticamente el detalle cuando sea posible.
+- Comunicar durante el trabajo sólo las preguntas imprescindibles o los bloqueos que requieran intervención del usuario. Reservar los resultados relevantes y las limitaciones para un cierre breve, salvo que el usuario pida más detalle.
+
 ## Entorno y organización
 
 - Motor: Godot 4.7.2 estable estándar, fijado en `.godot-version`; GDScript y renderizador Compatibility. No cambiar la versión silenciosamente.

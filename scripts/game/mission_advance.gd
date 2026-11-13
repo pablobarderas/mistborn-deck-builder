@@ -5,11 +5,14 @@ const Validator = preload("res://scripts/game/state_validator.gd")
 const Registry = preload("res://scripts/game/sequence_registry.gd")
 const Training = preload("res://scripts/game/training_advance.gd")
 const Funding = preload("res://scripts/game/funding_play.gd")
+const Refresh = preload("res://scripts/game/metal_refresh.gd")
 const Cycle = preload("res://scripts/game/card_cycle.gd")
 const ACTIVE_DEFINITIONS: Array[String] = ["mision_m5", "mision_m6", "mision_m7"]
 const PERMANENT_DEFINITIONS: Array[String] = ["mision_m3", "mision_m4", "mision_m7"]
 var _active_definitions: Array[String] = ACTIVE_DEFINITIONS
 const CHOICE_DEFINITIONS: Array[String] = ["mision_m5", "mision_m7", "mision_m8"]
+const REFRESH_DEFINITIONS: Array[String] = ["mision_m1", "mision_m5", "mision_m7"]
+var _refresh: bool = false
 var _choices: bool = false
 var _permanents: bool = false
 var _definitions: Dictionary
@@ -18,7 +21,8 @@ var _training: Training
 var _registry: Registry = Registry.new()
 
 
-func _init(definitions: Dictionary, catalog_id: String, training_profile: Dictionary, permanents: bool = false, choices: bool = false, registry: Registry = null) -> void:
+func _init(definitions: Dictionary, catalog_id: String, training_profile: Dictionary, permanents: bool = false, choices: bool = false, registry: Registry = null, refresh: bool = false) -> void:
+	_refresh = refresh
 	_choices = choices
 	if registry != null:
 		_registry = registry
@@ -26,7 +30,7 @@ func _init(definitions: Dictionary, catalog_id: String, training_profile: Dictio
 	_catalog_id = catalog_id
 	_training = Training.new(_definitions, _catalog_id, training_profile, _registry)
 	_permanents = permanents
-	_active_definitions = CHOICE_DEFINITIONS if choices else (PERMANENT_DEFINITIONS if permanents else ACTIVE_DEFINITIONS)
+	_active_definitions = REFRESH_DEFINITIONS if refresh else (CHOICE_DEFINITIONS if choices else (PERMANENT_DEFINITIONS if permanents else ACTIVE_DEFINITIONS))
 
 
 func supported() -> bool:
@@ -37,7 +41,7 @@ func supported() -> bool:
 
 
 static func supported_mission(card: Dictionary) -> bool:
-	if not card.get("id") in ACTIVE_DEFINITIONS + PERMANENT_DEFINITIONS + CHOICE_DEFINITIONS or card.get("tipo") != "mision":
+	if not card.get("id") in ACTIVE_DEFINITIONS + PERMANENT_DEFINITIONS + CHOICE_DEFINITIONS + REFRESH_DEFINITIONS or card.get("tipo") != "mision":
 		return false
 	var tracks: Array = card.get("rasgos", {}).get("recorridos", [])
 	if tracks.size() != 1 or tracks[0].id != "principal" or tracks[0].casillas.size() != 12:
@@ -47,7 +51,14 @@ static func supported_mission(card: Dictionary) -> bool:
 		var cell: Dictionary = {"id": "p%02d" % position, "efectos": [], "primero": []}
 		if position == 12:
 			cell.permanente = null
-		if card.id == "mision_m3":
+		if card.id == "mision_m1":
+			if position in [5, 9]:
+				cell.efectos = [{"op": "refrescar_agotados", "cantidad": 1}]
+				cell.primero = cell.efectos.duplicate(true)
+			elif position == 12:
+				cell.permanente = {"tipo": "capacidad_quema", "cantidad": 1}
+				cell.primero = [{"op": "refrescar_agotados", "cantidad": "todos"}]
+		elif card.id == "mision_m3":
 			if position in [4, 6, 8, 10]:
 				cell.efectos = [_gain("recursos", 1)]
 				cell.primero = [_gain("recursos", 1)]
@@ -109,6 +120,10 @@ func state_error(state: Variant) -> String:
 		for index: int in range(player.training + 1):
 			if Training.PANEL[index] == "quema":
 				burn_limit += 1
+		if _refresh:
+			for mission: Dictionary in state.missions.values():
+				if mission.definition_id == "mision_m1" and mission.progress.get(player.player_id) == 12 and "p12_permanente" in mission.rewards.get(player.player_id, []):
+					burn_limit += 1
 		if player.burn_limit != burn_limit:
 			return "estado_invalido"
 		if not player.eliminated:
@@ -223,6 +238,8 @@ func advance(snapshot: Variant, actor_id: String, mission_id: String, rng: Rando
 		var cell: Dictionary = _definitions[staged.definition_id].rasgos.recorridos[0].casillas[position - 1]
 		if cell.get("permanente") != null:
 			candidate.missions[mission_id].rewards[actor_id].append(cell_id + "_permanente")
+			if staged.definition_id == "mision_m1" and _refresh:
+				_player(candidate, actor_id).burn_limit += 1
 			if staged.definition_id == "mision_m3":
 				if not _apply(candidate, actor_id, _gain("recursos", 2), staged_rng):
 					return _reject("estado_invalido")
@@ -250,6 +267,10 @@ func advance(snapshot: Variant, actor_id: String, mission_id: String, rng: Rando
 
 func _apply(state: Dictionary, actor_id: String, effect: Dictionary, rng: RandomNumberGenerator = null) -> bool:
 	var player: Dictionary = _player(state, actor_id)
+	if effect.op == "refrescar_agotados":
+		if not _refresh or effect.cantidad != "todos":
+			return false
+		return Refresh.all(state, actor_id)
 	var amount: int = int(effect.cantidad)
 	if effect.op == "robar":
 		return Cycle.new(_definitions, _catalog_id, _registry).draw(state, actor_id, amount, rng).ok
@@ -332,17 +353,17 @@ static func arrive(state: Dictionary, actor_id: String, mission_id: String, posi
 
 
 static func occurrence(state: Dictionary, owner: String, mission_id: String, position: int) -> String:
-	return "m8_" + Funding._canonical_content([state.match_id, owner, mission_id, position]).sha256_text()
+	return ("m1_" if state.missions[mission_id].definition_id == "mision_m1" else "m8_") + Funding._canonical_content([state.match_id, owner, mission_id, position]).sha256_text()
 
 
 func _choice_closures(state: Dictionary) -> bool:
 	var expected: Dictionary = {}
 	for mission_id: String in state.missions:
 		var mission: Dictionary = state.missions[mission_id]
-		if mission.definition_id != "mision_m8":
+		if mission.definition_id != ("mision_m1" if _refresh else "mision_m8"):
 			continue
 		for owner: String in mission.progress:
-			for position: int in [5, 9, 12]:
+			for position: int in ([5, 9] if _refresh else [5, 9, 12]):
 				if mission.progress[owner] < position:
 					continue
 				if state.outcome != null and state.outcome.mission_id == mission_id and state.outcome.winner_id == owner and position == 12:
@@ -350,7 +371,7 @@ func _choice_closures(state: Dictionary) -> bool:
 				var id: String = occurrence(state, owner, mission_id, position)
 				if state.resolution != null and state.resolution.context.occurrence_id == id:
 					continue
-				expected[id] = {"owner": owner, "program": "m8_first_v1" if mission.first_arrivals["p%02d" % position] == owner else "m8_normal_v1"}
+				expected[id] = {"owner": owner, "program": ("m1_" if _refresh else "m8_") + ("first_v1" if mission.first_arrivals["p%02d" % position] == owner else "normal_v1")}
 	if expected.size() != state.authority.completed_sequences.size():
 		return false
 	for closed: Dictionary in state.authority.completed_sequences.values():

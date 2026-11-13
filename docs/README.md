@@ -16,6 +16,8 @@ El [registro de trabajo](registro-de-trabajo.md) conserva cambios y verificacion
 
 ## Producto, ejecución y calidad
 
+- [Premios M1 implementados](specs/008-preparacion-y-turnos/elecciones-m1.md): T08.1b18, perfil aislado M1/M5/M7 y snapshot 6; 16 suites/10.475 comprobaciones y revisión independiente favorables. [Evidencia vigente](specs/008-preparacion-y-turnos/verification.md#t081b18--implementación-de-premios-m1).
+
 - [Selección y premios M1](specs/008-preparacion-y-turnos/elecciones-m1.md): contrato T08.1b17 completado y revisado favorablemente, DEC-037; motor actual sin cambios. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b17--contrato-de-selección-y-premios-m1).
 
 - [Elecciones y eliminación M8](specs/008-preparacion-y-turnos/elecciones-m8.md): perfil aislado implementado y verificado con fixtures, sin integración de producto; [evidencia](specs/008-preparacion-y-turnos/verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8).
