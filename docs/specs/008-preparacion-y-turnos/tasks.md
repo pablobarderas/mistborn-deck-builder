@@ -1,5 +1,13 @@
 # Tareas de SPEC-008
 
+### T08.1b19 — Contrato de objetivos y premios M2
+
+Publicación autorizada el 2026-11-14 mediante «haz commit y push y vamos con el siguiente». Registro previo R0 de empaquetado, coordinador responsable: publicar los once Markdown del borrador/traspaso ya revisados, sin cambiar reglas ni cerrar DUD-010. Fetch confirma HEAD/origin/main `cb4670c14c2287801708327ed5c805a182a049e7`; conservar la entrega local. Verificación prevista: enlaces/anclas, diff e índice; commit/push y coincidencia remota con árbol limpio. Reutilizar revisión favorable del borrador. Sin dispensas; continuar exige respuesta humana a las reglas pendientes, no inferirla del permiso de publicación.
+
+Estado 2026-11-14: borrador y traspaso provisional revisados favorablemente; once Markdown, 389 enlaces/anclas y diff correctos. M2-DOC-01/03 y cierre global pendientes de respuesta DUD-010 y concreción posterior; no se declara contrato implementable. Sin código/Godot, dispensas ni publicación.
+
+Registro previo 2026-11-14, encargo «Vamos con el siguiente paso». Fetch y estado publicado comprobados en `cb4670c14c2287801708327ed5c805a182a049e7`, igual a HEAD/main y origin/main, árbol limpio. T08.1b18 publicada; siguiente objetivo documental M2. R2 por derrota directa, objetivos/reacciones, autoridad, privacidad y permanentes. Objetivo/AC M2-DOC-01–04: contrastar premios y restricciones con SRC-001/002/005; especificar límites, secuencia, restauración y escenarios futuros contra APIs reales; distinguir decisiones pendientes y contrato implementable; comprobar enlaces/diff y revisión independiente. Coordinador único escritor de docs/. sdd_rules Sol/high contrasta fuentes y dudas, sin editar; sdd_reviewer Sol/high revisará el resultado final y fuentes, sin editar. Sin descendientes. Plan: contraste y APIs, contrato con dependencias explícitas, plan de implementación proporcional, verificación documental, revisión/correcciones y traspaso. No ejecutar Godot ni acreditar comportamiento futuro. Visual/red no aplican sin UI/transporte; P04/P08/rival conservan sus puertas. Ninguna dispensa ni permiso de commit/push.
+
 ### T08.1b18 — Implementación de premios M1
 
 Completada localmente: M1-01–08, 16 suites/10.475 comprobaciones y revisión independiente favorables; enlaces/anclas y diff correctos, sin dispensas ni publicación. [Evidencia y traspaso](verification.md#t081b18--implementación-de-premios-m1). Siguiente objetivo propuesto: contrato M2, sin iniciar otra implementación.

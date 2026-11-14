@@ -1,6 +1,6 @@
 # Plan de trabajo por fases
 
-Última revisión: 2026-11-13. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba y preparación estructural P08; efectos, turnos completos y partidas siguen sin implementar.
+Última revisión: 2026-11-14. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba y preparación estructural P08; efectos, turnos completos y partidas siguen sin implementar.
 
 ## Objetivo y situación
 
@@ -11,6 +11,8 @@ Acceso confirmado: salas privadas sin cuentas y capacidad de reconectarse a la m
 SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edición/1.ª impresión. El usuario tiene la caja española; falta contrastar localización y completar cartas/pistas. Windows es la plataforma inicial confirmada; la maqueta 2D de P05 se acepta como dirección visual inicial.
 
 ## Cómo avanzar
+
+- T08.1b19 en curso: [contrato M2](specs/008-preparacion-y-turnos/elecciones-m2.md), pendiente de resolver DUD-010 antes de concretar selección e implementar. [Traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t081b19--contrato-de-objetivos-y-premios-m2). T08.1b18/DEC-038 ya publicadas en `cb4670c`; notas inferiores sin publicación históricas. Mantener este objetivo documental hasta resolver decisiones y revisión.
 
 - Comunicación de todo el proyecto: indicativos de actividad con título escueto durante el trabajo, según [AGENTS](../AGENTS.md#comunicación-durante-el-trabajo) y DEC-038; [tarea de la instrucción](specs/009-sistema-agentes/tasks.md#comunicación-breve-durante-el-trabajo). El siguiente objetivo del juego se conserva.
 
@@ -318,6 +320,8 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 **Cierre:** Una copia limpia permite ejecutar la versión y completar una partida remota; se conservan evidencia de pruebas y limitaciones conocidas.
 
 ## Punto de reanudación
+
+2026-11-14. Retomar T08.1b19 en el mismo objetivo: registrar respuesta a DUD-010, concretar contrato y revisar delta antes del cierre. [Fuentes, APIs, responsables y estado Git](specs/008-preparacion-y-turnos/verification.md#t081b19--contrato-de-objetivos-y-premios-m2). No repetir implementación M1 publicada; M2 sigue sin código y sus escenarios son futuros.
 
 2026-11-13. T08.1b17 completada documentalmente y revisada favorablemente sobre main/`3be2a8d`, sólo Markdown local. [Traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t081b17--contrato-de-selección-y-premios-m1): DEC-037 y contrato único revisados; primer paso T08.1b18: versión y derivación de capacidad por perfil. No repetir M8 publicada ni confundir el contrato con M1 implementada. Sin commit/push, producto ni entrada a limpieza. Notas inferiores históricas.
 

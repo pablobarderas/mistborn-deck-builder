@@ -1,8 +1,12 @@
 # Estado actual
 
-Última revisión: 2026-11-13.
+Última revisión: 2026-11-14.
 
 ## Resumen
+
+Publicación del borrador M2 autorizada el 2026-11-14 mediante «haz commit y push y vamos con el siguiente». El commit que contiene esta nota publica el borrador y su traspaso revisados, sin cerrar T08.1b19 ni DUD-010. Las notas inferiores sin publicación son históricas. Próximo paso: recibir la decisión sobre objetivos propios/rivales, obligatoriedad/sin objetivos y Defender para concretar el contrato M2; permiso de publicación no decide esas reglas.
+
+T08.1b19 en curso: [contrato condicionado de M2](specs/008-preparacion-y-turnos/elecciones-m2.md). Contraste de fuentes realizado; DUD-010 consulta objetivos propios/rivales, obligatoriedad/sin objetivos y Defender. Sin respuesta no se concreta selección ni se implementa M2. Motor snapshot 6 vigente sin cambios. Recuperación con fetch 2026-11-14: HEAD/origin/main `cb4670c14c2287801708327ed5c805a182a049e7`, árbol inicialmente limpio; M1 y DEC-038 publicadas. [Evidencia y traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t081b19--contrato-de-objetivos-y-premios-m2). Sin commit/push de esta entrega.
 
 Publicación de T08.1b18 y comunicación breve (DEC-038) autorizada el 2026-11-13 mediante «haz commit y push de estos cambios». El commit que contiene esta nota publica ambas entregas revisadas; las menciones inferiores sin publicación son antecedentes. Siguiente objetivo propuesto: contrato M2. No autoriza publicar entregas futuras.
 

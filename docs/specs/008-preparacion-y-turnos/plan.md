@@ -1,5 +1,9 @@
 # Plan de SPEC-008
 
+## T08.1b19 — Objetivos y premios M2
+
+[Contrato condicionado, aceptación y plan](elecciones-m2.md). Contrastar SRC-001/002/005 y APIs → consultar DUD-010 → fijar selección y alcance del piloto → comprobar enlaces/diff y revisión independiente → cierre documental sólo con decisiones y controles satisfechos. No iniciar implementación ni elegir silenciosamente una interpretación pendiente. Snapshot 7 sólo propuesto; snapshot 6 vigente. [Registro previo](tasks.md#t081b19--contrato-de-objetivos-y-premios-m2) y [traspaso](verification.md#t081b19--contrato-de-objetivos-y-premios-m2).
+
 ## T08.1b18 — Premios M1
 
 Completada localmente según el [plan del contrato y M1-01–08](elecciones-m1.md#aceptación-documental-y-plan-de-implementación). [Registro previo y responsables](tasks.md#t081b18--implementación-de-premios-m1). Versión/capacidad por perfil → adaptador y ventanas → suite M1 y regresiones → revisión independiente y correcciones, ejecutados. Snapshot 6, 16 suites/10.475 comprobaciones y dictamen favorable. [Evidencia y siguiente objetivo propuesto, contrato M2](verification.md#t081b18--implementación-de-premios-m1). Sin publicación ni producto.

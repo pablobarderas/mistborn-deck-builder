@@ -1,5 +1,13 @@
 # Registro de trabajo
 
+## 2026-11-14 — Publicación del borrador M2
+
+- Encargo «haz commit y push y vamos con el siguiente». R0 de empaquetado, registro previo en T08.1b19 y coordinador responsable. Fetch/estado publicado contrastados en `cb4670c14c2287801708327ed5c805a182a049e7`, igual a HEAD/main; preservar once Markdown revisados. Comprobar enlaces/anclas/diff e índice, publicar y contrastar remoto/árbol. El commit con esta nota identifica la publicación; no cierra DUD-010 ni equivale a una decisión sobre sus reglas. Propuesta conjunta consultada para continuar M2. Sin dispensas ni implementación dependiente.
+
+## 2026-11-14 — Contrato condicionado de M2
+
+- T08.1b19 R2 documental iniciada desde HEAD/origin/main `cb4670c14c2287801708327ed5c805a182a049e7`, fetch/estado publicado contrastados y árbol inicialmente limpio. Premios, permanente y APIs documentados; contraste sdd_rules Sol/high realizado y revisión independiente sdd_reviewer Sol/high favorable al borrador y traspaso provisional, sin hallazgos bloqueantes. Once Markdown, 389 enlaces/anclas y diff correctos. DUD-010 consultada: propios/rivales, obligatoriedad/cero objetivos y Defender. Mantener abierta; no implementar respuestas pendientes. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b19--contrato-de-objetivos-y-premios-m2). Sin código/Godot, dispensas ni commit/push.
+
 ## 2026-11-13 — Publicación de M1 y comunicación breve
 
 - Autorización humana «haz commit y push de estos cambios». Registro previo R0 de empaquetado: publicar T08.1b18 y la norma de comunicación/herramientas ya revisadas; coordinador responsable. Fetch y HEAD/origin/main coinciden en `424a2ea`; conservar todos los cambios locales revisados. Reutilizar las 16 suites/10.475 comprobaciones y dictámenes favorables; comprobar enlaces/diff, índice, commit/push y remoto limpio. Sin dispensas. El commit que incorpora esta nota identifica la publicación; menciones anteriores sin publicación son históricas. No autoriza entregas futuras.

@@ -1,5 +1,9 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.1b19 — Objetivos y premios M2
+
+[Contrato condicionado de M2](elecciones-m2.md), M2-DOC-01–04 y escenarios futuros M2-01–08. En curso: tres decisiones de DUD-010 consultadas al usuario (propiedad de objetivos, obligatoriedad/cero objetivos y Defender). Snapshot 6 vigente sin cambios; ningún perfil M2 ejecutable. [Evidencia y traspaso](verification.md#t081b19--contrato-de-objetivos-y-premios-m2).
+
 ## T08.1b18 — Premios M1 implementados
 
 [Contrato M1-01–08](elecciones-m1.md), perfil aislado M1/M5/M7 competitivo 2/3/4, snapshot 6/motor `p08-m1-refresh-1/godot-4.7.2`. Selección obligatoria, vacío automático, cima directa con capacidad y refresco total; tercera misión terminal antes de premios. Implementación verificada localmente con 16 suites/10.475 comprobaciones y revisión independiente favorable, sin producto/quema/limpieza; [evidencia vigente](verification.md#t081b18--implementación-de-premios-m1). Las secciones inferiores conservan versiones históricas.
