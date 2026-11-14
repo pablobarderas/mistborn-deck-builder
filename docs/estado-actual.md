@@ -1,5 +1,7 @@
 # Estado actual
 
+T08.1b21 completada documentalmente y revisada favorablemente: [contrato de integración M1–M8](specs/008-preparacion-y-turnos/integracion-misiones.md), tres misiones distintas cualesquiera en perfil aislado competitivo 2–4. Snapshot 7 publicado sigue vigente; snapshot 8 sólo previsto para T08.1b22. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b21--contrato-de-integración-de-misiones). Encargo de dos pasos con commit/push entre ellos; implementación no iniciada. Las notas inferiores describen antecedentes.
+
 Última revisión: 2026-11-14.
 
 ## Resumen

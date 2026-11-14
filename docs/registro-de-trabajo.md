@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-14 — T08.1b21, contrato combinado
+
+Encargo de dos pasos consecutivos con commit/push entre ellos; fetch confirma base a8afaae limpia. Contrato M1–M8 y escenarios INT-01–08 preparados, contraste de reglas favorable sin DUD nueva; revisión independiente favorable sin hallazgos residuales, 421 enlaces/anclas y diff correctos. Publicación autorizada entre pasos; el commit de esta nota identifica el contrato. Sin código/Godot. [Registro responsable](specs/008-preparacion-y-turnos/verification.md#t081b21--contrato-de-integración-de-misiones). Dispensa humana sólo para trabajar ambos objetivos en esta sesión; controles restantes intactos.
+
 ## 2026-11-14 — Publicación de resolución e implementación M2
 
 - Encargo «haz commit y push». Registro previo R0 en T08.1b20, coordinador responsable. Fetch confirma HEAD/origin/main `9edcd7c`; publicar cierre T08.1b19/DEC-039 y T08.1b20 revisados. Se reutilizan 17 suites/11.712 comprobaciones y dictamen favorable; comprobar enlaces/diff, índice, commit/push y remoto/árbol. El commit con esta nota identifica la publicación; menciones anteriores sin publicar históricas. Sin cambios funcionales ni dispensas. Siguiente propuesto: contrato de integración de misiones.

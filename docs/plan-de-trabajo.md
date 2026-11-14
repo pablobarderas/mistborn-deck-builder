@@ -12,6 +12,8 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
+- T08.1b21 completada documentalmente y revisada favorablemente: [integración M1–M8](specs/008-preparacion-y-turnos/integracion-misiones.md). Tras revisión/enlaces/diff, publicar contrato antes de T08.1b22 según encargo humano; b22 implementará INT-01–08 sin producto ni cierre P08. [Traspaso](specs/008-preparacion-y-turnos/verification.md#t081b21--contrato-de-integración-de-misiones).
+
 - T08.1b20. Implementación M2 verificada localmente: perfil aislado M2/M5/M7, snapshot 7/motor `p08-m2-defeat-1/godot-4.7.2`; **17 suites/11.712 comprobaciones**. Revisión independiente favorable sin hallazgos residuales. Sin Defender/Cloud reales, limpieza ni producto. [Evidencia vigente](specs/008-preparacion-y-turnos/verification.md#t081b20--implementación-de-objetivos-y-premios-m2). Siguiente objetivo propuesto: contrato de integración de misiones, selección de tres entre M1–M8 y composición de sus permanentes/inicio/carga, manteniendo el subconjunto de aliados inertes. No se inicia esa integración en esta entrega.
 
 - T08.1b19 completada documentalmente y revisada favorablemente: [contrato M2](specs/008-preparacion-y-turnos/elecciones-m2.md), DEC-039 aceptada y DUD-010 resuelta. Selección, programa y permanente concretados para piloto M2/M5/M7; siguiente implementación propuesta T08.1b20, aún sin iniciar. [Traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t081b19--contrato-de-objetivos-y-premios-m2). Borrador M2 publicado en `9edcd7c`; resolución y cierre nuevos sólo locales. Las notas inferiores de decisiones pendientes son antecedentes; M2-DOC-01–04 y enlaces/diff satisfechos; siguiente objetivo propuesto T08.1b20, sin implementar en esta entrega.

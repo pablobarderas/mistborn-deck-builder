@@ -1,5 +1,9 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.1b21 — Contrato de integración de misiones
+
+Contrato [M1–M8](integracion-misiones.md) completado documentalmente y revisado favorablemente: INT-DOC-01–04, futuro perfil aislado de tres misiones distintas entre ocho, competitivo 2–4; snapshot 8 sólo previsto, motor publicado snapshot 7 sin cambios. Plan de implementación y escenarios INT-01–08 en el contrato; [registro previo](tasks.md#t081b21--contrato-de-integración-de-misiones-m1m8). No admite cartas activas/producto ni cierre P08.
+
 ## T08.1b20 — Objetivos y premios M2
 
 Implementada y verificada localmente: [M2-01–07 y rechazo de admisión M2-08](elecciones-m2.md), perfil aislado M2/M5/M7, snapshot 7 y programa `m2_first_v1`. Traslado al descarte del propietario, marca permanente e inicio interno; 17 suites/11.712 comprobaciones. Revisión independiente favorable sin hallazgos residuales; T08.1b20 completada localmente. [Registro previo](tasks.md#t081b20--implementación-de-objetivos-y-premios-m2) y [evidencia](verification.md#t081b20--implementación-de-objetivos-y-premios-m2). Defender/Cloud reales, limpieza y producto fuera del piloto.

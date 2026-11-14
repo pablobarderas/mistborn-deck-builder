@@ -1,5 +1,13 @@
 # Tareas de SPEC-008
 
+### T08.1b21 — Contrato de integración de misiones M1–M8
+
+Cierre documental 2026-11-14: INT-DOC-01–03 y revisión/enlaces/diff de INT-DOC-04 favorables; 10 Markdown/421 enlaces-anclas/cero errores. Publicación autorizada en el commit que contiene esta nota; comprobar remoto antes de b22. [Evidencia](verification.md#t081b21--contrato-de-integración-de-misiones).
+
+Registro previo 2026-11-14. Encargo humano: «continúa con los 2 próximos pasos, entre uno y otro haz commit y push». Fetch obligatorio confirma `main`, HEAD y origin/main en `a8afaae3affb3d3be8e625882d849054abced2a4`, árbol limpio, remoto principal main; ff-only sin cambios. Estado remoto y traspaso T08.1b20 coinciden: contrato combinado, después implementación T08.1b22. Las notas históricas sin publicación ya están superadas por a8afaae. Se autoriza publicar el primer paso antes del segundo; la implementación final quedará local salvo autorización posterior. Dispensa humana explícita de separación de objetivos por sesión: sólo estos dos pasos relacionados, vigente en este encargo; no dispensa revisión, fuentes ni pruebas.
+
+Objetivo/AC: definir un perfil aislado que acepte tres misiones distintas cualesquiera de M1–M8 en competitivo 2–4, conservando premios, ventanas, permanentes, autoridad, privacidad y carga. R2 por composición de reglas/estado/registro/RNG, no cierre de fase/producto. Coordinador propietario de docs; contraste sdd_rules Sol/high sólo lectura; revisor independiente sdd_reviewer Sol/high sólo lectura. Plan: cotejar contratos/fuentes y APIs; escribir contrato con AC documentales y escenarios de implementación; revisar y corregir; comprobar enlaces/anclas/diff y cerrar memoria; commit/push verificado antes de b22. Sin código en b21, sin Godot/UI/red. No decidir DUD ni admitir cartas activas. Evidencia y traspaso en verification.md.
+
 ### T08.1b20 — Implementación de objetivos y premios M2
 
 Publicación autorizada el 2026-11-14: «haz commit y push». Registro previo R0 de empaquetado, coordinador responsable: publicar resolución/cierre T08.1b19/DEC-039 e implementación T08.1b20 ya revisados, sin cambios funcionales adicionales. Fetch confirma HEAD/origin/main `9edcd7c6d1e2dc3596e2a6cd8f3fe08cf06454d5`; preservar todos los archivos de la entrega. Reutilizar 17 suites/11.712 comprobaciones y revisión favorable; comprobar enlaces/diff e índice, commit/push y coincidencia remota/árbol limpio. Ninguna dispensa; no autoriza entregas futuras.

@@ -1,5 +1,9 @@
 # Plan de SPEC-008
 
+## T08.1b21 — Contrato de integración de misiones
+
+Contrato [M1–M8](integracion-misiones.md) completado documentalmente y revisado favorablemente: INT-DOC-01–04, futuro perfil aislado de tres misiones distintas entre ocho, competitivo 2–4; snapshot 8 sólo previsto, motor publicado snapshot 7 sin cambios. Plan de implementación y escenarios INT-01–08 en el contrato; [registro previo](tasks.md#t081b21--contrato-de-integración-de-misiones-m1m8). No admite cartas activas/producto ni cierre P08.
+
 ## T08.1b20 — Objetivos y premios M2
 
 Implementada y verificada localmente según [contrato y plan](elecciones-m2.md#plan-de-implementación-t081b20): versión/admisión, candidato/programa/proyección/presupuesto de todas las ramas, marca/inicio interno y diecisiete suites oficiales en serie (11.712 comprobaciones). Revisión independiente favorable sin hallazgos residuales; cierre local completado. [Registro previo](tasks.md#t081b20--implementación-de-objetivos-y-premios-m2) y [evidencia](verification.md#t081b20--implementación-de-objetivos-y-premios-m2). Sin publicación ni ampliación a producto.
