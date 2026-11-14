@@ -1,5 +1,9 @@
 # Matriz inicial de reglas
 
+T08.1b20 añade cobertura parcial ejecutada de REG-025/033 para M2 con aliados inertes: reserva de combate, derrota directa al descarte del propietario y permanente/inicio interno. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b20--implementación-de-objetivos-y-premios-m2). No cubre Defender/Cloud reales de REG-038/051 ni partida completa; la nota documental T08.1b19 inferior conserva su alcance anterior.
+
+T08.1b19 documenta el premio de derrota directa de M2 y resuelve DUD-010 mediante DEC-039 (2026-11-14): aliados propios/rivales, selección obligatoria si hay objetivo y sin efecto si no hay, Defender por rival. Adaptación humana, no aclaración del editor. [Contrato y escenarios futuros M2](../specs/008-preparacion-y-turnos/elecciones-m2.md); no es cobertura ejecutada de REG-025/033/038/051.
+
 T08.2c amplía la cobertura parcial de REG-019/020: igualdad saldo/fichas y devolución de Atium usado al limpiar, conservando no usado y sin límite físico de suministro. Fuentes SRC-001 p.8 y SRC-002 FAQ «Metal tokens & atium», contrastadas 2026-10-30. Pruebas de estado/limpieza aprobadas; revisión independiente favorable. No cubre quema, límite, comodines, ganancia, refresco ni Confrontation. [AC-15–18 y límites](../specs/008-preparacion-y-turnos/spec.md#t082c--saldo-y-devolución-de-atium).
 
 Revisión: 2026-10-29. Fuentes SRC-001 y SRC-002 del [registro](README.md). Un número de página sin prefijo refiere a SRC-001; SRC-002 se identifica por sección. Las erratas expresas del editor prevalecen sobre el PDF.
@@ -51,7 +55,7 @@ Cada fila tiene un caso planificado `CAS-REG-nnn`; al implementar la regla compl
 | REG-035 | La salud de un personaje nunca supera 40; llegar a cero lo elimina. Sus cartas y marcadores de misión permanecen según las zonas indicadas por el reglamento. | 13, 15, 16 | Todos | CAS-REG-035 |
 | REG-036 | Los puntos de combate se asignan al final del turno, primero a aliados y después a jugadores; se pueden repartir. No es obligatorio gastar todo el daño. | 15, 17 | Competitivo | CAS-REG-036 |
 | REG-037 | Un aliado solo se derrota con un ataque que cubra su defensa; no conserva daño parcial. Al morir pasa inmediatamente al descarte de su propietario. | 15 | Todos | CAS-REG-037 |
-| REG-038 | Defender impide atacar al propietario y a sus aliados sin Defender hasta resolver los defensores; respetar las restricciones de objetivos. | 9, 15, 16 | Todos según objetivo | CAS-REG-038 |
+| REG-038 | Defender impide atacar al propietario y a sus aliados sin Defender hasta resolver los defensores; respetar las restricciones de objetivos. En el premio de derrota directa M2, DEC-039 aplica la restricción por rival; no restringe elegir un aliado propio ni protege otros rivales. | 9, 11, 15, 16; DEC-039 para M2 | Todos según objetivo; adaptación M2 competitiva | CAS-REG-038 |
 | REG-039 | Con Target en otro jugador, el daño que se asigne a jugadores va al portador; si pierde salud puede pasarlo después de resolver todo el daño del turno. Daño reducido a cero no permite pasarlo. | 9, 15, 17 | Competitivo 3–4 | CAS-REG-039 |
 | REG-040 | Si el jugador activo porta Target, su daño restante tras atacar aliados se aplica íntegro a cada rival, con defensores y reducciones individuales. | 16; SRC-002 Combat | Competitivo 3–4 | CAS-REG-040 |
 | REG-041 | Al eliminar al portador de Target, el atacante elige nuevo portador, incluido él mismo, y aplica el remanente; al quedar solo dos jugadores, se retira Target. | 16; SRC-002 Combat | Competitivo 3–4 | CAS-REG-041 |

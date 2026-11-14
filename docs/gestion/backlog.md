@@ -1,6 +1,8 @@
 # Backlog por fases
 
-T08.1b19 R2 documental en curso, sin issue ni publicación: [contrato condicionado M2](../specs/008-preparacion-y-turnos/elecciones-m2.md), M2-DOC-01–04. DUD-010 consultada al usuario; no implementar selección pendiente. [Evidencia y traspaso](../specs/008-preparacion-y-turnos/verification.md#t081b19--contrato-de-objetivos-y-premios-m2). M1/DEC-038 publicadas en `cb4670c`; sus notas inferiores sin publicación son antecedentes.
+T08.1b20 R2 implementada y verificada localmente, revisión independiente favorable, sin issue ni publicación. 17 suites/11.712 comprobaciones; [evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b20--implementación-de-objetivos-y-premios-m2). M2-01–07 y rechazo de contenido no admitido de M2-08; pruebas reales Defender/Cloud quedan para producto. Siguiente objetivo propuesto: contrato de integración de misiones con selección de tres entre M1–M8, sin admitir automáticamente cartas o producto.
+
+T08.1b19 R2 completada documentalmente, M2-DOC-01–04 y revisión independiente favorables, sin issue: [contrato M2](../specs/008-preparacion-y-turnos/elecciones-m2.md), M2-DOC-01–04. DEC-039 resuelve DUD-010; programa, objetivos y permanente concretados para piloto M2/M5/M7. Borrador publicado en `9edcd7c`; resolución y cierre nuevos sólo locales. Siguiente implementación propuesta T08.1b20, sin iniciar. [Evidencia y traspaso](../specs/008-preparacion-y-turnos/verification.md#t081b19--contrato-de-objetivos-y-premios-m2). M1/DEC-038 publicadas en `cb4670c`; sus notas inferiores sin publicación son antecedentes.
 
 Última revisión: 2026-11-10. IDs locales estables; **no son números de issues de GitHub**. La consulta al repositorio del 2026-10-26 no devolvió issues. Ninguna fila ha sido publicada por estas tareas documentales.
 

@@ -41,7 +41,7 @@ func get_authority_snapshot() -> Dictionary:
 
 
 func get_view(recipient_id: String) -> Dictionary:
-	return ViewBuilder.new().project(_state.get_snapshot(), recipient_id)
+	return ViewBuilder.new().project(_state.get_snapshot(), recipient_id, _state._definitions)
 
 
 func submit(actor_id: String, input: Variant) -> Dictionary:

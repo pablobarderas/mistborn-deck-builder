@@ -1,5 +1,11 @@
 # Arquitectura
 
+## Objetivos y permanente M2 — T08.1b20
+
+[M2Play](../scripts/game/m2_play.gd) y [AllyTargets](../scripts/game/ally_targets.gd) admiten sólo M2/M5/M7 con aliados inertes de autoridad. P07 escoge una ruta: directa para automáticos/cimas o `m2_first_v1` para la primera llegada en 4/7/10. Gasto/llegada/normal se confirman hasta selección obligatoria; sin candidatos, cierre automático con grupo/ledger. La proyección `option_allies` es específica del destinatario. `GameEngine.get_view` aporta las definiciones congeladas a `GameProjection.project`; el argumento adicional de catálogo es opcional para conservar llamadas previas, no una entrada de cliente. El helper de objetivos se comparte entre oferta, traslado y proyección. Cada traslado va al descarte del propietario y mantiene RNG; delta protegido se recalcula antes del commit.
+
+Snapshot 7/motor `p08-m2-defeat-1/godot-4.7.2`, sin migración desde 6. M2 deriva marca temporal por grupo liquidado e inicio interno aplica entrenamiento/+2 ataque/apertura juntos; M3 conserva monedas en su perfil. Presupuesto por todas las ramas/destinos y vistas, sin truncar opciones. No expone limpieza ni cartas/reacciones de producto. [Contrato](specs/008-preparacion-y-turnos/elecciones-m2.md) y [evidencia](specs/008-preparacion-y-turnos/verification.md#t081b20--implementación-de-objetivos-y-premios-m2). Los apartados inferiores conservan versiones históricas.
+
 ## Elecciones de misión — T08.1b16
 
 Implementación verificada del [contrato M8](specs/008-preparacion-y-turnos/elecciones-m8.md). [m8_play.gd](../scripts/game/m8_play.gd) registra el perfil aislado M5/M7/M8 sobre el candidato compartido de misiones y un registro congelado. P07 selecciona una sola ruta DIRECT/SEQUENCE desde código de autoridad: la tercera cima termina por ruta directa; las llegadas no terminales con premio M8 realizan gasto y llegada en `s01` y pausan después para normal/extra. Las respuestas y el cierre conservan commits, recibos y ledger de P07.

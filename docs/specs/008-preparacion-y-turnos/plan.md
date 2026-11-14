@@ -1,8 +1,12 @@
 # Plan de SPEC-008
 
+## T08.1b20 — Objetivos y premios M2
+
+Implementada y verificada localmente según [contrato y plan](elecciones-m2.md#plan-de-implementación-t081b20): versión/admisión, candidato/programa/proyección/presupuesto de todas las ramas, marca/inicio interno y diecisiete suites oficiales en serie (11.712 comprobaciones). Revisión independiente favorable sin hallazgos residuales; cierre local completado. [Registro previo](tasks.md#t081b20--implementación-de-objetivos-y-premios-m2) y [evidencia](verification.md#t081b20--implementación-de-objetivos-y-premios-m2). Sin publicación ni ampliación a producto.
+
 ## T08.1b19 — Objetivos y premios M2
 
-[Contrato condicionado, aceptación y plan](elecciones-m2.md). Contrastar SRC-001/002/005 y APIs → consultar DUD-010 → fijar selección y alcance del piloto → comprobar enlaces/diff y revisión independiente → cierre documental sólo con decisiones y controles satisfechos. No iniciar implementación ni elegir silenciosamente una interpretación pendiente. Snapshot 7 sólo propuesto; snapshot 6 vigente. [Registro previo](tasks.md#t081b19--contrato-de-objetivos-y-premios-m2) y [traspaso](verification.md#t081b19--contrato-de-objetivos-y-premios-m2).
+[Contrato, aceptación y plan T08.1b20](elecciones-m2.md). Contraste y decisión humana DEC-039 realizados; DUD-010 resuelta, piloto M2/M5/M7, programa/ventana/grupos/presupuestos/inicio concretados. Completada documentalmente, revisión independiente favorable; trece Markdown, 438 enlaces/anclas y diff correctos. Snapshot 7 sólo previsto; snapshot 6 vigente. Siguiente objetivo propuesto T08.1b20: implementar el piloto con M2-DOC-01–04 ya satisfechos, con suite M2, regresiones y revisión de código independiente; no habilita reacciones de producto ni limpieza. [Registro previo](tasks.md#t081b19--contrato-de-objetivos-y-premios-m2) y [traspaso](verification.md#t081b19--contrato-de-objetivos-y-premios-m2).
 
 ## T08.1b18 — Premios M1
 

@@ -1,8 +1,12 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.1b20 — Objetivos y premios M2
+
+Implementada y verificada localmente: [M2-01–07 y rechazo de admisión M2-08](elecciones-m2.md), perfil aislado M2/M5/M7, snapshot 7 y programa `m2_first_v1`. Traslado al descarte del propietario, marca permanente e inicio interno; 17 suites/11.712 comprobaciones. Revisión independiente favorable sin hallazgos residuales; T08.1b20 completada localmente. [Registro previo](tasks.md#t081b20--implementación-de-objetivos-y-premios-m2) y [evidencia](verification.md#t081b20--implementación-de-objetivos-y-premios-m2). Defender/Cloud reales, limpieza y producto fuera del piloto.
+
 ## T08.1b19 — Objetivos y premios M2
 
-[Contrato condicionado de M2](elecciones-m2.md), M2-DOC-01–04 y escenarios futuros M2-01–08. En curso: tres decisiones de DUD-010 consultadas al usuario (propiedad de objetivos, obligatoriedad/cero objetivos y Defender). Snapshot 6 vigente sin cambios; ningún perfil M2 ejecutable. [Evidencia y traspaso](verification.md#t081b19--contrato-de-objetivos-y-premios-m2).
+[Contrato de M2](elecciones-m2.md), M2-DOC-01–04 satisfechos documentalmente y revisión independiente favorable. DEC-039 resuelve DUD-010; piloto futuro M2/M5/M7, M2-01–07 y rechazo de contenido no admitido de M2-08. Las pruebas reales Defender/Cloud de M2-08 pertenecen a producto. Snapshot 6 vigente sin cambios; snapshot 7 sólo previsto para T08.1b20, sin código M2. [Evidencia y traspaso](verification.md#t081b19--contrato-de-objetivos-y-premios-m2).
 
 ## T08.1b18 — Premios M1 implementados
 

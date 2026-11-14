@@ -278,6 +278,18 @@ Aplicación técnica T08.1b18, 2026-11-13: perfil aislado M1/M5/M7 y capacidad b
 
 2026-11-13. Aceptada por instrucción expresa del usuario, para todo el proyecto: durante el trabajo mostrar únicamente un indicativo de actividad con título escueto; evitar narración interna, detalles técnicos, logs y actualizaciones repetitivas. Sólo preguntas imprescindibles y bloqueos que requieran intervención interrumpen ese formato; resultados relevantes y limitaciones en un cierre breve. Norma en [AGENTS](../AGENTS.md#comunicación-durante-el-trabajo). Ampliación expresa del mismo día: extenderlo a herramientas y operaciones similares, mostrando sólo archivos editados, sin diffs, líneas, código, comandos completos ni volcados; lecturas/pruebas/Git con salida mínima. Usar mecanismos sin detalle automático cuando sea posible. La evidencia y los controles SDD permanecen obligatorios. [Registro de la tarea](specs/009-sistema-agentes/tasks.md#comunicación-breve-durante-el-trabajo).
 
+## DEC-039 — Objetivos y obligatoriedad del premio M2
+
+Aplicación técnica T08.1b20: piloto aislado M2/M5/M7, snapshot 7 y programa `m2_first_v1`, traslado al descarte del propietario e inicio interno con +2 ataque; verificado localmente y revisado favorablemente sin hallazgos residuales. No cambia las reglas humanas ni acredita Defender/Cloud reales. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b20--implementación-de-objetivos-y-premios-m2).
+
+2026-11-14. Aceptada por respuesta humana «si» a la propuesta conjunta posterior a publicar el borrador M2: permitir aliados propios y rivales, exigir el premio si existe objetivo válido y liquidarlo sin efecto si no hay objetivos, respetando Defender de cada rival. Resuelve [DUD-010](referencias/dudas.md) para la adaptación. SRC-005 M2 no explicita propiedad ni omisión y SRC-001/002 no aclaran inequívocamente estos casos; no se atribuye esta resolución al editor ni se extrapola DEC-037.
+
+- La plaza que recibe el premio elige exactamente un aliado legal en juego, propio o rival. Incluso con una única opción se mantiene selección explícita; no se admite omisión. Sin objetivos legales, liquidar automáticamente sin efecto, ventana vacía ni deuda futura.
+- Aplicar Defender por propietario rival: si ese rival controla aliados con Defender, sólo sus Defender son elegibles. No protege aliados de otros rivales ni restringe al propietario que selecciona uno de sus propios aliados.
+- Una derrota directa no gasta combate ni paga defensa numérica. Cloud y otras protecciones continúan dependiendo del texto verificado de cada carta; esta decisión no crea reacciones ni resuelve las cartas pendientes del producto.
+
+Contrato y escenarios en [M2](specs/008-preparacion-y-turnos/elecciones-m2.md). El piloto futuro con aliados inertes no acredita Defender, Cloud, habilidades ni una partida de producto. Esta entrega registra reglas y plan; snapshot 6 vigente sin cambios.
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.

@@ -12,7 +12,9 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
-- T08.1b19 en curso: [contrato M2](specs/008-preparacion-y-turnos/elecciones-m2.md), pendiente de resolver DUD-010 antes de concretar selección e implementar. [Traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t081b19--contrato-de-objetivos-y-premios-m2). T08.1b18/DEC-038 ya publicadas en `cb4670c`; notas inferiores sin publicación históricas. Mantener este objetivo documental hasta resolver decisiones y revisión.
+- T08.1b20. Implementación M2 verificada localmente: perfil aislado M2/M5/M7, snapshot 7/motor `p08-m2-defeat-1/godot-4.7.2`; **17 suites/11.712 comprobaciones**. Revisión independiente favorable sin hallazgos residuales. Sin Defender/Cloud reales, limpieza ni producto. [Evidencia vigente](specs/008-preparacion-y-turnos/verification.md#t081b20--implementación-de-objetivos-y-premios-m2). Siguiente objetivo propuesto: contrato de integración de misiones, selección de tres entre M1–M8 y composición de sus permanentes/inicio/carga, manteniendo el subconjunto de aliados inertes. No se inicia esa integración en esta entrega.
+
+- T08.1b19 completada documentalmente y revisada favorablemente: [contrato M2](specs/008-preparacion-y-turnos/elecciones-m2.md), DEC-039 aceptada y DUD-010 resuelta. Selección, programa y permanente concretados para piloto M2/M5/M7; siguiente implementación propuesta T08.1b20, aún sin iniciar. [Traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t081b19--contrato-de-objetivos-y-premios-m2). Borrador M2 publicado en `9edcd7c`; resolución y cierre nuevos sólo locales. Las notas inferiores de decisiones pendientes son antecedentes; M2-DOC-01–04 y enlaces/diff satisfechos; siguiente objetivo propuesto T08.1b20, sin implementar en esta entrega.
 
 - Comunicación de todo el proyecto: indicativos de actividad con título escueto durante el trabajo, según [AGENTS](../AGENTS.md#comunicación-durante-el-trabajo) y DEC-038; [tarea de la instrucción](specs/009-sistema-agentes/tasks.md#comunicación-breve-durante-el-trabajo). El siguiente objetivo del juego se conserva.
 
@@ -321,7 +323,9 @@ La entrega final incluye los tres modos. La cobertura se comprueba en siete conf
 
 ## Punto de reanudación
 
-2026-11-14. Retomar T08.1b19 en el mismo objetivo: registrar respuesta a DUD-010, concretar contrato y revisar delta antes del cierre. [Fuentes, APIs, responsables y estado Git](specs/008-preparacion-y-turnos/verification.md#t081b19--contrato-de-objetivos-y-premios-m2). No repetir implementación M1 publicada; M2 sigue sin código y sus escenarios son futuros.
+2026-11-14. T08.1b20 completada localmente, verificación y revisión independiente favorables. [Evidencia, estado Git y pendientes](specs/008-preparacion-y-turnos/verification.md#t081b20--implementación-de-objetivos-y-premios-m2). Cierre local completado; siguiente objetivo propuesto: contrato de integración de misiones M1–M8. No repetir M2 ni atribuir Defender/Cloud, limpieza, catálogo o producto al piloto. Sin commit/push nuevos.
+
+2026-11-14. DUD-010 resuelta por respuesta «si» y DEC-039; contrato T08.1b19 completado documentalmente y revisado favorablemente. Siguiente objetivo propuesto: T08.1b20, versión/admisión del piloto M2/M5/M7 según su contrato; no reabrir decisiones aceptadas. [Fuentes, APIs, responsables y estado Git](specs/008-preparacion-y-turnos/verification.md#t081b19--contrato-de-objetivos-y-premios-m2). No repetir implementación M1 publicada; M2 sigue sin código y sus escenarios son futuros.
 
 2026-11-13. T08.1b17 completada documentalmente y revisada favorablemente sobre main/`3be2a8d`, sólo Markdown local. [Traspaso vigente](specs/008-preparacion-y-turnos/verification.md#t081b17--contrato-de-selección-y-premios-m1): DEC-037 y contrato único revisados; primer paso T08.1b18: versión y derivación de capacidad por perfil. No repetir M8 publicada ni confundir el contrato con M1 implementada. Sin commit/push, producto ni entrada a limpieza. Notas inferiores históricas.
 

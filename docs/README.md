@@ -1,6 +1,8 @@
 # Documentación del proyecto
 
-T08.1b19 en curso: [objetivos y premios M2](specs/008-preparacion-y-turnos/elecciones-m2.md), condicionado a decisiones DUD-010. [Estado y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b19--contrato-de-objetivos-y-premios-m2). No hay implementación M2.
+T08.1b20. Implementación M2 verificada localmente: perfil aislado M2/M5/M7, snapshot 7/motor `p08-m2-defeat-1/godot-4.7.2`; **17 suites/11.712 comprobaciones**. Revisión independiente favorable sin hallazgos residuales. Sin Defender/Cloud reales, limpieza ni producto. [Resultado y límites](specs/008-preparacion-y-turnos/verification.md#t081b20--implementación-de-objetivos-y-premios-m2).
+
+Antecedente T08.1b19 completado documentalmente y revisado favorablemente: [objetivos y premios M2](specs/008-preparacion-y-turnos/elecciones-m2.md), DEC-039 y DUD-010. [Cierre del contrato](specs/008-preparacion-y-turnos/verification.md#t081b19--contrato-de-objetivos-y-premios-m2); la implementación posterior se recoge arriba en T08.1b20.
 
 Esta carpeta es la memoria explícita del proyecto. Permite recuperar el contexto leyendo archivos versionados; no depende de que una conversación anterior siga disponible.
 

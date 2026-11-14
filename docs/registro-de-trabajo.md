@@ -1,5 +1,17 @@
 # Registro de trabajo
 
+## 2026-11-14 — Publicación de resolución e implementación M2
+
+- Encargo «haz commit y push». Registro previo R0 en T08.1b20, coordinador responsable. Fetch confirma HEAD/origin/main `9edcd7c`; publicar cierre T08.1b19/DEC-039 y T08.1b20 revisados. Se reutilizan 17 suites/11.712 comprobaciones y dictamen favorable; comprobar enlaces/diff, índice, commit/push y remoto/árbol. El commit con esta nota identifica la publicación; menciones anteriores sin publicar históricas. Sin cambios funcionales ni dispensas. Siguiente propuesto: contrato de integración de misiones.
+
+## 2026-11-14 — Implementación de objetivos y premios M2
+
+- T08.1b20 R2, perfil aislado M2/M5/M7, snapshot 7; M2-01–07 y rechazo de contenido no admitido de M2-08 implementados/verificados localmente. 17 suites/11.712 comprobaciones, revisión independiente favorable sin hallazgos residuales; cierre local con 541 enlaces/anclas de diecisiete Markdown y diff correctos. Se preservó el cierre documental local T08.1b19/DEC-039; fetch/estado publicado en HEAD/origin/main `9edcd7c`. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b20--implementación-de-objetivos-y-premios-m2). Sin producto, Defender/Cloud reales, limpieza, dispensas ni commit/push nuevos.
+
+## 2026-11-14 — Resolución humana y concreción del contrato M2
+
+- Respuesta «si» a las tres reglas conjuntas, registrada DEC-039; DUD-010 resuelta para la adaptación. T08.1b19 mantiene su objetivo documental R2: contrato del piloto M2/M5/M7 completado documentalmente, M2-DOC-01–04 satisfechos y revisión final independiente favorable sin hallazgos residuales. Fetch/estado publicado comprobados en `9edcd7c`, igual a HEAD/origin/main y árbol inicialmente limpio; publicación previa del borrador verificada. Contraste del delta sdd_rules Sol/high favorable; revisión sdd_reviewer Sol/high favorable; trece Markdown, 438 enlaces/anclas y diff correctos. Próximo objetivo propuesto T08.1b20: implementar el piloto según contrato, sin dar por probados Defender/Cloud ni producto. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b19--contrato-de-objetivos-y-premios-m2). Sin código/Godot, dispensas ni publicación nueva.
+
 ## 2026-11-14 — Publicación del borrador M2
 
 - Encargo «haz commit y push y vamos con el siguiente». R0 de empaquetado, registro previo en T08.1b19 y coordinador responsable. Fetch/estado publicado contrastados en `cb4670c14c2287801708327ed5c805a182a049e7`, igual a HEAD/main; preservar once Markdown revisados. Comprobar enlaces/anclas/diff e índice, publicar y contrastar remoto/árbol. El commit con esta nota identifica la publicación; no cierra DUD-010 ni equivale a una decisión sobre sus reglas. Propuesta conjunta consultada para continuar M2. Sin dispensas ni implementación dependiente.

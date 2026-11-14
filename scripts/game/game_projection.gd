@@ -2,7 +2,7 @@ extends RefCounted
 ## Lista permitida para clientes. Nunca copia el snapshot privado completo.
 
 
-func project(state: Dictionary, recipient_id: String) -> Dictionary:
+func project(state: Dictionary, recipient_id: String, definitions: Dictionary = {}) -> Dictionary:
 	if state.is_empty() or not _known_player(state.players, recipient_id):
 		return {}
 	var players: Array = []
@@ -53,6 +53,8 @@ func project(state: Dictionary, recipient_id: String) -> Dictionary:
 				resolution["option_cards"] = _option_cards(state, recipient_id)
 			if active.program_id in ["m1_normal_v1", "m1_first_v1"]:
 				resolution["option_metals"] = _option_metals(state, recipient_id)
+			if active.program_id == "m2_first_v1":
+				resolution["option_allies"] = preload("res://scripts/game/ally_targets.gd").options(state, definitions)
 	return {"version_motor": state.version_motor, "catalog_id": state.catalog_id, "match_id": state.match_id, "mode": state.mode,
 		"revision": state.revision, "lifecycle": state.lifecycle, "player_order": state.player_order.duplicate(true),
 		"players": players, "zones": zones, "turn": {"number": state.turn.number,

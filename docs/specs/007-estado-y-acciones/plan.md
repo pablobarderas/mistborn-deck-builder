@@ -1,5 +1,9 @@
 # Plan de SPEC-007
 
+## Ampliación M2 — esquema 7
+
+T08.1b20 implementa el perfil aislado M2/M5/M7 sobre P07. Snapshot 7/motor `p08-m2-defeat-1/godot-4.7.2`, sin migración implícita desde 6, catálogo v2 e intención v1. Selección M2 con `option_allies` sólo al destinatario; grupos/cursor/ledger, oferta completa y marcas de permanente se validan al cargar y antes del commit. El namespace interno de inicio sigue vedado desde entrada pública antes de recibos. No se añade limpieza ni recepción de estado cliente. [Contrato](../008-preparacion-y-turnos/elecciones-m2.md) y [evidencia](../008-preparacion-y-turnos/verification.md#t081b20--implementación-de-objetivos-y-premios-m2). Las versiones inferiores son antecedentes.
+
 ## Ampliación M8 — esquema 5
 
 T08.1b16 implementada y verificada según [contrato de elecciones](../008-preparacion-y-turnos/elecciones-m8.md). P07 añade selectores locales congelados opcionales, comprobados antes de invocarlos y después de recibos/revisión/guardas. Su enum DIRECT/SEQUENCE escoge un único handler/starter, sin campo de cliente ni cambios de registro durante submit. Las acciones sin selector conservan el despacho anterior. El primer paso automático de M8 realiza gasto/llegada en la copia de la misma intención; la tercera cima nunca entra en una secuencia.

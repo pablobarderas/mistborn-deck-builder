@@ -2,8 +2,8 @@ extends RefCounted
 ## Invariantes estructurales del snapshot privado. No aplica reglas ni efectos.
 
 const Registry = preload("res://scripts/game/sequence_registry.gd")
-const SCHEMA_VERSION: int = 6
-const ENGINE_VERSION: String = "p08-m1-refresh-1/godot-4.7.2"
+const SCHEMA_VERSION: int = 7
+const ENGINE_VERSION: String = "p08-m2-defeat-1/godot-4.7.2"
 const METALS: Array[String] = ["peltre", "estano", "bronce", "cobre", "zinc", "laton", "hierro", "acero", "atium"]
 const PLAYER_ZONES: Array[String] = ["mano", "mazo", "descarte", "juego"]
 const SHARED_ZONES: Array[String] = ["mazo_mercado", "mercado", "eliminadas", "mazo_rival", "descarte_rival", "adversarios"]
@@ -403,17 +403,17 @@ func _validate_permanents(document: Dictionary) -> void:
 	var expected: Dictionary = {}
 	for mission_id: String in document.missions:
 		var mission: Dictionary = document.missions[mission_id]
-		if mission.definition_id != "mision_m3":
+		if mission.definition_id not in ["mision_m2", "mision_m3"]:
 			continue
 		for player_id: String in mission.rewards:
 			if not "p12_permanente" in mission.rewards[player_id]:
 				continue
-			if mission.progress[player_id] != 12 or not _definitions.has("mision_m3"):
+			if mission.progress[player_id] != 12 or not _definitions.has(mission.definition_id):
 				_error("authority.mission_permanents", "permanente sin llegada")
 				continue
-			var tracks: Array = _definitions.mision_m3.get("rasgos", {}).get("recorridos", [])
+			var tracks: Array = _definitions[mission.definition_id].get("rasgos", {}).get("recorridos", [])
 			if tracks.size() != 1 or tracks[0].get("casillas", []).size() != 12 \
-				or not _m3_descriptor(tracks[0].casillas[11].get("permanente")):
+				or not _turn_permanent_descriptor(tracks[0].casillas[11].get("permanente"), "ataque" if mission.definition_id == "mision_m2" else "recursos"):
 				_error("authority.mission_permanents", "definición incompatible")
 			if not expected.has(mission_id):
 				expected[mission_id] = {}
@@ -444,9 +444,9 @@ func _validate_permanents(document: Dictionary) -> void:
 					_error("authority.mission_permanents", "inicio sin aplicar")
 
 
-static func _m3_descriptor(value: Variant) -> bool:
+static func _turn_permanent_descriptor(value: Variant, resource: String) -> bool:
 	return value is Dictionary and Registry.exact_keys(value, ["tipo", "cantidad", "recurso"]) \
-		and value.tipo == "cada_turno" and value.cantidad == 2 and value.recurso == "recursos"
+		and value.tipo == "cada_turno" and value.cantidad == 2 and value.recurso == resource
 
 
 func _validate_authority(value: Variant, revision: Variant) -> void:

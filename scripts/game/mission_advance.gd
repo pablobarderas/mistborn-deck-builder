@@ -12,6 +12,8 @@ const PERMANENT_DEFINITIONS: Array[String] = ["mision_m3", "mision_m4", "mision_
 var _active_definitions: Array[String] = ACTIVE_DEFINITIONS
 const CHOICE_DEFINITIONS: Array[String] = ["mision_m5", "mision_m7", "mision_m8"]
 const REFRESH_DEFINITIONS: Array[String] = ["mision_m1", "mision_m5", "mision_m7"]
+const DEFEAT_DEFINITIONS: Array[String] = ["mision_m2", "mision_m5", "mision_m7"]
+var _defeat: bool = false
 var _refresh: bool = false
 var _choices: bool = false
 var _permanents: bool = false
@@ -21,7 +23,8 @@ var _training: Training
 var _registry: Registry = Registry.new()
 
 
-func _init(definitions: Dictionary, catalog_id: String, training_profile: Dictionary, permanents: bool = false, choices: bool = false, registry: Registry = null, refresh: bool = false) -> void:
+func _init(definitions: Dictionary, catalog_id: String, training_profile: Dictionary, permanents: bool = false, choices: bool = false, registry: Registry = null, refresh: bool = false, defeat: bool = false) -> void:
+	_defeat = defeat
 	_refresh = refresh
 	_choices = choices
 	if registry != null:
@@ -30,7 +33,7 @@ func _init(definitions: Dictionary, catalog_id: String, training_profile: Dictio
 	_catalog_id = catalog_id
 	_training = Training.new(_definitions, _catalog_id, training_profile, _registry)
 	_permanents = permanents
-	_active_definitions = REFRESH_DEFINITIONS if refresh else (CHOICE_DEFINITIONS if choices else (PERMANENT_DEFINITIONS if permanents else ACTIVE_DEFINITIONS))
+	_active_definitions = DEFEAT_DEFINITIONS if defeat else (REFRESH_DEFINITIONS if refresh else (CHOICE_DEFINITIONS if choices else (PERMANENT_DEFINITIONS if permanents else ACTIVE_DEFINITIONS)))
 
 
 func supported() -> bool:
@@ -41,7 +44,7 @@ func supported() -> bool:
 
 
 static func supported_mission(card: Dictionary) -> bool:
-	if not card.get("id") in ACTIVE_DEFINITIONS + PERMANENT_DEFINITIONS + CHOICE_DEFINITIONS + REFRESH_DEFINITIONS or card.get("tipo") != "mision":
+	if not card.get("id") in ACTIVE_DEFINITIONS + PERMANENT_DEFINITIONS + CHOICE_DEFINITIONS + REFRESH_DEFINITIONS + DEFEAT_DEFINITIONS or card.get("tipo") != "mision":
 		return false
 	var tracks: Array = card.get("rasgos", {}).get("recorridos", [])
 	if tracks.size() != 1 or tracks[0].id != "principal" or tracks[0].casillas.size() != 12:
@@ -58,6 +61,13 @@ static func supported_mission(card: Dictionary) -> bool:
 			elif position == 12:
 				cell.permanente = {"tipo": "capacidad_quema", "cantidad": 1}
 				cell.primero = [{"op": "refrescar_agotados", "cantidad": "todos"}]
+		elif card.id == "mision_m2":
+			if position in [4, 7, 10]:
+				cell.efectos = [_gain("ataque", [4, 7, 10].find(position) + 1)]
+				cell.primero = [{"op": "derrotar_aliado_en_juego"}]
+			elif position == 12:
+				cell.permanente = {"tipo": "cada_turno", "cantidad": 2, "recurso": "ataque"}
+				cell.primero = [_gain("ataque", 1)]
 		elif card.id == "mision_m3":
 			if position in [4, 6, 8, 10]:
 				cell.efectos = [_gain("recursos", 1)]
@@ -109,6 +119,8 @@ func state_error(state: Variant) -> String:
 	if not supported() or state.mode != "competitivo" or state.turn.number < 1 or (not _choices and (state.resolution != null or not state.authority.completed_sequences.is_empty())) or not state.turn.counters.is_empty():
 		return "estado_invalido"
 	var phases: Array = ["inicio", "libre", "limpieza"] if _permanents else ["libre"]
+	if _defeat:
+		phases = ["inicio", "libre"]
 	if state.lifecycle not in ["en_curso", "finalizada"] or state.turn.phase not in (phases if state.lifecycle == "en_curso" else ["finalizada"]):
 		return "estado_invalido"
 	var alive: int = 0
@@ -169,7 +181,7 @@ func state_error(state: Variant) -> String:
 			if _choices and state.resolution != null and state.resolution.context.mission_id == mission_id and state.resolution.context.owner_id == player_id:
 				var active: Dictionary = state.resolution
 				var prefix: String = "p%02d" % active.context.position
-				if active.cursor == 1:
+				if active.cursor == 1 and not _defeat:
 					expected.erase(prefix + "_normal")
 				if active.cursor in [1, 2]:
 					expected.erase(prefix + "_primero")
@@ -242,6 +254,12 @@ func advance(snapshot: Variant, actor_id: String, mission_id: String, rng: Rando
 				_player(candidate, actor_id).burn_limit += 1
 			if staged.definition_id == "mision_m3":
 				if not _apply(candidate, actor_id, _gain("recursos", 2), staged_rng):
+					return _reject("estado_invalido")
+				if not candidate.authority.mission_permanents.has(mission_id):
+					candidate.authority.mission_permanents[mission_id] = {}
+				candidate.authority.mission_permanents[mission_id][actor_id] = {"acquired_turn": candidate.turn.number, "last_applied_turn": candidate.turn.number}
+			if staged.definition_id == "mision_m2" and _defeat:
+				if not _apply(candidate, actor_id, _gain("ataque", 2), staged_rng):
 					return _reject("estado_invalido")
 				if not candidate.authority.mission_permanents.has(mission_id):
 					candidate.authority.mission_permanents[mission_id] = {}
@@ -353,25 +371,28 @@ static func arrive(state: Dictionary, actor_id: String, mission_id: String, posi
 
 
 static func occurrence(state: Dictionary, owner: String, mission_id: String, position: int) -> String:
-	return ("m1_" if state.missions[mission_id].definition_id == "mision_m1" else "m8_") + Funding._canonical_content([state.match_id, owner, mission_id, position]).sha256_text()
+	var prefix: String = {"mision_m1": "m1_", "mision_m2": "m2_"}.get(state.missions[mission_id].definition_id, "m8_")
+	return prefix + Funding._canonical_content([state.match_id, owner, mission_id, position]).sha256_text()
 
 
 func _choice_closures(state: Dictionary) -> bool:
 	var expected: Dictionary = {}
 	for mission_id: String in state.missions:
 		var mission: Dictionary = state.missions[mission_id]
-		if mission.definition_id != ("mision_m1" if _refresh else "mision_m8"):
+		if mission.definition_id != ("mision_m2" if _defeat else ("mision_m1" if _refresh else "mision_m8")):
 			continue
 		for owner: String in mission.progress:
-			for position: int in ([5, 9] if _refresh else [5, 9, 12]):
+			for position: int in ([4, 7, 10] if _defeat else ([5, 9] if _refresh else [5, 9, 12])):
 				if mission.progress[owner] < position:
+					continue
+				if _defeat and mission.first_arrivals["p%02d" % position] != owner:
 					continue
 				if state.outcome != null and state.outcome.mission_id == mission_id and state.outcome.winner_id == owner and position == 12:
 					continue
 				var id: String = occurrence(state, owner, mission_id, position)
 				if state.resolution != null and state.resolution.context.occurrence_id == id:
 					continue
-				expected[id] = {"owner": owner, "program": ("m1_" if _refresh else "m8_") + ("first_v1" if mission.first_arrivals["p%02d" % position] == owner else "normal_v1")}
+				expected[id] = {"owner": owner, "program": ("m2_" if _defeat else ("m1_" if _refresh else "m8_")) + ("first_v1" if mission.first_arrivals["p%02d" % position] == owner else "normal_v1")}
 	if expected.size() != state.authority.completed_sequences.size():
 		return false
 	for closed: Dictionary in state.authority.completed_sequences.values():
