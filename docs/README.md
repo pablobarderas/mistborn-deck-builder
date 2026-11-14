@@ -1,5 +1,9 @@
 # Documentación del proyecto
 
+T08.1b22: publicación autorizada y recogida en el commit que contiene esta nota; integración M1–M8 revisada, 18 suites/17.644 comprobaciones. Las notas inferiores de trabajo local conservan el cierre previo al permiso. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8).
+
+[Integración M1–M8](specs/008-preparacion-y-turnos/integracion-misiones.md): T08.1b22 implementada y verificada localmente, 18 suites/17.644 comprobaciones; revisión independiente final favorable y cierre local completo. Snapshot8, perfil aislado, sin producto. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8).
+
 [Integración de misiones M1–M8](specs/008-preparacion-y-turnos/integracion-misiones.md): contrato T08.1b21 completado y revisado favorablemente; implementación T08.1b22 prevista tras publicar el contrato. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b21--contrato-de-integración-de-misiones).
 
 T08.1b20. Implementación M2 verificada localmente: perfil aislado M2/M5/M7, snapshot 7/motor `p08-m2-defeat-1/godot-4.7.2`; **17 suites/11.712 comprobaciones**. Revisión independiente favorable sin hallazgos residuales. Sin Defender/Cloud reales, limpieza ni producto. [Resultado y límites](specs/008-preparacion-y-turnos/verification.md#t081b20--implementación-de-objetivos-y-premios-m2).

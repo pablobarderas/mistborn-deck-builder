@@ -1,5 +1,9 @@
 # Plan de SPEC-007
 
+## Integración de misiones — esquema 8
+
+T08.1b22 verificada localmente: snapshot 8/motor `p08-integrated-missions-1/godot-4.7.2`, sin migración desde 7; catálogo v2 e intención v1 conservados. El servicio combinado compone los cinco programas M1/M2/M8 y valida ledger/grupos por definición; permite marcas M2/M3 simultáneas, capacidad M1 y mano M4, sin ampliar la admisión de los pilotos anteriores. Delta y RNG se reconstruyen por acción sobre fuente fiable, conservando rechazo atómico, recibos y namespaces internos. [Contrato](../008-preparacion-y-turnos/integracion-misiones.md) y [evidencia](../008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8). No guardado en disco, reconexión, limpieza pública ni producto; P07 conserva dependencia P04 externa. Versiones inferiores históricas.
+
 ## Ampliación M2 — esquema 7
 
 T08.1b20 implementa el perfil aislado M2/M5/M7 sobre P07. Snapshot 7/motor `p08-m2-defeat-1/godot-4.7.2`, sin migración implícita desde 6, catálogo v2 e intención v1. Selección M2 con `option_allies` sólo al destinatario; grupos/cursor/ledger, oferta completa y marcas de permanente se validan al cargar y antes del commit. El namespace interno de inicio sigue vedado desde entrada pública antes de recibos. No se añade limpieza ni recepción de estado cliente. [Contrato](../008-preparacion-y-turnos/elecciones-m2.md) y [evidencia](../008-preparacion-y-turnos/verification.md#t081b20--implementación-de-objetivos-y-premios-m2). Las versiones inferiores son antecedentes.

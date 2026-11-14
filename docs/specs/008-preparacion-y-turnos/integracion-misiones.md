@@ -1,6 +1,6 @@
 # Integración competitiva de misiones M1–M8
 
-Contrato T08.1b21; implementación prevista T08.1b22. Estado: contrato revisado favorablemente; sin código combinado todavía. Los perfiles aislados publicados siguen vigentes con snapshot 7.
+Contrato T08.1b21; implementación T08.1b22 verificada localmente; cierre local completo con revisión independiente favorable. Estado: contrato b21 publicado en cf781e31 y código combinado local. Snapshot compartido 8 vigente localmente; los perfiles aislados anteriores conservan su admisión exacta.
 
 ## Alcance y fuentes
 
@@ -12,11 +12,11 @@ Los ocho diseños reales se congelan completos junto con pista de entrenamiento 
 
 ## Admisión y compatibilidad
 
-Servicio propuesto `scripts/game/integrated_missions_play.gd`, construido desde catálogo/descriptores/pista como los pilotos anteriores. Fuente tipada `SnapshotSource.latest(match_id, profile_id)` para motor vacío; entrada pública de snapshots siempre rechazada. La selección de tres proviene del estado confirmado por autoridad, no de un payload de cliente ni de un setter. No añadir una interfaz de preparación o sorteo en este paso: se comprueba admisión de cualquier subconjunto; el sorteo/preparación general existente y el producto no se integran por inferencia.
+Servicio `scripts/game/integrated_missions_play.gd`, construido desde catálogo/descriptores/pista como los pilotos anteriores. Fuente tipada `SnapshotSource.latest(match_id, profile_id)` para motor vacío; entrada pública de snapshots siempre rechazada. La selección de tres proviene del estado confirmado por autoridad, no de un payload de cliente ni de un setter. No añadir una interfaz de preparación o sorteo en este paso: se comprueba admisión de cualquier subconjunto; el sorteo/preparación general existente y el producto no se integran por inferencia.
 
 Exigir exactamente tres instancias de misión con definiciones distintas de M1–M8, en cualquier orden de diccionario/ID válido, igual para todos los jugadores. Rechazar dos/cuatro, duplicadas, ID desconocido, texto de misión alterado o catálogo/pista/registro no coincidente. Identidad estable de perfil cubre catálogo, pista y versión de composición/registro. La combinación se valida en el snapshot y no se acepta un cambio externo durante una resolución. Mismos límites de estado, autoridad e hilos de P07.
 
-Implementación prevista: snapshot **8**, motor `p08-integrated-missions-1/godot-4.7.2`, sin migración implícita desde 7. Actualizar versión y fixtures compartidos explícitamente; los adaptadores anteriores conservan sus conjuntos exactos y no admiten combinaciones por activar globalmente capacidades. No cambiar catálogo v2 ni intención v1. Fases admitidas del nuevo perfil: inicio/libre/limpieza internos y finalizada coherente; no resolución en inicio/limpieza. La admisión de limpieza sirve exclusivamente al servicio interno ya definido, nunca a `libre -> limpieza`.
+Implementación local: snapshot **8**, motor `p08-integrated-missions-1/godot-4.7.2`, sin migración implícita desde 7. Actualizar versión y fixtures compartidos explícitamente; los adaptadores anteriores conservan sus conjuntos exactos y no admiten combinaciones por activar globalmente capacidades. No cambiar catálogo v2 ni intención v1. Fases admitidas del nuevo perfil: inicio/libre/limpieza internos y finalizada coherente; no resolución en inicio/limpieza. La admisión de limpieza sirve exclusivamente al servicio interno ya definido, nunca a `libre -> limpieza`.
 
 ## Composición de candidatos y programas
 

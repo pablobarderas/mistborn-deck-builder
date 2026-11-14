@@ -1,5 +1,9 @@
 # Estado actual
 
+Publicación de T08.1b22 autorizada el 2026-11-14 mediante «haz commit y push». El commit que contiene esta nota publica la integración M1–M8 revisada: snapshot 8, 18 suites/17.644 comprobaciones y revisión independiente final favorable. Las notas inferiores sin publicación son antecedentes. Siguiente objetivo propuesto: contrastar una carta real generadora de puntos de misión y especificar su integración antes de automatizarla, sin admitir producto ni cartas activas por inferencia. No autoriza publicaciones futuras.
+
+T08.1b22 implementada y verificada localmente: servicio aislado de tres misiones distintas cualesquiera entre M1–M8, competitivo 2–4, snapshot 8/motor `p08-integrated-missions-1/godot-4.7.2`; **18 suites/17.644 comprobaciones**. Revisión independiente final favorable sin hallazgos residuales; cierre local completo. Sin producto, cartas activas, limpieza pública, UI/red ni rival. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8). Paso1 publicado en `cf781e31`; paso2 local sin commit/push conforme al encargo. Siguiente objetivo propuesto: contrastar una carta real generadora de puntos de misión y especificar su integración con el servicio combinado antes de automatizarla; su fuente/catálogo deben verificarse, sin admitir cartas activas por inferencia. Las notas inferiores conservan antecedentes.
+
 T08.1b21 completada documentalmente y revisada favorablemente: [contrato de integración M1–M8](specs/008-preparacion-y-turnos/integracion-misiones.md), tres misiones distintas cualesquiera en perfil aislado competitivo 2–4. Snapshot 7 publicado sigue vigente; snapshot 8 sólo previsto para T08.1b22. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b21--contrato-de-integración-de-misiones). Encargo de dos pasos con commit/push entre ellos; implementación no iniciada. Las notas inferiores describen antecedentes.
 
 Última revisión: 2026-11-14.

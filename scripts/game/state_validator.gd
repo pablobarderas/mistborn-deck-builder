@@ -2,8 +2,8 @@ extends RefCounted
 ## Invariantes estructurales del snapshot privado. No aplica reglas ni efectos.
 
 const Registry = preload("res://scripts/game/sequence_registry.gd")
-const SCHEMA_VERSION: int = 7
-const ENGINE_VERSION: String = "p08-m2-defeat-1/godot-4.7.2"
+const SCHEMA_VERSION: int = 8
+const ENGINE_VERSION: String = "p08-integrated-missions-1/godot-4.7.2"
 const METALS: Array[String] = ["peltre", "estano", "bronce", "cobre", "zinc", "laton", "hierro", "acero", "atium"]
 const PLAYER_ZONES: Array[String] = ["mano", "mazo", "descarte", "juego"]
 const SHARED_ZONES: Array[String] = ["mazo_mercado", "mercado", "eliminadas", "mazo_rival", "descarte_rival", "adversarios"]

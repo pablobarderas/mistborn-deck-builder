@@ -1,5 +1,11 @@
 # Arquitectura
 
+## Integración de misiones M1–M8 — T08.1b22
+
+Nuevo [servicio combinado](../scripts/game/integrated_missions_play.gd) verificado localmente: admite tres misiones distintas entre ocho mediante fuente tipada de autoridad y catálogo inerte congelado, competitivo 2–4. Compone cinco programas M1/M2/M8 sin sustituir los pilotos exactos anteriores; candidato/grupos/ledger despachados por definición. Capacidad M1 convive con entrenamiento/M6, marcas M2/M3 mantienen recursos separados e inicio único; cierre interno deriva mano 5/6 de M4 sin abrir la entrada pública a limpieza.
+
+Snapshot 8/motor `p08-integrated-missions-1/godot-4.7.2`, sin migración desde 7. P07 conserva intención v1, recibos y proyección por destinatario. El servicio reconstruye delta y RNG de cada acción desde autoridad congelada: M4 y cierre pueden reciclar, M1/M2/M8 no consumen azar. El constructor reutiliza la validación completa del padre y añade admisión de las ocho misiones/registro/pista; no omite huellas ni acepta validación enviada por cliente. [Contrato](specs/008-preparacion-y-turnos/integracion-misiones.md) y [evidencia](specs/008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8). No producto, cartas activas, UI/red ni rival. Los apartados inferiores conservan versiones históricas.
+
 ## Objetivos y permanente M2 — T08.1b20
 
 [M2Play](../scripts/game/m2_play.gd) y [AllyTargets](../scripts/game/ally_targets.gd) admiten sólo M2/M5/M7 con aliados inertes de autoridad. P07 escoge una ruta: directa para automáticos/cimas o `m2_first_v1` para la primera llegada en 4/7/10. Gasto/llegada/normal se confirman hasta selección obligatoria; sin candidatos, cierre automático con grupo/ledger. La proyección `option_allies` es específica del destinatario. `GameEngine.get_view` aporta las definiciones congeladas a `GameProjection.project`; el argumento adicional de catálogo es opcional para conservar llamadas previas, no una entrada de cliente. El helper de objetivos se comparte entre oferta, traslado y proyección. Cada traslado va al descarte del propietario y mantiene RNG; delta protegido se recalcula antes del commit.

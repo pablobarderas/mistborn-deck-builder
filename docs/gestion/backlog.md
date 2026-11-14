@@ -1,5 +1,9 @@
 # Backlog por fases
 
+T08.1b22: publicación autorizada el 2026-11-14; el commit de esta nota publica la entrega revisada, sin issue. Se reutilizan 18 suites/17.644 comprobaciones y revisión favorable, sin cambios funcionales. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8). Las notas inferiores sin publicación son antecedentes; siguiente objetivo propuesto sin iniciar.
+
+T08.1b22 R2 implementada y verificada localmente, sin issue ni publicación: INT-01–07 y 18 suites/17.644 comprobaciones. INT-08 y revisión independiente final favorables; cierre local completo. [Resultado](../specs/008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8). Siguiente objetivo propuesto: contrastar una carta real generadora de puntos de misión y especificar su integración con el servicio combinado antes de automatizarla; su fuente/catálogo deben verificarse, sin admitir cartas activas por inferencia.
+
 T08.1b21 R2 completada documentalmente y revisada favorablemente, sin issue: [contrato combinado](../specs/008-preparacion-y-turnos/integracion-misiones.md), INT-DOC-01–04. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b21--contrato-de-integración-de-misiones). Siguiente T08.1b22 implementación INT-01–08 después de commit/push verificado del contrato, conforme al encargo humano. No admite cartas activas ni producto.
 
 T08.1b20 R2 implementada y verificada localmente, revisión independiente favorable, sin issue ni publicación. 17 suites/11.712 comprobaciones; [evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b20--implementación-de-objetivos-y-premios-m2). M2-01–07 y rechazo de contenido no admitido de M2-08; pruebas reales Defender/Cloud quedan para producto. Siguiente objetivo propuesto: contrato de integración de misiones con selección de tres entre M1–M8, sin admitir automáticamente cartas o producto.

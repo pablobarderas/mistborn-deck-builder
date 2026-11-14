@@ -1,5 +1,13 @@
 # Registro de trabajo
 
+## 2026-11-14 — Publicación T08.1b22
+
+Encargo «haz commit y push». Empaquetado R0 de la integración revisada, sin cambios funcionales; fetch confirma base cf781e31, mismo alcance local y 67 fuentes idénticas al cierre. Se reutilizan 18 suites/17.644 comprobaciones y dictamen favorable, con enlaces/diff/índice y remoto comprobados al publicar. El commit que contiene esta nota identifica la entrega. Siguiente generador de puntos sólo propuesto; sin nueva dispensa ni permiso de futuras publicaciones. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8).
+
+## 2026-11-14 — T08.1b22, integración de misiones
+
+Servicio combinado de tres misiones entre M1–M8, snapshot8, internos y RNG por acción; INT-01–07 y 18 suites/17.644 comprobaciones aprobadas. Código/evidencia revisados favorablemente de forma independiente, sin hallazgos residuales; cierre local completo. Paso1 publicado cf781e31 antes de implementar; paso2 local sin commit/push. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8). Siguiente objetivo propuesto: contrastar una carta real generadora de puntos de misión y especificar su integración con el servicio combinado antes de automatizarla; su fuente/catálogo deben verificarse, sin admitir cartas activas por inferencia.
+
 ## 2026-11-14 — T08.1b21, contrato combinado
 
 Encargo de dos pasos consecutivos con commit/push entre ellos; fetch confirma base a8afaae limpia. Contrato M1–M8 y escenarios INT-01–08 preparados, contraste de reglas favorable sin DUD nueva; revisión independiente favorable sin hallazgos residuales, 421 enlaces/anclas y diff correctos. Publicación autorizada entre pasos; el commit de esta nota identifica el contrato. Sin código/Godot. [Registro responsable](specs/008-preparacion-y-turnos/verification.md#t081b21--contrato-de-integración-de-misiones). Dispensa humana sólo para trabajar ambos objetivos en esta sesión; controles restantes intactos.

@@ -1,5 +1,9 @@
 # Plan de SPEC-008
 
+## T08.1b22 — Integración de misiones M1–M8
+
+Implementada y verificada localmente según [contrato revisado y plan](integracion-misiones.md), INT-01–08, después de publicar T08.1b21 en cf781e31. Nuevo perfil aislado competitivo, sin producto ni cierre P08; [evidencia y traspaso](verification.md#t081b22--integración-de-misiones-m1m8). 18 suites/17.644 comprobaciones; revisión independiente final favorable y cierre local completo.
+
 ## T08.1b21 — Contrato de integración de misiones
 
 Contrato [M1–M8](integracion-misiones.md) completado documentalmente y revisado favorablemente: INT-DOC-01–04, futuro perfil aislado de tres misiones distintas entre ocho, competitivo 2–4; snapshot 8 sólo previsto, motor publicado snapshot 7 sin cambios. Plan de implementación y escenarios INT-01–08 en el contrato; [registro previo](tasks.md#t081b21--contrato-de-integración-de-misiones-m1m8). No admite cartas activas/producto ni cierre P08.

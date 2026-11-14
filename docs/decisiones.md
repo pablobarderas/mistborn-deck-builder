@@ -290,6 +290,12 @@ Aplicación técnica T08.1b20: piloto aislado M2/M5/M7, snapshot 7 y programa `m
 
 Contrato y escenarios en [M2](specs/008-preparacion-y-turnos/elecciones-m2.md). El piloto futuro con aliados inertes no acredita Defender, Cloud, habilidades ni una partida de producto. Esta entrega registra reglas y plan; snapshot 6 vigente sin cambios.
 
+## DEC-040 — Composición de misiones por definición
+
+2026-11-14. Diseño técnico de T08.1b21/T08.1b22, implementado y verificado localmente; no cambia reglas humanas. Un servicio interno combina tres misiones distintas entre M1–M8 con catálogo inerte congelado, registro cerrado de cinco programas y fuente tipada. Grupos/ledger se validan por definición de la misión actual, capacidad M1 se suma a entrenamiento/M6 y marcas M2/M3 se aplican por recurso en inicio único. Los perfiles anteriores mantienen sus conjuntos exactos.
+
+Snapshot 8/motor `p08-integrated-missions-1/godot-4.7.2`, sin migración desde 7. Delta y RNG se reconstruyen por acción, permitiendo azar legítimo de M4/cierre sin concederlo a otras operaciones. El cierre interno no abre limpieza pública, producto ni modos con rival. [Contrato](specs/008-preparacion-y-turnos/integracion-misiones.md) y [evidencia](specs/008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8). DEC-031/032/034/037/039 siguen vigentes.
+
 ## Decisiones aún pendientes
 
 - Equivalencia con edición española, terminología, catálogo completo y dudas del reglamento recibido.
