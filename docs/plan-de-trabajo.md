@@ -1,5 +1,7 @@
 # Plan de trabajo por fases
 
+Precisión de salida discreta (2026-11-15): completada con comprobación documental y revisión independiente favorables; siguiente objetivo del juego conservado. [Tarea](specs/009-sistema-agentes/tasks.md#salida-discreta-de-git-y-razonamientos).
+
 Estilo conciso (2026-11-15): ajuste documental completado; revisión independiente favorable y comprobación documental correcta. [Tarea/evidencia](specs/009-sistema-agentes/tasks.md#estilo-conciso-de-respuesta). El siguiente objetivo del juego se conserva.
 
 Última revisión: 2026-11-14. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba y preparación estructural P08; efectos, turnos completos y partidas siguen sin implementar.

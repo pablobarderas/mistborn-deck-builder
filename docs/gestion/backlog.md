@@ -1,5 +1,7 @@
 # Backlog por fases
 
+T00.1 — Salida discreta de Git y razonamientos, R2 documental, completada y revisada favorablemente; sin issue ni publicación. [Aceptación y evidencia](../specs/009-sistema-agentes/tasks.md#salida-discreta-de-git-y-razonamientos).
+
 T00.1 — Estilo conciso de respuesta (2026-11-15), R2 documental, completada con revisión independiente favorable; sin issue ni publicación. [Aceptación y plan](../specs/009-sistema-agentes/tasks.md#estilo-conciso-de-respuesta). Sin cambios de juego ni del siguiente objetivo.
 
 T08.1b22: publicación autorizada el 2026-11-14; el commit de esta nota publica la entrega revisada, sin issue. Se reutilizan 18 suites/17.644 comprobaciones y revisión favorable, sin cambios funcionales. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8). Las notas inferiores sin publicación son antecedentes; siguiente objetivo propuesto sin iniciar.

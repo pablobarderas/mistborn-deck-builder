@@ -309,4 +309,6 @@ Registrar una nueva entrada cuando haya evidencia suficiente o un acuerdo; mient
 
 ## DEC-041 — Respuestas concisas con evidencia conservada
 
+Precisión humana del 2026-11-15: omitir comandos y salidas de Git en la comunicación visible y no exponer razonamientos antes del cierre. Capturar salidas para evidencia local; mantener las comprobaciones obligatorias. El cierre conserva resultados y justificaciones breves necesarias, sin razonamiento interno. No se garantiza ocultación de metadatos impuestos por el cliente. [Evidencia](specs/009-sistema-agentes/verification.md#salida-discreta-de-git-y-razonamientos).
+
 2026-11-15. Aceptada por el encargo humano de contrastar AGENTS con sus pautas de estilo y dejar la opción óptima. Complementa DEC-038: español, respuestas directas sin relleno ni repeticiones y detalle técnico sólo necesario. El cierre indica cambio y verificación mínima, con bloqueos o limitaciones relevantes; se evita interpretar «únicamente qué has cambiado» como permiso para ocultarlos. Calidad, documentación, pruebas y revisión permanecen obligatorias. Norma central en [AGENTS](../AGENTS.md#comunicación-durante-el-trabajo); [evidencia](specs/009-sistema-agentes/verification.md#estilo-conciso-de-respuesta). Sin ahorro medido ni cambios de modelos/permisos.

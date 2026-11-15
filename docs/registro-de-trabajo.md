@@ -1,5 +1,7 @@
 # Registro de trabajo
 
+2026-11-15 — Precisión humana de DEC-041: ocultar comandos/salidas de Git mediante captura y evitar razonamientos intermedios; conservar controles y cierre mínimo. [Evidencia](specs/009-sistema-agentes/verification.md#salida-discreta-de-git-y-razonamientos). Comprobación documental y revisión independiente favorables, P2 documental corregido; sin código, dispensas ni publicación.
+
 2026-11-15 — Estilo conciso: AGENTS ya restringía mensajes intermedios/herramientas; se explicitan español, cierre directo y ausencia de repeticiones, conservando calidad y verificación. DEC-041. [Evidencia y cierre](specs/009-sistema-agentes/verification.md#estilo-conciso-de-respuesta); revisión independiente favorable, 289 enlaces/anclas y diff correctos. Sin código, dispensas ni publicación.
 
 ## 2026-11-14 — Publicación T08.1b22

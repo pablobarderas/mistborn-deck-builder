@@ -1,5 +1,9 @@
 # Estado actual
 
+Publicación de la precisión de salida discreta de Git y razonamientos autorizada el 2026-11-15 mediante «vale pues haz commit y push de estos cambios». El commit que contiene esta nota publica el ajuste documental revisado; las menciones inferiores sin publicación son antecedentes. Sin cambios del juego ni autorización para publicaciones futuras.
+
+Precisión de comunicación (2026-11-15): omitir comandos/salidas de Git y razonamientos intermedios; comprobación documental y revisión independiente favorables. [Evidencia](specs/009-sistema-agentes/verification.md#salida-discreta-de-git-y-razonamientos). Sin cambios del juego ni de su siguiente objetivo.
+
 Publicación del ajuste de estilo DEC-041 autorizada el 2026-11-15 mediante «haz commit y push». El commit que contiene esta nota publica los cambios documentales revisados; las menciones inferiores sin publicación conservan antecedentes. No autoriza publicaciones futuras.
 
 Estilo de respuesta: ajuste documental completado y revisado favorablemente, DEC-041; sin cambios del juego. [Evidencia](specs/009-sistema-agentes/verification.md#estilo-conciso-de-respuesta). Se conserva el siguiente objetivo del juego descrito debajo.
