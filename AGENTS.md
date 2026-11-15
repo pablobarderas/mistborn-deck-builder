@@ -24,6 +24,9 @@ Una sesión principal debe tener un objetivo verificable: mantener juntos especi
 
 ## Comunicación durante el trabajo
 
+- Responder siempre en español, de forma concisa y directa. Omitir introducciones, relleno, repeticiones y explicaciones técnicas salvo que sean necesarias para entender un cambio, una decisión o un riesgo. Ampliar sólo cuando lo pida el usuario o lo exija la tarea.
+- Al cerrar una modificación, indicar qué cambió y el resultado mínimo de la verificación; mencionar bloqueos o limitaciones relevantes si existen. No recapitular el proceso ni repetir el mismo resultado. Mantener la evidencia detallada en la tarea.
+- La brevedad afecta a la comunicación: conservar la calidad del código, las comprobaciones, la revisión y la documentación obligatorias. No afirmar ahorro de tokens sin mediciones.
 - Aplicar en todo el proyecto: los mensajes intermedios serán únicamente un indicativo de actividad con un título escueto, por ejemplo «Ejecutando pruebas…» o «Revisando cambios…».
 - No narrar pasos internos ni imprimir explicaciones técnicas, coordinación de agentes, logs, recuentos parciales o avisos repetitivos. Mantener la evidencia detallada en los documentos y archivos de la tarea.
 - Extender la salida mínima a herramientas y operaciones similares: al editar, mostrar sólo los nombres de los archivos modificados; evitar diffs, líneas añadidas/eliminadas, fragmentos de código, comandos completos y volcados de resultados. En lecturas, búsquedas, pruebas y Git, limitar la salida visible al indicativo de actividad o resultado imprescindible. Revisar internamente lo necesario y guardar la salida extensa en archivos, sin volcarla al chat; usar mecanismos que no muestren automáticamente el detalle cuando sea posible.

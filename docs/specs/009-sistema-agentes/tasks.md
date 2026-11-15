@@ -2,6 +2,12 @@
 
 T00.1 — Sistema transversal de agentes SDD. Issue: sin publicar.
 
+## Estilo conciso de respuesta
+
+Registro previo 2026-11-15. Encargo humano: analizar AGENTS, contrastar las siete pautas propuestas y dejar el estilo óptimo. R2 por instrucción global de trabajo; sin dispensas. Objetivo/AC: español, respuestas directas sin introducciones ni repeticiones, cierre mínimo con cambio y verificación o limitación relevante, detalle técnico sólo necesario; conservar calidad, evidencia y controles. Evitar que «únicamente qué has cambiado» oculte fallos o comprobaciones pendientes. Plan: ajustar la sección existente de AGENTS sin duplicarla, enlazar desde AC-10, registrar decisión/memoria, comprobar enlaces y diff y obtener revisión independiente. Coordinador único escritor; sdd_reviewer Sol/high de sólo lectura, sin descendientes. Sin código, perfiles, Godot ni publicación; verificación documental proporcional. Fetch correcto: main/HEAD/origin/main `75721777c3f862584addfc97b93553382d9f3f89`, árbol inicialmente limpio; estado remoto consultado y coincidente. Se conserva el siguiente objetivo del juego.
+
+Estado: completada; revisión independiente favorable, sin hallazgos. Enlaces/anclas y diff correctos; sin dispensas ni publicación. Evidencia en [verification.md](verification.md#estilo-conciso-de-respuesta).
+
 ## Comunicación breve durante el trabajo
 
 Ampliación solicitada expresamente el 2026-11-13: limitar también salidas de herramientas e interfaces similares a archivos editados o resultado mínimo; evitar diffs, líneas de código, logs y volcados. Registro previo R2, mismo objetivo y responsables: coordinador autor y revisor independiente Sol/high; preservar controles y cambios locales. Plan: ampliar AGENTS/AC-10/DEC-038, revisar delta frente a `tmp/comunicacion-herramientas-before/`, comprobar enlaces y cerrar. No modificar código ni ejecutar Godot; sin dispensas ni publicación.

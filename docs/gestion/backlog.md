@@ -1,5 +1,7 @@
 # Backlog por fases
 
+T00.1 — Estilo conciso de respuesta (2026-11-15), R2 documental, completada con revisión independiente favorable; sin issue ni publicación. [Aceptación y plan](../specs/009-sistema-agentes/tasks.md#estilo-conciso-de-respuesta). Sin cambios de juego ni del siguiente objetivo.
+
 T08.1b22: publicación autorizada el 2026-11-14; el commit de esta nota publica la entrega revisada, sin issue. Se reutilizan 18 suites/17.644 comprobaciones y revisión favorable, sin cambios funcionales. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8). Las notas inferiores sin publicación son antecedentes; siguiente objetivo propuesto sin iniciar.
 
 T08.1b22 R2 implementada y verificada localmente, sin issue ni publicación: INT-01–07 y 18 suites/17.644 comprobaciones. INT-08 y revisión independiente final favorables; cierre local completo. [Resultado](../specs/008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8). Siguiente objetivo propuesto: contrastar una carta real generadora de puntos de misión y especificar su integración con el servicio combinado antes de automatizarla; su fuente/catálogo deben verificarse, sin admitir cartas activas por inferencia.

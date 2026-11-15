@@ -306,3 +306,7 @@ Snapshot 8/motor `p08-integrated-missions-1/godot-4.7.2`, sin migración desde 7
 - Transporte/alojamiento, formato de invitación, pausa/reserva y pérdida de autoridad; salas privadas sin cuentas y reconexión ya están acordadas.
 
 Registrar una nueva entrada cuando haya evidencia suficiente o un acuerdo; mientras tanto, mantener la incertidumbre explícita.
+
+## DEC-041 — Respuestas concisas con evidencia conservada
+
+2026-11-15. Aceptada por el encargo humano de contrastar AGENTS con sus pautas de estilo y dejar la opción óptima. Complementa DEC-038: español, respuestas directas sin relleno ni repeticiones y detalle técnico sólo necesario. El cierre indica cambio y verificación mínima, con bloqueos o limitaciones relevantes; se evita interpretar «únicamente qué has cambiado» como permiso para ocultarlos. Calidad, documentación, pruebas y revisión permanecen obligatorias. Norma central en [AGENTS](../AGENTS.md#comunicación-durante-el-trabajo); [evidencia](specs/009-sistema-agentes/verification.md#estilo-conciso-de-respuesta). Sin ahorro medido ni cambios de modelos/permisos.

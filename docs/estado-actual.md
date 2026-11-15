@@ -1,5 +1,9 @@
 # Estado actual
 
+Publicación del ajuste de estilo DEC-041 autorizada el 2026-11-15 mediante «haz commit y push». El commit que contiene esta nota publica los cambios documentales revisados; las menciones inferiores sin publicación conservan antecedentes. No autoriza publicaciones futuras.
+
+Estilo de respuesta: ajuste documental completado y revisado favorablemente, DEC-041; sin cambios del juego. [Evidencia](specs/009-sistema-agentes/verification.md#estilo-conciso-de-respuesta). Se conserva el siguiente objetivo del juego descrito debajo.
+
 Publicación de T08.1b22 autorizada el 2026-11-14 mediante «haz commit y push». El commit que contiene esta nota publica la integración M1–M8 revisada: snapshot 8, 18 suites/17.644 comprobaciones y revisión independiente final favorable. Las notas inferiores sin publicación son antecedentes. Siguiente objetivo propuesto: contrastar una carta real generadora de puntos de misión y especificar su integración antes de automatizarla, sin admitir producto ni cartas activas por inferencia. No autoriza publicaciones futuras.
 
 T08.1b22 implementada y verificada localmente: servicio aislado de tres misiones distintas cualesquiera entre M1–M8, competitivo 2–4, snapshot 8/motor `p08-integrated-missions-1/godot-4.7.2`; **18 suites/17.644 comprobaciones**. Revisión independiente final favorable sin hallazgos residuales; cierre local completo. Sin producto, cartas activas, limpieza pública, UI/red ni rival. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8). Paso1 publicado en `cf781e31`; paso2 local sin commit/push conforme al encargo. Siguiente objetivo propuesto: contrastar una carta real generadora de puntos de misión y especificar su integración con el servicio combinado antes de automatizarla; su fuente/catálogo deben verificarse, sin admitir cartas activas por inferencia. Las notas inferiores conservan antecedentes.

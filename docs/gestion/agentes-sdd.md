@@ -158,6 +158,8 @@ Comandos ya disponibles: `tools/godot.ps1` con `-Action test`, `test-catalog`, `
 
 ### Protocolo operativo de trabajo contenido — AC-10
 
+El estilo de respuesta se centraliza en [AGENTS](../../AGENTS.md#comunicación-durante-el-trabajo): español, concisión y cierre mínimo con verificación y limitaciones relevantes; la brevedad no reduce controles.
+
 Aplicar desde el siguiente encargo, también a correcciones y reanudaciones. Concreta la proporcionalidad existente; no dispensa lecturas obligatorias, contraste de fuentes, pruebas, revisión independiente ni cierre. No cambia modelos, esfuerzo por riesgo, permisos o alcance.
 
 1. **Recuperación sin relectura innecesaria.** El coordinador realiza y registra el fetch/estado remoto obligatorio. Conservar las lecturas ya disponibles y vigentes en la misma sesión; si hay cambios, consultar su diff y las secciones afectadas. En una sesión nueva se mantienen las lecturas obligatorias de AGENTS y continuidad. Después, localizar el tema con `rg` y leer bloques delimitados; no volcar archivos históricos completos por defecto. Ampliar cuando falte contexto para decidir con seguridad.

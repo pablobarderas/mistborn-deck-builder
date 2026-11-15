@@ -1,5 +1,7 @@
 # Registro de trabajo
 
+2026-11-15 — Estilo conciso: AGENTS ya restringía mensajes intermedios/herramientas; se explicitan español, cierre directo y ausencia de repeticiones, conservando calidad y verificación. DEC-041. [Evidencia y cierre](specs/009-sistema-agentes/verification.md#estilo-conciso-de-respuesta); revisión independiente favorable, 289 enlaces/anclas y diff correctos. Sin código, dispensas ni publicación.
+
 ## 2026-11-14 — Publicación T08.1b22
 
 Encargo «haz commit y push». Empaquetado R0 de la integración revisada, sin cambios funcionales; fetch confirma base cf781e31, mismo alcance local y 67 fuentes idénticas al cierre. Se reutilizan 18 suites/17.644 comprobaciones y dictamen favorable, con enlaces/diff/índice y remoto comprobados al publicar. El commit que contiene esta nota identifica la entrega. Siguiente generador de puntos sólo propuesto; sin nueva dispensa ni permiso de futuras publicaciones. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8).
