@@ -1,5 +1,13 @@
 # Tareas de SPEC-008
 
+## T08.1b23 — Contrato de una carta real de puntos de misión (registro previo)
+
+Publicación autorizada posteriormente el 2026-11-16: «haz commit y push y ve con lo siguiente». Empaquetado R0 de documentación ya revisada, coordinador único; aceptación: publicar sólo T08.1b23, confirmar coherencia documental, coincidencia remota y árbol limpio. Sin nueva regla, prueba Godot ni dispensa. La publicación no altera el siguiente objetivo.
+
+2026-11-16. Tras sincronizar main con origin/main, T08.1b22 ya está publicada y revisada. Objetivo: contrastar un diseño español de mercado que genere puntos de misión y documentar su admisión al servicio competitivo combinado, sin ejecutar todavía cartas activas. Aceptación: fuente y localizador comprobados, texto/iconos y dudas distinguidos, interacción con REG-032/045 y el servicio vigente descrita con escenarios verificables, límites y siguiente implementación explícitos. Riesgo R2 por reglas, catálogo, estado y autoridad. Coordinador único escritor de documentación; contraste de reglas sdd_rules Sol/high y revisión final independiente sdd_reviewer Sol/high, ambos solo lectura, sin delegación descendiente. Plan: cotejar escaneo/SRC-001/SRC-002, contrato de catálogo y APIs; redactar contrato y AC; comprobar enlaces y diff; revisar, corregir y registrar evidencia y traspaso. Godot no aplica al contrato documental. Ninguna dispensa; esta autorización de commit/push se consume en la sincronización de la entrega previa y no implica publicar la nueva tarea.
+
+Contrato: [Perseguir y CAR-DOC-01–05](carta-perseguir.md). Estado: completada documentalmente con contraste de reglas y revisión independiente favorables; [evidencia y traspaso](verification.md#t081b23--primera-carta-real-de-puntos-de-misión). Siguiente implementación separada.
+
 ### T08.1b22 — Implementación de integración de misiones
 
 Publicación autorizada posteriormente el 2026-11-14: «haz commit y push». Registro previo R0 de empaquetado: objetivo publicar todos los cambios revisados de T08.1b22, sin cambios funcionales. Coordinador responsable; fetch confirma HEAD/origin/main cf781e31 y conserva exactamente el alcance del cierre anterior. Manifiesto de 67 fuentes idéntico, índice vacío; reutilizar 18 suites/17.644 comprobaciones y revisión independiente final favorables. Plan/aceptación: actualizar metadatos de publicación, comprobar enlaces/anclas/diff e índice, commit/push y verificar HEAD remoto/árbol limpio. Sin nueva dispensa ni autorización de futuras entregas. El commit que contiene esta nota identifica la publicación; las notas inferiores sin publicación son antecedentes.

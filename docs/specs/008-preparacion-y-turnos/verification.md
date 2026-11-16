@@ -1,5 +1,13 @@
 # Verificación de SPEC-008
 
+## T08.1b23 — Primera carta real de puntos de misión
+
+Publicación autorizada posteriormente el 2026-11-16. El commit que contiene esta nota incorpora T08.1b23; la referencia inferior a entrega local es antecedente. Se reutilizan contraste y revisión independientes favorables; se comprueban índice, enlaces y coincidencia remota tras el push.
+
+Completada documentalmente, 2026-11-16. Fuente local SRC-005, `mercado.3.png` fila 1 derecha, SHA-256 consignada en [el contrato](carta-perseguir.md). CAR-DOC-01–05 describen la admisión futura de Perseguir; la carta no está en catálogo ni motor. Contraste sdd_rules Sol/high favorable: primaria bronce +2 misión/+2 monedas, Savant +1 misión por uso como metal, ambos separados; SRC-001 pp. 9–10/14/17, SRC-002 FAQ consultada sin errata específica. Revisión independiente sdd_reviewer Sol/high favorable tras corregir un ancla SRC-002; observó que faltaba el commit remoto en el traspaso, añadido aquí. Coordinador comprobó 328 enlaces locales en siete Markdown, cero rutas rotas, y `git diff --check` correcto. No se ejecutó Godot porque esta tarea solo cambia documentos. Sin dispensa ni nueva decisión duradera. P08 y producto permanecen abiertos.
+
+Recuperación: HEAD=origin/main `679c4d027ced2dd9f2efa4d2f7b6538db56223b4` antes de T08.1b23; el trabajo previo T08.2e local se guardó en `stash@{0}` y la versión equivalente ya constaba en el remoto. Push de main sin cambios. Esta nueva entrega queda local sin commit/push. Primer paso siguiente: versionar fuente física legible y definición trazada de Perseguir; ampliar gramática de puntos de misión con validación y pruebas antes de la activación de acciones/Savant. El contraste de fuentes no acredita carta ejecutable ni partida.
+
 ## T08.1b22 — Integración de misiones M1–M8
 
 Publicación autorizada posteriormente el 2026-11-14: «haz commit y push». Registro R0 de empaquetado en tasks; recuperación remota confirma HEAD/origin/main cf781e31 y el mismo alcance local del cierre. Las 67 fuentes coinciden con el manifiesto de las 18 suites/17.644 comprobaciones; revisión independiente final favorable reutilizada, sin cambios funcionales ni repetición de Godot. El commit que incorpora esta nota publica T08.1b22; las menciones inferiores de segundo paso local/sin publicación describen el estado previo al permiso. Se comprueban documentación/índice y coincidencia remota/árbol limpio; detalle reproducible en tmp/t081b22-publication-recovery.json y tmp/t081b22-publication.json, ignorados. No autoriza futuras publicaciones ni cambia reglas o dispensas. Comprobación de empaquetado: 14 Markdown, 556 enlaces/anclas locales, cero errores y diff correcto.

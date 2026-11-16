@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-16 — Sincronización y T08.1b23
+
+El trabajo local T08.2e se resguardó en stash antes de avanzar main hasta origin/main `679c4d0`; la entrega equivalente y las posteriores ya estaban publicadas, sin nuevo commit que enviar. Push sin cambios. T08.1b23: registro R2, lectura visual y huella de Perseguir; contrato CAR-DOC-01–05, contraste de reglas y revisión independiente favorables tras corregir ancla. 328 enlaces locales sin rutas rotas y diff correcto; no hay código ni pruebas Godot nuevos. Siguiente paso: fuente versionada y contrato de catálogo para puntos de misión; el resguardo local sigue disponible. Entrega T08.1b23 local sin commit/push, sin dispensas.
+
 2026-11-15 — Precisión humana de DEC-041: ocultar comandos/salidas de Git mediante captura y evitar razonamientos intermedios; conservar controles y cierre mínimo. [Evidencia](specs/009-sistema-agentes/verification.md#salida-discreta-de-git-y-razonamientos). Comprobación documental y revisión independiente favorables, P2 documental corregido; sin código, dispensas ni publicación.
 
 2026-11-15 — Estilo conciso: AGENTS ya restringía mensajes intermedios/herramientas; se explicitan español, cierre directo y ausencia de repeticiones, conservando calidad y verificación. DEC-041. [Evidencia y cierre](specs/009-sistema-agentes/verification.md#estilo-conciso-de-respuesta); revisión independiente favorable, 289 enlaces/anclas y diff correctos. Sin código, dispensas ni publicación.

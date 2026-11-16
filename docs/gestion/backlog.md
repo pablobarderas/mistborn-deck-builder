@@ -1,5 +1,7 @@
 # Backlog por fases
 
+T08.1b23, R2 documental, completada y revisada: [primera carta real de puntos de misión](../specs/008-preparacion-y-turnos/carta-perseguir.md), Perseguir (SRC-005) y CAR-DOC-01–05. Sin integración de catálogo/producto; siguiente implementación pendiente de fuente versionada.
+
 T00.1 — Salida discreta de Git y razonamientos, R2 documental, completada y revisada favorablemente; sin issue ni publicación. [Aceptación y evidencia](../specs/009-sistema-agentes/tasks.md#salida-discreta-de-git-y-razonamientos).
 
 T00.1 — Estilo conciso de respuesta (2026-11-15), R2 documental, completada con revisión independiente favorable; sin issue ni publicación. [Aceptación y plan](../specs/009-sistema-agentes/tasks.md#estilo-conciso-de-respuesta). Sin cambios de juego ni del siguiente objetivo.

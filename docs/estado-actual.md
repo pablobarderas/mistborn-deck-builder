@@ -1,5 +1,9 @@
 # Estado actual
 
+Publicación de T08.1b23 autorizada el 2026-11-16 mediante «haz commit y push y ve con lo siguiente». El commit que contiene esta nota publica el contrato documental revisado; las referencias inferiores a trabajo local describen el estado anterior al permiso.
+
+T08.1b23 completada documentalmente y revisada (2026-11-16): [Perseguir](specs/008-preparacion-y-turnos/carta-perseguir.md) se ha leído del escaneo español como primera candidata real que genere puntos de misión. No hay definición de catálogo verificada ni activación de acciones en el motor. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b23--primera-carta-real-de-puntos-de-misión).
+
 Publicación de la precisión de salida discreta de Git y razonamientos autorizada el 2026-11-15 mediante «vale pues haz commit y push de estos cambios». El commit que contiene esta nota publica el ajuste documental revisado; las menciones inferiores sin publicación son antecedentes. Sin cambios del juego ni autorización para publicaciones futuras.
 
 Precisión de comunicación (2026-11-15): omitir comandos/salidas de Git y razonamientos intermedios; comprobación documental y revisión independiente favorables. [Evidencia](specs/009-sistema-agentes/verification.md#salida-discreta-de-git-y-razonamientos). Sin cambios del juego ni de su siguiente objetivo.

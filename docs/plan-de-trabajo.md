@@ -16,6 +16,8 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
+- T08.1b23 completada documentalmente y revisada: [Perseguir](specs/008-preparacion-y-turnos/carta-perseguir.md), primera candidata real para generar puntos de misión. Siguiente paso: preparar fuente versionada y ampliación de catálogo; luego especificar activación de acción/Savant y autoridad. Sin implementación de carta ni cambio del estado jugable.
+
 - Publicación T08.1b22 autorizada el 2026-11-14 y recogida en el commit de esta nota, con 18 suites/17.644 comprobaciones y revisión independiente favorables. Las menciones inferiores sin publicación son antecedentes. Siguiente propuesto: contrastar una carta real generadora de puntos de misión y especificar su integración; no iniciado. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8).
 
 - T08.1b22 implementada y verificada localmente: servicio aislado de tres misiones distintas cualesquiera entre M1–M8, competitivo 2–4, snapshot 8/motor `p08-integrated-missions-1/godot-4.7.2`; **18 suites/17.644 comprobaciones**. Revisión independiente final favorable sin hallazgos residuales; cierre local completo. Sin producto, cartas activas, limpieza pública, UI/red ni rival. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8). Siguiente objetivo propuesto: contrastar una carta real generadora de puntos de misión y especificar su integración con el servicio combinado antes de automatizarla; su fuente/catálogo deben verificarse, sin admitir cartas activas por inferencia.
