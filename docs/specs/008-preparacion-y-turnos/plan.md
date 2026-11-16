@@ -1,5 +1,9 @@
 # Plan de SPEC-008
 
+## T08.1b24 — Reserva estructural de puntos de misión
+
+Implementación local de [v3](catalogo-puntos-mision.md) con contexto de tipo/momento propagado a opciones anidadas, requisito físico para acciones verificadas, fixtures positivos/negativos y regresiones de catálogo/misiones. La fuente española de mercado se localizó con huella coincidente; preparar el lote físico reproducible y una definición revisada es trabajo posterior. No cambia motor, snapshot ni carga de arranque. [Tarea](tasks.md#t081b24--recurso-de-misión-en-catálogo-registro-previo) y [evidencia](verification.md#t081b24--gramática-de-puntos-de-misión).
+
 ## T08.1b22 — Integración de misiones M1–M8
 
 Implementada y verificada localmente según [contrato revisado y plan](integracion-misiones.md), INT-01–08, después de publicar T08.1b21 en cf781e31. Nuevo perfil aislado competitivo, sin producto ni cierre P08; [evidencia y traspaso](verification.md#t081b22--integración-de-misiones-m1m8). 18 suites/17.644 comprobaciones; revisión independiente final favorable y cierre local completo.

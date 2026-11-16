@@ -1,5 +1,13 @@
 # Registro de trabajo
 
+## 2026-11-16 — Publicación de T08.1b24
+
+Autorizado commit/push de la entrega revisada. `test-catalog` 311 y `test-missions` 138 comprobaciones correctas de nuevo; sin cambios funcionales ni dispensa. El commit que contiene esta nota identifica la publicación; siguiente paso: fuente y definición completa de Perseguir. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b24--gramática-de-puntos-de-misión).
+
+## 2026-11-16 — T08.1b24, catálogo de puntos de misión
+
+T08.1b23 publicada con remoto coincidente y árbol limpio. Localizado `mercado.3.png` en Pictures con huella igual a SRC-005. Añadidas gramática v3 y pruebas estructurales de reserva propia de misión, sin incorporar la carta ni ejecutar efectos; corregida precisión de primaria/Savant del contrato previo. Tras corregir rechazos de tipos detectados en revisión, `test-catalog` 311 y `test-missions` 138 comprobaciones correctas con Godot 4.7.2. Revisión independiente final favorable; ninguna dispensa ni commit/push de b24. [Contrato y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b24--gramática-de-puntos-de-misión).
+
 ## 2026-11-16 — Sincronización y T08.1b23
 
 El trabajo local T08.2e se resguardó en stash antes de avanzar main hasta origin/main `679c4d0`; la entrega equivalente y las posteriores ya estaban publicadas, sin nuevo commit que enviar. Push sin cambios. T08.1b23: registro R2, lectura visual y huella de Perseguir; contrato CAR-DOC-01–05, contraste de reglas y revisión independiente favorables tras corregir ancla. 328 enlaces locales sin rutas rotas y diff correcto; no hay código ni pruebas Godot nuevos. Siguiente paso: fuente versionada y contrato de catálogo para puntos de misión; el resguardo local sigue disponible. Entrega T08.1b23 local sin commit/push, sin dispensas.

@@ -1,5 +1,13 @@
 # Tareas de SPEC-008
 
+## T08.1b24 — Recurso de misión en catálogo (registro previo)
+
+Publicación autorizada el 2026-11-16: «haz commit y push de lo último». Empaquetado R0 de la entrega ya revisada; coordinador único responsable. Objetivo y aceptación: publicar sólo T08.1b24, comprobar suites de catálogo y misiones, coherencia documental, coincidencia remota y árbol limpio. Plan: verificar, actualizar metadatos de publicación, crear commit, enviar y confirmar remoto. Sin cambio funcional, nueva dispensa ni autorización para entregas posteriores.
+
+Estado de cierre: completada localmente y revisada favorablemente, CAT-PM-01–04 satisfechos; fuente localizada después del registro inicial, sin carta incorporada. [Contrato](catalogo-puntos-mision.md) y [evidencia/traspaso](verification.md#t081b24--gramática-de-puntos-de-misión). Sin commit/push de b24.
+
+2026-11-16. Tras publicar T08.1b23 en `fb8fc41dce306852ca3f27ecba9c562c4f9c52e1`, objetivo independiente: admitir estructuralmente en una versión nueva de catálogo `ganar` puntos de misión para habilidades propias de acción, conservando v1/v2 y sin activar Perseguir. Riesgo R2 por contrato de datos y regla de reserva. Aceptación CAT-PM-01–04: v3 mantiene fuentes físicas/huellas y misiones v2; sólo habilidades de `accion` con momento `al_jugar` o `metal_quemado` y objetivo `propio` pueden declarar `ganar mision`; v1/v2 y formas ajenas lo rechazan; pruebas positivas/negativas y regresiones de catálogo/misiones pasan; documentación, revisión independiente y traspaso distinguen el bloqueo del escaneo físico. Coordinador único escritor de validador, pruebas y documentos; sdd_rules Sol/high contrasta la frontera semántica y sdd_reviewer Sol/high revisa el diff final, ambos sin edición ni descendientes. Plan: documentar v3, ampliar validador con contexto de carta/momento incluso en efectos anidados, probar admisión/rechazos/recarga, ejecutar suites pertinentes, revisar/corregir y actualizar memoria. Fuente `mercado.3.png` ausente de las rutas documentadas en este PC; no incorporar ni marcar verificada Perseguir. Sin dispensa, issue ni permiso de publicación de esta nueva entrega.
+
 ## T08.1b23 — Contrato de una carta real de puntos de misión (registro previo)
 
 Publicación autorizada posteriormente el 2026-11-16: «haz commit y push y ve con lo siguiente». Empaquetado R0 de documentación ya revisada, coordinador único; aceptación: publicar sólo T08.1b23, confirmar coherencia documental, coincidencia remota y árbol limpio. Sin nueva regla, prueba Godot ni dispensa. La publicación no altera el siguiente objetivo.

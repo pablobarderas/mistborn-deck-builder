@@ -4,6 +4,8 @@ Implementado en [catalog_validator.gd](../scripts/catalog/catalog_validator.gd).
 
 Este documento describe v1, que sigue siendo la versión del catálogo de arranque. El [contrato v2 de misiones](specs/008-preparacion-y-turnos/catalogo-misiones.md) se usa en una carga explícita independiente.
 
+La [ampliación v3](specs/008-preparacion-y-turnos/catalogo-puntos-mision.md) admite estructuralmente la reserva de puntos de misión en habilidades de acción; no cambia la gramática v1 de este documento ni ejecuta cartas.
+
 ## Sobre del documento
 
 Raíz objeto con campos obligatorios: version_esquema (entero 1), id_catalogo (ID estable), idioma (es), fuentes (array no vacío) y cartas (array no vacío). No se ignoran claves desconocidas. El array plano anterior se rechaza con diagnóstico; la migración de los dos ejemplos es explícita.

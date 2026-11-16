@@ -1,5 +1,9 @@
 # Estado actual
 
+Publicación de T08.1b24 autorizada el 2026-11-16 mediante «haz commit y push de lo último». El commit que contiene esta nota publica la gramática v3 revisada; las referencias inferiores a trabajo local describen el estado previo al permiso. El siguiente objetivo sigue siendo preparar la fuente y definición de Perseguir.
+
+T08.1b24 completada localmente y revisada favorablemente: gramática v3 de reserva de puntos de misión para acciones, con fixtures y sin ejecución de efectos. `test-catalog` 311 y `test-missions` 138 comprobaciones correctas. El original español de Perseguir se localizó en este PC con la huella esperada; su definición aún no se incorpora ni se distribuye en el catálogo. [Contrato y evidencia](specs/008-preparacion-y-turnos/verification.md#t081b24--gramática-de-puntos-de-misión).
+
 Publicación de T08.1b23 autorizada el 2026-11-16 mediante «haz commit y push y ve con lo siguiente». El commit que contiene esta nota publica el contrato documental revisado; las referencias inferiores a trabajo local describen el estado anterior al permiso.
 
 T08.1b23 completada documentalmente y revisada (2026-11-16): [Perseguir](specs/008-preparacion-y-turnos/carta-perseguir.md) se ha leído del escaneo español como primera candidata real que genere puntos de misión. No hay definición de catálogo verificada ni activación de acciones en el motor. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b23--primera-carta-real-de-puntos-de-misión).

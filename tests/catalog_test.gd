@@ -22,7 +22,7 @@ func _run() -> void:
 	_expect(good["counts"] == {"muestra": 2, "borrador": 0, "verificada": 0}, "Conteo de estados.")
 	_expect(good["warnings"].size() == 4, "Aviso de imagen y revisión por muestra.")
 	var cases: Array[Dictionary] = [
-		{"path": ["version_esquema"], "value": 3, "field": "version_esquema"},
+		{"path": ["version_esquema"], "value": 4, "field": "version_esquema"},
 		{"path": ["version_esquema"], "value": "1", "field": "version_esquema"},
 		{"path": ["idioma"], "value": "en", "field": "idioma"},
 		{"path": ["cartas"], "value": [], "field": "cartas"},
@@ -90,6 +90,7 @@ func _run() -> void:
 		malformed["cartas"][0][field] = null
 		_assert_rejected(validator.validate(malformed), field)
 	await _positive_cases(validator)
+	_mission_point_cases(validator)
 	var database: Node = root.get_node("Database")
 	_expect(database.is_loaded and database.get_verified_definitions().is_empty(), "Autoload filtra muestras.")
 	var definition: Dictionary = database.get_definition("kelsier")
@@ -120,6 +121,62 @@ func _run() -> void:
 	if failures == 0:
 		print("P06_CATALOG_OK: ", checks, " comprobaciones de contrato; ningún efecto ejecutado.")
 	quit(0 if failures == 0 else 1)
+
+
+func _mission_point_cases(validator: RefCounted) -> void:
+	# Descriptor ficticio: valida forma, nunca admite la carta Perseguir al producto.
+	var document: Dictionary = base.duplicate(true)
+	document["version_esquema"] = 3
+	var card: Dictionary = document["cartas"][0]
+	card["tipo"] = "accion"
+	card["habilidades"][0]["momento"] = "al_jugar"
+	var point: Dictionary = {"op": "ganar", "recurso": "mision", "cantidad": 2, "objetivo": "propio"}
+	card["habilidades"][0]["efectos"] = [point, {"op": "ganar", "recurso": "recursos", "cantidad": 2, "objetivo": "propio"}]
+	_expect(validator.validate(document)["ok"], "v3 reserva puntos y recursos en orden sin ejecutar efectos.")
+	var savant: Dictionary = document.duplicate(true)
+	savant["cartas"][0]["habilidades"][0]["momento"] = "metal_quemado"
+	_expect(validator.validate(savant)["ok"], "v3 admite reserva por ruta de metal separada.")
+	var nested: Dictionary = document.duplicate(true)
+	nested["cartas"][0]["habilidades"][0]["efectos"] = [{"op": "elegir", "min": 1, "max": 1, "opciones": [[point]]}]
+	_expect(validator.validate(nested)["ok"], "v3 conserva contexto en efectos anidados.")
+	for version: int in [1, 2]:
+		var legacy: Dictionary = document.duplicate(true)
+		legacy["version_esquema"] = version
+		_assert_rejected(validator.validate(legacy), ".recurso")
+	for invalid_type: String in ["aliado", "funding"]:
+		var wrong_type: Dictionary = document.duplicate(true)
+		wrong_type["cartas"][0]["tipo"] = invalid_type
+		_assert_rejected(validator.validate(wrong_type), ".recurso")
+	var mission_type: Dictionary = document.duplicate(true)
+	mission_type["cartas"][0]["tipo"] = "mision"
+	_assert_rejected(validator.validate(mission_type), ".habilidades")
+	for invalid_moment: String in ["al_comprar", "al_entrenar", "reaccion", "continuo"]:
+		var wrong_moment: Dictionary = document.duplicate(true)
+		wrong_moment["cartas"][0]["habilidades"][0]["momento"] = invalid_moment
+		_assert_rejected(validator.validate(wrong_moment), ".recurso")
+	for invalid_point: Dictionary in [
+		{"op": "ganar", "recurso": "mision", "cantidad": 0, "objetivo": "propio"},
+		{"op": "ganar", "recurso": "mision", "cantidad": 2, "objetivo": "rival"},
+		{"op": "ganar", "recurso": "mision", "cantidad": 2, "objetivo": "propio", "pista": "mision"},
+	]:
+		var malformed: Dictionary = document.duplicate(true)
+		malformed["cartas"][0]["habilidades"][0]["efectos"] = [invalid_point]
+		_assert_rejected(validator.validate(malformed), "efectos")
+	for version: int in [1, 2, 3]:
+		for wrong_resource: Variant in [{}, [], 2, false]:
+			var malformed_resource: Dictionary = document.duplicate(true)
+			malformed_resource["version_esquema"] = version
+			malformed_resource["cartas"][0]["habilidades"][0]["efectos"] = [{"op": "ganar", "recurso": wrong_resource, "cantidad": 1, "objetivo": "propio"}]
+			_assert_rejected(validator.validate(malformed_resource), ".recurso")
+	for wrong_target: Variant in [{}, [], 2, false]:
+		var malformed_target: Dictionary = document.duplicate(true)
+		malformed_target["cartas"][0]["habilidades"][0]["efectos"] = [{"op": "ganar", "recurso": "mision", "cantidad": 1, "objetivo": wrong_target}]
+		_assert_rejected(validator.validate(malformed_target), ".objetivo")
+	var no_physical: Dictionary = document.duplicate(true)
+	no_physical["fuentes"][0]["tipo"] = "reglamento"
+	no_physical["cartas"][0]["revision"] = {"estado": "verificada", "idioma_verificado": true, "dudas": []}
+	_assert_rejected(validator.validate(no_physical), ".fuentes")
+	_expect(validator.validate(base)["ok"], "Recarga de v1 tras rechazos v3.")
 
 
 func _positive_cases(validator: RefCounted) -> void:

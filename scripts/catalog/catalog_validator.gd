@@ -2,6 +2,7 @@ extends RefCounted
 ## Valida estructura y revisión declarada; no ejecuta texto ni efectos.
 
 const MISSION_VERSION: int = 2
+const MISSION_POINTS_VERSION: int = 3
 const MAX_DEPTH: int = 8
 const MAX_NUMBER: int = 1000000
 const TYPES: Array[String] = ["muestra", "sin_clasificar", "funding", "entrenamiento", "accion", "aliado", "personaje", "mision", "edicto", "adversario", "rival", "dominacion", "pista_entrenamiento"]
@@ -24,10 +25,11 @@ func validate(document: Variant) -> Dictionary:
 	var counts: Dictionary = {"muestra": 0, "borrador": 0, "verificada": 0}
 	if not _shape(document, ["version_esquema", "id_catalogo", "idioma", "fuentes", "cartas"], [], "$catalogo"):
 		return _result(cards, verified, counts)
-	if not _integer(document["version_esquema"], 1, MISSION_VERSION):
-		_error("version_esquema", "versión no admitida; se requiere 1 o 2")
+	if not _integer(document["version_esquema"], 1, MISSION_POINTS_VERSION):
+		_error("version_esquema", "versión no admitida; se requiere 1, 2 o 3")
 		return _result(cards, verified, counts)
-	var mission_version: bool = document["version_esquema"] == MISSION_VERSION
+	var mission_version: bool = document["version_esquema"] >= MISSION_VERSION
+	var mission_points_version: bool = document["version_esquema"] == MISSION_POINTS_VERSION
 	_identifier(document["id_catalogo"], "id_catalogo")
 	_enum(document["idioma"], ["es"], "idioma")
 	if _array(document["fuentes"], "fuentes", 1, 256):
@@ -37,7 +39,7 @@ func validate(document: Variant) -> Dictionary:
 		for index: int in document["cartas"].size():
 			var entry: Variant = document["cartas"][index]
 			var before: int = _errors.size()
-			_validate_card(entry, "cartas[%d]" % index, mission_version)
+			_validate_card(entry, "cartas[%d]" % index, mission_version, mission_points_version)
 			if before != _errors.size():
 				continue
 			var id: String = entry["id"]
@@ -106,7 +108,7 @@ func _validate_source_hash(source: Dictionary, at: String) -> void:
 		_error(at + ".sha256", "huella distinta o archivo fuente ilegible")
 
 
-func _validate_card(value: Variant, at: String, mission_version: bool) -> void:
+func _validate_card(value: Variant, at: String, mission_version: bool, mission_points_version: bool) -> void:
 	if not _shape(value, ["id", "nombre", "tipo", "cantidad", "coste_compra", "texto_original", "resumen", "metales", "ruta_imagen", "fuentes", "revision", "vinculos", "rasgos", "habilidades"], [], at):
 		return
 	_identifier(value["id"], at + ".id")
@@ -160,7 +162,8 @@ func _validate_card(value: Variant, at: String, mission_version: bool) -> void:
 			if ability["limite_por_turno"] != null:
 				_number(ability["limite_por_turno"], ability_at + ".limite_por_turno", 1)
 			_condition(ability["condicion"], ability_at + ".condicion", 0)
-			_effects(ability["efectos"], ability_at + ".efectos", 0)
+			var may_gain_mission: bool = mission_points_version and value["tipo"] == "accion" and ability["momento"] in ["al_jugar", "metal_quemado"]
+			_effects(ability["efectos"], ability_at + ".efectos", 0, may_gain_mission)
 	if not _shape(value["revision"], ["estado", "idioma_verificado", "dudas"], [], at + ".revision"):
 		return
 	var review: Dictionary = value["revision"]
@@ -173,7 +176,9 @@ func _validate_card(value: Variant, at: String, mission_version: bool) -> void:
 		return
 	if review["estado"] == "verificada":
 		if mission_v2 and not has_physical_source:
-			_error(at + ".fuentes", "una misión v2 verificada requiere una fuente física")
+			_error(at + ".fuentes", "una misión v2/v3 verificada requiere una fuente física")
+		if mission_points_version and value["tipo"] == "accion" and not has_physical_source:
+			_error(at + ".fuentes", "una acción v3 verificada requiere una fuente física")
 		if not has_real_source or review["idioma_verificado"] != true or review["dudas"] != [] or _has_pending(value):
 			_error(at + ".revision", "verificada exige fuente real, idioma revisado, ninguna duda ni operación/momento pendiente")
 		if value["tipo"] in ["muestra", "sin_clasificar"]:
@@ -359,7 +364,7 @@ func _condition(value: Variant, at: String, depth: int) -> void:
 			_error(at + ".op", "condición desconocida")
 
 
-func _effects(value: Variant, at: String, depth: int) -> void:
+func _effects(value: Variant, at: String, depth: int, may_gain_mission: bool = false) -> void:
 	if depth > MAX_DEPTH:
 		_error(at, "profundidad máxima excedida")
 		return
@@ -389,7 +394,11 @@ func _effects(value: Variant, at: String, depth: int) -> void:
 				_number(effect["cantidad"], effect_at + ".cantidad", 1)
 				_enum(effect["objetivo"], TARGETS, effect_at + ".objetivo")
 				if effect.has("recurso"):
-					_enum(effect["recurso"], ["recursos", "ataque", "atium", "boxings"], effect_at + ".recurso")
+					if effect["op"] == "ganar" and effect["recurso"] is String and effect["recurso"] == "mision":
+						if not may_gain_mission or not effect["objetivo"] is String or effect["objetivo"] != "propio":
+							_error(effect_at + ".recurso", "ganar misión requiere acción v3, momento admitido y objetivo propio")
+					else:
+						_enum(effect["recurso"], ["recursos", "ataque", "atium", "boxings"], effect_at + ".recurso")
 				if effect.has("pista"):
 					_enum(effect["pista"], ["entrenamiento", "mision", "dominacion"], effect_at + ".pista")
 				if effect.has("metal"):
@@ -404,7 +413,7 @@ func _effects(value: Variant, at: String, depth: int) -> void:
 					if not _integer(effect["min"], 0, effect["opciones"].size()) or not _integer(effect["max"], 1, effect["opciones"].size()) or effect["min"] > effect["max"]:
 						_error(effect_at, "límites de elección inválidos")
 					for option: Variant in effect["opciones"]:
-						_effects(option, effect_at + ".opciones", depth + 1)
+						_effects(option, effect_at + ".opciones", depth + 1, may_gain_mission)
 			_:
 				_error(effect_at + ".op", "operación desconocida; declarar pendiente si falta modelarla")
 

@@ -44,6 +44,8 @@ Originales facilitados el 2026-11-11 en `C:/Users/pablo/Documents/Digitalizacion
 
 Originales de la caja española del usuario, comprobados para T08.1b5 el 2026-11-12 en `C:/Users/pablo/Documents/Digitalizaciones/Digitalizaciones`. Las rutas de esta tabla son relativas a `cartas_personajes`.
 
+En este PC, el usuario indicó el 2026-11-16 `C:/Users/pbard/Pictures/Digitalizaciones`. Allí se confirmó `cartas_mercado/mercado.3.png` con SHA-256 `747A01D7EBBF69E8272C052C81A40BEAA5EF67FFF853C1C4E1E8C69B49A105CB`, coincidente con [Perseguir](../specs/008-preparacion-y-turnos/carta-perseguir.md). Las misiones están bajo `cartas_personajes/misiones/`. Estas rutas son locales y no forman parte del clon.
+
 | Original | SHA-256 |
 | --- | --- |
 | `personajes.png` | `DB0356C5FC95D1BF0178FF0DDF2D240EC87DBF24E4B38E34CF5C3BB95C96C952` |
