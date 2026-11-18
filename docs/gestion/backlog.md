@@ -1,5 +1,7 @@
 # Backlog por fases
 
+T08.1b26, R2 documental, completada y revisada favorablemente: [activación directa de Perseguir](../specs/008-preparacion-y-turnos/activacion-perseguir.md), PER-DOC-01–04. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b26--contrato-de-activación-de-perseguir). Siguiente implementación separada de gramática/autoridad/rollback; no admitir carta al producto por aprobar el contrato. Sin issue publicada.
+
 T08.1b25, R2: [fuente y borrador de Perseguir](../specs/008-preparacion-y-turnos/carta-perseguir.md) en catálogo v3 independiente, con original local excluido de Git y sin carta jugable. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b25--fuente-y-borrador-de-perseguir). Siguiente: contrato de oportunidad primaria/Savant y autoridad.
 
 T08.1b24, R2, completada localmente y revisada: [catálogo v3 para puntos de misión](../specs/008-preparacion-y-turnos/catalogo-puntos-mision.md), CAT-PM-01–04. Cambia validador y fixtures; fuente española localizada con huella coincidente, sin carta incorporada ni producto. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b24--gramática-de-puntos-de-misión).

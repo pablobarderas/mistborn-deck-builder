@@ -1,5 +1,13 @@
 # Registro de trabajo
 
+## 2026-11-18 — Publicación de T08.1b26
+
+Commit/push autorizados para el contrato documental ya revisado. Empaquetado R0 de once Markdown, revisión independiente reutilizada, enlaces/diff y remoto comprobados antes y después del envío. El commit que contiene esta nota identifica la publicación; no hay cambio funcional ni dispensa.
+
+## 2026-11-18 — T08.1b26, contrato de activación de Perseguir
+
+Contrato documental R2 de primaria/Savant, omisiones, asignación de metal, reserva, autoridad y rollback. SRC-001/002/005 contrastadas por `sdd_rules`; revisión independiente final favorable, 472 enlaces locales finales y diff correctos. Perseguir sigue en borrador, sin código ni prueba Godot. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b26--contrato-de-activación-de-perseguir). Sin commit/push ni dispensa.
+
 ## 2026-11-18 — Publicación de T08.1b25
 
 Autorizado commit/push de la entrega revisada. Empaquetado R0, sin cambios funcionales ni dispensa; suites dirigidas, exclusión del original, enlaces, diff y coincidencia remota se verifican al publicar. El commit que contiene esta nota identifica la publicación. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b25--fuente-y-borrador-de-perseguir).

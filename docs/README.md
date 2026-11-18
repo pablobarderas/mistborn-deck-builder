@@ -1,5 +1,7 @@
 # Documentación del proyecto
 
+[Activación directa de Perseguir](specs/008-preparacion-y-turnos/activacion-perseguir.md): contrato T08.1b26 para primaria, Savant, asignación, omisión y autoridad. Su definición permanece en borrador y no se ejecuta.
+
 [Perseguir en borrador](specs/008-preparacion-y-turnos/carta-perseguir.md): T08.1b25 prepara la fuente física local y una definición v3 independiente, sin admisión al motor; [verificación](specs/008-preparacion-y-turnos/verification.md#t081b25--fuente-y-borrador-de-perseguir).
 
 [Catálogo v3 de puntos de misión](specs/008-preparacion-y-turnos/catalogo-puntos-mision.md): T08.1b24 admite un descriptor estructural de reserva con fixtures; Perseguir no está verificada ni activada en el motor. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b24--gramática-de-puntos-de-misión).

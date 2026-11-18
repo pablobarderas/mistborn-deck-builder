@@ -1,5 +1,13 @@
 # Tareas de SPEC-008
 
+## T08.1b26 — Contrato de activación de Perseguir (registro previo)
+
+Publicación autorizada el 2026-11-18 mediante «haz el commit y push». Empaquetado R0 de los once Markdown de la entrega documental ya revisada; coordinador único responsable. Aceptación: comprobar alcance/índice, enlaces, diff y coincidencia remota, crear commit y enviar. Se reutiliza el dictamen independiente favorable; no hay cambio funcional ni nueva dispensa. El commit que contiene esta nota identifica la publicación y no autoriza entregas posteriores.
+
+2026-11-18. Recuperación obligatoria: `fetch` confirma HEAD y `origin/main` en `9e99d0cfbc0cad173605fc1efb59c8bc9de7eda0`, árbol limpio; T08.1b25 ya publicada. Objetivo: especificar la oportunidad directa de la primaria y Savant de Perseguir, asignación de bronce/Atium, omisión, Sense, autoridad, rollback y límites del perfil antes de promover la carta. Aceptación: contrato trazado a SRC-001/002/005 y REG, transacciones y privacidad con escenarios adversos, frontera de catálogo/servicio y plan de implementación verificable. Riesgo R2 por reglas, estado, autoridad y catálogo. Coordinador único escritor de Markdown; `sdd_rules` GPT-6.1 Sol/high contrasta reglas y `sdd_reviewer` GPT-6.1 Sol/high revisa el diff final, ambos por instrucciones del perfil, sin edición ni descendientes. Plan: inspeccionar fuentes y APIs, recibir contraste, redactar contrato y pruebas, comprobar enlaces/anclas y diff, corregir revisión y cerrar memoria. Verificación documental; Godot, UI y red no aplican porque no se modifica el producto. Sin dispensa, issue ni permiso de commit/push.
+
+Cierre local: PER-DOC-01–04 satisfechos documentalmente; contraste de reglas y revisión independiente favorable sin hallazgos. [Evidencia y traspaso](verification.md#t081b26--contrato-de-activación-de-perseguir). Siguiente tarea de implementación separada; sin commit/push ni dispensa.
+
 ## T08.1b25 — Fuente y definición de Perseguir (registro previo)
 
 Publicación autorizada el 2026-11-18 mediante «haz el commit y el push». Empaquetado R0 de la entrega local ya revisada: coordinador único responsable; objetivo publicar solo T08.1b25 y confirmar coincidencia remota y árbol limpio. Recuperación con `fetch`: HEAD/origin/main `d029fcdbe41eaaeeedcdf811b433b369282567f1`, sin avance remoto ni cambios ajenos conocidos. Plan y aceptación: verificar índice, fuente excluida, suites dirigidas, enlaces y diff; añadir metadatos de publicación, commit/push y comprobar el remoto. Revisión independiente favorable reutilizada, sin cambios funcionales ni dispensa. El commit que contiene esta nota identifica la publicación; no autoriza publicaciones posteriores.

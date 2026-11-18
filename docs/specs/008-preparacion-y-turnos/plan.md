@@ -1,5 +1,9 @@
 # Plan de SPEC-008
 
+## T08.1b26 — Contrato de activación de Perseguir
+
+Entrega documental R2 de [oportunidades, asignación, Savant, omisión, autoridad y rollback](activacion-perseguir.md), completada y revisada favorablemente. [Registro previo](tasks.md#t081b26--contrato-de-activación-de-perseguir-registro-previo) y [evidencia](verification.md#t081b26--contrato-de-activación-de-perseguir). Siguiente implementación separada: ampliar gramática de vínculo de metal e instancia, adaptar perfil aislado y probar rutas directas y rechazos antes de promover `data/perseguir.json`. El motor, catálogo ejecutable y producto no cambian en esta tarea.
+
 ## T08.1b25 — Fuente y borrador de Perseguir
 
 Preparar el original por huella en `res://evidencia_local/`, añadir la definición v3 independiente y probar carga, rechazo de fuente y regresión de catálogo. Mantener el borrador hasta expresar y comprobar asignación de bronce a la primaria y oportunidad Savant de la misma carta. [Tarea](tasks.md#t081b25--fuente-y-definición-de-perseguir-registro-previo) · [evidencia](verification.md#t081b25--fuente-y-borrador-de-perseguir).

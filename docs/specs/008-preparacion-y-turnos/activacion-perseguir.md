@@ -1,0 +1,54 @@
+# Activación directa de Perseguir
+
+Contrato T08.1b26 para la primera implementación futura de una carta de Acción real. Es una especificación; `data/perseguir.json` sigue en borrador, fuera del catálogo jugable y del motor. No abre un turno de producto ni declara terminada P08.
+
+## Fuentes y frontera
+
+La [lectura de la carta](carta-perseguir.md) identifica la primaria **BRONCE: +2 puntos de misión y +2 monedas** y el Savant **+1 punto de misión**. [SRC-005](../../referencias/README.md#src-005--escaneos-españoles-de-personajes-misiones-y-mercado) conserva localizador y huella; [SRC-001/002](../../referencias/README.md) y [REG-014/015/017/019/021/023/032/045/069/070](../../referencias/matriz-reglas.md) sustentan uso de metales, acciones, omisión y misiones. Una errata expresa del editor prevalece sobre SRC-001. El contrato [CAT-PM](catalogo-puntos-mision.md) sólo valida la forma del efecto; el servicio [M1–M8](integracion-misiones.md) sólo gasta puntos ya ganados.
+
+Primer perfil: competitivo de 2–4 plazas, tres misiones verificadas, una definición Perseguir con fuente física válida, más descriptores cerrados e inertes. No admitir por coexistencia con la carta: Sense, Seek, copia de nivel II, aliados, personajes u otras cartas con efectos observadores de metal, habilidades de reacción, otros efectos activos o cartas cuya resolución no esté implementada. El servicio combinado actual rechaza contenido activo: la integración requiere un perfil nuevo y versionado, sin relajar los perfiles anteriores. Cooperativo/solitario tienen rival, secuencia y finales propios pendientes.
+
+## Oportunidades y operación de autoridad
+
+La autoridad recibe una intención con la **instancia concreta** de Perseguir, ruta (`primaria` o `metal`), elección de aplicar/omitir cuando corresponda y origen de metal seleccionado. El cliente no entrega ganancias, progreso, estado resultante, RNG, recibo ni una lista de efectos. La autoridad comprueba turno activo vivo, fase libre, plaza propietaria, carta en mano, fuente y perfil, recursos/capacidad y ausencia de resolución incompatible antes de generar un candidato. Payload exacto, versión del catálogo y rechazo de claves adicionales forman parte de la admisión. Colocar una carta en juego no activa por sí solo su capacidad: la activación se vincula a la asignación del metal. SRC-001 p. 17 permite alternar juego de cartas y quema durante la fase libre; la transacción digital conserva esa oportunidad sin exigir un orden global entre cartas.
+
+**Primaria directa.** La instancia sale de mano hacia juego una vez. Para aplicar la capacidad superior se asigna un bronce efectivo a esa misma activación: ficha ordinaria de bronce utilizable, ficha de Atium disponible que sustituye bronce o carta de Acción de bronce admisible usada como metal. La asignación se registra como vínculo de la activación; bronce quemado en otra acción no habilita la primaria. La ficha ordinaria respeta límite de quemado, agotamiento y uso único del turno; Atium ocupa el límite, no admite Flaring y permanece marcado usado hasta limpieza. La carta aportada como metal se mueve una sola vez a juego y no consume límite de fichas. La misma instancia Perseguir no puede ser simultáneamente fuente de primaria y metal que la alimenta. El resultado aplicado añade, en el orden impreso, dos puntos **brutos** de misión y dos monedas de turno. La omisión voluntaria consume la capacidad completa y mueve Perseguir a juego, sin gastar metal ni añadir recursos; no permite volver a activar esa instancia. No existe aplicación parcial de los dos efectos.
+
+**Ruta Savant.** Usar la propia instancia de Perseguir como cobre o bronce aporta ese metal a una activación admisible, o a un uso sin acción directamente asociada. Al confirmarse ese uso, la autoridad ofrece el punto bruto Savant una vez, que puede aplicarse u omitirse como habilidad completa; no ejecuta la primaria. La instancia se mueve de mano a juego y no puede volver a usarse desde esa mano. Quemar una ficha, usar otra carta como metal, jugar la primaria o descartar Perseguir desde mano para refrescar no disparan su Savant. El contrato futuro de activaciones de otras cartas debe definir el vínculo entre metal aportado y acción receptora; el primer perfil puede cubrir el uso directo sin receptora y la alimentación de una primaria admitida, sin aceptar contenido activo desconocido. Las fuentes revisadas no fijan un orden entre Savant de una carta combustible y capacidad de otra carta alimentada por ella; el primer perfil excluye efectos que distingan ese orden. Cualquier ampliación que lo vuelva observable requiere contraste antes de implementarse.
+
+El registro de oportunidad debe identificar instancia, ruta, metal aportado/asignado y cierre, derivables del snapshot fiable o de marcas privadas validadas. Una primaria o un Savant ya confirmados no se reejecutan por reenvío, carga o gasto posterior de puntos. No confiar sólo en `metales_quemados` del borrador: esa condición no identifica la asignación a la capacidad. Tampoco interpretar `savant_metal` con `siempre` como un observador global: debe vincularse al **uso de esa misma instancia**. El catálogo necesitará expresar/validar ambos vínculos antes de cambiar `revision.estado` a verificada. Los campos y una posible migración de snapshot se diseñan en la implementación; no se impone aquí una forma no probada al estado vigente.
+
+## Reserva, elección y límites
+
+Los puntos obtenidos aumentan la reserva `turn_resources.mision` tras la reducción de Sense cuando este efecto se implemente. El perfil inicial excluye Sense y lo comprueba al cargar y resolver; por tanto, los dos puntos de primaria o el punto Savant quedan netos en ese perfil. Cada intención posterior `avanzar_mision` gasta uno y elige una de las tres misiones. La ganancia no mueve marcadores, no concede premios ni decide victoria. El gasto sí conserva la prioridad terminal y las ventanas privadas del servicio combinado. Las dos monedas son `turn_resources.recursos`, se usan sólo en el turno y no son Boxings.
+
+La implementación de Sense exige antes un contrato separado de deuda/reducción acumulada durante todo el turno, ganancias sucesivas, puntos negativos y carga; no admitirlo por el mero hecho de representar `ganar mision`. Los límites de enteros y presupuesto se verifican **antes** de mover carta/metal. Una ganancia que excede el límite rechazará la operación completa; no se trunca ni se divide. El perfil no admite Flaring en la primera integración salvo que se especifique y pruebe su caso para fichas ordinarias; Atium nunca lo admite. Descartar Perseguir desde mano para refrescar cobre/bronce es otra operación futura: no activa primaria ni Savant; una instancia ya en juego no puede volver a la mano para refrescar en esa oportunidad ordinaria.
+
+## Atomicidad, privacidad y restauración
+
+La autoridad construye el candidato sobre copia de estado y RNG fiable. Rechazo por payload, propiedad/zona, metal ilegítimo o ya usado, límite, saldo, incompatibilidad de perfil, fuente/huella, presupuesto, escritura fallida o efecto no admitido deja intactos zonas, fichas, `burned`, recursos, marcas, revisión, RNG y recibos. Confirmación única mueve carta(s), consume el metal, aplica recursos y sella recibo y ocurrencia juntos. Una repetición con la misma intención devuelve el recibo previo; un ID nuevo que pretende reutilizar la instancia rechaza. No se acepta snapshot externo de cliente ni callbacks de efectos.
+
+La proyección pública sólo comunica acción confirmada y recursos visibles permitidos. Mano y correspondencia de instancias privadas, metal elegido si revela una carta oculta antes de resolver, marcas internas, RNG, ledger y recibos ajenos no se exponen. El propietario recibe su resultado y sus zonas autorizadas. La restauración desde `SnapshotSource` tipada valida catálogo/huella, versión, carta en una sola zona, fichas y contadores coherentes, ocurrencia y recibos; rechaza estados con una primaria o Savant reaplicables tras uso confirmado. No se infiere persistencia en disco ni reconexión de este servicio interno.
+
+## Aceptación documental y plan de implementación
+
+| AC | Escenario comprobable |
+| --- | --- |
+| PER-DOC-01 | Las rutas primaria, Savant y omisión se distinguen por instancia y fuente; se documentan bronce ordinario, Atium, carta como metal y exclusiones sin activar el borrador. |
+| PER-DOC-02 | Contrato de autoridad, reserva frente a avance, límite, rollback, recibos, carga y privacidad compatible con el servicio M1–M8 y P07. |
+| PER-DOC-03 | Matriz de pruebas adversas y frontera de perfil evita aceptar Sense, Seek, nivel II y efectos desconocidos por inferencia. |
+| PER-DOC-04 | Contraste de SRC-001/002/005, revisión independiente, enlaces/diff y traspaso documentados; sin afirmar pruebas Godot. |
+
+Para una tarea de implementación separada: (1) ampliar el contrato de catálogo para expresar asignación de metal y Savant ligado a la propia instancia, con negativos v1/v2/v3; (2) registrar perfil/versiones y fuente física de forma reproducible; (3) añadir resolutor cerrado de oportunidades y candidato atómico sobre P07, sin abrir entrada a limpieza; (4) probar las rutas y rechazos de abajo, más regresiones de catálogo, Funding, M1–M8, estado, motor y limpieza; (5) revisar código/resultado independientemente antes de promover Perseguir.
+
+| Caso | Resultado exigido |
+| --- | --- |
+| Primaria con ficha bronce válida, Atium sustituto y carta bronce válida | Misma ganancia 2 misión + 2 monedas, consumo y marcas correctos; sin Savant de Perseguir. |
+| Primaria omitida; intento parcial; bronce quemado en otra acción; segunda activación | Omitida mueve sólo Perseguir y cierra oportunidad; los intentos ilegales no alteran estado. |
+| Perseguir propia como cobre/bronce, con y sin acción receptora admitida, Savant aplicado/omitido | Un punto bruto Savant o cero por omisión, una sola oportunidad; primaria no ejecutada y movimiento único de carta. |
+| Ficha o carta distinta como metal; Perseguir descartada para refrescar | Ningún Savant de Perseguir. |
+| Dos ganancias y gastos en misiones distintas; tercera cima | Reserva separada y gasto de uno por intención; terminal antes de premios finales según contrato M1–M8. |
+| Metal agotado/usado, límite alcanzado, instancia ajena/fuera de mano, fuente alterada, recursos al máximo, payload extra | Rechazo atómico y recibos/RNG inalterados. |
+| Reenvío, ID nuevo sobre instancia consumida, carga con marca/ledger falsos, proyección de otro jugador | Sin doble efecto; carga inválida rechazada; ninguna mano, oferta o marca privada filtrada. |
+
+La política de distribuir el escaneo físico sigue pendiente: el preparador local permite reproducir pruebas, pero no hace disponible la imagen en otro clon. Ninguna aceptación documental autoriza publicar el original ni la carta como jugable.
