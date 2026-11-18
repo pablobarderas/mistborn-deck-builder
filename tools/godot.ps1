@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions')]
+    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions')]
     [string]$Action = 'run',
     [string]$GodotPath = $env:GODOT_BIN
 )
@@ -82,6 +82,9 @@ function Invoke-ProjectGodot {
     if ($LogName -eq 'test-missions' -and $engineText -notmatch 'P08_MISSION_CATALOG_OK') {
         throw 'No se completo la verificacion del catalogo de misiones.'
     }
+    if ($LogName -eq 'test-perseguir' -and $engineText -notmatch 'P08_PERSEGUIR_CATALOG_OK') {
+        throw 'No se completo la verificacion de Perseguir.'
+    }
     if ($LogName -eq 'test-engine' -and $engineText -notmatch 'P07_ENGINE_OK') {
         throw 'No se completo la verificacion de acciones y privacidad.'
     }
@@ -129,7 +132,7 @@ function Invoke-ProjectGodot {
     }
 }
 
-if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions')) {
+if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions')) {
     Invoke-ProjectGodot -EngineArguments @('--headless', '--editor', '--import') -LogName 'import'
 }
 switch ($Action) {
@@ -158,5 +161,6 @@ switch ($Action) {
     'test-m8' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/m8_test.gd') -LogName 'test-m8' }
     'test-permanents' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/permanents_test.gd') -LogName 'test-permanents' }
     'test-missions' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/mission_catalog_test.gd') -LogName 'test-missions' }
+    'test-perseguir' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/perseguir_catalog_test.gd') -LogName 'test-perseguir' }
     'test-catalog' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/catalog_test.gd') -LogName 'test-catalog' }
 }

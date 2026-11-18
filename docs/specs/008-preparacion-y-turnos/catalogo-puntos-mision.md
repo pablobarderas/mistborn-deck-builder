@@ -25,4 +25,6 @@ La fuente española original de Perseguir está ahora localizada en `C:/Users/pb
 
 ## Siguiente integración
 
-Preparar la fuente física dentro de `res://` mediante procedimiento reproducible y revisar cantidad, texto, metales y habilidades completos antes de declarar verificada una definición de Perseguir. Después especificar y probar la activación directa de la primaria, su omisión y la ruta Savant con autoridad y rollback; excluir expresamente Sense, Seek y copia de nivel II si el perfil inicial no las resuelve. Cooperativo/solitario requieren sus finales y rival propios.
+T08.1b25 conserva [Perseguir](../../../data/perseguir.json) como **borrador** v3 independiente. Sus efectos y fuente se validan estructuralmente con `test-perseguir` tras preparar el original local; la capacidad primaria y Savant todavía precisan un contrato de oportunidad/asignación antes de promover la definición. El arranque sigue usando `data/cartas.json`.
+
+La fuente física ya se prepara dentro de `res://` mediante procedimiento reproducible y el borrador registra cantidad, texto/iconos, metales y efectos cotejados. Antes de declarar verificada una definición de Perseguir, especificar y probar la asignación de bronce a la primaria, su omisión y la oportunidad Savant con autoridad y rollback; excluir expresamente Sense, Seek y copia de nivel II si el perfil inicial no las resuelve. Cooperativo/solitario requieren sus finales y rival propios.

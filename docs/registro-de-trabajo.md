@@ -1,5 +1,13 @@
 # Registro de trabajo
 
+## 2026-11-18 — Publicación de T08.1b25
+
+Autorizado commit/push de la entrega revisada. Empaquetado R0, sin cambios funcionales ni dispensa; suites dirigidas, exclusión del original, enlaces, diff y coincidencia remota se verifican al publicar. El commit que contiene esta nota identifica la publicación. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b25--fuente-y-borrador-de-perseguir).
+
+## 2026-11-18 — T08.1b25, fuente y borrador de Perseguir
+
+GitHub actualizado linealmente a `d029fcd`; original español cotejado con SRC-005. Preparador local por huella, definición v3 en borrador y prueba independiente de catálogo; `test-perseguir` 12 y `test-catalog` 311 comprobaciones correctas, JSON/diff correctos. Un P2 del preparador se corrigió y reprobó; revisión independiente final favorable, enlaces locales correctos. Sin commit/push ni dispensa. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b25--fuente-y-borrador-de-perseguir).
+
 ## 2026-11-16 — Publicación de T08.1b24
 
 Autorizado commit/push de la entrega revisada. `test-catalog` 311 y `test-missions` 138 comprobaciones correctas de nuevo; sin cambios funcionales ni dispensa. El commit que contiene esta nota identifica la publicación; siguiente paso: fuente y definición completa de Perseguir. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b24--gramática-de-puntos-de-misión).

@@ -16,6 +16,8 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
+- T08.1b25: fuente local reproducible y definición v3 de Perseguir en borrador, aislada del arranque y del motor. Siguiente objetivo: contrato de activación primaria/Savant y autoridad, antes de promover la carta. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b25--fuente-y-borrador-de-perseguir).
+
 - T08.1b24: [gramática v3 de puntos de misión](specs/008-preparacion-y-turnos/catalogo-puntos-mision.md) completada y revisada; publicación autorizada el 2026-11-16 en el commit que contiene esta nota, sin activar efectos. Siguiente objetivo: preparar fuente física reproducible y definición completa de Perseguir; después contratar activación primaria/Savant y autoridad. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b24--gramática-de-puntos-de-misión).
 
 - T08.1b23 completada documentalmente y revisada: [Perseguir](specs/008-preparacion-y-turnos/carta-perseguir.md), primera candidata real para generar puntos de misión. Siguiente paso: preparar fuente versionada y ampliación de catálogo; luego especificar activación de acción/Savant y autoridad. Sin implementación de carta ni cambio del estado jugable.

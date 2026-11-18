@@ -1,5 +1,9 @@
 # Plan de SPEC-008
 
+## T08.1b25 — Fuente y borrador de Perseguir
+
+Preparar el original por huella en `res://evidencia_local/`, añadir la definición v3 independiente y probar carga, rechazo de fuente y regresión de catálogo. Mantener el borrador hasta expresar y comprobar asignación de bronce a la primaria y oportunidad Savant de la misma carta. [Tarea](tasks.md#t081b25--fuente-y-definición-de-perseguir-registro-previo) · [evidencia](verification.md#t081b25--fuente-y-borrador-de-perseguir).
+
 ## T08.1b24 — Reserva estructural de puntos de misión
 
 Implementación local de [v3](catalogo-puntos-mision.md) con contexto de tipo/momento propagado a opciones anidadas, requisito físico para acciones verificadas, fixtures positivos/negativos y regresiones de catálogo/misiones. La fuente española de mercado se localizó con huella coincidente; preparar el lote físico reproducible y una definición revisada es trabajo posterior. No cambia motor, snapshot ni carga de arranque. [Tarea](tasks.md#t081b24--recurso-de-misión-en-catálogo-registro-previo) y [evidencia](verification.md#t081b24--gramática-de-puntos-de-misión).

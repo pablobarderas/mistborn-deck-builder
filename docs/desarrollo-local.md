@@ -1,5 +1,9 @@
 # Ejecutar el proyecto en Windows
 
+## Fuente local de Perseguir (T08.1b25)
+
+Desde la raíz Git, preparar el PNG original de SRC-005 con `powershell -NoProfile -ExecutionPolicy Bypass -File tools/prepare-perseguir-source.ps1 -SourceFile 'RUTA/mercado.3.png'`. El script comprueba SHA-256 antes y después de copiarlo a `evidencia_local/src_005/mercado.3.png`; reutiliza una copia idéntica y rechaza otra distinta. Esa carpeta queda fuera de Git y de la importación de Godot. Ejecutar después `powershell -NoProfile -ExecutionPolicy Bypass -File tools/godot.ps1 -Action test-perseguir` para validar el [borrador](../data/perseguir.json) y sus rechazos. Un clon nuevo necesita el original del propietario. Esta acción no prueba efectos ni habilita la carta en el arranque.
+
 ## Elecciones M8 (T08.1b16)
 
 `powershell -NoProfile -ExecutionPolicy Bypass -File tools/godot.ps1 -Action test-m8` importa y ejecuta `tests/m8_test.gd`; exige código cero, `P08_M8_OK` y ausencia de ERROR/SCRIPT ERROR. Resultado local: 512 comprobaciones M8 y 8.418 en las quince suites del contrato, revisión independiente favorable; [evidencia](specs/008-preparacion-y-turnos/verification.md#t081b16--implementación-de-elecciones-y-eliminación-m8). No hay interfaz ni partida auténtica que abrir con esta acción. [Contrato y escenarios M8-01–08](specs/008-preparacion-y-turnos/elecciones-m8.md). El perfil selecciona M5/M7/M8 y usa fixtures para el resto del contenido/reservas. Snapshot 5/motor `p08-m8-choices-1/godot-4.7.2`, incompatible con 4 sin migración explícita. Las secciones inferiores conservan versiones históricas.

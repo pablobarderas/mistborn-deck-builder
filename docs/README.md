@@ -1,5 +1,7 @@
 # Documentación del proyecto
 
+[Perseguir en borrador](specs/008-preparacion-y-turnos/carta-perseguir.md): T08.1b25 prepara la fuente física local y una definición v3 independiente, sin admisión al motor; [verificación](specs/008-preparacion-y-turnos/verification.md#t081b25--fuente-y-borrador-de-perseguir).
+
 [Catálogo v3 de puntos de misión](specs/008-preparacion-y-turnos/catalogo-puntos-mision.md): T08.1b24 admite un descriptor estructural de reserva con fixtures; Perseguir no está verificada ni activada en el motor. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b24--gramática-de-puntos-de-misión).
 
 T08.1b22: publicación autorizada y recogida en el commit que contiene esta nota; integración M1–M8 revisada, 18 suites/17.644 comprobaciones. Las notas inferiores de trabajo local conservan el cierre previo al permiso. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8).

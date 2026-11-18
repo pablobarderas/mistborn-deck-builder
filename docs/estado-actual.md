@@ -1,5 +1,9 @@
 # Estado actual
 
+Publicación de T08.1b25 autorizada el 2026-11-18 mediante «haz el commit y el push». El commit que contiene esta nota publica el borrador y preparador revisados; el original español permanece local, fuera de Git. Siguiente objetivo: contrato de activación primaria/Savant y autoridad, sin admitir aún la carta al motor.
+
+T08.1b25 (2026-11-18): [Perseguir](../data/perseguir.json) tiene fuente física preparada localmente por huella y definición v3 en **borrador** independiente. El arranque y el motor no la cargan ni ejecutan. Queda contratar la oportunidad de la primaria y Savant antes de promoverla. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b25--fuente-y-borrador-de-perseguir).
+
 Publicación de T08.1b24 autorizada el 2026-11-16 mediante «haz commit y push de lo último». El commit que contiene esta nota publica la gramática v3 revisada; las referencias inferiores a trabajo local describen el estado previo al permiso. El siguiente objetivo sigue siendo preparar la fuente y definición de Perseguir.
 
 T08.1b24 completada localmente y revisada favorablemente: gramática v3 de reserva de puntos de misión para acciones, con fixtures y sin ejecución de efectos. `test-catalog` 311 y `test-missions` 138 comprobaciones correctas. El original español de Perseguir se localizó en este PC con la huella esperada; su definición aún no se incorpora ni se distribuye en el catálogo. [Contrato y evidencia](specs/008-preparacion-y-turnos/verification.md#t081b24--gramática-de-puntos-de-misión).

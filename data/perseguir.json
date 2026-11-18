@@ -1,0 +1,55 @@
+{
+  "version_esquema": 3,
+  "id_catalogo": "mistborn_es_perseguir_borrador",
+  "idioma": "es",
+  "fuentes": [
+    {
+      "id": "src_005_mercado_3",
+      "tipo": "carta_fisica",
+      "descripcion": "SRC-005, hoja española de mercado 3",
+      "ruta": "res://evidencia_local/src_005/mercado.3.png",
+      "url": null,
+      "sha256": "747a01d7ebbf69e8272c052c81a40beaa5ef67fff853c1c4e1e8c69b49a105cb"
+    }
+  ],
+  "cartas": [
+    {
+      "id": "perseguir",
+      "nombre": "Perseguir",
+      "tipo": "accion",
+      "cantidad": 1,
+      "coste_compra": 3,
+      "texto_original": "[icono Savant: 1 punto de misión]. BRONCE: [2 puntos de misión] [2 monedas].",
+      "resumen": {"recurso": 2, "ataque": 0},
+      "metales": ["cobre", "bronce"],
+      "ruta_imagen": null,
+      "fuentes": [{"id": "src_005_mercado_3", "localizador": "mercado.3.png, fila 1 derecha, código impreso 17/82; lectura de iconos descrita en carta-perseguir.md"}],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": ["El esquema registra efectos, pero no expresa la asignación de bronce a la primaria ni la oportunidad Savant al usar esta misma carta como metal; no admitir al motor."]
+      },
+      "vinculos": [],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "principal_bronce",
+          "momento": "al_jugar",
+          "condicion": {"op": "metales_quemados", "metales": ["bronce"]},
+          "limite_por_turno": null,
+          "efectos": [
+            {"op": "ganar", "recurso": "mision", "cantidad": 2, "objetivo": "propio"},
+            {"op": "ganar", "recurso": "recursos", "cantidad": 2, "objetivo": "propio"}
+          ]
+        },
+        {
+          "id": "savant_metal",
+          "momento": "metal_quemado",
+          "condicion": {"op": "siempre"},
+          "limite_por_turno": null,
+          "efectos": [{"op": "ganar", "recurso": "mision", "cantidad": 1, "objetivo": "propio"}]
+        }
+      ]
+    }
+  ]
+}

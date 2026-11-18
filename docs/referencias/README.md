@@ -46,6 +46,8 @@ Originales de la caja española del usuario, comprobados para T08.1b5 el 2026-11
 
 En este PC, el usuario indicó el 2026-11-16 `C:/Users/pbard/Pictures/Digitalizaciones`. Allí se confirmó `cartas_mercado/mercado.3.png` con SHA-256 `747A01D7EBBF69E8272C052C81A40BEAA5EF67FFF853C1C4E1E8C69B49A105CB`, coincidente con [Perseguir](../specs/008-preparacion-y-turnos/carta-perseguir.md). Las misiones están bajo `cartas_personajes/misiones/`. Estas rutas son locales y no forman parte del clon.
 
+T08.1b25 añade [preparación local reproducible](../desarrollo-local.md#fuente-local-de-perseguir-t081b25) y una definición v3 en borrador; la copia del escaneo queda en `evidencia_local/` ignorada por Git. Un clon debe disponer del original aportado por el propietario. No hay decisión de distribuir escaneos ni admisión de Perseguir al motor.
+
 | Original | SHA-256 |
 | --- | --- |
 | `personajes.png` | `DB0356C5FC95D1BF0178FF0DDF2D240EC87DBF24E4B38E34CF5C3BB95C96C952` |
