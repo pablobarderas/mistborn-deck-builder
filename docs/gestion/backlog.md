@@ -1,6 +1,8 @@
 # Backlog por fases
 
-T08.1b26, R2 documental, completada y revisada favorablemente: [activación directa de Perseguir](../specs/008-preparacion-y-turnos/activacion-perseguir.md), PER-DOC-01–04. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b26--contrato-de-activación-de-perseguir). Siguiente implementación separada de gramática/autoridad/rollback; no admitir carta al producto por aprobar el contrato. Sin issue publicada.
+T08.1b27, R2, completada localmente y revisada favorablemente: [gramática v4 y perfil aislado de Perseguir](../specs/008-preparacion-y-turnos/catalogo-vinculos-metal.md), PER-01–07, borrador real fuera del arranque. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b27--gramática-y-perfil-aislado-de-perseguir). Fuente física sin política de distribución; sin issue publicada ni permiso de publicación.
+
+T08.1b26, R2 documental, completada y revisada favorablemente: [activación directa de Perseguir](../specs/008-preparacion-y-turnos/activacion-perseguir.md), PER-DOC-01–04. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b26--contrato-de-activación-de-perseguir). La implementación separada se registra arriba; aprobar el contrato no admite la carta al producto. Sin issue publicada.
 
 T08.1b25, R2: [fuente y borrador de Perseguir](../specs/008-preparacion-y-turnos/carta-perseguir.md) en catálogo v3 independiente, con original local excluido de Git y sin carta jugable. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b25--fuente-y-borrador-de-perseguir). Siguiente: contrato de oportunidad primaria/Savant y autoridad.
 

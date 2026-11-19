@@ -1,5 +1,7 @@
 # Documentación del proyecto
 
+[Vínculos de metal v4 y perfil aislado de Perseguir](specs/008-preparacion-y-turnos/catalogo-vinculos-metal.md): T08.1b27 completada localmente y revisada; ensayos de primaria y Savant directo con fuente local. La definición real continúa en borrador y fuera del arranque. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b27--gramática-y-perfil-aislado-de-perseguir).
+
 [Activación directa de Perseguir](specs/008-preparacion-y-turnos/activacion-perseguir.md): contrato T08.1b26 para primaria, Savant, asignación, omisión y autoridad. Su definición permanece en borrador y no se ejecuta.
 
 [Perseguir en borrador](specs/008-preparacion-y-turnos/carta-perseguir.md): T08.1b25 prepara la fuente física local y una definición v3 independiente, sin admisión al motor; [verificación](specs/008-preparacion-y-turnos/verification.md#t081b25--fuente-y-borrador-de-perseguir).

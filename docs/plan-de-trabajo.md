@@ -16,6 +16,8 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
+- T08.1b27: [gramática v4 y perfil aislado de Perseguir](specs/008-preparacion-y-turnos/catalogo-vinculos-metal.md) completados localmente, con 393 pruebas dirigidas, 5932 de integración M1–M8, regresiones pertinentes y revisión independiente favorable. Mantiene la carta real en borrador; ensayos con copia verificada en memoria y fuente local por huella. Siguiente objetivo: resolver distribución del original antes de cualquier promoción y contratar receptora activa si se amplía Savant. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b27--gramática-y-perfil-aislado-de-perseguir).
+
 - T08.1b26: [contrato de activación de Perseguir](specs/008-preparacion-y-turnos/activacion-perseguir.md) completado documentalmente y revisado: primaria/Savant, omisiones, asignación de metal, autoridad y rollback. Siguiente paso: implementación separada de gramática y perfil aislado con pruebas; la carta sigue en borrador y no es jugable. [Traspaso](specs/008-preparacion-y-turnos/verification.md#t081b26--contrato-de-activación-de-perseguir).
 
 - T08.1b25: fuente local reproducible y definición v3 de Perseguir en borrador, aislada del arranque y del motor. Siguiente objetivo: contrato de activación primaria/Savant y autoridad, antes de promover la carta. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b25--fuente-y-borrador-de-perseguir).

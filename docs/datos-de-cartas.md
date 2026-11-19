@@ -1,5 +1,9 @@
 # Datos de cartas
 
+## Ampliación aislada v4
+
+T08.1b27 añade [vínculos de metal](specs/008-preparacion-y-turnos/catalogo-vinculos-metal.md) para distinguir bronce asignado a una primaria y uso de la propia carta como metal. [Perseguir](../data/perseguir.json) conserva estado `borrador`; su original físico se prepara localmente por huella y el perfil de prueba crea una copia verificada sólo en memoria. `data/cartas.json` y el arranque conservan las muestras v1. La gramática no interpreta `texto_original` ni ejecuta por sí sola los efectos.
+
 ## Estado actual tras P06
 
 Formato canónico: [contrato v1](contrato-catalogo-v1.md). data/cartas.json ya es un objeto versionado con fuentes, definiciones, revisión, rasgos y efectos estructurados; los dos ejemplos conservan IDs/texto/números pero están identificados como muestras, sin equivalencia oficial.

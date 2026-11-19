@@ -3,6 +3,7 @@ extends RefCounted
 
 const MISSION_VERSION: int = 2
 const MISSION_POINTS_VERSION: int = 3
+const METAL_LINK_VERSION: int = 4
 const MAX_DEPTH: int = 8
 const MAX_NUMBER: int = 1000000
 const TYPES: Array[String] = ["muestra", "sin_clasificar", "funding", "entrenamiento", "accion", "aliado", "personaje", "mision", "edicto", "adversario", "rival", "dominacion", "pista_entrenamiento"]
@@ -25,11 +26,12 @@ func validate(document: Variant) -> Dictionary:
 	var counts: Dictionary = {"muestra": 0, "borrador": 0, "verificada": 0}
 	if not _shape(document, ["version_esquema", "id_catalogo", "idioma", "fuentes", "cartas"], [], "$catalogo"):
 		return _result(cards, verified, counts)
-	if not _integer(document["version_esquema"], 1, MISSION_POINTS_VERSION):
-		_error("version_esquema", "versión no admitida; se requiere 1, 2 o 3")
+	if not _integer(document["version_esquema"], 1, METAL_LINK_VERSION):
+		_error("version_esquema", "versión no admitida; se requiere 1, 2, 3 o 4")
 		return _result(cards, verified, counts)
 	var mission_version: bool = document["version_esquema"] >= MISSION_VERSION
-	var mission_points_version: bool = document["version_esquema"] == MISSION_POINTS_VERSION
+	var mission_points_version: bool = document["version_esquema"] >= MISSION_POINTS_VERSION
+	var metal_link_version: bool = document["version_esquema"] >= METAL_LINK_VERSION
 	_identifier(document["id_catalogo"], "id_catalogo")
 	_enum(document["idioma"], ["es"], "idioma")
 	if _array(document["fuentes"], "fuentes", 1, 256):
@@ -39,7 +41,7 @@ func validate(document: Variant) -> Dictionary:
 		for index: int in document["cartas"].size():
 			var entry: Variant = document["cartas"][index]
 			var before: int = _errors.size()
-			_validate_card(entry, "cartas[%d]" % index, mission_version, mission_points_version)
+			_validate_card(entry, "cartas[%d]" % index, mission_version, mission_points_version, metal_link_version)
 			if before != _errors.size():
 				continue
 			var id: String = entry["id"]
@@ -108,7 +110,7 @@ func _validate_source_hash(source: Dictionary, at: String) -> void:
 		_error(at + ".sha256", "huella distinta o archivo fuente ilegible")
 
 
-func _validate_card(value: Variant, at: String, mission_version: bool, mission_points_version: bool) -> void:
+func _validate_card(value: Variant, at: String, mission_version: bool, mission_points_version: bool, metal_link_version: bool) -> void:
 	if not _shape(value, ["id", "nombre", "tipo", "cantidad", "coste_compra", "texto_original", "resumen", "metales", "ruta_imagen", "fuentes", "revision", "vinculos", "rasgos", "habilidades"], [], at):
 		return
 	_identifier(value["id"], at + ".id")
@@ -161,7 +163,7 @@ func _validate_card(value: Variant, at: String, mission_version: bool, mission_p
 			_enum(ability["momento"], MOMENTS, ability_at + ".momento")
 			if ability["limite_por_turno"] != null:
 				_number(ability["limite_por_turno"], ability_at + ".limite_por_turno", 1)
-			_condition(ability["condicion"], ability_at + ".condicion", 0)
+			_condition(ability["condicion"], ability_at + ".condicion", 0, metal_link_version, value["tipo"], ability["momento"], value["metales"])
 			var may_gain_mission: bool = mission_points_version and value["tipo"] == "accion" and ability["momento"] in ["al_jugar", "metal_quemado"]
 			_effects(ability["efectos"], ability_at + ".efectos", 0, may_gain_mission)
 	if not _shape(value["revision"], ["estado", "idioma_verificado", "dudas"], [], at + ".revision"):
@@ -337,7 +339,7 @@ func _validate_verified_traits(card: Dictionary, at: String) -> void:
 		_error(at + ".coste_compra", "este tipo no usa coste de compra")
 
 
-func _condition(value: Variant, at: String, depth: int) -> void:
+func _condition(value: Variant, at: String, depth: int, metal_link_version: bool, card_type: Variant, moment: Variant, card_metals: Variant) -> void:
 	if depth > MAX_DEPTH:
 		_error(at, "profundidad máxima excedida")
 		return
@@ -356,10 +358,19 @@ func _condition(value: Variant, at: String, depth: int) -> void:
 					_error(at, "condición sin metales")
 				for metal: String in value["metales"]:
 					_enum(metal, METALS, at + ".metales")
+		"metal_asignado", "esta_carta_como_metal":
+			if not metal_link_version or card_type != "accion" or moment != ("al_jugar" if value["op"] == "metal_asignado" else "metal_quemado"):
+				_error(at + ".op", "vínculo de metal requiere acción v4 y momento correspondiente")
+			if _shape(value, ["op", "metales"], [], at) and _string_list(value["metales"], at + ".metales", 8):
+				if value["metales"].is_empty():
+					_error(at + ".metales", "vínculo sin metales")
+				for metal: Variant in value["metales"]:
+					if _enum(metal, METALS, at + ".metales") and value["op"] == "esta_carta_como_metal" and (not card_metals is Array or not metal in card_metals):
+						_error(at + ".metales", "el metal aportado debe figurar en la propia carta")
 		"todas", "alguna":
 			if _shape(value, ["op", "condiciones"], [], at) and _array(value["condiciones"], at + ".condiciones", 1, 16):
 				for child: Variant in value["condiciones"]:
-					_condition(child, at + ".condiciones", depth + 1)
+					_condition(child, at + ".condiciones", depth + 1, metal_link_version, card_type, moment, card_metals)
 		_:
 			_error(at + ".op", "condición desconocida")
 

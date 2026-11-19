@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions')]
+    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play')]
     [string]$Action = 'run',
     [string]$GodotPath = $env:GODOT_BIN
 )
@@ -58,7 +58,7 @@ function Invoke-ProjectGodot {
     if ($engineText -match '(?m)^SCRIPT ERROR:') {
         throw "Godot contiene errores de script en '$LogName', aunque su proceso haya devuelto codigo 0."
     }
-    if ($LogName -in @('import', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions') -and ($engineText -match '(?m)^(SCRIPT ERROR|ERROR):')) {
+    if ($LogName -in @('import', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play') -and ($engineText -match '(?m)^(SCRIPT ERROR|ERROR):')) {
         throw "La accion $LogName contiene errores. Revisa tmp/godot/$LogName.log."
     }
     if ($LogName -eq 'test' -and $engineText -notmatch 'P03_STARTUP_OK') {
@@ -109,6 +109,9 @@ function Invoke-ProjectGodot {
     if ($LogName -eq 'test-mission-advance' -and $engineText -notmatch 'P08_MISSION_ADVANCE_OK') {
         throw 'La prueba de avance de misiones no alcanzo su marca de finalizacion.'
     }
+    if ($LogName -eq 'test-perseguir-play' -and $engineText -notmatch 'P08_PERSEGUIR_PLAY_OK') {
+        throw 'No se completo la verificacion de juego de Perseguir.'
+    }
     if ($LogName -eq 'test-integrated-missions' -and $engineText -notmatch 'P08_INTEGRATED_MISSIONS_OK') {
         throw 'La suite integrada no confirmo P08_INTEGRATED_MISSIONS_OK.'
     }
@@ -132,7 +135,7 @@ function Invoke-ProjectGodot {
     }
 }
 
-if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions')) {
+if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play')) {
     Invoke-ProjectGodot -EngineArguments @('--headless', '--editor', '--import') -LogName 'import'
 }
 switch ($Action) {
@@ -155,6 +158,7 @@ switch ($Action) {
     'test-start' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/competitive_start_test.gd') -LogName 'test-start' }
     'test-cleanup' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/turn_cleanup_test.gd') -LogName 'test-cleanup' }
     'test-mission-advance' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/mission_advance_test.gd') -LogName 'test-mission-advance' }
+    'test-perseguir-play' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/perseguir_play_test.gd') -LogName 'test-perseguir-play' }
     'test-integrated-missions' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/integrated_missions_test.gd') -LogName 'test-integrated-missions' }
     'test-m2' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/m2_test.gd') -LogName 'test-m2' }
     'test-m1' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/m1_test.gd') -LogName 'test-m1' }

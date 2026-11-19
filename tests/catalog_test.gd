@@ -22,7 +22,7 @@ func _run() -> void:
 	_expect(good["counts"] == {"muestra": 2, "borrador": 0, "verificada": 0}, "Conteo de estados.")
 	_expect(good["warnings"].size() == 4, "Aviso de imagen y revisión por muestra.")
 	var cases: Array[Dictionary] = [
-		{"path": ["version_esquema"], "value": 4, "field": "version_esquema"},
+		{"path": ["version_esquema"], "value": 5, "field": "version_esquema"},
 		{"path": ["version_esquema"], "value": "1", "field": "version_esquema"},
 		{"path": ["idioma"], "value": "en", "field": "idioma"},
 		{"path": ["cartas"], "value": [], "field": "cartas"},
@@ -91,6 +91,7 @@ func _run() -> void:
 		_assert_rejected(validator.validate(malformed), field)
 	await _positive_cases(validator)
 	_mission_point_cases(validator)
+	_metal_link_cases(validator)
 	var database: Node = root.get_node("Database")
 	_expect(database.is_loaded and database.get_verified_definitions().is_empty(), "Autoload filtra muestras.")
 	var definition: Dictionary = database.get_definition("kelsier")
@@ -256,6 +257,44 @@ func _positive_cases(validator: RefCounted) -> void:
 	_expect(view.get_node("Content/ImageNote").text == "Ilustración pendiente", "Ausencia de arte conserva sustituto.")
 	view.queue_free()
 	await process_frame
+
+
+func _metal_link_cases(validator: RefCounted) -> void:
+	for operation: String in ["metal_asignado", "esta_carta_como_metal"]:
+		var document: Dictionary = base.duplicate(true)
+		document.version_esquema = 4
+		var card: Dictionary = document.cartas[0]
+		card.tipo = "accion"
+		card.metales = ["cobre", "bronce"]
+		var ability: Dictionary = card.habilidades[0]
+		ability.momento = "al_jugar" if operation == "metal_asignado" else "metal_quemado"
+		ability.condicion = {"op": operation, "metales": ["bronce"]}
+		ability.efectos = [{"op": "ganar", "recurso": "mision", "cantidad": 1, "objetivo": "propio"}]
+		_expect(validator.validate(document).ok, "v4 admite vínculo explícito y reserva mision: " + operation)
+		for version: int in [1, 2, 3]:
+			var old: Dictionary = document.duplicate(true)
+			old.version_esquema = version
+			_assert_rejected(validator.validate(old), "condicion")
+		for metals: Array in [[], ["bronce", "bronce"], ["atium"], [false], ["plata"]]:
+			var invalid: Dictionary = document.duplicate(true)
+			invalid.cartas[0].habilidades[0].condicion.metales = metals
+			_assert_rejected(validator.validate(invalid), "metales")
+		var unprinted: Dictionary = document.duplicate(true)
+		unprinted.cartas[0].habilidades[0].condicion.metales = ["acero"]
+		if operation == "esta_carta_como_metal":
+			_assert_rejected(validator.validate(unprinted), "metales")
+		else:
+			_expect(validator.validate(unprinted).ok, "metal asignado describe el requisito de la primaria")
+		var extra: Dictionary = document.duplicate(true)
+		extra.cartas[0].habilidades[0].condicion.instancia = "cliente"
+		_assert_rejected(validator.validate(extra), "instancia")
+		for moment: String in ["metal_quemado" if operation == "metal_asignado" else "al_jugar", "inicio_turno"]:
+			var invalid: Dictionary = document.duplicate(true)
+			invalid.cartas[0].habilidades[0].momento = moment
+			_assert_rejected(validator.validate(invalid), "condicion")
+		var wrong_type: Dictionary = document.duplicate(true)
+		wrong_type.cartas[0].tipo = "aliado"
+		_assert_rejected(validator.validate(wrong_type), "condicion")
 
 
 func _replace_field(document: Dictionary, path: Array, value: Variant) -> void:

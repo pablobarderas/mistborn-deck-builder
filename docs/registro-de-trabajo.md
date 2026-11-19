@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-19 — T08.1b27, perfil aislado de Perseguir
+
+Gramática v4 y servicio competitivo aislado completados localmente sin promover la definición física ni cambiar el arranque. Contraste SRC-001/002/005 y fuente local por huella; 393 comprobaciones dirigidas, 5932 integradas M1–M8 y regresiones pertinentes correctas. Revisión independiente favorable tras corregir agotamiento indebido de ficha en quema ordinaria. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b27--gramática-y-perfil-aislado-de-perseguir). Receptora activa de Savant y distribución del escaneo siguen pendientes. Sin commit/push ni dispensa.
+
 ## 2026-11-18 — Publicación de T08.1b26
 
 Commit/push autorizados para el contrato documental ya revisado. Empaquetado R0 de once Markdown, revisión independiente reutilizada, enlaces/diff y remoto comprobados antes y después del envío. El commit que contiene esta nota identifica la publicación; no hay cambio funcional ni dispensa.

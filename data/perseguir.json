@@ -1,6 +1,6 @@
 {
-  "version_esquema": 3,
-  "id_catalogo": "mistborn_es_perseguir_borrador",
+  "version_esquema": 4,
+  "id_catalogo": "mistborn_es_perseguir_perfil_aislado",
   "idioma": "es",
   "fuentes": [
     {
@@ -27,7 +27,7 @@
       "revision": {
         "estado": "borrador",
         "idioma_verificado": true,
-        "dudas": ["El esquema registra efectos, pero no expresa la asignación de bronce a la primaria ni la oportunidad Savant al usar esta misma carta como metal; no admitir al motor."]
+        "dudas": ["La gramática expresa ambos vínculos; la admisión al producto y distribución del original físico fuera de este PC siguen pendientes."]
       },
       "vinculos": [],
       "rasgos": {},
@@ -35,7 +35,7 @@
         {
           "id": "principal_bronce",
           "momento": "al_jugar",
-          "condicion": {"op": "metales_quemados", "metales": ["bronce"]},
+          "condicion": {"op": "metal_asignado", "metales": ["bronce"]},
           "limite_por_turno": null,
           "efectos": [
             {"op": "ganar", "recurso": "mision", "cantidad": 2, "objetivo": "propio"},
@@ -45,7 +45,7 @@
         {
           "id": "savant_metal",
           "momento": "metal_quemado",
-          "condicion": {"op": "siempre"},
+          "condicion": {"op": "esta_carta_como_metal", "metales": ["cobre", "bronce"]},
           "limite_por_turno": null,
           "efectos": [{"op": "ganar", "recurso": "mision", "cantidad": 1, "objetivo": "propio"}]
         }

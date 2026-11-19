@@ -17,13 +17,15 @@ func _run() -> void:
 		return
 	var validator: RefCounted = Validator.new()
 	var result: Dictionary = validator.validate(document)
-	_expect(result["ok"], "Definición v3 estructuralmente válida con fuente local.")
+	_expect(result["ok"] and document.version_esquema == 4, "Definición v4 estructuralmente válida con fuente local.")
 	_expect(result["verified"].is_empty(), "Perseguir no aparece entre definiciones verificadas.")
 	_expect(result["counts"] == {"muestra": 0, "borrador": 1, "verificada": 0}, "Una carta en borrador.")
 	var card: Dictionary = document["cartas"][0]
 	_expect(card["id"] == "perseguir" and card["cantidad"] == 1 and card["coste_compra"] == 3, "Identidad, cantidad y coste cotejados.")
 	_expect(card["metales"] == ["cobre", "bronce"], "Pareja de metales cotejada.")
 	_expect(card["habilidades"].size() == 2, "Primaria y Savant separados.")
+	_expect(card.habilidades[0].condicion == {"op": "metal_asignado", "metales": ["bronce"]}, "Primaria ligada al bronce asignado.")
+	_expect(card.habilidades[1].condicion == {"op": "esta_carta_como_metal", "metales": ["cobre", "bronce"]}, "Savant ligado a esta carta como metal.")
 	var primary: Array = card["habilidades"][0]["efectos"]
 	_expect(primary.size() == 2 and primary[0]["op"] == "ganar" and primary[0]["recurso"] == "mision" and primary[0]["cantidad"] == 2.0 and primary[1]["op"] == "ganar" and primary[1]["recurso"] == "recursos" and primary[1]["cantidad"] == 2.0, "Primaria conserva orden y cantidades.")
 	var savant: Array = card["habilidades"][1]["efectos"]
@@ -37,6 +39,12 @@ func _run() -> void:
 	var old_version: Dictionary = document.duplicate(true)
 	old_version["version_esquema"] = 2
 	_expect(not validator.validate(old_version)["ok"], "v2 no admite reserva de puntos de misión.")
+	for version: int in [1, 2, 3]:
+		for ability_index: int in [0, 1]:
+			var old: Dictionary = document.duplicate(true)
+			old.version_esquema = version
+			old.cartas[0].habilidades = [old.cartas[0].habilidades[ability_index]]
+			_expect(not validator.validate(old).ok, "v%d rechaza vínculo v4 de habilidad %d" % [version, ability_index])
 	if failures == 0:
 		print("P08_PERSEGUIR_CATALOG_OK: ", checks, " comprobaciones; ninguna habilidad ejecutada.")
 	quit(0 if failures == 0 else 1)
