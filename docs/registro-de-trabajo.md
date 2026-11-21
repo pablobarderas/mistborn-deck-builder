@@ -1,5 +1,11 @@
 # Registro de trabajo
 
+## 2026-11-21 — T08.1b29, catálogo sin PNG
+
+Publicación autorizada posteriormente mediante «haz commit y push»; el commit que incorpora esta nota publica la entrega revisada. La indicación inferior sin commit/push es histórica y no concede permiso para otra entrega.
+
+Constructor y cargador separados para un perfil de ensayo con Perseguir/M1–M8 y fixtures; huellas fijadas de autoría, payload y archivo. Godot: autoría 13, runtime 162, clon 163, PCK 162 y veinte regresiones heredadas correctas. PCK de 177 recursos sin los tres originales por rutas, nombres, huellas ni bytes. Revisión independiente favorable tras corregir hash de texto a bytes; [evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b29--catálogo-de-ejecución-sin-png). Perseguir sigue en borrador, sin producto, issue, commit/push ni dispensa.
+
 ## 2026-11-19 — T08.1b28, política de originales
 
 Contrato documental completado y revisado favorablemente: escaneos SRC-005 fuera de Git y paquetes; cotejo de autoría por SHA y construcción futura de catálogo de ejecución sin PNG, fijado por autoridad. Se corrigieron precisiones sobre ruta `res://` e integridad del anfitrión; 493 enlaces/anclas correctos, sin pruebas Godot por ser documental. No cambia código, datos ni promoción de Perseguir. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b28--fuentes-físicas-fuera-de-la-distribución). T08.1b27 se publicó y confirmó en `145df71b1fc3b407f923f513854896741fd9ae40`; b28 local sin commit/push.

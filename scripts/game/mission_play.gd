@@ -22,7 +22,7 @@ var _busy: bool = false
 
 
 func _init(catalog: Dictionary, inert_descriptors: Dictionary, training_profile: Dictionary, mission_descriptors: Dictionary) -> void:
-	var checked: Dictionary = CatalogValidator.new().validate(catalog)
+	var checked: Dictionary = _validate_catalog(catalog)
 	var content: Dictionary = checked.cards
 	var handlers: Dictionary = {}
 	if checked.ok and checked.cards.size() == checked.verified.size() 		and _matches(content, inert_descriptors, mission_descriptors):
@@ -33,6 +33,10 @@ func _init(catalog: Dictionary, inert_descriptors: Dictionary, training_profile:
 			_profile_id = "mission_profile_" + (_identity + Funding._canonical_content(training_profile)).sha256_text()
 			handlers[ACTION_ID] = _advance_action
 	super(content, _identity, handlers)
+
+
+func _validate_catalog(catalog: Dictionary) -> Dictionary:
+	return CatalogValidator.new().validate(catalog)
 
 
 static func identity_for(catalog: Dictionary) -> String:

@@ -1,5 +1,7 @@
 # Documentación del proyecto
 
+[Catálogo de ejecución sin PNG](specs/008-preparacion-y-turnos/catalogo-ejecucion-sin-png.md): T08.1b29 completada localmente y revisada en perfil de ensayo. Builder de autoría, carga fijada por autoridad, clon limpio y PCK sin originales; Perseguir continúa en borrador. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b29--catálogo-de-ejecución-sin-png).
+
 [Fuentes físicas fuera de la distribución](specs/008-preparacion-y-turnos/fuentes-sin-escaneos.md): contrato T08.1b28 completado y revisado para cotejo local y futuro catálogo ejecutable sin PNG; sin promoción de Perseguir ni cambio de código.
 
 [Vínculos de metal v4 y perfil aislado de Perseguir](specs/008-preparacion-y-turnos/catalogo-vinculos-metal.md): T08.1b27 completada localmente y revisada; ensayos de primaria y Savant directo con fuente local. La definición real continúa en borrador y fuera del arranque. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b27--gramática-y-perfil-aislado-de-perseguir).

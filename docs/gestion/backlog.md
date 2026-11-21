@@ -1,5 +1,7 @@
 # Backlog por fases
 
+T08.1b29, R2, completada y revisada favorablemente; publicación autorizada el 2026-11-21 en el commit que incorpora esta nota: [builder/cargador de catálogo de ejecución sin PNG](../specs/008-preparacion-y-turnos/catalogo-ejecucion-sin-png.md), clon sin originales y exportación PCK inspeccionada. Ensayo aislado con fixtures, sin promoción de Perseguir. Siguiente: contrato de procedencia/admisión del contenido final antes de integración de producto. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b29--catálogo-de-ejecución-sin-png). Sin issue publicada.
+
 T08.1b28, R2 documental, completada y revisada favorablemente: [política de originales y frontera de catálogo ejecutable](../specs/008-preparacion-y-turnos/fuentes-sin-escaneos.md), FUE-DOC-01–04. Siguiente T08.1b29: construir/verificar artefacto sin PNG, clon limpio y exportación; sin código ni publicación en b28. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b28--fuentes-físicas-fuera-de-la-distribución). Sin issue publicada.
 
 T08.1b27, R2, completada localmente y revisada favorablemente: [gramática v4 y perfil aislado de Perseguir](../specs/008-preparacion-y-turnos/catalogo-vinculos-metal.md), PER-01–07, borrador real fuera del arranque. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b27--gramática-y-perfil-aislado-de-perseguir). Fuente física sin política de distribución; sin issue publicada ni permiso de publicación.

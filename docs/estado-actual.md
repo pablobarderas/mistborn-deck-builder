@@ -1,5 +1,9 @@
 # Estado actual
 
+Publicación de T08.1b29 autorizada el 2026-11-21 mediante «haz commit y push». El commit que incorpora esta nota publica el ensayo revisado; no autoriza publicaciones futuras. Las menciones inferiores a trabajo local describen el estado previo al permiso.
+
+T08.1b29 (2026-11-21) completada localmente y revisada favorablemente: catálogo de ejecución **de ensayo** sin los tres PNG SRC-005, fijado por digest de autoría, payload y archivo completo. Autoría 13, runtime 162, clon sin originales 163 y PCK ejecutado 162 comprobaciones; paquete de 177 recursos sin rutas, nombres, huellas ni bytes de los originales. Veinte regresiones heredadas correctas. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b29--catálogo-de-ejecución-sin-png). Perseguir sigue en borrador y el perfil no entra al producto. Siguiente: revisar procedencia y admisión del contenido final antes de integrar el catálogo en el producto; sin commit/push de b29.
+
 T08.1b28 (2026-11-19), contrato documental completado y revisado favorablemente: [originales físicos fuera de Git y paquetes](specs/008-preparacion-y-turnos/fuentes-sin-escaneos.md), con cotejo local por huella y futuro catálogo de ejecución sin PNG fijado por la autoridad. No cambia código ni promueve Perseguir. Siguiente T08.1b29: construir y probar ese artefacto en clon limpio y exportación. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b28--fuentes-físicas-fuera-de-la-distribución). Trabajo local sin commit/push.
 
 Publicación de T08.1b27 autorizada el 2026-11-19 mediante «haz commit y push y vamos con lo siguiente», confirmada en `145df71b1fc3b407f923f513854896741fd9ae40`. El contrato b28 es trabajo local nuevo sin permiso de publicación.

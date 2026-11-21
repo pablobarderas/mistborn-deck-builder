@@ -9,7 +9,7 @@ var _profile_training: Dictionary = {}
 
 
 func _init(catalog: Dictionary, inert_descriptors: Dictionary, training_profile: Dictionary, mission_descriptors: Dictionary) -> void:
-	var checked: Dictionary = CatalogValidator.new().validate(catalog)
+	var checked: Dictionary = _validate_catalog(catalog)
 	var admitted: bool = checked.ok and catalog.get("version_esquema") == 4 and checked.cards.size() == checked.verified.size() and checked.cards.has("perseguir") and Rules.card_supported(checked.cards.perseguir) and Rules.source_supported(catalog)
 	var inert_catalog: Dictionary = catalog.duplicate(true) if checked.ok else {}
 	var inerts: Dictionary = inert_descriptors.duplicate(true)
@@ -57,7 +57,7 @@ func _trusted_advance() -> Advance:
 func _profile_intact() -> bool:
 	if not _supported or identity_for(_catalog) != _identity or _training_profile != _profile_training:
 		return false
-	var checked: Dictionary = CatalogValidator.new().validate(_catalog)
+	var checked: Dictionary = _validate_catalog(_catalog)
 	return checked.ok and checked.cards == _content and _state._definitions == _content
 
 

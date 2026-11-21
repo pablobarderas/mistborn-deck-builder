@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play')]
+    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring')]
     [string]$Action = 'run',
     [string]$GodotPath = $env:GODOT_BIN
 )
@@ -58,8 +58,11 @@ function Invoke-ProjectGodot {
     if ($engineText -match '(?m)^SCRIPT ERROR:') {
         throw "Godot contiene errores de script en '$LogName', aunque su proceso haya devuelto codigo 0."
     }
-    if ($LogName -in @('import', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play') -and ($engineText -match '(?m)^(SCRIPT ERROR|ERROR):')) {
+    if ($LogName -in @('import', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring') -and ($engineText -match '(?m)^(SCRIPT ERROR|ERROR):')) {
         throw "La accion $LogName contiene errores. Revisa tmp/godot/$LogName.log."
+    }
+    foreach ($marker in @{ 'build-runtime-catalog' = 'P08_RUNTIME_BUILD_OK'; 'test-runtime-catalog' = 'P08_RUNTIME_CATALOG_OK'; 'test-runtime-authoring' = 'P08_RUNTIME_AUTHORING_OK' }.GetEnumerator()) {
+        if ($LogName -eq $marker.Key -and $engineText -notmatch $marker.Value) { throw 'El ensayo de catalogo no alcanzo su marca final.' }
     }
     if ($LogName -eq 'test' -and $engineText -notmatch 'P03_STARTUP_OK') {
         throw 'Las pruebas no alcanzaron su marca de finalizacion.'
@@ -135,10 +138,13 @@ function Invoke-ProjectGodot {
     }
 }
 
-if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play')) {
+if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring')) {
     Invoke-ProjectGodot -EngineArguments @('--headless', '--editor', '--import') -LogName 'import'
 }
 switch ($Action) {
+    'build-runtime-catalog' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tools/build_runtime_catalog.gd') -LogName 'build-runtime-catalog' }
+    'test-runtime-catalog' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/runtime_catalog_test.gd') -LogName 'test-runtime-catalog' }
+    'test-runtime-authoring' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/runtime_catalog_authoring_test.gd') -LogName 'test-runtime-authoring' }
     'run' { Invoke-ProjectGodot -EngineArguments @() -LogName 'run' }
     'editor' { Invoke-ProjectGodot -EngineArguments @('--editor') -LogName 'editor' }
     'test' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/startup_test.gd') -LogName 'test' }
