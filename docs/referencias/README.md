@@ -48,6 +48,8 @@ En este PC, el usuario indicó el 2026-11-16 `C:/Users/pbard/Pictures/Digitaliza
 
 T08.1b25 añade [preparación local reproducible](../desarrollo-local.md#fuente-local-de-perseguir-t081b25) y una definición v3 en borrador; la copia del escaneo queda en `evidencia_local/` ignorada por Git. Un clon debe disponer del original aportado por el propietario. No hay decisión de distribuir escaneos ni admisión de Perseguir al motor.
 
+T08.1b28 establece [mantener los originales fuera de Git y de los paquetes](../specs/008-preparacion-y-turnos/fuentes-sin-escaneos.md). La verificación de autoría sigue necesitando el PNG por SHA; un futuro catálogo de ejecución podrá construirse y validarse sin entregar ese PNG a cada clon. Es contrato documental, sin promoción de Perseguir ni arte de producto.
+
 | Original | SHA-256 |
 | --- | --- |
 | `personajes.png` | `DB0356C5FC95D1BF0178FF0DDF2D240EC87DBF24E4B38E34CF5C3BB95C96C952` |

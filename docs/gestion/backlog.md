@@ -1,5 +1,7 @@
 # Backlog por fases
 
+T08.1b28, R2 documental, completada y revisada favorablemente: [política de originales y frontera de catálogo ejecutable](../specs/008-preparacion-y-turnos/fuentes-sin-escaneos.md), FUE-DOC-01–04. Siguiente T08.1b29: construir/verificar artefacto sin PNG, clon limpio y exportación; sin código ni publicación en b28. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b28--fuentes-físicas-fuera-de-la-distribución). Sin issue publicada.
+
 T08.1b27, R2, completada localmente y revisada favorablemente: [gramática v4 y perfil aislado de Perseguir](../specs/008-preparacion-y-turnos/catalogo-vinculos-metal.md), PER-01–07, borrador real fuera del arranque. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b27--gramática-y-perfil-aislado-de-perseguir). Fuente física sin política de distribución; sin issue publicada ni permiso de publicación.
 
 T08.1b26, R2 documental, completada y revisada favorablemente: [activación directa de Perseguir](../specs/008-preparacion-y-turnos/activacion-perseguir.md), PER-DOC-01–04. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b26--contrato-de-activación-de-perseguir). La implementación separada se registra arriba; aprobar el contrato no admite la carta al producto. Sin issue publicada.

@@ -1,5 +1,9 @@
 # Estado actual
 
+T08.1b28 (2026-11-19), contrato documental completado y revisado favorablemente: [originales físicos fuera de Git y paquetes](specs/008-preparacion-y-turnos/fuentes-sin-escaneos.md), con cotejo local por huella y futuro catálogo de ejecución sin PNG fijado por la autoridad. No cambia código ni promueve Perseguir. Siguiente T08.1b29: construir y probar ese artefacto en clon limpio y exportación. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b28--fuentes-físicas-fuera-de-la-distribución). Trabajo local sin commit/push.
+
+Publicación de T08.1b27 autorizada el 2026-11-19 mediante «haz commit y push y vamos con lo siguiente», confirmada en `145df71b1fc3b407f923f513854896741fd9ae40`. El contrato b28 es trabajo local nuevo sin permiso de publicación.
+
 T08.1b27 (2026-11-19) completada localmente: gramática v4 de vínculo metal/instancia y perfil competitivo aislado de Perseguir, con **393 comprobaciones** dirigidas y **5932** de integración M1–M8, más regresiones; revisión independiente favorable tras corregir agotamiento ordinario. La [definición física](../data/perseguir.json) permanece en borrador y fuera del arranque; el perfil usa una copia de prueba verificada sólo en memoria, con fuente local comprobada por huella. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b27--gramática-y-perfil-aislado-de-perseguir). Siguiente objetivo: resolver distribución del escaneo antes de promover la carta; Savant con receptora, producto y modos con rival siguen pendientes. Sin commit/push.
 
 Publicación de T08.1b26 autorizada el 2026-11-18 mediante «haz el commit y push». El commit que contiene esta nota publica el contrato documental revisado, sin promover Perseguir ni cambiar el motor. Siguiente objetivo: implementación separada de gramática de vínculo y perfil aislado con pruebas.

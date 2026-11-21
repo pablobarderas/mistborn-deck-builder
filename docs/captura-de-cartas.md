@@ -35,6 +35,6 @@ No es obligatorio empezar ahora ni capturar toda la caja de una vez. Las fases t
 5. Modelar efectos que se entienden con evidencia. Lo que falte permanece pendiente; no se convierte texto directamente en código.
 6. Ejecutar validador, revisar discrepancias y solo entonces declarar contenido verificado. La implementación de efectos requiere después sus propias pruebas.
 
-Los originales incorporados al proyecto se guardarán dentro de docs/referencias/ con carpeta de lote cuando haya contenido. El arte usado por la interfaz vive por separado en assets/images/; no se mezclan fuente de transcripción e ilustración provisional.
+Los originales de SRC-005 se guardan fuera de Git y de los paquetes, con copia local por huella en `evidencia_local/` durante la revisión; [política T08.1b28](specs/008-preparacion-y-turnos/fuentes-sin-escaneos.md). `docs/referencias/` conserva inventario, localizadores y huellas, no esos PNG. El arte usado por la interfaz vive por separado en `assets/images/` cuando exista un recurso de procedencia admisible; no se mezclan fuente de transcripción e ilustración provisional.
 
 El registro de cada carta referencia fuente y localizador. Cambiar de PC no debe perder las imágenes que respaldan la transcripción. Ver [contrato v1](contrato-catalogo-v1.md). DUD-002/003 siguen abiertas hasta completar contenido/localización.
