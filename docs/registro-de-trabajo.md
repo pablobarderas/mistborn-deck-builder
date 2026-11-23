@@ -1,5 +1,11 @@
 # Registro de trabajo
 
+## 2026-11-23 — T08.1b30, admisión del contenido final
+
+Publicación autorizada posteriormente mediante «haz commit y push»; el commit que incorpora esta nota publica el contrato revisado. La indicación inferior sin commit/push es histórica y no concede permiso para otra entrega.
+
+Contrato documental por componente: fuente y cotejo humano, puertas independientes de fidelidad/ejecución/distribución, lista cerrada sin fixtures y plan de clon/exportación/producto. El ensayo b29 y Perseguir no cambian. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b30--procedencia-y-admisión-del-contenido-final). Sin commit/push.
+
 ## 2026-11-21 — T08.1b29, catálogo sin PNG
 
 Publicación autorizada posteriormente mediante «haz commit y push»; el commit que incorpora esta nota publica la entrega revisada. La indicación inferior sin commit/push es histórica y no concede permiso para otra entrega.

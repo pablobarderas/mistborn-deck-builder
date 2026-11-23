@@ -1,5 +1,9 @@
 # Plan de SPEC-008
 
+## T08.1b30 — Procedencia y admisión del contenido final
+
+Contrato documental [ADM-DOC-01–05](admision-contenido-final.md): registro por componente, tres dimensiones de admisión, lista cerrada y plan de comprobación para un candidato de producto. No modifica el ensayo b29 ni acredita permiso de distribución. [Tarea](tasks.md#t081b30--procedencia-y-admisión-del-contenido-final-registro-previo) y [evidencia](verification.md#t081b30--procedencia-y-admisión-del-contenido-final).
+
 ## T08.1b26 — Contrato de activación de Perseguir
 
 Entrega documental R2 de [oportunidades, asignación, Savant, omisión, autoridad y rollback](activacion-perseguir.md), completada y revisada favorablemente. [Registro previo](tasks.md#t081b26--contrato-de-activación-de-perseguir-registro-previo) y [evidencia](verification.md#t081b26--contrato-de-activación-de-perseguir). Siguiente implementación separada: ampliar gramática de vínculo de metal e instancia, adaptar perfil aislado y probar rutas directas y rechazos antes de promover `data/perseguir.json`. El motor, catálogo ejecutable y producto no cambian en esta tarea.

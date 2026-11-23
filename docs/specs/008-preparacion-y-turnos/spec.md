@@ -1,5 +1,9 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.1b30 — Puerta del contenido final
+
+El [contrato de procedencia y admisión](admision-contenido-final.md) fija ADM-DOC-01–05 para sustituir fixtures del ensayo por componentes contrastados antes de un catálogo de producto. No promueve una carta, un modo ni un paquete por esta entrega documental.
+
 ## T08.1b22 — Integración de misiones M1–M8
 
 Implementada y verificada localmente según [contrato revisado y plan](integracion-misiones.md), INT-01–08, después de publicar T08.1b21 en cf781e31. Nuevo perfil aislado competitivo, sin producto ni cierre P08; [evidencia y traspaso](verification.md#t081b22--integración-de-misiones-m1m8). 18 suites/17.644 comprobaciones; revisión independiente final favorable y cierre local completo.

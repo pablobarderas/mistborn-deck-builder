@@ -16,6 +16,8 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
+- T08.1b30: [contrato de procedencia/admisión](specs/008-preparacion-y-turnos/admision-contenido-final.md) para contenido final, sin cambiar el ensayo ni atribuir permisos de distribución. Siguiente ejecución: inventario del perfil competitivo completo por componente y sus lagunas de fuente, resolutor y distribución. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b30--procedencia-y-admisión-del-contenido-final).
+
 - T08.1b29: [catálogo de ejecución sin PNG](specs/008-preparacion-y-turnos/catalogo-ejecucion-sin-png.md) implementado en ensayo aislado, con builder/cargador separados, clon limpio y PCK inspeccionado; revisión independiente favorable. No promueve Perseguir ni instala producto. Siguiente: contratar procedencia/admisión del catálogo final con componentes no ficticios y permiso de distribución de texto/arte antes de integrarlo. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b29--catálogo-de-ejecución-sin-png).
 
 - T08.1b28: [política de originales fuera de Git y paquetes](specs/008-preparacion-y-turnos/fuentes-sin-escaneos.md), contrato documental completado y revisado favorablemente. Siguiente implementación T08.1b29: catálogo de ejecución sin PNG, fijado por autoridad y probado en clon limpio/exportación. No promueve Perseguir ni acredita permiso para distribuir arte/texto. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b28--fuentes-físicas-fuera-de-la-distribución).

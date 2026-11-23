@@ -1,5 +1,9 @@
 # Estado actual
 
+Publicación de T08.1b30 autorizada el 2026-11-23 mediante «haz commit y push». El commit que incorpora esta nota publica el contrato documental revisado; no autoriza distribuir contenido ni publicar entregas futuras. Las menciones inferiores a trabajo local describen el estado previo al permiso.
+
+T08.1b30 (2026-11-23): [contrato documental de procedencia/admisión](specs/008-preparacion-y-turnos/admision-contenido-final.md) para el catálogo final. Define revisión por componente y puertas independientes de fidelidad, ejecución y distribución; no cambia b29 ni promueve Perseguir. Siguiente: inventariar el perfil competitivo completo y sus lagunas antes de construir un candidato de producto. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b30--procedencia-y-admisión-del-contenido-final). Trabajo local sin commit/push.
+
 Publicación de T08.1b29 autorizada el 2026-11-21 mediante «haz commit y push». El commit que incorpora esta nota publica el ensayo revisado; no autoriza publicaciones futuras. Las menciones inferiores a trabajo local describen el estado previo al permiso.
 
 T08.1b29 (2026-11-21) completada localmente y revisada favorablemente: catálogo de ejecución **de ensayo** sin los tres PNG SRC-005, fijado por digest de autoría, payload y archivo completo. Autoría 13, runtime 162, clon sin originales 163 y PCK ejecutado 162 comprobaciones; paquete de 177 recursos sin rutas, nombres, huellas ni bytes de los originales. Veinte regresiones heredadas correctas. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b29--catálogo-de-ejecución-sin-png). Perseguir sigue en borrador y el perfil no entra al producto. Siguiente: revisar procedencia y admisión del contenido final antes de integrar el catálogo en el producto; sin commit/push de b29.

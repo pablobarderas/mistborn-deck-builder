@@ -1,5 +1,7 @@
 # Documentación del proyecto
 
+[Procedencia y admisión del contenido final](specs/008-preparacion-y-turnos/admision-contenido-final.md): T08.1b30 define las evidencias por componente y las puertas separadas de fidelidad, ejecución y distribución antes de integrar un catálogo de producto. El ensayo b29 y Perseguir conservan su estado.
+
 [Catálogo de ejecución sin PNG](specs/008-preparacion-y-turnos/catalogo-ejecucion-sin-png.md): T08.1b29 completada localmente y revisada en perfil de ensayo. Builder de autoría, carga fijada por autoridad, clon limpio y PCK sin originales; Perseguir continúa en borrador. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b29--catálogo-de-ejecución-sin-png).
 
 [Fuentes físicas fuera de la distribución](specs/008-preparacion-y-turnos/fuentes-sin-escaneos.md): contrato T08.1b28 completado y revisado para cotejo local y futuro catálogo ejecutable sin PNG; sin promoción de Perseguir ni cambio de código.

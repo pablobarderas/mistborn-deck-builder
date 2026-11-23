@@ -1,5 +1,17 @@
 # Verificación de SPEC-008
 
+## T08.1b30 — Procedencia y admisión del contenido final
+
+Publicación autorizada posteriormente el 2026-11-23 mediante «haz commit y push». Empaquetado R0 del contrato revisado; `fetch` confirmó HEAD/origin/main `3615f929f6ce3d3f5b166313fc255a81428a3f2a` y sólo los once Markdown de b30 locales. Revisión independiente reutilizada; 589 enlaces locales sin rutas rotas y `git diff --check` correcto. El commit que incorpora esta nota publica el contrato, sin conceder permiso para contenido final ni futuras entregas. La referencia inferior a trabajo local es histórica.
+
+2026-11-23. Recuperación: `main`, HEAD/origin/main `3615f929f6ce3d3f5b166313fc255a81428a3f2a` tras `fetch`, árbol inicialmente limpio; b29 publicada. [Registro previo, R2 y ADM-DOC-01–05](tasks.md#t081b30--procedencia-y-admisión-del-contenido-final-registro-previo). Coordinador único autor documental; revisión independiente `sdd_reviewer` GPT-6.1 Sol/high por instrucciones, solo lectura. Sin dispensa humana, issue ni permiso de commit/push.
+
+[Contrato](admision-contenido-final.md): inventario por componente, cotejo humano, dimensiones separadas de fidelidad/ejecución/distribución, manifiesto cerrado sin fixtures, identidad nueva y puertas de pruebas futuras. Fuentes: SRC-001/002/005 ya inventariadas, DEC-044 y contratos b28/b29. El ensayo sigue igual; ningún estado de Perseguir, código, datos, paquete o permiso de distribución cambia. Godot, UI y red no se ejecutan en esta entrega documental.
+
+Cierre documental: ADM-DOC-01–05 satisfechos; revisión independiente `sdd_reviewer` favorable sin hallazgos residuales. Observación sobre ADM-DOC-04 corregida con clon limpio sin `evidencia_local/`, restauración y rechazo de autoría sin originales; revisor confirmó el delta. El revisor comprobó 588 enlaces/anclas; después del cierre, la comprobación local halló 589 enlaces sin rutas rotas en 11 Markdown y `git diff --check` correcto. No se ejecutó Godot por ausencia de cambios funcionales; las pruebas de candidato final siguen pendientes. Cumplimiento R2: registro/plan previos, autoría única, fuentes b28/b29, revisión/corrección, memoria y traspaso; ninguna dispensa. Se reutilizó evidencia de b29 sin repetir sus pruebas. Tokens/coste no disponibles.
+
+Traspaso: `main`, HEAD/origin/main `3615f929f6ce3d3f5b166313fc255a81428a3f2a`; once Markdown de b30 locales, sin cambios ajenos iniciales, commit ni push. DEC-045 registra la puerta técnica, sin decisión humana ni permiso de distribución nuevo. El ensayo b29, `data/perseguir.json`, motor y producto siguen como estaban. Primer paso siguiente: inventario del perfil competitivo completo, con estado por componente y lagunas de fuente, resolutor y distribución; no construir ni admitir un paquete de producto con fixtures. P04 externa, rival y resto de P08 continúan abiertos.
+
 ## T08.1b29 — Catálogo de ejecución sin PNG
 
 Publicación autorizada posteriormente el 2026-11-21. Empaquetado R0 del resultado funcional ya revisado: `fetch` confirmó HEAD/origin/main `596084ccd373e1d01935e422d17495222ad3328d` y sólo archivos de b29 locales. Revisión independiente reutilizada, 9 Markdown con enlaces/anclas correctos, `git diff --check` correcto, tres PNG ignorados, evidencia final de PCK 177/0 y rechazo BOM comprobada. El commit que incorpora esta nota identifica la publicación; el cierre inferior sin commit/push es el estado previo al permiso.
