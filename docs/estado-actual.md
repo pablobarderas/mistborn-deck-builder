@@ -1,5 +1,9 @@
 # Estado actual
 
+Publicación de T08.1b31 autorizada el 2026-11-23 mediante «haz commit y push». El commit que incorpora esta nota publica el inventario documental revisado; no admite el catálogo de producto ni autoriza publicaciones futuras. La referencia inferior a trabajo local describe el estado previo al permiso.
+
+T08.1b31 (2026-11-23): [inventario documental del competitivo completo](specs/008-preparacion-y-turnos/inventario-competitivo-final.md) para 2–4, con cantidades, rutas y lagunas de fidelidad, ejecución y distribución. El catálogo de mercado tiene 65 diseños localizados, sin cotejo individual de efectos; el producto sigue sin manifiesto admisible. Siguiente: registro y cotejo individual del mazo inicial, personajes y pista. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b31--inventario-del-competitivo-completo). Trabajo local, sin commit/push.
+
 Publicación de T08.1b30 autorizada el 2026-11-23 mediante «haz commit y push». El commit que incorpora esta nota publica el contrato documental revisado; no autoriza distribuir contenido ni publicar entregas futuras. Las menciones inferiores a trabajo local describen el estado previo al permiso.
 
 T08.1b30 (2026-11-23): [contrato documental de procedencia/admisión](specs/008-preparacion-y-turnos/admision-contenido-final.md) para el catálogo final. Define revisión por componente y puertas independientes de fidelidad, ejecución y distribución; no cambia b29 ni promueve Perseguir. Siguiente: inventariar el perfil competitivo completo y sus lagunas antes de construir un candidato de producto. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b30--procedencia-y-admisión-del-contenido-final). Trabajo local sin commit/push.

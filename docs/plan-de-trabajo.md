@@ -16,6 +16,8 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Cómo avanzar
 
+- T08.1b31: [inventario del competitivo completo](specs/008-preparacion-y-turnos/inventario-competitivo-final.md) con recuentos, fuentes y lagunas por componente. Siguiente: registro y cotejo individual del mazo inicial, personajes y pista; sin candidato de producto. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b31--inventario-del-competitivo-completo).
+
 - T08.1b30: [contrato de procedencia/admisión](specs/008-preparacion-y-turnos/admision-contenido-final.md) para contenido final, sin cambiar el ensayo ni atribuir permisos de distribución. Siguiente ejecución: inventario del perfil competitivo completo por componente y sus lagunas de fuente, resolutor y distribución. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b30--procedencia-y-admisión-del-contenido-final).
 
 - T08.1b29: [catálogo de ejecución sin PNG](specs/008-preparacion-y-turnos/catalogo-ejecucion-sin-png.md) implementado en ensayo aislado, con builder/cargador separados, clon limpio y PCK inspeccionado; revisión independiente favorable. No promueve Perseguir ni instala producto. Siguiente: contratar procedencia/admisión del catálogo final con componentes no ficticios y permiso de distribución de texto/arte antes de integrarlo. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b29--catálogo-de-ejecución-sin-png).

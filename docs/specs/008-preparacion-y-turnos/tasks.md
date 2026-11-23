@@ -1,5 +1,15 @@
 # Tareas de SPEC-008
 
+## T08.1b31 — Inventario del perfil competitivo completo (registro previo)
+
+Publicación autorizada el 2026-11-23 mediante «haz commit y push». Empaquetado R0 del inventario documental ya revisado, sin cambio semántico. `fetch` confirma `main`, HEAD/origin/main `500df5e8aca1fa768ef7098531b0b2e6b76d5add` y sólo los archivos locales de b31. Aceptación: comprobar alcance, enlaces/diff, commit/push y coincidencia remota con árbol limpio. Revisión independiente favorable reutilizada; ninguna dispensa ni autorización para publicar entregas futuras.
+
+2026-11-23. Recuperación: `main`, HEAD/origin/main `500df5e8aca1fa768ef7098531b0b2e6b76d5add`, árbol limpio y estado publicado contrastado tras `fetch`. Objetivo: censar la lista cerrada necesaria para competitivo 2–4 y exponer por grupo qué fuente, definición, resolutor y evidencia de distribución faltan antes de un candidato de producto. Alcance documental; no cambia catálogo, motor, paquete ni permisos. Riesgo R2 por la frontera de admisión del contenido: un recuento incompleto podría presentar un ensayo como producto.
+
+Aceptación INV-01–04: cantidades y rutas alcanzables trazables a SRC-001/002/004/005 y registros existentes, sin convertir recuentos declarados en cotejo de caras; estados de fidelidad, ejecución y distribución separados, con faltantes explícitos; prioridades y siguiente lote cerrado sin fixtures ni promoción; enlaces, coherencia, revisión independiente y traspaso. Plan: contrastar inventarios, datos y perfil con el contrato b30; escribir una matriz documental y secuencia de incorporación; comprobar enlaces y diff; pedir revisión independiente y resolver hallazgos; cerrar memoria. Coordinador, único escritor de Markdown. Revisor `sdd_reviewer`, GPT-6.1 Sol/high, perfil por instrucciones, solo lectura del diff final. Godot no aplica al inventario documental; la construcción y pruebas funcionales corresponden a tareas posteriores. Ninguna dispensa ni autorización de publicación.
+
+Cierre local: INV-01–04 satisfechos; revisión independiente favorable y dos precisiones P2 incorporadas. 509 enlaces/anclas correctos, diff sin errores y recuentos 65/82/17 contrastados. [Evidencia y traspaso](verification.md#t081b31--inventario-del-competitivo-completo). Sin dispensa, issue, commit ni push.
+
 ## T08.1b30 — Procedencia y admisión del contenido final (registro previo)
 
 Publicación autorizada el 2026-11-23 mediante «haz commit y push». Empaquetado R0 del contrato documental ya revisado: objetivo publicar únicamente T08.1b30, sin cambios semánticos. Coordinador responsable; HEAD/origin/main `3615f929f6ce3d3f5b166313fc255a81428a3f2a` tras `fetch`, once Markdown locales. Aceptación: enlaces/diff correctos, commit/push y coincidencia remota con árbol limpio. Revisión independiente favorable reutilizada; ninguna dispensa ni autorización para entregas futuras.

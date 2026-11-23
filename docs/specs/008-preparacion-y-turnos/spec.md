@@ -1,5 +1,9 @@
 # SPEC-008 — Preparación y turnos
 
+## T08.1b31 — Inventario del competitivo completo
+
+El [inventario de admisión](inventario-competitivo-final.md) enumera componentes, cantidades, fuentes, rutas y lagunas de fidelidad, ejecución y distribución para competitivo 2–4. INV-01–04 son criterios documentales; no admite catálogo ni producto.
+
 ## T08.1b30 — Puerta del contenido final
 
 El [contrato de procedencia y admisión](admision-contenido-final.md) fija ADM-DOC-01–05 para sustituir fixtures del ensayo por componentes contrastados antes de un catálogo de producto. No promueve una carta, un modo ni un paquete por esta entrega documental.

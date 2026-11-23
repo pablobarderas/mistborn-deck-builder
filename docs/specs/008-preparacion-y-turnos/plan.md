@@ -1,5 +1,9 @@
 # Plan de SPEC-008
 
+## T08.1b31 — Inventario del competitivo completo
+
+Cotejar [perfil](perfil-competitivo-producto.md), censo de mercado, SRC-004/005, datos y puerta b30; registrar [matriz y siguiente lote](inventario-competitivo-final.md) sin mutar el ensayo. [Tarea](tasks.md#t081b31--inventario-del-perfil-competitivo-completo-registro-previo) y [evidencia](verification.md#t081b31--inventario-del-competitivo-completo).
+
 ## T08.1b30 — Procedencia y admisión del contenido final
 
 Contrato documental [ADM-DOC-01–05](admision-contenido-final.md): registro por componente, tres dimensiones de admisión, lista cerrada y plan de comprobación para un candidato de producto. No modifica el ensayo b29 ni acredita permiso de distribución. [Tarea](tasks.md#t081b30--procedencia-y-admisión-del-contenido-final-registro-previo) y [evidencia](verification.md#t081b30--procedencia-y-admisión-del-contenido-final).

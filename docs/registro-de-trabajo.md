@@ -1,5 +1,11 @@
 # Registro de trabajo
 
+## 2026-11-23 — T08.1b31, inventario competitivo
+
+Publicación autorizada posteriormente mediante «haz commit y push»; el commit que incorpora esta nota publica el inventario revisado. La referencia inferior sin publicación es histórica.
+
+Matriz documental para competitivo 2–4: componentes y recuentos, auditoría de 65 diseños de mercado, rutas alcanzables y lagunas independientes de fidelidad, ejecución y distribución. Siguiente lote: mazo inicial, personajes y pista con cotejo individual. Sin cambio de juego, paquete, permisos ni publicación. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#t081b31--inventario-del-competitivo-completo).
+
 ## 2026-11-23 — T08.1b30, admisión del contenido final
 
 Publicación autorizada posteriormente mediante «haz commit y push»; el commit que incorpora esta nota publica el contrato revisado. La indicación inferior sin commit/push es histórica y no concede permiso para otra entrega.

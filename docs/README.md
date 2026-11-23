@@ -1,5 +1,7 @@
 # Documentación del proyecto
 
+[Inventario del competitivo completo](specs/008-preparacion-y-turnos/inventario-competitivo-final.md): T08.1b31 censa componentes y lagunas de fidelidad, ejecución y distribución; el siguiente lote es el cotejo individual de personajes, mazo inicial y pista. No admite aún un catálogo de producto.
+
 [Procedencia y admisión del contenido final](specs/008-preparacion-y-turnos/admision-contenido-final.md): T08.1b30 define las evidencias por componente y las puertas separadas de fidelidad, ejecución y distribución antes de integrar un catálogo de producto. El ensayo b29 y Perseguir conservan su estado.
 
 [Catálogo de ejecución sin PNG](specs/008-preparacion-y-turnos/catalogo-ejecucion-sin-png.md): T08.1b29 completada localmente y revisada en perfil de ensayo. Builder de autoría, carga fijada por autoridad, clon limpio y PCK sin originales; Perseguir continúa en borrador. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b29--catálogo-de-ejecución-sin-png).

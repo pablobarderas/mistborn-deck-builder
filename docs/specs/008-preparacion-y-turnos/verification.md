@@ -1,5 +1,20 @@
 # Verificación de SPEC-008
 
+## T08.1b31 — Inventario del competitivo completo
+
+Publicación autorizada posteriormente el 2026-11-23 mediante «haz commit y push». Empaquetado R0 del documento revisado; `fetch` confirmó HEAD/origin/main `500df5e8aca1fa768ef7098531b0b2e6b76d5add` y sólo cambios b31 locales. El commit que incorpora esta nota publica el inventario, sin conceder admisión de producto ni permiso de publicación futura. Revisión independiente favorable reutilizada; comprobación final de enlaces/diff y coincidencia remota tras push. Las referencias inferiores sin commit/push son históricas.
+
+2026-11-23. Punto de partida: `main`, HEAD/origin/main `500df5e8aca1fa768ef7098531b0b2e6b76d5add` tras `fetch`, árbol limpio. Se contrastaron b30, perfil competitivo, SRC-001/002/004/005 documentadas, censo de mercado, datos de misiones/Perseguir y estado del repositorio. Los originales locales siguen fuera de Git. Trabajo documental R2, coordinador único escritor; `sdd_reviewer` GPT-6.1 Sol/high revisa solo lectura por instrucciones. Ninguna dispensa, issue, commit ni push autorizados. Tokens no disponibles.
+
+| Criterio | Evidencia y límite |
+| --- | --- |
+| INV-01 | [Matriz](inventario-competitivo-final.md#lista-cerrada-que-debe-resolver-el-manifiesto) de componentes y cantidades; 65 diseños de mercado remiten a las 65 filas auditadas, sin atribuir validación de efectos a ese censo. |
+| INV-02 | Tres columnas independientes de fuente/fidelidad, ejecución y distribución; falta cotejo individual, resolutores y base para material de paquete. Ningún candidato completo admitido. |
+| INV-03 | [Rutas y orden](inventario-competitivo-final.md#rutas-y-límites-de-admisión) registran alcance 2–4, finales, exclusión de fixtures y siguiente lote acotado sin promoción. |
+| INV-04 | 509 enlaces locales y anclas, sin fallos; `git diff --check` correcto. Revisión independiente favorable tras dos precisiones P2 ya aplicadas: ruta de mano limitada a cartas de mercado y ejecución aislada de Perseguir distinguida de cobertura completa. |
+
+Cierre documental: INV-01–04 satisfechos; 65 filas/82 copias/17 duplicados contrastados contra la auditoría y ocho misiones de una copia verificadas en el JSON, sin cotejo nuevo de originales. Godot, partida y exportación no se ejecutaron porque este inventario no altera el juego; esas puertas siguen abiertas. Revisor independiente sin bloqueantes tras resolver las dos precisiones. Ninguna dispensa. Traspaso: seguir con registro de autoría del mazo inicial, personajes y pista según [orden de incorporación](inventario-competitivo-final.md#orden-de-incorporación-comprobable). Catálogo b29, Perseguir, producto y modos con rival no cambian; P04 externa permanece pendiente. Entrega local en `main` sobre `500df5e8aca1fa768ef7098531b0b2e6b76d5add`, sin commit/push.
+
 ## T08.1b30 — Procedencia y admisión del contenido final
 
 Publicación autorizada posteriormente el 2026-11-23 mediante «haz commit y push». Empaquetado R0 del contrato revisado; `fetch` confirmó HEAD/origin/main `3615f929f6ce3d3f5b166313fc255a81428a3f2a` y sólo los once Markdown de b30 locales. Revisión independiente reutilizada; 589 enlaces locales sin rutas rotas y `git diff --check` correcto. El commit que incorpora esta nota publica el contrato, sin conceder permiso para contenido final ni futuras entregas. La referencia inferior a trabajo local es histórica.

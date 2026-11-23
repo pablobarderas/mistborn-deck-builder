@@ -1,5 +1,7 @@
 # Backlog por fases
 
+T08.1b31, R2 documental: [inventario competitivo completo](../specs/008-preparacion-y-turnos/inventario-competitivo-final.md), INV-01–04. Censa fuente, fidelidad, ejecución y distribución por grupo y remite las 65 filas de mercado a su auditoría. Siguiente: registrar y cotejar individualmente mazo inicial, personajes y pista. Sin issue ni publicación.
+
 T08.1b30, R2 documental: [contrato de procedencia/admisión del contenido final](../specs/008-preparacion-y-turnos/admision-contenido-final.md), ADM-DOC-01–05. Siguiente: inventario completo del perfil competitivo con puertas por componente; sin issue publicada ni cambio del ensayo. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b30--procedencia-y-admisión-del-contenido-final).
 
 T08.1b29, R2, completada y revisada favorablemente; publicación autorizada el 2026-11-21 en el commit que incorpora esta nota: [builder/cargador de catálogo de ejecución sin PNG](../specs/008-preparacion-y-turnos/catalogo-ejecucion-sin-png.md), clon sin originales y exportación PCK inspeccionada. Ensayo aislado con fixtures, sin promoción de Perseguir. Siguiente: contrato de procedencia/admisión del contenido final antes de integración de producto. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b29--catálogo-de-ejecución-sin-png). Sin issue publicada.
