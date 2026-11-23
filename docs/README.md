@@ -1,5 +1,7 @@
 # Documentación del proyecto
 
+[Ruta E1–E6 hacia partidas completas](plan-de-trabajo.md#ruta-de-entregas-agrupadas-2026-11-23): agrupa los próximos trabajos por resultado verificable. E1 aborda mazo inicial, personajes y pista; P00–P18 y sus criterios de cierre siguen vigentes.
+
 [Inventario del competitivo completo](specs/008-preparacion-y-turnos/inventario-competitivo-final.md): T08.1b31 censa componentes y lagunas de fidelidad, ejecución y distribución; el siguiente lote es el cotejo individual de personajes, mazo inicial y pista. No admite aún un catálogo de producto.
 
 [Procedencia y admisión del contenido final](specs/008-preparacion-y-turnos/admision-contenido-final.md): T08.1b30 define las evidencias por componente y las puertas separadas de fidelidad, ejecución y distribución antes de integrar un catálogo de producto. El ensayo b29 y Perseguir conservan su estado.

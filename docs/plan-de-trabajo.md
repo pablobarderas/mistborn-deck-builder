@@ -1,10 +1,25 @@
 # Plan de trabajo por fases
 
+## Ruta de entregas agrupadas (2026-11-23)
+
+La prioridad es llegar a partidas terminadas. P00–P18 siguen siendo criterios de cobertura y cierre, pero la unidad de entrega será un resultado jugable o un lote de contenido completo: especificación necesaria, implementación, pruebas, revisión y correcciones relacionadas en el mismo objetivo. No abrir una entrega independiente solo para redactar el contrato de una regla cuya fuente y comportamiento ya permiten implementarla. Conservar el registro previo y la revisión independiente exigidos por riesgo; ejecutar suites afectadas, no todas por rutina. [T00.2](specs/009-sistema-agentes/tasks.md#t002--entregas-agrupadas-hacia-una-partida-jugable).
+
+| Entrega | Resultado comprobable | Entrada y límite |
+| --- | --- | --- |
+| E1 — contenido inicial competitivo | Registro y cotejo de cuatro personajes, 16 entrenamientos, Financiación y pista; definiciones y resolutores conectados en un ensayo de inicio/turno, con pruebas de fuentes, efectos y rechazos. | Usar SRC-001/002/004/005 locales; conservar estado de distribución separado. Si falta una cara o una duda altera el resultado, avanzar con las otras entradas y dejar la afectada abierta. |
+| E2 — primera partida competitiva local | Preparación, compra, juego, combate, Target, misiones, limpieza y final en una interfaz funcional; partida terminada con subconjunto de contenido declarado. | El subconjunto es un ensayo jugable, no el catálogo completo ni una versión distribuible. Conectar reglas y pantalla antes de completar las 65 cartas. |
+| E3 — competitivo completo local | Mercado de 65 diseños/82 copias y todas sus rutas y finales; partidas terminadas con 2, 3 y 4 plazas. | Agrupar por familias de efecto dentro de la entrega; el candidato de producto exige las tres puertas de T08.1b30, sin fixtures. |
+| E4 — competitivo remoto recuperable | Salas privadas, autoridad única, vistas privadas, sincronización y reconexión de la misma plaza; partidas competitivas completas entre equipos/redes. | Resolver P04 externa y política de caída/abandono; probar duplicados, cortes y apropiación de plaza. P14/P16 aún no cierran sin los otros modos. |
+| E5 — Lord Legislador y modos restantes | Rival, 36 cartas, escudos, Dominación y decisiones colectivas; escenarios terminados en solitario y cooperativo 2–4, también entre equipos para cooperativo. | Mantener diferencias de modo, victoria/derrota y pruebas propias. Se aborda después del competitivo según DEC-027 y no se elimina del alcance. |
+| E6 — versión para el grupo | Interfaz y acabado revisados en partidas reales, siete configuraciones probadas y exportación limpia con instrucciones. | Verificar distribución de material y una copia ejecutada por otra persona; corregir defectos que impidan jugar o alteren reglas. |
+
+E1 es el siguiente objetivo. Las entregas E2–E6 son hitos, no promesas de una sola sesión ni porcentajes de avance. Los lotes internos se abren solo cuando una dependencia o una revisión lo requiera, con aceptación observable y sin repetir documentación histórica. [Inventario y lagunas vigentes](specs/008-preparacion-y-turnos/inventario-competitivo-final.md).
+
 Precisión de salida discreta (2026-11-15): completada con comprobación documental y revisión independiente favorables; siguiente objetivo del juego conservado. [Tarea](specs/009-sistema-agentes/tasks.md#salida-discreta-de-git-y-razonamientos).
 
 Estilo conciso (2026-11-15): ajuste documental completado; revisión independiente favorable y comprobación documental correcta. [Tarea/evidencia](specs/009-sistema-agentes/tasks.md#estilo-conciso-de-respuesta). El siguiente objetivo del juego se conserva.
 
-Última revisión: 2026-11-14. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba y preparación estructural P08; efectos, turnos completos y partidas siguen sin implementar.
+Última revisión: 2026-11-23. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba y preparación estructural P08; efectos, turnos completos y partidas siguen sin implementar.
 
 ## Objetivo y situación
 
@@ -103,15 +118,7 @@ SRC-001 ya está identificado y leído: reglamento inglés de 2024, 1.ª edició
 
 ## Entregas revisables
 
-- **E0 — Base documental:** P00. Documentación y plantillas preparadas para la entrega inicial en `main`.
-- **E1 — Riesgos y aspecto explorados:** P01–P05. Arranque, vía de conexión y maqueta revisada.
-- **E2 — Primera partida local:** P06–P10. Subconjunto identificado; no acredita fidelidad al catálogo completo.
-- **E3 — Contenido e interfaz completos:** P11–P12.
-- **E4 — Primera partida remota:** P13–P14, con sus dependencias.
-- **E5 — Jugable con amigos:** P15–P16.
-- **E6 — Entrega cuidada:** P17–P18.
-
-La entrega final incluye los tres modos. La cobertura se comprueba en siete configuraciones: competitivo 2/3/4, cooperativo 2/3/4 y solitario 1. El rival se ejecuta por reglas y mazo, sin requerir un jugador adicional ni una IA estratégica.
+La lista E0–E6 anterior quedó sustituida por la [ruta E1–E6](#ruta-de-entregas-agrupadas-2026-11-23). P00–P18 mantienen sus criterios de salida. La entrega final incluye los tres modos y siete configuraciones: competitivo 2/3/4, cooperativo 2/3/4 y solitario 1. El rival se ejecuta por reglas y mazo, sin requerir un jugador adicional ni una IA estratégica.
 
 ## Detalle de fases
 

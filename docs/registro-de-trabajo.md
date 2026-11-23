@@ -1,5 +1,11 @@
 # Registro de trabajo
 
+## 2026-11-23 — T00.2, entregas agrupadas
+
+Publicación autorizada posteriormente mediante «haz commit y push»; el commit que incorpora esta nota identifica la ruta revisada. El cierre local indicado debajo precede a ese permiso.
+
+Ruta E1–E6 registrada en el plan para llegar a partidas locales, remotas y entrega estable con menos divisiones documentales. Próximo objetivo E1: mazo inicial, personajes y pista con cotejo e integración de ensayo. Sin cambios de juego, pruebas Godot ni publicación; revisión documental en [SPEC-009](specs/009-sistema-agentes/verification.md#t002--entregas-agrupadas-hacia-una-partida-jugable).
+
 ## 2026-11-23 — T08.1b31, inventario competitivo
 
 Publicación autorizada posteriormente mediante «haz commit y push»; el commit que incorpora esta nota publica el inventario revisado. La referencia inferior sin publicación es histórica.

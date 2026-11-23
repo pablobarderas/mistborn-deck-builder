@@ -330,3 +330,7 @@ Aplicación técnica T08.1b29 (2026-11-21): ensayo aislado construido y cargado 
 ## DEC-045 — Puerta separada del catálogo final
 
 2026-11-23. Decisión técnica de T08.1b30: el contenido final requiere evidencias independientes de fidelidad al componente, ejecución completa en el perfil y distribución del material incluido, además de un manifiesto cerrado sin fixtures. Una aprobación en una dimensión no sustituye las otras. No atribuye permiso editorial ni cambia el ensayo b29. [Contrato](specs/008-preparacion-y-turnos/admision-contenido-final.md) y [evidencia](specs/008-preparacion-y-turnos/verification.md#t081b30--procedencia-y-admisión-del-contenido-final).
+
+## DEC-046 — Entregas agrupadas orientadas a partidas completas
+
+2026-11-23. Estado: aceptada por el encargo humano de unificar pasos sin perder calidad y terminar el proyecto con menos fragmentación. La ruta E1–E6 agrupa contenido y comportamiento relacionado hasta un resultado comprobable; dentro de cada entrega se mantienen fuentes, aceptación previa, pruebas pertinentes, revisión independiente por riesgo y correcciones. Sustituye los antiguos nombres E0–E6; P00–P18 conservan su alcance y criterios de cierre. Una dependencia externa puede dejar una entrada abierta sin detener trabajo independiente. No se dispensan controles ni se presumen permisos de distribución. [Plan](plan-de-trabajo.md#ruta-de-entregas-agrupadas-2026-11-23).

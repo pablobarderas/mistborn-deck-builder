@@ -60,6 +60,11 @@ T08.1b19 R2 completada documentalmente, M2-DOC-01–04 y revisión independiente
 - Plan: registrar decisión; enlazar desde estado/plan y orientar las capturas al competitivo. Verificación prevista: revisar diff, enlaces locales y coherencia entre prioridad y alcance. Sin commit/push ni dispensa.
 - Estado: completado documentalmente; DEC-027 registrada y enlazada. Diff revisado, 80 enlaces locales comprobados y encabezado del ancla DEC-027 contrastado; git diff --check correcto. Sin pruebas Godot por tratarse exclusivamente de memoria documental. Contexto remoto consultado mediante fetch: main local y origin/main en edebe0c1211241b4a4e703b2d66c129df3d8147d, árbol inicialmente limpio. Issue: sin publicar. Siguiente paso: recibir/revisar entrenamientos y paneles competitivos; T08.2f continúa pendiente para el motor.
 
+### T00.2 — Entregas agrupadas hacia una partida jugable
+
+- Tipo: planificación de producto, R2. [Registro y aceptación](../specs/009-sistema-agentes/tasks.md#t002--entregas-agrupadas-hacia-una-partida-jugable). Issue: sin publicar.
+- [Ruta E1–E6](../plan-de-trabajo.md#ruta-de-entregas-agrupadas-2026-11-23): se mantienen P00–P18 como cobertura; cada entrega agrupa contrato, implementación, pruebas, revisión y correcciones. Siguiente E1: mazo inicial, personajes y pista, en ensayo integrado. Sin admisión ni distribución por inferencia.
+
 ### T00.1 — Sistema transversal de agentes SDD
 
 - Comunicación breve (2026-11-13), R2 documental por instrucción humana para todo el proyecto: [registro, aceptación y cierre](../specs/009-sistema-agentes/tasks.md#comunicación-breve-durante-el-trabajo). AGENTS y AC-10 alineados; comprobación documental y revisión independiente favorables, sin issue ni publicación.

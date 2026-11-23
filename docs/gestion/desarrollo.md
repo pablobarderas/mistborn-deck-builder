@@ -61,7 +61,7 @@ Repositorio comprobado: [pablobarderas/mistborn-deck-builder](https://github.com
 - Estados: pendiente → lista → en curso → en revisión → terminada; bloqueada indica su dependencia concreta. No hace falta un tablero de Projects para empezar.
 - Prioridad: P0 impide jugar/corrompe reglas o estado; P1 necesaria para la fase actual; P2 mejora posterior.
 - Etiquetas opcionales: `tipo:funcionalidad`, `tipo:error`, `tipo:investigacion`, `tipo:documentacion`, `area:reglas`, `area:ui`, `area:red`. No se han creado ni se exigen en las plantillas.
-- Agrupar por hito de entrega E0–E6 si resulta útil; no se han creado hitos ni Projects.
+- Agrupar por [entrega E1–E6](../plan-de-trabajo.md#ruta-de-entregas-agrupadas-2026-11-23) si resulta útil; no se han creado hitos ni Projects.
 - Rama sugerida tras publicar issue: `feat/123-descripcion`, `fix/123-descripcion` o `docs/123-descripcion`.
 - Referenciar `Closes #123` en la PR únicamente cuando su integración satisfaga toda la issue.
 - No hacer commits, publicar issues/PR ni subir documentación por inferirlo de una tarea puramente documental; hacerlo cuando el trabajo encargado incluya esas acciones.

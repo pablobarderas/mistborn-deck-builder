@@ -1,5 +1,9 @@
 # Estado actual
 
+Publicación de T00.2 autorizada el 2026-11-23 mediante «haz commit y push». El commit que incorpora esta nota publica la ruta revisada; las menciones inferiores a trabajo local describen el cierre previo al permiso. No autoriza publicaciones futuras.
+
+T00.2 (2026-11-23): [plan de entregas agrupadas E1–E6](plan-de-trabajo.md#ruta-de-entregas-agrupadas-2026-11-23) para acelerar la llegada a partidas completas sin cambiar alcance ni controles. Siguiente objetivo E1: cotejar y conectar mazo inicial, personajes y pista en un ensayo integrado. La reorganización es documental; no añade juego, admite catálogo ni resuelve distribución o prueba externa de red. [Registro](specs/009-sistema-agentes/tasks.md#t002--entregas-agrupadas-hacia-una-partida-jugable).
+
 Publicación de T08.1b31 autorizada el 2026-11-23 mediante «haz commit y push». El commit que incorpora esta nota publica el inventario documental revisado; no admite el catálogo de producto ni autoriza publicaciones futuras. La referencia inferior a trabajo local describe el estado previo al permiso.
 
 T08.1b31 (2026-11-23): [inventario documental del competitivo completo](specs/008-preparacion-y-turnos/inventario-competitivo-final.md) para 2–4, con cantidades, rutas y lagunas de fidelidad, ejecución y distribución. El catálogo de mercado tiene 65 diseños localizados, sin cotejo individual de efectos; el producto sigue sin manifiesto admisible. Siguiente: registro y cotejo individual del mazo inicial, personajes y pista. [Evidencia](specs/008-preparacion-y-turnos/verification.md#t081b31--inventario-del-competitivo-completo). Trabajo local, sin commit/push.
