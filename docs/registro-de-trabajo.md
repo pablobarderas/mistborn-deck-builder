@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-24 — Confirmación humana de las ocho misiones
+
+El propietario confirmó por título la interpretación de M1–M8: premios de casillas, extras del primero y cimas. Se actualiza la memoria de fidelidad sin alterar datos, reglas, ejecución ni distribución. Sigue E3 con el mercado sin cotejo individual. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#confirmación-humana-de-misiones-m1m8--registro-previo).
+
 ## 2026-11-24 — Confirmación humana del lote E1
 
 El propietario confirmó la lectura de personajes, 16 Entrenamientos, niveles, Financiación y pista; solicitó la interpretación por título de las ocho misiones, todavía sin confirmar. Se cierra E1 solo en alcance de ensayo inicial; las 22 definiciones continúan en borrador y el producto conserva sus puertas de ejecución/distribución. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo).

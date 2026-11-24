@@ -1,6 +1,8 @@
 # Documentación del proyecto
 
-[Cotejo humano E1](specs/008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo): personajes, Entrenamientos, niveles, Financiación y pista confirmados; misiones pendientes de respuesta. El lote sigue en borrador para producto.
+[Misiones M1–M8 confirmadas](referencias/misiones-competitivas.md): el propietario cotejó por título casillas, extras y cimas; quedan integración de producto y distribución. El mercado sigue pendiente de revisión humana.
+
+[Cotejo humano E1](specs/008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo): personajes, Entrenamientos, niveles, Financiación y pista confirmados; las misiones se confirmaron después, por separado. El lote sigue en borrador para producto.
 
 [Inventario del mercado E3.1](specs/011-competitivo-completo/tasks.md): 65 diseños y 82 copias con fuentes locales comprobadas; pendiente de cotejo humano, ejecución y distribución.
 
@@ -10,9 +12,9 @@
 
 [Contenido inicial competitivo E1](specs/008-preparacion-y-turnos/contenido-inicial-competitivo.md): fuentes, 22 definiciones en borrador, ensayo de autoridad y cotejo humano del lote inicial; [evidencia](specs/008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo). No es un catálogo de producto.
 
-[Ruta E1–E6 hacia partidas completas](plan-de-trabajo.md#ruta-de-entregas-agrupadas-2026-11-23): E2 permite una partida local de ensayo; E3 es el siguiente objetivo funcional y las misiones aguardan cotejo humano. P00–P18 y sus criterios de cierre siguen vigentes.
+[Ruta E1–E6 hacia partidas completas](plan-de-trabajo.md#ruta-de-entregas-agrupadas-2026-11-23): E2 permite una partida local de ensayo; E3 es el siguiente objetivo funcional y el mercado aguarda cotejo humano. P00–P18 y sus criterios de cierre siguen vigentes.
 
-[Inventario del competitivo completo](specs/008-preparacion-y-turnos/inventario-competitivo-final.md): T08.1b31 censa componentes y lagunas de fidelidad, ejecución y distribución; el lote inicial ya tuvo cotejo humano, mientras las misiones y el mercado requieren revisión propia. No admite aún un catálogo de producto.
+[Inventario del competitivo completo](specs/008-preparacion-y-turnos/inventario-competitivo-final.md): T08.1b31 censa componentes y lagunas de fidelidad, ejecución y distribución; el lote inicial y las misiones tienen cotejo humano, mientras el mercado requiere revisión propia. No admite aún un catálogo de producto.
 
 [Procedencia y admisión del contenido final](specs/008-preparacion-y-turnos/admision-contenido-final.md): T08.1b30 define las evidencias por componente y las puertas separadas de fidelidad, ejecución y distribución antes de integrar un catálogo de producto. El ensayo b29 y Perseguir conservan su estado.
 

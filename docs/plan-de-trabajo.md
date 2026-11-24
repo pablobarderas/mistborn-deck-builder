@@ -2,7 +2,9 @@
 
 ## Ruta de entregas agrupadas (2026-11-23)
 
-Confirmación E1 (2026-11-24): cotejo humano del lote inicial completado; E1 cierra en alcance de ensayo, con datos aún en borrador y admisión/distribución pendientes. La revisión humana de las ocho misiones sigue abierta; se solicitó la explicación por título. [Evidencia](specs/008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo).
+Confirmación M1–M8 (2026-11-24): [ocho misiones cotejadas por el propietario](referencias/misiones-competitivas.md), con casillas, extras del primero y cimas. La revisión humana del mercado sigue pendiente; la admisión de producto requiere además ejecución completa y distribución por material. [Evidencia](specs/008-preparacion-y-turnos/verification.md#confirmación-humana-de-misiones-m1m8--registro-previo).
+
+Confirmación E1 (2026-11-24): cotejo humano del lote inicial completado; E1 cierra en alcance de ensayo, con datos aún en borrador y admisión/distribución pendientes. Las ocho misiones se confirmaron después, por separado. [Evidencia](specs/008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo).
 
 E3.1 (2026-11-24): [inventario del mercado](specs/011-competitivo-completo/tasks.md) completado y revisado, 65 diseños/82 copias, sin admisión ni cambios de juego. Siguiente dependencia: cotejo individual humano y registro completo de fidelidad/distribución; después integrar familias de efectos y recorridos 2–4. E3 permanece abierta.
 
@@ -23,7 +25,7 @@ La prioridad es llegar a partidas terminadas. P00–P18 siguen siendo criterios 
 | E5 — Lord Legislador y modos restantes | Rival, 36 cartas, escudos, Dominación y decisiones colectivas; escenarios terminados en solitario y cooperativo 2–4, también entre equipos para cooperativo. | Mantener diferencias de modo, victoria/derrota y pruebas propias. Se aborda después del competitivo según DEC-027 y no se elimina del alcance. |
 | E6 — versión para el grupo | Interfaz y acabado revisados en partidas reales, siete configuraciones probadas y exportación limpia con instrucciones. | Verificar distribución de material y una copia ejecutada por otra persona; corregir defectos que impidan jugar o alteren reglas. |
 
-E3 es el siguiente objetivo funcional; el lote E1 ya tiene cotejo humano, mientras las misiones esperan su revisión. Las entregas E3–E6 son hitos, no promesas de una sola sesión ni porcentajes de avance. Los lotes internos se abren solo cuando una dependencia o una revisión lo requiera, con aceptación observable y sin repetir documentación histórica. [Inventario y lagunas vigentes](specs/008-preparacion-y-turnos/inventario-competitivo-final.md).
+E3 es el siguiente objetivo funcional; el lote E1 y las misiones ya tienen cotejo humano, mientras el mercado espera el suyo. Las entregas E3–E6 son hitos, no promesas de una sola sesión ni porcentajes de avance. Los lotes internos se abren solo cuando una dependencia o una revisión lo requiera, con aceptación observable y sin repetir documentación histórica. [Inventario y lagunas vigentes](specs/008-preparacion-y-turnos/inventario-competitivo-final.md).
 
 Precisión de salida discreta (2026-11-15): completada con comprobación documental y revisión independiente favorables; siguiente objetivo del juego conservado. [Tarea](specs/009-sistema-agentes/tasks.md#salida-discreta-de-git-y-razonamientos).
 
