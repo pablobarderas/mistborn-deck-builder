@@ -2,11 +2,13 @@
 
 ## Ruta de entregas agrupadas (2026-11-23)
 
+Confirmación E1 (2026-11-24): cotejo humano del lote inicial completado; E1 cierra en alcance de ensayo, con datos aún en borrador y admisión/distribución pendientes. La revisión humana de las ocho misiones sigue abierta; se solicitó la explicación por título. [Evidencia](specs/008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo).
+
 E3.1 (2026-11-24): [inventario del mercado](specs/011-competitivo-completo/tasks.md) completado y revisado, 65 diseños/82 copias, sin admisión ni cambios de juego. Siguiente dependencia: cotejo individual humano y registro completo de fidelidad/distribución; después integrar familias de efectos y recorridos 2–4. E3 permanece abierta.
 
-Avance E1 (2026-11-24): registro de 22 borradores y ensayo de inicio/acciones iniciales verificados con fuentes locales; revisión independiente favorable y [evidencia](specs/008-preparacion-y-turnos/verification.md#e1--contenido-inicial-competitivo-y-ensayo-integrado). Cotejo humano de fidelidad pendiente; E1 sigue abierta y E2 usa un subconjunto de prueba sin atribuirle admisión al producto.
+Avance anterior E1 (2026-11-24): registro de 22 borradores y ensayo de inicio/acciones iniciales verificados con fuentes locales; revisión independiente favorable y [evidencia](specs/008-preparacion-y-turnos/verification.md#e1--contenido-inicial-competitivo-y-ensayo-integrado). El cotejo humano pendiente entonces se confirmó después, según la nota superior; E2 usa un subconjunto de prueba sin atribuirle admisión al producto.
 
-E2 (2026-11-24): primera partida local de ensayo completada con mercado ficticio, M5/M6/M7 y E1 solo en memoria; [verificación](specs/010-primera-partida-local/verification.md) y revisión independiente favorables. Siguiente entrega funcional E3, competitivo local completo; el cotejo humano E1 permanece pendiente y no se infiere admisión del contenido.
+E2 (2026-11-24): primera partida local de ensayo completada con mercado ficticio, M5/M6/M7 y E1 solo en memoria; [verificación](specs/010-primera-partida-local/verification.md) y revisión independiente favorables. Siguiente entrega funcional E3, competitivo local completo; el cotejo humano E1 se confirmó después y no se infiere admisión del contenido.
 
 Publicación de entregas: [AC-11/DEC-049](specs/009-sistema-agentes/tasks.md#ac-11--publicación-automática-al-completar-un-desarrollo) autoriza commit/push tras cierre satisfactorio; el trabajo parcial E1 de este paquete tiene autorización expresa. No altera las puertas de E3 ni la prioridad de sus fuentes.
 
@@ -21,7 +23,7 @@ La prioridad es llegar a partidas terminadas. P00–P18 siguen siendo criterios 
 | E5 — Lord Legislador y modos restantes | Rival, 36 cartas, escudos, Dominación y decisiones colectivas; escenarios terminados en solitario y cooperativo 2–4, también entre equipos para cooperativo. | Mantener diferencias de modo, victoria/derrota y pruebas propias. Se aborda después del competitivo según DEC-027 y no se elimina del alcance. |
 | E6 — versión para el grupo | Interfaz y acabado revisados en partidas reales, siete configuraciones probadas y exportación limpia con instrucciones. | Verificar distribución de material y una copia ejecutada por otra persona; corregir defectos que impidan jugar o alteren reglas. |
 
-E3 es el siguiente objetivo funcional; el cotejo humano E1 sigue abierto en paralelo. Las entregas E3–E6 son hitos, no promesas de una sola sesión ni porcentajes de avance. Los lotes internos se abren solo cuando una dependencia o una revisión lo requiera, con aceptación observable y sin repetir documentación histórica. [Inventario y lagunas vigentes](specs/008-preparacion-y-turnos/inventario-competitivo-final.md).
+E3 es el siguiente objetivo funcional; el lote E1 ya tiene cotejo humano, mientras las misiones esperan su revisión. Las entregas E3–E6 son hitos, no promesas de una sola sesión ni porcentajes de avance. Los lotes internos se abren solo cuando una dependencia o una revisión lo requiera, con aceptación observable y sin repetir documentación histórica. [Inventario y lagunas vigentes](specs/008-preparacion-y-turnos/inventario-competitivo-final.md).
 
 Precisión de salida discreta (2026-11-15): completada con comprobación documental y revisión independiente favorables; siguiente objetivo del juego conservado. [Tarea](specs/009-sistema-agentes/tasks.md#salida-discreta-de-git-y-razonamientos).
 

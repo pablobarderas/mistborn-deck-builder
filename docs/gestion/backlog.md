@@ -1,5 +1,7 @@
 # Backlog por fases
 
+- E1, cotejo humano confirmado el 2026-11-24 para personajes, 16 Entrenamientos, niveles, Financiación y pista; cierra solo el ensayo inicial. Datos en borrador, admisión/distribución pendientes. Las ocho misiones no están confirmadas por el usuario. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo).
+
 - E3.1, R2, [inventario trazable del mercado](../specs/011-competitivo-completo/tasks.md): 65 diseños/82 copias, nueve fuentes por huella, diez comprobaciones y revisión independiente favorables. Sin issue; no admite contenido ni cierra E3. [Evidencia y siguiente dependencia](../specs/011-competitivo-completo/verification.md).
 
 T08.1b31, R2 documental: [inventario competitivo completo](../specs/008-preparacion-y-turnos/inventario-competitivo-final.md), INV-01–04. Censa fuente, fidelidad, ejecución y distribución por grupo y remite las 65 filas de mercado a su auditoría. Siguiente: registrar y cotejar individualmente mazo inicial, personajes y pista. Sin issue ni publicación.
@@ -67,9 +69,9 @@ T08.1b19 R2 completada documentalmente, M2-DOC-01–04 y revisión independiente
 - Tipo: planificación de producto, R2. [Registro y aceptación](../specs/009-sistema-agentes/tasks.md#t002--entregas-agrupadas-hacia-una-partida-jugable). Issue: sin publicar.
 - [Ruta E1–E6](../plan-de-trabajo.md#ruta-de-entregas-agrupadas-2026-11-23): se mantienen P00–P18 como cobertura; cada entrega agrupa contrato, implementación, pruebas, revisión y correcciones. Siguiente E1: mazo inicial, personajes y pista, en ensayo integrado. Sin admisión ni distribución por inferencia.
 
-- E1 en curso: [fuentes, borradores y ensayo](../specs/008-preparacion-y-turnos/contenido-inicial-competitivo.md) de cuatro personajes, 16 Training, Financiación y pista; [pruebas y pendientes](../specs/008-preparacion-y-turnos/verification.md#e1--contenido-inicial-competitivo-y-ensayo-integrado). Revisión independiente favorable; fidelidad humana pendiente. E2 usa una variante solo en memoria. Publicación del trabajo parcial autorizada expresamente en el paquete presente; sin issue.
+- E1, estado anterior al cotejo humano: [fuentes, borradores y ensayo](../specs/008-preparacion-y-turnos/contenido-inicial-competitivo.md) de cuatro personajes, 16 Training, Financiación y pista; [pruebas](../specs/008-preparacion-y-turnos/verification.md#e1--contenido-inicial-competitivo-y-ensayo-integrado) y revisión técnica favorables. El propietario confirmó después la tabla; E2 conserva su variante solo en memoria. Publicación del trabajo parcial autorizada en el paquete anterior; sin issue.
 
-- E2 completada en alcance de ensayo local: [partida competitiva 2–4](../specs/010-primera-partida-local/spec.md), finales comprobados y [evidencia](../specs/010-primera-partida-local/verification.md) de autoridad, pantalla y revisión independiente. Mercado y parte del manifiesto de misiones son fixtures; E1 sigue pendiente de cotejo humano. Publicación autorizada en este paquete, sin issue. Siguiente E3: mercado y reglas competitivas completas.
+- E2 completada en alcance de ensayo local: [partida competitiva 2–4](../specs/010-primera-partida-local/spec.md), finales comprobados y [evidencia](../specs/010-primera-partida-local/verification.md) de autoridad, pantalla y revisión independiente. Mercado y parte del manifiesto de misiones son fixtures; el cotejo E1 se confirmó después. Publicación autorizada en ese paquete, sin issue. Siguiente E3: mercado y reglas competitivas completas.
 
 ### T00.1 — Sistema transversal de agentes SDD
 

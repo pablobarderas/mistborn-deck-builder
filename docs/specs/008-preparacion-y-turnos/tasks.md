@@ -8,7 +8,7 @@ Aceptación E1-01: registro por componente con fuente/localizador/huella, cantid
 
 Segundo encargo del mismo objetivo: coordinador propietario de `scripts/catalog/initial_competitive_bindings.gd`, `data/inicio_competitivo.json`, `tests/initial_content_catalog_test.gd`, `tools/godot.ps1` y Markdown; `sdd_developer` Sol/high propietario de nuevos `scripts/game/initial_competitive_play.gd` y `tests/initial_competitive_play_test.gd`, con Godot reservado al implementador durante su ensayo. Contrato de autoridad y casos en [contenido-inicial-competitivo.md](contenido-inicial-competitivo.md#ensayo-de-ejecución-e1); perfil de prueba sin promoción de datos ni contenido ficticio al producto. El coordinador integra, valida pruebas afectadas y encarga revisión independiente del diff final.
 
-Estado: implementación de ensayo y revisión técnica favorables; E1 permanece abierta por cotejo humano de fidelidad de los 22 componentes. [Evidencia y traspaso](verification.md#e1--contenido-inicial-competitivo-y-ensayo-integrado). E2 puede avanzar en paralelo con un subconjunto declarado; sin permiso de publicación E1.
+Estado de esta nota anterior: implementación de ensayo y revisión técnica favorables; entonces E1 permanecía abierta por cotejo humano. El propietario confirmó después el lote inicial el 2026-11-24. [Evidencia y traspaso actualizado](verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo). E2 usa un subconjunto declarado; E1 se publicó junto con E2 por autorización posterior.
 
 ## T08.1b31 — Inventario del perfil competitivo completo (registro previo)
 

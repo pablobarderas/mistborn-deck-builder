@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-24 — Confirmación humana del lote E1
+
+El propietario confirmó la lectura de personajes, 16 Entrenamientos, niveles, Financiación y pista; solicitó la interpretación por título de las ocho misiones, todavía sin confirmar. Se cierra E1 solo en alcance de ensayo inicial; las 22 definiciones continúan en borrador y el producto conserva sus puertas de ejecución/distribución. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo).
+
 ## 2026-11-24 — E3.1, inventario de mercado
 
 Se registraron 65 diseños/82 copias y nueve huellas locales en un inventario no admitido, con IDs por localizador. Constructor y diez comprobaciones correctos; revisión independiente favorable tras corregir tipos JSON e IDs dependientes del orden. E3 continúa abierta por cotejo humano, ejecución y distribución. [Traspaso](specs/011-competitivo-completo/verification.md).

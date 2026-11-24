@@ -21,7 +21,7 @@ Especificaciones actuales:
 - [006 — Contrato del catálogo](006-contrato-catalogo/spec.md): completada en contrato inicial; fuentes/revisión, gramática, migración y validación. Ninguna carta oficial verificada aún.
 
 - [007 — Estado y acciones](007-estado-y-acciones/spec.md): T07.1/2 verificadas localmente (1.725 + 102 comprobaciones); cierre P07 pendiente de P04 externa.
-- [008 — Preparación y turnos](008-preparacion-y-turnos/spec.md): servicios de preparación, cartas iniciales y misiones ensayados; [E1](008-preparacion-y-turnos/contenido-inicial-competitivo.md) sigue abierta por cotejo humano y el perfil final completo permanece pendiente.
+- [008 — Preparación y turnos](008-preparacion-y-turnos/spec.md): servicios de preparación, cartas iniciales y misiones ensayados; [E1](008-preparacion-y-turnos/contenido-inicial-competitivo.md) tiene cotejo humano del lote inicial y cierra solo como ensayo, mientras el perfil final y las misiones siguen pendientes.
 - [009 — Sistema de agentes SDD](009-sistema-agentes/spec.md): mejora transversal P00 y [AC-11 de publicación al cierre](009-sistema-agentes/tasks.md#ac-11--publicación-automática-al-completar-un-desarrollo) documentadas con revisión independiente; carga nativa automática no acreditada.
 - [010 — Primera partida competitiva local](010-primera-partida-local/spec.md): E2 completada como ensayo 2–4 con fixture, reglas y pantalla verificadas; [límites y evidencia](010-primera-partida-local/verification.md). No admite catálogo final ni red.
 - [011 — Competitivo completo](011-competitivo-completo/tasks.md): E3.1 registra el mercado completo por fuente y localizador; E3 sigue abierta por fidelidad, efectos y distribución.

@@ -1,5 +1,7 @@
 # Misiones de la edición española
 
+El 2026-11-24 se presentó al propietario la lectura del contenido inicial competitivo, que confirmó. Solicitó aparte la explicación de las ocho misiones por título; **todavía no ha confirmado esta tabla de misiones**. El cotejo documental de SRC-005 descrito abajo no se atribuye a esa confirmación humana.
+
 Borrador documental de T08.1b8. Se han cotejado los ocho diseños de SRC-005, una copia física por diseño. Los códigos M1–M8 son los impresos en las cartas. Las hojas originales y sus huellas están identificadas en [SRC-005](README.md#src-005--escaneos-españoles-de-personajes-misiones-y-mercado).
 
 ## Recorridos y recompensas

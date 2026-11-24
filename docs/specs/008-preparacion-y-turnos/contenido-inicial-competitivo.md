@@ -1,5 +1,7 @@
 # E1 — Mazo inicial, personajes y pista
 
+Cotejo humano del 2026-11-24: el propietario confirmó la tabla presentada de cuatro personajes, 16 Entrenamientos, habilidades de nivel I/II/III, Financiación con sus 24 copias/seis por mazo y premios de la pista. No señaló discrepancias. La confirmación se limita a este lote inicial; **las ocho misiones no quedaron confirmadas**. La ejecución y distribución del producto conservan sus puertas independientes, y el JSON de autoría sigue en borrador.
+
 Registro de autoría para el ensayo competitivo. Los originales SRC-004/005 están en `C:/Users/pbard/Pictures/Digitalizaciones/cartas_personajes` y permanecen fuera de Git y del paquete. La lectura visual se contrasta con [SRC-001](../../referencias/README.md#src-001--reglamento-aportado-por-el-usuario), pp. 5, 7, 10–13 y 17, y [SRC-002](https://www.brotherwisegames.com/mistborn-deckbuilding-game-faq), secciones Errata, Player abilities & allies y Miscellaneous. La huella acredita el fichero, no la corrección de cada icono. Los identificadores son propuestos como estables para el lote; no son títulos editoriales.
 
 ## Fuentes locales y admisión

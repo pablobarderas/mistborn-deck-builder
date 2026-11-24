@@ -1,16 +1,18 @@
 # Documentación del proyecto
 
+[Cotejo humano E1](specs/008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo): personajes, Entrenamientos, niveles, Financiación y pista confirmados; misiones pendientes de respuesta. El lote sigue en borrador para producto.
+
 [Inventario del mercado E3.1](specs/011-competitivo-completo/tasks.md): 65 diseños y 82 copias con fuentes locales comprobadas; pendiente de cotejo humano, ejecución y distribución.
 
 [Publicación al cierre satisfactorio](gestion/agentes-sdd.md#publicación-al-cierre-satisfactorio): autorización permanente de commit/push para entregas verificadas, sin alterar las puertas de calidad ni admitir contenido final por inferencia.
 
 [Primera partida competitiva local E2](specs/010-primera-partida-local/spec.md): ensayo jugable de 2–4 plazas con mercado ficticio, M5/M6/M7 y E1 promovida solo en memoria. [Pruebas, revisiones y límites](specs/010-primera-partida-local/verification.md). No acredita catálogo final ni red.
 
-[Contenido inicial competitivo E1](specs/008-preparacion-y-turnos/contenido-inicial-competitivo.md): fuentes, 22 definiciones en borrador y ensayo de autoridad; [evidencia](specs/008-preparacion-y-turnos/verification.md#e1--contenido-inicial-competitivo-y-ensayo-integrado). No es un catálogo de producto.
+[Contenido inicial competitivo E1](specs/008-preparacion-y-turnos/contenido-inicial-competitivo.md): fuentes, 22 definiciones en borrador, ensayo de autoridad y cotejo humano del lote inicial; [evidencia](specs/008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo). No es un catálogo de producto.
 
-[Ruta E1–E6 hacia partidas completas](plan-de-trabajo.md#ruta-de-entregas-agrupadas-2026-11-23): E2 ya permite una partida local de ensayo; E3 es el siguiente objetivo funcional y E1 conserva el cotejo humano pendiente. P00–P18 y sus criterios de cierre siguen vigentes.
+[Ruta E1–E6 hacia partidas completas](plan-de-trabajo.md#ruta-de-entregas-agrupadas-2026-11-23): E2 permite una partida local de ensayo; E3 es el siguiente objetivo funcional y las misiones aguardan cotejo humano. P00–P18 y sus criterios de cierre siguen vigentes.
 
-[Inventario del competitivo completo](specs/008-preparacion-y-turnos/inventario-competitivo-final.md): T08.1b31 censa componentes y lagunas de fidelidad, ejecución y distribución; el siguiente lote es el cotejo individual de personajes, mazo inicial y pista. No admite aún un catálogo de producto.
+[Inventario del competitivo completo](specs/008-preparacion-y-turnos/inventario-competitivo-final.md): T08.1b31 censa componentes y lagunas de fidelidad, ejecución y distribución; el lote inicial ya tuvo cotejo humano, mientras las misiones y el mercado requieren revisión propia. No admite aún un catálogo de producto.
 
 [Procedencia y admisión del contenido final](specs/008-preparacion-y-turnos/admision-contenido-final.md): T08.1b30 define las evidencias por componente y las puertas separadas de fidelidad, ejecución y distribución antes de integrar un catálogo de producto. El ensayo b29 y Perseguir conservan su estado.
 
