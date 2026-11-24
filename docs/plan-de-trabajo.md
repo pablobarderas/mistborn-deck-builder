@@ -2,6 +2,8 @@
 
 ## Ruta de entregas agrupadas (2026-11-23)
 
+E3.1 (2026-11-24): [inventario del mercado](specs/011-competitivo-completo/tasks.md) completado y revisado, 65 diseños/82 copias, sin admisión ni cambios de juego. Siguiente dependencia: cotejo individual humano y registro completo de fidelidad/distribución; después integrar familias de efectos y recorridos 2–4. E3 permanece abierta.
+
 Avance E1 (2026-11-24): registro de 22 borradores y ensayo de inicio/acciones iniciales verificados con fuentes locales; revisión independiente favorable y [evidencia](specs/008-preparacion-y-turnos/verification.md#e1--contenido-inicial-competitivo-y-ensayo-integrado). Cotejo humano de fidelidad pendiente; E1 sigue abierta y E2 usa un subconjunto de prueba sin atribuirle admisión al producto.
 
 E2 (2026-11-24): primera partida local de ensayo completada con mercado ficticio, M5/M6/M7 y E1 solo en memoria; [verificación](specs/010-primera-partida-local/verification.md) y revisión independiente favorables. Siguiente entrega funcional E3, competitivo local completo; el cotejo humano E1 permanece pendiente y no se infiere admisión del contenido.

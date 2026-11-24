@@ -24,5 +24,6 @@ Especificaciones actuales:
 - [008 — Preparación y turnos](008-preparacion-y-turnos/spec.md): servicios de preparación, cartas iniciales y misiones ensayados; [E1](008-preparacion-y-turnos/contenido-inicial-competitivo.md) sigue abierta por cotejo humano y el perfil final completo permanece pendiente.
 - [009 — Sistema de agentes SDD](009-sistema-agentes/spec.md): mejora transversal P00 y [AC-11 de publicación al cierre](009-sistema-agentes/tasks.md#ac-11--publicación-automática-al-completar-un-desarrollo) documentadas con revisión independiente; carga nativa automática no acreditada.
 - [010 — Primera partida competitiva local](010-primera-partida-local/spec.md): E2 completada como ensayo 2–4 con fixture, reglas y pantalla verificadas; [límites y evidencia](010-primera-partida-local/verification.md). No admite catálogo final ni red.
+- [011 — Competitivo completo](011-competitivo-completo/tasks.md): E3.1 registra el mercado completo por fuente y localizador; E3 sigue abierta por fidelidad, efectos y distribución.
 
 No hay Spec Kit instalado. La estructura es propia y sigue el [flujo SDD ligero](../gestion/desarrollo.md).

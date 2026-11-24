@@ -1,5 +1,7 @@
 # Documentación del proyecto
 
+[Inventario del mercado E3.1](specs/011-competitivo-completo/tasks.md): 65 diseños y 82 copias con fuentes locales comprobadas; pendiente de cotejo humano, ejecución y distribución.
+
 [Publicación al cierre satisfactorio](gestion/agentes-sdd.md#publicación-al-cierre-satisfactorio): autorización permanente de commit/push para entregas verificadas, sin alterar las puertas de calidad ni admitir contenido final por inferencia.
 
 [Primera partida competitiva local E2](specs/010-primera-partida-local/spec.md): ensayo jugable de 2–4 plazas con mercado ficticio, M5/M6/M7 y E1 promovida solo en memoria. [Pruebas, revisiones y límites](specs/010-primera-partida-local/verification.md). No acredita catálogo final ni red.

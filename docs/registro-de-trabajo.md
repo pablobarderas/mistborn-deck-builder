@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-24 — E3.1, inventario de mercado
+
+Se registraron 65 diseños/82 copias y nueve huellas locales en un inventario no admitido, con IDs por localizador. Constructor y diez comprobaciones correctos; revisión independiente favorable tras corregir tipos JSON e IDs dependientes del orden. E3 continúa abierta por cotejo humano, ejecución y distribución. [Traspaso](specs/011-competitivo-completo/verification.md).
+
 ## 2026-11-24 — Publicación de E1/E2 y regla permanente
 
 El usuario autorizó commit/push del trabajo local E1/E2 y estableció publicación automática al terminar satisfactoriamente futuras entregas de desarrollo del repositorio. [AC-11 y evidencia](specs/009-sistema-agentes/tasks.md#ac-11--publicación-automática-al-completar-un-desarrollo); DEC-049, AGENTS y política SDD alineados. E1 sigue abierta por cotejo humano; E2 cerró como ensayo. El commit que incluye esta entrada publica el paquete; verificar la referencia remota. Siguiente E3, con el pendiente E1 conservado.

@@ -1,5 +1,7 @@
 # Backlog por fases
 
+- E3.1, R2, [inventario trazable del mercado](../specs/011-competitivo-completo/tasks.md): 65 diseños/82 copias, nueve fuentes por huella, diez comprobaciones y revisión independiente favorables. Sin issue; no admite contenido ni cierra E3. [Evidencia y siguiente dependencia](../specs/011-competitivo-completo/verification.md).
+
 T08.1b31, R2 documental: [inventario competitivo completo](../specs/008-preparacion-y-turnos/inventario-competitivo-final.md), INV-01–04. Censa fuente, fidelidad, ejecución y distribución por grupo y remite las 65 filas de mercado a su auditoría. Siguiente: registrar y cotejar individualmente mazo inicial, personajes y pista. Sin issue ni publicación.
 
 T08.1b30, R2 documental: [contrato de procedencia/admisión del contenido final](../specs/008-preparacion-y-turnos/admision-contenido-final.md), ADM-DOC-01–05. Siguiente: inventario completo del perfil competitivo con puertas por componente; sin issue publicada ni cambio del ensayo. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#t081b30--procedencia-y-admisión-del-contenido-final).

@@ -1,5 +1,12 @@
 # Registro de decisiones
 
+## DEC-050 — Identidad del inventario del mercado
+
+- Fecha: 2026-11-24. Estado: decisión técnica de E3.1, revisada favorablemente.
+- Contexto: la auditoría identifica 65 diseños por hoja, fila y posición; el orden de sus filas puede cambiar sin cambiar las cartas físicas.
+- Decisión: asignar el ID de inventario desde ese localizador, conservar las nueve huellas y guardar el registro de autoría fuera de `data/`, con fidelidad, ejecución y distribución pendientes. No usar una secuencia ordinal del documento ni conectar el inventario al runtime por inferencia.
+- Consecuencias: un cambio de original, localizador o cantidad exige nuevo cotejo; la huella no acredita fidelidad ni permiso. [Evidencia](specs/011-competitivo-completo/verification.md).
+
 Usar IDs estables. Para cada decisión indicar fecha, estado, contexto, elección y consecuencias. No convertir una propuesta técnica en una preferencia del usuario. Cuando una decisión cambie, marcarla como sustituida y enlazar su reemplazo.
 
 ## DEC-001 — Godot y GDScript

@@ -1,5 +1,7 @@
 # Estado actual
 
+E3.1 (2026-11-24): [inventario trazable del mercado](specs/011-competitivo-completo/mercado-inventario.json) con 65 diseños, 82 copias y nueve huellas de originales locales; diez comprobaciones y revisión independiente favorables. IDs por localizador físico, sin escaneos en Git. Fidelidad humana, efectos y distribución siguen pendientes; E3 no tiene catálogo jugable. [Evidencia y siguiente paso](specs/011-competitivo-completo/verification.md).
+
 Publicación de E1/E2 y DEC-049 autorizada el 2026-11-24 mediante «haz commit y push» junto con la regla permanente de publicar al terminar satisfactoriamente. El commit que incorpora esta nota publica el ensayo y el cambio metodológico; E1 sigue abierta por fidelidad humana. Esta autorización permanente se limita a los cierres satisfactorios futuros y al paquete presente expresamente pedido.
 
 E2 (2026-11-24), completada en alcance de **ensayo competitivo local**: partidas de 2–4 en pantalla, preparación, compra, cartas iniciales, Boxings, metales, M5/M6/M7, combate/Target, limpieza y final. Dos finales de 2 plazas y rutas Target 3/4 verificados; **4078 comprobaciones** de autoridad, **53** de interfaz con diez capturas, seis regresiones dirigidas y dictámenes independientes técnico/visual favorables. [Evidencia y límites](specs/010-primera-partida-local/verification.md). Mercado ficticio y E1 promovida solo en memoria; no es catálogo final ni juego remoto. Siguiente E3: competitivo local completo, manteniendo el cotejo humano E1 pendiente.
