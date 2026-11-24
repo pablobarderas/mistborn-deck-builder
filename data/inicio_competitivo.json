@@ -1,0 +1,1661 @@
+{
+  "version_esquema": 5,
+  "id_catalogo": "inicio_competitivo_es_borrador",
+  "idioma": "es",
+  "fuentes": [
+    {
+      "id": "src_005_personajes",
+      "tipo": "carta_fisica",
+      "descripcion": "Fuente física española SRC-004/005: src_005/personajes.png",
+      "ruta": "res://evidencia_local/src_005/personajes.png",
+      "url": null,
+      "sha256": "db0356c5fc95d1bf0178ff0ddf2d240ec87dbf24e4b38e34cf5c3bb95c96c952"
+    },
+    {
+      "id": "src_004_kelsier",
+      "tipo": "carta_fisica",
+      "descripcion": "Fuente física española SRC-004/005: src_004/entrenamiento_kelsier.png",
+      "ruta": "res://evidencia_local/src_004/entrenamiento_kelsier.png",
+      "url": null,
+      "sha256": "2054e91a48e8c59692e971d284bb84930ca83d972fc1071678cee566819e3f4b"
+    },
+    {
+      "id": "src_004_marsh",
+      "tipo": "carta_fisica",
+      "descripcion": "Fuente física española SRC-004/005: src_004/entrenamiento_marsh.png",
+      "ruta": "res://evidencia_local/src_004/entrenamiento_marsh.png",
+      "url": null,
+      "sha256": "7000ec32f416bcf4444a5bd56293e7bb509c54cab0f4d497327df8f631985d1b"
+    },
+    {
+      "id": "src_004_shan",
+      "tipo": "carta_fisica",
+      "descripcion": "Fuente física española SRC-004/005: src_004/entrenamiento_shan.png",
+      "ruta": "res://evidencia_local/src_004/entrenamiento_shan.png",
+      "url": null,
+      "sha256": "2176decdd2842a1da701969ece93993dceef3acb5c87dfcccaf7d971b2342bd6"
+    },
+    {
+      "id": "src_004_vin",
+      "tipo": "carta_fisica",
+      "descripcion": "Fuente física española SRC-004/005: src_004/entrenamiento_monedas.png",
+      "ruta": "res://evidencia_local/src_004/entrenamiento_monedas.png",
+      "url": null,
+      "sha256": "edb5d4838bad62a3779bf4c36553c413df050ceb05b6ae3dc6c1205fe7d2cb01"
+    },
+    {
+      "id": "src_004_panel",
+      "tipo": "carta_fisica",
+      "descripcion": "Fuente física española SRC-004/005: src_004/panel_niveles.png",
+      "ruta": "res://evidencia_local/src_004/panel_niveles.png",
+      "url": null,
+      "sha256": "c4ff1de62cf9a7a9283f1e4b24b232e44d071a7ad8c8de92980e51ab917eaced"
+    }
+  ],
+  "cartas": [
+    {
+      "id": "kelsier_estano",
+      "nombre": "Entrenamiento de estano",
+      "tipo": "entrenamiento",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Iconos: 2 mision.",
+      "resumen": {
+        "recurso": 0,
+        "ataque": 0
+      },
+      "metales": [
+        "peltre",
+        "estano"
+      ],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_kelsier",
+          "localizador": "fila 1, propietario kelsier"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "kelsier"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "primaria",
+          "momento": "al_jugar",
+          "condicion": {
+            "op": "metal_asignado",
+            "metales": [
+              "estano"
+            ]
+          },
+          "limite_por_turno": null,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "mision",
+              "cantidad": 2,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kelsier_cobre",
+      "nombre": "Entrenamiento de cobre",
+      "tipo": "entrenamiento",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Iconos: 2 ataque, 1 recursos.",
+      "resumen": {
+        "recurso": 1,
+        "ataque": 2
+      },
+      "metales": [
+        "bronce",
+        "cobre"
+      ],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_kelsier",
+          "localizador": "fila 2, propietario kelsier"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "kelsier"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "primaria",
+          "momento": "al_jugar",
+          "condicion": {
+            "op": "metal_asignado",
+            "metales": [
+              "cobre"
+            ]
+          },
+          "limite_por_turno": null,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "ataque",
+              "cantidad": 2,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "recursos",
+              "cantidad": 1,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kelsier_cinc",
+      "nombre": "Entrenamiento de cinc",
+      "tipo": "entrenamiento",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Iconos: 1 mision, 1 recursos.",
+      "resumen": {
+        "recurso": 1,
+        "ataque": 0
+      },
+      "metales": [
+        "zinc",
+        "laton"
+      ],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_kelsier",
+          "localizador": "fila 3, propietario kelsier"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "kelsier"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "primaria",
+          "momento": "al_jugar",
+          "condicion": {
+            "op": "metal_asignado",
+            "metales": [
+              "zinc"
+            ]
+          },
+          "limite_por_turno": null,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "mision",
+              "cantidad": 1,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "recursos",
+              "cantidad": 1,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kelsier_acero",
+      "nombre": "Entrenamiento de acero",
+      "tipo": "entrenamiento",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Iconos: 2 ataque, 1 recursos.",
+      "resumen": {
+        "recurso": 1,
+        "ataque": 2
+      },
+      "metales": [
+        "hierro",
+        "acero"
+      ],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_kelsier",
+          "localizador": "fila 4, propietario kelsier"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "kelsier"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "primaria",
+          "momento": "al_jugar",
+          "condicion": {
+            "op": "metal_asignado",
+            "metales": [
+              "acero"
+            ]
+          },
+          "limite_por_turno": null,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "ataque",
+              "cantidad": 2,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "recursos",
+              "cantidad": 1,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marsh_bronce",
+      "nombre": "Entrenamiento de bronce",
+      "tipo": "entrenamiento",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Iconos: 2 mision.",
+      "resumen": {
+        "recurso": 0,
+        "ataque": 0
+      },
+      "metales": [
+        "bronce",
+        "cobre"
+      ],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_marsh",
+          "localizador": "fila 1, propietario marsh"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "marsh"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "primaria",
+          "momento": "al_jugar",
+          "condicion": {
+            "op": "metal_asignado",
+            "metales": [
+              "bronce"
+            ]
+          },
+          "limite_por_turno": null,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "mision",
+              "cantidad": 2,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marsh_hierro",
+      "nombre": "Entrenamiento de hierro",
+      "tipo": "entrenamiento",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Iconos: 2 ataque, 1 recursos.",
+      "resumen": {
+        "recurso": 1,
+        "ataque": 2
+      },
+      "metales": [
+        "hierro",
+        "acero"
+      ],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_marsh",
+          "localizador": "fila 2, propietario marsh"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "marsh"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "primaria",
+          "momento": "al_jugar",
+          "condicion": {
+            "op": "metal_asignado",
+            "metales": [
+              "hierro"
+            ]
+          },
+          "limite_por_turno": null,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "ataque",
+              "cantidad": 2,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "recursos",
+              "cantidad": 1,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marsh_peltre",
+      "nombre": "Entrenamiento de peltre",
+      "tipo": "entrenamiento",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Iconos: 2 ataque, 1 recursos.",
+      "resumen": {
+        "recurso": 1,
+        "ataque": 2
+      },
+      "metales": [
+        "peltre",
+        "estano"
+      ],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_marsh",
+          "localizador": "fila 3, propietario marsh"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "marsh"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "primaria",
+          "momento": "al_jugar",
+          "condicion": {
+            "op": "metal_asignado",
+            "metales": [
+              "peltre"
+            ]
+          },
+          "limite_por_turno": null,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "ataque",
+              "cantidad": 2,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "recursos",
+              "cantidad": 1,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marsh_laton",
+      "nombre": "Entrenamiento de laton",
+      "tipo": "entrenamiento",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Iconos: 1 mision, 1 recursos.",
+      "resumen": {
+        "recurso": 1,
+        "ataque": 0
+      },
+      "metales": [
+        "zinc",
+        "laton"
+      ],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_marsh",
+          "localizador": "fila 4, propietario marsh"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "marsh"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "primaria",
+          "momento": "al_jugar",
+          "condicion": {
+            "op": "metal_asignado",
+            "metales": [
+              "laton"
+            ]
+          },
+          "limite_por_turno": null,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "mision",
+              "cantidad": 1,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "recursos",
+              "cantidad": 1,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shan_cinc",
+      "nombre": "Entrenamiento de cinc",
+      "tipo": "entrenamiento",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Iconos: 1 mision, 1 recursos.",
+      "resumen": {
+        "recurso": 1,
+        "ataque": 0
+      },
+      "metales": [
+        "zinc",
+        "laton"
+      ],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_shan",
+          "localizador": "fila 1, propietario shan"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "shan"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "primaria",
+          "momento": "al_jugar",
+          "condicion": {
+            "op": "metal_asignado",
+            "metales": [
+              "zinc"
+            ]
+          },
+          "limite_por_turno": null,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "mision",
+              "cantidad": 1,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "recursos",
+              "cantidad": 1,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shan_estano",
+      "nombre": "Entrenamiento de estano",
+      "tipo": "entrenamiento",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Iconos: 2 mision.",
+      "resumen": {
+        "recurso": 0,
+        "ataque": 0
+      },
+      "metales": [
+        "peltre",
+        "estano"
+      ],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_shan",
+          "localizador": "fila 2, propietario shan"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "shan"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "primaria",
+          "momento": "al_jugar",
+          "condicion": {
+            "op": "metal_asignado",
+            "metales": [
+              "estano"
+            ]
+          },
+          "limite_por_turno": null,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "mision",
+              "cantidad": 2,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shan_cobre",
+      "nombre": "Entrenamiento de cobre",
+      "tipo": "entrenamiento",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Iconos: 2 ataque, 1 recursos.",
+      "resumen": {
+        "recurso": 1,
+        "ataque": 2
+      },
+      "metales": [
+        "bronce",
+        "cobre"
+      ],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_shan",
+          "localizador": "fila 3, propietario shan"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "shan"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "primaria",
+          "momento": "al_jugar",
+          "condicion": {
+            "op": "metal_asignado",
+            "metales": [
+              "cobre"
+            ]
+          },
+          "limite_por_turno": null,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "ataque",
+              "cantidad": 2,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "recursos",
+              "cantidad": 1,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shan_acero",
+      "nombre": "Entrenamiento de acero",
+      "tipo": "entrenamiento",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Iconos: 2 ataque, 1 recursos.",
+      "resumen": {
+        "recurso": 1,
+        "ataque": 2
+      },
+      "metales": [
+        "hierro",
+        "acero"
+      ],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_shan",
+          "localizador": "fila 4, propietario shan"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "shan"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "primaria",
+          "momento": "al_jugar",
+          "condicion": {
+            "op": "metal_asignado",
+            "metales": [
+              "acero"
+            ]
+          },
+          "limite_por_turno": null,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "ataque",
+              "cantidad": 2,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "recursos",
+              "cantidad": 1,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vin_bronce",
+      "nombre": "Entrenamiento de bronce",
+      "tipo": "entrenamiento",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Iconos: 2 mision.",
+      "resumen": {
+        "recurso": 0,
+        "ataque": 0
+      },
+      "metales": [
+        "bronce",
+        "cobre"
+      ],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_vin",
+          "localizador": "fila 1, propietario vin"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "vin"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "primaria",
+          "momento": "al_jugar",
+          "condicion": {
+            "op": "metal_asignado",
+            "metales": [
+              "bronce"
+            ]
+          },
+          "limite_por_turno": null,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "mision",
+              "cantidad": 2,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vin_hierro",
+      "nombre": "Entrenamiento de hierro",
+      "tipo": "entrenamiento",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Iconos: 2 ataque, 1 recursos.",
+      "resumen": {
+        "recurso": 1,
+        "ataque": 2
+      },
+      "metales": [
+        "hierro",
+        "acero"
+      ],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_vin",
+          "localizador": "fila 2, propietario vin"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "vin"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "primaria",
+          "momento": "al_jugar",
+          "condicion": {
+            "op": "metal_asignado",
+            "metales": [
+              "hierro"
+            ]
+          },
+          "limite_por_turno": null,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "ataque",
+              "cantidad": 2,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "recursos",
+              "cantidad": 1,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vin_laton",
+      "nombre": "Entrenamiento de laton",
+      "tipo": "entrenamiento",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Iconos: 1 mision, 1 recursos.",
+      "resumen": {
+        "recurso": 1,
+        "ataque": 0
+      },
+      "metales": [
+        "zinc",
+        "laton"
+      ],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_vin",
+          "localizador": "fila 3, propietario vin"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "vin"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "primaria",
+          "momento": "al_jugar",
+          "condicion": {
+            "op": "metal_asignado",
+            "metales": [
+              "laton"
+            ]
+          },
+          "limite_por_turno": null,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "mision",
+              "cantidad": 1,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "recursos",
+              "cantidad": 1,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vin_peltre",
+      "nombre": "Entrenamiento de peltre",
+      "tipo": "entrenamiento",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Iconos: 2 ataque, 1 recursos.",
+      "resumen": {
+        "recurso": 1,
+        "ataque": 2
+      },
+      "metales": [
+        "peltre",
+        "estano"
+      ],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_vin",
+          "localizador": "fila 4, propietario vin"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "vin"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "primaria",
+          "momento": "al_jugar",
+          "condicion": {
+            "op": "metal_asignado",
+            "metales": [
+              "peltre"
+            ]
+          },
+          "limite_por_turno": null,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "ataque",
+              "cantidad": 2,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "recursos",
+              "cantidad": 1,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kelsier",
+      "nombre": "Kelsier",
+      "tipo": "personaje",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Nivel I: 2 ataque. Nivel II: activar primaria al comprar y eliminar. Nivel III: 3 combate y 3 misión con Atium.",
+      "resumen": {
+        "recurso": 0,
+        "ataque": 0
+      },
+      "metales": [],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_005_personajes",
+          "localizador": "superior izquierda"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "kelsier_estano",
+        "kelsier_cobre",
+        "kelsier_cinc",
+        "kelsier_acero"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "nivel_i",
+          "momento": "metal_quemado",
+          "condicion": {
+            "op": "metales_quemados",
+            "metales": [
+              "acero"
+            ]
+          },
+          "limite_por_turno": 1,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "ataque",
+              "cantidad": 2,
+              "objetivo": "propio"
+            }
+          ]
+        },
+        {
+          "id": "nivel_ii",
+          "momento": "al_comprar",
+          "condicion": {
+            "op": "pendiente",
+            "nota": "Contrato y resolutor de compra en E2"
+          },
+          "limite_por_turno": 1,
+          "efectos": [
+            {
+              "op": "pendiente",
+              "nota": "Activar primaria y eliminar tras compra real en E2"
+            }
+          ]
+        },
+        {
+          "id": "nivel_iii",
+          "momento": "metal_quemado",
+          "condicion": {
+            "op": "metales_quemados",
+            "metales": [
+              "atium"
+            ]
+          },
+          "limite_por_turno": 1,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "ataque",
+              "cantidad": 3,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "mision",
+              "cantidad": 3,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marsh",
+      "nombre": "Marsh",
+      "tipo": "personaje",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Nivel I: 1 mision. Nivel II: activar primaria al comprar y eliminar. Nivel III: 3 combate y 3 misión con Atium.",
+      "resumen": {
+        "recurso": 0,
+        "ataque": 0
+      },
+      "metales": [],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_005_personajes",
+          "localizador": "inferior derecha"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "marsh_bronce",
+        "marsh_hierro",
+        "marsh_peltre",
+        "marsh_laton"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "nivel_i",
+          "momento": "metal_quemado",
+          "condicion": {
+            "op": "metales_quemados",
+            "metales": [
+              "bronce"
+            ]
+          },
+          "limite_por_turno": 1,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "mision",
+              "cantidad": 1,
+              "objetivo": "propio"
+            }
+          ]
+        },
+        {
+          "id": "nivel_ii",
+          "momento": "al_comprar",
+          "condicion": {
+            "op": "pendiente",
+            "nota": "Contrato y resolutor de compra en E2"
+          },
+          "limite_por_turno": 1,
+          "efectos": [
+            {
+              "op": "pendiente",
+              "nota": "Activar primaria y eliminar tras compra real en E2"
+            }
+          ]
+        },
+        {
+          "id": "nivel_iii",
+          "momento": "metal_quemado",
+          "condicion": {
+            "op": "metales_quemados",
+            "metales": [
+              "atium"
+            ]
+          },
+          "limite_por_turno": 1,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "ataque",
+              "cantidad": 3,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "mision",
+              "cantidad": 3,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shan",
+      "nombre": "Shan",
+      "tipo": "personaje",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Nivel I: 2 recursos. Nivel II: activar primaria al comprar y eliminar. Nivel III: 3 combate y 3 misión con Atium.",
+      "resumen": {
+        "recurso": 0,
+        "ataque": 0
+      },
+      "metales": [],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_005_personajes",
+          "localizador": "inferior izquierda"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "shan_cinc",
+        "shan_estano",
+        "shan_cobre",
+        "shan_acero"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "nivel_i",
+          "momento": "metal_quemado",
+          "condicion": {
+            "op": "metales_quemados",
+            "metales": [
+              "zinc"
+            ]
+          },
+          "limite_por_turno": 1,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "recursos",
+              "cantidad": 2,
+              "objetivo": "propio"
+            }
+          ]
+        },
+        {
+          "id": "nivel_ii",
+          "momento": "al_comprar",
+          "condicion": {
+            "op": "pendiente",
+            "nota": "Contrato y resolutor de compra en E2"
+          },
+          "limite_por_turno": 1,
+          "efectos": [
+            {
+              "op": "pendiente",
+              "nota": "Activar primaria y eliminar tras compra real en E2"
+            }
+          ]
+        },
+        {
+          "id": "nivel_iii",
+          "momento": "metal_quemado",
+          "condicion": {
+            "op": "metales_quemados",
+            "metales": [
+              "atium"
+            ]
+          },
+          "limite_por_turno": 1,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "ataque",
+              "cantidad": 3,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "mision",
+              "cantidad": 3,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vin",
+      "nombre": "Vin",
+      "tipo": "personaje",
+      "cantidad": 1,
+      "coste_compra": null,
+      "texto_original": "Nivel I: 1 curar, 1 ataque, 1 recursos. Nivel II: activar primaria al comprar y eliminar. Nivel III: 3 combate y 3 misión con Atium.",
+      "resumen": {
+        "recurso": 0,
+        "ataque": 0
+      },
+      "metales": [],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_005_personajes",
+          "localizador": "superior derecha"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "Ejecución y admisión del lote pendientes."
+        ]
+      },
+      "vinculos": [
+        "vin_bronce",
+        "vin_hierro",
+        "vin_laton",
+        "vin_peltre"
+      ],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "nivel_i",
+          "momento": "metal_quemado",
+          "condicion": {
+            "op": "metales_quemados",
+            "metales": [
+              "peltre"
+            ]
+          },
+          "limite_por_turno": 1,
+          "efectos": [
+            {
+              "op": "curar",
+              "cantidad": 1,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "ataque",
+              "cantidad": 1,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "recursos",
+              "cantidad": 1,
+              "objetivo": "propio"
+            }
+          ]
+        },
+        {
+          "id": "nivel_ii",
+          "momento": "al_comprar",
+          "condicion": {
+            "op": "pendiente",
+            "nota": "Contrato y resolutor de compra en E2"
+          },
+          "limite_por_turno": 1,
+          "efectos": [
+            {
+              "op": "pendiente",
+              "nota": "Activar primaria y eliminar tras compra real en E2"
+            }
+          ]
+        },
+        {
+          "id": "nivel_iii",
+          "momento": "metal_quemado",
+          "condicion": {
+            "op": "metales_quemados",
+            "metales": [
+              "atium"
+            ]
+          },
+          "limite_por_turno": 1,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "ataque",
+              "cantidad": 3,
+              "objetivo": "propio"
+            },
+            {
+              "op": "ganar",
+              "recurso": "mision",
+              "cantidad": 3,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "financiacion",
+      "nombre": "Financiación",
+      "tipo": "funding",
+      "cantidad": 24,
+      "coste_compra": null,
+      "texto_original": "Icono: 1 moneda.",
+      "resumen": {
+        "recurso": 1,
+        "ataque": 0
+      },
+      "metales": [],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_vin",
+          "localizador": "columna derecha, parte superior, S17/40"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": []
+      },
+      "vinculos": [],
+      "rasgos": {},
+      "habilidades": [
+        {
+          "id": "principal",
+          "momento": "al_jugar",
+          "condicion": {
+            "op": "siempre"
+          },
+          "limite_por_turno": null,
+          "efectos": [
+            {
+              "op": "ganar",
+              "recurso": "recursos",
+              "cantidad": 1,
+              "objetivo": "propio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pista_entrenamiento",
+      "nombre": "Pista de entrenamiento",
+      "tipo": "pista_entrenamiento",
+      "cantidad": 4,
+      "coste_compra": null,
+      "texto_original": "Premios impresos: 0 capacidad inicial, 3 quema +1, 5 nivel I, 8 nivel II, 9 quema +1, 11 Atium, 13 nivel III, 15 quema +1, 16 Atium, 20 Atium continuo.",
+      "resumen": {
+        "recurso": 0,
+        "ataque": 0
+      },
+      "metales": [],
+      "ruta_imagen": null,
+      "fuentes": [
+        {
+          "id": "src_004_panel",
+          "localizador": "21 huecos desde flecha, índices 0–20"
+        }
+      ],
+      "revision": {
+        "estado": "borrador",
+        "idioma_verificado": true,
+        "dudas": [
+          "La gramática v5 no expresa los premios de pista; TrainingAdvance usa descriptor separado."
+        ]
+      },
+      "vinculos": [],
+      "rasgos": {
+        "recorridos": [
+          {
+            "id": "principal",
+            "casillas": [
+              {
+                "id": "p00",
+                "efectos": [
+                  {
+                    "op": "pendiente",
+                    "nota": "capacidad inicial en descriptor de autoridad"
+                  }
+                ]
+              },
+              {
+                "id": "p01",
+                "efectos": [
+                  {
+                    "op": "sin_efecto"
+                  }
+                ]
+              },
+              {
+                "id": "p02",
+                "efectos": [
+                  {
+                    "op": "sin_efecto"
+                  }
+                ]
+              },
+              {
+                "id": "p03",
+                "efectos": [
+                  {
+                    "op": "pendiente",
+                    "nota": "quema +1 en descriptor de autoridad"
+                  }
+                ]
+              },
+              {
+                "id": "p04",
+                "efectos": [
+                  {
+                    "op": "sin_efecto"
+                  }
+                ]
+              },
+              {
+                "id": "p05",
+                "efectos": [
+                  {
+                    "op": "pendiente",
+                    "nota": "nivel I en descriptor de autoridad"
+                  }
+                ]
+              },
+              {
+                "id": "p06",
+                "efectos": [
+                  {
+                    "op": "sin_efecto"
+                  }
+                ]
+              },
+              {
+                "id": "p07",
+                "efectos": [
+                  {
+                    "op": "sin_efecto"
+                  }
+                ]
+              },
+              {
+                "id": "p08",
+                "efectos": [
+                  {
+                    "op": "pendiente",
+                    "nota": "nivel II en descriptor de autoridad"
+                  }
+                ]
+              },
+              {
+                "id": "p09",
+                "efectos": [
+                  {
+                    "op": "pendiente",
+                    "nota": "quema +1 en descriptor de autoridad"
+                  }
+                ]
+              },
+              {
+                "id": "p10",
+                "efectos": [
+                  {
+                    "op": "sin_efecto"
+                  }
+                ]
+              },
+              {
+                "id": "p11",
+                "efectos": [
+                  {
+                    "op": "pendiente",
+                    "nota": "Atium en descriptor de autoridad"
+                  }
+                ]
+              },
+              {
+                "id": "p12",
+                "efectos": [
+                  {
+                    "op": "sin_efecto"
+                  }
+                ]
+              },
+              {
+                "id": "p13",
+                "efectos": [
+                  {
+                    "op": "pendiente",
+                    "nota": "nivel III en descriptor de autoridad"
+                  }
+                ]
+              },
+              {
+                "id": "p14",
+                "efectos": [
+                  {
+                    "op": "sin_efecto"
+                  }
+                ]
+              },
+              {
+                "id": "p15",
+                "efectos": [
+                  {
+                    "op": "pendiente",
+                    "nota": "quema +1 en descriptor de autoridad"
+                  }
+                ]
+              },
+              {
+                "id": "p16",
+                "efectos": [
+                  {
+                    "op": "pendiente",
+                    "nota": "Atium en descriptor de autoridad"
+                  }
+                ]
+              },
+              {
+                "id": "p17",
+                "efectos": [
+                  {
+                    "op": "sin_efecto"
+                  }
+                ]
+              },
+              {
+                "id": "p18",
+                "efectos": [
+                  {
+                    "op": "sin_efecto"
+                  }
+                ]
+              },
+              {
+                "id": "p19",
+                "efectos": [
+                  {
+                    "op": "sin_efecto"
+                  }
+                ]
+              },
+              {
+                "id": "p20",
+                "efectos": [
+                  {
+                    "op": "pendiente",
+                    "nota": "Atium continuo en descriptor de autoridad"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "habilidades": []
+    }
+  ]
+}

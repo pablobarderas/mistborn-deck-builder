@@ -21,7 +21,8 @@ Especificaciones actuales:
 - [006 — Contrato del catálogo](006-contrato-catalogo/spec.md): completada en contrato inicial; fuentes/revisión, gramática, migración y validación. Ninguna carta oficial verificada aún.
 
 - [007 — Estado y acciones](007-estado-y-acciones/spec.md): T07.1/2 verificadas localmente (1.725 + 102 comprobaciones); cierre P07 pendiente de P04 externa.
-- [008 — Preparación y turnos](008-preparacion-y-turnos/spec.md): T08.1a verificada localmente; entrenamiento y turno completo pendientes.
-- [009 — Sistema de agentes SDD](009-sistema-agentes/spec.md): mejora transversal P00 completada en configuración y aplicación por instrucciones, con revisión independiente; carga nativa automática no acreditada. No implementa las fases pendientes del juego.
+- [008 — Preparación y turnos](008-preparacion-y-turnos/spec.md): servicios de preparación, cartas iniciales y misiones ensayados; [E1](008-preparacion-y-turnos/contenido-inicial-competitivo.md) sigue abierta por cotejo humano y el perfil final completo permanece pendiente.
+- [009 — Sistema de agentes SDD](009-sistema-agentes/spec.md): mejora transversal P00 y [AC-11 de publicación al cierre](009-sistema-agentes/tasks.md#ac-11--publicación-automática-al-completar-un-desarrollo) documentadas con revisión independiente; carga nativa automática no acreditada.
+- [010 — Primera partida competitiva local](010-primera-partida-local/spec.md): E2 completada como ensayo 2–4 con fixture, reglas y pantalla verificadas; [límites y evidencia](010-primera-partida-local/verification.md). No admite catálogo final ni red.
 
 No hay Spec Kit instalado. La estructura es propia y sigue el [flujo SDD ligero](../gestion/desarrollo.md).

@@ -1,5 +1,9 @@
 # Plan de SPEC-008
 
+## E1 — Contenido inicial competitivo
+
+Unir cotejo SRC-001/002/004/005, seis fuentes locales por huella, registro de 22 definiciones de autoría, gramática v5 acotada y ensayo integrado de inicio/turno. Validar identidad y vínculo exacto por personaje antes de preparar, probar primaria/omisión/metal/Atium con rechazos y restauración, y revisar el delta final. E2 resolverá compra de nivel II con mercado real; E1 no presenta el ensayo como producto ni distribuye escaneos. [Contrato y límites](contenido-inicial-competitivo.md) · [aceptación y propietarios](tasks.md#e1--contenido-inicial-competitivo-y-ensayo-integrado-registro-previo).
+
 ## T08.1b31 — Inventario del competitivo completo
 
 Cotejar [perfil](perfil-competitivo-producto.md), censo de mercado, SRC-004/005, datos y puerta b30; registrar [matriz y siguiente lote](inventario-competitivo-final.md) sin mutar el ensayo. [Tarea](tasks.md#t081b31--inventario-del-perfil-competitivo-completo-registro-previo) y [evidencia](verification.md#t081b31--inventario-del-competitivo-completo).

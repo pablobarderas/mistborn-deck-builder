@@ -68,3 +68,7 @@ func _on_connection_pressed() -> void:
 
 func _on_board_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/BoardPreview.tscn")
+
+
+func _on_local_game_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/LocalCompetitive.tscn")

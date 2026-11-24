@@ -1,6 +1,12 @@
 # Documentación del proyecto
 
-[Ruta E1–E6 hacia partidas completas](plan-de-trabajo.md#ruta-de-entregas-agrupadas-2026-11-23): agrupa los próximos trabajos por resultado verificable. E1 aborda mazo inicial, personajes y pista; P00–P18 y sus criterios de cierre siguen vigentes.
+[Publicación al cierre satisfactorio](gestion/agentes-sdd.md#publicación-al-cierre-satisfactorio): autorización permanente de commit/push para entregas verificadas, sin alterar las puertas de calidad ni admitir contenido final por inferencia.
+
+[Primera partida competitiva local E2](specs/010-primera-partida-local/spec.md): ensayo jugable de 2–4 plazas con mercado ficticio, M5/M6/M7 y E1 promovida solo en memoria. [Pruebas, revisiones y límites](specs/010-primera-partida-local/verification.md). No acredita catálogo final ni red.
+
+[Contenido inicial competitivo E1](specs/008-preparacion-y-turnos/contenido-inicial-competitivo.md): fuentes, 22 definiciones en borrador y ensayo de autoridad; [evidencia](specs/008-preparacion-y-turnos/verification.md#e1--contenido-inicial-competitivo-y-ensayo-integrado). No es un catálogo de producto.
+
+[Ruta E1–E6 hacia partidas completas](plan-de-trabajo.md#ruta-de-entregas-agrupadas-2026-11-23): E2 ya permite una partida local de ensayo; E3 es el siguiente objetivo funcional y E1 conserva el cotejo humano pendiente. P00–P18 y sus criterios de cierre siguen vigentes.
 
 [Inventario del competitivo completo](specs/008-preparacion-y-turnos/inventario-competitivo-final.md): T08.1b31 censa componentes y lagunas de fidelidad, ejecución y distribución; el siguiente lote es el cotejo individual de personajes, mazo inicial y pista. No admite aún un catálogo de producto.
 

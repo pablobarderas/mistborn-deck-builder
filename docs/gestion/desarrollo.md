@@ -64,7 +64,7 @@ Repositorio comprobado: [pablobarderas/mistborn-deck-builder](https://github.com
 - Agrupar por [entrega E1–E6](../plan-de-trabajo.md#ruta-de-entregas-agrupadas-2026-11-23) si resulta útil; no se han creado hitos ni Projects.
 - Rama sugerida tras publicar issue: `feat/123-descripcion`, `fix/123-descripcion` o `docs/123-descripcion`.
 - Referenciar `Closes #123` en la PR únicamente cuando su integración satisfaga toda la issue.
-- No hacer commits, publicar issues/PR ni subir documentación por inferirlo de una tarea puramente documental; hacerlo cuando el trabajo encargado incluya esas acciones.
+- Al cerrar satisfactoriamente una entrega, incluso documental, hacer commit/push según la [autorización permanente](agentes-sdd.md#publicación-al-cierre-satisfactorio). No inferir de ello permiso para publicar issues/PR, desplegar ni distribuir materiales por otras vías.
 
 ## Activación sin duplicados
 

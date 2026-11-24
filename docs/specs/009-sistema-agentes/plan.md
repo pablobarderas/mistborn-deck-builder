@@ -1,5 +1,9 @@
 # Plan de SPEC-009
 
+## Ampliación AC-11 — Publicación al cierre
+
+Plan previo y AC en [tareas](tasks.md#ac-11--publicación-automática-al-completar-un-desarrollo). Alinear AGENTS, política SDD, continuidad y flujo de desarrollo sin relajar controles; registrar DEC-049 y memoria. Contrastar todas las rutas presentes en Git, revisar enlaces/anclas y diff, pedir dictamen independiente Sol/high. Tras corrección, preparar exclusivamente los archivos del paquete E1/E2 y la regla, confirmar que no entran escaneos/artefactos locales, hacer commit/push autorizado y comparar remoto con HEAD. Godot no aplica al delta documental; pruebas E1/E2 ya están en sus verificaciones. No crear PR/issues ni desplegar.
+
 ## Ampliación AC-10 — 2026-11-11
 
 Plan proporcional registrado antes de edición en tasks.md: concretar seis reglas operativas en la política existente, comprobar que preservan AC-01–09 y AGENTS, revisar independientemente el delta y cerrar con evidencia centralizada/enlaces breves. Coordinador único escritor; un sdd_reviewer Sol/high, sólo lectura. No cambian modelos, TOML, pruebas ni código. Verificación documental; ninguna dispensa. El plan original inferior conserva su alcance histórico.

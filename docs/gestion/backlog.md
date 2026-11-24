@@ -65,7 +65,13 @@ T08.1b19 R2 completada documentalmente, M2-DOC-01–04 y revisión independiente
 - Tipo: planificación de producto, R2. [Registro y aceptación](../specs/009-sistema-agentes/tasks.md#t002--entregas-agrupadas-hacia-una-partida-jugable). Issue: sin publicar.
 - [Ruta E1–E6](../plan-de-trabajo.md#ruta-de-entregas-agrupadas-2026-11-23): se mantienen P00–P18 como cobertura; cada entrega agrupa contrato, implementación, pruebas, revisión y correcciones. Siguiente E1: mazo inicial, personajes y pista, en ensayo integrado. Sin admisión ni distribución por inferencia.
 
+- E1 en curso: [fuentes, borradores y ensayo](../specs/008-preparacion-y-turnos/contenido-inicial-competitivo.md) de cuatro personajes, 16 Training, Financiación y pista; [pruebas y pendientes](../specs/008-preparacion-y-turnos/verification.md#e1--contenido-inicial-competitivo-y-ensayo-integrado). Revisión independiente favorable; fidelidad humana pendiente. E2 usa una variante solo en memoria. Publicación del trabajo parcial autorizada expresamente en el paquete presente; sin issue.
+
+- E2 completada en alcance de ensayo local: [partida competitiva 2–4](../specs/010-primera-partida-local/spec.md), finales comprobados y [evidencia](../specs/010-primera-partida-local/verification.md) de autoridad, pantalla y revisión independiente. Mercado y parte del manifiesto de misiones son fixtures; E1 sigue pendiente de cotejo humano. Publicación autorizada en este paquete, sin issue. Siguiente E3: mercado y reglas competitivas completas.
+
 ### T00.1 — Sistema transversal de agentes SDD
+
+- AC-11 (2026-11-24): [publicación automática al cierre satisfactorio](../specs/009-sistema-agentes/tasks.md#ac-11--publicación-automática-al-completar-un-desarrollo) por instrucción humana permanente, R2 y revisión independiente. [Evidencia](../specs/009-sistema-agentes/verification.md#ac-11--publicación-al-cierre-satisfactorio). Incluye autorización expresa del paquete E1/E2 sin cerrar la fidelidad E1; no publica issues/PR ni despliega.
 
 - Comunicación breve (2026-11-13), R2 documental por instrucción humana para todo el proyecto: [registro, aceptación y cierre](../specs/009-sistema-agentes/tasks.md#comunicación-breve-durante-el-trabajo). AGENTS y AC-10 alineados; comprobación documental y revisión independiente favorables, sin issue ni publicación.
 

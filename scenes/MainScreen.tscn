@@ -121,6 +121,12 @@ layout_mode = 2
 text = "Ver tablero"
 mouse_default_cursor_shape = 2
 
+[node name="LocalGameButton" type="Button" parent="Margin/Page/Body/Intro"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Jugar partida local de prueba"
+mouse_default_cursor_shape = 2
+
 [node name="ConnectionButton" type="Button" parent="Margin/Page/Body/Intro"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -197,4 +203,5 @@ mouse_default_cursor_shape = 2
 [connection signal="pressed" from="Margin/Page/Body/Intro/ReloadButton" to="." method="_on_reload_pressed"]
 [connection signal="pressed" from="Margin/Page/Body/Intro/ConnectionButton" to="." method="_on_connection_pressed"]
 [connection signal="pressed" from="Margin/Page/Body/Intro/BoardButton" to="." method="_on_board_pressed"]
+[connection signal="pressed" from="Margin/Page/Body/Intro/LocalGameButton" to="." method="_on_local_game_pressed"]
 [connection signal="pressed" from="Margin/Page/Footer/ExitButton" to="." method="_on_exit_pressed"]

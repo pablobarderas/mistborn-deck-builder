@@ -1,6 +1,6 @@
 # SPEC-009 — Agentes para desarrollo SDD
 
-Fecha: 2026-10-29. Estado: entrega y ampliaciones AC-07/08 completadas en su alcance documental, con revisión independiente; publicación detallada de AC-08 autorizada en encargo humano posterior. Carga nativa automática no acreditada. Tarea: T00.1, mejora transversal de P00. Evidencia y límites en [verification.md](verification.md).
+Fecha: 2026-10-29. Estado: entrega y ampliaciones AC-07/08/10 completadas en su alcance documental, con revisión independiente. AC-11 registra la autorización permanente de publicación del 2026-11-24; evidencia en [verification.md](verification.md). Carga nativa automática no acreditada. Tarea: T00.1, mejora transversal de P00.
 
 ## Problema y alcance
 
@@ -19,6 +19,8 @@ Mantener Windows, Godot 4.7.2/GDScript, español, siete configuraciones de modo/
 ## Aceptación
 
 Ampliación AC-10, 2026-11-11: reducir redundancia de ejecución por petición humana, sin relajar AC-01–09. **AC-10:** política operativa con lectura selectiva tras recuperación obligatoria, salidas acotadas, delegación mínima justificada, coordinación sin sondeo repetitivo, reutilización verificable de pruebas y revisión del delta, y evidencia centralizada con enlaces breves. Mantener fuentes/privacidad/pruebas/revisión independiente; no prometer ahorro porcentual ni cambiar modelos/permisos. Registro previo en tasks.md; revisión y evidencia en verification.md.
+
+Ampliación AC-11, 2026-11-24: por instrucción humana explícita, el coordinador hace commit y push de cada entrega satisfactoriamente completada en este repositorio, sin pedir permiso repetido. Requiere aceptación, pruebas, revisión aplicable, memoria, selección de archivos y verificación remota; no se aplica automáticamente a trabajo abierto/fallido/bloqueado ni autoriza forzar la rama, desplegar o distribuir materiales de otra forma. El pedido simultáneo de publicar E1/E2 autoriza ese paquete aunque E1 conserve una puerta abierta. [Registro previo](tasks.md#ac-11--publicación-automática-al-completar-un-desarrollo) y [evidencia](verification.md#ac-11--publicación-al-cierre-satisfactorio).
 
 | ID | Criterio |
 | --- | --- |

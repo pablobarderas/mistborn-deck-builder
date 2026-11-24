@@ -1,5 +1,17 @@
 # Registro de trabajo
 
+## 2026-11-24 — Publicación de E1/E2 y regla permanente
+
+El usuario autorizó commit/push del trabajo local E1/E2 y estableció publicación automática al terminar satisfactoriamente futuras entregas de desarrollo del repositorio. [AC-11 y evidencia](specs/009-sistema-agentes/tasks.md#ac-11--publicación-automática-al-completar-un-desarrollo); DEC-049, AGENTS y política SDD alineados. E1 sigue abierta por cotejo humano; E2 cerró como ensayo. El commit que incluye esta entrada publica el paquete; verificar la referencia remota. Siguiente E3, con el pendiente E1 conservado.
+
+## 2026-11-24 — E2, primera partida competitiva local
+
+Perfil cerrado y pantalla local de 2–4 con compra, Boxings, cartas iniciales, misiones M5/M6/M7, combate/Target, limpieza, restauración y finales. Suite final 4078, pantalla 53 con diez capturas, seis regresiones, importación y revisión técnica/visual favorables; [evidencia](specs/010-primera-partida-local/verification.md). E1 pendiente de cotejo humano, mercado ficticio, otras cinco misiones, remoto y modos restantes fuera del ensayo. Siguiente E3; publicación autorizada posteriormente en este paquete.
+
+## 2026-11-24 — E1, contenido inicial y ensayo
+
+Seis fuentes originales cotejadas por huella y lectura visual; 22 borradores, gramática v5, vínculos exactos, preparador local y perfil aislado con inicio, Funding, Training, firmas I/III y restauración. Godot: 55 comprobaciones de catálogo, 370 integradas y regresiones dirigidas correctas; revisión independiente favorable. Fidelidad humana aún pendiente, E1 abierta; II/compra/limpieza y distribución fuera del ensayo. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#e1--contenido-inicial-competitivo-y-ensayo-integrado). Publicación del trabajo parcial autorizada posteriormente en este paquete.
+
 ## 2026-11-23 — T00.2, entregas agrupadas
 
 Publicación autorizada posteriormente mediante «haz commit y push»; el commit que incorpora esta nota identifica la ruta revisada. El cierre local indicado debajo precede a ese permiso.

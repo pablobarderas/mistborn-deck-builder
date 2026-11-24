@@ -1,5 +1,9 @@
 # SPEC-008 — Preparación y turnos
 
+## E1 — Contenido inicial competitivo y ensayo integrado
+
+[Registro de fuentes, identidad y contrato de catálogo](contenido-inicial-competitivo.md) para cuatro personajes, dieciséis entrenamientos, Financiación y pista. E1-01–04 en [tasks.md](tasks.md#e1--contenido-inicial-competitivo-y-ensayo-integrado-registro-previo): cotejo de fuentes, definición/vínculos, preparación y rutas alcanzables en ensayo, pruebas y revisión. La compra de nivel II queda condicionada a E2; ninguna definición en borrador se admite automáticamente al producto.
+
 ## T08.1b31 — Inventario del competitivo completo
 
 El [inventario de admisión](inventario-competitivo-final.md) enumera componentes, cantidades, fuentes, rutas y lagunas de fidelidad, ejecución y distribución para competitivo 2–4. INV-01–04 son criterios documentales; no admite catálogo ni producto.

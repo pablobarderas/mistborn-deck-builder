@@ -2,6 +2,12 @@
 
 ## Ruta de entregas agrupadas (2026-11-23)
 
+Avance E1 (2026-11-24): registro de 22 borradores y ensayo de inicio/acciones iniciales verificados con fuentes locales; revisión independiente favorable y [evidencia](specs/008-preparacion-y-turnos/verification.md#e1--contenido-inicial-competitivo-y-ensayo-integrado). Cotejo humano de fidelidad pendiente; E1 sigue abierta y E2 usa un subconjunto de prueba sin atribuirle admisión al producto.
+
+E2 (2026-11-24): primera partida local de ensayo completada con mercado ficticio, M5/M6/M7 y E1 solo en memoria; [verificación](specs/010-primera-partida-local/verification.md) y revisión independiente favorables. Siguiente entrega funcional E3, competitivo local completo; el cotejo humano E1 permanece pendiente y no se infiere admisión del contenido.
+
+Publicación de entregas: [AC-11/DEC-049](specs/009-sistema-agentes/tasks.md#ac-11--publicación-automática-al-completar-un-desarrollo) autoriza commit/push tras cierre satisfactorio; el trabajo parcial E1 de este paquete tiene autorización expresa. No altera las puertas de E3 ni la prioridad de sus fuentes.
+
 La prioridad es llegar a partidas terminadas. P00–P18 siguen siendo criterios de cobertura y cierre, pero la unidad de entrega será un resultado jugable o un lote de contenido completo: especificación necesaria, implementación, pruebas, revisión y correcciones relacionadas en el mismo objetivo. No abrir una entrega independiente solo para redactar el contrato de una regla cuya fuente y comportamiento ya permiten implementarla. Conservar el registro previo y la revisión independiente exigidos por riesgo; ejecutar suites afectadas, no todas por rutina. [T00.2](specs/009-sistema-agentes/tasks.md#t002--entregas-agrupadas-hacia-una-partida-jugable).
 
 | Entrega | Resultado comprobable | Entrada y límite |
@@ -13,13 +19,13 @@ La prioridad es llegar a partidas terminadas. P00–P18 siguen siendo criterios 
 | E5 — Lord Legislador y modos restantes | Rival, 36 cartas, escudos, Dominación y decisiones colectivas; escenarios terminados en solitario y cooperativo 2–4, también entre equipos para cooperativo. | Mantener diferencias de modo, victoria/derrota y pruebas propias. Se aborda después del competitivo según DEC-027 y no se elimina del alcance. |
 | E6 — versión para el grupo | Interfaz y acabado revisados en partidas reales, siete configuraciones probadas y exportación limpia con instrucciones. | Verificar distribución de material y una copia ejecutada por otra persona; corregir defectos que impidan jugar o alteren reglas. |
 
-E1 es el siguiente objetivo. Las entregas E2–E6 son hitos, no promesas de una sola sesión ni porcentajes de avance. Los lotes internos se abren solo cuando una dependencia o una revisión lo requiera, con aceptación observable y sin repetir documentación histórica. [Inventario y lagunas vigentes](specs/008-preparacion-y-turnos/inventario-competitivo-final.md).
+E3 es el siguiente objetivo funcional; el cotejo humano E1 sigue abierto en paralelo. Las entregas E3–E6 son hitos, no promesas de una sola sesión ni porcentajes de avance. Los lotes internos se abren solo cuando una dependencia o una revisión lo requiera, con aceptación observable y sin repetir documentación histórica. [Inventario y lagunas vigentes](specs/008-preparacion-y-turnos/inventario-competitivo-final.md).
 
 Precisión de salida discreta (2026-11-15): completada con comprobación documental y revisión independiente favorables; siguiente objetivo del juego conservado. [Tarea](specs/009-sistema-agentes/tasks.md#salida-discreta-de-git-y-razonamientos).
 
 Estilo conciso (2026-11-15): ajuste documental completado; revisión independiente favorable y comprobación documental correcta. [Tarea/evidencia](specs/009-sistema-agentes/tasks.md#estilo-conciso-de-respuesta). El siguiente objetivo del juego se conserva.
 
-Última revisión: 2026-11-23. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. Hay base ejecutable con datos de prueba y preparación estructural P08; efectos, turnos completos y partidas siguen sin implementar.
+Última revisión: 2026-11-24. P00, el inventario inicial de P01, P03, la maqueta de P05 y el contrato inicial de P06 están completados en su alcance. P04 mantiene pendiente la prueba externa. E2 acredita turnos y partidas locales solo con fixture; contenido competitivo completo, modos restantes y remoto siguen pendientes.
 
 ## Objetivo y situación
 

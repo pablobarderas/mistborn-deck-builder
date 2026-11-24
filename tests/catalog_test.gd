@@ -22,7 +22,7 @@ func _run() -> void:
 	_expect(good["counts"] == {"muestra": 2, "borrador": 0, "verificada": 0}, "Conteo de estados.")
 	_expect(good["warnings"].size() == 4, "Aviso de imagen y revisión por muestra.")
 	var cases: Array[Dictionary] = [
-		{"path": ["version_esquema"], "value": 5, "field": "version_esquema"},
+		{"path": ["version_esquema"], "value": 6, "field": "version_esquema"},
 		{"path": ["version_esquema"], "value": "1", "field": "version_esquema"},
 		{"path": ["idioma"], "value": "en", "field": "idioma"},
 		{"path": ["cartas"], "value": [], "field": "cartas"},
@@ -92,6 +92,7 @@ func _run() -> void:
 	await _positive_cases(validator)
 	_mission_point_cases(validator)
 	_metal_link_cases(validator)
+	_initial_content_cases(validator)
 	var database: Node = root.get_node("Database")
 	_expect(database.is_loaded and database.get_verified_definitions().is_empty(), "Autoload filtra muestras.")
 	var definition: Dictionary = database.get_definition("kelsier")
@@ -295,6 +296,148 @@ func _metal_link_cases(validator: RefCounted) -> void:
 		var wrong_type: Dictionary = document.duplicate(true)
 		wrong_type.cartas[0].tipo = "aliado"
 		_assert_rejected(validator.validate(wrong_type), "condicion")
+
+
+func _initial_content_cases(validator: RefCounted) -> void:
+	# Fixtures de gramática: no transcriben cartas ni ejecutan sus capacidades.
+	var point: Dictionary = {"op": "ganar", "recurso": "mision", "cantidad": 2, "objetivo": "propio"}
+	for card_type: String in ["entrenamiento", "personaje"]:
+		var moment: String = "al_jugar" if card_type == "entrenamiento" else "metal_quemado"
+		var document: Dictionary = _initial_content_fixture(card_type, moment)
+		document.cartas[0].habilidades[0].efectos = [point]
+		var snapshot: Dictionary = document.duplicate(true)
+		var report: Dictionary = validator.validate(document)
+		_expect(report.ok and report.verified.is_empty(), "v5 admite misión propia estructural en " + card_type)
+		_expect(document == snapshot, "Validación v5 conserva el descriptor sin ejecutar efectos.")
+		for version: int in [1, 2, 3, 4]:
+			var legacy: Dictionary = document.duplicate(true)
+			legacy.version_esquema = version
+			_assert_rejected(validator.validate(legacy), ".recurso")
+		for wrong_moment: String in Validator.MOMENTS:
+			if wrong_moment == moment:
+				continue
+			var wrong: Dictionary = document.duplicate(true)
+			wrong.cartas[0].habilidades[0].momento = wrong_moment
+			_assert_rejected(validator.validate(wrong), ".recurso")
+		for target: Variant in ["jugador", "oponente", "oponentes", "rival", "adversario", "aliado", {}, [], false, 1]:
+			var wrong: Dictionary = document.duplicate(true)
+			wrong.cartas[0].habilidades[0].efectos[0].objetivo = target
+			_assert_rejected(validator.validate(wrong), ".efectos")
+		var nested: Dictionary = document.duplicate(true)
+		nested.cartas[0].habilidades[0].efectos = [{"op": "elegir", "min": 0, "max": 1, "opciones": [[point]]}]
+		_expect(validator.validate(nested).ok, "v5 mantiene permiso de misión en elección anidada: " + card_type)
+		nested.cartas[0].habilidades[0].momento = "al_comprar"
+		_assert_rejected(validator.validate(nested), ".recurso")
+	for card_type: String in Validator.TYPES:
+		if card_type in ["accion", "entrenamiento", "personaje"]:
+			continue
+		for moment: String in ["al_jugar", "metal_quemado"]:
+			var wrong: Dictionary = _initial_content_fixture(card_type, moment)
+			wrong.cartas[0].habilidades[0].efectos = [point]
+			_assert_rejected(validator.validate(wrong), ".habilidades" if card_type == "mision" else ".recurso")
+	_initial_training_link_cases(validator, point)
+	_initial_atium_condition_cases(validator)
+	_expect(validator.validate(base).ok, "v1 sigue cargando después de los casos v5.")
+
+
+func _initial_content_fixture(card_type: String, moment: String) -> Dictionary:
+	var document: Dictionary = base.duplicate(true)
+	document.version_esquema = 5
+	var card: Dictionary = document.cartas[0]
+	card.tipo = card_type
+	card.metales = ["cobre", "bronce"]
+	card.habilidades[0].momento = moment
+	card.habilidades[0].condicion = {"op": "siempre"}
+	card.habilidades[0].efectos = [{"op": "sin_efecto"}]
+	return document
+
+
+func _initial_training_link_cases(validator: RefCounted, point: Dictionary) -> void:
+	var document: Dictionary = _initial_content_fixture("entrenamiento", "al_jugar")
+	document.cartas[0].habilidades[0].condicion = {"op": "metal_asignado", "metales": ["bronce"]}
+	document.cartas[0].habilidades[0].efectos = [point]
+	_expect(validator.validate(document).ok, "v5 Training vincula su primaria a un metal de su pareja y reserva misión.")
+	for metal: String in ["cobre", "bronce"]:
+		var own: Dictionary = document.duplicate(true)
+		own.cartas[0].habilidades[0].condicion.metales = [metal]
+		_expect(validator.validate(own).ok, "Training admite cualquiera de sus metales: " + metal)
+	for version: int in [1, 2, 3, 4]:
+		var legacy: Dictionary = document.duplicate(true)
+		legacy.version_esquema = version
+		legacy.cartas[0].habilidades[0].efectos = [{"op": "sin_efecto"}]
+		_assert_rejected(validator.validate(legacy), ".condicion")
+	for metals: Variant in [[], ["cobre", "cobre"], ["acero"], ["cobre", "acero"], ["atium"], ["plata"], [false], null, {}]:
+		var wrong: Dictionary = document.duplicate(true)
+		wrong.cartas[0].habilidades[0].condicion.metales = metals
+		_assert_rejected(validator.validate(wrong), ".condicion.metales")
+	for metals: Array in [[], ["bronce"], ["cobre", "bronce", "acero"], ["cobre", "atium"], ["cobre", "cobre"]]:
+		var wrong: Dictionary = document.duplicate(true)
+		wrong.cartas[0].metales = metals
+		_assert_rejected(validator.validate(wrong), ".metales")
+	for moment: String in Validator.MOMENTS:
+		if moment == "al_jugar":
+			continue
+		var wrong: Dictionary = document.duplicate(true)
+		wrong.cartas[0].habilidades[0].momento = moment
+		_assert_rejected(validator.validate(wrong), ".condicion")
+	var wrong_operation: Dictionary = document.duplicate(true)
+	wrong_operation.cartas[0].habilidades[0].momento = "metal_quemado"
+	wrong_operation.cartas[0].habilidades[0].condicion.op = "esta_carta_como_metal"
+	_assert_rejected(validator.validate(wrong_operation), ".condicion")
+	for card_type: String in Validator.TYPES:
+		if card_type in ["accion", "entrenamiento"]:
+			continue
+		var wrong: Dictionary = document.duplicate(true)
+		wrong.cartas[0].tipo = card_type
+		_assert_rejected(validator.validate(wrong), ".habilidades" if card_type == "mision" else ".condicion")
+	var nested: Dictionary = document.duplicate(true)
+	nested.cartas[0].habilidades[0].condicion = {"op": "todas", "condiciones": [{"op": "metal_asignado", "metales": ["cobre"]}]}
+	_expect(validator.validate(nested).ok, "Training conserva vínculo propio en condiciones anidadas.")
+	nested.cartas[0].habilidades[0].condicion.condiciones[0].metales = ["acero"]
+	_assert_rejected(validator.validate(nested), ".condiciones.metales")
+	# v4 permitía a una acción requerir un metal distinto de su ampolla; v5 lo conserva.
+	var action: Dictionary = document.duplicate(true)
+	action.cartas[0].tipo = "accion"
+	action.cartas[0].habilidades[0].condicion.metales = ["acero"]
+	_expect(validator.validate(action).ok, "v5 conserva semántica de metal_asignado de acción v4.")
+
+
+func _initial_atium_condition_cases(validator: RefCounted) -> void:
+	var document: Dictionary = _initial_content_fixture("personaje", "metal_quemado")
+	document.cartas[0].habilidades[0].condicion = {"op": "metales_quemados", "metales": ["atium"]}
+	_expect(validator.validate(document).ok, "v5 permite Atium en disparador de personaje.")
+	var all_metals: Dictionary = document.duplicate(true)
+	all_metals.cartas[0].habilidades[0].condicion.metales = Validator.METALS + ["atium"]
+	_expect(validator.validate(all_metals).ok, "Condición de personaje admite ocho metales ordinarios más Atium.")
+	for version: int in [1, 2, 3, 4]:
+		var legacy: Dictionary = document.duplicate(true)
+		legacy.version_esquema = version
+		_assert_rejected(validator.validate(legacy), ".condicion.metales")
+	for card_type: String in Validator.TYPES:
+		for moment: String in Validator.MOMENTS:
+			if card_type == "personaje" and moment == "metal_quemado":
+				continue
+			var wrong: Dictionary = document.duplicate(true)
+			wrong.cartas[0].tipo = card_type
+			wrong.cartas[0].habilidades[0].momento = moment
+			_assert_rejected(validator.validate(wrong), ".habilidades" if card_type == "mision" else ".condicion.metales")
+	for metals: Variant in [[], ["atium", "atium"], ["plata"], [false], null, {}]:
+		var wrong: Dictionary = document.duplicate(true)
+		wrong.cartas[0].habilidades[0].condicion.metales = metals
+		_assert_rejected(validator.validate(wrong), ".condicion")
+	for card_type: String in ["personaje", "accion", "entrenamiento"]:
+		var printed_atium: Dictionary = document.duplicate(true)
+		printed_atium.cartas[0].tipo = card_type
+		printed_atium.cartas[0].metales = ["atium"]
+		_assert_rejected(validator.validate(printed_atium), ".metales")
+	var refresh_atium: Dictionary = document.duplicate(true)
+	refresh_atium.cartas[0].habilidades[0].efectos = [{"op": "refrescar_metal", "metal": "atium", "cantidad": 1, "objetivo": "propio"}]
+	_assert_rejected(validator.validate(refresh_atium), ".efectos[0].metal")
+	var nested: Dictionary = document.duplicate(true)
+	nested.cartas[0].habilidades[0].condicion = {"op": "alguna", "condiciones": [{"op": "metales_quemados", "metales": ["atium"]}]}
+	_expect(validator.validate(nested).ok, "Atium conserva contexto de personaje en condiciones anidadas.")
+	nested.cartas[0].tipo = "entrenamiento"
+	_assert_rejected(validator.validate(nested), ".condiciones.metales")
 
 
 func _replace_field(document: Dictionary, path: Array, value: Variant) -> void:

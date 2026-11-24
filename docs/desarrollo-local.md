@@ -1,5 +1,11 @@
 # Ejecutar el proyecto en Windows
 
+## Fuentes y catálogo inicial E1
+
+Desde la raíz Git, usar `tools/prepare-initial-sources.ps1 -SourceRoot 'RUTA/cartas_personajes'` para cotejar seis SHA-256 de SRC-004/005 y copiar los PNG a `evidencia_local/` ignorado. El script rechaza fuentes ausentes o distintas antes de copiar; no sobrescribe copias divergentes. Después, `tools/godot.ps1 -Action test-initial-content` valida el [borrador de 22 definiciones](../data/inicio_competitivo.json), sus fuentes y vínculos; `-Action test-initial-play` prueba el perfil competitivo aislado con contenido compuesto de ensayo. Requieren originales locales; un clon sin ellos falla deliberadamente en autoría. El primero no ejecuta habilidades; el segundo no admite el lote a producto ni cubre compra/limpieza. [Contrato E1](specs/008-preparacion-y-turnos/contenido-inicial-competitivo.md).
+
+E2: desde el inicio, **Jugar partida local de prueba** abre una mesa competitiva en este equipo para 2–4 plazas. El pase de equipo tapa la mano hasta que la siguiente persona confirma su plaza. Usa el borrador E1 promovido solo en memoria, M5/M6/M7 elegidas por semilla y mercado ficticio; no es contenido admitido ni juego en red. `tools/godot.ps1 -Action test-local-competitive` verifica reglas, finales y autoridad; `-Action preview-local` recorre la pantalla con render gráfico y guarda capturas en `tmp/screenshots/e2-*.png`. [Contrato y evidencia](specs/010-primera-partida-local/verification.md).
+
 ## Fuente local de Perseguir (T08.1b25)
 
 Desde la raíz Git, preparar el PNG original de SRC-005 con `powershell -NoProfile -ExecutionPolicy Bypass -File tools/prepare-perseguir-source.ps1 -SourceFile 'RUTA/mercado.3.png'`. El script comprueba SHA-256 antes y después de copiarlo a `evidencia_local/src_005/mercado.3.png`; reutiliza una copia idéntica y rechaza otra distinta. Esa carpeta queda fuera de Git y de la importación de Godot. Ejecutar después `powershell -NoProfile -ExecutionPolicy Bypass -File tools/godot.ps1 -Action test-perseguir` para validar el [borrador](../data/perseguir.json) y sus rechazos. Un clon nuevo necesita el original del propietario. Esta acción no prueba efectos ni habilita la carta en el arranque.
