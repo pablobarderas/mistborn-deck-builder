@@ -1,5 +1,69 @@
 # Registro de trabajo
 
+## 2026-11-27 — Cierre documental del cotejo de mercado
+
+El propietario identificó la copia trasladada del otro PC. Se registraron las nueve huellas y se comprobó la correspondencia de 65 diseños y 82 copias. Revisión independiente favorable. Publicación documental según DEC-049. Siguiente paso de E3: especificar las familias de efectos y sus pruebas. [Evidencia](specs/011-competitivo-completo/verification.md#copia-identificada-para-e32).
+
+## 2026-11-27 — Esconderse ante derrota directa
+
+El propietario confirmó que Esconderse puede impedir la derrota directa de un aliado aunque el efecto no gaste combate. Se resuelve el último caso planteado del contraste. [Decisión y pruebas futuras](specs/011-competitivo-completo/verification.md#decisión-sobre-esconderse).
+
+## 2026-11-27 — Defensor ante derrota directa
+
+El propietario confirmó la restricción de objetivos de Defensor para Asesinar y Lanzamonedas. [Decisión y prueba futura](specs/011-competitivo-completo/verification.md#decisión-sobre-defensor).
+
+## 2026-11-27 — Perforar con una Acción elegible
+
+El propietario confirmó que, con una sola Acción elegible, la secundaria de Perforar queda sin efecto. [Decisión y prueba futura](specs/011-competitivo-completo/verification.md#decisión-sobre-perforar).
+
+## 2026-11-27 — Confrontación sin cartas eliminadas
+
+El propietario confirmó que se puede ganar con Confrontación y cuatro atiums cuando su primaria carece de objetivo. [Decisión y prueba futura](specs/011-competitivo-completo/verification.md#decisión-sobre-confrontación).
+
+## 2026-11-27 — Contraste de fuentes del mercado
+
+Se cruzaron las lecturas confirmadas con SRC-001/002. Quedan cuatro casos sin respuesta expresa. La revalidación local identificó siete huellas distintas de las registradas en E3.1. [Evidencia y traspaso](specs/011-competitivo-completo/verification.md#contraste-de-fuentes-y-procedencia).
+
+## 2026-11-27 — Confirmación del último lote de mercado
+
+El propietario confirmó Tirón de hierro y completó la lectura humana de las nueve hojas. Se comprobaron 65 identificadores, títulos y cantidades, con 82 copias. Pendientes el contraste de referencias y la revisión independiente. [Evidencia y traspaso](specs/011-competitivo-completo/verification.md#confirmación-del-noveno-lote).
+
+## 2026-11-27 — Confirmación del octavo lote de mercado
+
+El propietario confirmó las ocho cartas de la octava hoja. Se contrastaron títulos, identificadores y cantidades con el inventario. [Evidencia y traspaso](specs/011-competitivo-completo/verification.md#confirmación-del-octavo-lote).
+
+## 2026-11-27 — Confirmación del séptimo lote de mercado
+
+El propietario confirmó las ocho cartas de la séptima hoja. Se contrastaron títulos, identificadores y cantidades con el inventario. [Evidencia y traspaso](specs/011-competitivo-completo/verification.md#confirmación-del-séptimo-lote).
+
+## 2026-11-27 — Confirmación del sexto lote de mercado
+
+El propietario confirmó las ocho cartas de la sexta hoja. Se contrastaron títulos, identificadores y cantidades con el inventario. [Evidencia y traspaso](specs/011-competitivo-completo/verification.md#confirmación-del-sexto-lote).
+
+## 2026-11-27 — Confirmación del quinto lote de mercado
+
+El propietario confirmó las ocho cartas de la quinta hoja y la conversión de puntos de misión sin gastar de Dominar. Se contrastaron títulos, identificadores y cantidades con el inventario. [Evidencia y traspaso](specs/011-competitivo-completo/verification.md#confirmación-del-quinto-lote).
+
+## 2026-11-27 — Confirmación del cuarto lote de mercado
+
+El propietario confirmó la lectura de las ocho cartas de la cuarta hoja. Se comprobaron sus identificadores, títulos y cantidades frente al inventario. [Evidencia y traspaso](specs/011-competitivo-completo/verification.md#confirmación-del-cuarto-lote).
+
+## 2026-11-27 — Confirmación del tercer lote de mercado
+
+El propietario confirmó la lectura de las ocho cartas de la tercera hoja. Se comprobaron sus identificadores, títulos y cantidades frente al inventario. [Evidencia y traspaso](specs/011-competitivo-completo/verification.md#confirmación-del-tercer-lote).
+
+## 2026-11-27 — Confirmación del segundo lote de mercado
+
+El propietario confirmó la lectura de las ocho cartas de la segunda hoja, incluida la interpretación de Encender. [Evidencia y traspaso](specs/011-competitivo-completo/verification.md#confirmación-del-segundo-lote).
+
+## 2026-11-27 — Confirmación del primer lote de mercado
+
+El propietario confirmó la interpretación de las ocho caras de la primera hoja y recordó la declaración de cantidades de la digitalización. Se comprobó la coincidencia del inventario con las 65 filas de la auditoría. Siguiente hoja: `mercado.2.png`. [Evidencia y traspaso](specs/011-competitivo-completo/verification.md#confirmación-del-primer-lote).
+
+## 2026-11-26 — Preparación del cotejo E3.2
+
+Se preparó la [primera hoja de cotejo del mercado](specs/011-competitivo-completo/cotejo-mercado.md). El siguiente paso depende de la revisión del propietario por carta. [Comprobaciones y traspaso](specs/011-competitivo-completo/verification.md#e32--preparación-del-cotejo).
+
 ## 2026-11-24 — Confirmación humana de las ocho misiones
 
 El propietario confirmó por título la interpretación de M1–M8: premios de casillas, extras del primero y cimas. Se actualiza la memoria de fidelidad sin alterar datos, reglas, ejecución ni distribución. Sigue E3 con el mercado sin cotejo individual. [Evidencia y traspaso](specs/008-preparacion-y-turnos/verification.md#confirmación-humana-de-misiones-m1m8--registro-previo).

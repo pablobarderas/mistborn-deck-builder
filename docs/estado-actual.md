@@ -1,10 +1,12 @@
 # Estado actual
 
+E3.2 (2026-11-27): [cotejo documental del mercado completado](specs/011-competitivo-completo/cotejo-mercado.md). Nueve hojas confirmadas, 65 diseños y 82 copias, cuatro decisiones de adaptación y revisión independiente favorable. La [copia local](specs/011-competitivo-completo/verification.md#copia-identificada-para-e32) tiene sus propias huellas y orientación documentada. E3 continúa abierta.
+
 Confirmación humana M1–M8 (2026-11-24): el propietario validó la [tabla por título](referencias/misiones-competitivas.md) de casillas, extras del primero y cimas de las ocho misiones. Se suma al cotejo E1 confirmado, sin cambiar `data/misiones.json`, resolutores ni permisos de distribución. E3 mantiene pendientes la integración de todas las rutas con contenido final y el cotejo individual del mercado. [Evidencia](specs/008-preparacion-y-turnos/verification.md#confirmación-humana-de-misiones-m1m8--registro-previo).
 
 Confirmación humana E1 (2026-11-24): el propietario cotejó la tabla de cuatro personajes, 16 Entrenamientos, habilidades de niveles I–III, Financiación y pista, y la consideró correcta. E1 queda cerrada **solo como ensayo inicial**; las 22 definiciones permanecen borradores y no se admiten al producto. Las misiones se confirmaron después, por separado. [Alcance y evidencia](specs/008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo).
 
-E3.1 (2026-11-24): [inventario trazable del mercado](specs/011-competitivo-completo/mercado-inventario.json) con 65 diseños, 82 copias y nueve huellas de originales locales; diez comprobaciones y revisión independiente favorables. IDs por localizador físico, sin escaneos en Git. Fidelidad humana, efectos y distribución siguen pendientes; E3 no tiene catálogo jugable. [Evidencia y siguiente paso](specs/011-competitivo-completo/verification.md).
+E3.1 (2026-11-24): [inventario trazable del mercado](specs/011-competitivo-completo/mercado-inventario.json) con 65 diseños, 82 copias y nueve huellas de originales locales; diez comprobaciones y revisión independiente favorables. IDs por localizador físico, sin escaneos en Git. E3 sigue pendiente de catálogo jugable y distribución. [Evidencia](specs/011-competitivo-completo/verification.md).
 
 Publicación de E1/E2 y DEC-049 autorizada el 2026-11-24 mediante «haz commit y push» junto con la regla permanente de publicar al terminar satisfactoriamente. El commit que incorpora esta nota publicó el ensayo y el cambio metodológico; E1 estaba entonces abierta por fidelidad humana, confirmada posteriormente. Esta autorización permanente se limita a los cierres satisfactorios futuros y al paquete presente expresamente pedido.
 

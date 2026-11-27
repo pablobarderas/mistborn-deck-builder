@@ -11,3 +11,18 @@ Plan: derivar datos de la auditoría versionada y calcular huellas sobre los nue
 ## Cierre
 
 E3.1 completada en alcance de **inventario no admitido**. [Datos](mercado-inventario.json) y [evidencia](verification.md). Los IDs se derivan de hoja, fila y posición, sin depender del orden del documento de auditoría. No hay issue publicada ni dispensa humana. E3 permanece abierta.
+
+## E3.2 — Cotejo humano del mercado
+
+2026-11-26. Recuperación con árbol limpio en `main`, HEAD y referencia recién obtenida de GitHub en `741dfc8946083e45e141ecec89d54e8930d8ee29`. E1 y M1–M8 ya tienen confirmación humana en sus respectivos alcances.
+
+Objetivo: registrar la revisión por diseño de las 65 entradas y 82 copias de [SRC-005](../../referencias/README.md#src-005--escaneos-españoles-de-personajes-misiones-y-mercado), según el [contrato de fidelidad](../008-preparacion-y-turnos/admision-contenido-final.md#registro-por-componente).
+
+Riesgo R2 para el cotejo completo: un error de lectura o cantidad afecta la preparación o las reglas posteriores. El coordinador prepara las fichas y registra evidencia, el propietario coteja las fuentes y un revisor independiente verifica el registro antes del cierre. La preparación mecánica de la ficha se comprueba contra el inventario. Ninguna dispensa.
+
+1. Preparar el primer lote en orden físico, vinculado a los IDs y a la fuente del inventario.
+2. Registrar por diseño edición e idioma, persona y fecha del cotejo, campos revisados, correcciones y dudas. Para las cantidades, contrastar las 65 filas del inventario con la evidencia de duplicados aportada por el propietario y recogida en la [auditoría de escaneos](../../referencias/auditoria-escaneos-2026-11-09.md#fuentes-y-método). Contrastar las referencias o discrepancias con SRC-001/002.
+3. Repetir por hojas. Para cerrar, verificar cobertura 65/82, conservar separadas las puertas de ejecución y distribución, y obtener revisión independiente del registro y sus fuentes.
+4. Reconciliar la procedencia de la copia local que se usó para el cotejo. Registrar la declaración del propietario, identificar las nueve hojas de esa copia por SHA-256 y contrastar sus localizadores y cobertura con el inventario. Conservar por separado las huellas históricas de E3.1. Responsable: coordinador; comprobaciones de huellas, correspondencia de filas y enlaces, y revisión independiente final.
+
+Estado: completada en alcance documental. El propietario confirmó los nueve lotes y resolvió los cuatro casos del contraste. Se comprobaron 65 diseños y 82 copias y se identificaron las nueve huellas de los escaneos cotejados. Revisión independiente final favorable. Siguiente paso de E3: especificar las familias de efectos y sus pruebas. [Ficha de cotejo](cotejo-mercado.md) y [evidencia](verification.md#copia-identificada-para-e32).

@@ -1,5 +1,21 @@
 # Registro de decisiones
 
+## DEC-054 — Esconderse ante derrota directa
+
+2026-11-27. Aceptada para la adaptación por respuesta afirmativa del propietario al cuarto caso del cotejo. Esconderse puede impedir la derrota de un aliado en juego por Asesinar, Lanzamonedas o Vorágine aunque el efecto no gaste puntos de combate. Cada uso de Esconderse protege a un aliado. En Vorágine, el efecto sigue aplicándose a los demás aliados afectados y al Mercado. La decisión se apoya en la protección frente a derrota impresa en SRC-005. SRC-001 pp. 9–10 y 16 describe Nublar y el combate gastado, sin aclarar estas derrotas directas. [Cotejo y evidencia](specs/011-competitivo-completo/verification.md#decisión-sobre-esconderse).
+
+## DEC-053 — Defensor ante Asesinar y Lanzamonedas
+
+2026-11-27. Aceptada para la adaptación por respuesta del propietario al tercer caso del cotejo. Si un oponente tiene al menos un Defensor en juego, Asesinar y Lanzamonedas solo pueden elegir a sus aliados con Defensor. La protección se aplica por oponente. El propietario se apoya en la restricción de objetivos de las cartas españolas de SRC-005 (Brazo de peltre, Soldado y Mataneblinos). SRC-001 pp. 9 y 15–16 describe el ataque ordinario y DEC-039 regula el premio de M2. [Cotejo y evidencia](specs/011-competitivo-completo/verification.md#decisión-sobre-defensor).
+
+## DEC-052 — Perforar con una sola Acción elegible
+
+2026-11-27. Aceptada para la adaptación por respuesta del propietario al segundo caso del cotejo de mercado. Si al resolver la secundaria de Perforar solo hay una Acción del Mercado que cueste 6 o menos, el recuadro completo queda sin efecto. Se conservan los efectos ya resueltos de la primaria. La cara de SRC-005 pide dos Acciones distintas. SRC-001 p. 9 y SRC-002 «Action cards» no detallan este caso de resolución parcial. [Cotejo y evidencia](specs/011-competitivo-completo/verification.md#decisión-sobre-perforar).
+
+## DEC-051 — Confrontación con la pila de eliminadas vacía
+
+2026-11-27. Aceptada para la adaptación por respuesta del propietario al primer caso del cotejo de mercado. Al asignar el primer atium a Confrontación con la pila de eliminadas vacía, el recuadro primario se tramita sin copiar ninguna carta. La victoria se obtiene al asignar los tres atiums adicionales y resolver el recuadro secundario. Aplicable al competitivo, cooperativo y solitario. La decisión cubre la falta de objetivo de esta primaria y conserva el requisito de los cuatro atiums y el orden de los recuadros. SRC-001 pp. 10, 17 y 20 y SRC-002 no aclaran de forma expresa esa combinación. [Cotejo y evidencia](specs/011-competitivo-completo/verification.md#decisión-sobre-confrontación).
+
 ## DEC-050 — Identidad del inventario del mercado
 
 - Fecha: 2026-11-24. Estado: decisión técnica de E3.1, revisada favorablemente.

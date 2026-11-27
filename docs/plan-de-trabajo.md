@@ -6,7 +6,7 @@ Confirmación M1–M8 (2026-11-24): [ocho misiones cotejadas por el propietario]
 
 Confirmación E1 (2026-11-24): cotejo humano del lote inicial completado; E1 cierra en alcance de ensayo, con datos aún en borrador y admisión/distribución pendientes. Las ocho misiones se confirmaron después, por separado. [Evidencia](specs/008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo).
 
-E3.1 (2026-11-24): [inventario del mercado](specs/011-competitivo-completo/tasks.md) completado y revisado, 65 diseños/82 copias, sin admisión ni cambios de juego. Siguiente dependencia: cotejo individual humano y registro completo de fidelidad/distribución; después integrar familias de efectos y recorridos 2–4. E3 permanece abierta.
+E3.1 (2026-11-24): [inventario del mercado](specs/011-competitivo-completo/tasks.md) completado y revisado, 65 diseños/82 copias. E3.2 (2026-11-27): [cotejo documental completado y revisado](specs/011-competitivo-completo/verification.md#copia-identificada-para-e32). Siguiente paso de E3: especificar las familias de efectos y sus pruebas. E3 permanece abierta.
 
 Avance anterior E1 (2026-11-24): registro de 22 borradores y ensayo de inicio/acciones iniciales verificados con fuentes locales; revisión independiente favorable y [evidencia](specs/008-preparacion-y-turnos/verification.md#e1--contenido-inicial-competitivo-y-ensayo-integrado). El cotejo humano pendiente entonces se confirmó después, según la nota superior; E2 usa un subconjunto de prueba sin atribuirle admisión al producto.
 

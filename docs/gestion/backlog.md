@@ -1,5 +1,7 @@
 # Backlog por fases
 
+- E3.2 completada en alcance documental. Nueve hojas confirmadas, copia identificada, referencias contrastadas y cuatro casos decididos. [Aceptación](../specs/011-competitivo-completo/tasks.md#e32--cotejo-humano-del-mercado) y [revisión final](../specs/011-competitivo-completo/verification.md#copia-identificada-para-e32). Sin issue.
+
 - M1–M8, cotejo humano confirmado el 2026-11-24 para casillas, extras «1.º» y cimas de las ocho misiones. No cambia el catálogo ni acredita ejecución de producto o distribución. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#confirmación-humana-de-misiones-m1m8--registro-previo). Siguiente dependencia humana: mercado, por diseños/familias.
 
 - E1, cotejo humano confirmado el 2026-11-24 para personajes, 16 Entrenamientos, niveles, Financiación y pista; cierra solo el ensayo inicial. Datos en borrador, admisión/distribución pendientes. Las ocho misiones se confirmaron después por separado. [Evidencia](../specs/008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo).

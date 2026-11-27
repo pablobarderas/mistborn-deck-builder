@@ -5,3 +5,91 @@
 Comprobaciones: `python tools/market_inventory.py --source-root <carpeta-local>` y `python tests/market_inventory_test.py --source-root <carpeta-local>` correctos: 10 casos, incluidos IDs invariables al reordenar filas y rechazos de ID/cantidad/fuente/huella/estado/tipos alterados. En este PC, `<carpeta-local>` es `C:/Users/pbard/Pictures/Digitalizaciones/cartas_mercado`; los nueve archivos deben existir con sus huellas para reproducir la prueba. `python -m py_compile` correcto; 458 enlaces locales de documentos afectados comprobados sin ausencias; `git diff --cached --check` correcto. Revisión independiente `sdd_reviewer` Sol/high favorable tras corregir dos hallazgos P2: igualdad laxa entre tipos JSON y reasignación de IDs por orden de fila. El revisor contrastó independientemente las 65 filas, 82 copias, grupos 10/10/10/10/21/4 y nueve huellas; confirmó rechazo de fuente ausente y bytes cambiados, y ausencia de PNG versionados. No se modificó ni probó Godot: el registro no está conectado al runtime.
 
 Cumplimiento: aceptación, fuentes, plan, pruebas adversas y revisión independiente realizados; ninguna dispensa. La fidelidad de caras, edición/idioma y revisión humana por componente, efectos, referencias y base de distribución permanecen pendientes. No se ha construido manifiesto, catálogo jugable ni paquete. E1 conserva su cotejo humano. Siguiente paso: cotejar individualmente las caras de mercado y del lote inicial con una persona, registrar los campos faltantes de T08.1b30 y agrupar después las familias de efectos para E3. No regenerar los IDs como números de fila ni promover por la huella sola.
+
+## E3.2 — Preparación del cotejo
+
+2026-11-26. Se recuperó el estado publicado de `main` en `741dfc8946083e45e141ecec89d54e8930d8ee29`, idéntico a HEAD y con árbol inicial limpio. El [primer lote](cotejo-mercado.md) coincide con el inventario en ID, fila, posición, nombre, tipo y cantidad: ocho diseños y doce copias declaradas. El verificador del inventario comprobó las nueve huellas locales y su suite pasó los diez casos. La ficha usa los datos del inventario y requiere el cotejo de caras y copias por el propietario. Godot queda fuera de esta preparación documental.
+
+### Confirmación del primer lote
+
+2026-11-27. El propietario confirmó la lectura de las ocho caras de `mercado.1.png`. Se conserva el [resumen confirmado](cotejo-mercado.md#lectura-confirmada) por posición física e ID del inventario. El propietario recordó que entregó las cantidades al digitalizar la caja. La [auditoría](../../referencias/auditoria-escaneos-2026-11-09.md#fuentes-y-método) conserva dicha declaración. La comparación por fuente, fila y posición dio 65 coincidencias de nombre, grupo y cantidad, con 17 diseños dobles, 82 copias totales y 12 correspondientes a la primera hoja.
+
+Quedan pendientes el contraste de referencias, la lectura de las ocho hojas posteriores y la revisión independiente del registro completo. E3.2 continúa abierta según sus [criterios](tasks.md#e32--cotejo-humano-del-mercado), sin dispensa ni publicación. Siguiente hoja: `mercado.2.png`.
+
+### Confirmación del segundo lote
+
+2026-11-27. El propietario confirmó las ocho interpretaciones de `mercado.2.png`, incluido Encender. La [ficha](cotejo-mercado.md) coincide con el inventario en ocho IDs, títulos y nueve copias de este lote. Dos hojas confirmadas, 16 diseños y 21 copias conforme al recuento previo. E3.2 sigue abierta por las siete hojas restantes, el contraste de referencias y la revisión independiente final. Siguiente hoja: `mercado.3.png`.
+
+### Confirmación del tercer lote
+
+2026-11-27. El propietario confirmó las ocho interpretaciones de `mercado.3.png`. La [ficha](cotejo-mercado.md) coincide con el inventario en ocho IDs, títulos y once copias de este lote. Tres hojas confirmadas, 24 diseños y 32 copias conforme al recuento previo. E3.2 sigue abierta por seis hojas, el contraste de referencias y la revisión independiente final. Siguiente hoja: `mercado.4.png`.
+
+### Confirmación del cuarto lote
+
+2026-11-27. El propietario confirmó las ocho interpretaciones de `mercado.4.png`. La [ficha](cotejo-mercado.md) coincide con el inventario en ocho IDs, títulos y once copias de este lote. El acumulado de las cuatro hojas confirmadas es de 32 diseños y 43 copias conforme al recuento previo. E3.2 sigue abierta por cinco hojas, el contraste de referencias y la revisión independiente final. Siguiente hoja: `mercado.5.png`.
+
+### Confirmación del quinto lote
+
+2026-11-27. El propietario confirmó las ocho interpretaciones de `mercado.5.png` y ratificó expresamente la conversión de puntos sin gastar de Dominar. La [ficha](cotejo-mercado.md) coincide con el inventario en ocho IDs, títulos y nueve copias del lote. El acumulado es de 40 diseños y 52 copias. E3.2 sigue abierta por las cuatro hojas restantes, el contraste de referencias y la revisión independiente final. Siguiente hoja: `mercado.6.png`.
+
+### Confirmación del sexto lote
+
+2026-11-27. El propietario confirmó las ocho interpretaciones de `mercado.6.png`. La [ficha](cotejo-mercado.md) coincide con el inventario en IDs, títulos y diez copias del lote. El acumulado es de 48 diseños y 62 copias. E3.2 sigue abierta por tres hojas, el contraste de referencias y la revisión independiente final. Siguiente hoja: `mercado.7.png`.
+
+### Confirmación del séptimo lote
+
+2026-11-27. El propietario confirmó las ocho interpretaciones de `mercado.7.png`. La [ficha](cotejo-mercado.md) coincide con el inventario en IDs, títulos y ocho copias del lote. El acumulado es de 56 diseños y 70 copias. E3.2 sigue abierta por dos hojas, el contraste de referencias y la revisión independiente final. Siguiente hoja: `mercado8.png`.
+
+### Confirmación del octavo lote
+
+2026-11-27. El propietario confirmó las ocho interpretaciones de `mercado8.png`. La [ficha](cotejo-mercado.md) coincide con el inventario en IDs, títulos y diez copias del lote. El acumulado es de 64 diseños y 80 copias. E3.2 sigue abierta por la última hoja, el contraste de referencias y la revisión independiente final. Siguiente hoja: `mercado9.png`.
+
+### Confirmación del noveno lote
+
+2026-11-27. El propietario confirmó la interpretación de Tirón de hierro en `mercado9.png`. Se comprobó que la [ficha de los nueve lotes](cotejo-mercado.md) coincide con el inventario en los 65 identificadores, títulos y cantidades, con 82 copias. La confirmación del propietario cubre la lectura de las nueve hojas. E3.2 sigue abierta por el contraste de referencias con SRC-001/002 y la revisión independiente. Ninguna dispensa ni publicación.
+
+### Contraste de fuentes y procedencia
+
+2026-11-27. HEAD y referencia recién obtenida de GitHub coincidieron en `741dfc8946083e45e141ecec89d54e8930d8ee29`. Se contrastaron las familias del [registro](cotejo-mercado.md#contraste-de-referencias) con SRC-001 y SRC-002. El especialista de reglas corroboró el contraste y los [cuatro casos inicialmente abiertos](cotejo-mercado.md#casos-sin-respuesta-expresa).
+
+En esta revalidación, el verificador de E3.1 rechazó la carpeta local. El cálculo individual dio huellas distintas de las declaradas para `mercado.1.png` a `mercado.4.png`, `mercado.6.png`, `mercado.7.png` y `mercado9.png`. Coinciden `mercado.5.png` y `mercado8.png`. La causa queda por determinar. Se conservan las huellas del inventario y el alcance de la lectura humana de las hojas presentadas. Para cerrar procedencia, recuperar los archivos correspondientes a las huellas originales o justificar y registrar una nueva fuente identificada con el cotejo que corresponda.
+
+La revisión independiente confirmó la coincidencia de los 65 identificadores, títulos y cantidades (82 copias y 17 diseños dobles), la trazabilidad de los enlaces y los cuatro casos sin resolución oficial expresa. Reprodujo el fallo de huellas y mantiene la procedencia como condición de cierre. La comprobación local de las 65 filas, las referencias REG y el diff pasó. E3.2 permanece abierta, sin dispensa ni publicación.
+
+### Decisión sobre Confrontación
+
+2026-11-27. La respuesta afirmativa del propietario al caso 1 establece [DEC-051](../../decisiones.md#dec-051--confrontación-con-la-pila-de-eliminadas-vacía). Prueba futura de aceptación: con la pila de eliminadas vacía, uno a tres atiums asignados a Confrontación no terminan la partida. Con cuatro, al resolver la secundaria, gana la plaza en competitivo o el equipo en cooperativo/solitario. Tener cuatro atiums disponibles sigue siendo insuficiente. La revisión independiente del cambio documental fue favorable y las comprobaciones de enlaces y diff pasaron. Quedan tres casos abiertos y la procedencia local.
+
+### Decisión sobre Perforar
+
+2026-11-27. El propietario indicó que la secundaria queda sin efecto con una sola Acción elegible. [DEC-052](../../decisiones.md#dec-052--perforar-con-una-sola-acción-elegible). Prueba futura: tras resolver la primaria, llegar a la secundaria con una sola Acción de coste 6 o menos y comprobar que la secundaria no copia ninguna, incluso si el resto del Mercado contiene aliados o Acciones de coste superior. Los efectos de la primaria ya resueltos se conservan. Revisión independiente favorable y comprobaciones de enlaces y diff correctas. Quedan dos casos abiertos y la procedencia local.
+
+### Decisión sobre Defensor
+
+2026-11-27. El propietario confirmó que la restricción de objetivos impresa en Defensor se aplica a Asesinar y Lanzamonedas. [DEC-053](../../decisiones.md#dec-053--defensor-ante-asesinar-y-lanzamonedas). Prueba futura con cada carta: ante un oponente con dos Defensores y otro aliado, ambos Defensores son elegibles y el otro aliado está protegido. El aliado de un oponente distinto sin Defensores sigue siendo elegible. Revisión independiente favorable y comprobaciones de enlaces y diff correctas. Quedan Esconderse y la procedencia local.
+
+### Decisión sobre Esconderse
+
+2026-11-27. El propietario respondió afirmativamente al cuarto caso. [DEC-054](../../decisiones.md#dec-054--esconderse-ante-derrota-directa). Pruebas futuras: impedir una derrota directa por Asesinar y por Lanzamonedas sin alterar la reserva de combate, y salvar a un aliado de Vorágine mientras se resuelven las demás derrotas y el efecto de Mercado. Revisión independiente favorable, enlaces y diff correctos. Con esto quedan decididos los cuatro casos planteados. Se reprodujeron las mismas siete discrepancias de huella, por lo que E3.2 sigue abierta por procedencia.
+
+### Copia identificada para E3.2
+
+2026-11-27. El propietario confirmó que los archivos de este equipo son una copia de los mismos escaneos que trasladó del otro PC. Se identifica la copia local de `cartas_mercado` cotejada en E3.2 y se conservan las huellas históricas en el [inventario E3.1](mercado-inventario.json). Una copia del mismo escaneo puede tener bytes distintos. La declaración acredita su procedencia y la lectura cotejada, sin afirmar igualdad binaria ni atribuir todos los cambios a una causa concreta.
+
+La orientación de varias hojas cambia. El giro de esta tabla es visual y se aplica a la hoja entera para recuperar la cuadrícula del inventario. Se comprobó la correspondencia por títulos. Las posiciones e IDs de E3.1 se conservan. La versión actual de la hoja 1 tiene una huella diferente de la observada en la primera revalidación. Se volvió a leer y conserva las ocho caras confirmadas, en la orientación que recoge la tabla.
+
+| Hoja | SHA-256 de la copia local identificada | Giro para leer por posición del inventario |
+| --- | --- | --- |
+| `mercado.1.png` | `35c4713909ffc7c1eeae558c04db814bd63f3742237a9cd3a4ecb70d497d10fd` | 90° a la derecha |
+| `mercado.2.png` | `6d8ce834869d676512bf0de32e55b86e63327f37969f781e88ab341a08c90187` | Sin giro |
+| `mercado.3.png` | `5979a3e95f984a8c9f41480cc7651da83bd548b924c7d99087c935301eafb6a6` | 90° a la izquierda |
+| `mercado.4.png` | `53de6a72823ea8d3213df78ef94e5a75d9b7ef10e41367c354ac639215cf44dc` | 90° a la izquierda |
+| `mercado.5.png` | `28ff8c3acbda27158525a162067c9384a2d81fd17e114be53e237044e9cb9573` | Sin giro |
+| `mercado.6.png` | `fc75c5b3335f988727091c25c0cebb518c9b651591c27dd3f2a6f9fcf81e7854` | 90° a la izquierda |
+| `mercado.7.png` | `c97c955f6b0452dfdbdf47f914204a799699ba87780c9148013976597d4e449b` | 90° a la izquierda |
+| `mercado8.png` | `a33a249dee3271fbd88c2426e7eea72053990ccf8658c33fa448e84c17b5ee1d` | Sin giro |
+| `mercado9.png` | `e49ea83d8e35656d085b8f92901bdd23812c789e2d6abae4f1ef0e87c6015ce5` | Carta única |
+
+La comprobación histórica de E3.1 sigue requiriendo las huellas de ese inventario. E3.2 usa el registro de esta copia para reproducir el cotejo. Los PNG siguen fuera del repositorio y del paquete. El alcance es documental y no acredita ejecución ni distribución.
+
+Revisión independiente final favorable. Verificó las nueve huellas de la copia y los ocho títulos y localizadores de la hoja 1 tras corregir la orientación. Se comprobaron 65 IDs y 82 copias, enlaces y diff. E3.2 queda cerrada en alcance documental, con aceptación, fuentes, comprobaciones y revisión completas. Ninguna dispensa. Publicación documental según DEC-049.
