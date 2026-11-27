@@ -42,3 +42,15 @@ Base publicada y local `59a1afd1fc38a1a9ca3cb16a7d22b56d6c191cfd`. Objetivo: imp
 Contrato y aceptación: opera sobre el diccionario fiable de saldos de un candidato. Solo admite dos claves existentes distintas, cantidades positivas y saldos enteros no negativos. Si falta saldo, el destino desbordaría el límite entero o la entrada es inválida, devuelve falso con ambos saldos intactos. Si tiene éxito devuelve verdadero y modifica ambos saldos. El motor sigue controlando autoridad, revisión, recibo y RNG. Una secuencia ficticia debe comprobar éxito y reenvío, saldo insuficiente y desbordamiento, con igualdad del estado completo en rechazos. Verificar también claves y cantidades inválidas en la API y ejecutar regresiones de motor, secuencias y estado. El registro de prueba no se incorpora al producto.
 
 Estado: completada con un programa ficticio de verificación. Criterios comprobados y revisión independiente favorable. Ninguna dispensa. [Evidencia](verification.md#intercambio-de-recursos).
+
+## Contrato de movimiento entre zonas
+
+Objetivo: especificar un primer traslado entre zonas personales para un programa ficticio. Recuperación en `main`, árbol limpio, HEAD y referencia recién obtenida de GitHub en `62671315066b0d413353656f10e34449992a9f08`. Riesgo R2 porque el contrato afecta a la conservación de instancias, la atomicidad y la privacidad.
+
+- MOV-01. Definir los parámetros internos, el origen y destino autorizados, el orden y las invariantes del traslado.
+- MOV-02. Delimitar la reutilización del ciclo existente y definir rechazos sin cambios parciales ni divulgación de cartas.
+- MOV-03. Fijar escenarios reproducibles de integración y regresión en un registro ficticio. El alcance de esta entrega es documental.
+
+Plan: el coordinador contrasta el validador, el ciclo y el resolutor, redacta el contrato y comprueba enlaces, criterios y coherencia con las APIs. Un revisor independiente contrasta el resultado con MOV-01–03. Tras la revisión, el coordinador actualiza la memoria y publica la entrega documental si cumple los criterios. Ninguna dispensa.
+
+Estado: completada en alcance documental. Siguiente paso de E3: implementar el traslado con el ciclo existente y verificarlo mediante un programa ficticio. [Contrato](movimiento-entre-zonas.md) y [evidencia](verification.md#contrato-de-movimiento-entre-zonas).

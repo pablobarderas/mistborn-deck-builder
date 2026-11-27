@@ -105,3 +105,11 @@ Revisión independiente favorable tras delimitar las transiciones que el resolut
 2026-11-27. [Operación](../../../scripts/game/turn_resource_exchange.gd) integrada en un programa ficticio de [secuencias](../../../tests/sequence_fixtures.gd). Se verificaron débito y crédito del mismo actor, un único avance de revisión, reenvío con el mismo recibo, saldo insuficiente, desbordamiento, límite entero exacto y entradas inválidas. En los rechazos del motor se comparó el snapshot completo; el éxito mantuvo el RNG y los datos de la otra plaza. El programa solo se registra en pruebas.
 
 Godot 4.7.2: importación correcta, 269 comprobaciones de secuencias, 102 de motor y 2075 de estado, código 0. Revisión independiente favorable y diff y enlaces correctos. Ninguna dispensa. Publicación según DEC-049. Siguiente paso técnico propuesto: concretar el contrato de movimiento entre zonas y reutilizar las operaciones de ciclo existentes donde apliquen.
+
+## Contrato de movimiento entre zonas
+
+2026-11-27. [MOV-01–03](tasks.md#contrato-de-movimiento-entre-zonas) satisfechos en alcance documental. Se comprobó contra el código el orden de `CardCycle.discard`, las invariantes de zonas del validador, la validación de contexto del registro, el rechazo y reenvío del motor y la visibilidad de mano y descarte por plaza. Enlaces locales, anclas y control de espacios correctos.
+
+R2. Una revisión independiente con el perfil `sdd_reviewer` (GPT-6.1 Sol, esfuerzo high) contrastó los criterios con las interfaces. Dictamen favorable. Se incorporó su precisión sobre el tipo `id` en el contexto ficticio para que el caso de instancia ausente alcance la operación. El mismo revisor verificó esa corrección en una segunda pasada acotada. Sin dispensa. Tokens por tarea no disponibles.
+
+La entrega especifica un programa ficticio. Los casos funcionales quedan pendientes de implementación y Godot no se ejecutó para esta revisión documental. Al retomar, implementar el [traslado](movimiento-entre-zonas.md) y ejecutar MOV-03. E3 sigue abierta. Publicación del documento según DEC-049.

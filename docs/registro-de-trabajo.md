@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-27 — Contrato de movimiento entre zonas
+
+Quedó definido el primer traslado ficticio de mano a descarte, con orden, propiedad, rechazo atómico y privacidad. Comprobación documental y revisión independiente favorables. Quedan pendientes la implementación y la ejecución de los casos. [Evidencia](specs/011-competitivo-completo/verification.md#contrato-de-movimiento-entre-zonas).
+
 ## 2026-11-27 — Intercambio de recursos
 
 Se implementó un débito y crédito atómicos y se verificaron en una secuencia ficticia. Importación y suites de secuencias, motor y estado correctas; revisión independiente favorable. [Evidencia y siguiente paso técnico](specs/011-competitivo-completo/verification.md#intercambio-de-recursos).
