@@ -26,3 +26,11 @@ Riesgo R2 para el cotejo completo: un error de lectura o cantidad afecta la prep
 4. Reconciliar la procedencia de la copia local que se usó para el cotejo. Registrar la declaración del propietario, identificar las nueve hojas de esa copia por SHA-256 y contrastar sus localizadores y cobertura con el inventario. Conservar por separado las huellas históricas de E3.1. Responsable: coordinador; comprobaciones de huellas, correspondencia de filas y enlaces, y revisión independiente final.
 
 Estado: completada en alcance documental. El propietario confirmó los nueve lotes y resolvió los cuatro casos del contraste. Se comprobaron 65 diseños y 82 copias y se identificaron las nueve huellas de los escaneos cotejados. Revisión independiente final favorable. Siguiente paso de E3: especificar las familias de efectos y sus pruebas. [Ficha de cotejo](cotejo-mercado.md) y [evidencia](verification.md#copia-identificada-para-e32).
+
+## Matriz técnica de efectos y pruebas
+
+Base publicada y local `c8a9c0059f2e1f4f3846d33ffaa5e160dbe4fe40`, árbol limpio al retomar. Objetivo documental: concretar las familias de operaciones reutilizables y los casos de prueba con contenido ficticio. Riesgo R2 por el alcance de las futuras operaciones sobre estado, secuencias y vistas privadas.
+
+Aceptación: (1) cada familia tiene resultado observable y al menos un caso adverso; (2) se trazan las garantías comunes de autoridad, reanudación y privacidad al contrato existente; (3) se distinguen pruebas propuestas de cobertura existente y condiciones de cierre de E3. El coordinador redacta y verifica enlaces y coherencia. Un revisor independiente contrasta el documento con las interfaces actuales y los tres criterios antes de publicar.
+
+Estado: completada en alcance de propuesta técnica. Los tres criterios cuentan con comprobación documental y revisión independiente favorable. Sin dispensa. [Matriz propuesta](familias-de-efectos.md) y [evidencia](verification.md#verificación-de-la-matriz-técnica-de-efectos).

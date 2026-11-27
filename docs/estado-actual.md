@@ -1,5 +1,7 @@
 # Estado actual
 
+Se documentó una [matriz técnica de efectos y pruebas](specs/011-competitivo-completo/familias-de-efectos.md) con casos ficticios para el motor. La matriz es una propuesta para futuras implementaciones. E3 sigue abierta.
+
 E3.2 (2026-11-27): [cotejo documental del mercado completado](specs/011-competitivo-completo/cotejo-mercado.md). Nueve hojas confirmadas, 65 diseños y 82 copias, cuatro decisiones de adaptación y revisión independiente favorable. La [copia local](specs/011-competitivo-completo/verification.md#copia-identificada-para-e32) tiene sus propias huellas y orientación documentada. E3 continúa abierta.
 
 Confirmación humana M1–M8 (2026-11-24): el propietario validó la [tabla por título](referencias/misiones-competitivas.md) de casillas, extras del primero y cimas de las ocho misiones. Se suma al cotejo E1 confirmado, sin cambiar `data/misiones.json`, resolutores ni permisos de distribución. E3 mantiene pendientes la integración de todas las rutas con contenido final y el cotejo individual del mercado. [Evidencia](specs/008-preparacion-y-turnos/verification.md#confirmación-humana-de-misiones-m1m8--registro-previo).

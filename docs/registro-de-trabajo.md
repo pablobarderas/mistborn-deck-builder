@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-27 — Matriz técnica de efectos
+
+Se documentaron seis familias de operaciones y casos de prueba ficticios. Se comprobó su correspondencia con las fronteras actuales de autoridad, reanudación y privacidad. Siguiente paso técnico: acordar el contrato de una familia antes de implementarla. [Evidencia](specs/011-competitivo-completo/verification.md#verificación-de-la-matriz-técnica-de-efectos).
+
 ## 2026-11-27 — Cierre documental del cotejo de mercado
 
 El propietario identificó la copia trasladada del otro PC. Se registraron las nueve huellas y se comprobó la correspondencia de 65 diseños y 82 copias. Revisión independiente favorable. Publicación documental según DEC-049. Siguiente paso de E3: especificar las familias de efectos y sus pruebas. [Evidencia](specs/011-competitivo-completo/verification.md#copia-identificada-para-e32).

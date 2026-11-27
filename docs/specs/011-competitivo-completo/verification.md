@@ -93,3 +93,9 @@ La orientación de varias hojas cambia. El giro de esta tabla es visual y se apl
 La comprobación histórica de E3.1 sigue requiriendo las huellas de ese inventario. E3.2 usa el registro de esta copia para reproducir el cotejo. Los PNG siguen fuera del repositorio y del paquete. El alcance es documental y no acredita ejecución ni distribución.
 
 Revisión independiente final favorable. Verificó las nueve huellas de la copia y los ocho títulos y localizadores de la hoja 1 tras corregir la orientación. Se comprobaron 65 IDs y 82 copias, enlaces y diff. E3.2 queda cerrada en alcance documental, con aceptación, fuentes, comprobaciones y revisión completas. Ninguna dispensa. Publicación documental según DEC-049.
+
+## Verificación de la matriz técnica de efectos
+
+La [matriz propuesta](familias-de-efectos.md) contiene seis familias y un caso positivo y adverso por familia. Se comprobó la correspondencia de las referencias al motor, resolutor y suites existentes, y el alcance de la autoridad por segmento. La finalización desde una secuencia y la persistencia de obligaciones entre turnos o fases requieren contrato propio antes de implementarse. Las pruebas descritas quedan propuestas para futuras entregas. Esta comprobación documental no ejecutó Godot.
+
+Revisión independiente favorable tras delimitar las transiciones que el resolutor actual protege. Se comprobaron los enlaces, las seis filas y el diff. Los tres criterios de la tarea se completaron en alcance documental. Ninguna dispensa. Publicación según DEC-049.
