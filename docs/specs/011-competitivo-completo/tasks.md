@@ -34,3 +34,11 @@ Base publicada y local `c8a9c0059f2e1f4f3846d33ffaa5e160dbe4fe40`, árbol limpio
 Aceptación: (1) cada familia tiene resultado observable y al menos un caso adverso; (2) se trazan las garantías comunes de autoridad, reanudación y privacidad al contrato existente; (3) se distinguen pruebas propuestas de cobertura existente y condiciones de cierre de E3. El coordinador redacta y verifica enlaces y coherencia. Un revisor independiente contrasta el documento con las interfaces actuales y los tres criterios antes de publicar.
 
 Estado: completada en alcance de propuesta técnica. Los tres criterios cuentan con comprobación documental y revisión independiente favorable. Sin dispensa. [Matriz propuesta](familias-de-efectos.md) y [evidencia](verification.md#verificación-de-la-matriz-técnica-de-efectos).
+
+## Operación de intercambio de recursos
+
+Base publicada y local `59a1afd1fc38a1a9ca3cb16a7d22b56d6c191cfd`. Objetivo: implementar y probar la familia de recursos con una operación reutilizable que debita un saldo y acredita otro del mismo jugador. El coordinador implementa y verifica. Un revisor independiente verifica alcance y pruebas. Riesgo R2 por mutación de estado.
+
+Contrato y aceptación: opera sobre el diccionario fiable de saldos de un candidato. Solo admite dos claves existentes distintas, cantidades positivas y saldos enteros no negativos. Si falta saldo, el destino desbordaría el límite entero o la entrada es inválida, devuelve falso con ambos saldos intactos. Si tiene éxito devuelve verdadero y modifica ambos saldos. El motor sigue controlando autoridad, revisión, recibo y RNG. Una secuencia ficticia debe comprobar éxito y reenvío, saldo insuficiente y desbordamiento, con igualdad del estado completo en rechazos. Verificar también claves y cantidades inválidas en la API y ejecutar regresiones de motor, secuencias y estado. El registro de prueba no se incorpora al producto.
+
+Estado: completada con un programa ficticio de verificación. Criterios comprobados y revisión independiente favorable. Ninguna dispensa. [Evidencia](verification.md#intercambio-de-recursos).

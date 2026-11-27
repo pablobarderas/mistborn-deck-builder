@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-27 — Intercambio de recursos
+
+Se implementó un débito y crédito atómicos y se verificaron en una secuencia ficticia. Importación y suites de secuencias, motor y estado correctas; revisión independiente favorable. [Evidencia y siguiente paso técnico](specs/011-competitivo-completo/verification.md#intercambio-de-recursos).
+
 ## 2026-11-27 — Matriz técnica de efectos
 
 Se documentaron seis familias de operaciones y casos de prueba ficticios. Se comprobó su correspondencia con las fronteras actuales de autoridad, reanudación y privacidad. Siguiente paso técnico: acordar el contrato de una familia antes de implementarla. [Evidencia](specs/011-competitivo-completo/verification.md#verificación-de-la-matriz-técnica-de-efectos).

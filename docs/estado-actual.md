@@ -1,6 +1,6 @@
 # Estado actual
 
-Se documentó una [matriz técnica de efectos y pruebas](specs/011-competitivo-completo/familias-de-efectos.md) con casos ficticios para el motor. La matriz es una propuesta para futuras implementaciones. E3 sigue abierta.
+La [matriz técnica de efectos y pruebas](specs/011-competitivo-completo/familias-de-efectos.md) ya tiene una primera [operación de intercambio de recursos](specs/011-competitivo-completo/verification.md#intercambio-de-recursos) implementada y verificada en una secuencia ficticia. E3 sigue abierta.
 
 E3.2 (2026-11-27): [cotejo documental del mercado completado](specs/011-competitivo-completo/cotejo-mercado.md). Nueve hojas confirmadas, 65 diseños y 82 copias, cuatro decisiones de adaptación y revisión independiente favorable. La [copia local](specs/011-competitivo-completo/verification.md#copia-identificada-para-e32) tiene sus propias huellas y orientación documentada. E3 continúa abierta.
 

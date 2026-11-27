@@ -20,6 +20,7 @@ func _initialize() -> void:
 
 func _run() -> void:
 	_test_automatic()
+	_test_resource_exchange()
 	_test_pause_and_resume()
 	_test_successive_windows()
 	_test_segment_rollback()
@@ -93,6 +94,44 @@ func _test_automatic() -> void:
 	var unregistered: EngineCore = EngineCore.new(Fixtures.definitions(), "test_catalog")
 	_expect(unregistered.load_authority_snapshot(initial).ok, "SEQ-01 motor sin registro acepta estado base")
 	_reject(unregistered, "p1", intent, "accion_no_soportada", "SEQ-01 programas ausentes de producto")
+
+
+func _test_resource_exchange() -> void:
+	var initial: Dictionary = _prepared()
+	initial.players[0].turn_resources.recursos = 2
+	var engine: EngineCore = _engine(initial)
+	var intent: Dictionary = _intent("exchange", "test_exchange", 0)
+	var receipt: Dictionary = engine.submit("p1", intent)
+	var after: Dictionary = engine.get_authority_snapshot()
+	_expect(receipt.ok and after.revision == initial.revision + 1 and after.resolution == null
+		and after.players[0].turn_resources == {"recursos": 0, "ataque": 8, "mision": 0}
+		and after.players[1] == initial.players[1] and after.authority.rng_state == initial.authority.rng_state,
+		"Intercambio: confirma ambos saldos del actor en un solo segmento")
+	_expect(engine.submit("p1", intent) == receipt and engine.get_authority_snapshot() == after,
+		"Intercambio: reenvío conserva el recibo e ignora el cargo duplicado")
+
+	var insufficient: Dictionary = initial.duplicate(true)
+	insufficient.players[0].turn_resources.recursos = 1
+	_reject(_engine(insufficient), "p1", intent, "accion_ilegal", "Intercambio: saldo insuficiente conserva todo el snapshot")
+	var overflowing: Dictionary = initial.duplicate(true)
+	overflowing.players[0].turn_resources.ataque = MAX_INT - 2
+	_reject(_engine(overflowing), "p1", intent, "accion_ilegal", "Intercambio: desbordamiento conserva todo el snapshot")
+	var maximum: Dictionary = initial.duplicate(true)
+	maximum.players[0].turn_resources.ataque = MAX_INT - 3
+	var boundary: EngineCore = _engine(maximum)
+	_expect(boundary.submit("p1", intent).ok and boundary.get_authority_snapshot().players[0].turn_resources.ataque == MAX_INT,
+		"Intercambio: el límite entero exacto es válido")
+
+	var balances: Dictionary = {"a": 2, "b": 1}
+	for args: Array in [["a", 0, "b", 3], ["a", 2, "b", -1], ["a", 2, "a", 1], ["a", 2, "missing", 3], ["missing", 2, "b", 3]]:
+		_expect(not Sequences.Exchange.apply(balances, args[0], args[1], args[2], args[3])
+			and balances == {"a": 2, "b": 1}, "Intercambio: entrada inválida conserva el diccionario")
+	var malformed: Dictionary = {"a": 2, "b": "3"}
+	_expect(not Sequences.Exchange.apply(malformed, "a", 2, "b", 3) and malformed == {"a": 2, "b": "3"},
+		"Intercambio: saldo no entero se rechaza")
+	var negative: Dictionary = {"a": 2, "b": -1}
+	_expect(not Sequences.Exchange.apply(negative, "a", 2, "b", 3) and negative == {"a": 2, "b": -1},
+		"Intercambio: saldo negativo se rechaza")
 
 
 func _test_pause_and_resume() -> void:

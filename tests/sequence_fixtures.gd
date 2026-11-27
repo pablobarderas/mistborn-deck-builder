@@ -2,6 +2,7 @@ extends RefCounted
 ## Programas técnicos de prueba. No registrar en adaptadores de producto.
 
 const Registry = preload("res://scripts/game/sequence_registry.gd")
+const Exchange = preload("res://scripts/game/turn_resource_exchange.gd")
 const MAX_INT: int = Registry.MAX_INT
 const CONTEXT: Dictionary = {"owner_id": "player_id", "turn_number": "int", "entry_phase": "id",
 	"occurrence_id": "id", "recipient_id": "player_id"}
@@ -10,6 +11,7 @@ const CONTEXT: Dictionary = {"owner_id": "player_id", "turn_number": "int", "ent
 static func registration() -> Dictionary:
 	var operations: Dictionary = {
 		"fixture_add": _operation({"amount": "int"}, _valid_add, _add),
+		"fixture_exchange": _operation({}, _valid_empty, _exchange),
 		"fixture_roll": _operation({}, _valid_empty, _roll),
 		"fixture_wait": _operation({"kind": "id", "min": "int", "to_owner": "bool"}, _valid_window, _answer),
 		"fixture_fail": _operation({}, _valid_empty, _fail)
@@ -17,6 +19,7 @@ static func registration() -> Dictionary:
 	operations.fixture_wait["offer"] = _offer
 	return {"operations": operations, "programs": {
 		"automatic_v1": program([step("s1", "fixture_add", {"amount": 2}), step("s2", "fixture_roll")]),
+		"exchange_v1": program([step("exchange", "fixture_exchange")]),
 		"pause_v1": program([step("s1", "fixture_add", {"amount": 2}), step("s2", "fixture_roll"),
 			window("s3"), step("s4", "fixture_roll")]),
 		"reaction_v1": program([step("before", "fixture_add", {"amount": 1}), window("choose", "reaccion", 1, false),
@@ -34,6 +37,7 @@ static func registration() -> Dictionary:
 static func starters() -> Dictionary:
 	return {
 		"test_auto": start.bind("automatic_v1", 0),
+		"test_exchange": start.bind("exchange_v1", 0),
 		"test_pause": start.bind("pause_v1", 0),
 		"test_reaction": start.bind("reaction_v1", 1),
 		"test_twice": start.bind("twice_v1", 1),
@@ -123,6 +127,13 @@ static func _add(state: Dictionary, context: Dictionary, params: Dictionary, _rn
 
 static func _roll(state: Dictionary, context: Dictionary, _params: Dictionary, rng: RandomNumberGenerator, _selected: Array) -> bool:
 	return _add_resource(state, context.owner_id, rng.randi_range(0, 9))
+
+
+static func _exchange(state: Dictionary, context: Dictionary, _params: Dictionary, _rng: RandomNumberGenerator, _selected: Array) -> bool:
+	for player: Dictionary in state.players:
+		if player.player_id == context.owner_id:
+			return Exchange.apply(player.turn_resources, "recursos", 2, "ataque", 3)
+	return false
 
 
 static func _answer(state: Dictionary, context: Dictionary, params: Dictionary, _rng: RandomNumberGenerator, selected: Array) -> bool:

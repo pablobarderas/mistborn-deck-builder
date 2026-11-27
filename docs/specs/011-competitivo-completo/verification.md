@@ -99,3 +99,9 @@ Revisión independiente final favorable. Verificó las nueve huellas de la copia
 La [matriz propuesta](familias-de-efectos.md) contiene seis familias y un caso positivo y adverso por familia. Se comprobó la correspondencia de las referencias al motor, resolutor y suites existentes, y el alcance de la autoridad por segmento. La finalización desde una secuencia y la persistencia de obligaciones entre turnos o fases requieren contrato propio antes de implementarse. Las pruebas descritas quedan propuestas para futuras entregas. Esta comprobación documental no ejecutó Godot.
 
 Revisión independiente favorable tras delimitar las transiciones que el resolutor actual protege. Se comprobaron los enlaces, las seis filas y el diff. Los tres criterios de la tarea se completaron en alcance documental. Ninguna dispensa. Publicación según DEC-049.
+
+## Intercambio de recursos
+
+2026-11-27. [Operación](../../../scripts/game/turn_resource_exchange.gd) integrada en un programa ficticio de [secuencias](../../../tests/sequence_fixtures.gd). Se verificaron débito y crédito del mismo actor, un único avance de revisión, reenvío con el mismo recibo, saldo insuficiente, desbordamiento, límite entero exacto y entradas inválidas. En los rechazos del motor se comparó el snapshot completo; el éxito mantuvo el RNG y los datos de la otra plaza. El programa solo se registra en pruebas.
+
+Godot 4.7.2: importación correcta, 269 comprobaciones de secuencias, 102 de motor y 2075 de estado, código 0. Revisión independiente favorable y diff y enlaces correctos. Ninguna dispensa. Publicación según DEC-049. Siguiente paso técnico propuesto: concretar el contrato de movimiento entre zonas y reutilizar las operaciones de ciclo existentes donde apliquen.
