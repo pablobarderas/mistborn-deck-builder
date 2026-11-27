@@ -1,6 +1,6 @@
 # Backlog por fases
 
-- E3, contrato de alternativas y efectos encadenados, R2. Siguiente tarea: implementar el programa ficticio y comprobar ALT-03. [Criterios](../specs/011-competitivo-completo/tasks.md#contrato-de-alternativas-y-efectos-encadenados) y [evidencia](../specs/011-competitivo-completo/verification.md#contrato-de-alternativas-y-efectos-encadenados). Sin issue.
+- E3, alternativas y efectos encadenados, R2, verificados en un programa ficticio. Siguiente paso técnico propuesto: especificar el ensayo de efectos diferidos y reacciones. [Tarea](../specs/011-competitivo-completo/tasks.md#implementación-de-alternativas-y-efectos-encadenados) y [evidencia](../specs/011-competitivo-completo/verification.md#alternativas-y-efectos-encadenados-verificados). Sin issue.
 
 - E3, selección privada y reanudación del traslado, R2, implementada y verificada en un programa ficticio. [Criterios](../specs/011-competitivo-completo/tasks.md#implementación-de-la-selección-privada-y-el-traslado) y [evidencia](../specs/011-competitivo-completo/verification.md#selección-privada-verificada-en-el-motor). Sin issue.
 

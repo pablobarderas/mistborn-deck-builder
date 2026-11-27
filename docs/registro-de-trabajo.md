@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-15 — Alternativas y efectos encadenados verificados
+
+Se ejecutaron desde el motor las dos ramas del programa ficticio de E3. La rama encadenada conserva la pausa íntegra si falla el segundo intercambio. Pasaron la importación y las suites de secuencias, motor y estado. Siguiente paso técnico propuesto: especificar el ensayo de efectos diferidos y reacciones. [Evidencia](specs/011-competitivo-completo/verification.md#alternativas-y-efectos-encadenados-verificados).
+
 ## 2026-11-27 — Alternativas y efectos encadenados
 
 Se especificó una ventana ficticia de dos ramas y la confirmación conjunta de una cadena de intercambios. Contraste de fuentes, revisión independiente y comprobación documental favorables. Siguiente paso de E3: implementar el caso de prueba y ejecutar ALT-03 en Godot. [Evidencia](specs/011-competitivo-completo/verification.md#contrato-de-alternativas-y-efectos-encadenados).

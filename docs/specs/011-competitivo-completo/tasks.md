@@ -94,3 +94,11 @@ Riesgo R2 por autoridad, orden, restauración y reversión parcial entre segment
 - ALT-03. Definir casos reproducibles de ambas ramas, privacidad, restauración y reversión después de ejecutar el primer paso de la cadena.
 
 Completada en alcance documental, con contraste de fuentes y revisión independiente favorables. Siguiente tarea: implementar el programa ficticio y verificar ALT-03. [Contrato](alternativas-y-encadenamiento.md) y [evidencia](verification.md#contrato-de-alternativas-y-efectos-encadenados).
+
+## Implementación de alternativas y efectos encadenados
+
+Objetivo. Implementar el [programa ficticio](alternativas-y-encadenamiento.md) y verificar ALT-01–03 desde las entradas del motor. Rama principal limpia y referencia publicada recién obtenida en `a34cec127f0334536a36f843fe139d5686a1858f`.
+
+Riesgo R2 por autoridad, privacidad, restauración y reversión parcial. El coordinador implementa un registro de ensayo aislado con identidad versionada, reutiliza el intercambio de recursos y prueba ambas ramas, rechazos atómicos, restauración y reenvío. Ejecutará importación y regresiones de secuencias, motor y estado. Se requiere revisión técnica independiente del resultado y se reutiliza el contraste de reglas del contrato para este programa ficticio. Ninguna dispensa.
+
+Completada en alcance de ensayo. ALT-01–03 verificados y revisión independiente favorable. E3 sigue abierta. Siguiente paso técnico propuesto: especificar el ensayo de efectos diferidos y reacciones. [Evidencia](verification.md#alternativas-y-efectos-encadenados-verificados).

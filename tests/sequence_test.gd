@@ -22,6 +22,7 @@ func _initialize() -> void:
 func _run() -> void:
 	_test_automatic()
 	_test_resource_exchange()
+	_test_alternatives()
 	_test_move_from_hand()
 	_test_private_hand_selection()
 	_test_hand_selection_limits()
@@ -139,6 +140,121 @@ func _test_resource_exchange() -> void:
 	var negative: Dictionary = {"a": 2, "b": -1}
 	_expect(not Sequences.Exchange.apply(negative, "a", 2, "b", 3) and negative == {"a": 2, "b": -1},
 		"Intercambio: saldo negativo se rechaza")
+
+
+func _alternatives_state(recursos: int, mision: int) -> Dictionary:
+	var state: Dictionary = _prepared()
+	state.catalog_id = Sequences.ALTERNATIVES_PROFILE
+	state.players[0].turn_resources = {"recursos": recursos, "ataque": 0, "mision": mision}
+	return state
+
+
+func _alternatives_engine(state: Dictionary) -> EngineCore:
+	var engine: EngineCore = EngineCore.new(Fixtures.definitions(), Sequences.ALTERNATIVES_PROFILE,
+		Handlers.registry(), Registry.new(Sequences.alternatives_registration()), Sequences.alternatives_starters())
+	var loaded: Dictionary = engine.load_authority_snapshot(state)
+	_expect(loaded.ok, "ALT-02 snapshot válido del perfil: %s" % [loaded.errors])
+	return engine
+
+
+func _test_alternatives() -> void:
+	var start: Dictionary = _intent("start_branches", "test_alternatives", 0)
+	var initial: Dictionary = _alternatives_state(4, 0)
+	var overflow: EngineCore = _alternatives_engine(_alternatives_state(MAX_INT, 0))
+	_reject(overflow, "p1", start, "accion_ilegal", "ALT-03 el desborde inicial conserva todo el snapshot")
+
+	var live: EngineCore = _alternatives_engine(initial)
+	_reject(live, "p2", start, "accion_ilegal", "ALT-01 solo el jugador activo abre la elección")
+	if not live.submit("p1", start).ok:
+		_expect(false, "ALT-03 se abre la elección")
+		return
+	var paused: Dictionary = live.get_authority_snapshot()
+	var owner: Dictionary = live.get_view("p1")
+	var other: Dictionary = live.get_view("p2")
+	var resolution_id: String = paused.resolution.resolution_id
+	_expect(paused.revision == 1 and paused.players[0].turn_resources == {"recursos": 5, "ataque": 0, "mision": 0}
+		and paused.authority.rng_state == initial.authority.rng_state
+		and paused.authority.completed_sequences == initial.authority.completed_sequences,
+		"ALT-03 se confirma el incremento inicial y la ventana sin cierre ni RNG")
+	_expect(owner.resolution == {"resolution_id": resolution_id, "recipients": ["p1"], "kind": "eleccion",
+		"pending_recipients": ["p1"], "step_id": "choose", "options": ["rama_a", "rama_b"], "min": 1, "max": 1}
+		and other.resolution == {"resolution_id": resolution_id, "recipients": ["p1"],
+			"kind": "eleccion", "pending_recipients": ["p1"]}, "ALT-01 oferta fija y privada")
+
+	var answer: Dictionary = _answer(owner, "choose_branch", ["rama_a"])
+	_reject(live, "p2", answer, "eleccion_invalida", "ALT-03 otra plaza no puede elegir")
+	_reject(live, "p9", answer, "identidad_no_autorizada", "ALT-02 identidad desconocida")
+	_reject(live, "p1", _changed(answer, ["expected_revision"], 0), "revision_obsoleta", "ALT-02 revisión obsoleta")
+	for options: Array in [["unknown"], [], ["rama_a", "rama_a"], ["rama_a", "rama_b"]]:
+		_reject(live, "p1", _answer(owner, "invalid_branch", options), "eleccion_invalida",
+			"ALT-03 opciones inválidas: %s" % [options])
+	for key: String in ["resolution_id", "step_id"]:
+		_reject(live, "p1", _changed(answer, ["payload", key], "unrelated"), "eleccion_invalida",
+			"ALT-03 identidad ajena de %s" % key)
+
+	var receiver: EngineCore = _alternatives_engine(initial)
+	for options: Array in [["rama_b", "rama_a"], ["rama_a", "unknown"]]:
+		_reject_load(receiver, _changed(paused, ["resolution", "pending", "options"], options),
+			"ALT-03 carga rechazada por oferta alterada: %s" % [options])
+	_reject_load(_engine(initial), paused, "ALT-02 la pausa exige el registro del programa versionado")
+	_reject_load(receiver, _changed(paused, ["catalog_id"], "test_catalog"), "ALT-02 la pausa exige el perfil versionado")
+	_reject_load(receiver, _changed(paused, ["version_motor"], "incompatible"), "ALT-02 la pausa exige la versión del motor")
+	for branch: String in ["rama_a", "rama_b"]:
+		var expected: Dictionary = {"recursos": 3, "ataque": 0, "mision": 4} if branch == "rama_a" \
+			else {"recursos": 4, "ataque": 0, "mision": 1}
+		_test_alternative_success(initial, paused, owner, branch, expected)
+	_test_alternative_rollback(start)
+
+
+func _test_alternative_success(initial: Dictionary, paused: Dictionary, owner: Dictionary, branch: String, expected: Dictionary) -> void:
+	var live: EngineCore = _alternatives_engine(initial)
+	_expect(live.submit("p1", _intent("start_branches", "test_alternatives", 0)).ok
+		and live.get_authority_snapshot() == paused, "ALT-03 cada rama empieza desde la misma frontera")
+	var restored: EngineCore = _alternatives_engine(bytes_to_var(var_to_bytes(paused)))
+	_expect(restored.get_authority_snapshot() == paused and restored.get_view("p1") == owner
+		and restored.get_view("p2") == live.get_view("p2"), "ALT-03 restauración exacta de la ventana")
+	var answer: Dictionary = _answer(owner, "choose_branch", [branch])
+	var receipt: Dictionary = live.submit("p1", answer)
+	var after: Dictionary = live.get_authority_snapshot()
+	_expect(receipt == {"ok": true, "codigo": "aceptada", "action_id": "choose_branch", "revision": 2, "revision_aplicada": 2}
+		and after.players[0].turn_resources == expected and after.players[1] == paused.players[1]
+		and after.resolution == null and after.revision == paused.revision + 1,
+		"ALT-03 %s confirma exclusivamente su rama y cierra la ventana" % branch)
+	var resolution_id: String = paused.resolution.resolution_id
+	_expect(after.authority.rng_state == paused.authority.rng_state and after.authority.rng_seed == paused.authority.rng_seed
+		and after.authority.next_id == paused.authority.next_id
+		and after.authority.completed_sequences == {resolution_id: _close("alternatives_v1", paused.turn.number, 2)}
+		and after.authority.receipts.keys() == paused.authority.receipts.keys()
+		and after.authority.receipts.p1.size() == 2
+		and after.authority.receipts.p1.get("start_branches") == paused.authority.receipts.p1.start_branches
+		and after.authority.receipts.p1.get("choose_branch", {}).get("revision_aplicada") == 2,
+		"ALT-03 se añade un cierre y un recibo sin consumir RNG")
+	_expect(restored.submit("p1", answer) == receipt and restored.get_authority_snapshot() == after,
+		"ALT-03 ejecutar %s tras restaurar produce el mismo estado y recibo" % branch)
+	_expect(live.submit("p1", answer) == receipt and live.get_authority_snapshot() == after,
+		"ALT-03 el reenvío recupera el recibo sin cambios")
+	var other_branch: String = "rama_b" if branch == "rama_a" else "rama_a"
+	var consumed: Dictionary = _answer(owner, "late_choice", [other_branch])
+	consumed.expected_revision = after.revision
+	_reject(live, "p1", consumed, "accion_ilegal", "ALT-03 la ventana consumida rechaza otra respuesta vigente")
+
+
+func _test_alternative_rollback(start: Dictionary) -> void:
+	var live: EngineCore = _alternatives_engine(_alternatives_state(4, MAX_INT - 3))
+	if not live.submit("p1", start).ok:
+		_expect(false, "ALT-03 se abre la ventana antes del desborde de misión")
+		return
+	var paused: Dictionary = live.get_authority_snapshot()
+	var owner: Dictionary = live.get_view("p1")
+	_expect(paused.players[0].turn_resources == {"recursos": 5, "ataque": 0, "mision": MAX_INT - 3},
+		"ALT-03 el primer intercambio cabe en la frontera antes del desborde")
+	_reject(live, "p1", _answer(owner, "retry_branch", ["rama_a"]), "accion_ilegal",
+		"ALT-03 el segundo intercambio desborda y revierte la rama completa")
+	var receipt: Dictionary = live.submit("p1", _answer(owner, "retry_branch", ["rama_b"]))
+	var after: Dictionary = live.get_authority_snapshot()
+	_expect(receipt.ok and after.revision == paused.revision + 1 and after.resolution == null
+		and after.players[0].turn_resources == {"recursos": 4, "ataque": 0, "mision": MAX_INT - 2},
+		"ALT-03 se puede confirmar la otra rama desde la misma ventana e ID de acción")
 
 
 func _test_move_from_hand() -> void:

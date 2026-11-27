@@ -151,3 +151,15 @@ El programa se registra en pruebas. E3 queda abierta. El siguiente paso técnico
 R2. El coordinador redactó el contrato y verificó enlaces, anclas y formato. Un contraste por `sdd_rules` (GPT-6.1 Sol, high) verificó SRC-001 p. 17 y SRC-002, Action cards, y delimitó la elección y el orden a un programa ficticio sin inferir reglas de omisión, umbrales o modos. Una revisión independiente por `sdd_reviewer` (GPT-6.1 Sol, high) comprobó ALT-01–03 y detectó una imprecisión en el código de rechazo de identidades desconocidas. Se corrigió y la revisión final fue favorable, sin hallazgos pendientes. SHA-256 del contrato revisado: `cfa4259ce2070bf6008a3c84ccd28e26292b31dd722885c097804bda4f4e9ddf`. Dos delegaciones, ninguna dispensa. Tiempo y tokens por tarea no disponibles.
 
 El cambio es documental. La matriz ALT-03, la importación y las regresiones de secuencias, motor y estado corresponden a la siguiente implementación ficticia. E3 sigue abierta. Publicación documental según DEC-049.
+
+## Alternativas y efectos encadenados verificados
+
+ALT-01–03 ejecutados desde las entradas de autoridad con un [registro aislado de pruebas](../../../tests/sequence_fixtures.gd) y la [suite de secuencias](../../../tests/sequence_test.gd). El programa `alternatives_v1` usa el catálogo de ensayo `test_alternatives_v1` como segunda frontera de compatibilidad. El motor base y los programas del registro anterior conservan sus versiones.
+
+La plaza activa recibió la oferta ordenada y la otra recibió el bloqueo sin los tokens. La carga rechazó ofertas reordenadas o sustituidas, y ambas ramas produjeron exactamente el mismo snapshot y recibo tras restaurar una pausa válida. Los rechazos preservaron el snapshot completo. El desborde del segundo intercambio mantuvo la unidad confirmada al abrir la ventana y permitió elegir la otra rama. Cada confirmación añadió una revisión, un recibo y un cierre, sin consumir RNG. El reenvío devolvió el recibo previo.
+
+Godot 4.7.2. Importación correcta. Secuencias 390, motor 102 y estado 2075 comprobaciones, con código 0 y sin errores de script en los logs de `tmp/e3-alternativas/`.
+
+Revisión R2 por `sdd_reviewer` (GPT-6.1 Sol, high). El revisor pidió precisar el contrato de compatibilidad. Se fijó la identidad del catálogo en el constructor del ensayo, se aclaró el aislamiento del registro en ALT-02 y se añadió un caso de rechazo por versión del motor. Delta revisado favorablemente, sin hallazgos pendientes ni dispensas. Se reutilizó el contraste de SRC-001/002 del contrato. Comprobados los enlaces y el alcance de publicación.
+
+E3 sigue abierta. El siguiente paso técnico propuesto es especificar el ensayo de efectos diferidos y reacciones. Publicación de esta entrega según DEC-049.

@@ -1,6 +1,6 @@
 # Estado actual
 
-E3 concreta el [contrato de alternativas y efectos encadenados](specs/011-competitivo-completo/alternativas-y-encadenamiento.md). El siguiente paso es implementar el programa ficticio y comprobar ALT-03 en Godot. E3 sigue abierta.
+E3 verifica [alternativas y efectos encadenados](specs/011-competitivo-completo/verification.md#alternativas-y-efectos-encadenados-verificados) en un programa ficticio. Se comprobaron las dos ramas, la restauración privada y la reversión del primer intercambio si falla el segundo. E3 sigue abierta. El siguiente paso técnico propuesto es especificar el ensayo de efectos diferidos y reacciones.
 
 E3 [verifica la selección privada de una carta y su traslado a descarte](specs/011-competitivo-completo/verification.md#selección-privada-verificada-en-el-motor) en un programa ficticio. Se comprobaron la restauración de la ventana, el reenvío, los límites de oferta y la reversión tras un fallo posterior al traslado. E3 sigue abierta.
 

@@ -6,6 +6,7 @@ const Exchange = preload("res://scripts/game/turn_resource_exchange.gd")
 const Cycle = preload("res://scripts/game/card_cycle.gd")
 const Fixtures = preload("res://tests/game_state_fixtures.gd")
 const MAX_INT: int = Registry.MAX_INT
+const ALTERNATIVES_PROFILE: String = "test_alternatives_v1"
 const CONTEXT: Dictionary = {"owner_id": "player_id", "turn_number": "int", "entry_phase": "id",
 	"occurrence_id": "id", "recipient_id": "player_id"}
 
@@ -64,6 +65,22 @@ static func starters() -> Dictionary:
 	}
 
 
+static func alternatives_registration() -> Dictionary:
+	var branch: Dictionary = _operation({}, _valid_empty, _execute_branch)
+	branch["offer"] = _offer_branches
+	var alternatives: Dictionary = program([step("before", "fixture_add", {"amount": 1}),
+		step("choose", "fixture_branch")])
+	alternatives.scope = _owner_scope
+	return {"operations": {
+		"fixture_add": _operation({"amount": "int"}, _valid_add, _add),
+		"fixture_branch": branch
+	}, "programs": {"alternatives_v1": alternatives}}
+
+
+static func alternatives_starters() -> Dictionary:
+	return {"test_alternatives": _start_alternatives}
+
+
 static func program(steps: Array, recipient_offset: int = 0) -> Dictionary:
 	return {"steps": steps, "context": CONTEXT.duplicate(), "scope": _scope.bind(recipient_offset), "allow_null_source": true}
 
@@ -77,7 +94,7 @@ static func _move_program(steps: Array) -> Dictionary:
 static func _select_program(steps: Array) -> Dictionary:
 	var result: Dictionary = program(steps)
 	result.context["hand_binding"] = "id"
-	result.scope = _select_scope
+	result.scope = _owner_scope
 	return result
 
 
@@ -127,6 +144,13 @@ static func _start_select(state: Dictionary, actor_id: String, payload: Dictiona
 	return request
 
 
+static func _start_alternatives(state: Dictionary, actor_id: String, payload: Dictionary) -> Variant:
+	var request: Variant = start(state, actor_id, payload, "alternatives_v1", 0)
+	if request is Dictionary:
+		request.recipients = [actor_id]
+	return request
+
+
 static func reaction(state: Dictionary) -> Dictionary:
 	# Snapshot estructural para regresiones del validador y la guardia de limpieza.
 	var owner: String = state.turn.active_id
@@ -146,7 +170,7 @@ static func _scope(state: Dictionary, context: Dictionary, offset: int) -> Varia
 	return state.player_order
 
 
-static func _select_scope(state: Dictionary, context: Dictionary) -> Variant:
+static func _owner_scope(state: Dictionary, context: Dictionary) -> Variant:
 	return [context.owner_id] if _scope(state, context, 0) != null else null
 
 
@@ -187,6 +211,26 @@ static func _exchange(state: Dictionary, context: Dictionary, _params: Dictionar
 	for player: Dictionary in state.players:
 		if player.player_id == context.owner_id:
 			return Exchange.apply(player.turn_resources, "recursos", 2, "ataque", 3)
+	return false
+
+
+static func _offer_branches(_state: Dictionary, context: Dictionary, _params: Dictionary) -> Dictionary:
+	return {"kind": "eleccion", "recipients": [context.owner_id], "options": ["rama_a", "rama_b"],
+		"min": 1, "max": 1}
+
+
+static func _execute_branch(state: Dictionary, context: Dictionary, _params: Dictionary, _rng: RandomNumberGenerator, selected: Array) -> bool:
+	for player: Dictionary in state.players:
+		if player.player_id != context.owner_id:
+			continue
+		var balances: Dictionary = player.turn_resources
+		match selected:
+			["rama_a"]:
+				return Exchange.apply(balances, "recursos", 2, "ataque", 3) \
+					and Exchange.apply(balances, "ataque", 3, "mision", 4)
+			["rama_b"]:
+				return Exchange.apply(balances, "recursos", 1, "mision", 1)
+		return false
 	return false
 
 
