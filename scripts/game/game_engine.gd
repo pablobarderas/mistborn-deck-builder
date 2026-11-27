@@ -48,7 +48,7 @@ func submit(actor_id: String, input: Variant) -> Dictionary:
 	return _submit(actor_id, input)
 
 
-func _submit(actor_id: String, input: Variant, internal_start: Callable = Callable(), internal_action: String = START_TURN_ACTION) -> Dictionary:
+func _submit(actor_id: String, input: Variant, internal_handler: Callable = Callable(), internal_action: String = START_TURN_ACTION, starts_sequence: bool = false) -> Dictionary:
 	var current: Dictionary = _state.get_snapshot()
 	if current.is_empty():
 		return _reject("estado_invalido", 0)
@@ -59,14 +59,17 @@ func _submit(actor_id: String, input: Variant, internal_start: Callable = Callab
 	if not syntax.is_empty():
 		return _reject(syntax, revision)
 	var intent: Dictionary = input
-	var internal_type: bool = intent.tipo in [START_TURN_ACTION, CLEANUP_ACTION]
-	var internal_id: bool = intent.action_id.begins_with(START_TURN_ID_PREFIX) or intent.action_id.begins_with(CLEANUP_ID_PREFIX)
-	if internal_start.is_valid():
-		var prefix: String = START_TURN_ID_PREFIX if internal_action == START_TURN_ACTION else CLEANUP_ID_PREFIX
-		if intent.tipo != internal_action or not intent.action_id.begins_with(prefix):
+	var internal_actions: Dictionary = _internal_actions()
+	var internal_type: bool = internal_actions.has(intent.tipo)
+	if internal_handler.is_valid():
+		if not internal_type or intent.tipo != internal_action or not intent.action_id.begins_with(internal_actions[internal_action]):
 			return _reject("formato_invalido", revision)
-	elif internal_type or internal_id:
-		return _reject("accion_no_soportada", revision)
+	else:
+		if internal_type:
+			return _reject("accion_no_soportada", revision)
+		for prefix: String in internal_actions.values():
+			if intent.action_id.begins_with(prefix):
+				return _reject("accion_no_soportada", revision)
 	if intent.match_id != current.match_id:
 		return _reject("partida_incorrecta", revision)
 	var canonical: String = _canonical(intent)
@@ -80,9 +83,14 @@ func _submit(actor_id: String, input: Variant, internal_start: Callable = Callab
 		return _accepted(intent.action_id, old.revision_aplicada)
 	if intent.expected_revision != revision:
 		return _reject("revision_obsoleta", revision)
+	if not _allows_new_action(current, intent.tipo):
+		return _reject("accion_ilegal", revision)
 	var responding: bool = intent.tipo == "responder"
-	var starter: Variant = null if internal_type else _starters.get(intent.tipo)
-	var handler: Variant = internal_start if internal_type else _handlers.get(intent.tipo)
+	var starter: Variant = _starters.get(intent.tipo)
+	var handler: Variant = _handlers.get(intent.tipo)
+	if internal_type:
+		starter = internal_handler if starts_sequence else null
+		handler = null if starts_sequence else internal_handler
 	if current.resolution != null:
 		if not responding:
 			return _reject("accion_ilegal", revision)
@@ -143,7 +151,7 @@ func _submit(actor_id: String, input: Variant, internal_start: Callable = Callab
 		var expected_turn: Dictionary = current.turn.duplicate(true)
 		if internal_action == START_TURN_ACTION:
 			expected_turn.phase = "libre"
-		else:
+		elif internal_action == CLEANUP_ACTION:
 			if current.mode != "competitivo" or current.turn.number == Registry.MAX_INT:
 				return _reject("estado_invalido", revision)
 			expected_turn.number += 1
@@ -172,6 +180,7 @@ func _submit(actor_id: String, input: Variant, internal_start: Callable = Callab
 			sequence.close["revision_aplicada"] = revision + 1
 			ledger[sequence.closed_id] = sequence.close
 			candidate.resolution = null
+			_commit_sequence_close(candidate, sequence.close)
 	candidate.revision = revision + 1
 	candidate.authority.rng_state = rng.state
 	if not candidate.authority.receipts.has(actor_id):
@@ -183,6 +192,18 @@ func _submit(actor_id: String, input: Variant, internal_start: Callable = Callab
 	if not validation.ok:
 		return _reject("estado_invalido", revision)
 	return _accepted(intent.action_id, candidate.revision)
+
+
+func _internal_actions() -> Dictionary:
+	return {START_TURN_ACTION: START_TURN_ID_PREFIX, CLEANUP_ACTION: CLEANUP_ID_PREFIX}
+
+
+func _allows_new_action(_current: Dictionary, _action: String) -> bool:
+	return true
+
+
+func _commit_sequence_close(_candidate: Dictionary, _close: Dictionary) -> void:
+	pass
 
 
 func _protected_fields(candidate: Dictionary, current: Dictionary) -> bool:

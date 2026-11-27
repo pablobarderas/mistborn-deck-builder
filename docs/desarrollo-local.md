@@ -100,6 +100,8 @@ En este equipo (2026-10-28) el motor está en Descargas y se indica mediante -Go
 
 `-Action test-sequence` ejecuta `tests/sequence_test.gd` y exige `P08_SEQUENCE_OK`, código 0 y ausencia de errores de script. Comprueba registro cerrado, pausa/carga/respuesta, rollback, RNG, cierres únicos, reintentos, proyecciones y límites con programas ficticios. El estado usa esquema 2/motor `p08-sequence-1/godot-4.7.2`; rechaza snapshots previos sin migración. No implementa cartas oficiales ni un turno jugable. Resultados y comandos finales en [evidencia T08.2f](specs/008-preparacion-y-turnos/verification.md#t082f--implementación-de-secuencias-reanudables).
 
+`-Action test-deferred` ejecuta el ensayo DIF-01?03 y exige `E3_DEFERRED_OK`. Comprueba persistencia entre turnos, restauraci?n, privacidad y cierre at?mico con dos plazas y cat?logo ficticio. [Evidencia y alcance](specs/011-competitivo-completo/verification.md#ensayo-de-efectos-diferidos-y-reacciones-verificado).
+
 ### Primer efecto de carta (T08.2h)
 
 `-Action test-funding` ejecuta `tests/funding_play_test.gd`, exige `P08_FUNDING_OK` y rechaza ERROR/SCRIPT ERROR incluso con código 0. Comprueba juego Funding con aplicar/omitir, perfil completo, rechazos, recibos/carga, límites y privacidad en competitivo 2–4. El fixture sitúa `libre` expresamente; no ejecuta entrenamiento ni turno completo. Su versión original fue `p08-funding-1/godot-4.7.2`. La versión vigente figura en el apartado de inicio competitivo. [Evidencia y límites](specs/008-preparacion-y-turnos/verification.md#t082h--implementación-de-funding).

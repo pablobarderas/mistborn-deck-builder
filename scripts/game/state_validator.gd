@@ -38,9 +38,10 @@ func validate(document: Variant, definitions: Dictionary, catalog_id: String, re
 		return _result()
 	if not _shape(document, ["version_esquema", "version_motor", "catalog_id", "match_id", "mode", "revision", "lifecycle", "players", "player_order", "instances", "zones", "turn", "missions", "target_id", "rival", "resolution", "outcome", "authority"], "$"):
 		return _result()
-	if typeof(document.version_esquema) != TYPE_INT or document.version_esquema != SCHEMA_VERSION:
+	var profile: Dictionary = registry.snapshot_profile()
+	if typeof(document.version_esquema) != TYPE_INT or document.version_esquema != profile.get("schema_version", SCHEMA_VERSION):
 		_error("version_esquema", "versión no admitida")
-	if not document.version_motor is String or document.version_motor != ENGINE_VERSION:
+	if not document.version_motor is String or document.version_motor != profile.get("engine_version", ENGINE_VERSION):
 		_error("version_motor", "versión no admitida")
 	if not document.catalog_id is String or document.catalog_id != catalog_id or catalog_id.is_empty():
 		_error("catalog_id", "catálogo incompatible")
@@ -80,11 +81,13 @@ func validate(document: Variant, definitions: Dictionary, catalog_id: String, re
 	_validate_rival(document.rival, document.mode)
 	if _errors.is_empty():
 		_validate_outcome(document)
-	_validate_authority(document.authority, document.revision)
+	_validate_authority(document.authority, document.revision, profile.get("authority_fields", []))
 	if _errors.is_empty():
 		_validate_permanents(document)
 	if _errors.is_empty():
 		_validate_sequences(document, registry)
+	if _errors.is_empty() and not registry.accepts_snapshot(document):
+		_error("authority", "estado incompatible con el perfil")
 	return _result()
 
 
@@ -449,8 +452,10 @@ static func _turn_permanent_descriptor(value: Variant, resource: String) -> bool
 		and value.tipo == "cada_turno" and value.cantidad == 2 and value.recurso == resource
 
 
-func _validate_authority(value: Variant, revision: Variant) -> void:
-	if not _shape(value, ["rng_seed", "rng_state", "next_id", "receipts", "completed_sequences", "mission_permanents"], "authority"):
+func _validate_authority(value: Variant, revision: Variant, extra_fields: Array) -> void:
+	var fields: Array = ["rng_seed", "rng_state", "next_id", "receipts", "completed_sequences", "mission_permanents"]
+	fields.append_array(extra_fields)
+	if not _shape(value, fields, "authority"):
 		return
 	if not _writable_map(value, "authority"):
 		return

@@ -22,7 +22,7 @@ Los valores anteriores pertenecen a las pruebas. Cada operación futura deberá 
 - Una ventana válida es una frontera confirmada. Si la selección posterior se rechaza, la ventana y los segmentos anteriores conservan su estado. Un reenvío aceptado devuelve el recibo existente sin volver a aplicar el efecto.
 - Los programas de prueba se registran localmente. Los clientes envían intenciones y elecciones. Las vistas solo incluyen los datos que corresponden a la plaza.
 
-El motor actual protege el ciclo de vida y el turno durante una secuencia. La prueba de finalización exige definir una ruta de autoridad compatible o ampliar expresamente ese contrato. Para el ensayo diferido se ha especificado la persistencia de la obligación fuera de la secuencia activa. Su ejecución queda pendiente.
+El motor actual protege el ciclo de vida y el turno durante una secuencia. La prueba de finalización exige definir una ruta de autoridad compatible o ampliar expresamente ese contrato. El ensayo diferido verifica la persistencia de la obligación fuera de la secuencia activa y su liquidación al confirmar la respuesta. [Evidencia](verification.md#ensayo-de-efectos-diferidos-y-reacciones-verificado).
 
 ## Verificación de una futura implementación
 

@@ -1,6 +1,6 @@
 # Estado actual
 
-E3 cuenta con un [contrato revisado de efectos diferidos y reacciones](specs/011-competitivo-completo/efectos-diferidos-y-reacciones.md). Define una obligación que atraviesa un cambio de turno y una reacción privada. E3 sigue abierta. El siguiente paso es implementar el ensayo y ejecutar DIF-03. [Evidencia y traspaso](specs/011-competitivo-completo/verification.md#contrato-de-efectos-diferidos-y-reacciones).
+E3 verifica [el ensayo de efectos diferidos y reacciones](specs/011-competitivo-completo/verification.md#ensayo-de-efectos-diferidos-y-reacciones-verificado). Una obligación ficticia sobrevive al cambio de turno y se liquida al resolver una reacción privada. Se comprobaron restauración, reenvío y reversión de desbordamientos. E3 sigue abierta. El siguiente paso técnico propuesto es especificar el ensayo de finalización.
 
 E3 verifica [alternativas y efectos encadenados](specs/011-competitivo-completo/verification.md#alternativas-y-efectos-encadenados-verificados) en un programa ficticio. Se comprobaron las dos ramas, la restauración privada y la reversión del primer intercambio si falla el segundo.
 

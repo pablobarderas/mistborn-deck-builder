@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'preview-local', 'test-catalog', 'test-initial-content', 'test-initial-play', 'test-local-competitive', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring')]
+    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'preview-local', 'test-catalog', 'test-initial-content', 'test-initial-play', 'test-local-competitive', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-deferred', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring')]
     [string]$Action = 'run',
     [string]$GodotPath = $env:GODOT_BIN
 )
@@ -58,7 +58,7 @@ function Invoke-ProjectGodot {
     if ($engineText -match '(?m)^SCRIPT ERROR:') {
         throw "Godot contiene errores de script en '$LogName', aunque su proceso haya devuelto codigo 0."
     }
-    if ($LogName -in @('import', 'test-initial-content', 'test-initial-play', 'test-local-competitive', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring') -and ($engineText -match '(?m)^(SCRIPT ERROR|ERROR):')) {
+    if ($LogName -in @('import', 'test-initial-content', 'test-initial-play', 'test-local-competitive', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-deferred', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring') -and ($engineText -match '(?m)^(SCRIPT ERROR|ERROR):')) {
         throw "La accion $LogName contiene errores. Revisa tmp/godot/$LogName.log."
     }
     foreach ($marker in @{ 'build-runtime-catalog' = 'P08_RUNTIME_BUILD_OK'; 'test-runtime-catalog' = 'P08_RUNTIME_CATALOG_OK'; 'test-runtime-authoring' = 'P08_RUNTIME_AUTHORING_OK' }.GetEnumerator()) {
@@ -112,6 +112,9 @@ function Invoke-ProjectGodot {
     if ($LogName -eq 'test-cycle' -and $engineText -notmatch 'P08_CYCLE_OK') {
         throw 'No se completo la verificacion del ciclo personal de cartas.'
     }
+    if ($LogName -eq 'test-deferred' -and $engineText -notmatch 'E3_DEFERRED_OK') {
+        throw "La prueba de reacciones diferidas no dio la marca de cierre."
+    }
     if ($LogName -eq 'test-sequence' -and $engineText -notmatch 'P08_SEQUENCE_OK') {
         throw 'La prueba de secuencias no alcanzo su marca de finalizacion.'
     }
@@ -150,7 +153,7 @@ function Invoke-ProjectGodot {
     }
 }
 
-if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-initial-content', 'test-initial-play', 'test-local-competitive', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring')) {
+if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-initial-content', 'test-initial-play', 'test-local-competitive', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-deferred', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring')) {
     Invoke-ProjectGodot -EngineArguments @('--headless', '--editor', '--import') -LogName 'import'
 }
 switch ($Action) {
@@ -171,6 +174,7 @@ switch ($Action) {
     'test-state' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/game_state_test.gd') -LogName 'test-state' }
     'test-setup' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/game_setup_test.gd') -LogName 'test-setup' }
     'test-cycle' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/card_cycle_test.gd') -LogName 'test-cycle' }
+    'test-deferred' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/deferred_reaction_test.gd') -LogName 'test-deferred' }
     'test-sequence' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/sequence_test.gd') -LogName 'test-sequence' }
     'test-funding' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/funding_play_test.gd') -LogName 'test-funding' }
     'test-training' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/training_advance_test.gd') -LogName 'test-training' }

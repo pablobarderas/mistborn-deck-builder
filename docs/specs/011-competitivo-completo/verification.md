@@ -173,3 +173,21 @@ R2. `sdd_rules` (GPT-6.1 Sol, high) contrastó SRC-001 p. 10, REG-024, la secci�
 La base recuperada fue `main` limpio, alineado con GitHub en `519d8b60df206ed4d6b8feff1f86b0b329eec8ef`. Esta entrega cambia únicamente documentación y se publica conforme a DEC-049. Comprobaciones y referencia remota en `tmp/e3-contrato-diferidos/` (ignorado por Git). La introducción documental conserva referencias históricas al mercado; la situación vigente de su cotejo consta en el estado y evidencia de E3.2.
 
 E3 sigue abierta. Primer paso de implementación: introducir el perfil aislado y la validación de la obligación en la ruta de cambio de turno. Después, registrar la ventana y ejecutar DIF-03 con importación, `test-sequence`, `test-engine`, `test-state`, `test-start` y `test-cleanup`. Godot y los recorridos dinámicos quedan pendientes de esa implementación.
+
+## Ensayo de efectos diferidos y reacciones verificado
+
+2026-11-27. La autoridad del ensayo selecciona el catálogo ficticio y el registro en [el controlador local](../../../tests/deferred_reaction_engine.gd). El esquema 9 y el motor `e3-deferred-fixture-1/godot-4.7.2` se aplican exclusivamente a este perfil. El registro acompaña la validación del estado, la limpieza, el ciclo de cartas y el avance de inicio. El esquema normal sigue en 8. El ensayo queda fuera de las rutas de cartas, interfaz y red del producto.
+
+| Criterio | Resultado observado |
+| --- | --- |
+| DIF-01 | El turno 1 admite una sola obligación. Se conserva en combate, limpieza, inicio y libre del turno 2. El despacho interno tiene su propia revisión y recibo. Se rechazan cambios de actor, fase, payload y prefijos reservados desde la entrada pública. La acción ordinaria espera al despacho. |
+| DIF-02 | A puede activar o pasar y B conserva su turno. Ambas ramas dejan 3 recursos en B y sólo activar eleva la salud de A de 10 a 11. Las vistas muestran el bloqueo y reservan la oferta a A. La respuesta confirma juntos saldos, eliminación de la obligación y de la ventana, recibo y cierre único. El despacho y la respuesta conservan el RNG. |
+| DIF-03 | Restauración en seis fronteras con comparación de snapshots completos, recibos y vistas por plaza. Los rechazos conservan el snapshot completo, incluidos los tres casos de desbordamiento. Se recuperan los recibos tras el cierre y se rechazan los reenvíos alterados, las cargas cruzadas y los campos incompatibles. |
+
+Godot 4.7.2 estable. Importación correcta. `test-deferred` 185, `test-sequence` 390, `test-engine` 102, `test-state` 2075, `test-start` 199, `test-training` 295, `test-cycle` 269 y `test-cleanup` 561 comprobaciones, todas con salida 0. Evidencia local en `tmp/e3-diferidos/`, fuera de Git.
+
+También pasaron `test-initial-play` (370), `test-local-competitive` (4078) y `test-integrated-missions` (5932). Las primeras ejecuciones de E1/E2 se detuvieron en la admisión por seis originales que faltaban en la carpeta local. Se localizaron y verificaron por SHA-256 con el preparador existente, se copiaron a la carpeta ignorada y ambas suites completas pasaron al repetirlas. La revisión independiente examinó las pruebas requeridas antes de estas ejecuciones adicionales.
+
+R2 por esquema, autoridad y privacidad. El coordinador implementó, integró y ejecutó las pruebas. El perfil `sdd_reviewer` (GPT-6.1 Sol, high) revisó el cambio y la evidencia de las pruebas requeridas con dictamen favorable y sin hallazgos bloqueantes. Una delegación, ninguna dispensa. Se reutilizó el contraste de fuentes del contrato documental. Las puertas de reglas nuevas, interfaz, red y distribución de contenido quedan fuera del ensayo.
+
+La base recuperada fue `main` limpio y alineado con GitHub en `5d53290e5f6a8f60d259617bbec5cd963f34dfa4`. Publicación conforme a DEC-049. E3 sigue abierta. El siguiente paso técnico propuesto es especificar la operación terminal ficticia y su ruta de autoridad conforme a la [matriz de efectos](familias-de-efectos.md).

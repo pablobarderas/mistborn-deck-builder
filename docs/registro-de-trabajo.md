@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-27 — Ensayo de efectos diferidos y reacciones
+
+Se verificaron la obligación ficticia entre turnos, la reacción privada y su liquidación atómica mediante DIF-03. Las regresiones requeridas y la revisión independiente fueron favorables. El siguiente paso técnico propuesto es especificar el ensayo de finalización. [Evidencia](specs/011-competitivo-completo/verification.md#ensayo-de-efectos-diferidos-y-reacciones-verificado).
+
 ## 2026-11-27 — Contrato de efectos diferidos y reacciones
 
 Se especificaron la persistencia entre turnos, la ventana privada y la liquidación atómica de una obligación ficticia de E3. Contraste de fuentes, revisión independiente y comprobación documental favorables. Quedan la implementación del perfil y las pruebas DIF-03. [Evidencia](specs/011-competitivo-completo/verification.md#contrato-de-efectos-diferidos-y-reacciones).

@@ -114,3 +114,13 @@ Objetivo. Especificar un ensayo ficticio con una obligación que sobrevive a un 
 El coordinador redacta el contrato y comprueba enlaces y coherencia con motor, secuencias, estado y cambio de turno. `sdd_rules` contrasta los límites con SRC-001/002 y `sdd_reviewer` revisa de forma independiente los tres criterios. El alcance es documental. Las pruebas en Godot corresponden a la implementación posterior. Ninguna dispensa.
 
 Completada en alcance documental, con revisión independiente favorable. Siguiente tarea: implementar el perfil ficticio y verificar DIF-03. [Contrato](efectos-diferidos-y-reacciones.md) y [evidencia](verification.md#contrato-de-efectos-diferidos-y-reacciones).
+
+## Ensayo de efectos diferidos y reacciones
+
+En curso desde el 2026-11-27. Base publicada y local alineadas en `5d53290e5f6a8f60d259617bbec5cd963f34dfa4`, con árbol limpio al recuperar. El objetivo es ejecutar [DIF-01–03](efectos-diferidos-y-reacciones.md) con dos plazas ficticias y restauración local. Riesgo R2 por esquema privado, fronteras de turno, autoridad y atomicidad.
+
+- El coordinador implementa la selección del perfil aislado por registro, reutilizando la validación compartida de estado, limpieza, ciclo y avance de inicio.
+- El coordinador adapta la transacción de la autoridad para admitir las dos acciones internas del ensayo, aplicar el bloqueo tras los recibos y liquidar junto al cierre. El programa y el catálogo son fixtures.
+- El coordinador ejecuta DIF-03, importación y regresiones de secuencias, motor, estado, inicio, entrenamiento, ciclo y limpieza. Un `sdd_reviewer` realiza la revisión independiente final. El contraste de fuentes ya consta en el contrato y el ensayo no incorpora reglas de cartas. Sin cambios de interfaz ni transporte. Ninguna dispensa.
+
+Completada en alcance de ensayo. DIF-01–03 verificados y revisión independiente favorable. El siguiente paso técnico propuesto es especificar el ensayo de finalización. [Evidencia](verification.md#ensayo-de-efectos-diferidos-y-reacciones-verificado).

@@ -25,6 +25,15 @@ func is_valid() -> bool:
 	return _valid
 
 
+# Los perfiles aislados pueden declarar versiones y campos privados propios.
+func snapshot_profile() -> Dictionary:
+	return {}
+
+
+func accepts_snapshot(_document: Dictionary) -> bool:
+	return true
+
+
 func has_program(program_id: Variant) -> bool:
 	return valid_id(program_id) and _programs.has(program_id)
 

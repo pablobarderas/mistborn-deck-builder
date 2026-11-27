@@ -1,6 +1,6 @@
 # Backlog por fases
 
-- E3, efectos diferidos y reacciones, R2. Contrato documental completado y revisado. Queda implementar el perfil ficticio y ejecutar DIF-03. [Tarea](../specs/011-competitivo-completo/tasks.md#contrato-de-efectos-diferidos-y-reacciones) y [evidencia](../specs/011-competitivo-completo/verification.md#contrato-de-efectos-diferidos-y-reacciones). Sin issue.
+- E3, efectos diferidos y reacciones, R2. Ensayo ficticio verificado y revisado. Sigue la especificación del ensayo de finalización. [Tarea](../specs/011-competitivo-completo/tasks.md#ensayo-de-efectos-diferidos-y-reacciones) y [evidencia](../specs/011-competitivo-completo/verification.md#ensayo-de-efectos-diferidos-y-reacciones-verificado). Sin issue.
 
 - E3, alternativas y efectos encadenados, R2, verificados en un programa ficticio. [Tarea](../specs/011-competitivo-completo/tasks.md#implementación-de-alternativas-y-efectos-encadenados) y [evidencia](../specs/011-competitivo-completo/verification.md#alternativas-y-efectos-encadenados-verificados). Sin issue.
 
