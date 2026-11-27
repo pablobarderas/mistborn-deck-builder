@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-27 — Contrato de efectos diferidos y reacciones
+
+Se especificaron la persistencia entre turnos, la ventana privada y la liquidación atómica de una obligación ficticia de E3. Contraste de fuentes, revisión independiente y comprobación documental favorables. Quedan la implementación del perfil y las pruebas DIF-03. [Evidencia](specs/011-competitivo-completo/verification.md#contrato-de-efectos-diferidos-y-reacciones).
+
 ## 2026-11-15 — Alternativas y efectos encadenados verificados
 
 Se ejecutaron desde el motor las dos ramas del programa ficticio de E3. La rama encadenada conserva la pausa íntegra si falla el segundo intercambio. Pasaron la importación y las suites de secuencias, motor y estado. Siguiente paso técnico propuesto: especificar el ensayo de efectos diferidos y reacciones. [Evidencia](specs/011-competitivo-completo/verification.md#alternativas-y-efectos-encadenados-verificados).

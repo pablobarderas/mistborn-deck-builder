@@ -10,7 +10,7 @@ Propuesta técnica para probar la resolución de efectos con definiciones fictic
 | Zonas de cartas | Una instancia se traslada a una zona admitida. El destino conserva el orden que indique la operación de prueba y el total de instancias coincide. [Primer contrato](movimiento-entre-zonas.md) | Una instancia ajena, inexistente o repetida en la misma selección se rechaza sin movimiento parcial. |
 | Selección | Una [instrucción ficticia](seleccion-privada.md) pide elegir una instancia de la mano propia. La plaza autorizada selecciona una y el segmento se reanuda una vez. | Se rechazan un ID fuera de las opciones, una respuesta de otra plaza y una respuesta a una ventana anterior. |
 | Alternativas y efectos encadenados | Un programa ficticio ofrece dos ramas y registra solo la elegida. Una rama con dos pasos los aplica en el orden definido. [Contrato](alternativas-y-encadenamiento.md) | Una rama desconocida o un fallo en el segundo paso revierte el segmento que lo contiene. Si hay un segmento anterior confirmado, este conserva su resultado. |
-| Efectos diferidos y reacciones | Un programa ficticio responde a un evento registrado. Tras restaurar desde una frontera confirmada, la obligación pendiente se ejecuta en su momento y queda liquidada. | Repetir el evento o el recibo no vuelve a ejecutarla. Un evento fuera de la fase prevista no abre una ventana. |
+| Efectos diferidos y reacciones | Un programa ficticio responde a un evento registrado. Tras restaurar desde una frontera confirmada, la obligación pendiente se ejecuta en su momento y queda liquidada. [Contrato](efectos-diferidos-y-reacciones.md) | Repetir el evento o el recibo no vuelve a ejecutarla. Un evento fuera de la fase prevista no abre una ventana. |
 | Finalización | Una operación terminal ficticia guarda el resultado y cierra su resolución. La restauración devuelve el mismo resultado confirmado. | Una acción ordinaria posterior se rechaza y no cambia el resultado. |
 
 Los valores anteriores pertenecen a las pruebas. Cada operación futura deberá declarar sus objetivos, cardinalidad, destino, orden, momento de aplicación y resultado si faltan candidatos. Si alguna decisión depende de una regla pendiente, el contrato queda abierto hasta contar con su fuente o aceptación.
@@ -22,7 +22,7 @@ Los valores anteriores pertenecen a las pruebas. Cada operación futura deberá 
 - Una ventana válida es una frontera confirmada. Si la selección posterior se rechaza, la ventana y los segmentos anteriores conservan su estado. Un reenvío aceptado devuelve el recibo existente sin volver a aplicar el efecto.
 - Los programas de prueba se registran localmente. Los clientes envían intenciones y elecciones. Las vistas solo incluyen los datos que corresponden a la plaza.
 
-El motor actual protege el ciclo de vida y el turno durante una secuencia. La prueba de finalización exige definir una ruta de autoridad compatible o ampliar expresamente ese contrato. Si un efecto diferido cruza un turno o una fase, su obligación deberá persistirse fuera de la secuencia activa o contar con una ampliación específica. Los escenarios correspondientes quedan como criterios de una entrega futura.
+El motor actual protege el ciclo de vida y el turno durante una secuencia. La prueba de finalización exige definir una ruta de autoridad compatible o ampliar expresamente ese contrato. Para el ensayo diferido se ha especificado la persistencia de la obligación fuera de la secuencia activa. Su ejecución queda pendiente.
 
 ## Verificación de una futura implementación
 

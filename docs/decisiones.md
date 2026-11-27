@@ -1,5 +1,9 @@
 # Registro de decisiones
 
+## DEC-055 — Persistencia y reacción en el ensayo E3
+
+2026-11-27. Propuesta técnica para la implementación del ensayo ficticio. El perfil versionado conserva la obligación en un campo privado de autoridad independiente de la secuencia activa. El despacho en el turno siguiente confirma la ventana y la respuesta liquida la obligación junto con el cierre de la ocurrencia. La propuesta se limita a DIF-01–03. [Contrato](specs/011-competitivo-completo/efectos-diferidos-y-reacciones.md).
+
 ## DEC-054 — Esconderse ante derrota directa
 
 2026-11-27. Aceptada para la adaptación por respuesta afirmativa del propietario al cuarto caso del cotejo. Esconderse puede impedir la derrota de un aliado en juego por Asesinar, Lanzamonedas o Vorágine aunque el efecto no gaste puntos de combate. Cada uso de Esconderse protege a un aliado. En Vorágine, el efecto sigue aplicándose a los demás aliados afectados y al Mercado. La decisión se apoya en la protección frente a derrota impresa en SRC-005. SRC-001 pp. 9–10 y 16 describe Nublar y el combate gastado, sin aclarar estas derrotas directas. [Cotejo y evidencia](specs/011-competitivo-completo/verification.md#decisión-sobre-esconderse).

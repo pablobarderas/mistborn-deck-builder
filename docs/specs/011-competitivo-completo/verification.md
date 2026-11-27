@@ -163,3 +163,13 @@ Godot 4.7.2. Importación correcta. Secuencias 390, motor 102 y estado 2075 comp
 Revisión R2 por `sdd_reviewer` (GPT-6.1 Sol, high). El revisor pidió precisar el contrato de compatibilidad. Se fijó la identidad del catálogo en el constructor del ensayo, se aclaró el aislamiento del registro en ALT-02 y se añadió un caso de rechazo por versión del motor. Delta revisado favorablemente, sin hallazgos pendientes ni dispensas. Se reutilizó el contraste de SRC-001/002 del contrato. Comprobados los enlaces y el alcance de publicación.
 
 E3 sigue abierta. El siguiente paso técnico propuesto es especificar el ensayo de efectos diferidos y reacciones. Publicación de esta entrega según DEC-049.
+
+## Contrato de efectos diferidos y reacciones
+
+2026-11-27. DIF-01–03 completados en alcance documental. El [contrato](efectos-diferidos-y-reacciones.md) fija una obligación privada que atraviesa limpieza e inicio, una reacción durante el turno de otra plaza y la liquidación en la misma confirmación que cierra la secuencia. Se contrastaron la forma cerrada del snapshot, el bloqueo por ventana, el vínculo de programa, la lista permitida de proyección y el orden de comprobación de recibos. Se comprobaron los enlaces nuevos, las anclas y el formato.
+
+R2. `sdd_rules` (GPT-6.1 Sol, high) contrastó SRC-001 p. 10, REG-024, la sección «Player abilities & allies» de SRC-002 y DEC-054. La persistencia del ejemplo de la FAQ y el momento de descarte de una reacción real tienen alcance específico. `sdd_reviewer` (GPT-6.1 Sol, high) revisó DIF-01–03. Se añadieron la propagación del perfil a los consumidores del validador y el caso de desbordamiento de la primera operación en ambas ramas. Dictamen final favorable sobre el delta. Dos delegaciones y un seguimiento al mismo revisor, ninguna dispensa. SHA-256 del contrato revisado: `ea369de448f1bcd4cce0a1ab7579cee2a8b0898fabb19c1aa64729a6d486f649`.
+
+La base recuperada fue `main` limpio, alineado con GitHub en `519d8b60df206ed4d6b8feff1f86b0b329eec8ef`. Esta entrega cambia únicamente documentación y se publica conforme a DEC-049. Comprobaciones y referencia remota en `tmp/e3-contrato-diferidos/` (ignorado por Git). La introducción documental conserva referencias históricas al mercado; la situación vigente de su cotejo consta en el estado y evidencia de E3.2.
+
+E3 sigue abierta. Primer paso de implementación: introducir el perfil aislado y la validación de la obligación en la ruta de cambio de turno. Después, registrar la ventana y ejecutar DIF-03 con importación, `test-sequence`, `test-engine`, `test-state`, `test-start` y `test-cleanup`. Godot y los recorridos dinámicos quedan pendientes de esa implementación.

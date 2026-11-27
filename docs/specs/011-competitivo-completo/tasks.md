@@ -102,3 +102,15 @@ Objetivo. Implementar el [programa ficticio](alternativas-y-encadenamiento.md) y
 Riesgo R2 por autoridad, privacidad, restauración y reversión parcial. El coordinador implementa un registro de ensayo aislado con identidad versionada, reutiliza el intercambio de recursos y prueba ambas ramas, rechazos atómicos, restauración y reenvío. Ejecutará importación y regresiones de secuencias, motor y estado. Se requiere revisión técnica independiente del resultado y se reutiliza el contraste de reglas del contrato para este programa ficticio. Ninguna dispensa.
 
 Completada en alcance de ensayo. ALT-01–03 verificados y revisión independiente favorable. E3 sigue abierta. Siguiente paso técnico propuesto: especificar el ensayo de efectos diferidos y reacciones. [Evidencia](verification.md#alternativas-y-efectos-encadenados-verificados).
+
+## Contrato de efectos diferidos y reacciones
+
+Objetivo. Especificar un ensayo ficticio con una obligación que sobrevive a un cambio de turno y una ventana fuera de turno. Recuperación en `main` limpio, con HEAD y referencia recién obtenida de GitHub en `519d8b60df206ed4d6b8feff1f86b0b329eec8ef`. R2 por persistencia, identidad del disparador, autoridad y privacidad.
+
+- DIF-01. Definir el perfil, la obligación y las condiciones de persistencia y activación a través de un turno.
+- DIF-02. Definir destinatario, visibilidad, restauración, cierre atómico y reenvío, incluso al repetir el disparador con otro ID de acción.
+- DIF-03. Fijar pruebas reproducibles de éxito, rechazo, restauración y compatibilidad.
+
+El coordinador redacta el contrato y comprueba enlaces y coherencia con motor, secuencias, estado y cambio de turno. `sdd_rules` contrasta los límites con SRC-001/002 y `sdd_reviewer` revisa de forma independiente los tres criterios. El alcance es documental. Las pruebas en Godot corresponden a la implementación posterior. Ninguna dispensa.
+
+Completada en alcance documental, con revisión independiente favorable. Siguiente tarea: implementar el perfil ficticio y verificar DIF-03. [Contrato](efectos-diferidos-y-reacciones.md) y [evidencia](verification.md#contrato-de-efectos-diferidos-y-reacciones).
