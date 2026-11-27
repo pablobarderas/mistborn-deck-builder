@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-27 — Selección privada verificada en secuencias
+
+El programa ficticio elige una instancia de la mano y reanuda su traslado a descarte. Pasaron la importación y las suites de secuencias, ciclo, motor y estado, con revisión independiente favorable. El siguiente paso técnico propuesto es especificar alternativas y efectos encadenados. [Evidencia](specs/011-competitivo-completo/verification.md#selección-privada-verificada-en-el-motor).
+
 ## 2026-11-27 — Selección privada y traslado
 
 Se especificó la elección de una instancia de la mano, su restauración y su traslado con el ciclo existente. Comprobación documental y revisión independiente favorables. El siguiente paso es implementar el programa ficticio y verificar SEL-03. [Evidencia](specs/011-competitivo-completo/verification.md#selección-privada-y-reanudación-del-traslado).

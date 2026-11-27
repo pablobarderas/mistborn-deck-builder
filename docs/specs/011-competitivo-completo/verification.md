@@ -133,3 +133,13 @@ Revisión R2 independiente favorable por `sdd_reviewer` (GPT-6.1 Sol, esfuerzo h
 Godot 4.7.2 reprodujo el rechazo inicial y confirmó el adaptador mediante dos scripts temporales. Ambos terminaron con código 0. La variante corregida movió la instancia elegida, cerró en revisión 2 y preservó el RNG. La restauración dio el mismo snapshot y recibo. El reenvío devolvió el recibo existente. Scripts y logs locales en `tmp/review-sel-private/`, excluidos de la publicación. Enlaces, anclas y formato del cambio comprobados.
 
 Quedan pendientes el programa versionado, la matriz completa SEL-03 y las regresiones de secuencias, ciclo, motor y estado. E3 sigue abierta. Publicación documental según DEC-049.
+
+## Selección privada verificada en el motor
+
+2026-11-27. SEL-01–03 cumplidos en el [registro ficticio](../../../tests/sequence_fixtures.gd) y las [pruebas de secuencias](../../../tests/sequence_test.gd). Dos copias de una definición se distinguen por posición, la vista ajena conserva solo los datos públicos y el motor reconstituye la oferta al restaurar y responder. Se probaron los límites 0/1/16/17, las respuestas inválidas y tres modificaciones de una pausa. Una respuesta aceptada conserva el recibo al reenviarla y produce el mismo snapshot tras restaurar.
+
+El traslado reutiliza CardCycle en una copia auxiliar. Se comprobó la conservación del historial con zonas renombradas. Un observador en la variante de fallo confirmó que la carta ya estaba en descarte y que el paso posterior consumió RNG y modificó recursos antes de fallar. El motor conservó el snapshot pausado completo, incluidos el saldo y el RNG anteriores al intento y el efecto ya confirmado al abrir la ventana.
+
+Godot 4.7.2. Importación correcta y cuatro suites con código 0. Secuencias 346, ciclo 269, motor 102 y estado 2075 comprobaciones. Logs locales en `tmp/e3-seleccion-privada/`. Revisión independiente favorable por `sdd_reviewer` (GPT-6.1 Sol, esfuerzo high), sin hallazgos ni dispensas. Se verificaron enlaces, formato y alcance de publicación.
+
+El programa se registra en pruebas. E3 queda abierta. El siguiente paso técnico propuesto es definir el contrato de alternativas y efectos encadenados. Publicación de esta entrega según DEC-049.

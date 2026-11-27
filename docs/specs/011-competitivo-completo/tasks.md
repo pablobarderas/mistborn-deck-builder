@@ -74,3 +74,11 @@ Objetivo: especificar una ventana de prueba que permite elegir una instancia de 
 Plan: el coordinador contrasta registro, proyección, restauración y traslado, redacta el contrato y comprueba enlaces, criterios y coherencia. Un revisor independiente contrasta SEL-01–03 antes del cierre. Ninguna dispensa.
 
 Completada en alcance documental. El siguiente paso de E3 es implementar el programa ficticio y ejecutar SEL-03 y las regresiones requeridas. [Contrato](seleccion-privada.md) y [evidencia](verification.md#selección-privada-y-reanudación-del-traslado).
+
+## Implementación de la selección privada y el traslado
+
+Objetivo de esta sesión. Implementar el programa ficticio del [contrato de selección privada](seleccion-privada.md) y verificar SEL-01–03 desde las entradas del motor. Recuperación en rama principal limpia, con HEAD y referencia recién obtenida de GitHub en `25466cfec921bfb9f64525ba76fd754506129dcb`.
+
+Riesgo R2 por selección privada, autoridad, mutación de zonas y restauración. El coordinador implementa el registro y los casos dirigidos en las pruebas de secuencias, reutiliza el ciclo con la copia auxiliar definida en SEL-02 y ejecuta la importación y las suites de secuencias, ciclo, motor y estado. Aceptación conforme a toda la matriz SEL-03, incluida la comparación de vistas y snapshots y el fallo después de mover. Revisión técnica independiente antes de cerrar. Ninguna dispensa.
+
+Completada en alcance de programa ficticio. SEL-01–03 verificados y revisión independiente favorable. El siguiente paso técnico propuesto es concretar el contrato de alternativas y efectos encadenados. [Evidencia](verification.md#selección-privada-verificada-en-el-motor).

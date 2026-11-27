@@ -1,6 +1,6 @@
 # Backlog por fases
 
-- E3, selección privada y reanudación del traslado, R2, contrato documental completado. El siguiente paso es implementar el programa ficticio y ejecutar SEL-03 y las regresiones. [Criterios](../specs/011-competitivo-completo/tasks.md#contrato-de-selección-privada-y-traslado) y [evidencia](../specs/011-competitivo-completo/verification.md#selección-privada-y-reanudación-del-traslado). Sin issue.
+- E3, selección privada y reanudación del traslado, R2, implementada y verificada en un programa ficticio. El siguiente paso propuesto es el contrato de alternativas y efectos encadenados. [Criterios](../specs/011-competitivo-completo/tasks.md#implementación-de-la-selección-privada-y-el-traslado) y [evidencia](../specs/011-competitivo-completo/verification.md#selección-privada-verificada-en-el-motor). Sin issue.
 
 - E3, traslado de mano a descarte, R2, implementado y verificado en un programa ficticio. Siguiente contrato propuesto: selección privada de una instancia y reanudación del traslado. [Criterios y cierre](../specs/011-competitivo-completo/tasks.md#implementación-del-traslado-de-mano-a-descarte). Sin issue.
 

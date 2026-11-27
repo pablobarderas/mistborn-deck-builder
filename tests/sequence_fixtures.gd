@@ -15,17 +15,22 @@ static func registration() -> Dictionary:
 		"fixture_add": _operation({"amount": "int"}, _valid_add, _add),
 		"fixture_exchange": _operation({}, _valid_empty, _exchange),
 		"fixture_move": _operation({}, _valid_empty, _move),
+		"fixture_hand_select": _operation({}, _valid_empty, _select_from_hand),
 		"fixture_roll": _operation({}, _valid_empty, _roll),
 		"fixture_wait": _operation({"kind": "id", "min": "int", "to_owner": "bool"}, _valid_window, _answer),
 		"fixture_fail": _operation({}, _valid_empty, _fail)
 	}
 	operations.fixture_wait["offer"] = _offer
+	operations.fixture_hand_select["offer"] = _offer_hand
 	return {"operations": operations, "programs": {
 		"automatic_v1": program([step("s1", "fixture_add", {"amount": 2}), step("s2", "fixture_roll")]),
 		"exchange_v1": program([step("exchange", "fixture_exchange")]),
 		"move_v1": _move_program([step("move", "fixture_move")]),
 		"move_rollback_v1": _move_program([step("add", "fixture_add", {"amount": 1}),
 			step("roll", "fixture_roll"), step("move", "fixture_move")]),
+		"hand_select_v1": _select_program([step("choose", "fixture_hand_select")]),
+		"hand_select_rollback_v1": _select_program([step("before", "fixture_add", {"amount": 2}),
+			step("choose", "fixture_hand_select"), step("fail", "fixture_fail")]),
 		"pause_v1": program([step("s1", "fixture_add", {"amount": 2}), step("s2", "fixture_roll"),
 			window("s3"), step("s4", "fixture_roll")]),
 		"reaction_v1": program([step("before", "fixture_add", {"amount": 1}), window("choose", "reaccion", 1, false),
@@ -46,6 +51,8 @@ static func starters() -> Dictionary:
 		"test_exchange": start.bind("exchange_v1", 0),
 		"test_move": _start_move.bind("move_v1", false),
 		"test_move_rollback": _start_move.bind("move_rollback_v1", true),
+		"test_hand_select": _start_select.bind("hand_select_v1"),
+		"test_hand_select_rollback": _start_select.bind("hand_select_rollback_v1"),
 		"test_pause": start.bind("pause_v1", 0),
 		"test_reaction": start.bind("reaction_v1", 1),
 		"test_twice": start.bind("twice_v1", 1),
@@ -64,6 +71,13 @@ static func program(steps: Array, recipient_offset: int = 0) -> Dictionary:
 static func _move_program(steps: Array) -> Dictionary:
 	var result: Dictionary = program(steps)
 	result.context.merge({"first_card": "id", "second_card": "id"})
+	return result
+
+
+static func _select_program(steps: Array) -> Dictionary:
+	var result: Dictionary = program(steps)
+	result.context["hand_binding"] = "id"
+	result.scope = _select_scope
 	return result
 
 
@@ -103,6 +117,16 @@ static func _start_move(state: Dictionary, actor_id: String, payload: Dictionary
 	return request
 
 
+static func _start_select(state: Dictionary, actor_id: String, payload: Dictionary, program_id: String) -> Variant:
+	var request: Variant = start(state, actor_id, payload, program_id, 0)
+	if not request is Dictionary:
+		return request
+	var hand: Dictionary = _owned_zone(state, actor_id, "mano")
+	request.recipients = [actor_id]
+	request.context["hand_binding"] = _hand_binding(hand.cards)
+	return request
+
+
 static func reaction(state: Dictionary) -> Dictionary:
 	# Snapshot estructural para regresiones del validador y la guardia de limpieza.
 	var owner: String = state.turn.active_id
@@ -120,6 +144,10 @@ static func _scope(state: Dictionary, context: Dictionary, offset: int) -> Varia
 	if context.occurrence_id != occurrence(state.match_id, context.turn_number, context.owner_id):
 		return null
 	return state.player_order
+
+
+static func _select_scope(state: Dictionary, context: Dictionary) -> Variant:
+	return [context.owner_id] if _scope(state, context, 0) != null else null
 
 
 static func _recipient(order: Array, owner: String, offset: int) -> String:
@@ -165,6 +193,50 @@ static func _exchange(state: Dictionary, context: Dictionary, _params: Dictionar
 static func _move(state: Dictionary, context: Dictionary, _params: Dictionary, _rng: RandomNumberGenerator, _selected: Array) -> bool:
 	var cycle: Cycle = Cycle.new(Fixtures.definitions(), state.catalog_id, Registry.new(registration()))
 	return cycle.discard_from_hand(state, context.owner_id, [context.first_card, context.second_card])
+
+
+static func _owned_zone(state: Dictionary, owner: String, kind: String) -> Dictionary:
+	for zone: Dictionary in state.zones.values():
+		if zone.holder_id == owner and zone.kind == kind:
+			return zone
+	return {}
+
+
+static func _hand_binding(cards: Array) -> String:
+	return "hand_" + JSON.stringify(cards).sha256_text()
+
+
+static func _offer_hand(state: Dictionary, context: Dictionary, _params: Dictionary) -> Variant:
+	var cards: Array = _owned_zone(state, context.owner_id, "mano").cards
+	if cards.is_empty() or cards.size() > Registry.MAX_OPTIONS or _hand_binding(cards) != context.hand_binding:
+		return null
+	var options: Array = []
+	for instance_id: String in cards:
+		if state.instances[instance_id].owner_id != context.owner_id:
+			return null
+		options.append("o%05d" % (options.size() + 1))
+	return {"kind": "eleccion", "recipients": [context.owner_id], "options": options, "min": 1, "max": 1}
+
+
+static func _select_from_hand(state: Dictionary, context: Dictionary, params: Dictionary, _rng: RandomNumberGenerator, selected: Array) -> bool:
+	var offer: Variant = _offer_hand(state, context, params)
+	if offer == null or selected.size() != 1:
+		return false
+	var index: int = offer.options.find(selected[0])
+	if index < 0:
+		return false
+	var owner: String = context.owner_id
+	var hand: Dictionary = _owned_zone(state, owner, "mano")
+	var discard: Dictionary = _owned_zone(state, owner, "descarte")
+	var working: Dictionary = state.duplicate(true)
+	# El ciclo valida la copia después del traslado. La ventana previa aún está en el candidato.
+	working.resolution = null
+	var cycle: Cycle = Cycle.new(Fixtures.definitions(), state.catalog_id, Registry.new(registration()))
+	if not cycle.discard_from_hand(working, owner, [hand.cards[index]]):
+		return false
+	hand.cards = working.zones[hand.zone_id].cards
+	discard.cards = working.zones[discard.zone_id].cards
+	return true
 
 
 static func _answer(state: Dictionary, context: Dictionary, params: Dictionary, _rng: RandomNumberGenerator, selected: Array) -> bool:
