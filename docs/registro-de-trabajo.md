@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-28 — Contrato del primer ensayo integrado
+
+Se definió un recorrido ficticio de dos plazas con selecciones, reacción entre turnos y cierre de autoridad. Comprobadas las interfaces, los enlaces y la coherencia documental, con revisión independiente favorable. El índice refleja el cotejo humano del mercado ya verificado. Quedan el perfil de prueba y su ejecución en Godot. [Evidencia](specs/011-competitivo-completo/verification.md#contrato-del-primer-ensayo-integrado).
+
 ## 2026-11-27 — Ensayo de finalización verificado
 
 La autoridad confirma la tercera cima ficticia, el resultado y el recibo en una sola transacción. FIN-03, sus regresiones y la revisión independiente pasaron. El siguiente paso propuesto de E3 es delimitar un primer lote de integración y sus pruebas. [Evidencia](specs/011-competitivo-completo/verification.md#ensayo-de-finalización).

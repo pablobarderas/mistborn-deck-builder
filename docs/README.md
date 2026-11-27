@@ -1,10 +1,10 @@
 # Documentación del proyecto
 
-[Misiones M1–M8 confirmadas](referencias/misiones-competitivas.md): el propietario cotejó por título casillas, extras y cimas; quedan integración de producto y distribución. El mercado sigue pendiente de revisión humana.
+[Misiones M1–M8 confirmadas](referencias/misiones-competitivas.md): el propietario cotejó por título casillas, extras y cimas; quedan integración de producto y distribución. El mercado también tiene [cotejo humano documentado](specs/011-competitivo-completo/verification.md#copia-identificada-para-e32).
 
 [Cotejo humano E1](specs/008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo): personajes, Entrenamientos, niveles, Financiación y pista confirmados; las misiones se confirmaron después, por separado. El lote sigue en borrador para producto.
 
-[Inventario del mercado E3.1](specs/011-competitivo-completo/tasks.md): 65 diseños y 82 copias con fuentes locales comprobadas; pendiente de cotejo humano, ejecución y distribución.
+[Inventario del mercado E3.1](specs/011-competitivo-completo/tasks.md): 65 diseños y 82 copias con fuentes locales comprobadas; con cotejo humano completado. Pendientes ejecución y distribución.
 
 [Publicación al cierre satisfactorio](gestion/agentes-sdd.md#publicación-al-cierre-satisfactorio): autorización permanente de commit/push para entregas verificadas, sin alterar las puertas de calidad ni admitir contenido final por inferencia.
 
@@ -12,7 +12,7 @@
 
 [Contenido inicial competitivo E1](specs/008-preparacion-y-turnos/contenido-inicial-competitivo.md): fuentes, 22 definiciones en borrador, ensayo de autoridad y cotejo humano del lote inicial; [evidencia](specs/008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo). No es un catálogo de producto.
 
-[Ruta E1–E6 hacia partidas completas](plan-de-trabajo.md#ruta-de-entregas-agrupadas-2026-11-23): E2 permite una partida local de ensayo; E3 es el siguiente objetivo funcional y el mercado aguarda cotejo humano. P00–P18 y sus criterios de cierre siguen vigentes.
+[Ruta E1–E6 hacia partidas completas](plan-de-trabajo.md#ruta-de-entregas-agrupadas-2026-11-23): E2 permite una partida local de ensayo; E3 sigue abierta y tiene un [contrato de ensayo integrado](specs/011-competitivo-completo/primer-ensayo-integrado.md). P00–P18 y sus criterios de cierre siguen vigentes.
 
 [Inventario del competitivo completo](specs/008-preparacion-y-turnos/inventario-competitivo-final.md): T08.1b31 censa componentes y lagunas de fidelidad, ejecución y distribución; el lote inicial y las misiones tienen cotejo humano, mientras el mercado requiere revisión propia. No admite aún un catálogo de producto.
 

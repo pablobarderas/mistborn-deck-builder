@@ -142,3 +142,15 @@ Completada en alcance documental, con contraste de fuentes y revisión independi
 FIN-01–03, riesgo R2 por el cierre de autoridad, la restauración y la privacidad. El coordinador implementa el perfil ficticio aislado, conecta el cierre transaccional y ejecuta los casos de FIN-03 desde la autoridad, con importación y las seis regresiones del contrato. Un `sdd_reviewer` revisa el resultado y las pruebas de forma independiente. Se reutiliza el contraste SRC-001/002 del contrato para este alcance técnico. Sin issue ni dispensa.
 
 Completada en el alcance del ensayo. Se aprobó la revisión del código y se consignaron los resultados de FIN-03 y sus regresiones en la [evidencia](verification.md#ensayo-de-finalización). E3 sigue abierta.
+
+## Contrato del primer ensayo integrado
+
+Base `6b48927cf4ecea1896ac832603840df11e5017ab`, recuperada de GitHub en `main` con árbol limpio. Objetivo documental: delimitar un primer recorrido integrado del motor con datos ficticios originales. Riesgo R2 por la interacción de ventanas privadas, obligaciones entre turnos y cierre de autoridad. Responsable de redacción, comprobaciones y cierre: coordinador. Revisión independiente documental obligatoria. Ninguna dispensa.
+
+- INT-E3-01. Definir un recorrido de dos plazas con entradas, orden, fronteras y resultado comprobables. Vincular cada tramo con su evidencia aislada y señalar los puntos de composición que requieren una prueba nueva.
+- INT-E3-02. Definir rechazos, restauración, reenvío y visibilidad por plaza en el recorrido. Precisar qué debe permanecer igual tras un fallo y qué recibos se devuelven al repetir una acción.
+- INT-E3-03. Dejar el plan de implementación, las regresiones y los huecos fuera del ensayo. Comprobar rutas, anclas y coherencia con las interfaces y el estado publicado. La ejecución en Godot pertenece a la implementación.
+
+Plan: revisar los ensayos publicados, redactar la matriz del recorrido y sus criterios, comprobar enlaces y coherencia y obtener revisión independiente antes de cerrar. El cotejo E3.2 sigue como antecedente documental de E3. Este ensayo usa datos de prueba inventados localmente.
+
+Estado: contrato documental completado con INT-E3-01–03 y revisión independiente favorable. [Contrato](primer-ensayo-integrado.md) · [Verificación y traspaso](verification.md#contrato-del-primer-ensayo-integrado). Pendientes implementación del ensayo y ejecución en Godot. Sin issue.

@@ -217,3 +217,17 @@ La regresión adicional `test-perseguir-play` falla al admitir la fuente de ese 
 Publicación conforme a DEC-049. Se comprobaron 569 enlaces locales de 10 documentos, las anclas nuevas, el alcance preparado y el formato del diff.
 
 E3 sigue abierta. El siguiente paso propuesto es delimitar un primer lote de integración, trazar cada ruta a una operación verificada o a una excepción pendiente y definir las pruebas del lote. Siguen pendientes la ejecución del catálogo final y su admisión.
+
+## Contrato del primer ensayo integrado
+
+2026-11-28. Base publicada y local: `6b48927cf4ecea1896ac832603840df11e5017ab`, rama `main` con árbol limpio tras la recuperación. [Contrato](primer-ensayo-integrado.md) · [Tarea](tasks.md#contrato-del-primer-ensayo-integrado).
+
+| Criterio | Evidencia documental |
+| --- | --- |
+| INT-E3-01 | Recorrido de dos plazas con valores iniciales, ramas conservar y donar, cambio de turno, reacción y cierre. Cada tramo enlaza su evidencia aislada. Las operaciones nuevas y sus puntos de composición quedan identificados. |
+| INT-E3-02 | Matriz de opciones inválidas, plaza incorrecta, evento fuera de orden, desbordamiento, fallo terminal, restauración, instantáneas adulteradas, reenvío y vistas por plaza. Distingue la reversión de un segmento de las fronteras ya confirmadas. |
+| INT-E3-03 | Plan de prueba dirigida, importación y cinco regresiones existentes. Se contrastó con las interfaces de estado, secuencia, intercambio, limpieza y cierre. Se comprobaron enlaces, anclas y formato. |
+
+Revisión independiente favorable de `sdd_reviewer` (GPT-6.1 Sol, high) tras precisar los campos de saldo, el punto que consume la llegada y el formato terminal exigido por el validador. El revisor comprobó 15 enlaces del contrato. Ninguna dispensa. Los controles y la referencia de publicación se conservan en `tmp/e3-primer-ensayo-integrado/`, fuera de Git. Godot y el recorrido integrado quedan pendientes de la implementación.
+
+Traspaso: contrato documental cerrado. E3 sigue abierta. Siguiente paso técnico: preparar el perfil ficticio versionado y el estado inicial del ensayo, y conectar la primera secuencia hasta la alternativa. La integración del catálogo necesita su propia entrega.
