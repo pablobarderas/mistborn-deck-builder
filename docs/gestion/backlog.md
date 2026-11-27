@@ -1,6 +1,8 @@
 # Backlog por fases
 
-- E3, selección privada y reanudación del traslado, R2, implementada y verificada en un programa ficticio. El siguiente paso propuesto es el contrato de alternativas y efectos encadenados. [Criterios](../specs/011-competitivo-completo/tasks.md#implementación-de-la-selección-privada-y-el-traslado) y [evidencia](../specs/011-competitivo-completo/verification.md#selección-privada-verificada-en-el-motor). Sin issue.
+- E3, contrato de alternativas y efectos encadenados, R2. Siguiente tarea: implementar el programa ficticio y comprobar ALT-03. [Criterios](../specs/011-competitivo-completo/tasks.md#contrato-de-alternativas-y-efectos-encadenados) y [evidencia](../specs/011-competitivo-completo/verification.md#contrato-de-alternativas-y-efectos-encadenados). Sin issue.
+
+- E3, selección privada y reanudación del traslado, R2, implementada y verificada en un programa ficticio. [Criterios](../specs/011-competitivo-completo/tasks.md#implementación-de-la-selección-privada-y-el-traslado) y [evidencia](../specs/011-competitivo-completo/verification.md#selección-privada-verificada-en-el-motor). Sin issue.
 
 - E3, traslado de mano a descarte, R2, implementado y verificado en un programa ficticio. Siguiente contrato propuesto: selección privada de una instancia y reanudación del traslado. [Criterios y cierre](../specs/011-competitivo-completo/tasks.md#implementación-del-traslado-de-mano-a-descarte). Sin issue.
 

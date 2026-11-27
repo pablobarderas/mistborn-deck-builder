@@ -143,3 +143,11 @@ El traslado reutiliza CardCycle en una copia auxiliar. Se comprobó la conservac
 Godot 4.7.2. Importación correcta y cuatro suites con código 0. Secuencias 346, ciclo 269, motor 102 y estado 2075 comprobaciones. Logs locales en `tmp/e3-seleccion-privada/`. Revisión independiente favorable por `sdd_reviewer` (GPT-6.1 Sol, esfuerzo high), sin hallazgos ni dispensas. Se verificaron enlaces, formato y alcance de publicación.
 
 El programa se registra en pruebas. E3 queda abierta. El siguiente paso técnico propuesto es definir el contrato de alternativas y efectos encadenados. Publicación de esta entrega según DEC-049.
+
+## Contrato de alternativas y efectos encadenados
+
+2026-11-27. ALT-01–03 comprobados en alcance documental. El [contrato](alternativas-y-encadenamiento.md) usa el ejecutor de una ventana existente para despachar dos alternativas ficticias y encadenar dos intercambios sobre el candidato de P07. El contraste del registro, el resolutor, la respuesta, la proyección y el validador confirma el encaje con una sola ventana y una confirmación por segmento. Se comprobaron los saldos de éxito, el desbordamiento del segundo intercambio y el reintento desde la pausa conservada.
+
+R2. El coordinador redactó el contrato y verificó enlaces, anclas y formato. Un contraste por `sdd_rules` (GPT-6.1 Sol, high) verificó SRC-001 p. 17 y SRC-002, Action cards, y delimitó la elección y el orden a un programa ficticio sin inferir reglas de omisión, umbrales o modos. Una revisión independiente por `sdd_reviewer` (GPT-6.1 Sol, high) comprobó ALT-01–03 y detectó una imprecisión en el código de rechazo de identidades desconocidas. Se corrigió y la revisión final fue favorable, sin hallazgos pendientes. SHA-256 del contrato revisado: `cfa4259ce2070bf6008a3c84ccd28e26292b31dd722885c097804bda4f4e9ddf`. Dos delegaciones, ninguna dispensa. Tiempo y tokens por tarea no disponibles.
+
+El cambio es documental. La matriz ALT-03, la importación y las regresiones de secuencias, motor y estado corresponden a la siguiente implementación ficticia. E3 sigue abierta. Publicación documental según DEC-049.

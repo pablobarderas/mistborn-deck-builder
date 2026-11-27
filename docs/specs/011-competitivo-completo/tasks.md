@@ -82,3 +82,15 @@ Objetivo de esta sesión. Implementar el programa ficticio del [contrato de sele
 Riesgo R2 por selección privada, autoridad, mutación de zonas y restauración. El coordinador implementa el registro y los casos dirigidos en las pruebas de secuencias, reutiliza el ciclo con la copia auxiliar definida en SEL-02 y ejecuta la importación y las suites de secuencias, ciclo, motor y estado. Aceptación conforme a toda la matriz SEL-03, incluida la comparación de vistas y snapshots y el fallo después de mover. Revisión técnica independiente antes de cerrar. Ninguna dispensa.
 
 Completada en alcance de programa ficticio. SEL-01–03 verificados y revisión independiente favorable. El siguiente paso técnico propuesto es concretar el contrato de alternativas y efectos encadenados. [Evidencia](verification.md#selección-privada-verificada-en-el-motor).
+
+## Contrato de alternativas y efectos encadenados
+
+Objetivo: especificar un programa ficticio de E3 con dos ramas excluyentes y una cadena automática de dos pasos. Recuperación en `main` limpio, con HEAD y referencia recién obtenida de GitHub en `7ec0ab8d43afcb2c2c2a1f2b5a2bc3a821fdc71c`.
+
+Riesgo R2 por autoridad, orden, restauración y reversión parcial entre segmentos. El coordinador redacta el contrato sobre el registro existente y comprueba el alcance, los enlaces y los casos de aceptación. Un especialista contrasta límites con SRC-001/002 y un revisor independiente verifica el contrato y su encaje con el motor. Ninguna dispensa.
+
+- ALT-01. Fijar la oferta de dos opciones, su destinatario, la correspondencia con ramas locales y los límites de la composición.
+- ALT-02. Fijar el orden, las fronteras de confirmación, la restauración, el rechazo y el reenvío.
+- ALT-03. Definir casos reproducibles de ambas ramas, privacidad, restauración y reversión después de ejecutar el primer paso de la cadena.
+
+Completada en alcance documental, con contraste de fuentes y revisión independiente favorables. Siguiente tarea: implementar el programa ficticio y verificar ALT-03. [Contrato](alternativas-y-encadenamiento.md) y [evidencia](verification.md#contrato-de-alternativas-y-efectos-encadenados).

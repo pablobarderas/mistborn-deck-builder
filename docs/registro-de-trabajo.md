@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-27 — Alternativas y efectos encadenados
+
+Se especificó una ventana ficticia de dos ramas y la confirmación conjunta de una cadena de intercambios. Contraste de fuentes, revisión independiente y comprobación documental favorables. Siguiente paso de E3: implementar el caso de prueba y ejecutar ALT-03 en Godot. [Evidencia](specs/011-competitivo-completo/verification.md#contrato-de-alternativas-y-efectos-encadenados).
+
 ## 2026-11-27 — Selección privada verificada en secuencias
 
 El programa ficticio elige una instancia de la mano y reanuda su traslado a descarte. Pasaron la importación y las suites de secuencias, ciclo, motor y estado, con revisión independiente favorable. El siguiente paso técnico propuesto es especificar alternativas y efectos encadenados. [Evidencia](specs/011-competitivo-completo/verification.md#selección-privada-verificada-en-el-motor).
