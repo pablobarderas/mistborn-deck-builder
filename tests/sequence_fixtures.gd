@@ -3,6 +3,8 @@ extends RefCounted
 
 const Registry = preload("res://scripts/game/sequence_registry.gd")
 const Exchange = preload("res://scripts/game/turn_resource_exchange.gd")
+const Cycle = preload("res://scripts/game/card_cycle.gd")
+const Fixtures = preload("res://tests/game_state_fixtures.gd")
 const MAX_INT: int = Registry.MAX_INT
 const CONTEXT: Dictionary = {"owner_id": "player_id", "turn_number": "int", "entry_phase": "id",
 	"occurrence_id": "id", "recipient_id": "player_id"}
@@ -12,6 +14,7 @@ static func registration() -> Dictionary:
 	var operations: Dictionary = {
 		"fixture_add": _operation({"amount": "int"}, _valid_add, _add),
 		"fixture_exchange": _operation({}, _valid_empty, _exchange),
+		"fixture_move": _operation({}, _valid_empty, _move),
 		"fixture_roll": _operation({}, _valid_empty, _roll),
 		"fixture_wait": _operation({"kind": "id", "min": "int", "to_owner": "bool"}, _valid_window, _answer),
 		"fixture_fail": _operation({}, _valid_empty, _fail)
@@ -20,6 +23,9 @@ static func registration() -> Dictionary:
 	return {"operations": operations, "programs": {
 		"automatic_v1": program([step("s1", "fixture_add", {"amount": 2}), step("s2", "fixture_roll")]),
 		"exchange_v1": program([step("exchange", "fixture_exchange")]),
+		"move_v1": _move_program([step("move", "fixture_move")]),
+		"move_rollback_v1": _move_program([step("add", "fixture_add", {"amount": 1}),
+			step("roll", "fixture_roll"), step("move", "fixture_move")]),
 		"pause_v1": program([step("s1", "fixture_add", {"amount": 2}), step("s2", "fixture_roll"),
 			window("s3"), step("s4", "fixture_roll")]),
 		"reaction_v1": program([step("before", "fixture_add", {"amount": 1}), window("choose", "reaccion", 1, false),
@@ -38,6 +44,8 @@ static func starters() -> Dictionary:
 	return {
 		"test_auto": start.bind("automatic_v1", 0),
 		"test_exchange": start.bind("exchange_v1", 0),
+		"test_move": _start_move.bind("move_v1", false),
+		"test_move_rollback": _start_move.bind("move_rollback_v1", true),
 		"test_pause": start.bind("pause_v1", 0),
 		"test_reaction": start.bind("reaction_v1", 1),
 		"test_twice": start.bind("twice_v1", 1),
@@ -51,6 +59,12 @@ static func starters() -> Dictionary:
 
 static func program(steps: Array, recipient_offset: int = 0) -> Dictionary:
 	return {"steps": steps, "context": CONTEXT.duplicate(), "scope": _scope.bind(recipient_offset), "allow_null_source": true}
+
+
+static func _move_program(steps: Array) -> Dictionary:
+	var result: Dictionary = program(steps)
+	result.context.merge({"first_card": "id", "second_card": "id"})
+	return result
 
 
 static func step(id: String, operation: String, params: Dictionary = {}) -> Dictionary:
@@ -75,6 +89,18 @@ static func start(state: Dictionary, actor_id: String, payload: Dictionary, prog
 		"context": {"owner_id": actor_id, "turn_number": state.turn.number, "entry_phase": state.turn.phase,
 			"occurrence_id": occurrence(state.match_id, state.turn.number, actor_id),
 			"recipient_id": _recipient(state.player_order, actor_id, offset)}}
+
+
+static func _start_move(state: Dictionary, actor_id: String, payload: Dictionary, program_id: String, rollback: bool) -> Variant:
+	var request: Variant = start(state, actor_id, payload, program_id, 0)
+	if not request is Dictionary:
+		return request
+	var hand: Array = state.zones[actor_id + "_mano"].cards
+	if hand.size() < 3:
+		return "accion_ilegal"
+	request.context["first_card"] = hand[2]
+	request.context["second_card"] = "invalid_target" if rollback else hand[0]
+	return request
 
 
 static func reaction(state: Dictionary) -> Dictionary:
@@ -134,6 +160,11 @@ static func _exchange(state: Dictionary, context: Dictionary, _params: Dictionar
 		if player.player_id == context.owner_id:
 			return Exchange.apply(player.turn_resources, "recursos", 2, "ataque", 3)
 	return false
+
+
+static func _move(state: Dictionary, context: Dictionary, _params: Dictionary, _rng: RandomNumberGenerator, _selected: Array) -> bool:
+	var cycle: Cycle = Cycle.new(Fixtures.definitions(), state.catalog_id, Registry.new(registration()))
+	return cycle.discard_from_hand(state, context.owner_id, [context.first_card, context.second_card])
 
 
 static func _answer(state: Dictionary, context: Dictionary, params: Dictionary, _rng: RandomNumberGenerator, selected: Array) -> bool:

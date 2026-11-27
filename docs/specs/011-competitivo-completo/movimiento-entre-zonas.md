@@ -16,7 +16,7 @@ Reutilizar [`CardCycle.discard`](../../../scripts/game/card_cycle.gd) para valid
 
 Rechazar listas vacías, tipos o IDs mal formados, duplicados, una plaza desconocida y cualquier ID que falte en la mano indicada, aunque figure en otra zona propia o pertenezca a otra plaza. Cualquier fallo devuelve falso y conserva intacto el candidato que recibió la operación. El contrato de [secuencias](../008-preparacion-y-turnos/secuencia-reanudable.md#ejecución-pausas-y-cierre) cubre el fallo del segmento completo y el reenvío. [GameEngine](../../../scripts/game/game_engine.gd) confirma revisión, recibo y RNG. Para un fallo de la operación en una secuencia válida se aplica `accion_ilegal`, sin identificar la carta causante ni confirmar dónde se encuentra. Las vistas conservan la política de [SPEC-007](../007-estado-y-acciones/spec.md).
 
-## MOV-03 · Verificación de la implementación futura
+## MOV-03 · Verificación del traslado
 
 | Caso | Resultado esperado |
 | --- | --- |
@@ -26,4 +26,4 @@ Rechazar listas vacías, tipos o IDs mal formados, duplicados, una plaza descono
 | Fallo del traslado tras un paso ficticio que modifica un saldo y consume RNG | Se conserva el snapshot completo anterior, incluidos saldo, listas, RNG, revisión, recibos y cierres. Los rechazos por ID ausente o ajeno devuelven el mismo resultado público. |
 | Segundo observador con las mismas cantidades y vistas públicas en dos estados que difieren solo en identidades ocultas | La proyección del observador tras el traslado es igual en ambos estados. La plaza titular recibe su mano y descarte actualizados. |
 
-Ejecutar las suites de ciclo, secuencias, motor y estado. Las comprobaciones anteriores pertenecen a la implementación futura. La revisión de este documento comprueba que los casos se pueden construir con las interfaces vigentes.
+La [evidencia de implementación](verification.md#traslado-de-mano-a-descarte) registra los resultados de las suites de ciclo, secuencias, motor y estado.

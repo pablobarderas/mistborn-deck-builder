@@ -113,3 +113,13 @@ Godot 4.7.2: importación correcta, 269 comprobaciones de secuencias, 102 de mot
 R2. Una revisión independiente con el perfil `sdd_reviewer` (GPT-6.1 Sol, esfuerzo high) contrastó los criterios con las interfaces. Dictamen favorable. Se incorporó su precisión sobre el tipo `id` en el contexto ficticio para que el caso de instancia ausente alcance la operación. El mismo revisor verificó esa corrección en una segunda pasada acotada. Sin dispensa. Tokens por tarea no disponibles.
 
 La entrega especifica un programa ficticio. Los casos funcionales quedan pendientes de implementación y Godot no se ejecutó para esta revisión documental. Al retomar, implementar el [traslado](movimiento-entre-zonas.md) y ejecutar MOV-03. E3 sigue abierta. Publicación del documento según DEC-049.
+
+## Traslado de mano a descarte
+
+2026-11-27. [MOV-01–03](movimiento-entre-zonas.md) aprobados en alcance de operación interna y [programas ficticios](../../../tests/sequence_fixtures.gd). [CardCycle](../../../scripts/game/card_cycle.gd) comparte validación y traslado con el descarte existente. La nueva entrada exige que toda la selección esté en la mano. Las pruebas comparan el candidato completo para el orden y los rechazos, y verifican recibo y cierre únicos, reversión del saldo y RNG, igualdad de errores públicos y privacidad de las vistas.
+
+Godot 4.7.2. Importación correcta y suites `test-sequence` (294), `test-cycle` (269), `test-engine` (102) y `test-state` (2075), todos con código 0 y sin `SCRIPT ERROR`. El primer ensayo detectó claves `StringName` en el fixture. Se cambiaron por claves `String` y se repitió la ejecución. Registro local final en `%TEMP%/mistborn-mov-impl-recheck.txt`.
+
+R2. Una revisión independiente por `sdd_reviewer` (GPT-6.1 Sol, esfuerzo high) contrastó contrato, código, corrección del fixture y evidencia. Dictamen favorable sin bloqueantes. Ninguna dispensa. Tokens por tarea no disponibles. Controles de espacios y enlaces correctos. Publicación según DEC-049.
+
+El registro del programa pertenece a las pruebas. E3 sigue abierta. El siguiente contrato propuesto combina la selección privada de una instancia con la reanudación del traslado.

@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-27 — Traslado de mano a descarte
+
+Se integró el traslado en una secuencia ficticia. Las suites de secuencias, ciclo, motor y estado pasaron con revisión independiente favorable. Siguiente paso propuesto: concretar la selección privada y reanudación del traslado. [Evidencia](specs/011-competitivo-completo/verification.md#traslado-de-mano-a-descarte).
+
 ## 2026-11-27 — Contrato de movimiento entre zonas
 
 Quedó definido el primer traslado ficticio de mano a descarte, con orden, propiedad, rechazo atómico y privacidad. Comprobación documental y revisión independiente favorables. Quedan pendientes la implementación y la ejecución de los casos. [Evidencia](specs/011-competitivo-completo/verification.md#contrato-de-movimiento-entre-zonas).

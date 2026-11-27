@@ -54,3 +54,11 @@ Objetivo: especificar un primer traslado entre zonas personales para un programa
 Plan: el coordinador contrasta el validador, el ciclo y el resolutor, redacta el contrato y comprueba enlaces, criterios y coherencia con las APIs. Un revisor independiente contrasta el resultado con MOV-01–03. Tras la revisión, el coordinador actualiza la memoria y publica la entrega documental si cumple los criterios. Ninguna dispensa.
 
 Estado: completada en alcance documental. Siguiente paso de E3: implementar el traslado con el ciclo existente y verificarlo mediante un programa ficticio. [Contrato](movimiento-entre-zonas.md) y [evidencia](verification.md#contrato-de-movimiento-entre-zonas).
+
+## Implementación del traslado de mano a descarte
+
+Base recuperada en rama principal limpia, con HEAD y referencia remota recién obtenida en d6c81cc3bc2e32144d6209c5366bb9829f0d6f90. Riesgo R2 por mutación de zonas, atomicidad y privacidad.
+
+El coordinador implementa la operación de [MOV-01 y MOV-02](movimiento-entre-zonas.md) reutilizando la validación y el traslado de CardCycle. La integra mediante un programa automático exclusivo de pruebas y ejecuta los casos MOV-03 y las suites de ciclo, secuencias, motor y estado. La aceptación exige comprobar orden, identidad, propietario, rechazo sin mutación parcial, recibo único, reversión del segmento y vistas por plaza. Revisión independiente antes del cierre. Ninguna dispensa.
+
+Entrega completada en alcance de operación interna y secuencia ficticia. [Verificación y revisión](verification.md#traslado-de-mano-a-descarte). E3 sigue abierta. Siguiente contrato propuesto: selección privada de una instancia y reanudación de su traslado.

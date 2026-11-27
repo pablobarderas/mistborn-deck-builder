@@ -1,6 +1,6 @@
 # Estado actual
 
-E3 dispone del [contrato de movimiento entre zonas](specs/011-competitivo-completo/movimiento-entre-zonas.md). El primer caso traslada cartas de la mano al descarte de la misma plaza en una secuencia ficticia. La implementación y sus pruebas quedan pendientes.
+E3 incorpora el [traslado de mano a descarte](specs/011-competitivo-completo/movimiento-entre-zonas.md), verificado en una secuencia ficticia. Se comprobaron orden, conservación de instancias, rechazo atómico, reenvío y privacidad entre plazas. [Evidencia](specs/011-competitivo-completo/verification.md#traslado-de-mano-a-descarte).
 
 La [matriz técnica de efectos y pruebas](specs/011-competitivo-completo/familias-de-efectos.md) ya tiene una primera [operación de intercambio de recursos](specs/011-competitivo-completo/verification.md#intercambio-de-recursos) implementada y verificada en una secuencia ficticia. E3 sigue abierta.
 

@@ -1,6 +1,6 @@
 # Backlog por fases
 
-- E3, contrato de movimiento entre zonas, R2 documental. Siguiente tarea técnica pendiente: implementar y probar el traslado de mano a descarte en un programa ficticio. [Criterios y cierre](../specs/011-competitivo-completo/tasks.md#contrato-de-movimiento-entre-zonas). Sin issue.
+- E3, traslado de mano a descarte, R2, implementado y verificado en un programa ficticio. Siguiente contrato propuesto: selección privada de una instancia y reanudación del traslado. [Criterios y cierre](../specs/011-competitivo-completo/tasks.md#implementación-del-traslado-de-mano-a-descarte). Sin issue.
 
 - E3.2 completada en alcance documental. Nueve hojas confirmadas, copia identificada, referencias contrastadas y cuatro casos decididos. [Aceptación](../specs/011-competitivo-completo/tasks.md#e32--cotejo-humano-del-mercado) y [revisión final](../specs/011-competitivo-completo/verification.md#copia-identificada-para-e32). Sin issue.
 

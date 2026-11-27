@@ -21,6 +21,7 @@ func _initialize() -> void:
 func _run() -> void:
 	_test_automatic()
 	_test_resource_exchange()
+	_test_move_from_hand()
 	_test_pause_and_resume()
 	_test_successive_windows()
 	_test_segment_rollback()
@@ -50,7 +51,8 @@ func _engine(state: Dictionary, registry: Registry = null, handlers: Dictionary 
 	var actions: Dictionary = Handlers.registry() if handlers.is_empty() else handlers
 	var starts: Dictionary = Sequences.starters() if starters.is_empty() else starters
 	var engine: EngineCore = EngineCore.new(Fixtures.definitions(), state.catalog_id, actions, registry if registry != null else _registry, starts)
-	_expect(engine.load_authority_snapshot(state).ok, "Fixture v2 válido")
+	var loaded: Dictionary = engine.load_authority_snapshot(state)
+	_expect(loaded.ok, "Fixture v2 válido: %s" % [loaded.errors])
 	return engine
 
 
@@ -132,6 +134,78 @@ func _test_resource_exchange() -> void:
 	var negative: Dictionary = {"a": 2, "b": -1}
 	_expect(not Sequences.Exchange.apply(negative, "a", 2, "b", 3) and negative == {"a": 2, "b": -1},
 		"Intercambio: saldo negativo se rechaza")
+
+
+func _test_move_from_hand() -> void:
+	var initial: Dictionary = _movement_state()
+	var expected: Dictionary = initial.duplicate(true)
+	expected.zones.p1_mano.cards = ["b"]
+	expected.zones.p1_descarte.cards = ["d", "c", "a"]
+
+	var cycle: Cycle = Cycle.new(Fixtures.definitions(), initial.catalog_id, _registry)
+	var candidate: Dictionary = initial.duplicate(true)
+	_expect(cycle.discard_from_hand(candidate, "p1", ["c", "a"]) and candidate == expected,
+		"MOV-01 conserva las instancias y solo modifica las dos listas en el orden indicado")
+	for input: Array in [["p1", []], ["p1", "a"], [7, ["a"]], ["p3", ["a"]], ["p1", ["a", 7]],
+			["p1", ["a", ""]], ["p1", ["a", "a"]], ["p1", ["a", "missing"]],
+			["p1", ["a", "c2"]], ["p1", ["a", "other"]], ["p1", ["a", "in_play"]]]:
+		candidate = initial.duplicate(true)
+		_expect(not cycle.discard_from_hand(candidate, input[0], input[1]) and candidate == initial,
+			"MOV-02 conserva todo el candidato al rechazar %s" % [input])
+
+	var engine: EngineCore = _engine(initial)
+	var intent: Dictionary = _intent("move", "test_move", 0)
+	_reject(engine, "p2", intent, "accion_ilegal", "MOV-02 solo la plaza activa inicia el programa")
+	_reject(engine, "p1", _intent("injected", "test_move", 0, {"instance_ids": ["b"]}),
+		"formato_invalido", "MOV-02 la intención no elige las cartas")
+	var receipt: Dictionary = engine.submit("p1", intent)
+	var after: Dictionary = engine.get_authority_snapshot()
+	var id: String = Registry.ID_PREFIX + str(initial.authority.next_id)
+	_expect(receipt.ok and after.revision == 1 and after.resolution == null
+		and after.authority.receipts.p1.size() == 1
+		and after.authority.completed_sequences == {id: _close("move_v1", initial.turn.number, 1)},
+		"MOV-03 una revisión, un recibo y un cierre")
+	_expect(after.zones == expected.zones and after.instances == initial.instances
+		and after.authority.rng_state == initial.authority.rng_state, "MOV-03 traslado confirmado con RNG intacto")
+	_expect(engine.submit("p1", intent) == receipt and engine.get_authority_snapshot() == after,
+		"MOV-03 reenvío conserva estado y recibo")
+
+	var owner_view: Dictionary = engine.get_view("p1")
+	var observer_view: Dictionary = engine.get_view("p2")
+	var alternative: EngineCore = _engine(_movement_state("alternate"))
+	_expect(alternative.submit("p1", intent).ok and alternative.get_view("p2") == observer_view
+		and not observer_view.zones.p1_mano.has("cards") and not observer_view.zones.p1_descarte.has("cards"),
+		"MOV-03 la vista de otra plaza solo refleja las cantidades")
+	_expect(owner_view.zones.p1_mano.cards.map(_instance_id) == ["b"]
+		and owner_view.zones.p1_descarte.cards.map(_instance_id) == ["d", "c", "a"]
+		and alternative.get_view("p1").zones.p1_descarte.cards.map(_instance_id) == ["d", "c", "alternate"],
+		"MOV-03 el titular recibe los IDs de sus propias zonas en orden")
+
+	var rollback: Dictionary = _intent("rollback", "test_move_rollback", 0)
+	_reject(_engine(initial), "p1", rollback, "accion_ilegal", "MOV-03 revierte saldo y RNG tras un ID ausente")
+	var with_foreign_target: Dictionary = initial.duplicate(true)
+	with_foreign_target.instances["invalid_target"] = Fixtures.instance("invalid_target", "test_action", "p2")
+	with_foreign_target.zones.p2_mano.cards.append("invalid_target")
+	_reject(_engine(with_foreign_target), "p1", rollback, "accion_ilegal",
+		"MOV-03 revierte todo con el mismo error público para un ID ajeno")
+
+
+func _movement_state(first_card: String = "a") -> Dictionary:
+	var state: Dictionary = _prepared()
+	state.instances.erase("c1")
+	for id: String in [first_card, "b", "c", "d", "in_play"]:
+		state.instances[id] = Fixtures.instance(id, "test_action", "p1")
+	state.instances[first_card].state.flags["marked"] = true
+	state.instances["other"] = Fixtures.instance("other", "test_action", "p2")
+	state.zones.p1_mano.cards = [first_card, "b", "c"]
+	state.zones.p1_descarte.cards = ["d"]
+	state.zones.p1_juego.cards = ["in_play"]
+	state.zones.p2_mano.cards = ["other"]
+	return state
+
+
+func _instance_id(card: Dictionary) -> String:
+	return card.instance_id
 
 
 func _test_pause_and_resume() -> void:

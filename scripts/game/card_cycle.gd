@@ -46,6 +46,16 @@ func draw(snapshot: Variant, player_id: Variant, count: Variant, rng: Variant) -
 
 
 func discard(snapshot: Variant, player_id: Variant, instance_ids: Variant) -> Dictionary:
+	return _discard(snapshot, player_id, instance_ids, false)
+
+
+func discard_from_hand(snapshot: Variant, player_id: Variant, instance_ids: Variant) -> bool:
+	if not instance_ids is Array or instance_ids.is_empty():
+		return false
+	return _discard(snapshot, player_id, instance_ids, true).ok
+
+
+func _discard(snapshot: Variant, player_id: Variant, instance_ids: Variant, hand_only: bool) -> Dictionary:
 	var code: String = _check(snapshot, player_id)
 	if not code.is_empty():
 		return _result(code)
@@ -57,13 +67,14 @@ func discard(snapshot: Variant, player_id: Variant, instance_ids: Variant) -> Di
 		if not id is String or seen.has(id):
 			return _result("formato_invalido")
 		seen[id] = true
-		if not id in zones.mano.cards and not id in zones.juego.cards:
+		if not id in zones.mano.cards and (hand_only or not id in zones.juego.cards):
 			return _result("accion_ilegal")
 	var candidate: Dictionary = snapshot.duplicate(true)
 	zones = _personal_zones(candidate, player_id)
 	for id: String in instance_ids:
 		zones.mano.cards.erase(id)
-		zones.juego.cards.erase(id)
+		if not hand_only:
+			zones.juego.cards.erase(id)
 		zones.descarte.cards.append(id)
 	return _commit(snapshot, candidate)
 
