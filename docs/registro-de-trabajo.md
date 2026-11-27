@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-28 — Primer ensayo integrado del motor
+
+El recorrido de dos plazas con datos ficticios verifica selección, donación o conservación, reacción entre turnos y cierre atómico. Pasaron la prueba dirigida y las cinco regresiones del contrato. El catálogo de mercado sigue pendiente de admisión. [Evidencia y traspaso](specs/011-competitivo-completo/verification.md#primer-ensayo-integrado-verificado).
+
 ## 2026-11-28 — Contrato del primer ensayo integrado
 
 Se definió un recorrido ficticio de dos plazas con selecciones, reacción entre turnos y cierre de autoridad. Comprobadas las interfaces, los enlaces y la coherencia documental, con revisión independiente favorable. El índice refleja el cotejo humano del mercado ya verificado. Quedan el perfil de prueba y su ejecución en Godot. [Evidencia](specs/011-competitivo-completo/verification.md#contrato-del-primer-ensayo-integrado).

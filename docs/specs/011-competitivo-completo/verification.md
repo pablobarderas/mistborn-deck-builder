@@ -231,3 +231,21 @@ E3 sigue abierta. El siguiente paso propuesto es delimitar un primer lote de int
 Revisión independiente favorable de `sdd_reviewer` (GPT-6.1 Sol, high) tras precisar los campos de saldo, el punto que consume la llegada y el formato terminal exigido por el validador. El revisor comprobó 15 enlaces del contrato. Ninguna dispensa. Los controles y la referencia de publicación se conservan en `tmp/e3-primer-ensayo-integrado/`, fuera de Git. Godot y el recorrido integrado quedan pendientes de la implementación.
 
 Traspaso: contrato documental cerrado. E3 sigue abierta. Siguiente paso técnico: preparar el perfil ficticio versionado y el estado inicial del ensayo, y conectar la primera secuencia hasta la alternativa. La integración del catálogo necesita su propia entrega.
+
+## Primer ensayo integrado verificado
+
+2026-11-28. Base publicada y local b3fd5c03ed60249e2f6cf25c776365970b1e9bb9 en main, árbol limpio al recuperar. Riesgo R2 por composición de ventanas, persistencia y cierre atómico. [Contrato](primer-ensayo-integrado.md) · [Tarea](tasks.md#implementación-del-primer-ensayo-integrado).
+
+| Criterio | Evidencia |
+| --- | --- |
+| INT-E3-01 | Dos plazas, tres fichas, dos ventanas de A y dos ramas. Donar registra la obligación, la limpieza la conserva y B canjea en su reacción. El cierre de autoridad liquida la obligación, consume el punto de llegada y confirma resultado y recibo en una revisión. |
+| INT-E3-02 | Comparación del estado completo tras rechazos, desbordamiento y fallo terminal inyectado. Restauración de siete fronteras, replay de recibos y comparación de ambas vistas. Se rechazan cargas sin ventana u obligación, recibos terminales alterados y versiones ajenas. |
+| INT-E3-03 | Perfil versionado, registro cerrado y lanzador local test-integrated-trial. El perfil valida las instantáneas reconstruyendo el recorrido determinista desde sus recibos y comparando el estado completo. El descarte, el intercambio, el canje y la limpieza reutilizan operaciones del motor. La transferencia entre plazas es propia del ensayo. |
+
+Godot 4.7.2, importación y prueba dirigida correctas, con 230 comprobaciones. Se repitió la prueba dirigida al reutilizar las primitivas de descarte e intercambio sin cambios compartidos. Regresiones del contrato: secuencias 390, motor 102, estado 2075, diferidos 185 y finalización 159 comprobaciones. Logs locales en `tmp/godot/`. La primera ejecución dirigida detectó una colisión de nombre con la clase nativa Engine; se corrigió el alias en el script de prueba.
+
+Coordinador para el recorrido, lanzador y verificación. Se delegaron los dos archivos de perfil y autoridad a `sdd_developer` (GPT-6.1 Sol, medium) por propiedad separable, y la revisión a `sdd_reviewer` (GPT-6.1 Sol, high). Godot se ejecutó desde un único responsable y las suites existentes se reutilizaron como evidencia. Implementación aislada en tests y su lanzador. Ninguna dispensa. Tiempo por tarea y consumo de tokens no disponibles.
+
+Revisión independiente favorable para INT-E3-01–03, incluido el ajuste de reutilización de primitivas. Se contrastaron la carga, los recibos, la privacidad, la reversión, los logs y la sintaxis del lanzador. Once enlaces y anclas modificados comprobados sin errores. Publicación conforme a DEC-049.
+
+Traspaso: perfil limitado al recorrido ficticio de dos plazas. E3 sigue abierta. El siguiente paso del plan es delimitar el lote de integración y sus pruebas de admisión. Quedan pendientes la admisión del mercado, las rutas de tres y cuatro plazas, la interfaz y la red.

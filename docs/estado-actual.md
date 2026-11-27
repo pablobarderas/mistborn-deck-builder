@@ -1,6 +1,8 @@
 # Estado actual
 
-E3 verifica el [ensayo de finalización](specs/011-competitivo-completo/verification.md#ensayo-de-finalización). La autoridad confirma el resultado, el cierre y el recibo juntos. FIN-03 y las seis regresiones exigidas pasaron. E3 sigue abierta. El [primer ensayo integrado del motor](specs/011-competitivo-completo/primer-ensayo-integrado.md) ya tiene recorrido y criterios documentados con datos ficticios. Quedan su implementación, la ejecución de las pruebas y la admisión del mercado.
+E3 verifica el [primer ensayo integrado del motor](specs/011-competitivo-completo/verification.md#primer-ensayo-integrado-verificado). Dos plazas ficticias completan selección privada, donación, reacción tras el relevo y cierre atómico. El ensayo también cubre la rama conservar, restauración, reenvío y fallos. E3 sigue abierta. La admisión del mercado conserva sus propios requisitos.
+
+E3 verifica el [ensayo de finalización](specs/011-competitivo-completo/verification.md#ensayo-de-finalización). La autoridad confirma el resultado, el cierre y el recibo juntos. FIN-03 y las seis regresiones exigidas pasaron. E3 sigue abierta.
 
 E3 verifica [el ensayo de efectos diferidos y reacciones](specs/011-competitivo-completo/verification.md#ensayo-de-efectos-diferidos-y-reacciones-verificado). Una obligación ficticia sobrevive al cambio de turno y se liquida al resolver una reacción privada. Se comprobaron restauración, reenvío y reversión de desbordamientos.
 

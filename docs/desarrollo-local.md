@@ -104,6 +104,8 @@ En este equipo (2026-10-28) el motor está en Descargas y se indica mediante -Go
 
 `-Action test-finalization` ejecuta FIN-03 y exige `E3_FINALIZATION_OK`. Comprueba el cierre atómico, la restauración y el rechazo de acciones posteriores con dos plazas y catálogo ficticio. [Evidencia](specs/011-competitivo-completo/verification.md#ensayo-de-finalización).
 
+`-Action test-integrated-trial` ejecuta INT-E3-01–03 y exige `E3_INTEGRATED_OK`. Verifica el recorrido ficticio integrado, casos adversos, restauración y privacidad. [Evidencia](specs/011-competitivo-completo/verification.md#primer-ensayo-integrado-verificado).
+
 ### Primer efecto de carta (T08.2h)
 
 `-Action test-funding` ejecuta `tests/funding_play_test.gd`, exige `P08_FUNDING_OK` y rechaza ERROR/SCRIPT ERROR incluso con código 0. Comprueba juego Funding con aplicar/omitir, perfil completo, rechazos, recibos/carga, límites y privacidad en competitivo 2–4. El fixture sitúa `libre` expresamente; no ejecuta entrenamiento ni turno completo. Su versión original fue `p08-funding-1/godot-4.7.2`. La versión vigente figura en el apartado de inicio competitivo. [Evidencia y límites](specs/008-preparacion-y-turnos/verification.md#t082h--implementación-de-funding).

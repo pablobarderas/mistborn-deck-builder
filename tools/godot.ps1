@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'preview-local', 'test-catalog', 'test-initial-content', 'test-initial-play', 'test-local-competitive', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-deferred', 'test-finalization', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring')]
+    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'preview-local', 'test-catalog', 'test-initial-content', 'test-initial-play', 'test-local-competitive', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-deferred', 'test-finalization', 'test-integrated-trial', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring')]
     [string]$Action = 'run',
     [string]$GodotPath = $env:GODOT_BIN
 )
@@ -58,7 +58,7 @@ function Invoke-ProjectGodot {
     if ($engineText -match '(?m)^SCRIPT ERROR:') {
         throw "Godot contiene errores de script en '$LogName', aunque su proceso haya devuelto codigo 0."
     }
-    if ($LogName -in @('import', 'test-initial-content', 'test-initial-play', 'test-local-competitive', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-deferred', 'test-finalization', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring') -and ($engineText -match '(?m)^(SCRIPT ERROR|ERROR):')) {
+    if ($LogName -in @('import', 'test-initial-content', 'test-initial-play', 'test-local-competitive', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-deferred', 'test-finalization', 'test-integrated-trial', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring') -and ($engineText -match '(?m)^(SCRIPT ERROR|ERROR):')) {
         throw "La accion $LogName contiene errores. Revisa tmp/godot/$LogName.log."
     }
     foreach ($marker in @{ 'build-runtime-catalog' = 'P08_RUNTIME_BUILD_OK'; 'test-runtime-catalog' = 'P08_RUNTIME_CATALOG_OK'; 'test-runtime-authoring' = 'P08_RUNTIME_AUTHORING_OK' }.GetEnumerator()) {
@@ -112,6 +112,9 @@ function Invoke-ProjectGodot {
     if ($LogName -eq 'test-cycle' -and $engineText -notmatch 'P08_CYCLE_OK') {
         throw 'No se completo la verificacion del ciclo personal de cartas.'
     }
+    if ($LogName -eq 'test-integrated-trial' -and $engineText -notmatch 'E3_INTEGRATED_OK') {
+        throw "La prueba integrada no confirmó el resultado. Consulta los logs en $logRoot."
+    }
     if ($LogName -eq 'test-finalization' -and $engineText -notmatch 'E3_FINALIZATION_OK') {
         throw 'El ensayo de finalizacion no alcanzo su marca final.'
     }
@@ -156,7 +159,7 @@ function Invoke-ProjectGodot {
     }
 }
 
-if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-initial-content', 'test-initial-play', 'test-local-competitive', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-deferred', 'test-finalization', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring')) {
+if ($Action -in @('run', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'test-catalog', 'test-initial-content', 'test-initial-play', 'test-local-competitive', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-deferred', 'test-finalization', 'test-integrated-trial', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring')) {
     Invoke-ProjectGodot -EngineArguments @('--headless', '--editor', '--import') -LogName 'import'
 }
 switch ($Action) {
@@ -177,6 +180,7 @@ switch ($Action) {
     'test-state' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/game_state_test.gd') -LogName 'test-state' }
     'test-setup' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/game_setup_test.gd') -LogName 'test-setup' }
     'test-cycle' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/card_cycle_test.gd') -LogName 'test-cycle' }
+    'test-integrated-trial' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/integrated_trial_test.gd') -LogName 'test-integrated-trial' }
     'test-finalization' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/finalization_test.gd') -LogName 'test-finalization' }
     'test-deferred' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/deferred_reaction_test.gd') -LogName 'test-deferred' }
     'test-sequence' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/sequence_test.gd') -LogName 'test-sequence' }

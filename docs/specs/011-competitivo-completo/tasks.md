@@ -154,3 +154,11 @@ Base `6b48927cf4ecea1896ac832603840df11e5017ab`, recuperada de GitHub en `main` 
 Plan: revisar los ensayos publicados, redactar la matriz del recorrido y sus criterios, comprobar enlaces y coherencia y obtener revisión independiente antes de cerrar. El cotejo E3.2 sigue como antecedente documental de E3. Este ensayo usa datos de prueba inventados localmente.
 
 Estado: contrato documental completado con INT-E3-01–03 y revisión independiente favorable. [Contrato](primer-ensayo-integrado.md) · [Verificación y traspaso](verification.md#contrato-del-primer-ensayo-integrado). Pendientes implementación del ensayo y ejecución en Godot. Sin issue.
+
+## Implementación del primer ensayo integrado
+
+Base publicada b3fd5c03ed60249e2f6cf25c776365970b1e9bb9, árbol limpio. Objetivo: ejecutar INT-E3-01–03 con un perfil de pruebas aislado y datos originales. Riesgo R2 por composición de ventanas privadas, persistencia y confirmación atómica. El coordinador implementa el recorrido y el lanzador. El perfil y la autoridad del ensayo pertenecen a `sdd_developer`, con archivos separados. Revisión independiente obligatoria, sin dispensa; contraste de reglas y revisión visual quedan fuera porque el recorrido es ficticio y corre sin interfaz.
+
+Plan: registrar ambas secuencias y sus invariantes de carga, conectar las operaciones y los cierres a la autoridad, y verificar el recorrido, casos adversos, restauración y vistas. Ejecutar importación y las cinco regresiones del contrato. Revisar el resultado frente a INT-E3-01–03 antes del cierre. Sin issue.
+
+Estado: implementación y aceptación INT-E3-01–03 completadas con pruebas y revisión independiente favorable. [Evidencia y traspaso](verification.md#primer-ensayo-integrado-verificado).
