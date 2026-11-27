@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-27 — Contrato del ensayo de finalización
+
+Se especificó el cierre atómico de una secuencia ficticia, su resultado restaurable, el reenvío de recibos y el rechazo de acciones posteriores. Contraste de fuentes, comprobaciones documentales y revisión independiente favorables. Quedan implementar el perfil y ejecutar FIN-03 en Godot. [Evidencia](specs/011-competitivo-completo/verification.md#contrato-del-ensayo-de-finalización).
+
 ## 2026-11-27 — Ensayo de efectos diferidos y reacciones
 
 Se verificaron la obligación ficticia entre turnos, la reacción privada y su liquidación atómica mediante DIF-03. Las regresiones requeridas y la revisión independiente fueron favorables. El siguiente paso técnico propuesto es especificar el ensayo de finalización. [Evidencia](specs/011-competitivo-completo/verification.md#ensayo-de-efectos-diferidos-y-reacciones-verificado).

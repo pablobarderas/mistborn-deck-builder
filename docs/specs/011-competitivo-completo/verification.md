@@ -191,3 +191,11 @@ También pasaron `test-initial-play` (370), `test-local-competitive` (4078) y `t
 R2 por esquema, autoridad y privacidad. El coordinador implementó, integró y ejecutó las pruebas. El perfil `sdd_reviewer` (GPT-6.1 Sol, high) revisó el cambio y la evidencia de las pruebas requeridas con dictamen favorable y sin hallazgos bloqueantes. Una delegación, ninguna dispensa. Se reutilizó el contraste de fuentes del contrato documental. Las puertas de reglas nuevas, interfaz, red y distribución de contenido quedan fuera del ensayo.
 
 La base recuperada fue `main` limpio y alineado con GitHub en `5d53290e5f6a8f60d259617bbec5cd963f34dfa4`. Publicación conforme a DEC-049. E3 sigue abierta. El siguiente paso técnico propuesto es especificar la operación terminal ficticia y su ruta de autoridad conforme a la [matriz de efectos](familias-de-efectos.md).
+
+## Contrato del ensayo de finalización
+
+2026-11-27. FIN-01–03 completados en alcance documental. El [contrato](finalizacion.md) fija una ventana ficticia y la confirmación conjunta de avance, resultado terminal, cierre y recibo. Especifica los casos de restauración, reenvío, rechazo, reversión y carga cruzada. Se comprobó la coherencia con el motor, el validador, la proyección y la primitiva de llegada, además de rutas, anclas y formato del cambio.
+
+R2. `sdd_rules` (GPT-6.1 Sol, high) contrastó SRC-001 pp. 17 y 19–20, REG-044/064, DEC-034 y la FAQ oficial, incluidos «Missions», «Action cards» y «Solo & Co-op mode». Confirmó el alcance del resultado `tres_misiones` y mantuvo pendientes las prioridades de las interacciones reales. `sdd_reviewer` (GPT-6.1 Sol, high) emitió dictamen favorable sobre FIN-01–03. Dos delegaciones y ninguna dispensa. SHA-256 del contrato revisado: `4dd7111fd305a0b02fffa497a20717e84e9303bb376f53b56fdb34862029ee2a`.
+
+La base recuperada fue `main` limpio y alineado con GitHub en `d0a09b8ac9731bbd844f00c7f7344cab887af781`. Publicación documental conforme a DEC-049. Comprobaciones y referencia remota en `tmp/e3-contrato-finalizacion/`, fuera de Git. E3 sigue abierta. El primer paso de implementación es conectar el perfil aislado a la ruta de cierre de autoridad y después ejecutar FIN-03 en Godot.

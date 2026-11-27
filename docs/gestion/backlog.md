@@ -1,6 +1,8 @@
 # Backlog por fases
 
-- E3, efectos diferidos y reacciones, R2. Ensayo ficticio verificado y revisado. Sigue la especificación del ensayo de finalización. [Tarea](../specs/011-competitivo-completo/tasks.md#ensayo-de-efectos-diferidos-y-reacciones) y [evidencia](../specs/011-competitivo-completo/verification.md#ensayo-de-efectos-diferidos-y-reacciones-verificado). Sin issue.
+- E3, finalización, R2. [Contrato](../specs/011-competitivo-completo/finalizacion.md) y [tarea](../specs/011-competitivo-completo/tasks.md#contrato-del-ensayo-de-finalización). Sigue la implementación del ensayo y la ejecución de FIN-03. Sin issue.
+
+- E3, efectos diferidos y reacciones, R2. Ensayo ficticio verificado y revisado. [Tarea](../specs/011-competitivo-completo/tasks.md#ensayo-de-efectos-diferidos-y-reacciones) y [evidencia](../specs/011-competitivo-completo/verification.md#ensayo-de-efectos-diferidos-y-reacciones-verificado). Sin issue.
 
 - E3, alternativas y efectos encadenados, R2, verificados en un programa ficticio. [Tarea](../specs/011-competitivo-completo/tasks.md#implementación-de-alternativas-y-efectos-encadenados) y [evidencia](../specs/011-competitivo-completo/verification.md#alternativas-y-efectos-encadenados-verificados). Sin issue.
 

@@ -1,6 +1,8 @@
 # Estado actual
 
-E3 verifica [el ensayo de efectos diferidos y reacciones](specs/011-competitivo-completo/verification.md#ensayo-de-efectos-diferidos-y-reacciones-verificado). Una obligación ficticia sobrevive al cambio de turno y se liquida al resolver una reacción privada. Se comprobaron restauración, reenvío y reversión de desbordamientos. E3 sigue abierta. El siguiente paso técnico propuesto es especificar el ensayo de finalización.
+E3 tiene [contrato para el ensayo de finalización](specs/011-competitivo-completo/finalizacion.md). La autoridad confirma el resultado, el cierre y el recibo juntos. E3 sigue abierta. El siguiente paso técnico es implementar el perfil ficticio y ejecutar FIN-03.
+
+E3 verifica [el ensayo de efectos diferidos y reacciones](specs/011-competitivo-completo/verification.md#ensayo-de-efectos-diferidos-y-reacciones-verificado). Una obligación ficticia sobrevive al cambio de turno y se liquida al resolver una reacción privada. Se comprobaron restauración, reenvío y reversión de desbordamientos.
 
 E3 verifica [alternativas y efectos encadenados](specs/011-competitivo-completo/verification.md#alternativas-y-efectos-encadenados-verificados) en un programa ficticio. Se comprobaron las dos ramas, la restauración privada y la reversión del primer intercambio si falla el segundo.
 

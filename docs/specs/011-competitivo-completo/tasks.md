@@ -124,3 +124,15 @@ En curso desde el 2026-11-27. Base publicada y local alineadas en `5d53290e5f6a8
 - El coordinador ejecuta DIF-03, importación y regresiones de secuencias, motor, estado, inicio, entrenamiento, ciclo y limpieza. Un `sdd_reviewer` realiza la revisión independiente final. El contraste de fuentes ya consta en el contrato y el ensayo no incorpora reglas de cartas. Sin cambios de interfaz ni transporte. Ninguna dispensa.
 
 Completada en alcance de ensayo. DIF-01–03 verificados y revisión independiente favorable. El siguiente paso técnico propuesto es especificar el ensayo de finalización. [Evidencia](verification.md#ensayo-de-efectos-diferidos-y-reacciones-verificado).
+
+## Contrato del ensayo de finalización
+
+Objetivo. Especificar un programa ficticio que confirme un resultado terminal al cerrar su secuencia. Recuperación en `main` limpio, alineado con la referencia recién obtenida en `d0a09b8ac9731bbd844f00c7f7344cab887af781`. Riesgo R2 por autoridad, atomicidad, restauración e invariantes de estado.
+
+- FIN-01. Delimitar el perfil y los datos de prueba, la entrada y el resultado que calcula la autoridad.
+- FIN-02. Fijar la frontera atómica, la protección del estado, la visibilidad, el reenvío y el rechazo de acciones nuevas.
+- FIN-03. Definir pruebas reproducibles de éxito, restauración, rechazo, reversión y compatibilidad.
+
+El coordinador redacta el contrato y verifica sus enlaces y coherencia con motor, resolutor, validador y proyección. `sdd_rules` contrasta el alcance con SRC-001/002 y `sdd_reviewer` revisa el documento final frente a FIN-01–03. Las pruebas en Godot corresponden a la implementación posterior. Ninguna dispensa.
+
+Completada en alcance documental, con contraste de fuentes y revisión independiente favorables. Sigue la implementación del perfil ficticio y la ejecución de FIN-03. [Contrato](finalizacion.md) · [Evidencia](verification.md#contrato-del-ensayo-de-finalización).
