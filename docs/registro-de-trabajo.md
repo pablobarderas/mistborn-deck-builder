@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-27 — Ensayo de finalización verificado
+
+La autoridad confirma la tercera cima ficticia, el resultado y el recibo en una sola transacción. FIN-03, sus regresiones y la revisión independiente pasaron. El siguiente paso propuesto de E3 es delimitar un primer lote de integración y sus pruebas. [Evidencia](specs/011-competitivo-completo/verification.md#ensayo-de-finalización).
+
 ## 2026-11-27 — Contrato del ensayo de finalización
 
 Se especificó el cierre atómico de una secuencia ficticia, su resultado restaurable, el reenvío de recibos y el rechazo de acciones posteriores. Contraste de fuentes, comprobaciones documentales y revisión independiente favorables. Quedan implementar el perfil y ejecutar FIN-03 en Godot. [Evidencia](specs/011-competitivo-completo/verification.md#contrato-del-ensayo-de-finalización).

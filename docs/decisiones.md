@@ -1,5 +1,9 @@
 # Registro de decisiones
 
+## DEC-056 — Confirmación de cierre de secuencia en el ensayo E3
+
+2026-11-27. Decisión técnica aplicada en FIN-01–03. El motor protege el resultado durante la secuencia y permite que la confirmación de autoridad del cierre indique un error. Ese error aborta la transacción antes de publicar el candidato. El perfil de ensayo usa la confirmación para registrar la llegada y el resultado junto con el recibo. [Contrato](specs/011-competitivo-completo/finalizacion.md) · [Evidencia](specs/011-competitivo-completo/verification.md#ensayo-de-finalización).
+
 ## DEC-055 — Persistencia y reacción en el ensayo E3
 
 2026-11-27. Propuesta técnica para la implementación del ensayo ficticio. El perfil versionado conserva la obligación en un campo privado de autoridad independiente de la secuencia activa. El despacho en el turno siguiente confirma la ventana y la respuesta liquida la obligación junto con el cierre de la ocurrencia. La propuesta se limita a DIF-01–03. [Contrato](specs/011-competitivo-completo/efectos-diferidos-y-reacciones.md).

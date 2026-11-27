@@ -103,7 +103,7 @@ static func closures_valid(state: Dictionary, definitions: Dictionary) -> bool:
 			var parsed: Variant = _decode(receipt.canonical, cursor, 0)
 			if cursor[0] != receipt.canonical.length() or not parsed is Dictionary or parsed.get("tipo") != ACTION:
 				continue
-			if not engine._check_syntax(parsed).is_empty() or engine._canonical(parsed) != receipt.canonical or parsed.action_id != id or parsed.match_id != state.match_id or parsed.expected_revision != receipt.revision_aplicada - 1 or not payload_error(parsed.payload).is_empty():
+			if not engine._check_syntax(parsed).is_empty() or Core.canonical_intent(parsed) != receipt.canonical or parsed.action_id != id or parsed.match_id != state.match_id or parsed.expected_revision != receipt.revision_aplicada - 1 or not payload_error(parsed.payload).is_empty():
 				return false
 			var payload: Dictionary = parsed.payload
 			var card: Dictionary = state.instances.get(payload.instance_id, {})

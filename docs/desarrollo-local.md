@@ -100,7 +100,9 @@ En este equipo (2026-10-28) el motor está en Descargas y se indica mediante -Go
 
 `-Action test-sequence` ejecuta `tests/sequence_test.gd` y exige `P08_SEQUENCE_OK`, código 0 y ausencia de errores de script. Comprueba registro cerrado, pausa/carga/respuesta, rollback, RNG, cierres únicos, reintentos, proyecciones y límites con programas ficticios. El estado usa esquema 2/motor `p08-sequence-1/godot-4.7.2`; rechaza snapshots previos sin migración. No implementa cartas oficiales ni un turno jugable. Resultados y comandos finales en [evidencia T08.2f](specs/008-preparacion-y-turnos/verification.md#t082f--implementación-de-secuencias-reanudables).
 
-`-Action test-deferred` ejecuta el ensayo DIF-01?03 y exige `E3_DEFERRED_OK`. Comprueba persistencia entre turnos, restauraci?n, privacidad y cierre at?mico con dos plazas y cat?logo ficticio. [Evidencia y alcance](specs/011-competitivo-completo/verification.md#ensayo-de-efectos-diferidos-y-reacciones-verificado).
+`-Action test-deferred` ejecuta DIF-01–03 y exige `E3_DEFERRED_OK`. Comprueba persistencia entre turnos, restauración, privacidad y cierre atómico con dos plazas y catálogo ficticio. [Evidencia](specs/011-competitivo-completo/verification.md#ensayo-de-efectos-diferidos-y-reacciones-verificado).
+
+`-Action test-finalization` ejecuta FIN-03 y exige `E3_FINALIZATION_OK`. Comprueba el cierre atómico, la restauración y el rechazo de acciones posteriores con dos plazas y catálogo ficticio. [Evidencia](specs/011-competitivo-completo/verification.md#ensayo-de-finalización).
 
 ### Primer efecto de carta (T08.2h)
 

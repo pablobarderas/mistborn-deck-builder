@@ -72,7 +72,7 @@ func _submit(actor_id: String, input: Variant, internal_handler: Callable = Call
 				return _reject("accion_no_soportada", revision)
 	if intent.match_id != current.match_id:
 		return _reject("partida_incorrecta", revision)
-	var canonical: String = _canonical(intent)
+	var canonical: String = canonical_intent(intent)
 	if canonical.length() > MAX_CANONICAL_LENGTH:
 		return _reject("formato_invalido", revision)
 	var receipts: Dictionary = current.authority.receipts
@@ -169,7 +169,8 @@ func _submit(actor_id: String, input: Variant, internal_handler: Callable = Call
 			or not candidate.get("lifecycle") is String or candidate.lifecycle != current.lifecycle:
 			return _reject("estado_invalido", revision)
 	if sequence != null:
-		if candidate.get("turn") != current.turn or candidate.get("lifecycle") != current.lifecycle:
+		if candidate.get("turn") != current.turn or candidate.get("lifecycle") != current.lifecycle \
+			or not candidate.has("outcome") or candidate.outcome != current.outcome:
 			return _reject("estado_invalido", revision)
 		if sequence.status == Resolver.Result.Status.PAUSED:
 			candidate.resolution = sequence.resolution
@@ -180,7 +181,9 @@ func _submit(actor_id: String, input: Variant, internal_handler: Callable = Call
 			sequence.close["revision_aplicada"] = revision + 1
 			ledger[sequence.closed_id] = sequence.close
 			candidate.resolution = null
-			_commit_sequence_close(candidate, sequence.close)
+			var close_error: String = _commit_sequence_close(candidate, sequence.close)
+			if not close_error.is_empty():
+				return _reject(_public_error(close_error), revision)
 	candidate.revision = revision + 1
 	candidate.authority.rng_state = rng.state
 	if not candidate.authority.receipts.has(actor_id):
@@ -202,8 +205,8 @@ func _allows_new_action(_current: Dictionary, _action: String) -> bool:
 	return true
 
 
-func _commit_sequence_close(_candidate: Dictionary, _close: Dictionary) -> void:
-	pass
+func _commit_sequence_close(_candidate: Dictionary, _close: Dictionary) -> String:
+	return ""
 
 
 func _protected_fields(candidate: Dictionary, current: Dictionary) -> bool:
@@ -314,7 +317,7 @@ func _plain(value: Variant, depth: int) -> bool:
 	return false
 
 
-func _canonical(value: Variant) -> String:
+static func canonical_intent(value: Variant) -> String:
 	match typeof(value):
 		TYPE_NIL:
 			return "n"
@@ -327,14 +330,14 @@ func _canonical(value: Variant) -> String:
 		TYPE_ARRAY:
 			var result: String = "a" + str(value.size()) + "["
 			for item: Variant in value:
-				result += _canonical(item)
+				result += canonical_intent(item)
 			return result + "]"
 		TYPE_DICTIONARY:
 			var result: String = "d" + str(value.size()) + "{"
 			var keys: Array = value.keys()
 			keys.sort()
 			for key: String in keys:
-				result += _canonical(key) + _canonical(value[key])
+				result += canonical_intent(key) + canonical_intent(value[key])
 			return result + "}"
 	return ""
 

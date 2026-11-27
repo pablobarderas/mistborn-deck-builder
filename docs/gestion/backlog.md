@@ -1,6 +1,6 @@
 # Backlog por fases
 
-- E3, finalización, R2. [Contrato](../specs/011-competitivo-completo/finalizacion.md) y [tarea](../specs/011-competitivo-completo/tasks.md#contrato-del-ensayo-de-finalización). Sigue la implementación del ensayo y la ejecución de FIN-03. Sin issue.
+- E3, finalización, R2. Ensayo ficticio completado. FIN-03 y regresiones exigidas aprobadas, con revisión independiente favorable. [Tarea](../specs/011-competitivo-completo/tasks.md#implementación-del-ensayo-de-finalización) · [Evidencia](../specs/011-competitivo-completo/verification.md#ensayo-de-finalización). Sin issue.
 
 - E3, efectos diferidos y reacciones, R2. Ensayo ficticio verificado y revisado. [Tarea](../specs/011-competitivo-completo/tasks.md#ensayo-de-efectos-diferidos-y-reacciones) y [evidencia](../specs/011-competitivo-completo/verification.md#ensayo-de-efectos-diferidos-y-reacciones-verificado). Sin issue.
 

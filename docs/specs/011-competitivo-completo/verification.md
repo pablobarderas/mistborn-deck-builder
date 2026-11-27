@@ -199,3 +199,21 @@ La base recuperada fue `main` limpio y alineado con GitHub en `5d53290e5f6a8f60d
 R2. `sdd_rules` (GPT-6.1 Sol, high) contrastó SRC-001 pp. 17 y 19–20, REG-044/064, DEC-034 y la FAQ oficial, incluidos «Missions», «Action cards» y «Solo & Co-op mode». Confirmó el alcance del resultado `tres_misiones` y mantuvo pendientes las prioridades de las interacciones reales. `sdd_reviewer` (GPT-6.1 Sol, high) emitió dictamen favorable sobre FIN-01–03. Dos delegaciones y ninguna dispensa. SHA-256 del contrato revisado: `4dd7111fd305a0b02fffa497a20717e84e9303bb376f53b56fdb34862029ee2a`.
 
 La base recuperada fue `main` limpio y alineado con GitHub en `d0a09b8ac9731bbd844f00c7f7344cab887af781`. Publicación documental conforme a DEC-049. Comprobaciones y referencia remota en `tmp/e3-contrato-finalizacion/`, fuera de Git. E3 sigue abierta. El primer paso de implementación es conectar el perfil aislado a la ruta de cierre de autoridad y después ejecutar FIN-03 en Godot.
+
+## Ensayo de finalización
+
+2026-11-27. Base recuperada en `main` limpio, alineado tras consultar GitHub en `0cce4a18b9380158917fd1c58839b2d4d35cc773`. Se conservó el esquema de estado y se usaron un catálogo y una versión de motor propios del ensayo. El perfil vive en `tests/`.
+
+- FIN-01. La autoridad abre la elección privada sobre las posiciones 12/12/11. El paso confirma el token y el cierre reutiliza la primitiva de llegada. La tercera cima consume un punto, conserva premios previos y registra `tres_misiones`.
+- FIN-02. La transacción confirma resultado, turno terminal, revisión, cierre y recibo. El cierre puede devolver un fallo antes de publicar la copia. El perfil valida el historial canónico de recibos junto a la ventana o el resultado, y rechaza la carga incoherente sin sustituir el estado previo.
+- FIN-03. `test-finalization`, 159 comprobaciones en Godot 4.7.2, código 0. Incluye vistas por plaza, restauración inicial, en pausa y terminal, reenvíos, acciones posteriores, fallo inyectado tras el avance, mutaciones directas de resultado/fase/ciclo de vida y carga incompatible. Evidencia de ejecución en `tmp/e3-finalizacion/`, fuera de Git.
+
+Pasaron la importación y las seis regresiones exigidas. Secuencias 390, diferidos 185, motor 102, estado 2075, avance de misiones 878 y misiones integradas 5932. La regresión adicional de partida competitiva local pasó 4078 comprobaciones.
+
+El coordinador implementó y verificó. Una delegación a `sdd_reviewer` (GPT-6.1 Sol, high) detectó que borrar la ventana de una pausa dejaba un recibo de inicio restaurable. Se corrigió al exigir un recibo canónico por revisión, con el inicio y la respuesta ligados a las fronteras que confirman. El revisor comprobó el delta y emitió dictamen favorable sobre el código y FIN-03. El coordinador confirmó después el resultado satisfactorio de la regresión integrada que quedaba en ejecución. Contraste SRC-001/002 reutilizado del contrato. Ninguna dispensa. Tokens por tarea no disponibles.
+
+La regresión adicional `test-perseguir-play` falla al admitir la fuente de ese perfil tanto en este árbol como en una copia limpia de la base. Falta el original local con la huella exigida. Las dos ejecuciones quedan en la carpeta de evidencia local.
+
+Publicación conforme a DEC-049. Se comprobaron 569 enlaces locales de 10 documentos, las anclas nuevas, el alcance preparado y el formato del diff.
+
+E3 sigue abierta. El siguiente paso propuesto es delimitar un primer lote de integración, trazar cada ruta a una operación verificada o a una excepción pendiente y definir las pruebas del lote. Siguen pendientes la ejecución del catálogo final y su admisión.

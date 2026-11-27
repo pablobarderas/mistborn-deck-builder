@@ -136,3 +136,9 @@ Objetivo. Especificar un programa ficticio que confirme un resultado terminal al
 El coordinador redacta el contrato y verifica sus enlaces y coherencia con motor, resolutor, validador y proyección. `sdd_rules` contrasta el alcance con SRC-001/002 y `sdd_reviewer` revisa el documento final frente a FIN-01–03. Las pruebas en Godot corresponden a la implementación posterior. Ninguna dispensa.
 
 Completada en alcance documental, con contraste de fuentes y revisión independiente favorables. Sigue la implementación del perfil ficticio y la ejecución de FIN-03. [Contrato](finalizacion.md) · [Evidencia](verification.md#contrato-del-ensayo-de-finalización).
+
+## Implementación del ensayo de finalización
+
+FIN-01–03, riesgo R2 por el cierre de autoridad, la restauración y la privacidad. El coordinador implementa el perfil ficticio aislado, conecta el cierre transaccional y ejecuta los casos de FIN-03 desde la autoridad, con importación y las seis regresiones del contrato. Un `sdd_reviewer` revisa el resultado y las pruebas de forma independiente. Se reutiliza el contraste SRC-001/002 del contrato para este alcance técnico. Sin issue ni dispensa.
+
+Completada en el alcance del ensayo. Se aprobó la revisión del código y se consignaron los resultados de FIN-03 y sus regresiones en la [evidencia](verification.md#ensayo-de-finalización). E3 sigue abierta.

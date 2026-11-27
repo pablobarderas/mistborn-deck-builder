@@ -48,9 +48,10 @@ func _allows_new_action(current: Dictionary, action: String) -> bool:
 	return not Profile.due(current) or action == (DISPATCH if current.resolution == null else "responder")
 
 
-func _commit_sequence_close(candidate: Dictionary, close: Dictionary) -> void:
+func _commit_sequence_close(candidate: Dictionary, close: Dictionary) -> String:
 	if close.program_id == Profile.PROGRAM and close.occurrence_id == Profile.OCCURRENCE:
 		candidate.authority.deferred_effect = null
+	return ""
 
 
 func _schedule(candidate: Dictionary, actor_id: String, payload: Dictionary, _rng: RandomNumberGenerator) -> String:
