@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-27 — Selección privada y traslado
+
+Se especificó la elección de una instancia de la mano, su restauración y su traslado con el ciclo existente. Comprobación documental y revisión independiente favorables. El siguiente paso es implementar el programa ficticio y verificar SEL-03. [Evidencia](specs/011-competitivo-completo/verification.md#selección-privada-y-reanudación-del-traslado).
+
 ## 2026-11-27 — Traslado de mano a descarte
 
 Se integró el traslado en una secuencia ficticia. Las suites de secuencias, ciclo, motor y estado pasaron con revisión independiente favorable. Siguiente paso propuesto: concretar la selección privada y reanudación del traslado. [Evidencia](specs/011-competitivo-completo/verification.md#traslado-de-mano-a-descarte).

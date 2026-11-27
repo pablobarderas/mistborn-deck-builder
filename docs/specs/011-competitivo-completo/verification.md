@@ -123,3 +123,13 @@ Godot 4.7.2. Importación correcta y suites `test-sequence` (294), `test-cycle` 
 R2. Una revisión independiente por `sdd_reviewer` (GPT-6.1 Sol, esfuerzo high) contrastó contrato, código, corrección del fixture y evidencia. Dictamen favorable sin bloqueantes. Ninguna dispensa. Tokens por tarea no disponibles. Controles de espacios y enlaces correctos. Publicación según DEC-049.
 
 El registro del programa pertenece a las pruebas. E3 sigue abierta. El siguiente contrato propuesto combina la selección privada de una instancia con la reanudación del traslado.
+
+## Selección privada y reanudación del traslado
+
+2026-11-27. SEL-01–03 comprobados en alcance documental. Se contrastaron el registro, la proyección, los controles de respuesta, la revalidación de la oferta al cargar y el traslado. El contrato utiliza tokens por posición, una huella privada de la mano y la transacción existente de respuesta. [Contrato](seleccion-privada.md).
+
+Revisión R2 independiente favorable por `sdd_reviewer` (GPT-6.1 Sol, esfuerzo high), sin hallazgos pendientes ni dispensas. La revisión detectó que el ciclo validaba la mano modificada contra la oferta anterior y rechazaba la respuesta. Se corrigió el contrato para ejecutar el ciclo en una copia auxiliar y reintegrar solo las dos listas de cartas. El SHA-256 del contrato revisado es `d02e840f71868d3c57dffc7c00edd3b0feea5b74a2f37eebdb5b6563d35c3d4e`.
+
+Godot 4.7.2 reprodujo el rechazo inicial y confirmó el adaptador mediante dos scripts temporales. Ambos terminaron con código 0. La variante corregida movió la instancia elegida, cerró en revisión 2 y preservó el RNG. La restauración dio el mismo snapshot y recibo. El reenvío devolvió el recibo existente. Scripts y logs locales en `tmp/review-sel-private/`, excluidos de la publicación. Enlaces, anclas y formato del cambio comprobados.
+
+Quedan pendientes el programa versionado, la matriz completa SEL-03 y las regresiones de secuencias, ciclo, motor y estado. E3 sigue abierta. Publicación documental según DEC-049.

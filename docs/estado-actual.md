@@ -1,5 +1,7 @@
 # Estado actual
 
+E3 tiene [contrato de selección privada y traslado](specs/011-competitivo-completo/seleccion-privada.md). Fija cómo elegir una carta de la mano propia, restaurar la ventana y aplicar el descarte al reanudar. Quedan pendientes la implementación y sus pruebas dirigidas. [Evidencia](specs/011-competitivo-completo/verification.md#selección-privada-y-reanudación-del-traslado).
+
 E3 incorpora el [traslado de mano a descarte](specs/011-competitivo-completo/movimiento-entre-zonas.md), verificado en una secuencia ficticia. Se comprobaron orden, conservación de instancias, rechazo atómico, reenvío y privacidad entre plazas. [Evidencia](specs/011-competitivo-completo/verification.md#traslado-de-mano-a-descarte).
 
 La [matriz técnica de efectos y pruebas](specs/011-competitivo-completo/familias-de-efectos.md) ya tiene una primera [operación de intercambio de recursos](specs/011-competitivo-completo/verification.md#intercambio-de-recursos) implementada y verificada en una secuencia ficticia. E3 sigue abierta.

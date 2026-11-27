@@ -62,3 +62,15 @@ Base recuperada en rama principal limpia, con HEAD y referencia remota recién o
 El coordinador implementa la operación de [MOV-01 y MOV-02](movimiento-entre-zonas.md) reutilizando la validación y el traslado de CardCycle. La integra mediante un programa automático exclusivo de pruebas y ejecuta los casos MOV-03 y las suites de ciclo, secuencias, motor y estado. La aceptación exige comprobar orden, identidad, propietario, rechazo sin mutación parcial, recibo único, reversión del segmento y vistas por plaza. Revisión independiente antes del cierre. Ninguna dispensa.
 
 Entrega completada en alcance de operación interna y secuencia ficticia. [Verificación y revisión](verification.md#traslado-de-mano-a-descarte). E3 sigue abierta. Siguiente contrato propuesto: selección privada de una instancia y reanudación de su traslado.
+
+## Contrato de selección privada y traslado
+
+Objetivo: especificar una ventana de prueba que permite elegir una instancia de la mano propia y reanudar su traslado a descarte. Recuperación en `main` limpio, con HEAD y referencia recién obtenida de GitHub en `80c835fcc36e0d925ed77ff856a901eabd8e4ea3`. Riesgo R2 por autoridad, privacidad y restauración.
+
+- SEL-01. Fijar destinatario, candidatos, cardinalidad y asociación reconstruible entre opciones opacas e instancias. Definir los límites y qué recibe cada plaza.
+- SEL-02. Fijar la validación de la oferta al restaurar y responder, el traslado, la reversión del segmento y el reenvío.
+- SEL-03. Definir casos de prueba reproducibles para los límites, la privacidad y la paridad tras restaurar. La ejecución en Godot corresponde a la implementación.
+
+Plan: el coordinador contrasta registro, proyección, restauración y traslado, redacta el contrato y comprueba enlaces, criterios y coherencia. Un revisor independiente contrasta SEL-01–03 antes del cierre. Ninguna dispensa.
+
+Completada en alcance documental. El siguiente paso de E3 es implementar el programa ficticio y ejecutar SEL-03 y las regresiones requeridas. [Contrato](seleccion-privada.md) y [evidencia](verification.md#selección-privada-y-reanudación-del-traslado).
