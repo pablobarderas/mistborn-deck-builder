@@ -1,5 +1,7 @@
 # Estado actual
 
+E3 tiene [los ocho registros de misión contrastados](specs/011-competitivo-completo/registro-admision.md#contraste-de-las-ocho-misiones) con dos huellas locales y 138 comprobaciones de catálogo. La cobertura de ejecución corresponde al perfil aislado. La integración con el candidato y la distribución permanecen pendientes. [Evidencia](specs/011-competitivo-completo/verification.md#ocho-misiones-contrastadas).
+
 E3 tiene [los 22 registros de E1 contrastados](specs/011-competitivo-completo/registro-admision.md#contraste-de-entrenamientos-financiación-y-pista-e1), con seis huellas locales y vínculos comprobados. Sus definiciones siguen en borrador y la ejecución con el candidato permanece pendiente.
 
 El [registro de admisión de E3](specs/011-competitivo-completo/registro-admision.md) reúne la evidencia disponible por componente y cruza las rutas con código y pruebas existentes. Quedan pendientes la revisión por definición final, la cobertura con el candidato y la evidencia de distribución. E3 sigue abierta.

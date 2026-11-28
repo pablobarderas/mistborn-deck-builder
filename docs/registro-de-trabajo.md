@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-28 — Contraste de las ocho misiones E3
+
+Se cruzaron los ocho IDs con el cotejo humano, las dos huellas y la cobertura del perfil aislado. Godot validó 138 comprobaciones de catálogo y la revisión independiente fue favorable. Siguen pendientes la ejecución con el candidato y la distribución. Próximo contraste propuesto: recursos, pistas y marcadores restantes. [Evidencia](specs/011-competitivo-completo/verification.md#ocho-misiones-contrastadas).
+
 ## 2026-11-28 — Contraste de entrenamientos, Financiación y pista E1
 
 Comprobados 18 IDs y cinco huellas locales. Con los cuatro personajes queda completo el contraste documental de E1. Continúan pendientes la admisión y sus pruebas con el candidato. [Evidencia](specs/011-competitivo-completo/verification.md#entrenamientos-financiación-y-pista-e1-contrastados).

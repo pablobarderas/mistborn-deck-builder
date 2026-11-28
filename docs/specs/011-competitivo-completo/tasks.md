@@ -210,3 +210,15 @@ Base publicada y local `c9cfcc0c40cc7cf55a7db553a020c6e78988dfe3` en `main`, ár
 Plan: verificar las cinco huellas locales de SRC-004 y el cruce de registros de autoría con el cotejo y el validador existente. Inspeccionar el alcance de las suites publicadas, validar enlaces y diff, y revisar independientemente. La ejecución del candidato conserva sus pruebas propias.
 
 Estado: contraste documental completado. [Registro](registro-admision.md#contraste-de-entrenamientos-financiación-y-pista-e1) · [Verificación y traspaso](verification.md#entrenamientos-financiación-y-pista-e1-contrastados).
+
+## Contraste de las ocho misiones
+
+2026-11-28. Base local y publicada `45336993f0816410f548aa46ae53c9c49031647d`, con árbol limpio al recuperar. Objetivo documental R2. Un cruce incorrecto puede atribuir al candidato premios, dependencias o cobertura de otro perfil. El coordinador contrasta los registros y prepara la evidencia. Un revisor independiente verifica el resultado en solo lectura antes del cierre. Ninguna dispensa.
+
+- MIS-E3-01. Relacionar los ocho IDs y cantidades con la confirmación del propietario, los localizadores de SRC-005 y las dos huellas locales.
+- MIS-E3-02. Cruzar las familias de premios por ID con las pruebas del perfil aislado, las reglas documentadas en SRC-001/002 y las dependencias sin verificar en el candidato.
+- MIS-E3-03. Comprobar catálogo, enlaces y coherencia. Mantener explícitas la integración y distribución pendientes. Conservar la evidencia de ejecución aislada con el alcance real de sus fixtures.
+
+Plan: comprobar huellas y ejecutar `test-missions`. Contrastar `test-integrated-missions` y el alcance de su evidencia publicada. Registrar trazabilidad y lagunas en el registro de admisión. Verificar enlaces y solicitar revisión independiente. Tras la revisión, actualizar memoria y publicar si se satisfacen los criterios.
+
+Estado: completada en alcance documental con revisión independiente favorable. E3 continúa abierta. [Evidencia](verification.md#ocho-misiones-contrastadas).

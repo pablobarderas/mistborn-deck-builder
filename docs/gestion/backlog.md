@@ -1,6 +1,8 @@
 # Backlog por fases
 
-- E3, contraste de entrenamientos, Financiación y pista E1, R2 documental. [Tarea](../specs/011-competitivo-completo/tasks.md#contraste-de-entrenamientos-financiación-y-pista-e1) · [Evidencia](../specs/011-competitivo-completo/verification.md#entrenamientos-financiación-y-pista-e1-contrastados). Siguiente paso propuesto: contraste de los ocho registros de misión. Sin issue.
+- E3, contraste de las ocho misiones, R2 documental. [Tarea](../specs/011-competitivo-completo/tasks.md#contraste-de-las-ocho-misiones) · [Evidencia](../specs/011-competitivo-completo/verification.md#ocho-misiones-contrastadas). Sin issue.
+
+- E3, contraste de entrenamientos, Financiación y pista E1, R2 documental. [Tarea](../specs/011-competitivo-completo/tasks.md#contraste-de-entrenamientos-financiación-y-pista-e1) · [Evidencia](../specs/011-competitivo-completo/verification.md#entrenamientos-financiación-y-pista-e1-contrastados). Sin issue.
 
 - E3, contraste de los cuatro personajes E1, R2 documental. [Tarea](../specs/011-competitivo-completo/tasks.md#contraste-individual-de-personajes-e1) · [Evidencia](../specs/011-competitivo-completo/verification.md#personajes-e1-contrastados). Sin issue.
 

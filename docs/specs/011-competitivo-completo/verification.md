@@ -305,3 +305,13 @@ Traspaso: reunir el contraste de los 16 entrenamientos, Financiación y pista en
 R2 documental. El coordinador comprobó datos, fuentes y alcance de las suites. `sdd_reviewer` (GPT-6.1 Sol, high) reprodujo las comprobaciones de huellas y revisó los tres criterios sin hallazgos pendientes. Sin dispensa. Se reutilizó la evidencia publicada de Godot, sin nuevas ejecuciones ni pruebas del candidato. Tiempo y tokens por tarea no disponibles.
 
 Traspaso: con los personajes, quedan contrastados los 22 IDs de E1. El siguiente paso propuesto agrupa los ocho registros de misión, sus referencias de autoría y la cobertura del perfil aislado. Sigue pendiente la admisión de E3.
+
+## Ocho misiones contrastadas
+
+2026-11-28. [Tarea](tasks.md#contraste-de-las-ocho-misiones) · [Registro por ID](registro-admision.md#contraste-de-las-ocho-misiones).
+
+- MIS-E3-01. Ocho IDs únicos, una copia por ID y ocho localizadores contrastados. Se comprobaron las dos huellas de SRC-005 contra los archivos locales, las declaraciones de autoría y el registro de fuentes. El cotejo humano previo cubre las ocho lecturas por título.
+- MIS-E3-02. El PDF local de SRC-001 coincide con su SHA-256 registrado. Se consultaron sus pp. 5, 14 y 17 y SRC-002, secciones «Missions», «Miscellaneous», «Action cards» y errata 2. Se cruzaron premios y dependencias con la suite aislada. Se reutilizó la evidencia publicada de `test-integrated-missions` de [T08.1b22](../008-preparacion-y-turnos/verification.md#t081b22--integración-de-misiones-m1m8), con 5932 comprobaciones. Se verificó en el código que esa suite usa las definiciones de misiones de autoría y componentes auxiliares ficticios. La suite integrada no se volvió a ejecutar para esta entrega documental.
+- MIS-E3-03. `test-missions`, Godot 4.7.2, código 0 y 138 comprobaciones. La integración y la distribución del candidato siguen pendientes.
+
+Revisión independiente `sdd_reviewer` (GPT-6.1 Sol, high) favorable. Contrastó cantidades, localizadores, huellas, cobertura, fronteras y enlaces. El mensaje de catálogo inválido en el registro de Godot corresponde al caso adverso previsto. Comprobación final de 568 enlaces locales en siete Markdown y del diff preparado, correcta. Sin dispensa. El contraste mantiene vigentes las decisiones registradas y la próxima propuesta es documentar recursos, pistas y marcadores restantes.
