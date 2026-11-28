@@ -291,3 +291,17 @@ Traspaso: contrastar los cuatro registros de personaje E1 por ID y localizar sus
 R2 documental. El coordinador comprobó datos, huella y código de pruebas. `sdd_reviewer` (GPT-6.1 Sol, high) contrastó el resultado y el ajuste de redacción de forma independiente. Dictamen favorable. Sin dispensa. No se repitió Godot: se reutilizó la evidencia publicada de E1 y E2. Tiempo y tokens por tarea no disponibles.
 
 Traspaso: reunir el contraste de los 16 entrenamientos, Financiación y pista en una sola tarea documental de E1. La admisión del candidato E3 continúa pendiente.
+
+## Entrenamientos, Financiación y pista E1 contrastados
+
+2026-11-28. Base local y publicada `c9cfcc0c40cc7cf55a7db553a020c6e78988dfe3`, árbol inicial limpio. [Tarea](tasks.md#contraste-de-entrenamientos-financiación-y-pista-e1) · [Registro](registro-admision.md#contraste-de-entrenamientos-financiación-y-pista-e1).
+
+| Criterio | Comprobación |
+| --- | --- |
+| INI-E3-01 | 16 IDs y localizadores de entrenamiento, con una copia y vínculo recíproco por ID. Financiación con 24 copias y pista con cuatro copias y 21 casillas. Cinco archivos locales con SHA-256 coincidente con autoría y SRC-004. |
+| INI-E3-02 | Cruce con suites publicadas de catálogo, primarias, ciclo y avance. Se documentó el alcance del perfil fijo para la pista y las carencias de definición, ejecución y distribución. Los 18 IDs siguen en borrador. |
+| INI-E3-03 | Revisión independiente favorable y comprobación de enlaces, anclas, alcance del diff y publicación conforme a DEC-049. |
+
+R2 documental. El coordinador comprobó datos, fuentes y alcance de las suites. `sdd_reviewer` (GPT-6.1 Sol, high) reprodujo las comprobaciones de huellas y revisó los tres criterios sin hallazgos pendientes. Sin dispensa. Se reutilizó la evidencia publicada de Godot, sin nuevas ejecuciones ni pruebas del candidato. Tiempo y tokens por tarea no disponibles.
+
+Traspaso: con los personajes, quedan contrastados los 22 IDs de E1. El siguiente paso propuesto agrupa los ocho registros de misión, sus referencias de autoría y la cobertura del perfil aislado. Sigue pendiente la admisión de E3.

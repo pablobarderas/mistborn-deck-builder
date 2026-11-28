@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-28 — Contraste de entrenamientos, Financiación y pista E1
+
+Comprobados 18 IDs y cinco huellas locales. Con los cuatro personajes queda completo el contraste documental de E1. Continúan pendientes la admisión y sus pruebas con el candidato. [Evidencia](specs/011-competitivo-completo/verification.md#entrenamientos-financiación-y-pista-e1-contrastados).
+
 ## 2026-11-28 — Contraste de los cuatro personajes E1
 
 Comprobados cuatro IDs, 16 vínculos recíprocos y la huella local de la hoja. Se registró la cobertura de los niveles I–III y sus carencias de admisión. Sigue el contraste de entrenamientos, Financiación y pista. [Evidencia](specs/011-competitivo-completo/verification.md#personajes-e1-contrastados).

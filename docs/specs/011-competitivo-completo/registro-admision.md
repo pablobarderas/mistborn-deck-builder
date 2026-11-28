@@ -51,4 +51,25 @@ Las cuatro fichas de [autoría E1](../../../data/inicio_competitivo.json) señal
 
 En las cuatro definiciones, `revision.estado` permanece en `borrador` y `nivel_ii` contiene un efecto pendiente. [test-initial-content](../../../tests/initial_content_catalog_test.gd) valida estructura y vínculos y rechaza asociaciones incorrectas. [test-initial-play](../../../tests/initial_competitive_play_test.gd) promueve copias en memoria y excluye el nivel II. En cada ID comprueba la activación de I, la de III con Atium de prueba y el rechazo de una segunda activación de cada nivel. [test-local-competitive](../../../tests/local_competitive_play_test.gd) comprueba el nivel I para los cuatro IDs y tiene aserciones globales de uso de los niveles II y III en E2, sin exigir esos dos niveles por cada ID. La evidencia E2 usa mercado ficticio.
 
-Para cada uno de los cuatro IDs queda pendiente revisar la definición final, resolver el descriptor II y verificar los tres niveles con la identidad del candidato. Cada ID necesita un registro de procedencia y base de inclusión para el texto, los iconos y la ilustración que se elijan. Siguiente contraste del lote E1: 16 entrenamientos, Financiación y pista, en un solo registro de verificación.
+Para cada uno de los cuatro IDs queda pendiente revisar la definición final, resolver el descriptor II y verificar los tres niveles con la identidad del candidato. Cada ID necesita un registro de procedencia y base de inclusión para el texto, los iconos y la ilustración que se elijan.
+
+## Contraste de entrenamientos, Financiación y pista E1
+
+Se cruzaron los 18 IDs de [autoría E1](../../../data/inicio_competitivo.json) con el [cotejo humano del 2026-11-24](../008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo) y el [registro de SRC-004](../../referencias/entrenamiento-competitivo.md). Las cinco huellas de los archivos locales coinciden con las publicadas y con el catálogo. El cotejo cubre la lectura de la edición española. Para Financiación y pista, la cantidad documentada corresponde a la dotación física, y el localizador identifica el ejemplar o panel visible en el escaneo.
+
+| Fuente | IDs y localizadores | Cantidad |
+| --- | --- | --- |
+| `src_004_kelsier` | `kelsier_estano`, `kelsier_cobre`, `kelsier_cinc`, `kelsier_acero`, filas 1–4 en ese orden. | 1 de cada ID |
+| `src_004_marsh` | `marsh_bronce`, `marsh_hierro`, `marsh_peltre`, `marsh_laton`, filas 1–4 en ese orden. | 1 de cada ID |
+| `src_004_shan` | `shan_cinc`, `shan_estano`, `shan_cobre`, `shan_acero`, filas 1–4 en ese orden. | 1 de cada ID |
+| `src_004_vin` | `vin_bronce`, `vin_hierro`, `vin_laton`, `vin_peltre`, filas 1–4 de la columna izquierda en ese orden. | 1 de cada ID |
+| `src_004_vin` | `financiacion`, parte superior de la columna derecha, S17/40. | 24 |
+| `src_004_panel` | `pista_entrenamiento`, 21 huecos desde la flecha. | 4 |
+
+| Grupo | Cobertura de ensayo | Pendiente para la admisión |
+| --- | --- | --- |
+| 16 entrenamientos | [test-initial-content](../../../tests/initial_content_catalog_test.gd) verifica los vínculos recíprocos con los cuatro personajes. [test-initial-play](../../../tests/initial_competitive_play_test.gd) ejecuta la primaria de cada ID y comprueba movimiento, uso de metal, reenvío y rechazo de un segundo intento con otro identificador. La omisión se prueba en un caso dirigido. | Revisar cada definición final y cruzar todas sus rutas con preparación, activación y vuelta al ciclo personal con el catálogo candidato. |
+| Financiación | `test-initial-play` comprueba el reparto inicial y los casos de aplicar u omitir. [test-local-competitive](../../../tests/local_competitive_play_test.gd) recorre el ciclo de compra y limpieza con un mercado de prueba. | Vincular la definición final al manifiesto y verificar su activación, descarte y reciclado en el mismo candidato. |
+| Pista | `test-initial-play` comprueba inicio y premios seleccionados. El ensayo sustituye los efectos de las casillas en la copia de catálogo y el avance usa el perfil fijo de `TrainingAdvance.PANEL`. [test-training](../../../tests/training_advance_test.gd) recorre el perfil de prueba con 2, 3 y 4 plazas y verifica avance, desbloqueos y recompensas. | Resolver la representación y los descriptores de autoría pendientes. Probar las referencias de la pista y su recorrido con el manifiesto candidato. |
+
+Las 18 definiciones permanecen en `borrador`. Para cada ID queda pendiente documentar la procedencia y base de inclusión del material usado en el candidato. Con los cuatro registros de personaje queda completo el contraste documental de los 22 IDs de E1. El siguiente contraste propuesto reúne los ocho registros de misión con sus referencias y la cobertura aislada publicada.

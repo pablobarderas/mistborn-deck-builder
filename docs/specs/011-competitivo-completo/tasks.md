@@ -198,3 +198,15 @@ Base publicada y local `85a8b678f374a9ef489abf9c74a77beb004a05a4`, rama `main` y
 Plan: cruzar estáticamente los datos y las suites existentes, verificar la huella local si el archivo indicado está disponible, comprobar enlaces y solicitar revisión independiente. Se reutiliza la evidencia publicada de las suites de Godot para este contraste documental.
 
 Estado: contraste documental completado. [Registro](registro-admision.md#contraste-individual-de-personajes-e1) · [Verificación y traspaso](verification.md#personajes-e1-contrastados).
+
+## Contraste de entrenamientos, Financiación y pista E1
+
+Base publicada y local `c9cfcc0c40cc7cf55a7db553a020c6e78988dfe3` en `main`, árbol limpio. Objetivo: completar en una entrega documental los 18 registros restantes de E1. Riesgo R2 por la trazabilidad de definiciones que condicionan la preparación y la admisión. El coordinador contrasta fuentes, datos y suites; `sdd_reviewer` revisa independientemente. Sin issue ni dispensa.
+
+- INI-E3-01. Cruzar 16 IDs de entrenamiento, Financiación y pista con cantidades, localizadores, fuentes, huellas y vínculos de autoría.
+- INI-E3-02. Precisar la cobertura existente de cada grupo y lo que falta para ejecución y distribución con el candidato. Conservar el estado de borrador.
+- INI-E3-03. Validar el registro, obtener revisión independiente y dejar traspaso del lote E1 completo en alcance documental.
+
+Plan: verificar las cinco huellas locales de SRC-004 y el cruce de registros de autoría con el cotejo y el validador existente. Inspeccionar el alcance de las suites publicadas, validar enlaces y diff, y revisar independientemente. La ejecución del candidato conserva sus pruebas propias.
+
+Estado: contraste documental completado. [Registro](registro-admision.md#contraste-de-entrenamientos-financiación-y-pista-e1) · [Verificación y traspaso](verification.md#entrenamientos-financiación-y-pista-e1-contrastados).
