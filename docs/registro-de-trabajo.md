@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-28 — Lote de integración y admisión de E3
+
+Delimitado el candidato competitivo de 2–4 plazas, sus pruebas de admisión y tres recorridos de cierre. Comprobados el inventario, los enlaces y la coherencia del contrato. Quedan pendientes los registros por componente, la cobertura de rutas y las pruebas sobre el candidato. [Evidencia](specs/011-competitivo-completo/verification.md#delimitación-del-lote-verificada).
+
 ## 2026-11-28 — Primer ensayo integrado del motor
 
 El recorrido de dos plazas con datos ficticios verifica selección, donación o conservación, reacción entre turnos y cierre atómico. Pasaron la prueba dirigida y las cinco regresiones del contrato. El catálogo de mercado sigue pendiente de admisión. [Evidencia y traspaso](specs/011-competitivo-completo/verification.md#primer-ensayo-integrado-verificado).

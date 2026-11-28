@@ -2,7 +2,9 @@
 
 ## Ruta de entregas agrupadas (2026-11-23)
 
-El [ensayo de finalización](specs/011-competitivo-completo/verification.md#ensayo-de-finalización) completa FIN-01–03. El [contrato del primer ensayo integrado](specs/011-competitivo-completo/primer-ensayo-integrado.md) concreta qué operaciones se reutilizan en un recorrido ficticio de dos plazas, qué composición debe probarse y qué se verifica en cada frontera. El [perfil de prueba](specs/011-competitivo-completo/verification.md#primer-ensayo-integrado-verificado) ya ejecuta INT-E3-01–03. El siguiente paso de E3 es delimitar el lote de integración y sus pruebas de admisión. La integración de las definiciones del mercado sigue pendiente de sus propias puertas.
+El [lote de integración E3](specs/011-competitivo-completo/lote-integracion.md) fija el alcance del candidato y las pruebas de admisión para 2–4 plazas. Siguiente paso: completar la trazabilidad por componente y cruzar las rutas alcanzables con resolutores y pruebas para identificar qué bloquea la construcción del candidato.
+
+El [ensayo de finalización](specs/011-competitivo-completo/verification.md#ensayo-de-finalización) completa FIN-01–03. El [perfil del primer ensayo integrado](specs/011-competitivo-completo/verification.md#primer-ensayo-integrado-verificado) ejecuta INT-E3-01–03 con datos ficticios.
 
 Confirmación M1–M8 (2026-11-24): [ocho misiones cotejadas por el propietario](referencias/misiones-competitivas.md), con casillas, extras del primero y cimas. El cotejo documental del mercado se completó después en E3.2. La admisión de producto requiere además ejecución completa y permisos de distribución por material. [Evidencia](specs/008-preparacion-y-turnos/verification.md#confirmación-humana-de-misiones-m1m8--registro-previo).
 

@@ -1,5 +1,7 @@
 # Estado actual
 
+E3 tiene delimitado el [lote de integración y sus pruebas de admisión](specs/011-competitivo-completo/lote-integracion.md). Quedan pendientes los registros de admisión por componente, la cobertura de rutas y la construcción del candidato. E3 sigue abierta.
+
 E3 verifica el [primer ensayo integrado del motor](specs/011-competitivo-completo/verification.md#primer-ensayo-integrado-verificado). Dos plazas ficticias completan selección privada, donación, reacción tras el relevo y cierre atómico. El ensayo también cubre la rama conservar, restauración, reenvío y fallos. E3 sigue abierta. La admisión del mercado conserva sus propios requisitos.
 
 E3 verifica el [ensayo de finalización](specs/011-competitivo-completo/verification.md#ensayo-de-finalización). La autoridad confirma el resultado, el cierre y el recibo juntos. FIN-03 y las seis regresiones exigidas pasaron. E3 sigue abierta.

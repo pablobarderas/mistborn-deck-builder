@@ -249,3 +249,17 @@ Coordinador para el recorrido, lanzador y verificación. Se delegaron los dos ar
 Revisión independiente favorable para INT-E3-01–03, incluido el ajuste de reutilización de primitivas. Se contrastaron la carga, los recibos, la privacidad, la reversión, los logs y la sintaxis del lanzador. Once enlaces y anclas modificados comprobados sin errores. Publicación conforme a DEC-049.
 
 Traspaso: perfil limitado al recorrido ficticio de dos plazas. E3 sigue abierta. El siguiente paso del plan es delimitar el lote de integración y sus pruebas de admisión. Quedan pendientes la admisión del mercado, las rutas de tres y cuatro plazas, la interfaz y la red.
+
+## Delimitación del lote verificada
+
+2026-11-28. [Tarea](tasks.md#delimitación-del-lote-de-integración-y-admisión) y [contrato](lote-integracion.md) contrastados con el estado publicado en `f7011a861ac6d45762c61f1058a1ae0a49970f72`. Rama `main` y árbol inicial limpio.
+
+| Criterio | Evidencia documental |
+| --- | --- |
+| ADM-E3-01 | Perímetro vinculado a T08.1b31, revisión de las dependencias por componente y comprobación de 65 IDs únicos, 82 copias y 17 duplicados en el registro del mercado. |
+| ADM-E3-02 | Seis pruebas propuestas que cubren inventario, procedencia, resolutores, identidad, restauración y paquete. Contraste con T08.1b30 y el manifiesto fijo del ensayo b29. |
+| ADM-E3-03 | Recorridos de 2, 3 y 4 plazas con una identidad común, tres vías de cierre, restauración y vistas por plaza. Contraste con los límites de E2 y del primer ensayo integrado. |
+
+R2 documental. El coordinador redactó el contrato, verificó inventario, enlaces y diff e integró el dictamen favorable de `sdd_reviewer` (GPT-6.1 Sol, high). El revisor sugirió precisar la vía de cierre de cuatro plazas y se asignó Confrontación. Ninguna dispensa. Tiempo y tokens por tarea no disponibles. Se reutilizó la evidencia de ensayos publicados. Esta entrega documental no construye el candidato ni ejecuta Godot, pruebas de admisión o revisión visual.
+
+Traspaso: completar el registro de admisión por componente y contrastar las rutas alcanzables con sus resolutores y pruebas. Resolver las carencias antes de construir el candidato. E3 sigue abierta, con interfaz, ejecución del candidato y admisión pendientes.

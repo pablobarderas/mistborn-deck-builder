@@ -162,3 +162,15 @@ Base publicada b3fd5c03ed60249e2f6cf25c776365970b1e9bb9, árbol limpio. Objetivo
 Plan: registrar ambas secuencias y sus invariantes de carga, conectar las operaciones y los cierres a la autoridad, y verificar el recorrido, casos adversos, restauración y vistas. Ejecutar importación y las cinco regresiones del contrato. Revisar el resultado frente a INT-E3-01–03 antes del cierre. Sin issue.
 
 Estado: implementación y aceptación INT-E3-01–03 completadas con pruebas y revisión independiente favorable. [Evidencia y traspaso](verification.md#primer-ensayo-integrado-verificado).
+
+## Delimitación del lote de integración y admisión
+
+Base publicada y local `f7011a861ac6d45762c61f1058a1ae0a49970f72`, rama `main` y árbol limpio. Objetivo documental: cerrar el perímetro del candidato competitivo local de 2–4 plazas y precisar cómo se verifica su admisión. Riesgo R2 por las dependencias entre contenido, identidad del catálogo y restauración. Ninguna dispensa. Sin issue.
+
+- ADM-E3-01. Identificar los componentes exigidos y vincular su cobertura al inventario y a las evidencias publicadas. Indicar las carencias que impiden cerrar el lote.
+- ADM-E3-02. Especificar pruebas de inventario cerrado, revisión de procedencia, ejecución, identidad y paquete. Para cada rechazo, identificar qué estado se conserva.
+- ADM-E3-03. Fijar recorridos reproducibles de 2, 3 y 4 plazas con el mismo candidato y distinguir la evidencia de ensayo de las pruebas pendientes del candidato.
+
+Plan: el coordinador contrasta inventario, contrato, cargador y suites publicadas, redacta la matriz y comprueba enlaces, anclas y coherencia. Un `sdd_reviewer` revisa el documento frente a ADM-E3-01–03. El lote no se construye en esta tarea. Las pruebas de admisión se especifican aquí y se ejecutan cuando exista un candidato elegible.
+
+Estado: delimitación documental completada. [Contrato](lote-integracion.md) · [Verificación y traspaso](verification.md#delimitación-del-lote-verificada).
