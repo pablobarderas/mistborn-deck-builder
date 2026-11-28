@@ -234,3 +234,14 @@ Base local y publicada `d285208b58f5ace6a2918fea82ab96b751e27a54`, rama principa
 Plan de ejecución. Consultar SRC-001/002 y las decisiones vigentes, cotejar el inventario con código y pruebas, y actualizar el registro existente. Ejecutar las comprobaciones dirigidas y solicitar revisión independiente antes de cerrar.
 
 Estado. Contraste documental completado con revisión independiente favorable. [Evidencia y traspaso](verification.md#recursos-y-marcadores-contrastados).
+
+## Retirada del prototipo ajeno a E3
+
+Base publicada `b345616855bce5f83f04c1e91074902e4024bdae`, rama principal y árbol limpio. El propietario pide retirar el juego añadido y mantener el foco en el proyecto original. Riesgo R2 por la retirada de una entrega publicada que añadió código, un catálogo y una entrada al menú. Sin issue ni dispensas.
+
+- RET-01. Revertir la entrega completa y conservar el árbol de E3 de `550fb98adbec88121485fcda2e23e33de15fbb0c`, salvo memoria mínima de retirada. Confirmar que desaparecen el prototipo, su acceso, sus datos y sus pruebas.
+- RET-02. Verificar el arranque y los ensayos E2/E3 en Godot, revisar el delta de forma independiente y publicar la retirada sin reescribir el historial.
+
+El coordinador prepara la inversión exacta y ejecuta las pruebas. `sdd_reviewer` compara el árbol final con la base previa al prototipo y revisa la evidencia. La retirada no modifica ni implementa reglas de E3.
+
+[Evidencia de retirada](verification.md#retirada-del-prototipo-ajeno-a-e3).

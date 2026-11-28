@@ -327,3 +327,18 @@ Revisión independiente `sdd_reviewer` (GPT-6.1 Sol, high) favorable. Contrastó
 R2 documental. El coordinador cotejó fuentes, representaciones y pruebas y ejecutó las regresiones. Un `sdd_reviewer` (GPT-6.1 Sol, high) verificó de forma independiente REC-E3-01–03 y emitió dictamen favorable tras corregir una línea vacía al final de la tarea. Sin dispensa ni nuevas decisiones de reglas. Comprobación de enlaces locales y diff satisfactoria. Tiempo y tokens por tarea no disponibles.
 
 Traspaso. Cruzar por ID el inventario de mercado con los resolutores y las pruebas existentes. E3 sigue abierta hasta verificar las rutas del mismo candidato en partidas de 2, 3 y 4 plazas y completar la evidencia de admisión.
+
+## Retirada del prototipo ajeno a E3
+
+El 2026-11-28 el propietario solicitó retirar la entrega `b345616855bce5f83f04c1e91074902e4024bdae` y continuar con el proyecto original. Se aplicó su inversión completa. El árbol coincide con `550fb98adbec88121485fcda2e23e33de15fbb0c` salvo la memoria de esta retirada. Se comprobó la ausencia de rutas y referencias al prototipo en los archivos del proyecto.
+
+E3 conserva el estado y las pruebas del proyecto previo. La retirada no reescribe el historial de GitHub.
+
+- `test`: 58 comprobaciones de arranque. Los ocho errores inducidos del catálogo son casos negativos esperados.
+- `test-local-competitive`: 4078 comprobaciones del ensayo E2, con partidas y restauración.
+- `test-integrated-trial`: 230 comprobaciones del ensayo E3.
+- `preview`: captura real del menú restaurado `tmp/screenshots/main-screen.png`, inspeccionada sin acceso al prototipo retirado.
+
+Todas las ejecuciones acabaron con código 0. Evidencia local en `tmp/godot/retirada-*.log`. Riesgo R2, coordinador como responsable de restauración y pruebas, un `sdd_reviewer` (GPT-6.1 Sol, alto) para la revisión independiente. Se reutilizaron los mismos logs y captura en la revisión. Sin issue, dispensas ni métricas de consumo.
+
+Dictamen independiente favorable para RET-01 y RET-02, con comprobación del árbol restaurado, los enlaces, los logs y la captura del menú.

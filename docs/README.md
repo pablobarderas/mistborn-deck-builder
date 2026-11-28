@@ -1,7 +1,5 @@
 # Documentación del proyecto
 
-[Cartógrafos del Viento](specs/012-cartografos-del-viento/spec.md) es un prototipo original competitivo local de construcción de mazos para 2–4 personas. [Cómo jugar y probarlo](desarrollo-local.md).
-
 [Misiones M1–M8 confirmadas](referencias/misiones-competitivas.md): el propietario cotejó por título casillas, extras y cimas; quedan integración de producto y distribución. El mercado también tiene [cotejo humano documentado](specs/011-competitivo-completo/verification.md#copia-identificada-para-e32).
 
 [Cotejo humano E1](specs/008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo): personajes, Entrenamientos, niveles, Financiación y pista confirmados; las misiones se confirmaron después, por separado. El lote sigue en borrador para producto.

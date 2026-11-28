@@ -377,7 +377,3 @@ Aplicación técnica T08.1b29 (2026-11-21): ensayo aislado construido y cargado 
 ## DEC-049 — Commit y push al terminar satisfactoriamente
 
 2026-11-24. Estado: instrucción humana permanente para este repositorio. El coordinador hace commit y push de cada entrega de desarrollo satisfactoriamente completada, incluida una entrega documental, después de aceptación, pruebas, revisión aplicable y cierre; verifica la referencia remota. No se vuelve a pedir permiso en cada tarea. Una entrega abierta, fallida o bloqueada no se publica automáticamente; una orden expresa puede autorizar trabajo parcial, como E1 en el presente paquete. No se fuerza un push ni se incluyen secretos, escaneos locales, artefactos ignorados o cambios ajenos. Esta decisión no autoriza PR, issues, despliegue ni distribución por otras vías y no modifica controles de calidad. [Regla](../AGENTS.md#cierre-de-cada-tarea) y [política](gestion/agentes-sdd.md#publicación-al-cierre-satisfactorio).
-
-## DEC-050 — Prototipo original Cartógrafos del Viento
-
-Aceptada el 2026-11-28. El propietario autorizó continuar con una partida competitiva local de 2–4 plazas con catálogo y reglas originales. El [prototipo](specs/012-cartografos-del-viento/spec.md) usa un mazo de instrumentos, tres rutas y seis rondas. La autorización se refiere a este alcance local.

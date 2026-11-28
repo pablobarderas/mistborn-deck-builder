@@ -1,7 +1,5 @@
 # Estado actual
 
-Cartógrafos del Viento está jugable en un PC para 2–4 personas. El prototipo original tiene seis rondas, compra de instrumentos, tres rutas, puntuación y relevo de mano. Pasaron 635 comprobaciones del motor y 203 de pantalla. [Contrato](specs/012-cartografos-del-viento/spec.md) · [Verificación](specs/012-cartografos-del-viento/verification.md).
-
 E3 tiene los [recursos, pistas y marcadores contrastados](specs/011-competitivo-completo/registro-admision.md#contraste-de-recursos-y-marcadores). La preparación, limpieza y el ensayo E2 superaron 4814 comprobaciones. Sigue pendiente validar las representaciones finales y sus rutas con el candidato. [Evidencia](specs/011-competitivo-completo/verification.md#recursos-y-marcadores-contrastados).
 
 E3 tiene [los ocho registros de misión contrastados](specs/011-competitivo-completo/registro-admision.md#contraste-de-las-ocho-misiones) con dos huellas locales y 138 comprobaciones de catálogo. La cobertura de ejecución corresponde al perfil aislado. La integración con el candidato y la distribución permanecen pendientes. [Evidencia](specs/011-competitivo-completo/verification.md#ocho-misiones-contrastadas).

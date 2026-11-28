@@ -1,7 +1,5 @@
 # Ejecutar el proyecto en Windows
 
-**Cartógrafos del Viento** se abre con **Jugar a Cartógrafos del Viento** en el menú. Elige entre 2 y 4 plazas. Tras cada turno, pasa el equipo y confirma la mano de la plaza entrante. `-Action test-wind-cartographers` ejecuta partidas completas de los tres tamaños y `-Action preview-wind-cartographers` ejecuta el recorrido gráfico y guarda cinco capturas en `tmp/screenshots/wind-*.png`. [Reglas y aceptación](specs/012-cartografos-del-viento/spec.md).
-
 ## Fuentes y catálogo inicial E1
 
 Desde la raíz Git, usar `tools/prepare-initial-sources.ps1 -SourceRoot 'RUTA/cartas_personajes'` para cotejar seis SHA-256 de SRC-004/005 y copiar los PNG a `evidencia_local/` ignorado. El script rechaza fuentes ausentes o distintas antes de copiar; no sobrescribe copias divergentes. Después, `tools/godot.ps1 -Action test-initial-content` valida el [borrador de 22 definiciones](../data/inicio_competitivo.json), sus fuentes y vínculos; `-Action test-initial-play` prueba el perfil competitivo aislado con contenido compuesto de ensayo. Requieren originales locales; un clon sin ellos falla deliberadamente en autoría. El primero no ejecuta habilidades; el segundo no admite el lote a producto ni cubre compra/limpieza. [Contrato E1](specs/008-preparacion-y-turnos/contenido-inicial-competitivo.md).
