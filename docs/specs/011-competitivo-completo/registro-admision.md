@@ -38,4 +38,17 @@ La columna de pruebas identifica comprobaciones versionadas. Su alcance se limit
 2. Completar la cobertura de las rutas que queden sin resolutor o prueba al cruzar cada definición con su perfil. Las primitivas y regresiones existentes sirven de base para ensayos con contenido original de prueba.
 3. Completar la evidencia de inclusión por material antes de empaquetar. Las pruebas A1–A6 permanecen pendientes con el artefacto candidato.
 
-Primer avance del punto 1: contrastar los cuatro registros de personaje de E1 con sus localizadores, referencias y revisiones, y registrar las carencias por ID.
+## Contraste individual de personajes E1
+
+Las cuatro fichas de [autoría E1](../../../data/inicio_competitivo.json) señalan `src_005_personajes`, una hoja española de [SRC-005](../../referencias/README.md#src-005--escaneos-españoles-de-personajes-misiones-y-mercado). La huella de la copia local coincide con la declarada en autoría y en el registro de SRC-005. El [propietario confirmó](../008-preparacion-y-turnos/verification.md#cotejo-humano-e1-y-consulta-de-misiones--registro-previo) las cuatro fichas y sus tres niveles el 2026-11-24 para E1. La tabla conserva ese cotejo y el estado de autoría. Se comprobó el vínculo en ambos sentidos con los cuatro entrenamientos propios de cada ficha usando [InitialCompetitiveBindings](../../../scripts/catalog/initial_competitive_bindings.gd) como referencia.
+
+| ID | Cantidad y localizador | Cobertura individual en E1 |
+| --- | --- | --- |
+| `kelsier` | 1, superior izquierda | Niveles I y III. Casos adicionales de capacidad inicial y bloqueo de III. |
+| `marsh` | 1, inferior derecha | Niveles I y III. Casos adicionales de activación antes del desbloqueo. |
+| `shan` | 1, inferior izquierda | Niveles I y III. |
+| `vin` | 1, superior derecha | Niveles I y III. Caso adicional de límite de salud en I. |
+
+En las cuatro definiciones, `revision.estado` permanece en `borrador` y `nivel_ii` contiene un efecto pendiente. [test-initial-content](../../../tests/initial_content_catalog_test.gd) valida estructura y vínculos y rechaza asociaciones incorrectas. [test-initial-play](../../../tests/initial_competitive_play_test.gd) promueve copias en memoria y excluye el nivel II. En cada ID comprueba la activación de I, la de III con Atium de prueba y el rechazo de una segunda activación de cada nivel. [test-local-competitive](../../../tests/local_competitive_play_test.gd) comprueba el nivel I para los cuatro IDs y tiene aserciones globales de uso de los niveles II y III en E2, sin exigir esos dos niveles por cada ID. La evidencia E2 usa mercado ficticio.
+
+Para cada uno de los cuatro IDs queda pendiente revisar la definición final, resolver el descriptor II y verificar los tres niveles con la identidad del candidato. Cada ID necesita un registro de procedencia y base de inclusión para el texto, los iconos y la ilustración que se elijan. Siguiente contraste del lote E1: 16 entrenamientos, Financiación y pista, en un solo registro de verificación.

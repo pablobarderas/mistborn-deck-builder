@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-28 — Contraste de los cuatro personajes E1
+
+Comprobados cuatro IDs, 16 vínculos recíprocos y la huella local de la hoja. Se registró la cobertura de los niveles I–III y sus carencias de admisión. Sigue el contraste de entrenamientos, Financiación y pista. [Evidencia](specs/011-competitivo-completo/verification.md#personajes-e1-contrastados).
+
 ## 2026-11-28 — Registro de admisión y cobertura de E3
 
 Verificados los vínculos de 95 IDs, los recuentos de mercado y la correspondencia de 11 acciones del lanzador con sus suites. La revisión independiente fue favorable. Quedan el contraste por definición final y las pruebas del candidato. [Evidencia](specs/011-competitivo-completo/verification.md#registro-de-admisión-verificado).

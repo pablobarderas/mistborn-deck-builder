@@ -1,5 +1,7 @@
 # Estado actual
 
+E3 tiene [cuatro registros de personaje E1 contrastados por ID](specs/011-competitivo-completo/registro-admision.md#contraste-individual-de-personajes-e1), con huella local y vínculos comprobados. Sus definiciones siguen en borrador, con el nivel II pendiente en autoría.
+
 El [registro de admisión de E3](specs/011-competitivo-completo/registro-admision.md) reúne la evidencia disponible por componente y cruza las rutas con código y pruebas existentes. Quedan pendientes la revisión por definición final, la cobertura con el candidato y la evidencia de distribución. E3 sigue abierta.
 
 E3 verifica el [primer ensayo integrado del motor](specs/011-competitivo-completo/verification.md#primer-ensayo-integrado-verificado). Dos plazas ficticias completan selección privada, donación, reacción tras el relevo y cierre atómico. El ensayo también cubre la rama conservar, restauración, reenvío y fallos. E3 sigue abierta. La admisión del mercado conserva sus propios requisitos.

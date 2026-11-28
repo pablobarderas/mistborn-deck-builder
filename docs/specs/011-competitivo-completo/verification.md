@@ -277,3 +277,17 @@ Traspaso: completar el registro de admisión por componente y contrastar las rut
 R2 documental. El coordinador preparó y comprobó el registro. `sdd_reviewer` (GPT-6.1 Sol, high) contrastó de forma independiente el inventario, el código, las pruebas referenciadas y el ajuste final. Dictamen favorable, ninguna dispensa. Tiempo y tokens por tarea no disponibles. Se reutilizaron resultados publicados; Godot y A1–A6 quedan sin ejecutar en esta entrega documental.
 
 Traspaso: contrastar los cuatro registros de personaje E1 por ID y localizar sus carencias de admisión. El registro de E3 permite identificar dependencias, con candidato, interfaz y recorridos aún pendientes.
+
+## Personajes E1 contrastados
+
+2026-11-28. Base local y publicada `85a8b678f374a9ef489abf9c74a77beb004a05a4`, árbol inicial limpio. [Tarea](tasks.md#contraste-individual-de-personajes-e1) · [Registro](registro-admision.md#contraste-individual-de-personajes-e1).
+
+| Criterio | Comprobación |
+| --- | --- |
+| PER-E3-01 | Cuatro IDs y cuatro localizadores exactos, una copia por ficha y 16 vínculos recíprocos únicos. SHA-256 de la hoja local coincidente con el catálogo de autoría y SRC-005. |
+| PER-E3-02 | Tres descriptores por ficha. I y III tienen pruebas por ID en E1. II sigue pendiente en los cuatro borradores. E2 prueba cuatro firmas I y exige uso de II y III mediante aserciones globales. |
+| PER-E3-03 | Pendientes por ID registrados para definición, ejecución y distribución. Datos de autoría intactos. Enlaces, anclas y diff comprobados. |
+
+R2 documental. El coordinador comprobó datos, huella y código de pruebas. `sdd_reviewer` (GPT-6.1 Sol, high) contrastó el resultado y el ajuste de redacción de forma independiente. Dictamen favorable. Sin dispensa. No se repitió Godot: se reutilizó la evidencia publicada de E1 y E2. Tiempo y tokens por tarea no disponibles.
+
+Traspaso: reunir el contraste de los 16 entrenamientos, Financiación y pista en una sola tarea documental de E1. La admisión del candidato E3 continúa pendiente.

@@ -186,3 +186,15 @@ Base publicada y local `114ff0514eedb92b861eda86486154043ab63abf`, rama `main` y
 Plan: contrastar los registros versionados y las entradas de los ensayos, documentar las correspondencias comprobables y marcar los huecos. Comprobar los recuentos y cruces con datos y código. Revisar y publicar el registro documental; la ejecución de las pruebas de admisión requiere un candidato.
 
 Estado: registro documental completado. [Registro](registro-admision.md) · [Verificación y traspaso](verification.md#registro-de-admisión-verificado).
+
+## Contraste individual de personajes E1
+
+Base publicada y local `85a8b678f374a9ef489abf9c74a77beb004a05a4`, rama `main` y árbol limpio. Objetivo: localizar la evidencia disponible y las carencias de admisión de los cuatro registros de personaje. Riesgo R2 documental porque un vínculo erróneo afectaría al lote final. El coordinador cruza datos, fuentes, enlaces y pruebas; `sdd_reviewer` revisa de forma independiente. Sin issue ni dispensa.
+
+- PER-E3-01. Verificar los cuatro IDs, cantidades, localizadores y vínculos de preparación con el catálogo y el cotejo E1.
+- PER-E3-02. Distinguir por ID la cobertura de los tres niveles en E1 y E2, con sus pruebas y pendientes del candidato.
+- PER-E3-03. Registrar la evidencia de distribución pendiente por ID, validar el documento y dejar traspaso. Mantener los estados de las definiciones.
+
+Plan: cruzar estáticamente los datos y las suites existentes, verificar la huella local si el archivo indicado está disponible, comprobar enlaces y solicitar revisión independiente. Se reutiliza la evidencia publicada de las suites de Godot para este contraste documental.
+
+Estado: contraste documental completado. [Registro](registro-admision.md#contraste-individual-de-personajes-e1) · [Verificación y traspaso](verification.md#personajes-e1-contrastados).

@@ -2,7 +2,7 @@
 
 ## Ruta de entregas agrupadas (2026-11-23)
 
-El [lote de integración E3](specs/011-competitivo-completo/lote-integracion.md) fija las pruebas de admisión para 2–4 plazas. El [registro](specs/011-competitivo-completo/registro-admision.md) identifica la cobertura existente y los bloqueos. Siguiente paso: contrastar los cuatro registros de personaje de E1 y anotar las carencias de admisión por ID.
+El [lote de integración E3](specs/011-competitivo-completo/lote-integracion.md) fija las pruebas de admisión para 2–4 plazas. El [contraste de los cuatro personajes E1](specs/011-competitivo-completo/registro-admision.md#contraste-individual-de-personajes-e1) identifica sus carencias por ID. Siguiente paso: contrastar juntos los 16 entrenamientos, Financiación y pista para completar el registro documental de E1.
 
 El [ensayo de finalización](specs/011-competitivo-completo/verification.md#ensayo-de-finalización) completa FIN-01–03. El [perfil del primer ensayo integrado](specs/011-competitivo-completo/verification.md#primer-ensayo-integrado-verificado) ejecuta INT-E3-01–03 con datos ficticios.
 
