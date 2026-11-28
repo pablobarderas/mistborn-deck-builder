@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-28 — Cartógrafos del Viento
+
+Prototipo original de construcción de mazos para 2–4 en un PC, accesible desde el menú. Se verificaron seis rondas, compra, trazado, relevo y finales. Pasaron 635 comprobaciones de reglas, 203 de pantalla y las regresiones de arranque y motor. Revisiones independientes favorables. Sigue propuesta una partida humana para valorar balance y duración. [Evidencia](specs/012-cartografos-del-viento/verification.md).
+
 ## 2026-11-28 — Contraste de recursos y marcadores E3
 
 Se cruzaron cantidades, preparación y representaciones de ensayo de los recursos, pistas y marcadores. Tres suites de Godot superaron 4814 comprobaciones. Sigue pendiente su ejecución con el candidato y verificar la procedencia de los materiales finales. [Evidencia y traspaso](specs/011-competitivo-completo/verification.md#recursos-y-marcadores-contrastados).

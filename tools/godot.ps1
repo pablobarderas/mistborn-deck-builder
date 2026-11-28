@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'preview-local', 'test-catalog', 'test-initial-content', 'test-initial-play', 'test-local-competitive', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-deferred', 'test-finalization', 'test-integrated-trial', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring')]
+    [ValidateSet('run', 'editor', 'import', 'test', 'preview', 'network', 'test-network', 'preview-network', 'board', 'preview-board', 'preview-local', 'preview-wind-cartographers', 'test-wind-cartographers', 'test-catalog', 'test-initial-content', 'test-initial-play', 'test-local-competitive', 'test-missions', 'test-perseguir', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-deferred', 'test-finalization', 'test-integrated-trial', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring')]
     [string]$Action = 'run',
     [string]$GodotPath = $env:GODOT_BIN
 )
@@ -58,7 +58,7 @@ function Invoke-ProjectGodot {
     if ($engineText -match '(?m)^SCRIPT ERROR:') {
         throw "Godot contiene errores de script en '$LogName', aunque su proceso haya devuelto codigo 0."
     }
-    if ($LogName -in @('import', 'test-initial-content', 'test-initial-play', 'test-local-competitive', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-deferred', 'test-finalization', 'test-integrated-trial', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring') -and ($engineText -match '(?m)^(SCRIPT ERROR|ERROR):')) {
+    if ($LogName -in @('import', 'preview-wind-cartographers', 'test-wind-cartographers', 'test-initial-content', 'test-initial-play', 'test-local-competitive', 'test-state', 'test-engine', 'test-setup', 'test-cycle', 'test-cleanup', 'test-sequence', 'test-deferred', 'test-finalization', 'test-integrated-trial', 'test-funding', 'test-training', 'test-start', 'test-mission-advance', 'test-permanents', 'test-m8', 'test-m1', 'test-m2', 'test-integrated-missions', 'test-perseguir-play', 'build-runtime-catalog', 'test-runtime-catalog', 'test-runtime-authoring') -and ($engineText -match '(?m)^(SCRIPT ERROR|ERROR):')) {
         throw "La accion $LogName contiene errores. Revisa tmp/godot/$LogName.log."
     }
     foreach ($marker in @{ 'build-runtime-catalog' = 'P08_RUNTIME_BUILD_OK'; 'test-runtime-catalog' = 'P08_RUNTIME_CATALOG_OK'; 'test-runtime-authoring' = 'P08_RUNTIME_AUTHORING_OK' }.GetEnumerator()) {
@@ -78,6 +78,12 @@ function Invoke-ProjectGodot {
     }
     if ($LogName -eq 'preview-board' -and $engineText -notmatch 'P05_BOARD_OK') {
         throw 'No se completo la verificacion y captura del tablero.'
+    }
+    if ($LogName -eq 'test-wind-cartographers' -and $engineText -notmatch 'WIND_CARTOGRAPHERS_OK') {
+        throw 'No se confirmó la prueba de Cartógrafos del Viento.'
+    }
+    if ($LogName -eq 'preview-wind-cartographers' -and $engineText -notmatch 'WIND_CARTOGRAPHERS_SCREEN_OK') {
+        throw 'No se confirmó la prueba de la pantalla de Cartógrafos del Viento.'
     }
     if ($LogName -eq 'preview-local' -and $engineText -notmatch 'E2_LOCAL_SCREEN_OK') {
         throw 'No se completo el recorrido visual de la partida local.'
@@ -175,6 +181,8 @@ switch ($Action) {
     'preview-network' { Invoke-ProjectGodot -EngineArguments @('--audio-driver', 'Dummy', '--script', 'res://tests/capture_connection.gd') -LogName 'preview-network' }
     'board' { Invoke-ProjectGodot -EngineArguments @('res://scenes/BoardPreview.tscn') -LogName 'board' }
     'preview-board' { Invoke-ProjectGodot -EngineArguments @('--audio-driver', 'Dummy', '--script', 'res://tests/board_preview_test.gd') -LogName 'preview-board' }
+    'preview-wind-cartographers' { Invoke-ProjectGodot -EngineArguments @('--audio-driver', 'Dummy', '--script', 'res://tests/wind_cartographers_screen_test.gd') -LogName 'preview-wind-cartographers' }
+    'test-wind-cartographers' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/wind_cartographers_test.gd') -LogName 'test-wind-cartographers' }
     'preview-local' { Invoke-ProjectGodot -EngineArguments @('--audio-driver', 'Dummy', '--script', 'res://tests/e2_local_screen_test.gd') -LogName 'preview-local' }
     'test-engine' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/game_engine_test.gd') -LogName 'test-engine' }
     'test-state' { Invoke-ProjectGodot -EngineArguments @('--headless', '--script', 'res://tests/game_state_test.gd') -LogName 'test-state' }

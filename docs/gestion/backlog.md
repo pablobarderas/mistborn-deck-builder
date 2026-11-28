@@ -1,5 +1,7 @@
 # Backlog por fases
 
+- Cartógrafos del Viento, prototipo original competitivo local, R3, completado con CV-01–03 y revisiones independientes. [Tarea](../specs/012-cartografos-del-viento/tasks.md) · [Evidencia](../specs/012-cartografos-del-viento/verification.md). Sin issue.
+
 - E3, contraste de recursos, pistas y marcadores, R2 documental. [Tarea](../specs/011-competitivo-completo/tasks.md#contraste-de-recursos-y-marcadores) · [Evidencia](../specs/011-competitivo-completo/verification.md#recursos-y-marcadores-contrastados). Sin issue.
 
 - E3, contraste de las ocho misiones, R2 documental. [Tarea](../specs/011-competitivo-completo/tasks.md#contraste-de-las-ocho-misiones) · [Evidencia](../specs/011-competitivo-completo/verification.md#ocho-misiones-contrastadas). Sin issue.

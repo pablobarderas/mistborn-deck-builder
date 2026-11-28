@@ -72,3 +72,8 @@ func _on_board_pressed() -> void:
 
 func _on_local_game_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/LocalCompetitive.tscn")
+
+
+func _on_wind_cartographers_pressed() -> void:
+	if get_tree().change_scene_to_file("res://scenes/WindCartographers.tscn") != OK:
+		push_error("No se pudo abrir Cartógrafos del Viento.")

@@ -1,5 +1,7 @@
 # Plan de trabajo por fases
 
+Cartógrafos del Viento completado como prototipo original competitivo local de 2–4 plazas. Siguiente comprobación propuesta: partida humana para valorar balance y duración. [Tarea](specs/012-cartografos-del-viento/tasks.md) · [Verificación](specs/012-cartografos-del-viento/verification.md).
+
 ## Ruta de entregas agrupadas (2026-11-23)
 
 El [lote de integración E3](specs/011-competitivo-completo/lote-integracion.md) fija las pruebas de admisión para 2–4 plazas. Su [registro de admisión](specs/011-competitivo-completo/registro-admision.md) reúne el contraste de los 22 IDs de E1, las ocho misiones y los recursos, pistas y marcadores. Siguiente paso propuesto para el mercado: cruzar por ID el inventario cotejado con las familias de efectos y distinguir qué rutas tienen evidencia reutilizable y cuáles siguen pendientes para el candidato.
