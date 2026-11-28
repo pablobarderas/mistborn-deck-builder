@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-28 — Contraste de recursos y marcadores E3
+
+Se cruzaron cantidades, preparación y representaciones de ensayo de los recursos, pistas y marcadores. Tres suites de Godot superaron 4814 comprobaciones. Sigue pendiente su ejecución con el candidato y verificar la procedencia de los materiales finales. [Evidencia y traspaso](specs/011-competitivo-completo/verification.md#recursos-y-marcadores-contrastados).
+
 ## 2026-11-28 — Contraste de las ocho misiones E3
 
 Se cruzaron los ocho IDs con el cotejo humano, las dos huellas y la cobertura del perfil aislado. Godot validó 138 comprobaciones de catálogo y la revisión independiente fue favorable. Siguen pendientes la ejecución con el candidato y la distribución. Próximo contraste propuesto: recursos, pistas y marcadores restantes. [Evidencia](specs/011-competitivo-completo/verification.md#ocho-misiones-contrastadas).

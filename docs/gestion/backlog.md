@@ -1,5 +1,7 @@
 # Backlog por fases
 
+- E3, contraste de recursos, pistas y marcadores, R2 documental. [Tarea](../specs/011-competitivo-completo/tasks.md#contraste-de-recursos-y-marcadores) · [Evidencia](../specs/011-competitivo-completo/verification.md#recursos-y-marcadores-contrastados). Sin issue.
+
 - E3, contraste de las ocho misiones, R2 documental. [Tarea](../specs/011-competitivo-completo/tasks.md#contraste-de-las-ocho-misiones) · [Evidencia](../specs/011-competitivo-completo/verification.md#ocho-misiones-contrastadas). Sin issue.
 
 - E3, contraste de entrenamientos, Financiación y pista E1, R2 documental. [Tarea](../specs/011-competitivo-completo/tasks.md#contraste-de-entrenamientos-financiación-y-pista-e1) · [Evidencia](../specs/011-competitivo-completo/verification.md#entrenamientos-financiación-y-pista-e1-contrastados). Sin issue.

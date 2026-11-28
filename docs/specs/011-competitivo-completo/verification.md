@@ -315,3 +315,15 @@ Traspaso: con los personajes, quedan contrastados los 22 IDs de E1. El siguiente
 - MIS-E3-03. `test-missions`, Godot 4.7.2, código 0 y 138 comprobaciones. La integración y la distribución del candidato siguen pendientes.
 
 Revisión independiente `sdd_reviewer` (GPT-6.1 Sol, high) favorable. Contrastó cantidades, localizadores, huellas, cobertura, fronteras y enlaces. El mensaje de catálogo inválido en el registro de Godot corresponde al caso adverso previsto. Comprobación final de 568 enlaces locales en siete Markdown y del diff preparado, correcta. Sin dispensa. El contraste mantiene vigentes las decisiones registradas y la próxima propuesta es documentar recursos, pistas y marcadores restantes.
+
+## Recursos y marcadores contrastados
+
+2026-11-28. Base publicada y local `d285208b58f5ace6a2918fea82ab96b751e27a54`, con árbol inicialmente limpio. [Tarea](tasks.md#contraste-de-recursos-y-marcadores) · [Registro](registro-admision.md#contraste-de-recursos-y-marcadores).
+
+- REC-E3-01. Se contrastaron las siete filas con SRC-001 pp. 3, 5, 7–8 y 12–17, SRC-004 para el panel, y SRC-002, errata 2 y secciones «Metal tokens & atium», «Combat» y «Miscellaneous». La huella SHA-256 de SRC-001 coincide con la registrada. Se distinguieron los recuentos físicos de los estados y suministros de partida.
+- REC-E3-02. Se cruzó la representación de cada fila con preparación, validación, perfiles aislados, limpieza y E2. El registro identifica las dependencias del candidato y remite a A1–A3 y A6 para representación, ejecución y materiales.
+- REC-E3-03. Godot 4.7.2, código 0 en las tres suites. `test-setup` 175 comprobaciones, `test-cleanup` 561 y `test-local-competitive` 4078. Los registros locales están en `tmp/e3-recursos/` y `tmp/godot/`. A1–A6 siguen pendientes para el candidato.
+
+R2 documental. El coordinador cotejó fuentes, representaciones y pruebas y ejecutó las regresiones. Un `sdd_reviewer` (GPT-6.1 Sol, high) verificó de forma independiente REC-E3-01–03 y emitió dictamen favorable tras corregir una línea vacía al final de la tarea. Sin dispensa ni nuevas decisiones de reglas. Comprobación de enlaces locales y diff satisfactoria. Tiempo y tokens por tarea no disponibles.
+
+Traspaso. Cruzar por ID el inventario de mercado con los resolutores y las pruebas existentes. E3 sigue abierta hasta verificar las rutas del mismo candidato en partidas de 2, 3 y 4 plazas y completar la evidencia de admisión.

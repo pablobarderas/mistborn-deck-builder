@@ -222,3 +222,15 @@ Estado: contraste documental completado. [Registro](registro-admision.md#contras
 Plan: comprobar huellas y ejecutar `test-missions`. Contrastar `test-integrated-missions` y el alcance de su evidencia publicada. Registrar trazabilidad y lagunas en el registro de admisión. Verificar enlaces y solicitar revisión independiente. Tras la revisión, actualizar memoria y publicar si se satisfacen los criterios.
 
 Estado: completada en alcance documental con revisión independiente favorable. E3 continúa abierta. [Evidencia](verification.md#ocho-misiones-contrastadas).
+
+## Contraste de recursos y marcadores
+
+Base local y publicada `d285208b58f5ace6a2918fea82ab96b751e27a54`, rama principal y árbol inicial limpio. Riesgo R2 documental por su efecto en el inventario de admisión y las dependencias de preparación y turno. El coordinador contrasta fuentes, representación actual y pruebas. `sdd_reviewer` revisa el resultado frente a los criterios. Sin issue ni dispensa.
+
+- REC-E3-01. Contrastar cantidades físicas y asignación por mesa de metales ordinarios, salud, pista de entrenamiento y marcadores de entrenamiento y misión, Atium, Boxings y Target. Distinguir recuento físico de disponibilidad en partida.
+- REC-E3-02. Cruzar las representaciones de estado y las dependencias de preparación, turno y cierre con las suites que las ejercitan. Registrar las diferencias entre preparación estructural, perfiles aislados, E2 y candidato.
+- REC-E3-03. Comprobar las regresiones de preparación, limpieza y E2, la integridad de las referencias y el alcance del cambio. Dejar explícitas las pruebas y la evidencia de materiales pendientes para admitir el candidato.
+
+Plan de ejecución. Consultar SRC-001/002 y las decisiones vigentes, cotejar el inventario con código y pruebas, y actualizar el registro existente. Ejecutar las comprobaciones dirigidas y solicitar revisión independiente antes de cerrar.
+
+Estado. Contraste documental completado con revisión independiente favorable. [Evidencia y traspaso](verification.md#recursos-y-marcadores-contrastados).
