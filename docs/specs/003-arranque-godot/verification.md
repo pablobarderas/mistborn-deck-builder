@@ -22,3 +22,18 @@ Estado: verificada el 2026-10-27 en Windows, Godot 4.7.2.stable.official.ed1daf0
 La primera ejecución bajo las restricciones del entorno no podía crear la carpeta normal de datos de Godot en el perfil Windows. Se repitió con permiso de ejecución local y las comprobaciones terminaron correctamente. La primera captura avisó de una copia de proyecto anidada en tmp; el lanzador ahora crea tmp/.gdignore y la captura final ya no presenta ese aviso.
 
 Guía completa: [desarrollo local](../../desarrollo-local.md).
+
+## T03.3 — Visibilidad del menú de inicio
+
+28 de noviembre de 2026. Base local y publicada `9d2479c67c74c9ec5369536f049cf38b34fad2d9`. La captura anterior de 1280×800 mostraba recorte de la cabecera y el pie. La corrección compacta los márgenes y el título. El contenedor de la página desplaza el contenido cuando se necesita y sigue el foco.
+
+| Criterio | Evidencia | Resultado |
+| --- | --- | --- |
+| INI-01 | `preview` comprueba dimensiones y áreas visibles. Capturas reales de 1280×800 y 1024×640 muestran completos cabecera, acciones, catálogo y pie. En la vista compacta se recorre el menú con Tab hasta «Salir». | Código 0 y `P03_PREVIEW_OK`. |
+| INI-02 | La prueba comprueba las cinco conexiones de botones. Un diagnóstico largo de ensayo fuerza la barra vertical en 1024×640 y se comprueban rueda y seguimiento del foco. `test` prueba arranque, diagnóstico, rechazo y recuperación. `preview-network` entra desde el menú y regresa. | `test` 58 comprobaciones y `preview-network` 12, código 0. Los ocho casos negativos del arranque fueron esperados. |
+
+Capturas en `tmp/screenshots/main-screen.png`, `main-screen-compact.png` y `main-screen-compact-exit.png`. Evidencia en `tmp/godot/menu-{preview,test,preview-network}-wrapper.log`. Los PNG y logs son locales y reproducibles.
+
+Riesgo R1. El coordinador implementó y ejecutó las suites en serie. `sdd_visual` (GPT-6.1 Terra, medio) inspeccionó las tres capturas y confirmó legibilidad y foco. `sdd_reviewer` (GPT-6.1 Sol, alto) revisó INI-01/02. La primera pasada del ensayo solo cubría rueda de forma condicional y se amplió con desbordamiento forzado. Las revisiones reutilizaron las capturas y logs. Sin issue, dispensas ni métricas de consumo.
+
+Dictámenes técnico y visual favorables. El ensayo ampliado verifica rueda y Tab con desbordamiento sin depender de la altura del catálogo de arranque. T03.3 completada y lista para publicar.

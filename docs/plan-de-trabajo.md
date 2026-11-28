@@ -1,5 +1,7 @@
 # Plan de trabajo por fases
 
+T03.3, corrección de navegación del menú durante el desarrollo de E3. Ambas resoluciones y el desplazamiento con Tab y rueda verificados. [Tarea y evidencia](specs/003-arranque-godot/tasks.md#t033--visibilidad-del-menú-de-inicio).
+
 ## Ruta de entregas agrupadas (2026-11-23)
 
 El [lote de integración E3](specs/011-competitivo-completo/lote-integracion.md) fija las pruebas de admisión para 2–4 plazas. Su [registro de admisión](specs/011-competitivo-completo/registro-admision.md) reúne el contraste de los 22 IDs de E1, las ocho misiones y los recursos, pistas y marcadores. Siguiente paso propuesto para el mercado: cruzar por ID el inventario cotejado con las familias de efectos y distinguir qué rutas tienen evidencia reutilizable y cuáles siguen pendientes para el candidato.

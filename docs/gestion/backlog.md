@@ -1,5 +1,7 @@
 # Backlog por fases
 
+- T03.3, R1, visibilidad del menú a 1280×800 y 1024×640. INI-01/02 verificados. [Tarea](../specs/003-arranque-godot/tasks.md#t033--visibilidad-del-menú-de-inicio) · [Evidencia](../specs/003-arranque-godot/verification.md#t033--visibilidad-del-menú-de-inicio). Sin issue.
+
 - E3, contraste de recursos, pistas y marcadores, R2 documental. [Tarea](../specs/011-competitivo-completo/tasks.md#contraste-de-recursos-y-marcadores) · [Evidencia](../specs/011-competitivo-completo/verification.md#recursos-y-marcadores-contrastados). Sin issue.
 
 - E3, contraste de las ocho misiones, R2 documental. [Tarea](../specs/011-competitivo-completo/tasks.md#contraste-de-las-ocho-misiones) · [Evidencia](../specs/011-competitivo-completo/verification.md#ocho-misiones-contrastadas). Sin issue.

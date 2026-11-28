@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-28 — Menú de inicio accesible a ambas resoluciones
+
+Se corrigió el recorte observado en la cabecera y el pie. Godot comprobó las dos resoluciones, Tab y la rueda con un diagnóstico extenso. Pasaron las regresiones de arranque y entrada a la prueba de conexión. [Evidencia T03.3](specs/003-arranque-godot/verification.md#t033--visibilidad-del-menú-de-inicio).
+
 ## 2026-11-28 — Retirada de la entrega ajena a E3
 
 A petición del propietario se retiró el prototipo incorporado por error. El código, el catálogo y la configuración del proyecto recuperan el estado previo. E3 continúa abierta. [Tarea y evidencia](specs/011-competitivo-completo/tasks.md#retirada-del-prototipo-ajeno-a-e3) · [Verificación](specs/011-competitivo-completo/verification.md#retirada-del-prototipo-ajeno-a-e3).
