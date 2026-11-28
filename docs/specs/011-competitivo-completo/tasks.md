@@ -174,3 +174,15 @@ Base publicada y local `f7011a861ac6d45762c61f1058a1ae0a49970f72`, rama `main` y
 Plan: el coordinador contrasta inventario, contrato, cargador y suites publicadas, redacta la matriz y comprueba enlaces, anclas y coherencia. Un `sdd_reviewer` revisa el documento frente a ADM-E3-01–03. El lote no se construye en esta tarea. Las pruebas de admisión se especifican aquí y se ejecutan cuando exista un candidato elegible.
 
 Estado: delimitación documental completada. [Contrato](lote-integracion.md) · [Verificación y traspaso](verification.md#delimitación-del-lote-verificada).
+
+## Registro de componentes y cobertura de E3
+
+Base publicada y local `114ff0514eedb92b861eda86486154043ab63abf`, rama `main` y árbol limpio. Objetivo: inventariar la evidencia disponible por componente y comprobar qué rutas cuentan con resolutor y prueba en el código actual. Riesgo R2 documental por su uso antes de la admisión. El coordinador prepara el registro y valida sus cruces; `sdd_reviewer` contrasta independientemente el resultado final. Sin issue ni dispensa.
+
+- REG-E3-01. Cubrir los componentes de T08.1b31, con los IDs y cantidades existentes y referencias a su procedencia y revisión. Identificar las carencias de fidelidad, ejecución y distribución sin promover definiciones.
+- REG-E3-02. Cruzar las familias y recorridos del lote con rutas de código y suites comprobables. Distinguir preparación estructural, ejecución aislada, ensayo ficticio y cobertura del candidato.
+- REG-E3-03. Verificar cobertura, integridad de referencias y enlaces, y dejar registrados los bloqueos de construcción y el siguiente avance posible.
+
+Plan: contrastar los registros versionados y las entradas de los ensayos, documentar las correspondencias comprobables y marcar los huecos. Comprobar los recuentos y cruces con datos y código. Revisar y publicar el registro documental; la ejecución de las pruebas de admisión requiere un candidato.
+
+Estado: registro documental completado. [Registro](registro-admision.md) · [Verificación y traspaso](verification.md#registro-de-admisión-verificado).

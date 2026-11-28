@@ -263,3 +263,17 @@ Traspaso: perfil limitado al recorrido ficticio de dos plazas. E3 sigue abierta.
 R2 documental. El coordinador redactó el contrato, verificó inventario, enlaces y diff e integró el dictamen favorable de `sdd_reviewer` (GPT-6.1 Sol, high). El revisor sugirió precisar la vía de cierre de cuatro plazas y se asignó Confrontación. Ninguna dispensa. Tiempo y tokens por tarea no disponibles. Se reutilizó la evidencia de ensayos publicados. Esta entrega documental no construye el candidato ni ejecuta Godot, pruebas de admisión o revisión visual.
 
 Traspaso: completar el registro de admisión por componente y contrastar las rutas alcanzables con sus resolutores y pruebas. Resolver las carencias antes de construir el candidato. E3 sigue abierta, con interfaz, ejecución del candidato y admisión pendientes.
+
+## Registro de admisión verificado
+
+2026-11-28. Rama principal limpia al recuperar `114ff0514eedb92b861eda86486154043ab63abf` de GitHub. [Tarea](tasks.md#registro-de-componentes-y-cobertura-de-e3) · [Registro](registro-admision.md).
+
+| Criterio | Evidencia documental |
+| --- | --- |
+| REG-E3-01 | Ocho grupos del inventario cerrado. Cruce de 22 IDs de E1 y 8 de misiones con sus fuentes, huellas registradas, localizadores y estados. Los 65 IDs de mercado coinciden por cantidad con el cotejo y suman 82 copias; se comprobó el vínculo del borrador aislado. |
+| REG-E3-02 | Ocho rutas cruzadas con código y evidencia de ensayo. Se comprobó la correspondencia de 11 acciones del lanzador con sus scripts. Se conserva el bloqueo de la última ejecución documentada del perfil aislado de mercado. |
+| REG-E3-03 | Comprobados enlaces, anclas y diff. Los bloqueos de definición, pruebas y distribución se conservan explícitos. |
+
+R2 documental. El coordinador preparó y comprobó el registro. `sdd_reviewer` (GPT-6.1 Sol, high) contrastó de forma independiente el inventario, el código, las pruebas referenciadas y el ajuste final. Dictamen favorable, ninguna dispensa. Tiempo y tokens por tarea no disponibles. Se reutilizaron resultados publicados; Godot y A1–A6 quedan sin ejecutar en esta entrega documental.
+
+Traspaso: contrastar los cuatro registros de personaje E1 por ID y localizar sus carencias de admisión. El registro de E3 permite identificar dependencias, con candidato, interfaz y recorridos aún pendientes.

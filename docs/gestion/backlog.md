@@ -1,6 +1,8 @@
 # Backlog por fases
 
-- E3, delimitación del lote y pruebas de admisión, R2 documental. [Tarea](../specs/011-competitivo-completo/tasks.md#delimitación-del-lote-de-integración-y-admisión) · [Contrato](../specs/011-competitivo-completo/lote-integracion.md). Siguiente paso: completar registros de admisión y contrastar cobertura por ruta. Sin issue.
+- E3, registro de admisión y cobertura, R2 documental. [Tarea](../specs/011-competitivo-completo/tasks.md#registro-de-componentes-y-cobertura-de-e3) · [Evidencia](../specs/011-competitivo-completo/verification.md#registro-de-admisión-verificado). Siguiente paso: contraste individual de los cuatro registros de personaje de E1. Sin issue.
+
+- E3, delimitación del lote y pruebas de admisión, R2 documental. [Tarea](../specs/011-competitivo-completo/tasks.md#delimitación-del-lote-de-integración-y-admisión) · [Contrato](../specs/011-competitivo-completo/lote-integracion.md). Sin issue.
 
 - E3, primer ensayo integrado, R2. Perfil ficticio y recorrido de dos plazas verificados. [Tarea](../specs/011-competitivo-completo/tasks.md#implementación-del-primer-ensayo-integrado) · [Evidencia](../specs/011-competitivo-completo/verification.md#primer-ensayo-integrado-verificado). Sin issue.
 

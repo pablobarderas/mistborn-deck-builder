@@ -1,5 +1,9 @@
 # Registro de trabajo
 
+## 2026-11-28 — Registro de admisión y cobertura de E3
+
+Verificados los vínculos de 95 IDs, los recuentos de mercado y la correspondencia de 11 acciones del lanzador con sus suites. La revisión independiente fue favorable. Quedan el contraste por definición final y las pruebas del candidato. [Evidencia](specs/011-competitivo-completo/verification.md#registro-de-admisión-verificado).
+
 ## 2026-11-28 — Lote de integración y admisión de E3
 
 Delimitado el candidato competitivo de 2–4 plazas, sus pruebas de admisión y tres recorridos de cierre. Comprobados el inventario, los enlaces y la coherencia del contrato. Quedan pendientes los registros por componente, la cobertura de rutas y las pruebas sobre el candidato. [Evidencia](specs/011-competitivo-completo/verification.md#delimitación-del-lote-verificada).
